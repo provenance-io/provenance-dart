@@ -15,6 +15,11 @@ class Hash {
     return hmac.convert(data).bytes;
   }
 
+  static List<int> hmacSha256(List<int> key, List<int> data) {
+    final hmac = crypto.Hmac(crypto.sha256, key);
+    return hmac.convert(data).bytes;
+  }
+
   static List<int> pkcs5(List<int> password, List<int> salt, { int iterations = 2048 }) {
     return _PKCS5(password, salt, iterations: iterations).calculate();
   }
