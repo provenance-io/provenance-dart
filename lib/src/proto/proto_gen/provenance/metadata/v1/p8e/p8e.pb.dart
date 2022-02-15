@@ -12,6 +12,8 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'p8e.pbenum.dart';
 
+export 'p8e.pbenum.dart';
+
 class Contract extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Contract', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'provenance.metadata.v1.p8e'), createEmptyInstance: create)
     ..aOM<DefinitionSpec>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'definition', subBuilder: DefinitionSpec.create)

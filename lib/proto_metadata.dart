@@ -1,6 +1,6 @@
 library provenance_dart;
 
-export 'src/proto/proto_gen/provenance/metadata/v1/specification.pb.dart';
+export 'src/proto/proto_gen/provenance/metadata/v1/specification.pb.dart' hide PartyType;
 export 'src/proto/proto_gen/provenance/metadata/v1/metadata.pb.dart';
 export 'src/proto/proto_gen/provenance/metadata/v1/query.pbgrpc.dart';
 export 'src/proto/proto_gen/provenance/metadata/v1/objectstore.pb.dart';
