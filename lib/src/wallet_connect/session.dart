@@ -53,7 +53,7 @@ class SessionApprovalData {
 abstract class WalletConnectionDelegate {
   Future<List<int>?> onApproveSign(String description, String address, List<int> msg);
 
-  Future<proto.RawTxResponsePair?> onApproveTransaction(String description, String address, GeneratedMessage proposedMessage);
+  Future<proto.RawTxResponsePair?> onApproveTransaction(String description, String address, List<GeneratedMessage> proposedMessages);
 
   Future<SessionApprovalData?> onApproveSession(ClientMeta clientMeta);
 
@@ -214,7 +214,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   }
 
   Future<void> dispose() {
-    return _webSocket!.close();
+    return _webSocket?.close() ?? Future.value();
   }
 
   void _processPubMessage(PayloadPair pair) {
@@ -278,18 +278,23 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
   Future<void> _handlerSendTransaction(JsonRequest request) async {
     final descriptionJson = jsonDecode(request.params.first as String);
-    final payload = request.params.last as String;
+    final messages = <GeneratedMessage>[];
 
-    final bytes = Encoding.fromHex(payload.replaceFirst(RegExp(r'^0x'), ""));
-    final json = base64Decode(utf8.decode(bytes));
+    for(var index = 1; index < request.params.length; index++) {
+      final payload = request.params[index];
 
-    final protoAny = Any.fromBuffer(json);
-    GeneratedMessage message = _decodeMessage(protoAny);
+      final bytes = Encoding.fromHex(payload.replaceFirst(RegExp(r'^0x'), ""));
+      final json = base64Decode(utf8.decode(bytes));
+
+      final protoAny = Any.fromBuffer(json);
+      GeneratedMessage message = _decodeMessage(protoAny);
+      messages.add(message);
+    }
 
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
 
-    final txPairResponsePair = await _delegate?.onApproveTransaction(description, address, message);
+    final txPairResponsePair = await _delegate?.onApproveTransaction(description, address, messages);
     if(txPairResponsePair == null) {
       log("rejected proposed transaction");
       _reject(request.id);
