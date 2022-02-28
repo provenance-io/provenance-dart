@@ -214,7 +214,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   }
 
   Future<void> dispose() {
-    return _webSocket!.close();
+    return _webSocket?.close() ?? Future.value();
   }
 
   void _processPubMessage(PayloadPair pair) {
