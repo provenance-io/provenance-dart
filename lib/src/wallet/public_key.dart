@@ -19,8 +19,11 @@ class PublicKey {
   factory PublicKey.fromBase58(List<int> base58, Coin coin) {
     final publicKey = Encoding.toBase58(base58);
     final compressedPublicKey = Encoding.fromHex(publicKey);
-    final uncompressedPublicKey = Encoding.fromHex(publicKey);
-    return PublicKey._(compressedPublicKey, uncompressedPublicKey, coin);
+    return PublicKey.fromCompressPublicHex(compressedPublicKey, coin);
+  }
+
+  factory PublicKey.fromCompressPublicHex(List<int> compressedPublicKey, Coin coin) {
+    return PublicKey._(compressedPublicKey, compressedPublicKey, coin);
   }
 
   String get compressedPublicKeyHex => Encoding.toHex(compressedPublicKey);
