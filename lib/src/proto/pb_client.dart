@@ -222,7 +222,7 @@ class PbClient {
 
     final gasEstimate = await estimateTx(request);
 
-    return broadcastTx(request, gasEstimate);
+    return broadcastTx(request, gasEstimate, mode);
   }
 
   Future<BaseAccount> getBaseAccount(String bech32Address) async {
