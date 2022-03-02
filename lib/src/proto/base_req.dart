@@ -1,5 +1,3 @@
-
-
 import 'dart:ffi';
 
 import 'package:protobuf/protobuf.dart';
@@ -14,10 +12,8 @@ import 'package:fixnum/fixnum.dart' as fixnum;
 import 'package:provenance_dart/src/wallet/public_key.dart';
 
 extension GeneratedMessageToAny on GeneratedMessage {
-  Any toAny() => Any(
-      typeUrl: "/${info_.qualifiedMessageName}",
-      value: writeToBuffer()
-  );
+  Any toAny() =>
+      Any(typeUrl: "/${info_.qualifiedMessageName}", value: writeToBuffer());
 }
 
 const DEFAULT_GAS_DENOM = "nhash";
@@ -33,10 +29,7 @@ class BaseReqSigner {
   final int sequenceOffset;
   final BaseAccount? baseAccount;
 
-  BaseReqSigner(
-      this.signer,
-      this.baseAccount,
-      [ this.sequenceOffset = 0 ]);
+  BaseReqSigner(this.signer, this.baseAccount, [this.sequenceOffset = 0]);
 }
 
 class BaseReq {
@@ -46,55 +39,37 @@ class BaseReq {
   double? gasAdjustment;
   String? feeGranter;
 
-  BaseReq(
-      this.body,
-      this.signers,
-      this.chainId,
-    {
-      this.gasAdjustment,
-      this.feeGranter
-    }
-  );
+  BaseReq(this.body, this.signers, this.chainId,
+      {this.gasAdjustment, this.feeGranter});
 
-  AuthInfo buildAuthInfo([ GasEstimate gasEstimate = const GasEstimate(0) ]) {
+  AuthInfo buildAuthInfo([GasEstimate gasEstimate = const GasEstimate(0)]) {
     return AuthInfo(
-      fee: Fee(
-        amount: [
-          Coin(
-            denom: DEFAULT_GAS_DENOM,
-            amount: gasEstimate.fees.toString()
-          )
-        ],
-        gasLimit: fixnum.Int64(gasEstimate.limit),
-        granter: feeGranter
-      ),
-      signerInfos: signers.map((signer) {
-        final pubKeyMsg = PubKey(
-            key: signer.signer.pubKey.compressedPublicKey
-        );
+        fee: Fee(
+            amount: gasEstimate.feeCalculated,
+            gasLimit: fixnum.Int64(gasEstimate.limit),
+            granter: feeGranter),
+        signerInfos: signers.map((signer) {
+          final pubKeyMsg =
+              PubKey(key: signer.signer.pubKey.compressedPublicKey);
 
-        return SignerInfo(
-          publicKey: pubKeyMsg.toAny(),
-          modeInfo: ModeInfo(
-            single: ModeInfo_Single(
-              mode: SignMode.SIGN_MODE_DIRECT
-            )
-          ),
-          sequence: signer.baseAccount!.sequence + signer.sequenceOffset
-        );
-      })
-    );
+          return SignerInfo(
+              publicKey: pubKeyMsg.toAny(),
+              modeInfo: ModeInfo(
+                  single: ModeInfo_Single(mode: SignMode.SIGN_MODE_DIRECT)),
+              sequence: signer.baseAccount!.sequence + signer.sequenceOffset);
+        }));
   }
 
-  List<List<int>> buildSignDocBytesList(List<int> authInfoBytes, List<int> bodyBytes) {
-    return signers.map((signer) => SignDoc(
-        bodyBytes: bodyBytes,
-        authInfoBytes: authInfoBytes,
-        chainId: chainId,
-        accountNumber: signer.baseAccount!.accountNumber
-      )
-      .toBuilder()
-      .writeToBuffer()
-    ).toList();
+  List<List<int>> buildSignDocBytesList(
+      List<int> authInfoBytes, List<int> bodyBytes) {
+    return signers
+        .map((signer) => SignDoc(
+                bodyBytes: bodyBytes,
+                authInfoBytes: authInfoBytes,
+                chainId: chainId,
+                accountNumber: signer.baseAccount!.accountNumber)
+            .toBuilder()
+            .writeToBuffer())
+        .toList();
   }
 }
