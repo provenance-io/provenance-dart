@@ -644,7 +644,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       return;
     }
     _status = status;
-    for (var listener in _listeners) {
+    for (var listener in _listeners.toList()) {
       listener();
     }
   }
