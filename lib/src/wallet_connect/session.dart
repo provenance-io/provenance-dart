@@ -37,11 +37,7 @@ extension _DateTimeSecondsSinceEpoch on DateTime {
   int get secondsSinceEpoch => millisecondsSinceEpoch ~/ 1000;
 }
 
-enum WalletConnectState {
-  connecting,
-  connected,
-  disconnected
-}
+enum WalletConnectState { connecting, connected, disconnected }
 
 class SessionApprovalData {
   final PrivateKey privateKey;
@@ -50,14 +46,20 @@ class SessionApprovalData {
   SessionApprovalData(this.privateKey, this.chainId);
 }
 
-typedef AcceptCallback<X> = Future<void> Function(X? arg);
+typedef AcceptCallback<X> = Future<void> Function(X? arg, String? errorMessage);
 
 abstract class WalletConnectionDelegate {
-  void onApproveSign(String description, String address, List<int> msg, AcceptCallback<List<int>> accept);
+  void onApproveSign(String description, String address, List<int> msg,
+      AcceptCallback<List<int>> accept);
 
-  void onApproveTransaction(String description, String address, List<GeneratedMessage> proposedMessages, AcceptCallback<proto.RawTxResponsePair> accept);
+  void onApproveTransaction(
+      String description,
+      String address,
+      List<GeneratedMessage> proposedMessages,
+      AcceptCallback<proto.RawTxResponsePair> accept);
 
-  void onApproveSession(ClientMeta clientMeta, AcceptCallback<SessionApprovalData> accept);
+  void onApproveSession(
+      ClientMeta clientMeta, AcceptCallback<SessionApprovalData> accept);
 
   void onError(Exception exception);
 
@@ -78,14 +80,8 @@ class EncryptedCommunicator {
   late Stream<PayloadPair> _wrappedStream;
 
   EncryptedCommunicator(
-      this.topic,
-      this.webSocket,
-      this.encryptedPayloadHelper
-  )
-  {
-    final transformer = StreamTransformer.fromHandlers(
-        handleData: _transform
-    );
+      this.topic, this.webSocket, this.encryptedPayloadHelper) {
+    final transformer = StreamTransformer.fromHandlers(handleData: _transform);
     _wrappedStream = webSocket.transform(transformer);
   }
 
@@ -93,18 +89,17 @@ class EncryptedCommunicator {
 
   void _transform(dynamic data, EventSink<PayloadPair> sink) {
     final jsonString = data as String;
-    final Map<String,dynamic> jsonObject;
+    final Map<String, dynamic> jsonObject;
 
     try {
       jsonObject = jsonDecode(jsonString);
-    }
-    on FormatException {
+    } on FormatException {
       publish(topic, JsonRpcResponse.invalidJson());
       return;
     }
 
     final message = Message.fromJson(jsonObject);
-    if(message.type != "pub") {
+    if (message.type != "pub") {
       publish(message.topic, JsonRpcResponse.invalidParameters());
       return;
     }
@@ -112,16 +107,14 @@ class EncryptedCommunicator {
     try {
       final encryptedJson = jsonDecode(message.payload);
       final encryptedPayload = EncryptionPayload.fromJson(encryptedJson);
-      final payloadStr = encryptedPayloadHelper.decryptAndVerify(encryptedPayload);
+      final payloadStr =
+          encryptedPayloadHelper.decryptAndVerify(encryptedPayload);
       sink.add(PayloadPair(message.topic, payloadStr));
-    }
-    on FormatException {
+    } on FormatException {
       publish(message.topic, JsonRpcResponse.invalidJson());
-    }
-    on HmacMisMatchException {
+    } on HmacMisMatchException {
       publish(message.topic, JsonRpcResponse.invalidParameters());
-    }
-    catch (e) {
+    } catch (e) {
       publish(message.topic, JsonRpcResponse.internalError(2));
     }
   }
@@ -142,7 +135,7 @@ class EncryptedCommunicator {
 
 class WalletConnection extends ValueListenable<WalletConnectState> {
   final List<VoidCallback> _listeners = <VoidCallback>[];
-  
+
   final WalletConnectAddress address;
   final String _peerId;
   late EncryptedCommunicator? _communicator;
@@ -154,11 +147,11 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   WebSocket? _webSocket;
   String? _remotePeerId;
 
-  WalletConnection(this.address, [ String? peerId ])
+  WalletConnection(this.address, [String? peerId])
       : _peerId = peerId ?? const Uuid().v1().toString();
 
   Future<void> connect(WalletConnectionDelegate delegate) async {
-    if(_webSocket != null) {
+    if (_webSocket != null) {
       return Future.value();
     }
 
@@ -171,23 +164,16 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
       _webSocket = await WebSocket.connect(address.bridge.toString());
       _communicator = EncryptedCommunicator(
-          address.topic,
-          _webSocket!,
-          encryptedPayloadHelper
-      );
+          address.topic, _webSocket!, encryptedPayloadHelper);
 
       _updateStatus(WalletConnectState.connected);
 
-      _communicator!.stream.listen(
-          _processPubMessage,
-          onError: _handleError,
-          onDone: _handleDone
-      );
+      _communicator!.stream.listen(_processPubMessage,
+          onError: _handleError, onDone: _handleDone);
 
       _communicator!.subscribe(address.topic);
       _communicator!.subscribe(_peerId);
-    }
-    catch(e) {
+    } catch (e) {
       _delegate = null;
       _updateStatus(WalletConnectState.disconnected);
       rethrow;
@@ -196,10 +182,9 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
   void _handleError(dynamic error) {
     Exception exception;
-    if(error is Exception) {
+    if (error is Exception) {
       exception = error;
-    }
-    else {
+    } else {
       exception = Exception(error.toString());
     }
     _delegate?.onError(exception);
@@ -221,12 +206,12 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final topic = pair.topic;
     final payload = pair.payload;
 
-    final jsonObj = jsonDecode(payload) as Map<String,dynamic>;
+    final jsonObj = jsonDecode(payload) as Map<String, dynamic>;
 
-    final jsonRequest =  JsonRequest.fromJson(jsonObj);
+    final jsonRequest = JsonRequest.fromJson(jsonObj);
 
     try {
-      switch(jsonRequest.method) {
+      switch (jsonRequest.method) {
         case "wc_sessionRequest":
           _handleSessionRequest(jsonRequest);
           break;
@@ -245,8 +230,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
           _communicator!.publish(_remotePeerId!, response);
           break;
       }
-    }
-    catch(e) {
+    } catch (e) {
       final response = JsonRpcResponse.internalError(jsonRequest.id);
       _communicator!.publish(_remotePeerId!, response);
     }
@@ -259,7 +243,8 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       "accounts": null
     };
 
-    final response = JsonRequest(math.Random().nextInt(100000), "wc_sessionUpdate", [ result ]);
+    final response = JsonRequest(
+        math.Random().nextInt(100000), "wc_sessionUpdate", [result]);
     _communicator!.publish(_remotePeerId!, response);
     await _webSocket?.close();
   }
@@ -271,7 +256,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final chainId = param['chainId'];
     final accounts = param['accounts']?.cast<String>();
 
-    if(approved != null && !approved) {
+    if (approved != null && !approved) {
       _webSocket?.close();
     }
   }
@@ -280,7 +265,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final descriptionJson = jsonDecode(request.params.first as String);
     final messages = <GeneratedMessage>[];
 
-    for(var index = 1; index < request.params.length; index++) {
+    for (var index = 1; index < request.params.length; index++) {
       final payload = request.params[index];
 
       final bytes = Encoding.fromHex(payload.replaceFirst(RegExp(r'^0x'), ""));
@@ -294,22 +279,27 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
 
-    acceptDelegate (proto.RawTxResponsePair? txPairResponsePair) {
+    acceptDelegate(
+        proto.RawTxResponsePair? txPairResponsePair, String? errorMessage) {
       final isApproved = txPairResponsePair != null;
 
-      if(!isApproved) {
+      if (errorMessage?.isNotEmpty ?? false) {
+        final response =
+            JsonRpcResponse.error(request.id, errorMessage!, -32010);
+        _communicator!.publish(_remotePeerId!, response);
+      } else if (!isApproved) {
         log("rejected proposed transaction");
         _reject(request.id);
-      }
-      else {
+      } else {
         JsonRpcResponse response;
-        if(txPairResponsePair.txResponse.code == 0) {
-          response = JsonRpcResponse.response(request.id, txPairResponsePair.asJsonString());
-        }
-        else {
-          final message =  "${txPairResponsePair.txResponse.code} ${txPairResponsePair.txResponse.codespace} ${txPairResponsePair.txResponse.info}";
-          response = JsonRpcResponse.response(request.id, <String,dynamic>{
-            "code": "${txPairResponsePair.txResponse.code}" ,
+        if (txPairResponsePair.txResponse.code == 0) {
+          response = JsonRpcResponse.response(
+              request.id, txPairResponsePair.asJsonString());
+        } else {
+          final message =
+              "${txPairResponsePair.txResponse.code} ${txPairResponsePair.txResponse.codespace} ${txPairResponsePair.txResponse.info}";
+          response = JsonRpcResponse.response(request.id, <String, dynamic>{
+            "code": "${txPairResponsePair.txResponse.code}",
             "message": message,
             "value": txPairResponsePair.asJsonString()
           });
@@ -320,7 +310,8 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       return Future.value();
     }
 
-    _delegate?.onApproveTransaction(description, address, messages, acceptDelegate);
+    _delegate?.onApproveTransaction(
+        description, address, messages, acceptDelegate);
   }
 
   Future<void> _handleProvenanceSign(JsonRequest request) async {
@@ -331,14 +322,17 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
 
-    acceptDelegate(List<int>? signedData) {
+    acceptDelegate(List<int>? signedData, String? errorMessage) {
       final isApproved = signedData != null;
 
-      if(!isApproved) {
+      if (errorMessage?.isNotEmpty ?? false) {
+        final response =
+            JsonRpcResponse.error(request.id, errorMessage!, -32010);
+        _communicator!.publish(_remotePeerId!, response);
+      } else if (!isApproved) {
         log("connection response sent");
         _reject(request.id);
-      }
-      else {
+      } else {
         final result = Encoding.toHex(signedData);
         final response = JsonRpcResponse.response(request.id, result);
         _communicator!.publish(_remotePeerId!, response);
@@ -357,7 +351,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
     final clientMeta = ClientMeta.fromJson(peerMeta);
 
-    acceptDelegate(SessionApprovalData? approvalData) {
+    acceptDelegate(SessionApprovalData? approvalData, String? errorMessage) {
       final isApproved = approvalData != null;
 
       final result = <String, dynamic>{
@@ -368,7 +362,11 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         "accounts": null
       };
 
-      if(isApproved) {
+      if (errorMessage?.isNotEmpty ?? false) {
+        final response =
+            JsonRpcResponse.error(request.id, errorMessage!, -32010);
+        _communicator!.publish(_remotePeerId!, response);
+      } else if (isApproved) {
         _chainId = approvalData.chainId;
         _privateKey = approvalData.privateKey;
 
@@ -376,12 +374,10 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         final expiry = now.add(const Duration(days: 1));
 
         final addressStr = _privateKey!.defaultKey().publicKey.address;
-        final pubKey = base64Encode(_privateKey!.defaultKey().publicKey.compressedPublicKey);
-        const headerDict = <String,dynamic>{
-          "alg": "ES256K",
-          "typ": "JWT"
-        };
-        final payloadDict = <String,dynamic> {
+        final pubKey = base64Encode(
+            _privateKey!.defaultKey().publicKey.compressedPublicKey);
+        const headerDict = <String, dynamic>{"alg": "ES256K", "typ": "JWT"};
+        final payloadDict = <String, dynamic>{
           "sub": pubKey,
           "iss": "provenance.io",
           "iat": now.secondsSinceEpoch,
@@ -392,21 +388,23 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         final header = base64Encode(utf8.encode(json.encode(headerDict)));
         final payload = base64Encode(utf8.encode(json.encode(payloadDict)));
         final signMe = "$header.$payload";
-        final signature = _privateKey!.defaultKey().signData(Hash.sha256(utf8.encode(signMe)))..removeLast();
+        final signature = _privateKey!
+            .defaultKey()
+            .signData(Hash.sha256(utf8.encode(signMe)))
+          ..removeLast();
         final jwt = "$signMe.${base64.encode(signature)}";
 
         result["chainId"] = _chainId;
         result["peerMeta"] = clientMeta.toJson();
-        result["accounts"] = [ addressStr, pubKey, jwt ];
+        result["accounts"] = [addressStr, pubKey, jwt];
       }
 
       final response = JsonRpcResponse.response(request.id, result);
       _communicator!.publish(_remotePeerId!, response);
 
-      if(!isApproved) {
+      if (!isApproved) {
         return _webSocket?.close() as Future<void>;
-      }
-      else {
+      } else {
         return Future.value();
       }
     }
@@ -422,11 +420,11 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   GeneratedMessage _decodeMessage(Any protoAny) {
     log(protoAny.typeUrl);
 
-    switch(protoAny.typeUrl) {
+    switch (protoAny.typeUrl) {
       case "/provenance.marker.v1.MsgAddMarkerRequest":
         return MsgAddMarkerRequest.fromBuffer(protoAny.value);
 
-    /* Cosmos Messages */
+      /* Cosmos Messages */
       case "/cosmos.authz.v1beta1.MsgGrant":
         return MsgGrant.fromBuffer(protoAny.value);
       case "/cosmos.authz.v1beta1.MsgExec":
@@ -519,16 +517,16 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         return MsgUndelegate.fromBuffer(protoAny.value);
 
       case "/cosmos.tx.v1beta1.GetTxsEventRequest":
-      return GetTxsEventRequest.fromBuffer(protoAny.value);
+        return GetTxsEventRequest.fromBuffer(protoAny.value);
 
       case "/cosmos.tx.v1beta1.BroadcastTxRequest":
-      return BroadcastTxRequest.fromBuffer(protoAny.value);
+        return BroadcastTxRequest.fromBuffer(protoAny.value);
 
       case "/cosmos.tx.v1beta1.SimulateRequest":
-      return SimulateRequest.fromBuffer(protoAny.value);
+        return SimulateRequest.fromBuffer(protoAny.value);
 
       case "/cosmos.tx.v1beta1.GetTxRequest":
-      return GetTxRequest.fromBuffer(protoAny.value);
+        return GetTxRequest.fromBuffer(protoAny.value);
 
       case "/cosmos.vesting.v1beta1.MsgCreateVestingAccount":
         return MsgCreateVestingAccount.fromBuffer(protoAny.value);
@@ -580,7 +578,8 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       case "/provenance.metadata.v1.MsgBindOSLocatorRequest":
         return MsgBindOSLocatorRequest.fromBuffer(protoAny.value);
       case "/provenance.metadata.v1.MsgDeleteContractSpecFromScopeSpecRequest":
-        return MsgDeleteContractSpecFromScopeSpecRequest.fromBuffer(protoAny.value);
+        return MsgDeleteContractSpecFromScopeSpecRequest.fromBuffer(
+            protoAny.value);
       case "/provenance.metadata.v1.MsgDeleteContractSpecificationRequest":
         return MsgDeleteContractSpecificationRequest.fromBuffer(protoAny.value);
       case "/provenance.metadata.v1.MsgDeleteOSLocatorRequest":
@@ -638,9 +637,9 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         throw Exception("wallet does not support ${protoAny.typeUrl}");
     }
   }
-  
+
   void _updateStatus(WalletConnectState status) {
-    if(status == _status) {
+    if (status == _status) {
       return;
     }
     _status = status;
@@ -648,13 +647,13 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       listener();
     }
   }
-  
+
   /* ValueListenable */
   @override
   void addListener(VoidCallback listener) {
     _listeners.add(listener);
   }
-  
+
   @override
   void removeListener(VoidCallback listener) {
     _listeners.remove(listener);
