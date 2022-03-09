@@ -3,14 +3,22 @@ class WalletConnectAddress {
   final int version;
   final Uri bridge;
   final String key;
+  final String raw;
 
-  WalletConnectAddress._(this.topic, this.version, this.bridge, this.key);
+  WalletConnectAddress._(
+    this.topic,
+    this.version,
+    this.bridge,
+    this.key,
+    this.raw,
+  );
 
   static WalletConnectAddress? create(String str) {
-    final regex = RegExp('^wc:(?<topic>[^@].+)@(?<version>\\d+)\\?bridge=(?<bridge>[^&]+)&key=(?<key>.+)\$');
+    final regex = RegExp(
+        '^wc:(?<topic>[^@].+)@(?<version>\\d+)\\?bridge=(?<bridge>[^&]+)&key=(?<key>.+)\$');
     final match = regex.firstMatch(str);
 
-    if(match == null) {
+    if (match == null) {
       return null;
     }
 
@@ -20,10 +28,11 @@ class WalletConnectAddress {
     final key = match.namedGroup("key")!;
 
     return WalletConnectAddress._(
-        topic,
-        version,
-        Uri.parse(bridge),
-        key
+      topic,
+      version,
+      Uri.parse(bridge),
+      key,
+      str,
     );
   }
 }
