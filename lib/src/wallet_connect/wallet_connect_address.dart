@@ -3,12 +3,14 @@ class WalletConnectAddress {
   final int version;
   final Uri bridge;
   final String key;
+  final String raw;
 
   WalletConnectAddress._(
     this.topic,
     this.version,
     this.bridge,
     this.key,
+    this.raw,
   );
 
   static WalletConnectAddress? create(String str) {
@@ -30,6 +32,7 @@ class WalletConnectAddress {
       version,
       Uri.parse(bridge),
       key,
+      str,
     );
   }
 }

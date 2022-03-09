@@ -39,11 +39,39 @@ extension _DateTimeSecondsSinceEpoch on DateTime {
 
 enum WalletConnectState { connecting, connected, disconnected }
 
+class SessionRequestData {
+  final String peerId;
+  final String remotePeerId;
+  final ClientMeta clientMeta;
+  final WalletConnectAddress address;
+
+  SessionRequestData(
+    this.peerId,
+    this.remotePeerId,
+    this.clientMeta,
+    this.address,
+  );
+}
+
 class SessionApprovalData {
   final PrivateKey privateKey;
   final String chainId;
 
   SessionApprovalData(this.privateKey, this.chainId);
+}
+
+class SessionRestoreData {
+  final PrivateKey privateKey;
+  final String chainId;
+  final String peerId;
+  final String remotePeerId;
+
+  SessionRestoreData(
+    this.privateKey,
+    this.chainId,
+    this.peerId,
+    this.remotePeerId,
+  );
 }
 
 typedef AcceptCallback<X> = Future<void> Function(X? arg, String? errorMessage);
@@ -59,7 +87,7 @@ abstract class WalletConnectionDelegate {
       AcceptCallback<proto.RawTxResponsePair> accept);
 
   void onApproveSession(
-      ClientMeta clientMeta, AcceptCallback<SessionApprovalData> accept);
+      SessionRequestData data, AcceptCallback<SessionApprovalData> accept);
 
   void onError(Exception exception);
 
@@ -137,7 +165,6 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   final List<VoidCallback> _listeners = <VoidCallback>[];
 
   final WalletConnectAddress address;
-  final String _peerId;
   late EncryptedCommunicator? _communicator;
 
   WalletConnectState _status = WalletConnectState.disconnected;
@@ -145,18 +172,27 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   PrivateKey? _privateKey;
   String? _chainId;
   WebSocket? _webSocket;
+  String? _peerId;
   String? _remotePeerId;
 
-  WalletConnection(this.address, [String? peerId])
-      : _peerId = peerId ?? const Uuid().v1().toString();
+  WalletConnection(this.address);
 
-  Future<void> connect(WalletConnectionDelegate delegate) async {
+  Future<void> connect(
+    WalletConnectionDelegate delegate, [
+    SessionRestoreData? restoreData,
+  ]) async {
     if (_webSocket != null) {
       return Future.value();
     }
 
     try {
       _delegate = delegate;
+      final peerId = restoreData?.peerId ?? const Uuid().v1().toString();
+      _peerId = peerId;
+      _remotePeerId = restoreData?.remotePeerId;
+      _chainId = restoreData?.chainId;
+      _privateKey = restoreData?.privateKey;
+
       _updateStatus(WalletConnectState.connecting);
 
       final keyBytes = Encoding.fromHex(address.key);
@@ -172,7 +208,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
           onError: _handleError, onDone: _handleDone);
 
       _communicator!.subscribe(address.topic);
-      _communicator!.subscribe(_peerId);
+      _communicator!.subscribe(peerId);
     } catch (e) {
       _delegate = null;
       _updateStatus(WalletConnectState.disconnected);
@@ -409,7 +445,14 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       }
     }
 
-    _delegate?.onApproveSession(clientMeta, acceptDelegate);
+    final data = SessionRequestData(
+      _peerId!,
+      _remotePeerId!,
+      clientMeta,
+      address,
+    );
+
+    _delegate?.onApproveSession(data, acceptDelegate);
   }
 
   void _reject(int requestId) {
