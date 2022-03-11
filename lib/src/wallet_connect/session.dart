@@ -31,6 +31,7 @@ import 'package:provenance_dart/src/wallet_connect/client_meta.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
 import 'package:provenance_dart/src/wallet_connect/wallet_connect_address.dart';
+import 'package:provenance_dart/wallet_connect.dart';
 import 'package:uuid/uuid.dart';
 
 extension _DateTimeSecondsSinceEpoch on DateTime {
@@ -76,6 +77,13 @@ class SessionRestoreData {
 
 typedef AcceptCallback<X> = Future<void> Function(X? arg, String? errorMessage);
 
+class SignTransactionData {
+  SignTransactionData(this.proposedMessages, [this.gasEstimate]);
+
+  List<GeneratedMessage> proposedMessages;
+  proto.Coin? gasEstimate;
+}
+
 abstract class WalletConnectionDelegate {
   void onApproveSign(String description, String address, List<int> msg,
       AcceptCallback<List<int>> accept);
@@ -83,7 +91,7 @@ abstract class WalletConnectionDelegate {
   void onApproveTransaction(
       String description,
       String address,
-      List<GeneratedMessage> proposedMessages,
+      SignTransactionData signTransactionData,
       AcceptCallback<proto.RawTxResponsePair> accept);
 
   void onApproveSession(
@@ -312,6 +320,15 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       messages.add(message);
     }
 
+    proto.Coin? gasEstimate;
+    final jsonGas = descriptionJson['gasPrice'] as Map<String, dynamic>?;
+    if (jsonGas != null && jsonGas.isNotEmpty) {
+      gasEstimate = proto.Coin(
+        amount: jsonGas["gasPrice"].toString(),
+        denom: jsonGas['gasPriceDenom'],
+      );
+    }
+
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
 
@@ -346,8 +363,9 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       return Future.value();
     }
 
+    final signTransactionData = SignTransactionData(messages, gasEstimate);
     _delegate?.onApproveTransaction(
-        description, address, messages, acceptDelegate);
+        description, address, signTransactionData, acceptDelegate);
   }
 
   Future<void> _handleProvenanceSign(JsonRequest request) async {
