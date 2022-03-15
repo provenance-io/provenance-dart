@@ -74,6 +74,19 @@ class SessionRestoreData {
   );
 }
 
+class WalletConnectException implements Exception {
+  final String message;
+  final StackTrace? stackTrace;
+
+  WalletConnectException(
+    this.message, [
+    this.stackTrace,
+  ]);
+
+  @override
+  String toString() => '$message\n$stackTrace';
+}
+
 typedef AcceptCallback<X> = Future<void> Function(X? arg, String? errorMessage);
 
 abstract class WalletConnectionDelegate {
@@ -220,8 +233,15 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     Exception exception;
     if (error is Exception) {
       exception = error;
+    } else if (error is Error) {
+      exception = WalletConnectException(
+        error.toString(),
+        error.stackTrace,
+      );
     } else {
-      exception = Exception(error.toString());
+      exception = WalletConnectException(
+        error.toString(),
+      );
     }
     _delegate?.onError(exception);
   }
