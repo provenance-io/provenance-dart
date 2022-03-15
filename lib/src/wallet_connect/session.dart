@@ -294,6 +294,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
     if (approved != null && !approved) {
       _webSocket?.close();
+      _delegate?.onClose();
     }
   }
 
