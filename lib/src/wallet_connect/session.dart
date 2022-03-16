@@ -66,6 +66,12 @@ class WalletMeta {
   final String name;
 
   WalletMeta(this.name);
+
+  Map<String,dynamic> toJson() {
+    return <String, dynamic>{
+      "name": name
+    };
+  }
 }
 
 class SessionRestoreData {
@@ -115,7 +121,7 @@ abstract class WalletConnectionDelegate {
       AcceptCallback<proto.RawTxResponsePair> accept);
 
   void onApproveSession(
-      SessionRequestData data, WalletMeta walletMeta, AcceptCallback<SessionApprovalData> accept);
+      SessionRequestData data, AcceptCallback<SessionApprovalData> accept);
 
   void onError(Exception exception);
 
@@ -453,7 +459,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       } else if (isApproved) {
         _chainId = approvalData.chainId;
         _privateKey = approvalData.privateKey;
-        _walletMeta = WalletMeta();
+        _walletMeta = approvalData.walletMeta;
 
         final now = DateTime.now();
         final expiry = now.add(const Duration(days: 1));
@@ -483,7 +489,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         result["peerMeta"] = clientMeta.toJson();
         result["accounts"] = [addressStr, pubKey, jwt];
         result["accountData"] = <String,dynamic> {
-          "name": _walletMeta!.name,
+          "walletMeta": _walletMeta?.toJson(),
           "address": addressStr,
           "publicKey": pubKey,
           "jwt": jwt,
