@@ -57,8 +57,15 @@ class SessionRequestData {
 class SessionApprovalData {
   final PrivateKey privateKey;
   final String chainId;
+  final WalletMeta walletMeta;
 
-  SessionApprovalData(this.privateKey, this.chainId);
+  SessionApprovalData(this.privateKey, this.chainId, this.walletMeta);
+}
+
+class WalletMeta {
+  final String name;
+
+  WalletMeta(this.name);
 }
 
 class SessionRestoreData {
@@ -108,7 +115,7 @@ abstract class WalletConnectionDelegate {
       AcceptCallback<proto.RawTxResponsePair> accept);
 
   void onApproveSession(
-      SessionRequestData data, AcceptCallback<SessionApprovalData> accept);
+      SessionRequestData data, WalletMeta walletMeta, AcceptCallback<SessionApprovalData> accept);
 
   void onError(Exception exception);
 
@@ -192,6 +199,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   WalletConnectionDelegate? _delegate;
   PrivateKey? _privateKey;
   String? _chainId;
+  WalletMeta? _walletMeta;
   WebSocket? _webSocket;
   String? _peerId;
   String? _remotePeerId;
@@ -434,7 +442,8 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         "approved": isApproved,
         "chainId": null,
         "peerMeta": null,
-        "accounts": null
+        "accounts": null,
+        "accountData": null,
       };
 
       if (errorMessage?.isNotEmpty ?? false) {
@@ -444,6 +453,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       } else if (isApproved) {
         _chainId = approvalData.chainId;
         _privateKey = approvalData.privateKey;
+        _walletMeta = WalletMeta();
 
         final now = DateTime.now();
         final expiry = now.add(const Duration(days: 1));
@@ -472,6 +482,12 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         result["chainId"] = _chainId;
         result["peerMeta"] = clientMeta.toJson();
         result["accounts"] = [addressStr, pubKey, jwt];
+        result["accountData"] = <String,dynamic> {
+          "name": _walletMeta!.name,
+          "address": addressStr,
+          "publicKey": pubKey,
+          "jwt": jwt,
+        };
       }
 
       final response = JsonRpcResponse.response(request.id, result);
@@ -744,3 +760,4 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   @override
   WalletConnectState get value => _status;
 }
+
