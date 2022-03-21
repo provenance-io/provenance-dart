@@ -511,7 +511,6 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         result["accounts"] = [ AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson() ];
       }
 
-      print(result.toString());
       final response = JsonRpcResponse.response(request.id, result);
       _communicator!.publish(_remotePeerId!, response);
 
