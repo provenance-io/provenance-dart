@@ -487,15 +487,15 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
         result["chainId"] = _chainId;
         result["peerMeta"] = clientMeta.toJson();
-        result["accounts"] = [addressStr, pubKey, jwt];
-        result["accountData"] = <String,dynamic> {
+        result["accounts"] = [ <String,dynamic> {
           "walletMeta": _walletMeta?.toJson(),
           "address": addressStr,
           "publicKey": pubKey,
           "jwt": jwt,
-        };
+        }];
       }
 
+      print(result.toString());
       final response = JsonRpcResponse.response(request.id, result);
       _communicator!.publish(_remotePeerId!, response);
 
