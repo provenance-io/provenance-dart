@@ -34,6 +34,8 @@ import 'package:provenance_dart/src/wallet_connect/wallet_connect_address.dart';
 import 'package:provenance_dart/wallet_connect.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../wallet.dart';
+
 extension _DateTimeSecondsSinceEpoch on DateTime {
   int get secondsSinceEpoch => millisecondsSinceEpoch ~/ 1000;
 }
@@ -57,19 +59,41 @@ class SessionRequestData {
 class SessionApprovalData {
   final PrivateKey privateKey;
   final String chainId;
-  final WalletMeta walletMeta;
+  final WalletInfo walletInfo;
 
-  SessionApprovalData(this.privateKey, this.chainId, this.walletMeta);
+  SessionApprovalData(this.privateKey, this.chainId, this.walletInfo);
 }
 
-class WalletMeta {
-  final String name;
+class AccountInfo {
+  final String publicKey;
+  final String address;
+  final String jwt;
+  final WalletInfo walletInfo;
 
-  WalletMeta(this.name);
+  AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo);
+
+  Map<String,dynamic> toJson() {
+    return <String, dynamic> {
+      "publicKey": publicKey,
+      "address": address,
+      "jwt": jwt,
+      "walletInfo": walletInfo.toJson(),
+    };
+  }
+}
+
+class WalletInfo {
+  final String id;
+  final String name;
+  final Coin coin;
+
+  WalletInfo(this.id, this.name, this.coin);
 
   Map<String,dynamic> toJson() {
     return <String, dynamic>{
-      "name": name
+      "id": id,
+      "name": name,
+      "coin": coin.name,
     };
   }
 }
@@ -205,7 +229,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   WalletConnectionDelegate? _delegate;
   PrivateKey? _privateKey;
   String? _chainId;
-  WalletMeta? _walletMeta;
+  WalletInfo? _walletInfo;
   WebSocket? _webSocket;
   String? _peerId;
   String? _remotePeerId;
@@ -281,7 +305,6 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   }
 
   void _processPubMessage(PayloadPair pair) {
-    final topic = pair.topic;
     final payload = pair.payload;
 
     final jsonObj = jsonDecode(payload) as Map<String, dynamic>;
@@ -331,8 +354,6 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final param = request.params.first;
 
     final approved = param['approved'];
-    final chainId = param['chainId'];
-    final accounts = param['accounts']?.cast<String>();
 
     if (approved != null && !approved) {
       _webSocket?.close();
@@ -446,7 +467,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       final result = <String, dynamic>{
         "peerId": _peerId,
         "approved": isApproved,
-        "chainId": null,
+        "chainId": chainId,
         "peerMeta": null,
         "accounts": null,
         "accountData": null,
@@ -459,7 +480,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       } else if (isApproved) {
         _chainId = approvalData.chainId;
         _privateKey = approvalData.privateKey;
-        _walletMeta = approvalData.walletMeta;
+        _walletInfo = approvalData.walletInfo;
 
         final now = DateTime.now();
         final expiry = now.add(const Duration(days: 1));
@@ -487,12 +508,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
         result["chainId"] = _chainId;
         result["peerMeta"] = clientMeta.toJson();
-        result["accounts"] = [ <String,dynamic> {
-          "walletMeta": _walletMeta?.toJson(),
-          "address": addressStr,
-          "publicKey": pubKey,
-          "jwt": jwt,
-        }];
+        result["accounts"] = [ AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson() ];
       }
 
       print(result.toString());
