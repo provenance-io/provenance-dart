@@ -13,4 +13,4 @@ do
 		$file
 done
 
-
+flutter format .
