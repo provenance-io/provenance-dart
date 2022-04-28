@@ -13,7 +13,7 @@ main() {
       "?1ezyfcl",
     ];
 
-    for(var str in strings) {
+    for (var str in strings) {
       final data = Bech32().decode(str);
       expect(data != null, true, reason: "'$str' is invalid");
     }
@@ -35,7 +35,7 @@ main() {
       "1qzzfhee", // empty HRP
     ];
 
-    for(var str in strings) {
+    for (var str in strings) {
       final data = Bech32().decode(str);
       expect(data == null, true, reason: "'$str' is invalid");
     }

@@ -10,13 +10,38 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class StoreKVPair extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'StoreKVPair', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmos.base.store.v1beta1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'storeKey')
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'delete')
-    ..a<$core.List<$core.int>>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key', $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OY)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'StoreKVPair',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.base.store.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'storeKey')
+    ..aOB(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'delete')
+    ..a<$core.List<$core.int>>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'key',
+        $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'value',
+        $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
 
   StoreKVPair._() : super();
   factory StoreKVPair({
@@ -40,31 +65,39 @@ class StoreKVPair extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory StoreKVPair.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory StoreKVPair.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory StoreKVPair.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory StoreKVPair.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   StoreKVPair clone() => StoreKVPair()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  StoreKVPair copyWith(void Function(StoreKVPair) updates) => super.copyWith((message) => updates(message as StoreKVPair)) as StoreKVPair; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  StoreKVPair copyWith(void Function(StoreKVPair) updates) =>
+      super.copyWith((message) => updates(message as StoreKVPair))
+          as StoreKVPair; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static StoreKVPair create() => StoreKVPair._();
   StoreKVPair createEmptyInstance() => create();
   static $pb.PbList<StoreKVPair> createRepeated() => $pb.PbList<StoreKVPair>();
   @$core.pragma('dart2js:noInline')
-  static StoreKVPair getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StoreKVPair>(create);
+  static StoreKVPair getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StoreKVPair>(create);
   static StoreKVPair? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get storeKey => $_getSZ(0);
   @$pb.TagNumber(1)
-  set storeKey($core.String v) { $_setString(0, v); }
+  set storeKey($core.String v) {
+    $_setString(0, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasStoreKey() => $_has(0);
   @$pb.TagNumber(1)
@@ -73,7 +106,10 @@ class StoreKVPair extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool get delete => $_getBF(1);
   @$pb.TagNumber(2)
-  set delete($core.bool v) { $_setBool(1, v); }
+  set delete($core.bool v) {
+    $_setBool(1, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasDelete() => $_has(1);
   @$pb.TagNumber(2)
@@ -82,7 +118,10 @@ class StoreKVPair extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.List<$core.int> get key => $_getN(2);
   @$pb.TagNumber(3)
-  set key($core.List<$core.int> v) { $_setBytes(2, v); }
+  set key($core.List<$core.int> v) {
+    $_setBytes(2, v);
+  }
+
   @$pb.TagNumber(3)
   $core.bool hasKey() => $_has(2);
   @$pb.TagNumber(3)
@@ -91,10 +130,12 @@ class StoreKVPair extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.List<$core.int> get value => $_getN(3);
   @$pb.TagNumber(4)
-  set value($core.List<$core.int> v) { $_setBytes(3, v); }
+  set value($core.List<$core.int> v) {
+    $_setBytes(3, v);
+  }
+
   @$pb.TagNumber(4)
   $core.bool hasValue() => $_has(3);
   @$pb.TagNumber(4)
   void clearValue() => clearField(4);
 }
-

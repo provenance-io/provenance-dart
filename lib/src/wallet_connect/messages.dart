@@ -3,12 +3,12 @@ import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 
 extension ByteCompare on List<int> {
   bool areListsEqual(List<int> other) {
-    if(length != other.length) {
+    if (length != other.length) {
       return false;
     }
 
-    for(var index = 0; index < length; index++) {
-      if(this[index] != other[index]) {
+    for (var index = 0; index < length; index++) {
+      if (this[index] != other[index]) {
         return false;
       }
     }
@@ -17,7 +17,7 @@ extension ByteCompare on List<int> {
 }
 
 abstract class jsonEncodable {
-  Map<String,dynamic> toJson();
+  Map<String, dynamic> toJson();
 }
 
 class EncryptionPayload implements jsonEncodable {
@@ -27,21 +27,18 @@ class EncryptionPayload implements jsonEncodable {
 
   const EncryptionPayload(this.data, this.hmac, this.iv);
 
-  factory EncryptionPayload.fromJson(Map<String,dynamic> jsonObject) {
+  factory EncryptionPayload.fromJson(Map<String, dynamic> jsonObject) {
     final data = (jsonObject['data'] ?? "").toLowerCase();
     final hmac = (jsonObject['hmac'] ?? "").toLowerCase();
     final iv = (jsonObject['iv'] ?? "").toLowerCase();
 
     return EncryptionPayload(
-        Encoding.fromHex(data),
-        Encoding.fromHex(hmac),
-        Encoding.fromHex(iv)
-    );
+        Encoding.fromHex(data), Encoding.fromHex(hmac), Encoding.fromHex(iv));
   }
 
   @override
-  Map<String,dynamic> toJson() {
-    return <String,dynamic>{
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
       "data": Encoding.toHex(data),
       "hmac": Encoding.toHex(hmac),
       "iv": Encoding.toHex(iv),
@@ -55,20 +52,16 @@ class JsonRequest implements jsonEncodable {
   final String method;
   final List<dynamic> params;
 
-  const JsonRequest(this.id, this.method, this.params, [ this.jsonrpc = "2.0" ]);
+  const JsonRequest(this.id, this.method, this.params, [this.jsonrpc = "2.0"]);
 
-  factory JsonRequest.fromJson(Map<String,dynamic> jsonObj) {
-    return JsonRequest(
-      jsonObj['id'],
-      jsonObj['method'],
-      jsonObj['params'],
-      jsonObj['jsonrpc']
-    );
+  factory JsonRequest.fromJson(Map<String, dynamic> jsonObj) {
+    return JsonRequest(jsonObj['id'], jsonObj['method'], jsonObj['params'],
+        jsonObj['jsonrpc']);
   }
 
   @override
-  Map<String,dynamic> toJson() {
-    return <String,dynamic>{
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
       "jsonrpc": jsonrpc,
       "id": id,
       "method": method,
@@ -81,28 +74,20 @@ class JsonRpcResponse implements jsonEncodable {
   final int? id;
   final String? jsonrpc;
   final dynamic result;
-  final Map<String,dynamic>? error;
+  final Map<String, dynamic>? error;
 
-  const JsonRpcResponse._(this.id, {
-    this.result,
-    this.error,
-    this.jsonrpc = "2.0"
-  });
+  const JsonRpcResponse._(this.id,
+      {this.result, this.error, this.jsonrpc = "2.0"});
 
   const JsonRpcResponse.response(int? id, dynamic result)
       : this._(id, result: result);
 
   JsonRpcResponse.error(int? id, String message, int code)
-      : this._(id, error: <String,dynamic>{
-          "code": code,
-          "message": message
-        });
+      : this._(id, error: <String, dynamic>{"code": code, "message": message});
 
-  JsonRpcResponse.reject(int id)
-      : this.error(id, "Request rejected", -32050);
+  JsonRpcResponse.reject(int id) : this.error(id, "Request rejected", -32050);
 
-  JsonRpcResponse.invalidJson()
-      : this.error(null, "Parse error", -32700);
+  JsonRpcResponse.invalidJson() : this.error(null, "Parse error", -32700);
 
   JsonRpcResponse.invalidRequest(int id)
       : this.error(id, "Invalid Request", -32600);
@@ -110,27 +95,18 @@ class JsonRpcResponse implements jsonEncodable {
   JsonRpcResponse.methodNotFound(int id)
       : this.error(id, "Method not found", -32601);
 
-  JsonRpcResponse.invalidParameters([ int? id ])
+  JsonRpcResponse.invalidParameters([int? id])
       : this.error(id, "Invalid params", -32602);
 
   JsonRpcResponse.internalError(int id)
       : this.error(id, "Internal error", -32603);
 
   @override
-  Map<String,dynamic> toJson() {
-    if(error == null) {
-      return <String,dynamic>{
-        "jsonrpc": jsonrpc,
-        "id": id,
-        "result": result
-      };
-    }
-    else {
-      return <String,dynamic>{
-        "jsonrpc": jsonrpc,
-        "id": id,
-        "error": error
-      };
+  Map<String, dynamic> toJson() {
+    if (error == null) {
+      return <String, dynamic>{"jsonrpc": jsonrpc, "id": id, "result": result};
+    } else {
+      return <String, dynamic>{"jsonrpc": jsonrpc, "id": id, "error": error};
     }
   }
 }
@@ -142,30 +118,22 @@ class Message implements jsonEncodable {
 
   const Message._(this.topic, this.type, this.payload);
 
-  factory Message.fromJson(Map<String,dynamic> jsonObj) {
+  factory Message.fromJson(Map<String, dynamic> jsonObj) {
     return Message._(jsonObj['topic'], jsonObj['type'], jsonObj['payload']);
   }
 
-  factory Message.pub(String topic,   encodable) {
+  factory Message.pub(String topic, encodable) {
     final payload = jsonEncode(encodable);
-    return Message._(
-        topic,
-        'pub',
-        payload
-    );
+    return Message._(topic, 'pub', payload);
   }
 
   factory Message.sub(String topic) {
-    return Message._(
-        topic,
-        'sub',
-        ''
-    );
+    return Message._(topic, 'sub', '');
   }
 
   @override
-  Map<String,dynamic> toJson() {
-    return <String,dynamic>{
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
       "topic": topic,
       "type": type,
       "payload": payload,

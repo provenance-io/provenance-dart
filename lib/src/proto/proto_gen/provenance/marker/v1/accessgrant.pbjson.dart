@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use accessDescriptor instead')
 const Access$json = const {
   '1': 'Access',
@@ -24,16 +25,26 @@ const Access$json = const {
 };
 
 /// Descriptor for `Access`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List accessDescriptor = $convert.base64Decode('CgZBY2Nlc3MSIwoSQUNDRVNTX1VOU1BFQ0lGSUVEEAAaC4qdIAdVbmtub3duEhkKC0FDQ0VTU19NSU5UEAEaCIqdIARNaW50EhkKC0FDQ0VTU19CVVJOEAIaCIqdIARCdXJuEh8KDkFDQ0VTU19ERVBPU0lUEAMaC4qdIAdEZXBvc2l0EiEKD0FDQ0VTU19XSVRIRFJBVxAEGgyKnSAIV2l0aGRyYXcSHQoNQUNDRVNTX0RFTEVURRAFGgqKnSAGRGVsZXRlEhsKDEFDQ0VTU19BRE1JThAGGgmKnSAFQWRtaW4SIQoPQUNDRVNTX1RSQU5TRkVSEAcaDIqdIAhUcmFuc2Zlcg==');
+final $typed_data.Uint8List accessDescriptor = $convert.base64Decode(
+    'CgZBY2Nlc3MSIwoSQUNDRVNTX1VOU1BFQ0lGSUVEEAAaC4qdIAdVbmtub3duEhkKC0FDQ0VTU19NSU5UEAEaCIqdIARNaW50EhkKC0FDQ0VTU19CVVJOEAIaCIqdIARCdXJuEh8KDkFDQ0VTU19ERVBPU0lUEAMaC4qdIAdEZXBvc2l0EiEKD0FDQ0VTU19XSVRIRFJBVxAEGgyKnSAIV2l0aGRyYXcSHQoNQUNDRVNTX0RFTEVURRAFGgqKnSAGRGVsZXRlEhsKDEFDQ0VTU19BRE1JThAGGgmKnSAFQWRtaW4SIQoPQUNDRVNTX1RSQU5TRkVSEAcaDIqdIAhUcmFuc2Zlcg==');
 @$core.Deprecated('Use accessGrantDescriptor instead')
 const AccessGrant$json = const {
   '1': 'AccessGrant',
   '2': const [
     const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
-    const {'1': 'permissions', '3': 2, '4': 3, '5': 14, '6': '.provenance.marker.v1.Access', '8': const {}, '10': 'permissions'},
+    const {
+      '1': 'permissions',
+      '3': 2,
+      '4': 3,
+      '5': 14,
+      '6': '.provenance.marker.v1.Access',
+      '8': const {},
+      '10': 'permissions'
+    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `AccessGrant`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List accessGrantDescriptor = $convert.base64Decode('CgtBY2Nlc3NHcmFudBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEk4KC3Blcm1pc3Npb25zGAIgAygOMhwucHJvdmVuYW5jZS5tYXJrZXIudjEuQWNjZXNzQg6q3x8KQWNjZXNzTGlzdFILcGVybWlzc2lvbnM6HIigHwCYoB8A6KAfAdK0LQxBY2Nlc3NHcmFudEk=');
+final $typed_data.Uint8List accessGrantDescriptor = $convert.base64Decode(
+    'CgtBY2Nlc3NHcmFudBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEk4KC3Blcm1pc3Npb25zGAIgAygOMhwucHJvdmVuYW5jZS5tYXJrZXIudjEuQWNjZXNzQg6q3x8KQWNjZXNzTGlzdFILcGVybWlzc2lvbnM6HIigHwCYoB8A6KAfAdK0LQxBY2Nlc3NHcmFudEk=');

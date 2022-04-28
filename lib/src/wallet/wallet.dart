@@ -20,7 +20,8 @@ class Wallet {
     return Wallet._(privateKey, coin);
   }
 
-  factory Wallet.fromMnemonic(List<String> recoveryPhrase, Coin coin, [ String passphrase = ""]) {
+  factory Wallet.fromMnemonic(List<String> recoveryPhrase, Coin coin,
+      [String passphrase = ""]) {
     final seed = Mnemonic.createSeed(recoveryPhrase, passphrase);
     final privateKey = PrivateKey.fromSeed(seed, coin);
     return Wallet._(privateKey, coin);
@@ -32,7 +33,8 @@ class Wallet {
 
   //MARK: - Public
   String generateAddress(int index) {
-    final derivedKey = _bip44PrivateKey.derived(DerivationNode.notHardened(index));
+    final derivedKey =
+        _bip44PrivateKey.derived(DerivationNode.notHardened(index));
     return derivedKey.publicKey.address;
   }
 
@@ -41,17 +43,18 @@ class Wallet {
     return derivedKey.publicKey.address;
   }
 
-  Account generateAccountFromDerivationPath(List<DerivationNode> derivationPath) {
+  Account generateAccountFromDerivationPath(
+      List<DerivationNode> derivationPath) {
     final privateKey = generatePrivateKey(derivationPath);
     return Account(privateKey);
   }
 
-  Account generateAccount({ int index = 0 }) {
+  Account generateAccount({int index = 0}) {
     final address = _bip44PrivateKey.derived(DerivationNode.notHardened(index));
     return Account(address);
   }
 
-  Account generateHardenedAccount({int index = 0 }) {
+  Account generateHardenedAccount({int index = 0}) {
     final derivedKey = _bip44PrivateKey.derived(DerivationNode.hardened(index));
 
     return Account(derivedKey);

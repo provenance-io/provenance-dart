@@ -46,24 +46,26 @@ class _Hex {
   static final b16Alphabet = "0123456789abcdef".codeUnits;
 
   List<int> decode(String input) {
-    if(input.isEmpty) {
+    if (input.isEmpty) {
       return <int>[];
     }
 
-    if(input.length.isOdd) {
+    if (input.length.isOdd) {
       input = "0$input";
     }
 
     final output = List<int>.filled(input.length ~/ 2, 0);
 
-    for(var index = 0, outIndex = 0; index < input.length; index += 2, outIndex +=1) {
+    for (var index = 0, outIndex = 0;
+        index < input.length;
+        index += 2, outIndex += 1) {
       final upperStr = input.codeUnitAt(index);
       final lowerStr = input.codeUnitAt(index + 1);
 
       final upper = b16Alphabet.indexOf(upperStr);
       final lower = b16Alphabet.indexOf(lowerStr);
 
-      if(upper == -1 || lower == -1) {
+      if (upper == -1 || lower == -1) {
         throw Exception("$upper$lower is not a valid character");
       }
       output[outIndex] = (upper << 4) | lower;
@@ -86,7 +88,8 @@ class _Hex {
 }
 
 class _Base58 {
-  static final List<int> ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz".codeUnits;
+  static final List<int> ALPHABET =
+      "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz".codeUnits;
   static final int ENCODED_ZERO = ALPHABET[0];
 
   _Base58._();
@@ -98,12 +101,11 @@ class _Base58 {
 
     // Count leading zeros.
     var zeros = 0;
-    for(var index = 0; index < data.length; index++) {
+    for (var index = 0; index < data.length; index++) {
       final val = data[index];
-      if(val == 0) {
+      if (val == 0) {
         zeros += 1;
-      }
-      else {
+      } else {
         break;
       }
     }
@@ -113,14 +115,15 @@ class _Base58 {
 
     final encoded = List<int>.filled(data.length * 2, 0);
     var outputStart = encoded.length;
-    for (int inputStart = zeros; inputStart < copy.length; ) {
+    for (int inputStart = zeros; inputStart < copy.length;) {
       encoded[--outputStart] = ALPHABET[_divmod(copy, inputStart, 256, 58)];
       if (copy[inputStart] == 0) {
         ++inputStart; // optimization - skip leading zeros
       }
     }
     // Preserve exactly as many leading encoded zeros in output as there were leading zeros in input.
-    while (outputStart < encoded.length && encoded[outputStart] == ENCODED_ZERO) {
+    while (
+        outputStart < encoded.length && encoded[outputStart] == ENCODED_ZERO) {
       ++outputStart;
     }
 
@@ -163,7 +166,7 @@ class _Base58 {
     // Convert base-58 digits to base-256 digits.
     List<int> decoded = List<int>.filled(input.length, 0);
     int outputStart = decoded.length;
-    for (int inputStart = zeros; inputStart < input58.length; ) {
+    for (int inputStart = zeros; inputStart < input58.length;) {
       decoded[--outputStart] = _divmod(input58, inputStart, 58, 256);
       if (input58[inputStart] == 0) {
         ++inputStart; // optimization - skip leading zeros

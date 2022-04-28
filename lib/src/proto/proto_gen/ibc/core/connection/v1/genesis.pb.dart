@@ -13,12 +13,37 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'connection.pb.dart' as $0;
 
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GenesisState', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ibc.core.connection.v1'), createEmptyInstance: create)
-    ..pc<$0.IdentifiedConnection>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'connections', $pb.PbFieldType.PM, subBuilder: $0.IdentifiedConnection.create)
-    ..pc<$0.ConnectionPaths>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientConnectionPaths', $pb.PbFieldType.PM, subBuilder: $0.ConnectionPaths.create)
-    ..a<$fixnum.Int64>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextConnectionSequence', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'GenesisState',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..pc<$0.IdentifiedConnection>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'connections',
+        $pb.PbFieldType.PM,
+        subBuilder: $0.IdentifiedConnection.create)
+    ..pc<$0.ConnectionPaths>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'clientConnectionPaths',
+        $pb.PbFieldType.PM,
+        subBuilder: $0.ConnectionPaths.create)
+    ..a<$fixnum.Int64>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'nextConnectionSequence',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
 
   GenesisState._() : super();
   factory GenesisState({
@@ -38,25 +63,31 @@ class GenesisState extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GenesisState.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GenesisState.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory GenesisState.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GenesisState.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   GenesisState clone() => GenesisState()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GenesisState copyWith(void Function(GenesisState) updates) => super.copyWith((message) => updates(message as GenesisState)) as GenesisState; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  GenesisState copyWith(void Function(GenesisState) updates) =>
+      super.copyWith((message) => updates(message as GenesisState))
+          as GenesisState; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
-  static $pb.PbList<GenesisState> createRepeated() => $pb.PbList<GenesisState>();
+  static $pb.PbList<GenesisState> createRepeated() =>
+      $pb.PbList<GenesisState>();
   @$core.pragma('dart2js:noInline')
-  static GenesisState getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
+  static GenesisState getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
   static GenesisState? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -68,10 +99,12 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $fixnum.Int64 get nextConnectionSequence => $_getI64(2);
   @$pb.TagNumber(3)
-  set nextConnectionSequence($fixnum.Int64 v) { $_setInt64(2, v); }
+  set nextConnectionSequence($fixnum.Int64 v) {
+    $_setInt64(2, v);
+  }
+
   @$pb.TagNumber(3)
   $core.bool hasNextConnectionSequence() => $_has(2);
   @$pb.TagNumber(3)
   void clearNextConnectionSequence() => clearField(3);
 }
-

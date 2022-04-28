@@ -7,17 +7,17 @@ import 'package:ecdsa/ecdsa.dart' as ecdsa;
 import 'package:encrypt/encrypt.dart';
 
 class Crypto {
-  static List<int> generatePublicKey(List<int> privateKeyData, bool compressed) {
+  static List<int> generatePublicKey(
+      List<int> privateKeyData, bool compressed) {
     final hexString = Encoding.toHex(privateKeyData);
     final privateKey = secp256k1.PrivateKey.fromHex(hexString);
     final publicKey = privateKey.publicKey;
 
     String outString;
 
-    if(compressed) {
+    if (compressed) {
       outString = publicKey.toCompressedHex();
-    }
-    else {
+    } else {
       outString = publicKey.toHex();
     }
     return Encoding.fromHex(outString);
@@ -36,4 +36,3 @@ class Crypto {
     return ecdsa.verify(pKey, hash, sig);
   }
 }
-

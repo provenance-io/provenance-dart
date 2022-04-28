@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use storeKVPairDescriptor instead')
 const StoreKVPair$json = const {
   '1': 'StoreKVPair',
@@ -20,4 +21,5 @@ const StoreKVPair$json = const {
 };
 
 /// Descriptor for `StoreKVPair`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List storeKVPairDescriptor = $convert.base64Decode('CgtTdG9yZUtWUGFpchIbCglzdG9yZV9rZXkYASABKAlSCHN0b3JlS2V5EhYKBmRlbGV0ZRgCIAEoCFIGZGVsZXRlEhAKA2tleRgDIAEoDFIDa2V5EhQKBXZhbHVlGAQgASgMUgV2YWx1ZQ==');
+final $typed_data.Uint8List storeKVPairDescriptor = $convert.base64Decode(
+    'CgtTdG9yZUtWUGFpchIbCglzdG9yZV9rZXkYASABKAlSCHN0b3JlS2V5EhYKBmRlbGV0ZRgCIAEoCFIGZGVsZXRlEhAKA2tleRgDIAEoDFIDa2V5EhQKBXZhbHVlGAQgASgMUgV2YWx1ZQ==');
