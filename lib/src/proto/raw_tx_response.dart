@@ -5,10 +5,7 @@ class RawTxResponsePair {
   TxRaw _txRaw;
   TxResponse _txResponse;
 
-  RawTxResponsePair(
-      this._txRaw,
-      this._txResponse
-      );
+  RawTxResponsePair(this._txRaw, this._txResponse);
 
   TxRaw get txRaw => _txRaw;
 

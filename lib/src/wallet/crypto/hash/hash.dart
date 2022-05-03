@@ -20,9 +20,11 @@ class Hash {
     return hmac.convert(data).bytes;
   }
 
-  static List<int> pkcs5(List<int> password, List<int> salt, { int iterations = 2048 }) {
+  static List<int> pkcs5(List<int> password, List<int> salt,
+      {int iterations = 2048}) {
     return _PKCS5(password, salt, iterations: iterations).calculate();
   }
+
   static List<int> ripEmd160(List<int> data) {
     return RipEmd160().hash(data);
   }
@@ -47,11 +49,11 @@ class _PKCS5 {
   ///   - iterations: iteration count, a positive integer
   ///   - keyLength: intended length of derived key
   ///   - variant: MAC variant. Defaults to SHA256
-  _PKCS5(List<int> password, this._salt, { int iterations = 4096, int? keyLength })
-      :   assert(iterations > 0 && _salt.isNotEmpty),
+  _PKCS5(List<int> password, this._salt,
+      {int iterations = 4096, int? keyLength})
+      : assert(iterations > 0 && _salt.isNotEmpty),
         _iterations = iterations,
-        _dkLen = keyLength ?? _digestLength
-  {
+        _dkLen = keyLength ?? _digestLength {
     final keyLengthFinal = _dkLen.toDouble();
     final hLen = _digestLength.toDouble();
 
@@ -65,10 +67,10 @@ class _PKCS5 {
 
   List<int> calculate() {
     var ret = <int>[];
-    for(int i = 0; i < _numBlocks; i++) {
+    for (int i = 0; i < _numBlocks; i++) {
       // for each block T_i = U_1 ^ U_2 ^ ... ^ U_iter
-      var bytes = _calculateBlock(_salt, i+1);
-      if(bytes != null) {
+      var bytes = _calculateBlock(_salt, i + 1);
+      if (bytes != null) {
         ret.addAll(bytes);
       }
     }
@@ -76,12 +78,7 @@ class _PKCS5 {
   }
 
   List<int> _ARR(int i) {
-    return [
-      (i >> 24) & 0xff,
-      (i >> 16) & 0xff,
-      (i >> 8) & 0xff,
-      i & 0xff
-    ];
+    return [(i >> 24) & 0xff, (i >> 16) & 0xff, (i >> 8) & 0xff, i & 0xff];
   }
 
   // F (P, S, c, i) = U_1 \xor U_2 \xor ... \xor U_c
@@ -95,7 +92,7 @@ class _PKCS5 {
     if (_iterations > 1) {
       // U_2 = PRF (P, U_1) ,
       // U_c = PRF (P, U_{c-1}) .
-      for (var counter = 2; counter < _iterations+1; counter++) {
+      for (var counter = 2; counter < _iterations + 1; counter++) {
         digest = _prf.convert(u);
         u = digest.bytes;
         for (var x = 0; x < ret.length; x++) {

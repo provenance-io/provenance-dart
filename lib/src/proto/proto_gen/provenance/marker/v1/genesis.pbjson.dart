@@ -8,15 +8,33 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use genesisStateDescriptor instead')
 const GenesisState$json = const {
   '1': 'GenesisState',
   '2': const [
-    const {'1': 'params', '3': 1, '4': 1, '5': 11, '6': '.provenance.marker.v1.Params', '8': const {}, '10': 'params'},
-    const {'1': 'markers', '3': 2, '4': 3, '5': 11, '6': '.provenance.marker.v1.MarkerAccount', '8': const {}, '10': 'markers'},
+    const {
+      '1': 'params',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.provenance.marker.v1.Params',
+      '8': const {},
+      '10': 'params'
+    },
+    const {
+      '1': 'markers',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.marker.v1.MarkerAccount',
+      '8': const {},
+      '10': 'markers'
+    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `GenesisState`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List genesisStateDescriptor = $convert.base64Decode('CgxHZW5lc2lzU3RhdGUSOgoGcGFyYW1zGAEgASgLMhwucHJvdmVuYW5jZS5tYXJrZXIudjEuUGFyYW1zQgTI3h8AUgZwYXJhbXMSQwoHbWFya2VycxgCIAMoCzIjLnByb3ZlbmFuY2UubWFya2VyLnYxLk1hcmtlckFjY291bnRCBMjeHwBSB21hcmtlcnM6COigHwCIoB8A');
+final $typed_data.Uint8List genesisStateDescriptor = $convert.base64Decode(
+    'CgxHZW5lc2lzU3RhdGUSOgoGcGFyYW1zGAEgASgLMhwucHJvdmVuYW5jZS5tYXJrZXIudjEuUGFyYW1zQgTI3h8AUgZwYXJhbXMSQwoHbWFya2VycxgCIAMoCzIjLnByb3ZlbmFuY2UubWFya2VyLnYxLk1hcmtlckFjY291bnRCBMjeHwBSB21hcmtlcnM6COigHwCIoB8A');

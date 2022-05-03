@@ -8,25 +8,44 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use paramsDescriptor instead')
 const Params$json = const {
   '1': 'Params',
   '2': const [
-    const {'1': 'floor_gas_price', '3': 2, '4': 1, '5': 11, '6': '.cosmos.base.v1beta1.Coin', '8': const {}, '10': 'floorGasPrice'},
+    const {
+      '1': 'floor_gas_price',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': const {},
+      '10': 'floorGasPrice'
+    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode('CgZQYXJhbXMSYQoPZmxvb3JfZ2FzX3ByaWNlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQh7I3h8A8t4fFnlhbWw6ImZsb29yX2dhc19wcmljZSJSDWZsb29yR2FzUHJpY2U6COigHwCYoB8A');
+final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode(
+    'CgZQYXJhbXMSYQoPZmxvb3JfZ2FzX3ByaWNlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQh7I3h8A8t4fFnlhbWw6ImZsb29yX2dhc19wcmljZSJSDWZsb29yR2FzUHJpY2U6COigHwCYoB8A');
 @$core.Deprecated('Use msgFeeDescriptor instead')
 const MsgFee$json = const {
   '1': 'MsgFee',
   '2': const [
     const {'1': 'msg_type_url', '3': 1, '4': 1, '5': 9, '10': 'msgTypeUrl'},
-    const {'1': 'additional_fee', '3': 2, '4': 1, '5': 11, '6': '.cosmos.base.v1beta1.Coin', '8': const {}, '10': 'additionalFee'},
+    const {
+      '1': 'additional_fee',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': const {},
+      '10': 'additionalFee'
+    },
   ],
 };
 
 /// Descriptor for `MsgFee`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List msgFeeDescriptor = $convert.base64Decode('CgZNc2dGZWUSIAoMbXNnX3R5cGVfdXJsGAEgASgJUgptc2dUeXBlVXJsEl8KDmFkZGl0aW9uYWxfZmVlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQh3I3h8A8t4fFXlhbWw6ImFkZGl0aW9uYWxfZmVlIlINYWRkaXRpb25hbEZlZQ==');
+final $typed_data.Uint8List msgFeeDescriptor = $convert.base64Decode(
+    'CgZNc2dGZWUSIAoMbXNnX3R5cGVfdXJsGAEgASgJUgptc2dUeXBlVXJsEl8KDmFkZGl0aW9uYWxfZmVlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQh3I3h8A8t4fFXlhbWw6ImFkZGl0aW9uYWxfZmVlIlINYWRkaXRpb25hbEZlZQ==');

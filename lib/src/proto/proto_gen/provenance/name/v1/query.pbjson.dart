@@ -8,23 +8,34 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use queryParamsRequestDescriptor instead')
 const QueryParamsRequest$json = const {
   '1': 'QueryParamsRequest',
 };
 
 /// Descriptor for `QueryParamsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryParamsRequestDescriptor = $convert.base64Decode('ChJRdWVyeVBhcmFtc1JlcXVlc3Q=');
+final $typed_data.Uint8List queryParamsRequestDescriptor =
+    $convert.base64Decode('ChJRdWVyeVBhcmFtc1JlcXVlc3Q=');
 @$core.Deprecated('Use queryParamsResponseDescriptor instead')
 const QueryParamsResponse$json = const {
   '1': 'QueryParamsResponse',
   '2': const [
-    const {'1': 'params', '3': 1, '4': 1, '5': 11, '6': '.provenance.name.v1.Params', '8': const {}, '10': 'params'},
+    const {
+      '1': 'params',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.provenance.name.v1.Params',
+      '8': const {},
+      '10': 'params'
+    },
   ],
 };
 
 /// Descriptor for `QueryParamsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryParamsResponseDescriptor = $convert.base64Decode('ChNRdWVyeVBhcmFtc1Jlc3BvbnNlEjgKBnBhcmFtcxgBIAEoCzIaLnByb3ZlbmFuY2UubmFtZS52MS5QYXJhbXNCBMjeHwBSBnBhcmFtcw==');
+final $typed_data.Uint8List queryParamsResponseDescriptor = $convert.base64Decode(
+    'ChNRdWVyeVBhcmFtc1Jlc3BvbnNlEjgKBnBhcmFtcxgBIAEoCzIaLnByb3ZlbmFuY2UubmFtZS52MS5QYXJhbXNCBMjeHwBSBnBhcmFtcw==');
 @$core.Deprecated('Use queryResolveRequestDescriptor instead')
 const QueryResolveRequest$json = const {
   '1': 'QueryResolveRequest',
@@ -35,7 +46,9 @@ const QueryResolveRequest$json = const {
 };
 
 /// Descriptor for `QueryResolveRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryResolveRequestDescriptor = $convert.base64Decode('ChNRdWVyeVJlc29sdmVSZXF1ZXN0EhIKBG5hbWUYASABKAlSBG5hbWU6COigHwCIoB8A');
+final $typed_data.Uint8List queryResolveRequestDescriptor =
+    $convert.base64Decode(
+        'ChNRdWVyeVJlc29sdmVSZXF1ZXN0EhIKBG5hbWUYASABKAlSBG5hbWU6COigHwCIoB8A');
 @$core.Deprecated('Use queryResolveResponseDescriptor instead')
 const QueryResolveResponse$json = const {
   '1': 'QueryResolveResponse',
@@ -45,28 +58,48 @@ const QueryResolveResponse$json = const {
 };
 
 /// Descriptor for `QueryResolveResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryResolveResponseDescriptor = $convert.base64Decode('ChRRdWVyeVJlc29sdmVSZXNwb25zZRIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNz');
+final $typed_data.Uint8List queryResolveResponseDescriptor =
+    $convert.base64Decode(
+        'ChRRdWVyeVJlc29sdmVSZXNwb25zZRIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNz');
 @$core.Deprecated('Use queryReverseLookupRequestDescriptor instead')
 const QueryReverseLookupRequest$json = const {
   '1': 'QueryReverseLookupRequest',
   '2': const [
     const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
-    const {'1': 'pagination', '3': 2, '4': 1, '5': 11, '6': '.cosmos.base.query.v1beta1.PageRequest', '10': 'pagination'},
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageRequest',
+      '10': 'pagination'
+    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `QueryReverseLookupRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryReverseLookupRequestDescriptor = $convert.base64Decode('ChlRdWVyeVJldmVyc2VMb29rdXBSZXF1ZXN0EhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3MSRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb246COigHwCIoB8A');
+final $typed_data.Uint8List queryReverseLookupRequestDescriptor =
+    $convert.base64Decode(
+        'ChlRdWVyeVJldmVyc2VMb29rdXBSZXF1ZXN0EhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3MSRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb246COigHwCIoB8A');
 @$core.Deprecated('Use queryReverseLookupResponseDescriptor instead')
 const QueryReverseLookupResponse$json = const {
   '1': 'QueryReverseLookupResponse',
   '2': const [
     const {'1': 'name', '3': 1, '4': 3, '5': 9, '10': 'name'},
-    const {'1': 'pagination', '3': 2, '4': 1, '5': 11, '6': '.cosmos.base.query.v1beta1.PageResponse', '10': 'pagination'},
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageResponse',
+      '10': 'pagination'
+    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `QueryReverseLookupResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryReverseLookupResponseDescriptor = $convert.base64Decode('ChpRdWVyeVJldmVyc2VMb29rdXBSZXNwb25zZRISCgRuYW1lGAEgAygJUgRuYW1lEkcKCnBhZ2luYXRpb24YAiABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbjoI6KAfAIigHwA=');
+final $typed_data.Uint8List queryReverseLookupResponseDescriptor =
+    $convert.base64Decode(
+        'ChpRdWVyeVJldmVyc2VMb29rdXBSZXNwb25zZRISCgRuYW1lGAEgAygJUgRuYW1lEkcKCnBhZ2luYXRpb24YAiABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbjoI6KAfAIigHwA=');

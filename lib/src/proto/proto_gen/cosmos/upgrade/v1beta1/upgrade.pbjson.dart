@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use planDescriptor instead')
 const Plan$json = const {
   '1': 'Plan',
@@ -38,20 +39,31 @@ const Plan$json = const {
 };
 
 /// Descriptor for `Plan`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List planDescriptor = $convert.base64Decode('CgRQbGFuEhIKBG5hbWUYASABKAlSBG5hbWUSOgoEdGltZRgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCChgBkN8fAcjeHwBSBHRpbWUSFgoGaGVpZ2h0GAMgASgDUgZoZWlnaHQSEgoEaW5mbxgEIAEoCVIEaW5mbxJsChV1cGdyYWRlZF9jbGllbnRfc3RhdGUYBSABKAsyFC5nb29nbGUucHJvdG9idWYuQW55QiIYAfLeHxx5YW1sOiJ1cGdyYWRlZF9jbGllbnRfc3RhdGUiUhN1cGdyYWRlZENsaWVudFN0YXRlOgjooB8BmKAfAA==');
+final $typed_data.Uint8List planDescriptor = $convert.base64Decode(
+    'CgRQbGFuEhIKBG5hbWUYASABKAlSBG5hbWUSOgoEdGltZRgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCChgBkN8fAcjeHwBSBHRpbWUSFgoGaGVpZ2h0GAMgASgDUgZoZWlnaHQSEgoEaW5mbxgEIAEoCVIEaW5mbxJsChV1cGdyYWRlZF9jbGllbnRfc3RhdGUYBSABKAsyFC5nb29nbGUucHJvdG9idWYuQW55QiIYAfLeHxx5YW1sOiJ1cGdyYWRlZF9jbGllbnRfc3RhdGUiUhN1cGdyYWRlZENsaWVudFN0YXRlOgjooB8BmKAfAA==');
 @$core.Deprecated('Use softwareUpgradeProposalDescriptor instead')
 const SoftwareUpgradeProposal$json = const {
   '1': 'SoftwareUpgradeProposal',
   '2': const [
     const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
-    const {'1': 'plan', '3': 3, '4': 1, '5': 11, '6': '.cosmos.upgrade.v1beta1.Plan', '8': const {}, '10': 'plan'},
+    const {
+      '1': 'plan',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.upgrade.v1beta1.Plan',
+      '8': const {},
+      '10': 'plan'
+    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `SoftwareUpgradeProposal`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List softwareUpgradeProposalDescriptor = $convert.base64Decode('ChdTb2Z0d2FyZVVwZ3JhZGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEjYKBHBsYW4YAyABKAsyHC5jb3Ntb3MudXBncmFkZS52MWJldGExLlBsYW5CBMjeHwBSBHBsYW46COigHwGYoB8A');
+final $typed_data.Uint8List softwareUpgradeProposalDescriptor =
+    $convert.base64Decode(
+        'ChdTb2Z0d2FyZVVwZ3JhZGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEjYKBHBsYW4YAyABKAsyHC5jb3Ntb3MudXBncmFkZS52MWJldGExLlBsYW5CBMjeHwBSBHBsYW46COigHwGYoB8A');
 @$core.Deprecated('Use cancelSoftwareUpgradeProposalDescriptor instead')
 const CancelSoftwareUpgradeProposal$json = const {
   '1': 'CancelSoftwareUpgradeProposal',
@@ -63,7 +75,9 @@ const CancelSoftwareUpgradeProposal$json = const {
 };
 
 /// Descriptor for `CancelSoftwareUpgradeProposal`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cancelSoftwareUpgradeProposalDescriptor = $convert.base64Decode('Ch1DYW5jZWxTb2Z0d2FyZVVwZ3JhZGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uOgjooB8BmKAfAA==');
+final $typed_data.Uint8List cancelSoftwareUpgradeProposalDescriptor =
+    $convert.base64Decode(
+        'Ch1DYW5jZWxTb2Z0d2FyZVVwZ3JhZGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uOgjooB8BmKAfAA==');
 @$core.Deprecated('Use moduleVersionDescriptor instead')
 const ModuleVersion$json = const {
   '1': 'ModuleVersion',
@@ -75,4 +89,5 @@ const ModuleVersion$json = const {
 };
 
 /// Descriptor for `ModuleVersion`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List moduleVersionDescriptor = $convert.base64Decode('Cg1Nb2R1bGVWZXJzaW9uEhIKBG5hbWUYASABKAlSBG5hbWUSGAoHdmVyc2lvbhgCIAEoBFIHdmVyc2lvbjoI6KAfAZigHwE=');
+final $typed_data.Uint8List moduleVersionDescriptor = $convert.base64Decode(
+    'Cg1Nb2R1bGVWZXJzaW9uEhIKBG5hbWUYASABKAlSBG5hbWUSGAoHdmVyc2lvbhgCIAEoBFIHdmVyc2lvbjoI6KAfAZigHwE=');

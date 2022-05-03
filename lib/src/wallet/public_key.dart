@@ -22,7 +22,8 @@ class PublicKey {
     return PublicKey.fromCompressPublicHex(compressedPublicKey, coin);
   }
 
-  factory PublicKey.fromCompressPublicHex(List<int> compressedPublicKey, Coin coin) {
+  factory PublicKey.fromCompressPublicHex(
+      List<int> compressedPublicKey, Coin coin) {
     return PublicKey._(compressedPublicKey, compressedPublicKey, coin);
   }
 
@@ -35,7 +36,8 @@ class PublicKey {
         return _generateAddress("pb");
       case Coin.testNet:
         return _generateAddress("tp");
-      default: throw Exception("Invalid coin type: $coin");
+      default:
+        throw Exception("Invalid coin type: $coin");
     }
   }
 

@@ -14,17 +14,13 @@ class _testEncodable implements jsonEncodable {
 
   @override
   Map<String, dynamic> toJson() {
-    return <String,dynamic> { "msg": msg };
+    return <String, dynamic>{"msg": msg};
   }
 }
 
 extension EncryptionPayloadCopy on EncryptionPayload {
-  EncryptionPayload copyWith({
-    List<int>? data,
-    List<int>? hmac,
-    List<int>? iv
-  })
-  {
+  EncryptionPayload copyWith(
+      {List<int>? data, List<int>? hmac, List<int>? iv}) {
     return EncryptionPayload(
       data ?? this.data,
       hmac ?? this.hmac,
@@ -34,7 +30,24 @@ extension EncryptionPayloadCopy on EncryptionPayload {
 }
 
 main() {
-  final key = [0x8d,0x6c,0xc4,0xef,0x4e,0x85,0x31,0x16,0x88,0x5a,0x3c,0x2b,0xe9,0x61,0x41,0xc7];
+  final key = [
+    0x8d,
+    0x6c,
+    0xc4,
+    0xef,
+    0x4e,
+    0x85,
+    0x31,
+    0x16,
+    0x88,
+    0x5a,
+    0x3c,
+    0x2b,
+    0xe9,
+    0x61,
+    0x41,
+    0xc7
+  ];
   final EncryptedPayloadHelper _helper = EncryptedPayloadHelper(key);
   final encodable = _testEncodable("Test Message");
 
@@ -47,13 +60,16 @@ main() {
   });
 
   test('hmac mismatch', () {
-    final invalidHmac = List<int>.generate(16, (_) => math.Random().nextInt(255));
+    final invalidHmac =
+        List<int>.generate(16, (_) => math.Random().nextInt(255));
     final encrypted = _helper.encrypt(encodable);
     final copyEncrypted = encrypted.copyWith(hmac: invalidHmac);
 
-    expect(() => _helper.decryptAndVerify(copyEncrypted), throwsA(predicate((ex) {
+    expect(() => _helper.decryptAndVerify(copyEncrypted),
+        throwsA(predicate((ex) {
       return ex is HmacMisMatchException &&
-              ex.toString() == "The calculated hmac does not match ${Encoding.toHex(invalidHmac)}";
+          ex.toString() ==
+              "The calculated hmac does not match ${Encoding.toHex(invalidHmac)}";
     })));
   });
 }

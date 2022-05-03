@@ -12,10 +12,22 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $0;
 
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Params', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'provenance.msgfees.v1'), createEmptyInstance: create)
-    ..aOM<$0.Coin>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'floorGasPrice', subBuilder: $0.Coin.create)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'Params',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOM<$0.Coin>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'floorGasPrice',
+        subBuilder: $0.Coin.create)
+    ..hasRequiredFields = false;
 
   Params._() : super();
   factory Params({
@@ -27,31 +39,39 @@ class Params extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory Params.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Params.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory Params.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Params.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   Params clone() => Params()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  Params copyWith(void Function(Params) updates) => super.copyWith((message) => updates(message as Params)) as Params; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  Params copyWith(void Function(Params) updates) =>
+      super.copyWith((message) => updates(message as Params))
+          as Params; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
   static $pb.PbList<Params> createRepeated() => $pb.PbList<Params>();
   @$core.pragma('dart2js:noInline')
-  static Params getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
+  static Params getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
   @$pb.TagNumber(2)
   $0.Coin get floorGasPrice => $_getN(0);
   @$pb.TagNumber(2)
-  set floorGasPrice($0.Coin v) { setField(2, v); }
+  set floorGasPrice($0.Coin v) {
+    setField(2, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasFloorGasPrice() => $_has(0);
   @$pb.TagNumber(2)
@@ -61,11 +81,27 @@ class Params extends $pb.GeneratedMessage {
 }
 
 class MsgFee extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MsgFee', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'provenance.msgfees.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'msgTypeUrl')
-    ..aOM<$0.Coin>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'additionalFee', subBuilder: $0.Coin.create)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'MsgFee',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'msgTypeUrl')
+    ..aOM<$0.Coin>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'additionalFee',
+        subBuilder: $0.Coin.create)
+    ..hasRequiredFields = false;
 
   MsgFee._() : super();
   factory MsgFee({
@@ -81,31 +117,39 @@ class MsgFee extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory MsgFee.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory MsgFee.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory MsgFee.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgFee.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   MsgFee clone() => MsgFee()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  MsgFee copyWith(void Function(MsgFee) updates) => super.copyWith((message) => updates(message as MsgFee)) as MsgFee; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgFee copyWith(void Function(MsgFee) updates) =>
+      super.copyWith((message) => updates(message as MsgFee))
+          as MsgFee; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static MsgFee create() => MsgFee._();
   MsgFee createEmptyInstance() => create();
   static $pb.PbList<MsgFee> createRepeated() => $pb.PbList<MsgFee>();
   @$core.pragma('dart2js:noInline')
-  static MsgFee getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MsgFee>(create);
+  static MsgFee getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MsgFee>(create);
   static MsgFee? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get msgTypeUrl => $_getSZ(0);
   @$pb.TagNumber(1)
-  set msgTypeUrl($core.String v) { $_setString(0, v); }
+  set msgTypeUrl($core.String v) {
+    $_setString(0, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasMsgTypeUrl() => $_has(0);
   @$pb.TagNumber(1)
@@ -114,7 +158,10 @@ class MsgFee extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $0.Coin get additionalFee => $_getN(1);
   @$pb.TagNumber(2)
-  set additionalFee($0.Coin v) { setField(2, v); }
+  set additionalFee($0.Coin v) {
+    setField(2, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasAdditionalFee() => $_has(1);
   @$pb.TagNumber(2)
@@ -122,4 +169,3 @@ class MsgFee extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $0.Coin ensureAdditionalFee() => $_ensure(1);
 }
-

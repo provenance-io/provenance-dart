@@ -17,30 +17,15 @@ class DerivationNode {
   DerivationNode.notHardened(int index) : this._(index, false);
 }
 
-enum PrivateKeyType {
-  hd,
-  nonHd
-}
+enum PrivateKeyType { hd, nonHd }
 
-enum AccountType {
- root,
- purpose,
- coinType,
- account,
- scope,
- address
-}
+enum AccountType { root, purpose, coinType, account, scope, address }
 
-enum KeyTypeVersions {
-  xprv,
-  tprv,
-  xpub,
-  tpub
-}
+enum KeyTypeVersions { xprv, tprv, xpub, tpub }
 
 int _keyVersionBytes(KeyTypeVersions keyTypeVersions) {
   int v;
-  switch(keyTypeVersions) {
+  switch (keyTypeVersions) {
     case KeyTypeVersions.xprv:
       v = 0x0488ADE4;
       break;
@@ -53,7 +38,8 @@ int _keyVersionBytes(KeyTypeVersions keyTypeVersions) {
     case KeyTypeVersions.tpub:
       v = 0x043587CF;
       break;
-    default: throw Exception("Invalid KeyTypeVersions");
+    default:
+      throw Exception("Invalid KeyTypeVersions");
   }
 
   final byteData = ByteData(4)..setInt32(0, v, Endian.host);
@@ -96,19 +82,21 @@ class PrivateKey {
   }
 
   PrivateKey._(this.coin, this.raw, this.chainCode, this._keyType,
-    { this.index = 0, this.depth = 0, this.parentFingerPrint = 0 });
+      {this.index = 0, this.depth = 0, this.parentFingerPrint = 0});
 
-  static List<int> _decode(String bip32Serialize ) {
+  static List<int> _decode(String bip32Serialize) {
     final data = Encoding.fromBase58(bip32Serialize);
 
-    if(data.length != (_extendedKeySize + _checksumSize)) {
-      throw Exception("invalid key size must be ${(_extendedKeySize + _checksumSize)}");
+    if (data.length != (_extendedKeySize + _checksumSize)) {
+      throw Exception(
+          "invalid key size must be ${(_extendedKeySize + _checksumSize)}");
     }
     return data;
   }
 
   factory PrivateKey.fromSeed(List<int> seed, Coin coin) {
-    final output = Hash.hmacSha512(const AsciiEncoder().convert("Bitcoin seed"), seed);
+    final output =
+        Hash.hmacSha512(const AsciiEncoder().convert("Bitcoin seed"), seed);
     final raw = output.sublist(0, 32);
     final chainCode = output.sublist(32, 64);
 
@@ -123,14 +111,15 @@ class PrivateKey {
 
   factory PrivateKey.fromBip32(String bip32Serialized) {
     final data = _decode(bip32Serialized);
-    final keyType = _coinKeyType( data);
+    final keyType = _coinKeyType(data);
     final byteData = Uint8List.fromList(data).buffer.asByteData();
     final keyVersionBytes = byteData.getInt32(0, Endian.host);
 
-    final isPrivateKey = keyVersionBytes == _keyVersionBytes(KeyTypeVersions.xprv) ||
-                          keyVersionBytes == _keyVersionBytes(KeyTypeVersions.tprv);
+    final isPrivateKey =
+        keyVersionBytes == _keyVersionBytes(KeyTypeVersions.xprv) ||
+            keyVersionBytes == _keyVersionBytes(KeyTypeVersions.tprv);
 
-    if(!isPrivateKey) {
+    if (!isPrivateKey) {
       throw Exception("only private key supported");
     }
 
@@ -146,21 +135,24 @@ class PrivateKey {
   }
 
   static Coin _coinKeyType(List<int> base58Decoded) {
-    final keyVersionBytes = Uint8List.fromList(base58Decoded).buffer.asByteData().getInt32(0, Endian.host);
+    final keyVersionBytes = Uint8List.fromList(base58Decoded)
+        .buffer
+        .asByteData()
+        .getInt32(0, Endian.host);
 
-    if (keyVersionBytes == _keyVersionBytes(KeyTypeVersions.xprv) || keyVersionBytes == _keyVersionBytes(KeyTypeVersions.xpub)) {
+    if (keyVersionBytes == _keyVersionBytes(KeyTypeVersions.xprv) ||
+        keyVersionBytes == _keyVersionBytes(KeyTypeVersions.xpub)) {
       return Coin.mainNet;
-    }
-    else if (keyVersionBytes == _keyVersionBytes(KeyTypeVersions.tprv) || keyVersionBytes == _keyVersionBytes(KeyTypeVersions.tpub)) {
+    } else if (keyVersionBytes == _keyVersionBytes(KeyTypeVersions.tprv) ||
+        keyVersionBytes == _keyVersionBytes(KeyTypeVersions.tpub)) {
       return Coin.testNet;
-    }
-    else {
+    } else {
       throw Exception("invalid version bytes for extended key");
     }
   }
 
   PrivateKey derived(DerivationNode node) {
-    if(_keyType != PrivateKeyType.hd) {
+    if (_keyType != PrivateKeyType.hd) {
       throw Exception("Invalid key type - must be hd");
     }
 
@@ -171,37 +163,37 @@ class PrivateKey {
     }
 
     List<int> data;
-    if(node.hardened) {
-      data = [ 0, ...raw ];
-    }
-    else {
-      data = [ ...Crypto.generatePublicKey(raw, true) ];
+    if (node.hardened) {
+      data = [0, ...raw];
+    } else {
+      data = [...Crypto.generatePublicKey(raw, true)];
     }
     final index = node.hardened ? (edge | node.index) : node.index;
-    final derivingIndexBytes = Uint8List(4)..buffer.asByteData().setInt32(0, index, Endian.big);
+    final derivingIndexBytes = Uint8List(4)
+      ..buffer.asByteData().setInt32(0, index, Endian.big);
     data.addAll(derivingIndexBytes);
 
     final digest = Hash.hmacSha512(chainCode, data);
 
     final factorHex = Encoding.toHex(digest.sublist(0, 32));
     final factor = BigInt.parse(factorHex, radix: 16);
-    final curveOrder = BigInt.parse ("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141", radix: 16);
-    final rawInt = BigInt.parse (Encoding.toHex(raw), radix: 16);
-    final derivingIndex = Uint8List.fromList(derivingIndexBytes).buffer.asInt32List().first;
+    final curveOrder = BigInt.parse(
+        "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141",
+        radix: 16);
+    final rawInt = BigInt.parse(Encoding.toHex(raw), radix: 16);
+    final derivingIndex =
+        Uint8List.fromList(derivingIndexBytes).buffer.asInt32List().first;
     final derivedPrivateKeyInt = (rawInt + factor) % curveOrder;
     final derivedPrivateKeyHash = derivedPrivateKeyInt.toRadixString(16);
-    final derivedPrivateKey = Encoding.fromHex(derivedPrivateKeyHash.padLeft(64, '0'));
+    final derivedPrivateKey =
+        Encoding.fromHex(derivedPrivateKeyHash.padLeft(64, '0'));
     final derivedChainCode = digest.sublist(32, 64);
 
     return PrivateKey._(
-        coin,
-        derivedPrivateKey,
-        derivedChainCode,
-        PrivateKeyType.hd,
+        coin, derivedPrivateKey, derivedChainCode, PrivateKeyType.hd,
         index: derivingIndex,
         depth: depth + 1,
-        parentFingerPrint: computeFingerPrint()
-    );
+        parentFingerPrint: computeFingerPrint());
   }
 
   List<int> signData(List<int> data) {
@@ -225,22 +217,20 @@ class PrivateKey {
       fingerPrint = (fingerPrint | (publicKeyHash[i] & 0xFF));
     }
 
-    return (ByteData(4)
-            ..setInt32(0, fingerPrint, Endian.host))
-            .getInt32(0, Endian.big);
+    return (ByteData(4)..setInt32(0, fingerPrint, Endian.host))
+        .getInt32(0, Endian.big);
   }
 
-  String serialize({ bool publicKeyOnly = true } ) {
+  String serialize({bool publicKeyOnly = true}) {
     int v;
-    if(coin == Coin.mainNet) {
-      if(publicKeyOnly) {
-        v = _keyVersionBytes(KeyTypeVersions.xpub);             //0..<4
+    if (coin == Coin.mainNet) {
+      if (publicKeyOnly) {
+        v = _keyVersionBytes(KeyTypeVersions.xpub); //0..<4
       } else {
         v = _keyVersionBytes(KeyTypeVersions.xprv);
       }
-    }
-    else {
-      if(publicKeyOnly) {
+    } else {
+      if (publicKeyOnly) {
         v = _keyVersionBytes(KeyTypeVersions.tpub);
       } else {
         v = _keyVersionBytes(KeyTypeVersions.tprv);
@@ -248,29 +238,29 @@ class PrivateKey {
     }
 
     final byteData = ByteData(_extendedKeySize + _checksumSize);
-    byteData.setInt32(0, v,  Endian.host);
-    byteData.setInt8(4, depth);                           //depth  4..<5
+    byteData.setInt32(0, v, Endian.host);
+    byteData.setInt8(4, depth); //depth  4..<5
     byteData.setInt32(5, parentFingerPrint, Endian.host);
-    byteData.setInt32(9, index, Endian.host);             //sequence/index     9..<13
+    byteData.setInt32(9, index, Endian.host); //sequence/index     9..<13
 
     final out = Uint8ClampedList.sublistView(byteData, 13);
-    out.setAll(0, chainCode);         //chaincode 13..<35
+    out.setAll(0, chainCode); //chaincode 13..<35
 
-    if(publicKeyOnly) {
+    if (publicKeyOnly) {
       out.setAll(chainCode.length, publicKey.compressedPublicKey);
-    }
-    else {
-      out.setAll(chainCode.length , [0]);
+    } else {
+      out.setAll(chainCode.length, [0]);
       out.setAll(chainCode.length + 1, raw);
     }
 
-    final sha256Digest = Hash.sha256(Uint8List.sublistView(byteData, 0, _extendedKeySize));
+    final sha256Digest =
+        Hash.sha256(Uint8List.sublistView(byteData, 0, _extendedKeySize));
     final sha256Digest2 = Hash.sha256(sha256Digest);
 
     final checksum = sha256Digest2.sublist(0, _checksumSize);
     out.setAll(out.length - checksum.length, checksum);
 
-    if(byteData.lengthInBytes != (_extendedKeySize + _checksumSize)) {
+    if (byteData.lengthInBytes != (_extendedKeySize + _checksumSize)) {
       throw Exception("Failed to convert");
     }
 
@@ -280,7 +270,7 @@ class PrivateKey {
   /**
       Returns the preferred wallet path: m/44'/<coin type>'/0'/0/0
    */
-  PrivateKey defaultKey([int accountNum = 0 ]) {
+  PrivateKey defaultKey([int accountNum = 0]) {
     // BIP44 key derivation
     // m/44'
     final purpose = derived(DerivationNode.hardened(44));
@@ -294,11 +284,12 @@ class PrivateKey {
     // m/44'/1'/0'/0
     final change = account.derived(DerivationNode.notHardened(0));
 
-    final derivationNode = (coin == Coin.mainNet)? DerivationNode.notHardened(0) : DerivationNode.hardened(0);
+    final derivationNode = (coin == Coin.mainNet)
+        ? DerivationNode.notHardened(0)
+        : DerivationNode.hardened(0);
     // m/44'/1'/0'/0/0
     final address = change.derived(derivationNode);
 
     return address;
   }
 }
-

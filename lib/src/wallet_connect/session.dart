@@ -24,13 +24,9 @@ import 'package:provenance_dart/src/proto/proto_gen/provenance/attribute/v1/tx.p
 import 'package:provenance_dart/src/proto/proto_gen/provenance/marker/v1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/provenance/metadata/v1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/provenance/name/v1/tx.pb.dart';
-import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
-import 'package:provenance_dart/src/wallet/private_key.dart';
-import 'package:provenance_dart/src/wallet_connect/client_meta.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
-import 'package:provenance_dart/src/wallet_connect/wallet_connect_address.dart';
 import 'package:provenance_dart/wallet_connect.dart';
 import 'package:uuid/uuid.dart';
 
@@ -72,8 +68,8 @@ class AccountInfo {
 
   AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo);
 
-  Map<String,dynamic> toJson() {
-    return <String, dynamic> {
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
       "publicKey": publicKey,
       "address": address,
       "jwt": jwt,
@@ -89,7 +85,7 @@ class WalletInfo {
 
   WalletInfo(this.id, this.name, this.coin);
 
-  Map<String,dynamic> toJson() {
+  Map<String, dynamic> toJson() {
     return <String, dynamic>{
       "id": id,
       "name": name,
@@ -508,7 +504,9 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
         result["chainId"] = _chainId;
         result["peerMeta"] = clientMeta.toJson();
-        result["accounts"] = [ AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson() ];
+        result["accounts"] = [
+          AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson()
+        ];
       }
 
       final response = JsonRpcResponse.response(request.id, result);
@@ -781,4 +779,3 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   @override
   WalletConnectState get value => _status;
 }
-

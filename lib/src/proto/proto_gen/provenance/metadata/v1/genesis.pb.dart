@@ -15,18 +15,77 @@ import 'specification.pb.dart' as $2;
 import 'objectstore.pb.dart' as $3;
 
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GenesisState', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'provenance.metadata.v1'), createEmptyInstance: create)
-    ..aOM<$0.Params>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'params', subBuilder: $0.Params.create)
-    ..pc<$1.Scope>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scopes', $pb.PbFieldType.PM, subBuilder: $1.Scope.create)
-    ..pc<$1.Session>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sessions', $pb.PbFieldType.PM, subBuilder: $1.Session.create)
-    ..pc<$1.Record>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'records', $pb.PbFieldType.PM, subBuilder: $1.Record.create)
-    ..pc<$2.ScopeSpecification>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scopeSpecifications', $pb.PbFieldType.PM, subBuilder: $2.ScopeSpecification.create)
-    ..pc<$2.ContractSpecification>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'contractSpecifications', $pb.PbFieldType.PM, subBuilder: $2.ContractSpecification.create)
-    ..pc<$2.RecordSpecification>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recordSpecifications', $pb.PbFieldType.PM, subBuilder: $2.RecordSpecification.create)
-    ..aOM<$3.OSLocatorParams>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'oSLocatorParams', subBuilder: $3.OSLocatorParams.create)
-    ..pc<$3.ObjectStoreLocator>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'objectStoreLocators', $pb.PbFieldType.PM, subBuilder: $3.ObjectStoreLocator.create)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'GenesisState',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$0.Params>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'params',
+        subBuilder: $0.Params.create)
+    ..pc<$1.Scope>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'scopes',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Scope.create)
+    ..pc<$1.Session>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sessions',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Session.create)
+    ..pc<$1.Record>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'records',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Record.create)
+    ..pc<$2.ScopeSpecification>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'scopeSpecifications',
+        $pb.PbFieldType.PM,
+        subBuilder: $2.ScopeSpecification.create)
+    ..pc<$2.ContractSpecification>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'contractSpecifications',
+        $pb.PbFieldType.PM,
+        subBuilder: $2.ContractSpecification.create)
+    ..pc<$2.RecordSpecification>(
+        7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'recordSpecifications',
+        $pb.PbFieldType.PM,
+        subBuilder: $2.RecordSpecification.create)
+    ..aOM<$3.OSLocatorParams>(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'oSLocatorParams',
+        subBuilder: $3.OSLocatorParams.create)
+    ..pc<$3.ObjectStoreLocator>(
+        9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'objectStoreLocators',
+        $pb.PbFieldType.PM,
+        subBuilder: $3.ObjectStoreLocator.create)
+    ..hasRequiredFields = false;
 
   GenesisState._() : super();
   factory GenesisState({
@@ -70,31 +129,40 @@ class GenesisState extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GenesisState.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GenesisState.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory GenesisState.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GenesisState.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   GenesisState clone() => GenesisState()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GenesisState copyWith(void Function(GenesisState) updates) => super.copyWith((message) => updates(message as GenesisState)) as GenesisState; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  GenesisState copyWith(void Function(GenesisState) updates) =>
+      super.copyWith((message) => updates(message as GenesisState))
+          as GenesisState; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
-  static $pb.PbList<GenesisState> createRepeated() => $pb.PbList<GenesisState>();
+  static $pb.PbList<GenesisState> createRepeated() =>
+      $pb.PbList<GenesisState>();
   @$core.pragma('dart2js:noInline')
-  static GenesisState getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
+  static GenesisState getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
   static GenesisState? _defaultInstance;
 
   @$pb.TagNumber(1)
   $0.Params get params => $_getN(0);
   @$pb.TagNumber(1)
-  set params($0.Params v) { setField(1, v); }
+  set params($0.Params v) {
+    setField(1, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasParams() => $_has(0);
   @$pb.TagNumber(1)
@@ -115,7 +183,8 @@ class GenesisState extends $pb.GeneratedMessage {
   $core.List<$2.ScopeSpecification> get scopeSpecifications => $_getList(4);
 
   @$pb.TagNumber(6)
-  $core.List<$2.ContractSpecification> get contractSpecifications => $_getList(5);
+  $core.List<$2.ContractSpecification> get contractSpecifications =>
+      $_getList(5);
 
   @$pb.TagNumber(7)
   $core.List<$2.RecordSpecification> get recordSpecifications => $_getList(6);
@@ -123,7 +192,10 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $3.OSLocatorParams get oSLocatorParams => $_getN(7);
   @$pb.TagNumber(8)
-  set oSLocatorParams($3.OSLocatorParams v) { setField(8, v); }
+  set oSLocatorParams($3.OSLocatorParams v) {
+    setField(8, v);
+  }
+
   @$pb.TagNumber(8)
   $core.bool hasOSLocatorParams() => $_has(7);
   @$pb.TagNumber(8)
@@ -134,4 +206,3 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.List<$3.ObjectStoreLocator> get objectStoreLocators => $_getList(8);
 }
-

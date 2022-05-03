@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:protobuf/protobuf.dart';
 import 'package:provenance_dart/src/proto/gas.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/auth.pb.dart';
-import 'package:provenance_dart/src/proto/proto_gen/cosmos/base/v1beta1/coin.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/crypto/secp256k1/keys.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/signing/v1beta1/signing.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/tx.pb.dart';

@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use versionDescriptor instead')
 const Version$json = const {
   '1': 'Version',
@@ -20,26 +21,55 @@ const Version$json = const {
 };
 
 /// Descriptor for `Version`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List versionDescriptor = $convert.base64Decode('CgdWZXJzaW9uEhQKBW1ham9yGAEgASgFUgVtYWpvchIUCgVtaW5vchgCIAEoBVIFbWlub3ISFAoFcGF0Y2gYAyABKAVSBXBhdGNoEhYKBnN1ZmZpeBgEIAEoCVIGc3VmZml4');
+final $typed_data.Uint8List versionDescriptor = $convert.base64Decode(
+    'CgdWZXJzaW9uEhQKBW1ham9yGAEgASgFUgVtYWpvchIUCgVtaW5vchgCIAEoBVIFbWlub3ISFAoFcGF0Y2gYAyABKAVSBXBhdGNoEhYKBnN1ZmZpeBgEIAEoCVIGc3VmZml4');
 @$core.Deprecated('Use codeGeneratorRequestDescriptor instead')
 const CodeGeneratorRequest$json = const {
   '1': 'CodeGeneratorRequest',
   '2': const [
-    const {'1': 'file_to_generate', '3': 1, '4': 3, '5': 9, '10': 'fileToGenerate'},
+    const {
+      '1': 'file_to_generate',
+      '3': 1,
+      '4': 3,
+      '5': 9,
+      '10': 'fileToGenerate'
+    },
     const {'1': 'parameter', '3': 2, '4': 1, '5': 9, '10': 'parameter'},
-    const {'1': 'proto_file', '3': 15, '4': 3, '5': 11, '6': '.google.protobuf.FileDescriptorProto', '10': 'protoFile'},
-    const {'1': 'compiler_version', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.compiler.Version', '10': 'compilerVersion'},
+    const {
+      '1': 'proto_file',
+      '3': 15,
+      '4': 3,
+      '5': 11,
+      '6': '.google.protobuf.FileDescriptorProto',
+      '10': 'protoFile'
+    },
+    const {
+      '1': 'compiler_version',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.compiler.Version',
+      '10': 'compilerVersion'
+    },
   ],
 };
 
 /// Descriptor for `CodeGeneratorRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List codeGeneratorRequestDescriptor = $convert.base64Decode('ChRDb2RlR2VuZXJhdG9yUmVxdWVzdBIoChBmaWxlX3RvX2dlbmVyYXRlGAEgAygJUg5maWxlVG9HZW5lcmF0ZRIcCglwYXJhbWV0ZXIYAiABKAlSCXBhcmFtZXRlchJDCgpwcm90b19maWxlGA8gAygLMiQuZ29vZ2xlLnByb3RvYnVmLkZpbGVEZXNjcmlwdG9yUHJvdG9SCXByb3RvRmlsZRJMChBjb21waWxlcl92ZXJzaW9uGAMgASgLMiEuZ29vZ2xlLnByb3RvYnVmLmNvbXBpbGVyLlZlcnNpb25SD2NvbXBpbGVyVmVyc2lvbg==');
+final $typed_data.Uint8List codeGeneratorRequestDescriptor = $convert.base64Decode(
+    'ChRDb2RlR2VuZXJhdG9yUmVxdWVzdBIoChBmaWxlX3RvX2dlbmVyYXRlGAEgAygJUg5maWxlVG9HZW5lcmF0ZRIcCglwYXJhbWV0ZXIYAiABKAlSCXBhcmFtZXRlchJDCgpwcm90b19maWxlGA8gAygLMiQuZ29vZ2xlLnByb3RvYnVmLkZpbGVEZXNjcmlwdG9yUHJvdG9SCXByb3RvRmlsZRJMChBjb21waWxlcl92ZXJzaW9uGAMgASgLMiEuZ29vZ2xlLnByb3RvYnVmLmNvbXBpbGVyLlZlcnNpb25SD2NvbXBpbGVyVmVyc2lvbg==');
 @$core.Deprecated('Use codeGeneratorResponseDescriptor instead')
 const CodeGeneratorResponse$json = const {
   '1': 'CodeGeneratorResponse',
   '2': const [
     const {'1': 'error', '3': 1, '4': 1, '5': 9, '10': 'error'},
-    const {'1': 'file', '3': 15, '4': 3, '5': 11, '6': '.google.protobuf.compiler.CodeGeneratorResponse.File', '10': 'file'},
+    const {
+      '1': 'file',
+      '3': 15,
+      '4': 3,
+      '5': 11,
+      '6': '.google.protobuf.compiler.CodeGeneratorResponse.File',
+      '10': 'file'
+    },
   ],
   '3': const [CodeGeneratorResponse_File$json],
 };
@@ -49,10 +79,17 @@ const CodeGeneratorResponse_File$json = const {
   '1': 'File',
   '2': const [
     const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'insertion_point', '3': 2, '4': 1, '5': 9, '10': 'insertionPoint'},
+    const {
+      '1': 'insertion_point',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '10': 'insertionPoint'
+    },
     const {'1': 'content', '3': 15, '4': 1, '5': 9, '10': 'content'},
   ],
 };
 
 /// Descriptor for `CodeGeneratorResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List codeGeneratorResponseDescriptor = $convert.base64Decode('ChVDb2RlR2VuZXJhdG9yUmVzcG9uc2USFAoFZXJyb3IYASABKAlSBWVycm9yEkgKBGZpbGUYDyADKAsyNC5nb29nbGUucHJvdG9idWYuY29tcGlsZXIuQ29kZUdlbmVyYXRvclJlc3BvbnNlLkZpbGVSBGZpbGUaXQoERmlsZRISCgRuYW1lGAEgASgJUgRuYW1lEicKD2luc2VydGlvbl9wb2ludBgCIAEoCVIOaW5zZXJ0aW9uUG9pbnQSGAoHY29udGVudBgPIAEoCVIHY29udGVudA==');
+final $typed_data.Uint8List codeGeneratorResponseDescriptor = $convert.base64Decode(
+    'ChVDb2RlR2VuZXJhdG9yUmVzcG9uc2USFAoFZXJyb3IYASABKAlSBWVycm9yEkgKBGZpbGUYDyADKAsyNC5nb29nbGUucHJvdG9idWYuY29tcGlsZXIuQ29kZUdlbmVyYXRvclJlc3BvbnNlLkZpbGVSBGZpbGUaXQoERmlsZRISCgRuYW1lGAEgASgJUgRuYW1lEicKD2luc2VydGlvbl9wb2ludBgCIAEoCVIOaW5zZXJ0aW9uUG9pbnQSGAoHY29udGVudBgPIAEoCVIHY29udGVudA==');

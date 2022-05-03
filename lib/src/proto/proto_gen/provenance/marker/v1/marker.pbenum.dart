@@ -10,31 +10,68 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class MarkerType extends $pb.ProtobufEnum {
-  static const MarkerType MARKER_TYPE_UNSPECIFIED = MarkerType._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_TYPE_UNSPECIFIED');
-  static const MarkerType MARKER_TYPE_COIN = MarkerType._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_TYPE_COIN');
-  static const MarkerType MARKER_TYPE_RESTRICTED = MarkerType._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_TYPE_RESTRICTED');
+  static const MarkerType MARKER_TYPE_UNSPECIFIED = MarkerType._(
+      0,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_TYPE_UNSPECIFIED');
+  static const MarkerType MARKER_TYPE_COIN = MarkerType._(
+      1,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_TYPE_COIN');
+  static const MarkerType MARKER_TYPE_RESTRICTED = MarkerType._(
+      2,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_TYPE_RESTRICTED');
 
-  static const $core.List<MarkerType> values = <MarkerType> [
+  static const $core.List<MarkerType> values = <MarkerType>[
     MARKER_TYPE_UNSPECIFIED,
     MARKER_TYPE_COIN,
     MARKER_TYPE_RESTRICTED,
   ];
 
-  static final $core.Map<$core.int, MarkerType> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, MarkerType> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
   static MarkerType? valueOf($core.int value) => _byValue[value];
 
   const MarkerType._($core.int v, $core.String n) : super(v, n);
 }
 
 class MarkerStatus extends $pb.ProtobufEnum {
-  static const MarkerStatus MARKER_STATUS_UNSPECIFIED = MarkerStatus._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_STATUS_UNSPECIFIED');
-  static const MarkerStatus MARKER_STATUS_PROPOSED = MarkerStatus._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_STATUS_PROPOSED');
-  static const MarkerStatus MARKER_STATUS_FINALIZED = MarkerStatus._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_STATUS_FINALIZED');
-  static const MarkerStatus MARKER_STATUS_ACTIVE = MarkerStatus._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_STATUS_ACTIVE');
-  static const MarkerStatus MARKER_STATUS_CANCELLED = MarkerStatus._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_STATUS_CANCELLED');
-  static const MarkerStatus MARKER_STATUS_DESTROYED = MarkerStatus._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MARKER_STATUS_DESTROYED');
+  static const MarkerStatus MARKER_STATUS_UNSPECIFIED = MarkerStatus._(
+      0,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_STATUS_UNSPECIFIED');
+  static const MarkerStatus MARKER_STATUS_PROPOSED = MarkerStatus._(
+      1,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_STATUS_PROPOSED');
+  static const MarkerStatus MARKER_STATUS_FINALIZED = MarkerStatus._(
+      2,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_STATUS_FINALIZED');
+  static const MarkerStatus MARKER_STATUS_ACTIVE = MarkerStatus._(
+      3,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_STATUS_ACTIVE');
+  static const MarkerStatus MARKER_STATUS_CANCELLED = MarkerStatus._(
+      4,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_STATUS_CANCELLED');
+  static const MarkerStatus MARKER_STATUS_DESTROYED = MarkerStatus._(
+      5,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'MARKER_STATUS_DESTROYED');
 
-  static const $core.List<MarkerStatus> values = <MarkerStatus> [
+  static const $core.List<MarkerStatus> values = <MarkerStatus>[
     MARKER_STATUS_UNSPECIFIED,
     MARKER_STATUS_PROPOSED,
     MARKER_STATUS_FINALIZED,
@@ -43,9 +80,9 @@ class MarkerStatus extends $pb.ProtobufEnum {
     MARKER_STATUS_DESTROYED,
   ];
 
-  static final $core.Map<$core.int, MarkerStatus> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, MarkerStatus> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
   static MarkerStatus? valueOf($core.int value) => _byValue[value];
 
   const MarkerStatus._($core.int v, $core.String n) : super(v, n);
 }
-

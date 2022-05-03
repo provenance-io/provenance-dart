@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use bitArrayDescriptor instead')
 const BitArray$json = const {
   '1': 'BitArray',
@@ -18,4 +19,5 @@ const BitArray$json = const {
 };
 
 /// Descriptor for `BitArray`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List bitArrayDescriptor = $convert.base64Decode('CghCaXRBcnJheRISCgRiaXRzGAEgASgDUgRiaXRzEhQKBWVsZW1zGAIgAygEUgVlbGVtcw==');
+final $typed_data.Uint8List bitArrayDescriptor = $convert.base64Decode(
+    'CghCaXRBcnJheRISCgRiaXRzGAEgASgDUgRiaXRzEhQKBWVsZW1zGAIgAygEUgVlbGVtcw==');
