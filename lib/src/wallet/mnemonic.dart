@@ -16489,4 +16489,11 @@ class Mnemonic {
     final salt = Encoding.fromUtf8("mnemonic$passphrase");
     return Hash.pkcs5(password, salt, iterations: 2048);
   }
+
+  static Iterable<String> searchFor(String word,
+      [WordList language = WordList.english]) {
+    return word.length == 4
+        ? language.words.where((e) => e.startsWith(word))
+        : [];
+  }
 }
