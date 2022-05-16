@@ -16496,7 +16496,7 @@ class Mnemonic {
     switch (language) {
       case WordList.simplifiedChinese:
       case WordList.traditionalChinese:
-        return language.words.where((e) => e.startsWith(trimmedWord))
+        return language.words.where((e) => e.startsWith(trimmedWord));
       case WordList.korean:
       case WordList.japanese:
       case WordList.english:
@@ -16504,11 +16504,10 @@ class Mnemonic {
       case WordList.french:
       case WordList.italian:
         return trimmedWord.length > 1
-        ? language.words.where((e) => e.startsWith(trimmedWord))
-        : [];
+            ? language.words.where((e) => e.startsWith(trimmedWord))
+            : [];
       default:
-        throw Exception("Invalid WordList: $this");
+        throw Exception("Invalid WordList: $language");
     }
-    
   }
 }
