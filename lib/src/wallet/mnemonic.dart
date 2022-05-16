@@ -16492,9 +16492,6 @@ class Mnemonic {
 
   static Iterable<String> searchFor(String word,
       [WordList language = WordList.english]) {
-    final trimmedWord = word.trim();
-    return trimmedWord.length >= 4
-        ? language.words.where((e) => e.startsWith(trimmedWord))
-        : [];
+    return language.words.where((e) => e.startsWith(word.trim()));
   }
 }
