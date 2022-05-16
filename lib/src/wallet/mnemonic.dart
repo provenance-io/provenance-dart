@@ -16493,8 +16493,22 @@ class Mnemonic {
   static Iterable<String> searchFor(String word,
       [WordList language = WordList.english]) {
     final trimmedWord = word.trim();
-    return trimmedWord.length >= 2
+    switch (language) {
+      case WordList.simplifiedChinese:
+      case WordList.traditionalChinese:
+        return language.words.where((e) => e.startsWith(trimmedWord))
+      case WordList.korean:
+      case WordList.japanese:
+      case WordList.english:
+      case WordList.spanish:
+      case WordList.french:
+      case WordList.italian:
+        return trimmedWord.length > 1
         ? language.words.where((e) => e.startsWith(trimmedWord))
         : [];
+      default:
+        throw Exception("Invalid WordList: $this");
+    }
+    
   }
 }
