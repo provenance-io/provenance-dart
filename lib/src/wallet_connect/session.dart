@@ -27,6 +27,8 @@ import 'package:provenance_dart/src/proto/proto_gen/provenance/name/v1/tx.pb.dar
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
+import 'package:provenance_dart/src/wallet_connect/sink_transform.dart';
+import 'package:provenance_dart/src/wallet_connect/wallet_connect_transform.dart';
 import 'package:provenance_dart/wallet_connect.dart';
 import 'package:uuid/uuid.dart';
 
@@ -148,78 +150,9 @@ abstract class WalletConnectionDelegate {
   void onClose();
 }
 
-class PayloadPair {
-  final String topic;
-  final String payload;
-
-  PayloadPair(this.topic, this.payload);
-}
-
-class EncryptedCommunicator {
-  final WebSocket webSocket;
-  final EncryptedPayloadHelper encryptedPayloadHelper;
-  final String topic;
-  late Stream<PayloadPair> _wrappedStream;
-
-  EncryptedCommunicator(
-      this.topic, this.webSocket, this.encryptedPayloadHelper) {
-    final transformer = StreamTransformer.fromHandlers(handleData: _transform);
-    _wrappedStream = webSocket.transform(transformer);
-  }
-
-  Stream<PayloadPair> get stream => _wrappedStream;
-
-  void _transform(dynamic data, EventSink<PayloadPair> sink) {
-    final jsonString = data as String;
-    final Map<String, dynamic> jsonObject;
-
-    try {
-      jsonObject = jsonDecode(jsonString);
-    } on FormatException {
-      publish(topic, JsonRpcResponse.invalidJson());
-      return;
-    }
-
-    final message = Message.fromJson(jsonObject);
-    if (message.type != "pub") {
-      publish(message.topic, JsonRpcResponse.invalidParameters());
-      return;
-    }
-
-    try {
-      final encryptedJson = jsonDecode(message.payload);
-      final encryptedPayload = EncryptionPayload.fromJson(encryptedJson);
-      final payloadStr =
-          encryptedPayloadHelper.decryptAndVerify(encryptedPayload);
-      sink.add(PayloadPair(message.topic, payloadStr));
-    } on FormatException {
-      publish(message.topic, JsonRpcResponse.invalidJson());
-    } on HmacMisMatchException {
-      publish(message.topic, JsonRpcResponse.invalidParameters());
-    } catch (e) {
-      publish(message.topic, JsonRpcResponse.internalError(2));
-    }
-  }
-
-  void publish(String topic, jsonEncodable encodable) {
-    final encodedMessage = encryptedPayloadHelper.encrypt(encodable);
-    final publishMessage = Message.pub(topic, encodedMessage);
-    log("Publishing: ${jsonEncode(publishMessage)}");
-    webSocket.add(jsonEncode(publishMessage));
-  }
-
-  void subscribe(String topic) {
-    final subscribeMessage = Message.sub(topic);
-    log("Subscribe: ${jsonEncode(subscribeMessage)}");
-    webSocket.add(jsonEncode(subscribeMessage));
-  }
-}
-
 class WalletConnection extends ValueListenable<WalletConnectState> {
   final List<VoidCallback> _listeners = <VoidCallback>[];
-
   final WalletConnectAddress address;
-  late EncryptedCommunicator? _communicator;
 
   WalletConnectState _status = WalletConnectState.disconnected;
   WalletConnectionDelegate? _delegate;
@@ -229,6 +162,9 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   WebSocket? _webSocket;
   String? _peerId;
   String? _remotePeerId;
+
+  Stream<JsonRequest>? _stream;
+  Sink<PublishSinkMessage>? _outSink;
 
   WalletConnection(this.address);
 
@@ -254,16 +190,25 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       final encryptedPayloadHelper = EncryptedPayloadHelper(keyBytes);
 
       _webSocket = await WebSocket.connect(address.bridge.toString());
-      _communicator = EncryptedCommunicator(
-          address.topic, _webSocket!, encryptedPayloadHelper);
+
+      // create the sink that we write our responses to
+      _outSink = _webSocket!
+          .fuse(JsonSinkTransformer())
+          .fuse(PublishSinkTransform(encryptedPayloadHelper));
+
+      // create the stream that receives messages from the server
+      _stream = _webSocket!
+          .cast<String>()
+          .transform(JsonStreamTransformer())
+          .transform(WalletConnectTransform(encryptedPayloadHelper));
+
+      _stream!
+          .listen(_processRequest, onError: _handleError, onDone: _handleDone);
 
       _updateStatus(WalletConnectState.connected);
 
-      _communicator!.stream.listen(_processPubMessage,
-          onError: _handleError, onDone: _handleDone);
-
-      _communicator!.subscribe(address.topic);
-      _communicator!.subscribe(peerId);
+      _outSink!.add(PublishSinkMessage.subscribe(address.topic));
+      _outSink!.add(PublishSinkMessage.subscribe(peerId));
     } catch (e) {
       _delegate = null;
       _updateStatus(WalletConnectState.disconnected);
@@ -300,13 +245,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     return _webSocket?.close() ?? Future.value();
   }
 
-  void _processPubMessage(PayloadPair pair) {
-    final payload = pair.payload;
-
-    final jsonObj = jsonDecode(payload) as Map<String, dynamic>;
-
-    final jsonRequest = JsonRequest.fromJson(jsonObj);
-
+  void _processRequest(JsonRequest jsonRequest) {
     try {
       switch (jsonRequest.method) {
         case "wc_sessionRequest":
@@ -324,12 +263,16 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         default:
           log("Unknown request method: ${jsonRequest.method}");
           final response = JsonRpcResponse.methodNotFound(jsonRequest.id);
-          _communicator!.publish(_remotePeerId!, response);
+          final publishMessage =
+              PublishSinkMessage.publish(_remotePeerId!, response);
+          _outSink?.add(publishMessage);
           break;
       }
     } catch (e) {
       final response = JsonRpcResponse.internalError(jsonRequest.id);
-      _communicator!.publish(_remotePeerId!, response);
+      final publishMessage =
+          PublishSinkMessage.publish(_remotePeerId!, response);
+      _outSink?.add(publishMessage);
     }
   }
 
@@ -342,7 +285,10 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
     final response = JsonRequest(
         math.Random().nextInt(100000), "wc_sessionUpdate", [result]);
-    _communicator!.publish(_remotePeerId!, response);
+
+    final publishMessage = PublishSinkMessage.publish(_remotePeerId!, response);
+
+    await _outSink?.addAsync(publishMessage);
     await _webSocket?.close();
   }
 
@@ -384,35 +330,37 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
 
-    acceptDelegate(
-        proto.RawTxResponsePair? txPairResponsePair, String? errorMessage) {
+    acceptDelegate(proto.RawTxResponsePair? txPairResponsePair,
+        String? errorMessage) async {
       final isApproved = txPairResponsePair != null;
 
+      PublishSinkMessage message;
+
       if (errorMessage?.isNotEmpty ?? false) {
-        final response =
-            JsonRpcResponse.error(request.id, errorMessage!, -32010);
-        _communicator!.publish(_remotePeerId!, response);
+        message =
+            PublishSinkMessage.error(_remotePeerId!, request.id, errorMessage!);
       } else if (!isApproved) {
         log("rejected proposed transaction");
-        _reject(request.id);
+        message = PublishSinkMessage.reject(_remotePeerId!, request.id);
       } else {
         JsonRpcResponse response;
         if (txPairResponsePair.txResponse.code == 0) {
           response = JsonRpcResponse.response(
               request.id, txPairResponsePair.asJsonString());
         } else {
-          final message =
+          final messageStr =
               "${txPairResponsePair.txResponse.code} ${txPairResponsePair.txResponse.codespace} ${txPairResponsePair.txResponse.info}";
           response = JsonRpcResponse.response(request.id, <String, dynamic>{
             "code": "${txPairResponsePair.txResponse.code}",
-            "message": message,
+            "message": messageStr,
             "value": txPairResponsePair.asJsonString()
           });
         }
-        _communicator!.publish(_remotePeerId!, response);
+
+        message = PublishSinkMessage.publish(_remotePeerId!, response);
       }
 
-      return Future.value();
+      await _outSink?.addAsync(message);
     }
 
     final signTransactionData = SignTransactionData(messages, gasEstimate);
@@ -428,22 +376,23 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
 
-    acceptDelegate(List<int>? signedData, String? errorMessage) {
+    acceptDelegate(List<int>? signedData, String? errorMessage) async {
       final isApproved = signedData != null;
+      PublishSinkMessage message;
 
       if (errorMessage?.isNotEmpty ?? false) {
-        final response =
-            JsonRpcResponse.error(request.id, errorMessage!, -32010);
-        _communicator!.publish(_remotePeerId!, response);
+        message =
+            PublishSinkMessage.error(_remotePeerId!, request.id, errorMessage!);
       } else if (!isApproved) {
         log("connection response sent");
-        _reject(request.id);
+        message = PublishSinkMessage.reject(_remotePeerId!, request.id);
       } else {
         final result = Encoding.toHex(signedData);
         final response = JsonRpcResponse.response(request.id, result);
-        _communicator!.publish(_remotePeerId!, response);
+
+        message = PublishSinkMessage.publish(_remotePeerId!, response);
       }
-      return Future.value();
+      await _outSink?.addAsync(message);
     }
 
     _delegate?.onApproveSign(description, address, bytes, acceptDelegate);
@@ -457,7 +406,8 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
     final clientMeta = ClientMeta.fromJson(peerMeta);
 
-    acceptDelegate(SessionApprovalData? approvalData, String? errorMessage) {
+    acceptDelegate(
+        SessionApprovalData? approvalData, String? errorMessage) async {
       final isApproved = approvalData != null;
 
       final result = <String, dynamic>{
@@ -468,49 +418,57 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         "accounts": null,
         "accountData": null,
       };
+      PublishSinkMessage message;
 
       if (errorMessage?.isNotEmpty ?? false) {
-        final response =
-            JsonRpcResponse.error(request.id, errorMessage!, -32010);
-        _communicator!.publish(_remotePeerId!, response);
-      } else if (isApproved) {
-        _chainId = approvalData.chainId;
-        _privateKey = approvalData.privateKey;
-        _walletInfo = approvalData.walletInfo;
+        message =
+            PublishSinkMessage.error(_remotePeerId!, request.id, errorMessage!);
+      } else {
+        if (isApproved) {
+          _chainId = approvalData.chainId;
+          _privateKey = approvalData.privateKey;
+          _walletInfo = approvalData.walletInfo;
 
-        final now = DateTime.now();
-        final expiry = now.add(const Duration(days: 1));
+          final signingKey = _privateKey!.defaultKey();
+          final publicKey = signingKey.publicKey;
+          final now = DateTime.now();
+          final expiry = now.add(const Duration(days: 1));
 
-        final addressStr = _privateKey!.defaultKey().publicKey.address;
-        final pubKey = base64Encode(
-            _privateKey!.defaultKey().publicKey.compressedPublicKey);
-        const headerDict = <String, dynamic>{"alg": "ES256K", "typ": "JWT"};
-        final payloadDict = <String, dynamic>{
-          "sub": pubKey,
-          "iss": "provenance.io",
-          "iat": now.secondsSinceEpoch,
-          "exp": expiry.secondsSinceEpoch,
-          "addr": addressStr
-        };
+          final addressStr = publicKey.address;
+          final pubKey = base64Encode(publicKey.compressedPublicKey);
+          const headerDict = <String, dynamic>{"alg": "ES256K", "typ": "JWT"};
+          final payloadDict = <String, dynamic>{
+            "sub": pubKey,
+            "iss": "provenance.io",
+            "iat": now.secondsSinceEpoch,
+            "exp": expiry.secondsSinceEpoch,
+            "addr": addressStr
+          };
 
-        final header = base64Encode(utf8.encode(json.encode(headerDict)));
-        final payload = base64Encode(utf8.encode(json.encode(payloadDict)));
-        final signMe = "$header.$payload";
-        final signature = _privateKey!
-            .defaultKey()
-            .signData(Hash.sha256(utf8.encode(signMe)))
-          ..removeLast();
-        final jwt = "$signMe.${base64.encode(signature)}";
+          final converter = const JsonEncoder()
+              .fuse(const Utf8Encoder())
+              .fuse(const Base64Encoder());
 
-        result["chainId"] = _chainId;
-        result["peerMeta"] = clientMeta.toJson();
-        result["accounts"] = [
-          AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson()
-        ];
+          final header = converter.convert(headerDict);
+          final payload = converter.convert(payloadDict);
+          final signMe = "$header.$payload";
+          final signature = signingKey
+              .signData(Hash.sha256(utf8.encode(signMe)))
+            ..removeLast();
+          final jwt = "$signMe.${base64.encode(signature)}";
+
+          result["chainId"] = _chainId;
+          result["peerMeta"] = clientMeta.toJson();
+          result["accounts"] = [
+            AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson()
+          ];
+        }
+
+        final response = JsonRpcResponse.response(request.id, result);
+        message = PublishSinkMessage.publish(_remotePeerId!, response);
       }
 
-      final response = JsonRpcResponse.response(request.id, result);
-      _communicator!.publish(_remotePeerId!, response);
+      await _outSink?.addAsync(message);
 
       if (!isApproved) {
         return _webSocket?.close() as Future<void>;
@@ -527,11 +485,6 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     );
 
     _delegate?.onApproveSession(data, acceptDelegate);
-  }
-
-  void _reject(int requestId) {
-    final response = JsonRpcResponse.reject(requestId);
-    _communicator!.publish(_remotePeerId!, response);
   }
 
   GeneratedMessage _decodeMessage(Any protoAny) {

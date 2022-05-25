@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -21,12 +22,12 @@ class HmacMisMatchException implements Exception {
 }
 
 class EncryptedPayloadHelper {
-  late Key key;
-  late Encrypter encrypter;
+  final Key _key;
+  late Encrypter _encrypter;
 
   EncryptedPayloadHelper(List<int> keyBytes)
-      : key = Key(Uint8List.fromList(keyBytes)) {
-    encrypter = Encrypter(AES(key, mode: AESMode.cbc));
+      : _key = Key(Uint8List.fromList(keyBytes)) {
+    _encrypter = Encrypter(AES(_key, mode: AESMode.cbc));
   }
 
   EncryptionPayload encrypt(jsonEncodable encodable) {
@@ -36,10 +37,11 @@ class EncryptedPayloadHelper {
     final responseBytes = utf8.encode(jsonString);
     final iv = IV(ivBytes);
 
-    final decryptedData =
-        encrypter.encryptBytes(Uint8List.fromList(responseBytes), iv: iv).bytes;
+    final decryptedData = _encrypter
+        .encryptBytes(Uint8List.fromList(responseBytes), iv: iv)
+        .bytes;
 
-    final computedHmac = _computeHash(decryptedData, key.bytes, iv.bytes);
+    final computedHmac = _computeHash(decryptedData, _key.bytes, iv.bytes);
 
     return EncryptionPayload(decryptedData, computedHmac, iv.bytes);
   }
@@ -49,7 +51,7 @@ class EncryptedPayloadHelper {
     final iv = encryptionPayload.iv;
     final hmac = encryptionPayload.hmac;
 
-    final computedHmac = _computeHash(data, key.bytes, iv);
+    final computedHmac = _computeHash(data, _key.bytes, iv);
 
     if (!computedHmac.areListsEqual(hmac)) {
       throw HmacMisMatchException(
@@ -57,7 +59,7 @@ class EncryptedPayloadHelper {
     }
 
     final encryptIv = IV(Uint8List.fromList(iv));
-    final decryptedData = encrypter
+    final decryptedData = _encrypter
         .decryptBytes(Encrypted(Uint8List.fromList(data)), iv: encryptIv);
     return Encoding.toUtf8(decryptedData);
   }
