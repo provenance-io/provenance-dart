@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:grpc/grpc.dart';
-import 'package:provenance_dart/src/proto/base_req.dart';
-import 'package:provenance_dart/src/proto/gas.dart';
+import 'package:provenance_dart/proto.dart';
+import 'package:provenance_dart/proto_secp256k1.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/auth.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/query.pbgrpc.dart'
     as auth_1uery_pb;
@@ -8,6 +10,8 @@ import 'package:provenance_dart/src/proto/proto_gen/cosmos/authz/v1beta1/query.p
     as authz_query_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/bank/v1beta1/query.pbgrpc.dart'
     as cosmos_bank_pb;
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/crypto/multisig/keys.pb.dart';
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/crypto/multisig/v1beta1/multisig.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/service.pbgrpc.dart'
     as cosmos_service_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/base/tendermint/v1beta1/query.pbgrpc.dart'
@@ -47,8 +51,17 @@ import 'package:provenance_dart/src/proto/proto_gen/cosmos/upgrade/v1beta1/query
 import 'package:provenance_dart/src/proto/proto_gen/cosmwasm/wasm/v1/query.pbgrpc.dart'
     as cosmwasm_pb;
 import 'package:provenance_dart/src/proto/proto_gen/provenance/msgfees/v1/query.pbgrpc.dart'
-import 'package:provenance_dart/src/proto/raw_tx_response.dart';
     as msg_fees;
+import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
+import 'package:provenance_dart/src/wallet/keys.dart' as keys;
+import 'package:provenance_dart/src/wallet/multisig/compact_bit_array.dart'
+    as compact;
+import 'package:provenance_dart/src/wallet/multisig/keys.dart'
+    as multi_sig_keys;
+import 'package:provenance_dart/src/wallet/private_key.dart';
+import 'package:provenance_dart/src/wallet/public_key.dart';
+import 'package:provenance_dart/src/wallet/multisig/amino_serializer.dart';
+import 'package:fixnum/fixnum.dart' as fixnum;
 
 class ChannelOpts {
   final int inboundMessageSize; // ~ 20 MB
@@ -65,13 +78,11 @@ class ChannelOpts {
 
 class PbClient {
   final String chainId;
-  final Uri channelUri;
-  final ChannelOpts channelOpts;
 
   late ClientChannel _channel;
 
-  PbClient(this.channelUri, this.chainId,
-      [this.channelOpts = const ChannelOpts()]) {
+  PbClient(Uri channelUri, this.chainId,
+      [ChannelOpts channelOpts = const ChannelOpts()]) {
     final channelCredentials = (channelUri.scheme == "grpcs")
         ? const ChannelCredentials.secure()
         : const ChannelCredentials.insecure();
@@ -150,6 +161,7 @@ class PbClient {
 
   cosmwasm_pb.QueryClient get wasmClient => cosmwasm_pb.QueryClient(_channel);
 
+  @Deprecated('use broadcastMessages with the build in key classes')
   Future<BaseReq> baseRequest(
     TxBody txBody,
     List<BaseReqSigner> signers, {
@@ -170,6 +182,7 @@ class PbClient {
         gasAdjustment: gasAdjustment, feeGranter: feeGranter);
   }
 
+  @Deprecated('use estimateMessageFee with the build in key classes')
   Future<GasEstimate> estimateTx(BaseReq baseReq) async {
     final authInfoBytes = baseReq.buildAuthInfo().writeToBuffer();
     final txBodyBytes = baseReq.body.writeToBuffer();
@@ -198,6 +211,7 @@ class PbClient {
     });
   }
 
+  @Deprecated('use broadcastMessages with the build in key classes')
   Future<RawTxResponsePair> broadcastTx(
       BaseReq baseReq, GasEstimate gasEstimate,
       [cosmos_service_pb.BroadcastMode mode =
@@ -225,6 +239,7 @@ class PbClient {
         .then((response) => RawTxResponsePair(txRaw, response.txResponse));
   }
 
+  @Deprecated('use estimateAndBroadcastMessages with the build in key classes')
   Future<RawTxResponsePair> estimateAndBroadcastTx(
       TxBody txBody, List<BaseReqSigner> signers,
       {cosmos_service_pb.BroadcastMode mode =
@@ -239,6 +254,9 @@ class PbClient {
     return broadcastTx(request, gasEstimate, mode);
   }
 
+  ///
+  /// retrieve account information for the provided address
+  ///
   Future<BaseAccount> getBaseAccount(String bech32Address) async {
     final query = auth_1uery_pb.QueryAccountRequest(address: bech32Address);
 
@@ -252,5 +270,215 @@ class PbClient {
     } else {
       throw Exception("Account type not handled:${account.typeUrl}");
     }
+  }
+
+  ///
+  /// estimate the abount of gas required to execute a transaction.
+  ///
+  Future<GasEstimate> estimateTransactionFees(
+      TxBody transactionBody, Iterable<keys.iPubKey> signers,
+      {double? gasAdjustment}) async {
+    final signerInfos = await Future.wait(signers.map((publicKey) async {
+      final account = await getBaseAccount(publicKey.address);
+
+      return _buildSigningInfo(publicKey, account, <String>[]);
+    }));
+
+    final authInfo = AuthInfo(
+        fee: Fee(amount: <Coin>[], gasLimit: fixnum.Int64(0), granter: null),
+        signerInfos: signerInfos);
+
+    // generate placeholders for the actual signatures.
+    final signaturePlaceholders = signers.map((e) {
+      if (e is multi_sig_keys.AminoPubKey) {
+        return MultiSignature().writeToBuffer();
+      } else if (e is PublicKey) {
+        return <int>[];
+      } else {
+        throw Exception("Unsupported public key");
+      }
+    });
+
+    final txRaw = TxRaw(
+        authInfoBytes: authInfo.writeToBuffer(),
+        bodyBytes: transactionBody.writeToBuffer(),
+        signatures: signaturePlaceholders);
+
+    final calculateRequest = msg_fees.CalculateTxFeesRequest(
+        txBytes: txRaw.writeToBuffer(),
+        gasAdjustment: gasAdjustment ?? defaultFeeAdjustment);
+
+    final msgFee = await msgFeeClient.calculateTxFees(calculateRequest);
+
+    return GasEstimate(
+        msgFee.estimatedGas.toInt(), gasAdjustment, msgFee.totalFees);
+  }
+
+  ///
+  /// estimate how much a transaction will cost and then broadcast
+  /// it to the blockchain.
+  ///
+  Future<RawTxResponsePair> estimateAndBroadcastTransaction(
+      TxBody transactionBody, List<keys.iPrivKey> signers,
+      {double? gasAdjustment, String? feeGranter}) async {
+    final publicKeys = signers.map((e) => e.publicKey);
+
+    final gasEstimate = await estimateTransactionFees(
+        transactionBody, publicKeys,
+        gasAdjustment: gasAdjustment);
+
+    final fee = Fee(
+        amount: gasEstimate.feeCalculated,
+        gasLimit: fixnum.Int64(gasEstimate.limit),
+        granter: feeGranter);
+
+    return broadcastTransaction(transactionBody, signers, fee);
+  }
+
+  ///
+  /// broadcast messages to the blockchain
+  ///
+  Future<RawTxResponsePair> broadcastTransaction(
+      TxBody transactionBody, Iterable<keys.iPrivKey> signers, Fee fee,
+      [cosmos_service_pb.BroadcastMode mode =
+          cosmos_service_pb.BroadcastMode.BROADCAST_MODE_SYNC]) async {
+    final signerInfos = await Future.wait(signers.map((e) async {
+      final signingAddresses = <String>[];
+      if (e is multi_sig_keys.AminoPrivKey) {
+        signingAddresses.addAll(e.signatureLookup.keys);
+      }
+
+      final account = await getBaseAccount(e.publicKey.address);
+
+      return _buildSigningInfo(e.publicKey, account, signingAddresses);
+    }));
+
+    final authInfo = AuthInfo(fee: fee, signerInfos: signerInfos);
+    final authInfoBytes = authInfo.writeToBuffer();
+    final txBodyBytes = transactionBody.writeToBuffer();
+
+    // generate the signature bytes for each private key based on its type
+    final signatures = await Future.wait(signers.map((e) async {
+      final account = await getBaseAccount(e.publicKey.address);
+      final signDoc = SignDoc(
+          bodyBytes: txBodyBytes,
+          authInfoBytes: authInfoBytes,
+          chainId: chainId,
+          accountNumber: account.accountNumber);
+      return _buidlSignature(e, signDoc);
+    }));
+
+    final txRaw = TxRaw(
+        authInfoBytes: authInfoBytes,
+        bodyBytes: txBodyBytes,
+        signatures: signatures);
+
+    final txRawBuffer = txRaw.writeToBuffer();
+
+    final broadcastRequest =
+        cosmos_service_pb.BroadcastTxRequest(txBytes: txRawBuffer, mode: mode);
+
+    final response = await cosmosService.broadcastTx(broadcastRequest);
+
+    return RawTxResponsePair(txRaw, response.txResponse);
+  }
+
+  ///
+  /// Sign a transaction for a multi-signature account
+  /// using the private key of the associated account.
+  ///
+  List<int> generateMultiSigAuthorization(
+      PrivateKey pk, TxBody txBody, Fee fee, BaseAccount multiSigAccount) {
+    final authInfo = AuthInfo(
+        fee: fee,
+        signerInfos: [_buildSigningInfo(pk.publicKey, multiSigAccount, [])]);
+
+    final signDoc = SignDoc(
+        bodyBytes: txBody.writeToBuffer(),
+        authInfoBytes: authInfo.writeToBuffer(),
+        chainId: chainId,
+        accountNumber: multiSigAccount.accountNumber);
+
+    final aminoDic = signDoc.toAminoDictionary();
+    final aminoJson = jsonEncode(aminoDic);
+    final docBytes = utf8.encode(aminoJson);
+
+    return pk.signData(Hash.sha256(docBytes))..removeLast();
+  }
+
+  ///
+  /// convert a signature into its associated protobuff object
+  /// and then serialize it.
+  ///
+  List<int> _buidlSignature(keys.iPrivKey pk, SignDoc signDoc) {
+    if (pk is multi_sig_keys.AminoPrivKey) {
+      final multiSig = MultiSignature(signatures: pk.signatureLookup.values);
+      return multiSig.writeToBuffer();
+    } else if (pk is PrivateKey) {
+      final hash = Hash.sha256(signDoc.writeToBuffer());
+      return pk.signData(hash)..removeLast();
+    } else {
+      throw Exception("Unsupported public key");
+    }
+  }
+
+  ///
+  /// a helper function that converts public keys to their associated
+  /// protobuff representation
+  ///
+  Any _buildKey(keys.iPubKey publicKey) {
+    if (publicKey is multi_sig_keys.AminoPubKey) {
+      final keys = publicKey.publicKeys.map((pubKey) => _buildKey(pubKey));
+
+      return LegacyAminoPubKey(threshold: publicKey.threshold, publicKeys: keys)
+          .toAny();
+    } else if (publicKey is PublicKey) {
+      return PubKey(
+        key: publicKey.compressedPublicKey,
+      ).toAny();
+    } else {
+      throw Exception("Unsupported public key");
+    }
+  }
+
+  ///
+  /// convert a public key into its associated signerInfo object.
+  ///
+  SignerInfo _buildSigningInfo(keys.iPubKey publicKey, BaseAccount account,
+      List<String> signingAddresses) {
+    ModeInfo modeInfo;
+
+    if (publicKey is multi_sig_keys.AminoPubKey) {
+      final compactByteArray = compact.CompactBitArray.newCompactBitArray(
+          publicKey.publicKeys.length);
+
+      // set a mask that indicates which signers have signed the transaction
+      for (var address in signingAddresses) {
+        final index = publicKey.publicKeys
+            .indexWhere((element) => element.address == address);
+        assert(index >= 0 && index < publicKey.publicKeys.length);
+        compactByteArray.setIndex(index, true);
+      }
+
+      final mode = ModeInfo_Single(mode: SignMode.SIGN_MODE_LEGACY_AMINO_JSON);
+      final modeInfoList = signingAddresses.map((_) => ModeInfo(single: mode));
+
+      modeInfo = ModeInfo(
+          multi: ModeInfo_Multi(
+              bitarray: CompactBitArray(
+                  elems: compactByteArray.elems,
+                  extraBitsStored: compactByteArray.extraBitsStored),
+              modeInfos: modeInfoList));
+    } else if (publicKey is PublicKey) {
+      modeInfo =
+          ModeInfo(single: ModeInfo_Single(mode: SignMode.SIGN_MODE_DIRECT));
+    } else {
+      throw Exception("Unsupported public key");
+    }
+
+    final signingKey = _buildKey(publicKey);
+
+    return SignerInfo(
+        sequence: account.sequence, publicKey: signingKey, modeInfo: modeInfo);
   }
 }

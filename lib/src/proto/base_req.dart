@@ -21,6 +21,7 @@ abstract class Signer {
   List<int> sign(List<int> data);
 }
 
+@Deprecated('no longer required. use the native classes now')
 class BaseReqSigner {
   final Signer signer;
   final int sequenceOffset;
@@ -29,6 +30,7 @@ class BaseReqSigner {
   BaseReqSigner(this.signer, this.baseAccount, [this.sequenceOffset = 0]);
 }
 
+@Deprecated('no longer required. use the native classes now')
 class BaseReq {
   List<BaseReqSigner> signers;
   TxBody body;
