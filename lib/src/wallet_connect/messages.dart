@@ -16,11 +16,11 @@ extension ByteCompare on List<int> {
   }
 }
 
-abstract class jsonEncodable {
+abstract class JsonEncodable {
   Map<String, dynamic> toJson();
 }
 
-class EncryptionPayload implements jsonEncodable {
+class EncryptionPayload implements JsonEncodable {
   final List<int> data;
   final List<int> hmac;
   final List<int> iv;
@@ -46,7 +46,7 @@ class EncryptionPayload implements jsonEncodable {
   }
 }
 
-class JsonRequest implements jsonEncodable {
+class JsonRequest implements JsonEncodable {
   final int id;
   final String jsonrpc;
   final String method;
@@ -70,7 +70,7 @@ class JsonRequest implements jsonEncodable {
   }
 }
 
-class JsonRpcResponse implements jsonEncodable {
+class JsonRpcResponse implements JsonEncodable {
   final int? id;
   final String? jsonrpc;
   final dynamic result;
@@ -111,7 +111,7 @@ class JsonRpcResponse implements jsonEncodable {
   }
 }
 
-class Message implements jsonEncodable {
+class Message implements JsonEncodable {
   final String topic;
   final String type;
   final String payload;

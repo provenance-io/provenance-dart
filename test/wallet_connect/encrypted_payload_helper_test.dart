@@ -7,10 +7,10 @@ import 'package:provenance_dart/src/wallet_connect/messages.dart';
 
 import 'dart:math' as math;
 
-class _testEncodable implements jsonEncodable {
+class _TestEncodable implements JsonEncodable {
   final String msg;
 
-  _testEncodable(this.msg);
+  _TestEncodable(this.msg);
 
   @override
   Map<String, dynamic> toJson() {
@@ -49,7 +49,7 @@ main() {
     0xc7
   ];
   final EncryptedPayloadHelper _helper = EncryptedPayloadHelper(key);
-  final encodable = _testEncodable("Test Message");
+  final encodable = _TestEncodable("Test Message");
 
   test('encrypt/decrypt', () {
     final encrypted = _helper.encrypt(encodable);

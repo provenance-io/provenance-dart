@@ -76,7 +76,7 @@ main() {
     });
 
     test("null url", () {
-      final clientMeta = ClientMeta(
+      const clientMeta = ClientMeta(
         description: "A Test Description",
         name: "A Test Name",
       );

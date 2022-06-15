@@ -88,9 +88,9 @@ class _Hex {
 }
 
 class _Base58 {
-  static final List<int> ALPHABET =
+  static final List<int> _alphabet =
       "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz".codeUnits;
-  static final int ENCODED_ZERO = ALPHABET[0];
+  static final int encodedZero = _alphabet[0];
 
   _Base58._();
 
@@ -116,19 +116,19 @@ class _Base58 {
     final encoded = List<int>.filled(data.length * 2, 0);
     var outputStart = encoded.length;
     for (int inputStart = zeros; inputStart < copy.length;) {
-      encoded[--outputStart] = ALPHABET[_divmod(copy, inputStart, 256, 58)];
+      encoded[--outputStart] = _alphabet[_divmod(copy, inputStart, 256, 58)];
       if (copy[inputStart] == 0) {
         ++inputStart; // optimization - skip leading zeros
       }
     }
     // Preserve exactly as many leading encoded zeros in output as there were leading zeros in input.
     while (
-        outputStart < encoded.length && encoded[outputStart] == ENCODED_ZERO) {
+        outputStart < encoded.length && encoded[outputStart] == encodedZero) {
       ++outputStart;
     }
 
     while (--zeros >= 0) {
-      encoded[--outputStart] = ENCODED_ZERO;
+      encoded[--outputStart] = encodedZero;
     }
     // Return encoded string (including encoded leading zeros).
     return String.fromCharCodes(encoded, outputStart);
@@ -139,18 +139,18 @@ class _Base58 {
       return <int>[];
     }
 
-    final INDEXES = List<int>.filled(128, -1);
+    final indexes = List<int>.filled(128, -1);
 
-    <int>[ALPHABET.length];
-    for (int i = 0; i < ALPHABET.length; i++) {
-      INDEXES[ALPHABET[i]] = i;
+    <int>[_alphabet.length];
+    for (int i = 0; i < _alphabet.length; i++) {
+      indexes[_alphabet[i]] = i;
     }
 
     // Convert the base58-encoded ASCII chars to a base58 byte sequence (base58 digits).
     final input58 = List<int>.filled(input.length, 0);
     for (int i = 0; i < input.length; ++i) {
       final c = input.codeUnitAt(i);
-      final digit = c < 128 ? INDEXES[c] : -1;
+      final digit = c < 128 ? indexes[c] : -1;
       if (digit < 0) {
         throw Exception("$c is not a valid character");
       }

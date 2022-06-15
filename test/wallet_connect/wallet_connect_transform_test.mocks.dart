@@ -30,7 +30,7 @@ class MockEncryptedPayloadHelper extends _i1.Mock
   }
 
   @override
-  _i2.EncryptionPayload encrypt(_i2.jsonEncodable? encodable) =>
+  _i2.EncryptionPayload encrypt(_i2.JsonEncodable? encodable) =>
       (super.noSuchMethod(Invocation.method(#encrypt, [encodable]),
           returnValue: _FakeEncryptionPayload_0()) as _i2.EncryptionPayload);
   @override

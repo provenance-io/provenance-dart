@@ -1,5 +1,4 @@
 final _charset = "qpzry9x8gf2tvdw0s3jn54khce6mua7l".codeUnits;
-const _gen = [0x3b6a57b2, 0x26508e6d, 0x1ea119fa, 0x3d4233dd, 0x2a1462b3];
 
 class Bech32Data {
   final String hrp;
@@ -8,11 +7,11 @@ class Bech32Data {
   Bech32Data(this.hrp, this.fiveBitData);
 }
 
-const MIN_VALID_LENGTH = 8;
-const MAX_VALID_LENGTH = 90;
-const MIN_VALID_CODEPOINT = 33;
-const MAX_VALID_CODEPOINT = 126;
-const CHECKSUM_SIZE = 6;
+const minValidLength = 8;
+const maxValidLength = 90;
+const minValidCodepoint = 33;
+const maxValidCodepoint = 126;
+const checksumSize = 6;
 
 class Bech32 {
   String encode(String hrp, List<int> fiveBitData, String seperator) {
@@ -26,26 +25,22 @@ class Bech32 {
   }
 
   Bech32Data? decode(String bech32) {
-    if (bech32.length < MIN_VALID_LENGTH || bech32.length > MAX_VALID_LENGTH) {
-      print("invalid bech32 string length");
+    if (bech32.length < minValidLength || bech32.length > maxValidLength) {
       return null;
     }
 
     if (!bech32.codeUnits
-        .every((c) => c >= MIN_VALID_CODEPOINT && c <= MAX_VALID_CODEPOINT)) {
-      print("invalid characters in bech32: $bech32");
+        .every((c) => c >= minValidCodepoint && c <= maxValidCodepoint)) {
       return null;
     }
 
     if (!(bech32.toLowerCase() == bech32 || bech32.toUpperCase() == bech32)) {
-      print("bech32 must be either all upper or lower case");
       return null;
     }
 
     final oneIndex = bech32.lastIndexOf('1');
 
     if (oneIndex < 1 || oneIndex + 7 > bech32.length) {
-      print("invalid index of '1'");
       return null;
     }
 
@@ -53,29 +48,17 @@ class Bech32 {
     final dataString = bech32.substring(oneIndex + 1).toLowerCase();
 
     if (!dataString.codeUnits.every((c) => _charset.contains(c))) {
-      print("invalid data encoding character in bech32");
       return null;
     }
 
     final dataBytes =
         dataString.codeUnits.map((e) => _charset.indexOf(e)).toList();
-    final fiveByteString =
-        dataString.substring(0, dataString.length - CHECKSUM_SIZE);
-    final checkSumString =
-        dataString.substring(dataString.length - CHECKSUM_SIZE);
-
-    final fiveBytes =
-        fiveByteString.codeUnits.map((e) => _charset.indexOf(e)).toList();
-    final checksum =
-        checkSumString.codeUnits.map((e) => _charset.indexOf(e)).toList();
-    final actualSum = _checksum(hrp, fiveBytes);
 
     if (!(1 == _polymod([..._expandHrp(hrp), ...dataBytes]))) {
-      print("checksum failed: $checksum != $actualSum");
       return null;
     }
     return Bech32Data(
-        hrp, dataBytes.sublist(0, dataBytes.length - CHECKSUM_SIZE));
+        hrp, dataBytes.sublist(0, dataBytes.length - checksumSize));
   }
 
   List<int> _checksum(String hrp, List<int> data) {

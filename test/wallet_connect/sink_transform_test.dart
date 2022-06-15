@@ -33,7 +33,7 @@ class _CapturingSink<X> extends Sink<X> {
   }
 }
 
-class _TestJsonEncode extends jsonEncodable {
+class _TestJsonEncode extends JsonEncodable {
   _TestJsonEncode(this.value);
 
   final String value;
@@ -54,7 +54,7 @@ class _MockEncryptedPayloadHelper implements EncryptedPayloadHelper {
   }
 
   @override
-  EncryptionPayload encrypt(jsonEncodable encodable) {
+  EncryptionPayload encrypt(JsonEncodable encodable) {
     return _result;
   }
 }

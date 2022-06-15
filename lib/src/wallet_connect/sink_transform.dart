@@ -90,7 +90,7 @@ class JsonStreamTransformer
 class PublishSinkMessage {
   PublishSinkMessage._(this.topic, [this.encodable]);
 
-  factory PublishSinkMessage.publish(String topic, jsonEncodable encodable) {
+  factory PublishSinkMessage.publish(String topic, JsonEncodable encodable) {
     return PublishSinkMessage._(topic, encodable);
   }
 
@@ -110,7 +110,7 @@ class PublishSinkMessage {
   }
 
   final String topic;
-  final jsonEncodable? encodable;
+  final JsonEncodable? encodable;
 }
 
 ///
@@ -125,7 +125,7 @@ class PublishSinkTransform
   static Future<Message> _asyncCompute(List<dynamic> args) async {
     final encryptedPayloadHelper = args[0] as EncryptedPayloadHelper;
     final topic = args[1] as String;
-    final payload = ((args.length > 2) ? args[2] : null) as jsonEncodable?;
+    final payload = ((args.length > 2) ? args[2] : null) as JsonEncodable?;
 
     if (payload != null) {
       final encodedMessage = encryptedPayloadHelper.encrypt(payload);

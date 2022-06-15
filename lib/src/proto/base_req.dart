@@ -13,7 +13,7 @@ extension GeneratedMessageToAny on GeneratedMessage {
       Any(typeUrl: "/${info_.qualifiedMessageName}", value: writeToBuffer());
 }
 
-const DEFAULT_GAS_DENOM = "nhash";
+const defaultGasDenom = "nhash";
 
 abstract class Signer {
   String get address;

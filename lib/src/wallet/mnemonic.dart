@@ -16448,9 +16448,9 @@ enum MnemonicStrength { normal, high }
 class Mnemonic {
   Mnemonic._();
 
-  /***
-   * Generate a new recovery phrase.
-   */
+  ///
+  /// Generate a new recovery phrase.
+  ///
   static Iterable<String> random(
       [MnemonicStrength strength = MnemonicStrength.normal,
       WordList language = WordList.english]) {

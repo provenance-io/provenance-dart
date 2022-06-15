@@ -53,10 +53,10 @@ import 'package:provenance_dart/src/proto/proto_gen/provenance/msgfees/v1/query.
 import 'package:provenance_dart/src/proto/raw_tx_response.dart';
 
 class ChannelOpts {
-  final inboundMessageSize; // ~ 20 MB
-  final idleTimeout;
-  final keepAliveTime; // ~ 12 pbc block cuts
-  final keepAliveTimeout;
+  final int inboundMessageSize; // ~ 20 MB
+  final Duration idleTimeout;
+  final Duration keepAliveTime; // ~ 12 pbc block cuts
+  final Duration keepAliveTimeout;
 
   const ChannelOpts(
       {this.inboundMessageSize = 40 * 1024 * 1024,
@@ -184,7 +184,7 @@ class PbClient {
         txBytes: txRaw.writeToBuffer(),
         gasAdjustment: (baseReq.gasAdjustment != null)
             ? baseReq.gasAdjustment
-            : DEFAULT_FEE_ADJUSTMENT);
+            : defaultFeeAdjustment);
 
     return msgFeeClient.calculateTxFees(calculateRequest).then((msgFee) {
       return GasEstimate(
