@@ -4,7 +4,7 @@ import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/keys.dart';
 
-class PublicKey implements iPubKey {
+class PublicKey implements IPubKey {
   final List<int> compressedPublicKey;
   final List<int> uncompressedPublicKey;
   final Coin coin;

@@ -1,9 +1,9 @@
-abstract class iPubKey {
-  iPubKey._();
+abstract class IPubKey {
+  IPubKey._();
   String get address;
 }
 
-abstract class iPrivKey {
-  iPrivKey._();
-  iPubKey get publicKey;
+abstract class IPrivKey {
+  IPrivKey._();
+  IPubKey get publicKey;
 }

@@ -50,7 +50,7 @@ int _keyVersionBytes(KeyTypeVersions keyTypeVersions) {
 const _extendedKeySize = 78;
 const _checksumSize = 4;
 
-class PrivateKey implements iPrivKey {
+class PrivateKey implements IPrivKey {
   final Coin coin;
   final PrivateKeyType _keyType;
   final List<int> raw;

@@ -276,7 +276,7 @@ class PbClient {
   /// estimate the abount of gas required to execute a transaction.
   ///
   Future<GasEstimate> estimateTransactionFees(
-      TxBody transactionBody, Iterable<keys.iPubKey> signers,
+      TxBody transactionBody, Iterable<keys.IPubKey> signers,
       {double? gasAdjustment}) async {
     final signerInfos = await Future.wait(signers.map((publicKey) async {
       final account = await getBaseAccount(publicKey.address);
@@ -319,7 +319,7 @@ class PbClient {
   /// it to the blockchain.
   ///
   Future<RawTxResponsePair> estimateAndBroadcastTransaction(
-      TxBody transactionBody, List<keys.iPrivKey> signers,
+      TxBody transactionBody, List<keys.IPrivKey> signers,
       {double? gasAdjustment, String? feeGranter}) async {
     final publicKeys = signers.map((e) => e.publicKey);
 
@@ -339,7 +339,7 @@ class PbClient {
   /// broadcast messages to the blockchain
   ///
   Future<RawTxResponsePair> broadcastTransaction(
-      TxBody transactionBody, Iterable<keys.iPrivKey> signers, Fee fee,
+      TxBody transactionBody, Iterable<keys.IPrivKey> signers, Fee fee,
       [cosmos_service_pb.BroadcastMode mode =
           cosmos_service_pb.BroadcastMode.BROADCAST_MODE_SYNC]) async {
     final signerInfos = await Future.wait(signers.map((e) async {
@@ -410,7 +410,7 @@ class PbClient {
   /// convert a signature into its associated protobuff object
   /// and then serialize it.
   ///
-  List<int> _buidlSignature(keys.iPrivKey pk, SignDoc signDoc) {
+  List<int> _buidlSignature(keys.IPrivKey pk, SignDoc signDoc) {
     if (pk is multi_sig_keys.AminoPrivKey) {
       final multiSig = MultiSignature(signatures: pk.signatureLookup.values);
       return multiSig.writeToBuffer();
@@ -426,7 +426,7 @@ class PbClient {
   /// a helper function that converts public keys to their associated
   /// protobuff representation
   ///
-  Any _buildKey(keys.iPubKey publicKey) {
+  Any _buildKey(keys.IPubKey publicKey) {
     if (publicKey is multi_sig_keys.AminoPubKey) {
       final keys = publicKey.publicKeys.map((pubKey) => _buildKey(pubKey));
 
@@ -444,7 +444,7 @@ class PbClient {
   ///
   /// convert a public key into its associated signerInfo object.
   ///
-  SignerInfo _buildSigningInfo(keys.iPubKey publicKey, BaseAccount account,
+  SignerInfo _buildSigningInfo(keys.IPubKey publicKey, BaseAccount account,
       List<String> signingAddresses) {
     ModeInfo modeInfo;
 

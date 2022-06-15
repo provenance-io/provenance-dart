@@ -4,7 +4,7 @@ import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/keys.dart';
 import 'package:provenance_dart/src/wallet/public_key.dart';
 
-class AminoPubKey implements iPubKey {
+class AminoPubKey implements IPubKey {
   final List<PublicKey> publicKeys;
   final int threshold;
   final Coin coin;
@@ -52,7 +52,7 @@ class AminoPubKey implements iPubKey {
   }
 }
 
-class AminoPrivKey implements iPrivKey {
+class AminoPrivKey implements IPrivKey {
   final List<PublicKey> publicKeys;
   final int threshold;
   final Map<String, List<int>> signatureLookup;
@@ -70,6 +70,6 @@ class AminoPrivKey implements iPrivKey {
         signatureLookup = Map.unmodifiable(sigLookup);
 
   @override
-  iPubKey get publicKey =>
+  IPubKey get publicKey =>
       AminoPubKey(threshold: threshold, publicKeys: publicKeys, coin: coin);
 }
