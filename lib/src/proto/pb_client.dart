@@ -3,54 +3,52 @@ import 'package:provenance_dart/src/proto/base_req.dart';
 import 'package:provenance_dart/src/proto/gas.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/auth.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/query.pbgrpc.dart'
-    as authQueryPb;
+    as auth_1uery_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/authz/v1beta1/query.pbgrpc.dart'
-    as authzQueryPb;
+    as authz_query_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/bank/v1beta1/query.pbgrpc.dart'
-    as cosmosBankPb;
-
-import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/tx.pb.dart';
+    as cosmos_bank_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/service.pbgrpc.dart'
-    as cosmosServicePb;
+    as cosmos_service_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/base/tendermint/v1beta1/query.pbgrpc.dart'
-    as tindermintServicePb;
+    as tindermint_service_pb;
 import 'package:provenance_dart/src/proto/proto_gen/provenance/attribute/v1/query.pbgrpc.dart'
-    as provenancePb;
+    as provenance_pb;
 import 'package:provenance_dart/src/proto/proto_gen/ibc/core/channel/v1/query.pbgrpc.dart'
-    as ibcChannel;
+    as ibc_channel;
 import 'package:provenance_dart/src/proto/proto_gen/ibc/core/connection/v1/query.pbgrpc.dart'
-    as ibcConnect;
+    as ibc_connect;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/distribution/v1beta1/query.pbgrpc.dart'
-    as distributionPb;
+    as distribution_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/evidence/v1beta1/query.pbgrpc.dart'
-    as evidencePb;
+    as evidence_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/feegrant/v1beta1/query.pbgrpc.dart'
-    as feeGrantPb;
+    as fee_grant_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/gov/v1beta1/query.pbgrpc.dart'
-    as govPb;
+    as gov_pb;
 import 'package:provenance_dart/src/proto/proto_gen/provenance/marker/v1/query.pbgrpc.dart'
-    as provMarkerPb;
+    as prov_marker_pb;
 import 'package:provenance_dart/src/proto/proto_gen/provenance/metadata/v1/query.pbgrpc.dart'
-    as metaDataPb;
+    as meta_data_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/mint/v1beta1/query.pbgrpc.dart'
-    as mintPb;
+    as mint_pb;
 import 'package:provenance_dart/src/proto/proto_gen/provenance/name/v1/query.pbgrpc.dart'
-    as namePb;
+    as name_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/params/v1beta1/query.pbgrpc.dart'
-    as paramsPb;
+    as params_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/slashing/v1beta1/query.pbgrpc.dart'
-    as slashingPb;
+    as slashing_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/staking/v1beta1/query.pbgrpc.dart'
-    as stackingPb;
+    as stacking_pb;
 import 'package:provenance_dart/src/proto/proto_gen/ibc/applications/transfer/v1/query.pbgrpc.dart'
-    as ibcTransferPb;
+    as ibc_transfer_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/upgrade/v1beta1/query.pbgrpc.dart'
-    as cosmosUpgradePb;
+    as cosmos_upgrade_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmwasm/wasm/v1/query.pbgrpc.dart'
-    as cosmwasmPb;
+    as cosmwasm_pb;
 import 'package:provenance_dart/src/proto/proto_gen/provenance/msgfees/v1/query.pbgrpc.dart'
-    as msgFees;
 import 'package:provenance_dart/src/proto/raw_tx_response.dart';
+    as msg_fees;
 
 class ChannelOpts {
   final int inboundMessageSize; // ~ 20 MB
@@ -89,60 +87,68 @@ class PbClient {
     return _channel.shutdown();
   }
 
-  cosmosServicePb.ServiceClient get cosmosService =>
-      cosmosServicePb.ServiceClient(_channel);
+  cosmos_service_pb.ServiceClient get cosmosService =>
+      cosmos_service_pb.ServiceClient(_channel);
 
-  tindermintServicePb.ServiceClient get tindermintService =>
-      tindermintServicePb.ServiceClient(_channel);
+  tindermint_service_pb.ServiceClient get tindermintService =>
+      tindermint_service_pb.ServiceClient(_channel);
 
-  provenancePb.QueryClient get attributeClient =>
-      provenancePb.QueryClient(_channel);
+  provenance_pb.QueryClient get attributeClient =>
+      provenance_pb.QueryClient(_channel);
 
-  authQueryPb.QueryClient get authClient => authQueryPb.QueryClient(_channel);
+  auth_1uery_pb.QueryClient get authClient =>
+      auth_1uery_pb.QueryClient(_channel);
 
-  authzQueryPb.QueryClient get authzClient =>
-      authzQueryPb.QueryClient(_channel);
+  authz_query_pb.QueryClient get authzClient =>
+      authz_query_pb.QueryClient(_channel);
 
-  cosmosBankPb.QueryClient get bankClient => cosmosBankPb.QueryClient(_channel);
+  cosmos_bank_pb.QueryClient get bankClient =>
+      cosmos_bank_pb.QueryClient(_channel);
 
-  ibcChannel.QueryClient get channelClient => ibcChannel.QueryClient(_channel);
+  ibc_channel.QueryClient get channelClient =>
+      ibc_channel.QueryClient(_channel);
 
-  ibcConnect.QueryClient get connectionClient =>
-      ibcConnect.QueryClient(_channel);
+  ibc_connect.QueryClient get connectionClient =>
+      ibc_connect.QueryClient(_channel);
 
-  distributionPb.QueryClient get distributionClient =>
-      distributionPb.QueryClient(_channel);
+  distribution_pb.QueryClient get distributionClient =>
+      distribution_pb.QueryClient(_channel);
 
-  evidencePb.QueryClient get evidenceClient => evidencePb.QueryClient(_channel);
+  evidence_pb.QueryClient get evidenceClient =>
+      evidence_pb.QueryClient(_channel);
 
-  feeGrantPb.QueryClient get feeGrantClient => feeGrantPb.QueryClient(_channel);
+  fee_grant_pb.QueryClient get feeGrantClient =>
+      fee_grant_pb.QueryClient(_channel);
 
-  govPb.QueryClient get govClient => govPb.QueryClient(_channel);
+  gov_pb.QueryClient get govClient => gov_pb.QueryClient(_channel);
 
-  provMarkerPb.QueryClient get markerClient =>
-      provMarkerPb.QueryClient(_channel);
+  prov_marker_pb.QueryClient get markerClient =>
+      prov_marker_pb.QueryClient(_channel);
 
-  msgFees.QueryClient get msgFeeClient => msgFees.QueryClient(_channel);
+  msg_fees.QueryClient get msgFeeClient => msg_fees.QueryClient(_channel);
 
-  metaDataPb.QueryClient get metadataClient => metaDataPb.QueryClient(_channel);
+  meta_data_pb.QueryClient get metadataClient =>
+      meta_data_pb.QueryClient(_channel);
 
-  mintPb.QueryClient get mintClient => mintPb.QueryClient(_channel);
+  mint_pb.QueryClient get mintClient => mint_pb.QueryClient(_channel);
 
-  namePb.QueryClient get nameClient => namePb.QueryClient(_channel);
+  name_pb.QueryClient get nameClient => name_pb.QueryClient(_channel);
 
-  paramsPb.QueryClient get paramsClient => paramsPb.QueryClient(_channel);
+  params_pb.QueryClient get paramsClient => params_pb.QueryClient(_channel);
 
-  slashingPb.QueryClient get slashingClient => slashingPb.QueryClient(_channel);
+  slashing_pb.QueryClient get slashingClient =>
+      slashing_pb.QueryClient(_channel);
 
-  stackingPb.QueryClient get stakingClient => stackingPb.QueryClient(_channel);
+  stacking_pb.QueryClient get stakingClient =>
+      stacking_pb.QueryClient(_channel);
 
-  ibcTransferPb.QueryClient get transferClient =>
-      ibcTransferPb.QueryClient(_channel);
+  ibc_transfer_pb.QueryClient get transferClient =>
+      ibc_transfer_pb.QueryClient(_channel);
 
-  cosmosUpgradePb.QueryClient get upgradeClient =>
-      cosmosUpgradePb.QueryClient(_channel);
+  cosmos_upgrade_pb.QueryClient get upgradeClient =>
+      cosmos_upgrade_pb.QueryClient(_channel);
 
-  cosmwasmPb.QueryClient get wasmClient => cosmwasmPb.QueryClient(_channel);
+  cosmwasm_pb.QueryClient get wasmClient => cosmwasm_pb.QueryClient(_channel);
 
   Future<BaseReq> baseRequest(
     TxBody txBody,
@@ -180,7 +186,7 @@ class PbClient {
         bodyBytes: txBodyBytes,
         signatures: txRawBytes);
 
-    final calculateRequest = msgFees.CalculateTxFeesRequest(
+    final calculateRequest = msg_fees.CalculateTxFeesRequest(
         txBytes: txRaw.writeToBuffer(),
         gasAdjustment: (baseReq.gasAdjustment != null)
             ? baseReq.gasAdjustment
@@ -194,8 +200,8 @@ class PbClient {
 
   Future<RawTxResponsePair> broadcastTx(
       BaseReq baseReq, GasEstimate gasEstimate,
-      [cosmosServicePb.BroadcastMode mode =
-          cosmosServicePb.BroadcastMode.BROADCAST_MODE_SYNC]) async {
+      [cosmos_service_pb.BroadcastMode mode =
+          cosmos_service_pb.BroadcastMode.BROADCAST_MODE_SYNC]) async {
     final authInfoBytes = baseReq.buildAuthInfo(gasEstimate).writeToBuffer();
     final txBodyBytes = baseReq.body.writeToBuffer();
 
@@ -211,7 +217,7 @@ class PbClient {
         bodyBytes: txBodyBytes,
         signatures: txRawBytes);
 
-    final broadcastRequest = cosmosServicePb.BroadcastTxRequest(
+    final broadcastRequest = cosmos_service_pb.BroadcastTxRequest(
         txBytes: txRaw.writeToBuffer(), mode: mode);
 
     return cosmosService
@@ -221,8 +227,8 @@ class PbClient {
 
   Future<RawTxResponsePair> estimateAndBroadcastTx(
       TxBody txBody, List<BaseReqSigner> signers,
-      {cosmosServicePb.BroadcastMode mode =
-          cosmosServicePb.BroadcastMode.BROADCAST_MODE_SYNC,
+      {cosmos_service_pb.BroadcastMode mode =
+          cosmos_service_pb.BroadcastMode.BROADCAST_MODE_SYNC,
       double? gasAdjustment,
       String? feeGranter}) async {
     final request = await baseRequest(txBody, signers,
@@ -234,7 +240,7 @@ class PbClient {
   }
 
   Future<BaseAccount> getBaseAccount(String bech32Address) async {
-    final query = authQueryPb.QueryAccountRequest(address: bech32Address);
+    final query = auth_1uery_pb.QueryAccountRequest(address: bech32Address);
 
     final accountResponse = await authClient.account(query);
 
