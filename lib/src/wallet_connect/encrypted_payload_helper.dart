@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -30,7 +29,7 @@ class EncryptedPayloadHelper {
     _encrypter = Encrypter(AES(_key, mode: AESMode.cbc));
   }
 
-  EncryptionPayload encrypt(jsonEncodable encodable) {
+  EncryptionPayload encrypt(JsonEncodable encodable) {
     final ivBytes = Uint8List.fromList(
         List<int>.generate(16, (_) => math.Random().nextInt(255)));
     final jsonString = jsonEncode(encodable);

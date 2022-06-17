@@ -4,6 +4,7 @@ import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/crypto/encryption/crypto.dart';
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
+import 'package:provenance_dart/src/wallet/keys.dart';
 import 'package:provenance_dart/src/wallet/public_key.dart';
 
 class DerivationNode {
@@ -49,7 +50,7 @@ int _keyVersionBytes(KeyTypeVersions keyTypeVersions) {
 const _extendedKeySize = 78;
 const _checksumSize = 4;
 
-class PrivateKey {
+class PrivateKey implements IPrivKey {
   final Coin coin;
   final PrivateKeyType _keyType;
   final List<int> raw;
@@ -58,6 +59,7 @@ class PrivateKey {
   final int depth;
   final int parentFingerPrint;
 
+  @override
   PublicKey get publicKey => PublicKey.fromPrivateKey(raw, coin);
 
   String get rawHex => Encoding.toHex(raw);
@@ -267,9 +269,9 @@ class PrivateKey {
     return Encoding.toBase58(byteData.buffer.asUint8List());
   }
 
-  /**
-      Returns the preferred wallet path: m/44'/<coin type>'/0'/0/0
-   */
+  ///
+  ///    Returns the preferred wallet path: m/44'/<coin type>'/0'/0/0
+  ///
   PrivateKey defaultKey([int accountNum = 0]) {
     // BIP44 key derivation
     // m/44'

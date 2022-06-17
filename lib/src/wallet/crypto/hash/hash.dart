@@ -77,14 +77,14 @@ class _PKCS5 {
     return ret.sublist(0, _dkLen);
   }
 
-  List<int> _ARR(int i) {
+  List<int> _arr(int i) {
     return [(i >> 24) & 0xff, (i >> 16) & 0xff, (i >> 8) & 0xff, i & 0xff];
   }
 
   // F (P, S, c, i) = U_1 \xor U_2 \xor ... \xor U_c
   // U_1 = PRF (P, S || INT (i))
   List<int>? _calculateBlock(List<int> salt, int blockNum) {
-    var digest = _prf.convert([...salt, ..._ARR(blockNum)]);
+    var digest = _prf.convert([...salt, ..._arr(blockNum)]);
 
     var u = digest.bytes;
     var ret = digest.bytes;

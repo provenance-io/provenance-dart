@@ -2,8 +2,9 @@ import 'package:provenance_dart/src/wallet/crypto/encryption/crypto.dart';
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/coin.dart';
+import 'package:provenance_dart/src/wallet/keys.dart';
 
-class PublicKey {
+class PublicKey implements IPubKey {
   final List<int> compressedPublicKey;
   final List<int> uncompressedPublicKey;
   final Coin coin;
@@ -30,6 +31,7 @@ class PublicKey {
   String get compressedPublicKeyHex => Encoding.toHex(compressedPublicKey);
 
   // NOTE: https://github.com/bitcoin/bips/blob/master/bip-0013.mediawiki
+  @override
   String get address {
     switch (coin) {
       case Coin.mainNet:

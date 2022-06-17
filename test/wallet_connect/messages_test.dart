@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
 
@@ -7,7 +5,7 @@ extension TestMap on Map<String, dynamic> {
   Map<String, dynamic> toJson() => this;
 }
 
-class TestJsonEncodable implements jsonEncodable {
+class TestJsonEncodable implements JsonEncodable {
   final String msg;
   TestJsonEncodable(this.msg);
 

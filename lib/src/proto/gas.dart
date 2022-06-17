@@ -2,7 +2,7 @@
 
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/base/v1beta1/coin.pb.dart';
 
-const DEFAULT_FEE_ADJUSTMENT = 1.25;
+const defaultFeeAdjustment = 1.25;
 
 class GasEstimate {
   final int estimate;
@@ -10,10 +10,10 @@ class GasEstimate {
   final List<Coin>? feeCalculated;
 
   const GasEstimate(this.estimate,
-      [this.feeAdjustment = DEFAULT_FEE_ADJUSTMENT,
+      [this.feeAdjustment = defaultFeeAdjustment,
       this.feeCalculated = const <Coin>[]]);
 
-  double get adjustment => feeAdjustment ?? DEFAULT_FEE_ADJUSTMENT;
+  double get adjustment => feeAdjustment ?? defaultFeeAdjustment;
 
   int get limit => estimate;
 }
