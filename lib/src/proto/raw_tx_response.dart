@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/base/abci/v1beta1/abci.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/tx.pb.dart';
 
@@ -9,8 +11,8 @@ class RawTxResponsePair {
 
   String asJsonString() {
     return """{
-     "txRaw": ${txRaw.writeToJson()}, 
-     "txResponse": ${txResponse.writeToJson()}
+     "txRaw": ${jsonEncode(txRaw.toProto3Json())}, 
+     "txResponse": ${jsonEncode(txResponse.toProto3Json())}
     }""";
   }
 }
