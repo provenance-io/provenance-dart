@@ -98,6 +98,26 @@ const QueryConsensusStatesResponse$json = const {
 
 /// Descriptor for `QueryConsensusStatesResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryConsensusStatesResponseDescriptor = $convert.base64Decode('ChxRdWVyeUNvbnNlbnN1c1N0YXRlc1Jlc3BvbnNlEl0KEGNvbnNlbnN1c19zdGF0ZXMYASADKAsyLC5pYmMuY29yZS5jbGllbnQudjEuQ29uc2Vuc3VzU3RhdGVXaXRoSGVpZ2h0QgTI3h8AUg9jb25zZW5zdXNTdGF0ZXMSRwoKcGFnaW5hdGlvbhgCIAEoCzInLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlc3BvbnNlUgpwYWdpbmF0aW9u');
+@$core.Deprecated('Use queryClientStatusRequestDescriptor instead')
+const QueryClientStatusRequest$json = const {
+  '1': 'QueryClientStatusRequest',
+  '2': const [
+    const {'1': 'client_id', '3': 1, '4': 1, '5': 9, '10': 'clientId'},
+  ],
+};
+
+/// Descriptor for `QueryClientStatusRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryClientStatusRequestDescriptor = $convert.base64Decode('ChhRdWVyeUNsaWVudFN0YXR1c1JlcXVlc3QSGwoJY2xpZW50X2lkGAEgASgJUghjbGllbnRJZA==');
+@$core.Deprecated('Use queryClientStatusResponseDescriptor instead')
+const QueryClientStatusResponse$json = const {
+  '1': 'QueryClientStatusResponse',
+  '2': const [
+    const {'1': 'status', '3': 1, '4': 1, '5': 9, '10': 'status'},
+  ],
+};
+
+/// Descriptor for `QueryClientStatusResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryClientStatusResponseDescriptor = $convert.base64Decode('ChlRdWVyeUNsaWVudFN0YXR1c1Jlc3BvbnNlEhYKBnN0YXR1cxgBIAEoCVIGc3RhdHVz');
 @$core.Deprecated('Use queryClientParamsRequestDescriptor instead')
 const QueryClientParamsRequest$json = const {
   '1': 'QueryClientParamsRequest',
@@ -115,3 +135,37 @@ const QueryClientParamsResponse$json = const {
 
 /// Descriptor for `QueryClientParamsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryClientParamsResponseDescriptor = $convert.base64Decode('ChlRdWVyeUNsaWVudFBhcmFtc1Jlc3BvbnNlEjIKBnBhcmFtcxgBIAEoCzIaLmliYy5jb3JlLmNsaWVudC52MS5QYXJhbXNSBnBhcmFtcw==');
+@$core.Deprecated('Use queryUpgradedClientStateRequestDescriptor instead')
+const QueryUpgradedClientStateRequest$json = const {
+  '1': 'QueryUpgradedClientStateRequest',
+};
+
+/// Descriptor for `QueryUpgradedClientStateRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryUpgradedClientStateRequestDescriptor = $convert.base64Decode('Ch9RdWVyeVVwZ3JhZGVkQ2xpZW50U3RhdGVSZXF1ZXN0');
+@$core.Deprecated('Use queryUpgradedClientStateResponseDescriptor instead')
+const QueryUpgradedClientStateResponse$json = const {
+  '1': 'QueryUpgradedClientStateResponse',
+  '2': const [
+    const {'1': 'upgraded_client_state', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Any', '10': 'upgradedClientState'},
+  ],
+};
+
+/// Descriptor for `QueryUpgradedClientStateResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryUpgradedClientStateResponseDescriptor = $convert.base64Decode('CiBRdWVyeVVwZ3JhZGVkQ2xpZW50U3RhdGVSZXNwb25zZRJIChV1cGdyYWRlZF9jbGllbnRfc3RhdGUYASABKAsyFC5nb29nbGUucHJvdG9idWYuQW55UhN1cGdyYWRlZENsaWVudFN0YXRl');
+@$core.Deprecated('Use queryUpgradedConsensusStateRequestDescriptor instead')
+const QueryUpgradedConsensusStateRequest$json = const {
+  '1': 'QueryUpgradedConsensusStateRequest',
+};
+
+/// Descriptor for `QueryUpgradedConsensusStateRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryUpgradedConsensusStateRequestDescriptor = $convert.base64Decode('CiJRdWVyeVVwZ3JhZGVkQ29uc2Vuc3VzU3RhdGVSZXF1ZXN0');
+@$core.Deprecated('Use queryUpgradedConsensusStateResponseDescriptor instead')
+const QueryUpgradedConsensusStateResponse$json = const {
+  '1': 'QueryUpgradedConsensusStateResponse',
+  '2': const [
+    const {'1': 'upgraded_consensus_state', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Any', '10': 'upgradedConsensusState'},
+  ],
+};
+
+/// Descriptor for `QueryUpgradedConsensusStateResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryUpgradedConsensusStateResponseDescriptor = $convert.base64Decode('CiNRdWVyeVVwZ3JhZGVkQ29uc2Vuc3VzU3RhdGVSZXNwb25zZRJOChh1cGdyYWRlZF9jb25zZW5zdXNfc3RhdGUYASABKAsyFC5nb29nbGUucHJvdG9idWYuQW55UhZ1cGdyYWRlZENvbnNlbnN1c1N0YXRl');

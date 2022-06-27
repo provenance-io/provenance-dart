@@ -1346,6 +1346,7 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'portId')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'channelId')
     ..aOM<$3.PageRequest>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $3.PageRequest.create)
+    ..p<$fixnum.Int64>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packetCommitmentSequences', $pb.PbFieldType.PU6)
     ..hasRequiredFields = false
   ;
 
@@ -1354,6 +1355,7 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
     $core.String? portId,
     $core.String? channelId,
     $3.PageRequest? pagination,
+    $core.Iterable<$fixnum.Int64>? packetCommitmentSequences,
   }) {
     final _result = create();
     if (portId != null) {
@@ -1364,6 +1366,9 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
     }
     if (pagination != null) {
       _result.pagination = pagination;
+    }
+    if (packetCommitmentSequences != null) {
+      _result.packetCommitmentSequences.addAll(packetCommitmentSequences);
     }
     return _result;
   }
@@ -1416,6 +1421,9 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
   void clearPagination() => clearField(3);
   @$pb.TagNumber(3)
   $3.PageRequest ensurePagination() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $core.List<$fixnum.Int64> get packetCommitmentSequences => $_getList(3);
 }
 
 class QueryPacketAcknowledgementsResponse extends $pb.GeneratedMessage {

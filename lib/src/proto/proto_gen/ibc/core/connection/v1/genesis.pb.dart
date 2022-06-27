@@ -17,6 +17,7 @@ class GenesisState extends $pb.GeneratedMessage {
     ..pc<$0.IdentifiedConnection>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'connections', $pb.PbFieldType.PM, subBuilder: $0.IdentifiedConnection.create)
     ..pc<$0.ConnectionPaths>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientConnectionPaths', $pb.PbFieldType.PM, subBuilder: $0.ConnectionPaths.create)
     ..a<$fixnum.Int64>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextConnectionSequence', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$0.Params>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'params', subBuilder: $0.Params.create)
     ..hasRequiredFields = false
   ;
 
@@ -25,6 +26,7 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.Iterable<$0.IdentifiedConnection>? connections,
     $core.Iterable<$0.ConnectionPaths>? clientConnectionPaths,
     $fixnum.Int64? nextConnectionSequence,
+    $0.Params? params,
   }) {
     final _result = create();
     if (connections != null) {
@@ -35,6 +37,9 @@ class GenesisState extends $pb.GeneratedMessage {
     }
     if (nextConnectionSequence != null) {
       _result.nextConnectionSequence = nextConnectionSequence;
+    }
+    if (params != null) {
+      _result.params = params;
     }
     return _result;
   }
@@ -73,5 +78,16 @@ class GenesisState extends $pb.GeneratedMessage {
   $core.bool hasNextConnectionSequence() => $_has(2);
   @$pb.TagNumber(3)
   void clearNextConnectionSequence() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $0.Params get params => $_getN(3);
+  @$pb.TagNumber(4)
+  set params($0.Params v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasParams() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearParams() => clearField(4);
+  @$pb.TagNumber(4)
+  $0.Params ensureParams() => $_ensure(3);
 }
 
