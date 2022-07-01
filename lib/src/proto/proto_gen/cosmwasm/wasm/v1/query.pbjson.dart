@@ -209,14 +209,21 @@ const QuerySmartContractStateRequest$json = const {
   '1': 'QuerySmartContractStateRequest',
   '2': const [
     const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
-    const {'1': 'query_data', '3': 2, '4': 1, '5': 12, '10': 'queryData'},
+    const {
+      '1': 'query_data',
+      '3': 2,
+      '4': 1,
+      '5': 12,
+      '8': const {},
+      '10': 'queryData'
+    },
   ],
 };
 
 /// Descriptor for `QuerySmartContractStateRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List querySmartContractStateRequestDescriptor =
     $convert.base64Decode(
-        'Ch5RdWVyeVNtYXJ0Q29udHJhY3RTdGF0ZVJlcXVlc3QSGAoHYWRkcmVzcxgBIAEoCVIHYWRkcmVzcxIdCgpxdWVyeV9kYXRhGAIgASgMUglxdWVyeURhdGE=');
+        'Ch5RdWVyeVNtYXJ0Q29udHJhY3RTdGF0ZVJlcXVlc3QSGAoHYWRkcmVzcxgBIAEoCVIHYWRkcmVzcxI1CgpxdWVyeV9kYXRhGAIgASgMQhb63h8SUmF3Q29udHJhY3RNZXNzYWdlUglxdWVyeURhdGE=');
 @$core.Deprecated('Use querySmartContractStateResponseDescriptor instead')
 const QuerySmartContractStateResponse$json = const {
   '1': 'QuerySmartContractStateResponse',
@@ -228,7 +235,7 @@ const QuerySmartContractStateResponse$json = const {
 /// Descriptor for `QuerySmartContractStateResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List querySmartContractStateResponseDescriptor =
     $convert.base64Decode(
-        'Ch9RdWVyeVNtYXJ0Q29udHJhY3RTdGF0ZVJlc3BvbnNlEjAKBGRhdGEYASABKAxCHPreHxhlbmNvZGluZy9qc29uLlJhd01lc3NhZ2VSBGRhdGE=');
+        'Ch9RdWVyeVNtYXJ0Q29udHJhY3RTdGF0ZVJlc3BvbnNlEioKBGRhdGEYASABKAxCFvreHxJSYXdDb250cmFjdE1lc3NhZ2VSBGRhdGE=');
 @$core.Deprecated('Use queryCodeRequestDescriptor instead')
 const QueryCodeRequest$json = const {
   '1': 'QueryCodeRequest',
@@ -338,3 +345,49 @@ const QueryCodesResponse$json = const {
 /// Descriptor for `QueryCodesResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryCodesResponseDescriptor = $convert.base64Decode(
     'ChJRdWVyeUNvZGVzUmVzcG9uc2USRwoKY29kZV9pbmZvcxgBIAMoCzIiLmNvc213YXNtLndhc20udjEuQ29kZUluZm9SZXNwb25zZUIEyN4fAFIJY29kZUluZm9zEkcKCnBhZ2luYXRpb24YAiABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbg==');
+@$core.Deprecated('Use queryPinnedCodesRequestDescriptor instead')
+const QueryPinnedCodesRequest$json = const {
+  '1': 'QueryPinnedCodesRequest',
+  '2': const [
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageRequest',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryPinnedCodesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryPinnedCodesRequestDescriptor =
+    $convert.base64Decode(
+        'ChdRdWVyeVBpbm5lZENvZGVzUmVxdWVzdBJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+@$core.Deprecated('Use queryPinnedCodesResponseDescriptor instead')
+const QueryPinnedCodesResponse$json = const {
+  '1': 'QueryPinnedCodesResponse',
+  '2': const [
+    const {
+      '1': 'code_ids',
+      '3': 1,
+      '4': 3,
+      '5': 4,
+      '8': const {},
+      '10': 'codeIds'
+    },
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageResponse',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryPinnedCodesResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryPinnedCodesResponseDescriptor =
+    $convert.base64Decode(
+        'ChhRdWVyeVBpbm5lZENvZGVzUmVzcG9uc2USKgoIY29kZV9pZHMYASADKARCD8jeHwDi3h8HQ29kZUlEc1IHY29kZUlkcxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');

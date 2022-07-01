@@ -63,6 +63,12 @@ class QueryClient extends $grpc.Client {
           ($0.QueryCodesRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.QueryCodesResponse.fromBuffer(value));
+  static final _$pinnedCodes = $grpc.ClientMethod<$0.QueryPinnedCodesRequest,
+          $0.QueryPinnedCodesResponse>(
+      '/cosmwasm.wasm.v1.Query/PinnedCodes',
+      ($0.QueryPinnedCodesRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryPinnedCodesResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -114,6 +120,12 @@ class QueryClient extends $grpc.Client {
       $0.QueryCodesRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$codes, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.QueryPinnedCodesResponse> pinnedCodes(
+      $0.QueryPinnedCodesRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$pinnedCodes, request, options: options);
   }
 }
 
@@ -189,6 +201,15 @@ abstract class QueryServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.QueryCodesRequest.fromBuffer(value),
         ($0.QueryCodesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryPinnedCodesRequest,
+            $0.QueryPinnedCodesResponse>(
+        'PinnedCodes',
+        pinnedCodes_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryPinnedCodesRequest.fromBuffer(value),
+        ($0.QueryPinnedCodesResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryContractInfoResponse> contractInfo_Pre(
@@ -237,6 +258,12 @@ abstract class QueryServiceBase extends $grpc.Service {
     return codes(call, await request);
   }
 
+  $async.Future<$0.QueryPinnedCodesResponse> pinnedCodes_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryPinnedCodesRequest> request) async {
+    return pinnedCodes(call, await request);
+  }
+
   $async.Future<$0.QueryContractInfoResponse> contractInfo(
       $grpc.ServiceCall call, $0.QueryContractInfoRequest request);
   $async.Future<$0.QueryContractHistoryResponse> contractHistory(
@@ -253,4 +280,6 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.QueryCodeRequest request);
   $async.Future<$0.QueryCodesResponse> codes(
       $grpc.ServiceCall call, $0.QueryCodesRequest request);
+  $async.Future<$0.QueryPinnedCodesResponse> pinnedCodes(
+      $grpc.ServiceCall call, $0.QueryPinnedCodesRequest request);
 }

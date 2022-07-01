@@ -866,7 +866,12 @@ class FieldDescriptorProto extends $pb.GeneratedMessage {
         10,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'jsonName');
+            : 'jsonName')
+    ..aOB(
+        17,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'proto3Optional');
 
   FieldDescriptorProto._() : super();
   factory FieldDescriptorProto({
@@ -880,6 +885,7 @@ class FieldDescriptorProto extends $pb.GeneratedMessage {
     FieldOptions? options,
     $core.int? oneofIndex,
     $core.String? jsonName,
+    $core.bool? proto3Optional,
   }) {
     final _result = create();
     if (name != null) {
@@ -911,6 +917,9 @@ class FieldDescriptorProto extends $pb.GeneratedMessage {
     }
     if (jsonName != null) {
       _result.jsonName = jsonName;
+    }
+    if (proto3Optional != null) {
+      _result.proto3Optional = proto3Optional;
     }
     return _result;
   }
@@ -1063,6 +1072,18 @@ class FieldDescriptorProto extends $pb.GeneratedMessage {
   $core.bool hasJsonName() => $_has(9);
   @$pb.TagNumber(10)
   void clearJsonName() => clearField(10);
+
+  @$pb.TagNumber(17)
+  $core.bool get proto3Optional => $_getBF(10);
+  @$pb.TagNumber(17)
+  set proto3Optional($core.bool v) {
+    $_setBool(10, v);
+  }
+
+  @$pb.TagNumber(17)
+  $core.bool hasProto3Optional() => $_has(10);
+  @$pb.TagNumber(17)
+  void clearProto3Optional() => clearField(17);
 }
 
 class OneofDescriptorProto extends $pb.GeneratedMessage {
@@ -1848,11 +1869,13 @@ class FileOptions extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'javaStringCheckUtf8')
-    ..aOB(
+    ..a<$core.bool>(
         31,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'ccEnableArenas')
+            : 'ccEnableArenas',
+        $pb.PbFieldType.OB,
+        defaultOrMaker: true)
     ..aOS(
         36,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2157,7 +2180,7 @@ class FileOptions extends $pb.GeneratedMessage {
   void clearJavaStringCheckUtf8() => clearField(27);
 
   @$pb.TagNumber(31)
-  $core.bool get ccEnableArenas => $_getBF(11);
+  $core.bool get ccEnableArenas => $_getB(11, true);
   @$pb.TagNumber(31)
   set ccEnableArenas($core.bool v) {
     $_setBool(11, v);

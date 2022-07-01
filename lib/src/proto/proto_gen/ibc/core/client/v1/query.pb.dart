@@ -799,6 +799,144 @@ class QueryConsensusStatesResponse extends $pb.GeneratedMessage {
   $3.PageResponse ensurePagination() => $_ensure(1);
 }
 
+class QueryClientStatusRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryClientStatusRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'clientId')
+    ..hasRequiredFields = false;
+
+  QueryClientStatusRequest._() : super();
+  factory QueryClientStatusRequest({
+    $core.String? clientId,
+  }) {
+    final _result = create();
+    if (clientId != null) {
+      _result.clientId = clientId;
+    }
+    return _result;
+  }
+  factory QueryClientStatusRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryClientStatusRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryClientStatusRequest clone() =>
+      QueryClientStatusRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryClientStatusRequest copyWith(
+          void Function(QueryClientStatusRequest) updates) =>
+      super.copyWith((message) => updates(message as QueryClientStatusRequest))
+          as QueryClientStatusRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryClientStatusRequest create() => QueryClientStatusRequest._();
+  QueryClientStatusRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryClientStatusRequest> createRepeated() =>
+      $pb.PbList<QueryClientStatusRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryClientStatusRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryClientStatusRequest>(create);
+  static QueryClientStatusRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get clientId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set clientId($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasClientId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearClientId() => clearField(1);
+}
+
+class QueryClientStatusResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryClientStatusResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'status')
+    ..hasRequiredFields = false;
+
+  QueryClientStatusResponse._() : super();
+  factory QueryClientStatusResponse({
+    $core.String? status,
+  }) {
+    final _result = create();
+    if (status != null) {
+      _result.status = status;
+    }
+    return _result;
+  }
+  factory QueryClientStatusResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryClientStatusResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryClientStatusResponse clone() =>
+      QueryClientStatusResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryClientStatusResponse copyWith(
+          void Function(QueryClientStatusResponse) updates) =>
+      super.copyWith((message) => updates(message as QueryClientStatusResponse))
+          as QueryClientStatusResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryClientStatusResponse create() => QueryClientStatusResponse._();
+  QueryClientStatusResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryClientStatusResponse> createRepeated() =>
+      $pb.PbList<QueryClientStatusResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryClientStatusResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryClientStatusResponse>(create);
+  static QueryClientStatusResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get status => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set status($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
+}
+
 class QueryClientParamsRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
@@ -913,4 +1051,249 @@ class QueryClientParamsResponse extends $pb.GeneratedMessage {
   void clearParams() => clearField(1);
   @$pb.TagNumber(1)
   $2.Params ensureParams() => $_ensure(0);
+}
+
+class QueryUpgradedClientStateRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryUpgradedClientStateRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  QueryUpgradedClientStateRequest._() : super();
+  factory QueryUpgradedClientStateRequest() => create();
+  factory QueryUpgradedClientStateRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryUpgradedClientStateRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryUpgradedClientStateRequest clone() =>
+      QueryUpgradedClientStateRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryUpgradedClientStateRequest copyWith(
+          void Function(QueryUpgradedClientStateRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryUpgradedClientStateRequest))
+          as QueryUpgradedClientStateRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryUpgradedClientStateRequest create() =>
+      QueryUpgradedClientStateRequest._();
+  QueryUpgradedClientStateRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryUpgradedClientStateRequest> createRepeated() =>
+      $pb.PbList<QueryUpgradedClientStateRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryUpgradedClientStateRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryUpgradedClientStateRequest>(
+          create);
+  static QueryUpgradedClientStateRequest? _defaultInstance;
+}
+
+class QueryUpgradedClientStateResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryUpgradedClientStateResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Any>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'upgradedClientState',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
+  QueryUpgradedClientStateResponse._() : super();
+  factory QueryUpgradedClientStateResponse({
+    $1.Any? upgradedClientState,
+  }) {
+    final _result = create();
+    if (upgradedClientState != null) {
+      _result.upgradedClientState = upgradedClientState;
+    }
+    return _result;
+  }
+  factory QueryUpgradedClientStateResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryUpgradedClientStateResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryUpgradedClientStateResponse clone() =>
+      QueryUpgradedClientStateResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryUpgradedClientStateResponse copyWith(
+          void Function(QueryUpgradedClientStateResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryUpgradedClientStateResponse))
+          as QueryUpgradedClientStateResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryUpgradedClientStateResponse create() =>
+      QueryUpgradedClientStateResponse._();
+  QueryUpgradedClientStateResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryUpgradedClientStateResponse> createRepeated() =>
+      $pb.PbList<QueryUpgradedClientStateResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryUpgradedClientStateResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryUpgradedClientStateResponse>(
+          create);
+  static QueryUpgradedClientStateResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $1.Any get upgradedClientState => $_getN(0);
+  @$pb.TagNumber(1)
+  set upgradedClientState($1.Any v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasUpgradedClientState() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUpgradedClientState() => clearField(1);
+  @$pb.TagNumber(1)
+  $1.Any ensureUpgradedClientState() => $_ensure(0);
+}
+
+class QueryUpgradedConsensusStateRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryUpgradedConsensusStateRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  QueryUpgradedConsensusStateRequest._() : super();
+  factory QueryUpgradedConsensusStateRequest() => create();
+  factory QueryUpgradedConsensusStateRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryUpgradedConsensusStateRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryUpgradedConsensusStateRequest clone() =>
+      QueryUpgradedConsensusStateRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryUpgradedConsensusStateRequest copyWith(
+          void Function(QueryUpgradedConsensusStateRequest) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryUpgradedConsensusStateRequest))
+          as QueryUpgradedConsensusStateRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryUpgradedConsensusStateRequest create() =>
+      QueryUpgradedConsensusStateRequest._();
+  QueryUpgradedConsensusStateRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryUpgradedConsensusStateRequest> createRepeated() =>
+      $pb.PbList<QueryUpgradedConsensusStateRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryUpgradedConsensusStateRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryUpgradedConsensusStateRequest>(
+          create);
+  static QueryUpgradedConsensusStateRequest? _defaultInstance;
+}
+
+class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryUpgradedConsensusStateResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Any>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'upgradedConsensusState',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
+  QueryUpgradedConsensusStateResponse._() : super();
+  factory QueryUpgradedConsensusStateResponse({
+    $1.Any? upgradedConsensusState,
+  }) {
+    final _result = create();
+    if (upgradedConsensusState != null) {
+      _result.upgradedConsensusState = upgradedConsensusState;
+    }
+    return _result;
+  }
+  factory QueryUpgradedConsensusStateResponse.fromBuffer(
+          $core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryUpgradedConsensusStateResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryUpgradedConsensusStateResponse clone() =>
+      QueryUpgradedConsensusStateResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryUpgradedConsensusStateResponse copyWith(
+          void Function(QueryUpgradedConsensusStateResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryUpgradedConsensusStateResponse))
+          as QueryUpgradedConsensusStateResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryUpgradedConsensusStateResponse create() =>
+      QueryUpgradedConsensusStateResponse._();
+  QueryUpgradedConsensusStateResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryUpgradedConsensusStateResponse> createRepeated() =>
+      $pb.PbList<QueryUpgradedConsensusStateResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryUpgradedConsensusStateResponse getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          QueryUpgradedConsensusStateResponse>(create);
+  static QueryUpgradedConsensusStateResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $1.Any get upgradedConsensusState => $_getN(0);
+  @$pb.TagNumber(1)
+  set upgradedConsensusState($1.Any v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasUpgradedConsensusState() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUpgradedConsensusState() => clearField(1);
+  @$pb.TagNumber(1)
+  $1.Any ensureUpgradedConsensusState() => $_ensure(0);
 }

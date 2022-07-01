@@ -9,7 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../../confio/proofs.pb.dart' as $0;
+import '../../../../proofs.pb.dart' as $0;
 
 class MerkleRoot extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(

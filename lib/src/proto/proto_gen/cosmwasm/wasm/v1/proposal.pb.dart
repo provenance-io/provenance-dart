@@ -403,11 +403,6 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
             ? ''
             : 'description')
     ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'runAs')
-    ..aOS(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -431,7 +426,6 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   factory MigrateContractProposal({
     $core.String? title,
     $core.String? description,
-    $core.String? runAs,
     $core.String? contract,
     $fixnum.Int64? codeId,
     $core.List<$core.int>? msg,
@@ -442,9 +436,6 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
     }
     if (description != null) {
       _result.description = description;
-    }
-    if (runAs != null) {
-      _result.runAs = runAs;
     }
     if (contract != null) {
       _result.contract = contract;
@@ -510,6 +501,303 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  @$pb.TagNumber(4)
+  $core.String get contract => $_getSZ(2);
+  @$pb.TagNumber(4)
+  set contract($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasContract() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearContract() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get codeId => $_getI64(3);
+  @$pb.TagNumber(5)
+  set codeId($fixnum.Int64 v) {
+    $_setInt64(3, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasCodeId() => $_has(3);
+  @$pb.TagNumber(5)
+  void clearCodeId() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.List<$core.int> get msg => $_getN(4);
+  @$pb.TagNumber(6)
+  set msg($core.List<$core.int> v) {
+    $_setBytes(4, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasMsg() => $_has(4);
+  @$pb.TagNumber(6)
+  void clearMsg() => clearField(6);
+}
+
+class SudoContractProposal extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SudoContractProposal',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'title')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'description')
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'contract')
+    ..a<$core.List<$core.int>>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'msg',
+        $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
+  SudoContractProposal._() : super();
+  factory SudoContractProposal({
+    $core.String? title,
+    $core.String? description,
+    $core.String? contract,
+    $core.List<$core.int>? msg,
+  }) {
+    final _result = create();
+    if (title != null) {
+      _result.title = title;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    if (contract != null) {
+      _result.contract = contract;
+    }
+    if (msg != null) {
+      _result.msg = msg;
+    }
+    return _result;
+  }
+  factory SudoContractProposal.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SudoContractProposal.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SudoContractProposal clone() =>
+      SudoContractProposal()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SudoContractProposal copyWith(void Function(SudoContractProposal) updates) =>
+      super.copyWith((message) => updates(message as SudoContractProposal))
+          as SudoContractProposal; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SudoContractProposal create() => SudoContractProposal._();
+  SudoContractProposal createEmptyInstance() => create();
+  static $pb.PbList<SudoContractProposal> createRepeated() =>
+      $pb.PbList<SudoContractProposal>();
+  @$core.pragma('dart2js:noInline')
+  static SudoContractProposal getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SudoContractProposal>(create);
+  static SudoContractProposal? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get title => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set title($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasTitle() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTitle() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set description($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDescription() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get contract => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set contract($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasContract() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearContract() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<$core.int> get msg => $_getN(3);
+  @$pb.TagNumber(4)
+  set msg($core.List<$core.int> v) {
+    $_setBytes(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasMsg() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMsg() => clearField(4);
+}
+
+class ExecuteContractProposal extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ExecuteContractProposal',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'title')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'description')
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'runAs')
+    ..aOS(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'contract')
+    ..a<$core.List<$core.int>>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'msg',
+        $pb.PbFieldType.OY)
+    ..pc<$1.Coin>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'funds',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..hasRequiredFields = false;
+
+  ExecuteContractProposal._() : super();
+  factory ExecuteContractProposal({
+    $core.String? title,
+    $core.String? description,
+    $core.String? runAs,
+    $core.String? contract,
+    $core.List<$core.int>? msg,
+    $core.Iterable<$1.Coin>? funds,
+  }) {
+    final _result = create();
+    if (title != null) {
+      _result.title = title;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    if (runAs != null) {
+      _result.runAs = runAs;
+    }
+    if (contract != null) {
+      _result.contract = contract;
+    }
+    if (msg != null) {
+      _result.msg = msg;
+    }
+    if (funds != null) {
+      _result.funds.addAll(funds);
+    }
+    return _result;
+  }
+  factory ExecuteContractProposal.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ExecuteContractProposal.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ExecuteContractProposal clone() =>
+      ExecuteContractProposal()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ExecuteContractProposal copyWith(
+          void Function(ExecuteContractProposal) updates) =>
+      super.copyWith((message) => updates(message as ExecuteContractProposal))
+          as ExecuteContractProposal; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ExecuteContractProposal create() => ExecuteContractProposal._();
+  ExecuteContractProposal createEmptyInstance() => create();
+  static $pb.PbList<ExecuteContractProposal> createRepeated() =>
+      $pb.PbList<ExecuteContractProposal>();
+  @$core.pragma('dart2js:noInline')
+  static ExecuteContractProposal getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ExecuteContractProposal>(create);
+  static ExecuteContractProposal? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get title => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set title($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasTitle() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTitle() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set description($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDescription() => clearField(2);
+
   @$pb.TagNumber(3)
   $core.String get runAs => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -535,28 +823,19 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   void clearContract() => clearField(4);
 
   @$pb.TagNumber(5)
-  $fixnum.Int64 get codeId => $_getI64(4);
+  $core.List<$core.int> get msg => $_getN(4);
   @$pb.TagNumber(5)
-  set codeId($fixnum.Int64 v) {
-    $_setInt64(4, v);
-  }
-
-  @$pb.TagNumber(5)
-  $core.bool hasCodeId() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearCodeId() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.List<$core.int> get msg => $_getN(5);
-  @$pb.TagNumber(6)
   set msg($core.List<$core.int> v) {
-    $_setBytes(5, v);
+    $_setBytes(4, v);
   }
 
+  @$pb.TagNumber(5)
+  $core.bool hasMsg() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMsg() => clearField(5);
+
   @$pb.TagNumber(6)
-  $core.bool hasMsg() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearMsg() => clearField(6);
+  $core.List<$1.Coin> get funds => $_getList(5);
 }
 
 class UpdateAdminProposal extends $pb.GeneratedMessage {

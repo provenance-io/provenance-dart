@@ -38,12 +38,32 @@ class QueryClient extends $grpc.Client {
       ($0.QueryConsensusStatesRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.QueryConsensusStatesResponse.fromBuffer(value));
+  static final _$clientStatus = $grpc.ClientMethod<$0.QueryClientStatusRequest,
+          $0.QueryClientStatusResponse>(
+      '/ibc.core.client.v1.Query/ClientStatus',
+      ($0.QueryClientStatusRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryClientStatusResponse.fromBuffer(value));
   static final _$clientParams = $grpc.ClientMethod<$0.QueryClientParamsRequest,
           $0.QueryClientParamsResponse>(
       '/ibc.core.client.v1.Query/ClientParams',
       ($0.QueryClientParamsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.QueryClientParamsResponse.fromBuffer(value));
+  static final _$upgradedClientState = $grpc.ClientMethod<
+          $0.QueryUpgradedClientStateRequest,
+          $0.QueryUpgradedClientStateResponse>(
+      '/ibc.core.client.v1.Query/UpgradedClientState',
+      ($0.QueryUpgradedClientStateRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryUpgradedClientStateResponse.fromBuffer(value));
+  static final _$upgradedConsensusState = $grpc.ClientMethod<
+          $0.QueryUpgradedConsensusStateRequest,
+          $0.QueryUpgradedConsensusStateResponse>(
+      '/ibc.core.client.v1.Query/UpgradedConsensusState',
+      ($0.QueryUpgradedConsensusStateRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryUpgradedConsensusStateResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -74,10 +94,29 @@ class QueryClient extends $grpc.Client {
     return $createUnaryCall(_$consensusStates, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.QueryClientStatusResponse> clientStatus(
+      $0.QueryClientStatusRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$clientStatus, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.QueryClientParamsResponse> clientParams(
       $0.QueryClientParamsRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$clientParams, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.QueryUpgradedClientStateResponse> upgradedClientState(
+      $0.QueryUpgradedClientStateRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$upgradedClientState, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.QueryUpgradedConsensusStateResponse>
+      upgradedConsensusState($0.QueryUpgradedConsensusStateRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$upgradedConsensusState, request,
+        options: options);
   }
 }
 
@@ -121,6 +160,15 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.QueryConsensusStatesRequest.fromBuffer(value),
         ($0.QueryConsensusStatesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryClientStatusRequest,
+            $0.QueryClientStatusResponse>(
+        'ClientStatus',
+        clientStatus_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryClientStatusRequest.fromBuffer(value),
+        ($0.QueryClientStatusResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.QueryClientParamsRequest,
             $0.QueryClientParamsResponse>(
         'ClientParams',
@@ -130,6 +178,25 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.QueryClientParamsRequest.fromBuffer(value),
         ($0.QueryClientParamsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryUpgradedClientStateRequest,
+            $0.QueryUpgradedClientStateResponse>(
+        'UpgradedClientState',
+        upgradedClientState_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryUpgradedClientStateRequest.fromBuffer(value),
+        ($0.QueryUpgradedClientStateResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryUpgradedConsensusStateRequest,
+            $0.QueryUpgradedConsensusStateResponse>(
+        'UpgradedConsensusState',
+        upgradedConsensusState_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryUpgradedConsensusStateRequest.fromBuffer(value),
+        ($0.QueryUpgradedConsensusStateResponse value) =>
+            value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryClientStateResponse> clientState_Pre(
@@ -156,10 +223,28 @@ abstract class QueryServiceBase extends $grpc.Service {
     return consensusStates(call, await request);
   }
 
+  $async.Future<$0.QueryClientStatusResponse> clientStatus_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryClientStatusRequest> request) async {
+    return clientStatus(call, await request);
+  }
+
   $async.Future<$0.QueryClientParamsResponse> clientParams_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.QueryClientParamsRequest> request) async {
     return clientParams(call, await request);
+  }
+
+  $async.Future<$0.QueryUpgradedClientStateResponse> upgradedClientState_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryUpgradedClientStateRequest> request) async {
+    return upgradedClientState(call, await request);
+  }
+
+  $async.Future<$0.QueryUpgradedConsensusStateResponse>
+      upgradedConsensusState_Pre($grpc.ServiceCall call,
+          $async.Future<$0.QueryUpgradedConsensusStateRequest> request) async {
+    return upgradedConsensusState(call, await request);
   }
 
   $async.Future<$0.QueryClientStateResponse> clientState(
@@ -170,6 +255,12 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.QueryConsensusStateRequest request);
   $async.Future<$0.QueryConsensusStatesResponse> consensusStates(
       $grpc.ServiceCall call, $0.QueryConsensusStatesRequest request);
+  $async.Future<$0.QueryClientStatusResponse> clientStatus(
+      $grpc.ServiceCall call, $0.QueryClientStatusRequest request);
   $async.Future<$0.QueryClientParamsResponse> clientParams(
       $grpc.ServiceCall call, $0.QueryClientParamsRequest request);
+  $async.Future<$0.QueryUpgradedClientStateResponse> upgradedClientState(
+      $grpc.ServiceCall call, $0.QueryUpgradedClientStateRequest request);
+  $async.Future<$0.QueryUpgradedConsensusStateResponse> upgradedConsensusState(
+      $grpc.ServiceCall call, $0.QueryUpgradedConsensusStateRequest request);
 }

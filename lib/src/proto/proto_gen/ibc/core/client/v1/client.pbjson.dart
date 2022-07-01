@@ -99,20 +99,20 @@ const ClientUpdateProposal$json = const {
     const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
     const {
-      '1': 'client_id',
+      '1': 'subject_client_id',
       '3': 3,
       '4': 1,
       '5': 9,
       '8': const {},
-      '10': 'clientId'
+      '10': 'subjectClientId'
     },
     const {
-      '1': 'header',
+      '1': 'substitute_client_id',
       '3': 4,
       '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Any',
-      '10': 'header'
+      '5': 9,
+      '8': const {},
+      '10': 'substituteClientId'
     },
   ],
   '7': const {},
@@ -120,7 +120,38 @@ const ClientUpdateProposal$json = const {
 
 /// Descriptor for `ClientUpdateProposal`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List clientUpdateProposalDescriptor = $convert.base64Decode(
-    'ChRDbGllbnRVcGRhdGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEjEKCWNsaWVudF9pZBgDIAEoCUIU8t4fEHlhbWw6ImNsaWVudF9pZCJSCGNsaWVudElkEiwKBmhlYWRlchgEIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlSBmhlYWRlcjoEiKAfAA==');
+    'ChRDbGllbnRVcGRhdGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEkgKEXN1YmplY3RfY2xpZW50X2lkGAMgASgJQhzy3h8YeWFtbDoic3ViamVjdF9jbGllbnRfaWQiUg9zdWJqZWN0Q2xpZW50SWQSUQoUc3Vic3RpdHV0ZV9jbGllbnRfaWQYBCABKAlCH/LeHxt5YW1sOiJzdWJzdGl0dXRlX2NsaWVudF9pZCJSEnN1YnN0aXR1dGVDbGllbnRJZDoEiKAfAA==');
+@$core.Deprecated('Use upgradeProposalDescriptor instead')
+const UpgradeProposal$json = const {
+  '1': 'UpgradeProposal',
+  '2': const [
+    const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
+    const {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
+    const {
+      '1': 'plan',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.upgrade.v1beta1.Plan',
+      '8': const {},
+      '10': 'plan'
+    },
+    const {
+      '1': 'upgraded_client_state',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Any',
+      '8': const {},
+      '10': 'upgradedClientState'
+    },
+  ],
+  '7': const {},
+};
+
+/// Descriptor for `UpgradeProposal`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List upgradeProposalDescriptor = $convert.base64Decode(
+    'Cg9VcGdyYWRlUHJvcG9zYWwSFAoFdGl0bGUYASABKAlSBXRpdGxlEiAKC2Rlc2NyaXB0aW9uGAIgASgJUgtkZXNjcmlwdGlvbhI2CgRwbGFuGAMgASgLMhwuY29zbW9zLnVwZ3JhZGUudjFiZXRhMS5QbGFuQgTI3h8AUgRwbGFuEmoKFXVwZ3JhZGVkX2NsaWVudF9zdGF0ZRgEIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCIPLeHxx5YW1sOiJ1cGdyYWRlZF9jbGllbnRfc3RhdGUiUhN1cGdyYWRlZENsaWVudFN0YXRlOgyIoB8AmKAfAOigHwE=');
 @$core.Deprecated('Use heightDescriptor instead')
 const Height$json = const {
   '1': 'Height',

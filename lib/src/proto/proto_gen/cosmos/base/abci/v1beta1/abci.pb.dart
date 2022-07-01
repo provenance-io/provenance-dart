@@ -87,6 +87,13 @@ class TxResponse extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'timestamp')
+    ..pc<$0.Event>(
+        13,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'events',
+        $pb.PbFieldType.PM,
+        subBuilder: $0.Event.create)
     ..hasRequiredFields = false;
 
   TxResponse._() : super();
@@ -103,6 +110,7 @@ class TxResponse extends $pb.GeneratedMessage {
     $fixnum.Int64? gasUsed,
     $1.Any? tx,
     $core.String? timestamp,
+    $core.Iterable<$0.Event>? events,
   }) {
     final _result = create();
     if (height != null) {
@@ -140,6 +148,9 @@ class TxResponse extends $pb.GeneratedMessage {
     }
     if (timestamp != null) {
       _result.timestamp = timestamp;
+    }
+    if (events != null) {
+      _result.events.addAll(events);
     }
     return _result;
   }
@@ -305,6 +316,9 @@ class TxResponse extends $pb.GeneratedMessage {
   $core.bool hasTimestamp() => $_has(11);
   @$pb.TagNumber(12)
   void clearTimestamp() => clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.List<$0.Event> get events => $_getList(12);
 }
 
 class ABCIMessageLog extends $pb.GeneratedMessage {

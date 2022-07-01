@@ -59,7 +59,7 @@ const InstantiateContractProposal$json = const {
       '10': 'codeId'
     },
     const {'1': 'label', '3': 6, '4': 1, '5': 9, '10': 'label'},
-    const {'1': 'msg', '3': 7, '4': 1, '5': 12, '10': 'msg'},
+    const {'1': 'msg', '3': 7, '4': 1, '5': 12, '8': const {}, '10': 'msg'},
     const {
       '1': 'funds',
       '3': 8,
@@ -75,14 +75,13 @@ const InstantiateContractProposal$json = const {
 /// Descriptor for `InstantiateContractProposal`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List instantiateContractProposalDescriptor =
     $convert.base64Decode(
-        'ChtJbnN0YW50aWF0ZUNvbnRyYWN0UHJvcG9zYWwSFAoFdGl0bGUYASABKAlSBXRpdGxlEiAKC2Rlc2NyaXB0aW9uGAIgASgJUgtkZXNjcmlwdGlvbhIVCgZydW5fYXMYAyABKAlSBXJ1bkFzEhQKBWFkbWluGAQgASgJUgVhZG1pbhIjCgdjb2RlX2lkGAUgASgEQgri3h8GQ29kZUlEUgZjb2RlSWQSFAoFbGFiZWwYBiABKAlSBWxhYmVsEhAKA21zZxgHIAEoDFIDbXNnEmEKBWZ1bmRzGAggAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWZ1bmRz');
+        'ChtJbnN0YW50aWF0ZUNvbnRyYWN0UHJvcG9zYWwSFAoFdGl0bGUYASABKAlSBXRpdGxlEiAKC2Rlc2NyaXB0aW9uGAIgASgJUgtkZXNjcmlwdGlvbhIVCgZydW5fYXMYAyABKAlSBXJ1bkFzEhQKBWFkbWluGAQgASgJUgVhZG1pbhIjCgdjb2RlX2lkGAUgASgEQgri3h8GQ29kZUlEUgZjb2RlSWQSFAoFbGFiZWwYBiABKAlSBWxhYmVsEigKA21zZxgHIAEoDEIW+t4fElJhd0NvbnRyYWN0TWVzc2FnZVIDbXNnEmEKBWZ1bmRzGAggAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWZ1bmRz');
 @$core.Deprecated('Use migrateContractProposalDescriptor instead')
 const MigrateContractProposal$json = const {
   '1': 'MigrateContractProposal',
   '2': const [
     const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
-    const {'1': 'run_as', '3': 3, '4': 1, '5': 9, '10': 'runAs'},
     const {'1': 'contract', '3': 4, '4': 1, '5': 9, '10': 'contract'},
     const {
       '1': 'code_id',
@@ -92,14 +91,53 @@ const MigrateContractProposal$json = const {
       '8': const {},
       '10': 'codeId'
     },
-    const {'1': 'msg', '3': 6, '4': 1, '5': 12, '10': 'msg'},
+    const {'1': 'msg', '3': 6, '4': 1, '5': 12, '8': const {}, '10': 'msg'},
   ],
 };
 
 /// Descriptor for `MigrateContractProposal`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List migrateContractProposalDescriptor =
     $convert.base64Decode(
-        'ChdNaWdyYXRlQ29udHJhY3RQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEhUKBnJ1bl9hcxgDIAEoCVIFcnVuQXMSGgoIY29udHJhY3QYBCABKAlSCGNvbnRyYWN0EiMKB2NvZGVfaWQYBSABKARCCuLeHwZDb2RlSURSBmNvZGVJZBIQCgNtc2cYBiABKAxSA21zZw==');
+        'ChdNaWdyYXRlQ29udHJhY3RQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEhoKCGNvbnRyYWN0GAQgASgJUghjb250cmFjdBIjCgdjb2RlX2lkGAUgASgEQgri3h8GQ29kZUlEUgZjb2RlSWQSKAoDbXNnGAYgASgMQhb63h8SUmF3Q29udHJhY3RNZXNzYWdlUgNtc2c=');
+@$core.Deprecated('Use sudoContractProposalDescriptor instead')
+const SudoContractProposal$json = const {
+  '1': 'SudoContractProposal',
+  '2': const [
+    const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
+    const {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
+    const {'1': 'contract', '3': 3, '4': 1, '5': 9, '10': 'contract'},
+    const {'1': 'msg', '3': 4, '4': 1, '5': 12, '8': const {}, '10': 'msg'},
+  ],
+};
+
+/// Descriptor for `SudoContractProposal`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List sudoContractProposalDescriptor = $convert.base64Decode(
+    'ChRTdWRvQ29udHJhY3RQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEhoKCGNvbnRyYWN0GAMgASgJUghjb250cmFjdBIoCgNtc2cYBCABKAxCFvreHxJSYXdDb250cmFjdE1lc3NhZ2VSA21zZw==');
+@$core.Deprecated('Use executeContractProposalDescriptor instead')
+const ExecuteContractProposal$json = const {
+  '1': 'ExecuteContractProposal',
+  '2': const [
+    const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
+    const {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
+    const {'1': 'run_as', '3': 3, '4': 1, '5': 9, '10': 'runAs'},
+    const {'1': 'contract', '3': 4, '4': 1, '5': 9, '10': 'contract'},
+    const {'1': 'msg', '3': 5, '4': 1, '5': 12, '8': const {}, '10': 'msg'},
+    const {
+      '1': 'funds',
+      '3': 6,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': const {},
+      '10': 'funds'
+    },
+  ],
+};
+
+/// Descriptor for `ExecuteContractProposal`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List executeContractProposalDescriptor =
+    $convert.base64Decode(
+        'ChdFeGVjdXRlQ29udHJhY3RQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEhUKBnJ1bl9hcxgDIAEoCVIFcnVuQXMSGgoIY29udHJhY3QYBCABKAlSCGNvbnRyYWN0EigKA21zZxgFIAEoDEIW+t4fElJhd0NvbnRyYWN0TWVzc2FnZVIDbXNnEmEKBWZ1bmRzGAYgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWZ1bmRz');
 @$core.Deprecated('Use updateAdminProposalDescriptor instead')
 const UpdateAdminProposal$json = const {
   '1': 'UpdateAdminProposal',

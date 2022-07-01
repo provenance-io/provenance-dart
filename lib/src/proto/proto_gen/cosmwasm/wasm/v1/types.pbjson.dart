@@ -248,7 +248,7 @@ const ContractCodeHistoryEntry$json = const {
 /// Descriptor for `ContractCodeHistoryEntry`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List contractCodeHistoryEntryDescriptor =
     $convert.base64Decode(
-        'ChhDb250cmFjdENvZGVIaXN0b3J5RW50cnkSUAoJb3BlcmF0aW9uGAEgASgOMjIuY29zbXdhc20ud2FzbS52MS5Db250cmFjdENvZGVIaXN0b3J5T3BlcmF0aW9uVHlwZVIJb3BlcmF0aW9uEiMKB2NvZGVfaWQYAiABKARCCuLeHwZDb2RlSURSBmNvZGVJZBI+Cgd1cGRhdGVkGAMgASgLMiQuY29zbXdhc20ud2FzbS52MS5BYnNvbHV0ZVR4UG9zaXRpb25SB3VwZGF0ZWQSLgoDbXNnGAQgASgMQhz63h8YZW5jb2RpbmcvanNvbi5SYXdNZXNzYWdlUgNtc2c=');
+        'ChhDb250cmFjdENvZGVIaXN0b3J5RW50cnkSUAoJb3BlcmF0aW9uGAEgASgOMjIuY29zbXdhc20ud2FzbS52MS5Db250cmFjdENvZGVIaXN0b3J5T3BlcmF0aW9uVHlwZVIJb3BlcmF0aW9uEiMKB2NvZGVfaWQYAiABKARCCuLeHwZDb2RlSURSBmNvZGVJZBI+Cgd1cGRhdGVkGAMgASgLMiQuY29zbXdhc20ud2FzbS52MS5BYnNvbHV0ZVR4UG9zaXRpb25SB3VwZGF0ZWQSKAoDbXNnGAQgASgMQhb63h8SUmF3Q29udHJhY3RNZXNzYWdlUgNtc2c=');
 @$core.Deprecated('Use absoluteTxPositionDescriptor instead')
 const AbsoluteTxPosition$json = const {
   '1': 'AbsoluteTxPosition',
