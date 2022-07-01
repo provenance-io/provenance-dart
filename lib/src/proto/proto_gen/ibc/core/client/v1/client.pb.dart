@@ -11,6 +11,7 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../../google/protobuf/any.pb.dart' as $0;
+import '../../../../cosmos/upgrade/v1beta1/upgrade.pb.dart' as $1;
 
 class IdentifiedClientState extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'IdentifiedClientState', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ibc.core.client.v1'), createEmptyInstance: create)
@@ -199,8 +200,8 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ClientUpdateProposal', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ibc.core.client.v1'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientId')
-    ..aOM<$0.Any>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'header', subBuilder: $0.Any.create)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'subjectClientId')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'substituteClientId')
     ..hasRequiredFields = false
   ;
 
@@ -208,8 +209,8 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
   factory ClientUpdateProposal({
     $core.String? title,
     $core.String? description,
-    $core.String? clientId,
-    $0.Any? header,
+    $core.String? subjectClientId,
+    $core.String? substituteClientId,
   }) {
     final _result = create();
     if (title != null) {
@@ -218,11 +219,11 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
     if (description != null) {
       _result.description = description;
     }
-    if (clientId != null) {
-      _result.clientId = clientId;
+    if (subjectClientId != null) {
+      _result.subjectClientId = subjectClientId;
     }
-    if (header != null) {
-      _result.header = header;
+    if (substituteClientId != null) {
+      _result.substituteClientId = substituteClientId;
     }
     return _result;
   }
@@ -266,24 +267,115 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
   void clearDescription() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get clientId => $_getSZ(2);
+  $core.String get subjectClientId => $_getSZ(2);
   @$pb.TagNumber(3)
-  set clientId($core.String v) { $_setString(2, v); }
+  set subjectClientId($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasClientId() => $_has(2);
+  $core.bool hasSubjectClientId() => $_has(2);
   @$pb.TagNumber(3)
-  void clearClientId() => clearField(3);
+  void clearSubjectClientId() => clearField(3);
 
   @$pb.TagNumber(4)
-  $0.Any get header => $_getN(3);
+  $core.String get substituteClientId => $_getSZ(3);
   @$pb.TagNumber(4)
-  set header($0.Any v) { setField(4, v); }
+  set substituteClientId($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasHeader() => $_has(3);
+  $core.bool hasSubstituteClientId() => $_has(3);
   @$pb.TagNumber(4)
-  void clearHeader() => clearField(4);
+  void clearSubstituteClientId() => clearField(4);
+}
+
+class UpgradeProposal extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpgradeProposal', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ibc.core.client.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
+    ..aOM<$1.Plan>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'plan', subBuilder: $1.Plan.create)
+    ..aOM<$0.Any>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'upgradedClientState', subBuilder: $0.Any.create)
+    ..hasRequiredFields = false
+  ;
+
+  UpgradeProposal._() : super();
+  factory UpgradeProposal({
+    $core.String? title,
+    $core.String? description,
+    $1.Plan? plan,
+    $0.Any? upgradedClientState,
+  }) {
+    final _result = create();
+    if (title != null) {
+      _result.title = title;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    if (plan != null) {
+      _result.plan = plan;
+    }
+    if (upgradedClientState != null) {
+      _result.upgradedClientState = upgradedClientState;
+    }
+    return _result;
+  }
+  factory UpgradeProposal.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpgradeProposal.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpgradeProposal clone() => UpgradeProposal()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpgradeProposal copyWith(void Function(UpgradeProposal) updates) => super.copyWith((message) => updates(message as UpgradeProposal)) as UpgradeProposal; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UpgradeProposal create() => UpgradeProposal._();
+  UpgradeProposal createEmptyInstance() => create();
+  static $pb.PbList<UpgradeProposal> createRepeated() => $pb.PbList<UpgradeProposal>();
+  @$core.pragma('dart2js:noInline')
+  static UpgradeProposal getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpgradeProposal>(create);
+  static UpgradeProposal? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get title => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set title($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasTitle() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTitle() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set description($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDescription() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $1.Plan get plan => $_getN(2);
+  @$pb.TagNumber(3)
+  set plan($1.Plan v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPlan() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPlan() => clearField(3);
+  @$pb.TagNumber(3)
+  $1.Plan ensurePlan() => $_ensure(2);
+
   @$pb.TagNumber(4)
-  $0.Any ensureHeader() => $_ensure(3);
+  $0.Any get upgradedClientState => $_getN(3);
+  @$pb.TagNumber(4)
+  set upgradedClientState($0.Any v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasUpgradedClientState() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearUpgradedClientState() => clearField(4);
+  @$pb.TagNumber(4)
+  $0.Any ensureUpgradedClientState() => $_ensure(3);
 }
 
 class Height extends $pb.GeneratedMessage {

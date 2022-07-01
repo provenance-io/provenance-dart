@@ -228,11 +228,12 @@ const QueryPacketAcknowledgementsRequest$json = const {
     const {'1': 'port_id', '3': 1, '4': 1, '5': 9, '10': 'portId'},
     const {'1': 'channel_id', '3': 2, '4': 1, '5': 9, '10': 'channelId'},
     const {'1': 'pagination', '3': 3, '4': 1, '5': 11, '6': '.cosmos.base.query.v1beta1.PageRequest', '10': 'pagination'},
+    const {'1': 'packet_commitment_sequences', '3': 4, '4': 3, '5': 4, '10': 'packetCommitmentSequences'},
   ],
 };
 
 /// Descriptor for `QueryPacketAcknowledgementsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryPacketAcknowledgementsRequestDescriptor = $convert.base64Decode('CiJRdWVyeVBhY2tldEFja25vd2xlZGdlbWVudHNSZXF1ZXN0EhcKB3BvcnRfaWQYASABKAlSBnBvcnRJZBIdCgpjaGFubmVsX2lkGAIgASgJUgljaGFubmVsSWQSRgoKcGFnaW5hdGlvbhgDIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24=');
+final $typed_data.Uint8List queryPacketAcknowledgementsRequestDescriptor = $convert.base64Decode('CiJRdWVyeVBhY2tldEFja25vd2xlZGdlbWVudHNSZXF1ZXN0EhcKB3BvcnRfaWQYASABKAlSBnBvcnRJZBIdCgpjaGFubmVsX2lkGAIgASgJUgljaGFubmVsSWQSRgoKcGFnaW5hdGlvbhgDIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24SPgobcGFja2V0X2NvbW1pdG1lbnRfc2VxdWVuY2VzGAQgAygEUhlwYWNrZXRDb21taXRtZW50U2VxdWVuY2Vz');
 @$core.Deprecated('Use queryPacketAcknowledgementsResponseDescriptor instead')
 const QueryPacketAcknowledgementsResponse$json = const {
   '1': 'QueryPacketAcknowledgementsResponse',

@@ -15,12 +15,12 @@ const MsgIBCSend$json = const {
     const {'1': 'channel', '3': 2, '4': 1, '5': 9, '8': const {}, '10': 'channel'},
     const {'1': 'timeout_height', '3': 4, '4': 1, '5': 4, '8': const {}, '10': 'timeoutHeight'},
     const {'1': 'timeout_timestamp', '3': 5, '4': 1, '5': 4, '8': const {}, '10': 'timeoutTimestamp'},
-    const {'1': 'data', '3': 6, '4': 1, '5': 12, '8': const {}, '10': 'data'},
+    const {'1': 'data', '3': 6, '4': 1, '5': 12, '10': 'data'},
   ],
 };
 
 /// Descriptor for `MsgIBCSend`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List msgIBCSendDescriptor = $convert.base64Decode('CgpNc2dJQkNTZW5kEjMKB2NoYW5uZWwYAiABKAlCGfLeHxV5YW1sOiJzb3VyY2VfY2hhbm5lbCJSB2NoYW5uZWwSQAoOdGltZW91dF9oZWlnaHQYBCABKARCGfLeHxV5YW1sOiJ0aW1lb3V0X2hlaWdodCJSDXRpbWVvdXRIZWlnaHQSSQoRdGltZW91dF90aW1lc3RhbXAYBSABKARCHPLeHxh5YW1sOiJ0aW1lb3V0X3RpbWVzdGFtcCJSEHRpbWVvdXRUaW1lc3RhbXASMAoEZGF0YRgGIAEoDEIc+t4fGGVuY29kaW5nL2pzb24uUmF3TWVzc2FnZVIEZGF0YQ==');
+final $typed_data.Uint8List msgIBCSendDescriptor = $convert.base64Decode('CgpNc2dJQkNTZW5kEjMKB2NoYW5uZWwYAiABKAlCGfLeHxV5YW1sOiJzb3VyY2VfY2hhbm5lbCJSB2NoYW5uZWwSQAoOdGltZW91dF9oZWlnaHQYBCABKARCGfLeHxV5YW1sOiJ0aW1lb3V0X2hlaWdodCJSDXRpbWVvdXRIZWlnaHQSSQoRdGltZW91dF90aW1lc3RhbXAYBSABKARCHPLeHxh5YW1sOiJ0aW1lb3V0X3RpbWVzdGFtcCJSEHRpbWVvdXRUaW1lc3RhbXASEgoEZGF0YRgGIAEoDFIEZGF0YQ==');
 @$core.Deprecated('Use msgIBCCloseChannelDescriptor instead')
 const MsgIBCCloseChannel$json = const {
   '1': 'MsgIBCCloseChannel',

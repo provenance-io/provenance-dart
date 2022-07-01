@@ -42,13 +42,13 @@ const MsgInstantiateContract$json = const {
     const {'1': 'admin', '3': 2, '4': 1, '5': 9, '10': 'admin'},
     const {'1': 'code_id', '3': 3, '4': 1, '5': 4, '8': const {}, '10': 'codeId'},
     const {'1': 'label', '3': 4, '4': 1, '5': 9, '10': 'label'},
-    const {'1': 'msg', '3': 5, '4': 1, '5': 12, '10': 'msg'},
+    const {'1': 'msg', '3': 5, '4': 1, '5': 12, '8': const {}, '10': 'msg'},
     const {'1': 'funds', '3': 6, '4': 3, '5': 11, '6': '.cosmos.base.v1beta1.Coin', '8': const {}, '10': 'funds'},
   ],
 };
 
 /// Descriptor for `MsgInstantiateContract`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List msgInstantiateContractDescriptor = $convert.base64Decode('ChZNc2dJbnN0YW50aWF0ZUNvbnRyYWN0EhYKBnNlbmRlchgBIAEoCVIGc2VuZGVyEhQKBWFkbWluGAIgASgJUgVhZG1pbhIjCgdjb2RlX2lkGAMgASgEQgri3h8GQ29kZUlEUgZjb2RlSWQSFAoFbGFiZWwYBCABKAlSBWxhYmVsEhAKA21zZxgFIAEoDFIDbXNnEmEKBWZ1bmRzGAYgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWZ1bmRz');
+final $typed_data.Uint8List msgInstantiateContractDescriptor = $convert.base64Decode('ChZNc2dJbnN0YW50aWF0ZUNvbnRyYWN0EhYKBnNlbmRlchgBIAEoCVIGc2VuZGVyEhQKBWFkbWluGAIgASgJUgVhZG1pbhIjCgdjb2RlX2lkGAMgASgEQgri3h8GQ29kZUlEUgZjb2RlSWQSFAoFbGFiZWwYBCABKAlSBWxhYmVsEigKA21zZxgFIAEoDEIW+t4fElJhd0NvbnRyYWN0TWVzc2FnZVIDbXNnEmEKBWZ1bmRzGAYgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWZ1bmRz');
 @$core.Deprecated('Use msgInstantiateContractResponseDescriptor instead')
 const MsgInstantiateContractResponse$json = const {
   '1': 'MsgInstantiateContractResponse',
@@ -66,13 +66,13 @@ const MsgExecuteContract$json = const {
   '2': const [
     const {'1': 'sender', '3': 1, '4': 1, '5': 9, '10': 'sender'},
     const {'1': 'contract', '3': 2, '4': 1, '5': 9, '10': 'contract'},
-    const {'1': 'msg', '3': 3, '4': 1, '5': 12, '10': 'msg'},
+    const {'1': 'msg', '3': 3, '4': 1, '5': 12, '8': const {}, '10': 'msg'},
     const {'1': 'funds', '3': 5, '4': 3, '5': 11, '6': '.cosmos.base.v1beta1.Coin', '8': const {}, '10': 'funds'},
   ],
 };
 
 /// Descriptor for `MsgExecuteContract`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List msgExecuteContractDescriptor = $convert.base64Decode('ChJNc2dFeGVjdXRlQ29udHJhY3QSFgoGc2VuZGVyGAEgASgJUgZzZW5kZXISGgoIY29udHJhY3QYAiABKAlSCGNvbnRyYWN0EhAKA21zZxgDIAEoDFIDbXNnEmEKBWZ1bmRzGAUgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWZ1bmRz');
+final $typed_data.Uint8List msgExecuteContractDescriptor = $convert.base64Decode('ChJNc2dFeGVjdXRlQ29udHJhY3QSFgoGc2VuZGVyGAEgASgJUgZzZW5kZXISGgoIY29udHJhY3QYAiABKAlSCGNvbnRyYWN0EigKA21zZxgDIAEoDEIW+t4fElJhd0NvbnRyYWN0TWVzc2FnZVIDbXNnEmEKBWZ1bmRzGAUgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWZ1bmRz');
 @$core.Deprecated('Use msgExecuteContractResponseDescriptor instead')
 const MsgExecuteContractResponse$json = const {
   '1': 'MsgExecuteContractResponse',
@@ -90,12 +90,12 @@ const MsgMigrateContract$json = const {
     const {'1': 'sender', '3': 1, '4': 1, '5': 9, '10': 'sender'},
     const {'1': 'contract', '3': 2, '4': 1, '5': 9, '10': 'contract'},
     const {'1': 'code_id', '3': 3, '4': 1, '5': 4, '8': const {}, '10': 'codeId'},
-    const {'1': 'msg', '3': 4, '4': 1, '5': 12, '10': 'msg'},
+    const {'1': 'msg', '3': 4, '4': 1, '5': 12, '8': const {}, '10': 'msg'},
   ],
 };
 
 /// Descriptor for `MsgMigrateContract`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List msgMigrateContractDescriptor = $convert.base64Decode('ChJNc2dNaWdyYXRlQ29udHJhY3QSFgoGc2VuZGVyGAEgASgJUgZzZW5kZXISGgoIY29udHJhY3QYAiABKAlSCGNvbnRyYWN0EiMKB2NvZGVfaWQYAyABKARCCuLeHwZDb2RlSURSBmNvZGVJZBIQCgNtc2cYBCABKAxSA21zZw==');
+final $typed_data.Uint8List msgMigrateContractDescriptor = $convert.base64Decode('ChJNc2dNaWdyYXRlQ29udHJhY3QSFgoGc2VuZGVyGAEgASgJUgZzZW5kZXISGgoIY29udHJhY3QYAiABKAlSCGNvbnRyYWN0EiMKB2NvZGVfaWQYAyABKARCCuLeHwZDb2RlSURSBmNvZGVJZBIoCgNtc2cYBCABKAxCFvreHxJSYXdDb250cmFjdE1lc3NhZ2VSA21zZw==');
 @$core.Deprecated('Use msgMigrateContractResponseDescriptor instead')
 const MsgMigrateContractResponse$json = const {
   '1': 'MsgMigrateContractResponse',

@@ -99,3 +99,13 @@ const Version$json = const {
 
 /// Descriptor for `Version`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List versionDescriptor = $convert.base64Decode('CgdWZXJzaW9uEh4KCmlkZW50aWZpZXIYASABKAlSCmlkZW50aWZpZXISGgoIZmVhdHVyZXMYAiADKAlSCGZlYXR1cmVzOgSIoB8A');
+@$core.Deprecated('Use paramsDescriptor instead')
+const Params$json = const {
+  '1': 'Params',
+  '2': const [
+    const {'1': 'max_expected_time_per_block', '3': 1, '4': 1, '5': 4, '8': const {}, '10': 'maxExpectedTimePerBlock'},
+  ],
+};
+
+/// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode('CgZQYXJhbXMSZAobbWF4X2V4cGVjdGVkX3RpbWVfcGVyX2Jsb2NrGAEgASgEQiby3h8ieWFtbDoibWF4X2V4cGVjdGVkX3RpbWVfcGVyX2Jsb2NrIlIXbWF4RXhwZWN0ZWRUaW1lUGVyQmxvY2s=');

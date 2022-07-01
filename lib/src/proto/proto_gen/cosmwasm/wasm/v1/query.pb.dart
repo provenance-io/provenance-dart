@@ -990,3 +990,109 @@ class QueryCodesResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+class QueryPinnedCodesRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'QueryPinnedCodesRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmwasm.wasm.v1'), createEmptyInstance: create)
+    ..aOM<$2.PageRequest>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false
+  ;
+
+  QueryPinnedCodesRequest._() : super();
+  factory QueryPinnedCodesRequest({
+    $2.PageRequest? pagination,
+  }) {
+    final _result = create();
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QueryPinnedCodesRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory QueryPinnedCodesRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  QueryPinnedCodesRequest clone() => QueryPinnedCodesRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  QueryPinnedCodesRequest copyWith(void Function(QueryPinnedCodesRequest) updates) => super.copyWith((message) => updates(message as QueryPinnedCodesRequest)) as QueryPinnedCodesRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryPinnedCodesRequest create() => QueryPinnedCodesRequest._();
+  QueryPinnedCodesRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryPinnedCodesRequest> createRepeated() => $pb.PbList<QueryPinnedCodesRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryPinnedCodesRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<QueryPinnedCodesRequest>(create);
+  static QueryPinnedCodesRequest? _defaultInstance;
+
+  @$pb.TagNumber(2)
+  $2.PageRequest get pagination => $_getN(0);
+  @$pb.TagNumber(2)
+  set pagination($2.PageRequest v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageRequest ensurePagination() => $_ensure(0);
+}
+
+class QueryPinnedCodesResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'QueryPinnedCodesResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmwasm.wasm.v1'), createEmptyInstance: create)
+    ..p<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'codeIds', $pb.PbFieldType.PU6)
+    ..aOM<$2.PageResponse>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false
+  ;
+
+  QueryPinnedCodesResponse._() : super();
+  factory QueryPinnedCodesResponse({
+    $core.Iterable<$fixnum.Int64>? codeIds,
+    $2.PageResponse? pagination,
+  }) {
+    final _result = create();
+    if (codeIds != null) {
+      _result.codeIds.addAll(codeIds);
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QueryPinnedCodesResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory QueryPinnedCodesResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  QueryPinnedCodesResponse clone() => QueryPinnedCodesResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  QueryPinnedCodesResponse copyWith(void Function(QueryPinnedCodesResponse) updates) => super.copyWith((message) => updates(message as QueryPinnedCodesResponse)) as QueryPinnedCodesResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryPinnedCodesResponse create() => QueryPinnedCodesResponse._();
+  QueryPinnedCodesResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryPinnedCodesResponse> createRepeated() => $pb.PbList<QueryPinnedCodesResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryPinnedCodesResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<QueryPinnedCodesResponse>(create);
+  static QueryPinnedCodesResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$fixnum.Int64> get codeIds => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $2.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageResponse v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageResponse ensurePagination() => $_ensure(1);
+}
+

@@ -15,7 +15,8 @@ const Any$json = const {
     const {'1': 'type_url', '3': 1, '4': 1, '5': 9, '10': 'typeUrl'},
     const {'1': 'value', '3': 2, '4': 1, '5': 12, '10': 'value'},
   ],
+  '7': const {},
 };
 
 /// Descriptor for `Any`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List anyDescriptor = $convert.base64Decode('CgNBbnkSGQoIdHlwZV91cmwYASABKAlSB3R5cGVVcmwSFAoFdmFsdWUYAiABKAxSBXZhbHVl');
+final $typed_data.Uint8List anyDescriptor = $convert.base64Decode('CgNBbnkSGQoIdHlwZV91cmwYASABKAlSB3R5cGVVcmwSFAoFdmFsdWUYAiABKAxSBXZhbHVlOgTwoR8A');
