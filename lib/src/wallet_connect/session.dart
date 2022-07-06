@@ -123,8 +123,6 @@ class WalletConnectException implements Exception {
   String toString() => '$message\n$stackTrace';
 }
 
-typedef AcceptCallback<X> = Future<void> Function(X? arg, String? errorMessage);
-
 class SignTransactionData {
   SignTransactionData(this.proposedMessages, [this.gasEstimate]);
 
@@ -133,17 +131,13 @@ class SignTransactionData {
 }
 
 abstract class WalletConnectionDelegate {
-  void onApproveSign(String description, String address, List<int> msg,
-      AcceptCallback<List<int>> accept);
+  void onApproveSign(
+      int requestId, String description, String address, List<int> msg);
 
-  void onApproveTransaction(
-      String description,
-      String address,
-      SignTransactionData signTransactionData,
-      AcceptCallback<proto.RawTxResponsePair> accept);
+  void onApproveTransaction(int requestId, String description, String address,
+      SignTransactionData signTransactionData);
 
-  void onApproveSession(
-      SessionRequestData data, AcceptCallback<SessionApprovalData> accept);
+  void onApproveSession(int requestId, SessionRequestData data);
 
   void onError(Exception exception);
 
@@ -303,6 +297,107 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     }
   }
 
+  Future<void> sendError(int requestId, String error) async {
+    PublishSinkMessage message =
+        PublishSinkMessage.error(_remotePeerId!, requestId, error);
+
+    await _outSink?.addAsync(message);
+  }
+
+  Future<void> reject(int requestId) async {
+    PublishSinkMessage message =
+        PublishSinkMessage.reject(_remotePeerId!, requestId);
+
+    await _outSink?.addAsync(message);
+  }
+
+  Future<void> sendTransactionResult(
+      int requestId, proto.RawTxResponsePair txResponsePair) async {
+    PublishSinkMessage message;
+
+    JsonRpcResponse response;
+    if (txResponsePair.txResponse.code == 0) {
+      response =
+          JsonRpcResponse.response(requestId, txResponsePair.asJsonString());
+    } else {
+      final messageStr =
+          "${txResponsePair.txResponse.code} ${txResponsePair.txResponse.codespace} ${txResponsePair.txResponse.info}";
+      response = JsonRpcResponse.response(requestId, <String, dynamic>{
+        "code": "${txResponsePair.txResponse.code}",
+        "message": messageStr,
+        "value": txResponsePair.asJsonString()
+      });
+    }
+
+    message = PublishSinkMessage.publish(_remotePeerId!, response);
+    await _outSink?.addAsync(message);
+  }
+
+  Future<void> sendSignResult(int requestId, List<int> signedData) async {
+    final result = Encoding.toHex(signedData);
+    final response = JsonRpcResponse.response(requestId, result);
+
+    PublishSinkMessage message =
+        PublishSinkMessage.publish(_remotePeerId!, response);
+
+    await _outSink?.addAsync(message);
+  }
+
+  Future<void> sendApproveSession(int requestId, SessionApprovalData clientMeta,
+      [ClientMeta? peerMeta]) async {
+    final result = <String, dynamic>{
+      "peerId": _peerId,
+      "approved": true,
+      "chainId": _chainId,
+      "peerMeta": null,
+      "accounts": null,
+      "accountData": null,
+    };
+
+    _chainId = clientMeta.chainId;
+    _privateKey = clientMeta.privateKey;
+    _walletInfo = clientMeta.walletInfo;
+
+    final signingKey = _privateKey!.defaultKey();
+    final publicKey = signingKey.publicKey;
+    final now = DateTime.now();
+    final expiry = now.add(const Duration(days: 1));
+
+    final addressStr = publicKey.address;
+    final pubKey = base64Encode(publicKey.compressedPublicKey);
+    const headerDict = <String, dynamic>{"alg": "ES256K", "typ": "JWT"};
+    final payloadDict = <String, dynamic>{
+      "sub": pubKey,
+      "iss": "provenance.io",
+      "iat": now.secondsSinceEpoch,
+      "exp": expiry.secondsSinceEpoch,
+      "addr": addressStr
+    };
+
+    final converter = const JsonEncoder()
+        .fuse(const Utf8Encoder())
+        .fuse(const Base64Encoder());
+
+    final header = converter.convert(headerDict);
+    final payload = converter.convert(payloadDict);
+    final signMe = "$header.$payload";
+    final signature = signingKey.signData(Hash.sha256(utf8.encode(signMe)))
+      ..removeLast();
+    final jwt = "$signMe.${base64.encode(signature)}";
+
+    result["chainId"] = _chainId;
+    result["peerMeta"] = peerMeta?.toJson();
+    result["accounts"] = [
+      AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson()
+    ];
+
+    final response = JsonRpcResponse.response(requestId, result);
+    PublishSinkMessage message =
+        PublishSinkMessage.publish(_remotePeerId!, response);
+
+    await _outSink?.addAsync(message);
+  }
+
   Future<void> _handlerSendTransaction(JsonRequest request) async {
     final descriptionJson = jsonDecode(request.params.first as String);
     final messages = <GeneratedMessage>[];
@@ -330,42 +425,9 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
 
-    acceptDelegate(proto.RawTxResponsePair? txPairResponsePair,
-        String? errorMessage) async {
-      final isApproved = txPairResponsePair != null;
-
-      PublishSinkMessage message;
-
-      if (errorMessage?.isNotEmpty ?? false) {
-        message =
-            PublishSinkMessage.error(_remotePeerId!, request.id, errorMessage!);
-      } else if (!isApproved) {
-        log("rejected proposed transaction");
-        message = PublishSinkMessage.reject(_remotePeerId!, request.id);
-      } else {
-        JsonRpcResponse response;
-        if (txPairResponsePair.txResponse.code == 0) {
-          response = JsonRpcResponse.response(
-              request.id, txPairResponsePair.asJsonString());
-        } else {
-          final messageStr =
-              "${txPairResponsePair.txResponse.code} ${txPairResponsePair.txResponse.codespace} ${txPairResponsePair.txResponse.info}";
-          response = JsonRpcResponse.response(request.id, <String, dynamic>{
-            "code": "${txPairResponsePair.txResponse.code}",
-            "message": messageStr,
-            "value": txPairResponsePair.asJsonString()
-          });
-        }
-
-        message = PublishSinkMessage.publish(_remotePeerId!, response);
-      }
-
-      await _outSink?.addAsync(message);
-    }
-
     final signTransactionData = SignTransactionData(messages, gasEstimate);
     _delegate?.onApproveTransaction(
-        description, address, signTransactionData, acceptDelegate);
+        request.id, description, address, signTransactionData);
   }
 
   Future<void> _handleProvenanceSign(JsonRequest request) async {
@@ -376,106 +438,15 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
 
-    acceptDelegate(List<int>? signedData, String? errorMessage) async {
-      final isApproved = signedData != null;
-      PublishSinkMessage message;
-
-      if (errorMessage?.isNotEmpty ?? false) {
-        message =
-            PublishSinkMessage.error(_remotePeerId!, request.id, errorMessage!);
-      } else if (!isApproved) {
-        log("connection response sent");
-        message = PublishSinkMessage.reject(_remotePeerId!, request.id);
-      } else {
-        final result = Encoding.toHex(signedData);
-        final response = JsonRpcResponse.response(request.id, result);
-
-        message = PublishSinkMessage.publish(_remotePeerId!, response);
-      }
-      await _outSink?.addAsync(message);
-    }
-
-    _delegate?.onApproveSign(description, address, bytes, acceptDelegate);
+    _delegate?.onApproveSign(request.id, description, address, bytes);
   }
 
   Future<void> _handleSessionRequest(JsonRequest request) async {
     final param = request.params.first;
     _remotePeerId = param['peerId'];
-    final chainId = param['chainId'];
     final peerMeta = param['peerMeta'];
 
     final clientMeta = ClientMeta.fromJson(peerMeta);
-
-    acceptDelegate(
-        SessionApprovalData? approvalData, String? errorMessage) async {
-      final isApproved = approvalData != null;
-
-      final result = <String, dynamic>{
-        "peerId": _peerId,
-        "approved": isApproved,
-        "chainId": chainId,
-        "peerMeta": null,
-        "accounts": null,
-        "accountData": null,
-      };
-      PublishSinkMessage message;
-
-      if (errorMessage?.isNotEmpty ?? false) {
-        message =
-            PublishSinkMessage.error(_remotePeerId!, request.id, errorMessage!);
-      } else {
-        if (isApproved) {
-          _chainId = approvalData.chainId;
-          _privateKey = approvalData.privateKey;
-          _walletInfo = approvalData.walletInfo;
-
-          final signingKey = _privateKey!.defaultKey();
-          final publicKey = signingKey.publicKey;
-          final now = DateTime.now();
-          final expiry = now.add(const Duration(days: 1));
-
-          final addressStr = publicKey.address;
-          final pubKey = base64Encode(publicKey.compressedPublicKey);
-          const headerDict = <String, dynamic>{"alg": "ES256K", "typ": "JWT"};
-          final payloadDict = <String, dynamic>{
-            "sub": pubKey,
-            "iss": "provenance.io",
-            "iat": now.secondsSinceEpoch,
-            "exp": expiry.secondsSinceEpoch,
-            "addr": addressStr
-          };
-
-          final converter = const JsonEncoder()
-              .fuse(const Utf8Encoder())
-              .fuse(const Base64Encoder());
-
-          final header = converter.convert(headerDict);
-          final payload = converter.convert(payloadDict);
-          final signMe = "$header.$payload";
-          final signature = signingKey
-              .signData(Hash.sha256(utf8.encode(signMe)))
-            ..removeLast();
-          final jwt = "$signMe.${base64.encode(signature)}";
-
-          result["chainId"] = _chainId;
-          result["peerMeta"] = clientMeta.toJson();
-          result["accounts"] = [
-            AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson()
-          ];
-        }
-
-        final response = JsonRpcResponse.response(request.id, result);
-        message = PublishSinkMessage.publish(_remotePeerId!, response);
-      }
-
-      await _outSink?.addAsync(message);
-
-      if (!isApproved) {
-        return _webSocket?.close() as Future<void>;
-      } else {
-        return Future.value();
-      }
-    }
 
     final data = SessionRequestData(
       _peerId!,
@@ -484,7 +455,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       address,
     );
 
-    _delegate?.onApproveSession(data, acceptDelegate);
+    _delegate?.onApproveSession(request.id, data);
   }
 
   GeneratedMessage _decodeMessage(Any protoAny) {
