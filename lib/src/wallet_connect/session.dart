@@ -190,6 +190,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       final encryptedPayloadHelper = EncryptedPayloadHelper(keyBytes);
 
       _webSocket = await WebSocket.connect(address.bridge.toString());
+      _webSocket!.pingInterval = const Duration(seconds: 5);
 
       // create the sink that we write our responses to
       _outSink = _webSocket!
