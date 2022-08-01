@@ -255,18 +255,21 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   }
 
   Future<void> disconnect() async {
-    final result = <String, dynamic>{
-      "approved": false,
-      "chainId": null,
-      "accounts": null
-    };
+    if (_remotePeerId != null) {
+      final result = <String, dynamic>{
+        "approved": false,
+        "chainId": null,
+        "accounts": null
+      };
 
-    final response = JsonRequest(
-        math.Random().nextInt(100000), "wc_sessionUpdate", [result]);
+      final response = JsonRequest(
+          math.Random().nextInt(100000), "wc_sessionUpdate", [result]);
 
-    final publishMessage = PublishSinkMessage.publish(_remotePeerId!, response);
+      final publishMessage =
+          PublishSinkMessage.publish(_remotePeerId!, response);
 
-    await _outSink?.addAsync(publishMessage);
+      await _outSink?.addAsync(publishMessage);
+    }
     await _webSocket?.close();
   }
 
