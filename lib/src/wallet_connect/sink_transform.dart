@@ -34,7 +34,9 @@ abstract class SinkTransformer<S, T> implements Sink<T> {
 
   @override
   void close() {
-    _sink?.close();
+    final sink = _sink;
+    _sink = null;
+    sink?.close();
   }
 
   FutureOr<S> doTransform(T data);
