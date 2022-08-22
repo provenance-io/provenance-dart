@@ -31,7 +31,7 @@ void main() async {
     } else {
       dictionary[name] = ProtoExport(
         name: name,
-        urls: ["export '$url';"],
+        urls: ["library provenance_dart;\n", "export '$url';"],
         originalUrls: [file.path],
       );
     }
