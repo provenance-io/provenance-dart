@@ -1,9 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/proto.dart' as proto;
-import 'package:provenance_dart/proto_auth.dart';
-import 'package:provenance_dart/proto_bank.dart';
-import 'package:provenance_dart/proto_multi_sig.dart';
-import 'package:provenance_dart/proto_secp256k1.dart';
+import 'package:provenance_dart/proto_auth_v1beta1.dart';
+import 'package:provenance_dart/proto_bank_v1beta1.dart';
+import 'package:provenance_dart/proto_crypto_multisig.dart';
+import 'package:provenance_dart/proto_multisig_v1beta1.dart';
+import 'package:provenance_dart/proto_crypto_secp256k1.dart';
 import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/mnemonic.dart';
