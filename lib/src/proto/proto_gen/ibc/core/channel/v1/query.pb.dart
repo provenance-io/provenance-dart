@@ -3,7 +3,7 @@
 //  source: ibc/core/channel/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -2059,7 +2059,7 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'packetCommitmentSequences',
-        $pb.PbFieldType.PU6)
+        $pb.PbFieldType.KU6)
     ..hasRequiredFields = false;
 
   QueryPacketAcknowledgementsRequest._() : super();
@@ -2297,7 +2297,7 @@ class QueryUnreceivedPacketsRequest extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'packetCommitmentSequences',
-        $pb.PbFieldType.PU6)
+        $pb.PbFieldType.KU6)
     ..hasRequiredFields = false;
 
   QueryUnreceivedPacketsRequest._() : super();
@@ -2392,7 +2392,7 @@ class QueryUnreceivedPacketsResponse extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'sequences',
-        $pb.PbFieldType.PU6)
+        $pb.PbFieldType.KU6)
     ..aOM<$2.Height>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2489,7 +2489,7 @@ class QueryUnreceivedAcksRequest extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'packetAckSequences',
-        $pb.PbFieldType.PU6)
+        $pb.PbFieldType.KU6)
     ..hasRequiredFields = false;
 
   QueryUnreceivedAcksRequest._() : super();
@@ -2583,7 +2583,7 @@ class QueryUnreceivedAcksResponse extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'sequences',
-        $pb.PbFieldType.PU6)
+        $pb.PbFieldType.KU6)
     ..aOM<$2.Height>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')

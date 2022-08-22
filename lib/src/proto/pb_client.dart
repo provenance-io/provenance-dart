@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:grpc/grpc.dart';
 import 'package:provenance_dart/proto.dart';
-import 'package:provenance_dart/proto_secp256k1.dart';
+import 'package:provenance_dart/proto_crypto_secp256k1.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/auth.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/query.pbgrpc.dart'
     as auth_1uery_pb;

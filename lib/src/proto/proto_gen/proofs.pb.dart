@@ -3,7 +3,7 @@
 //  source: proofs.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -847,7 +847,7 @@ class InnerSpec extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'childOrder',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..a<$core.int>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1382,7 +1382,7 @@ class CompressedExistenceProof extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'path',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..hasRequiredFields = false;
 
   CompressedExistenceProof._() : super();

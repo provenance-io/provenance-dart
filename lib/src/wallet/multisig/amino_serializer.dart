@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:protobuf/protobuf.dart';
 import 'package:provenance_dart/proto.dart';
-import 'package:provenance_dart/proto_bank.dart' as bank;
-import 'package:provenance_dart/proto_distribution.dart' as distribution;
-import 'package:provenance_dart/proto_gov.dart' as gov;
-import 'package:provenance_dart/proto_secp256k1.dart' as secp256k1;
-import 'package:provenance_dart/proto_staking.dart' as staking;
+import 'package:provenance_dart/proto_bank_v1beta1.dart' as bank;
+import 'package:provenance_dart/proto_distribution_v1beta1.dart'
+    as distribution;
+import 'package:provenance_dart/proto_gov_v1beta1.dart' as gov;
+import 'package:provenance_dart/proto_crypto_secp256k1.dart' as secp256k1;
+import 'package:provenance_dart/proto_staking_v1beta1.dart' as staking;
 
 typedef _ToAminoConversionHelper = dynamic Function(GeneratedMessage message);
 
