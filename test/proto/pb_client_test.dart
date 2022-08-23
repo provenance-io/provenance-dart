@@ -72,6 +72,12 @@ class _TestTxServer extends tx.ServiceBase {
       ServiceCall call, proto.SimulateRequest request) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<proto.GetBlockWithTxsResponse> getBlockWithTxs(
+      ServiceCall call, proto.GetBlockWithTxsRequest request) {
+    throw UnimplementedError();
+  }
 }
 
 class _TestMsgFee extends msg_fees.QueryServiceBase {
