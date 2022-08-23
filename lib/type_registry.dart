@@ -1,3 +1,4 @@
+library provenance_dart;
 import 'package:protobuf/protobuf.dart';
 import 'package:provenance_dart/proto_crypto_secp256r1.dart' as crypto_secp256r1;
 import 'package:provenance_dart/proto_crypto_multisig.dart' as crypto_multisig;

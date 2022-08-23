@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main() async {
-  final provenanceTypes = File('lib/provenance_types.dart');
+  final provenanceTypes = File('lib/type_registry.dart');
   if (await provenanceTypes.exists()) {
     await provenanceTypes.delete();
   }
@@ -48,7 +48,7 @@ void main() async {
     if (!await provenanceTypes.exists()) {
       await provenanceTypes.create();
       await provenanceTypes.writeAsString(
-          "import 'package:protobuf/protobuf.dart';\n",
+          "library provenance_dart;\nimport 'package:protobuf/protobuf.dart';\n",
           mode: FileMode.append);
     }
     await provenanceTypes.writeAsString(
