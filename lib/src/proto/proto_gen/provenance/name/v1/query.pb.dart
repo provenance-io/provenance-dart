@@ -206,15 +206,24 @@ class QueryResolveResponse extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'address')
+    ..aOB(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'restricted')
     ..hasRequiredFields = false;
 
   QueryResolveResponse._() : super();
   factory QueryResolveResponse({
     $core.String? address,
+    $core.bool? restricted,
   }) {
     final _result = create();
     if (address != null) {
       _result.address = address;
+    }
+    if (restricted != null) {
+      _result.restricted = restricted;
     }
     return _result;
   }
@@ -257,6 +266,18 @@ class QueryResolveResponse extends $pb.GeneratedMessage {
   $core.bool hasAddress() => $_has(0);
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get restricted => $_getBF(1);
+  @$pb.TagNumber(2)
+  set restricted($core.bool v) {
+    $_setBool(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasRestricted() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRestricted() => clearField(2);
 }
 
 class QueryReverseLookupRequest extends $pb.GeneratedMessage {

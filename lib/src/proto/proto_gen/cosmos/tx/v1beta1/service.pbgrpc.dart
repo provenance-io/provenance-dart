@@ -36,6 +36,12 @@ class ServiceClient extends $grpc.Client {
           ($1.GetTxsEventRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $1.GetTxsEventResponse.fromBuffer(value));
+  static final _$getBlockWithTxs =
+      $grpc.ClientMethod<$1.GetBlockWithTxsRequest, $1.GetBlockWithTxsResponse>(
+          '/cosmos.tx.v1beta1.Service/GetBlockWithTxs',
+          ($1.GetBlockWithTxsRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $1.GetBlockWithTxsResponse.fromBuffer(value));
 
   ServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -62,6 +68,12 @@ class ServiceClient extends $grpc.Client {
       $1.GetTxsEventRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getTxsEvent, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetBlockWithTxsResponse> getBlockWithTxs(
+      $1.GetBlockWithTxsRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getBlockWithTxs, request, options: options);
   }
 }
 
@@ -101,6 +113,15 @@ abstract class ServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $1.GetTxsEventRequest.fromBuffer(value),
             ($1.GetTxsEventResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetBlockWithTxsRequest,
+            $1.GetBlockWithTxsResponse>(
+        'GetBlockWithTxs',
+        getBlockWithTxs_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.GetBlockWithTxsRequest.fromBuffer(value),
+        ($1.GetBlockWithTxsResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.SimulateResponse> simulate_Pre(
@@ -123,6 +144,12 @@ abstract class ServiceBase extends $grpc.Service {
     return getTxsEvent(call, await request);
   }
 
+  $async.Future<$1.GetBlockWithTxsResponse> getBlockWithTxs_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.GetBlockWithTxsRequest> request) async {
+    return getBlockWithTxs(call, await request);
+  }
+
   $async.Future<$1.SimulateResponse> simulate(
       $grpc.ServiceCall call, $1.SimulateRequest request);
   $async.Future<$1.GetTxResponse> getTx(
@@ -131,4 +158,6 @@ abstract class ServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $1.BroadcastTxRequest request);
   $async.Future<$1.GetTxsEventResponse> getTxsEvent(
       $grpc.ServiceCall call, $1.GetTxsEventRequest request);
+  $async.Future<$1.GetBlockWithTxsResponse> getBlockWithTxs(
+      $grpc.ServiceCall call, $1.GetBlockWithTxsRequest request);
 }

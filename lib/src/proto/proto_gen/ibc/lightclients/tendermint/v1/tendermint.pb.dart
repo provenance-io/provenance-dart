@@ -104,8 +104,10 @@ class ClientState extends $pb.GeneratedMessage {
     $1.Height? latestHeight,
     $core.Iterable<$2.ProofSpec>? proofSpecs,
     $core.Iterable<$core.String>? upgradePath,
-    $core.bool? allowUpdateAfterExpiry,
-    $core.bool? allowUpdateAfterMisbehaviour,
+    @$core.Deprecated('This field is deprecated.')
+        $core.bool? allowUpdateAfterExpiry,
+    @$core.Deprecated('This field is deprecated.')
+        $core.bool? allowUpdateAfterMisbehaviour,
   }) {
     final _result = create();
     if (chainId != null) {
@@ -136,9 +138,11 @@ class ClientState extends $pb.GeneratedMessage {
       _result.upgradePath.addAll(upgradePath);
     }
     if (allowUpdateAfterExpiry != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.allowUpdateAfterExpiry = allowUpdateAfterExpiry;
     }
     if (allowUpdateAfterMisbehaviour != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.allowUpdateAfterMisbehaviour = allowUpdateAfterMisbehaviour;
     }
     return _result;
@@ -271,27 +275,35 @@ class ClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.List<$core.String> get upgradePath => $_getList(8);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(10)
   $core.bool get allowUpdateAfterExpiry => $_getBF(9);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(10)
   set allowUpdateAfterExpiry($core.bool v) {
     $_setBool(9, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(10)
   $core.bool hasAllowUpdateAfterExpiry() => $_has(9);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(10)
   void clearAllowUpdateAfterExpiry() => clearField(10);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   $core.bool get allowUpdateAfterMisbehaviour => $_getBF(10);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   set allowUpdateAfterMisbehaviour($core.bool v) {
     $_setBool(10, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   $core.bool hasAllowUpdateAfterMisbehaviour() => $_has(10);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   void clearAllowUpdateAfterMisbehaviour() => clearField(11);
 }

@@ -422,12 +422,18 @@ class EventNameBound extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'name')
+    ..aOB(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'restricted')
     ..hasRequiredFields = false;
 
   EventNameBound._() : super();
   factory EventNameBound({
     $core.String? address,
     $core.String? name,
+    $core.bool? restricted,
   }) {
     final _result = create();
     if (address != null) {
@@ -435,6 +441,9 @@ class EventNameBound extends $pb.GeneratedMessage {
     }
     if (name != null) {
       _result.name = name;
+    }
+    if (restricted != null) {
+      _result.restricted = restricted;
     }
     return _result;
   }
@@ -488,6 +497,18 @@ class EventNameBound extends $pb.GeneratedMessage {
   $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
   void clearName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get restricted => $_getBF(2);
+  @$pb.TagNumber(3)
+  set restricted($core.bool v) {
+    $_setBool(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasRestricted() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRestricted() => clearField(3);
 }
 
 class EventNameUnbound extends $pb.GeneratedMessage {
@@ -510,12 +531,18 @@ class EventNameUnbound extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'name')
+    ..aOB(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'restricted')
     ..hasRequiredFields = false;
 
   EventNameUnbound._() : super();
   factory EventNameUnbound({
     $core.String? address,
     $core.String? name,
+    $core.bool? restricted,
   }) {
     final _result = create();
     if (address != null) {
@@ -523,6 +550,9 @@ class EventNameUnbound extends $pb.GeneratedMessage {
     }
     if (name != null) {
       _result.name = name;
+    }
+    if (restricted != null) {
+      _result.restricted = restricted;
     }
     return _result;
   }
@@ -576,4 +606,16 @@ class EventNameUnbound extends $pb.GeneratedMessage {
   $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
   void clearName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get restricted => $_getBF(2);
+  @$pb.TagNumber(3)
+  set restricted($core.bool v) {
+    $_setBool(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasRestricted() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRestricted() => clearField(3);
 }

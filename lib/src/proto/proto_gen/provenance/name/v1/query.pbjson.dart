@@ -54,13 +54,13 @@ const QueryResolveResponse$json = const {
   '1': 'QueryResolveResponse',
   '2': const [
     const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {'1': 'restricted', '3': 2, '4': 1, '5': 8, '10': 'restricted'},
   ],
 };
 
 /// Descriptor for `QueryResolveResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryResolveResponseDescriptor =
-    $convert.base64Decode(
-        'ChRRdWVyeVJlc29sdmVSZXNwb25zZRIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNz');
+final $typed_data.Uint8List queryResolveResponseDescriptor = $convert.base64Decode(
+    'ChRRdWVyeVJlc29sdmVSZXNwb25zZRIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEh4KCnJlc3RyaWN0ZWQYAiABKAhSCnJlc3RyaWN0ZWQ=');
 @$core.Deprecated('Use queryReverseLookupRequestDescriptor instead')
 const QueryReverseLookupRequest$json = const {
   '1': 'QueryReverseLookupRequest',

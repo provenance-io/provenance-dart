@@ -178,6 +178,16 @@ class PartyType extends $pb.ProtobufEnum {
       const $core.bool.fromEnvironment('protobuf.omit_enum_names')
           ? ''
           : 'PARTY_TYPE_MARKER');
+  static const PartyType PARTY_TYPE_CONTROLLER = PartyType._(
+      10,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'PARTY_TYPE_CONTROLLER');
+  static const PartyType PARTY_TYPE_VALIDATOR = PartyType._(
+      11,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'PARTY_TYPE_VALIDATOR');
 
   static const $core.List<PartyType> values = <PartyType>[
     PARTY_TYPE_UNKNOWN,
@@ -190,6 +200,8 @@ class PartyType extends $pb.ProtobufEnum {
     PARTY_TYPE_OMNIBUS,
     PARTY_TYPE_PROVENANCE,
     PARTY_TYPE_MARKER,
+    PARTY_TYPE_CONTROLLER,
+    PARTY_TYPE_VALIDATOR,
   ];
 
   static final $core.Map<$core.int, PartyType> _byValue =

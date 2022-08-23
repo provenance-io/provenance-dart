@@ -7,11 +7,14 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../base/query/v1beta1/pagination.pb.dart' as $2;
 import 'tx.pb.dart' as $3;
 import '../../base/abci/v1beta1/abci.pb.dart' as $4;
+import '../../../tendermint/types/types.pb.dart' as $5;
+import '../../../tendermint/types/block.pb.dart' as $6;
 
 import 'service.pbenum.dart';
 
@@ -736,4 +739,231 @@ class GetTxResponse extends $pb.GeneratedMessage {
   void clearTxResponse() => clearField(2);
   @$pb.TagNumber(2)
   $4.TxResponse ensureTxResponse() => $_ensure(1);
+}
+
+class GetBlockWithTxsRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'GetBlockWithTxsRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.tx.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'height')
+    ..aOM<$2.PageRequest>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  GetBlockWithTxsRequest._() : super();
+  factory GetBlockWithTxsRequest({
+    $fixnum.Int64? height,
+    $2.PageRequest? pagination,
+  }) {
+    final _result = create();
+    if (height != null) {
+      _result.height = height;
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory GetBlockWithTxsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GetBlockWithTxsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  GetBlockWithTxsRequest clone() =>
+      GetBlockWithTxsRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  GetBlockWithTxsRequest copyWith(
+          void Function(GetBlockWithTxsRequest) updates) =>
+      super.copyWith((message) => updates(message as GetBlockWithTxsRequest))
+          as GetBlockWithTxsRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetBlockWithTxsRequest create() => GetBlockWithTxsRequest._();
+  GetBlockWithTxsRequest createEmptyInstance() => create();
+  static $pb.PbList<GetBlockWithTxsRequest> createRepeated() =>
+      $pb.PbList<GetBlockWithTxsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetBlockWithTxsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetBlockWithTxsRequest>(create);
+  static GetBlockWithTxsRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get height => $_getI64(0);
+  @$pb.TagNumber(1)
+  set height($fixnum.Int64 v) {
+    $_setInt64(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasHeight() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearHeight() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $2.PageRequest get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageRequest v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageRequest ensurePagination() => $_ensure(1);
+}
+
+class GetBlockWithTxsResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'GetBlockWithTxsResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.tx.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$3.Tx>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'txs',
+        $pb.PbFieldType.PM,
+        subBuilder: $3.Tx.create)
+    ..aOM<$5.BlockID>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'blockId',
+        subBuilder: $5.BlockID.create)
+    ..aOM<$6.Block>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'block',
+        subBuilder: $6.Block.create)
+    ..aOM<$2.PageResponse>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  GetBlockWithTxsResponse._() : super();
+  factory GetBlockWithTxsResponse({
+    $core.Iterable<$3.Tx>? txs,
+    $5.BlockID? blockId,
+    $6.Block? block,
+    $2.PageResponse? pagination,
+  }) {
+    final _result = create();
+    if (txs != null) {
+      _result.txs.addAll(txs);
+    }
+    if (blockId != null) {
+      _result.blockId = blockId;
+    }
+    if (block != null) {
+      _result.block = block;
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory GetBlockWithTxsResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GetBlockWithTxsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  GetBlockWithTxsResponse clone() =>
+      GetBlockWithTxsResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  GetBlockWithTxsResponse copyWith(
+          void Function(GetBlockWithTxsResponse) updates) =>
+      super.copyWith((message) => updates(message as GetBlockWithTxsResponse))
+          as GetBlockWithTxsResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetBlockWithTxsResponse create() => GetBlockWithTxsResponse._();
+  GetBlockWithTxsResponse createEmptyInstance() => create();
+  static $pb.PbList<GetBlockWithTxsResponse> createRepeated() =>
+      $pb.PbList<GetBlockWithTxsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetBlockWithTxsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetBlockWithTxsResponse>(create);
+  static GetBlockWithTxsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$3.Tx> get txs => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $5.BlockID get blockId => $_getN(1);
+  @$pb.TagNumber(2)
+  set blockId($5.BlockID v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasBlockId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBlockId() => clearField(2);
+  @$pb.TagNumber(2)
+  $5.BlockID ensureBlockId() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $6.Block get block => $_getN(2);
+  @$pb.TagNumber(3)
+  set block($6.Block v) {
+    setField(3, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasBlock() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearBlock() => clearField(3);
+  @$pb.TagNumber(3)
+  $6.Block ensureBlock() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $2.PageResponse get pagination => $_getN(3);
+  @$pb.TagNumber(4)
+  set pagination($2.PageResponse v) {
+    setField(4, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasPagination() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPagination() => clearField(4);
+  @$pb.TagNumber(4)
+  $2.PageResponse ensurePagination() => $_ensure(3);
 }

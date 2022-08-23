@@ -30,12 +30,18 @@ class SignMode extends $pb.ProtobufEnum {
       const $core.bool.fromEnvironment('protobuf.omit_enum_names')
           ? ''
           : 'SIGN_MODE_LEGACY_AMINO_JSON');
+  static const SignMode SIGN_MODE_EIP_191 = SignMode._(
+      191,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'SIGN_MODE_EIP_191');
 
   static const $core.List<SignMode> values = <SignMode>[
     SIGN_MODE_UNSPECIFIED,
     SIGN_MODE_DIRECT,
     SIGN_MODE_TEXTUAL,
     SIGN_MODE_LEGACY_AMINO_JSON,
+    SIGN_MODE_EIP_191,
   ];
 
   static final $core.Map<$core.int, SignMode> _byValue =

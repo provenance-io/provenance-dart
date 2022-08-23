@@ -422,3 +422,301 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Params ensureParams() => $_ensure(0);
 }
+
+class QueryDenomHashRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryDenomHashRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.applications.transfer.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'trace')
+    ..hasRequiredFields = false;
+
+  QueryDenomHashRequest._() : super();
+  factory QueryDenomHashRequest({
+    $core.String? trace,
+  }) {
+    final _result = create();
+    if (trace != null) {
+      _result.trace = trace;
+    }
+    return _result;
+  }
+  factory QueryDenomHashRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryDenomHashRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryDenomHashRequest clone() =>
+      QueryDenomHashRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryDenomHashRequest copyWith(
+          void Function(QueryDenomHashRequest) updates) =>
+      super.copyWith((message) => updates(message as QueryDenomHashRequest))
+          as QueryDenomHashRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryDenomHashRequest create() => QueryDenomHashRequest._();
+  QueryDenomHashRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryDenomHashRequest> createRepeated() =>
+      $pb.PbList<QueryDenomHashRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryDenomHashRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryDenomHashRequest>(create);
+  static QueryDenomHashRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get trace => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set trace($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasTrace() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTrace() => clearField(1);
+}
+
+class QueryDenomHashResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryDenomHashResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.applications.transfer.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'hash')
+    ..hasRequiredFields = false;
+
+  QueryDenomHashResponse._() : super();
+  factory QueryDenomHashResponse({
+    $core.String? hash,
+  }) {
+    final _result = create();
+    if (hash != null) {
+      _result.hash = hash;
+    }
+    return _result;
+  }
+  factory QueryDenomHashResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryDenomHashResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryDenomHashResponse clone() =>
+      QueryDenomHashResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryDenomHashResponse copyWith(
+          void Function(QueryDenomHashResponse) updates) =>
+      super.copyWith((message) => updates(message as QueryDenomHashResponse))
+          as QueryDenomHashResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryDenomHashResponse create() => QueryDenomHashResponse._();
+  QueryDenomHashResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryDenomHashResponse> createRepeated() =>
+      $pb.PbList<QueryDenomHashResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryDenomHashResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryDenomHashResponse>(create);
+  static QueryDenomHashResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get hash => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set hash($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasHash() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearHash() => clearField(1);
+}
+
+class QueryEscrowAddressRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryEscrowAddressRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.applications.transfer.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'portId')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'channelId')
+    ..hasRequiredFields = false;
+
+  QueryEscrowAddressRequest._() : super();
+  factory QueryEscrowAddressRequest({
+    $core.String? portId,
+    $core.String? channelId,
+  }) {
+    final _result = create();
+    if (portId != null) {
+      _result.portId = portId;
+    }
+    if (channelId != null) {
+      _result.channelId = channelId;
+    }
+    return _result;
+  }
+  factory QueryEscrowAddressRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryEscrowAddressRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryEscrowAddressRequest clone() =>
+      QueryEscrowAddressRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryEscrowAddressRequest copyWith(
+          void Function(QueryEscrowAddressRequest) updates) =>
+      super.copyWith((message) => updates(message as QueryEscrowAddressRequest))
+          as QueryEscrowAddressRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryEscrowAddressRequest create() => QueryEscrowAddressRequest._();
+  QueryEscrowAddressRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryEscrowAddressRequest> createRepeated() =>
+      $pb.PbList<QueryEscrowAddressRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryEscrowAddressRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryEscrowAddressRequest>(create);
+  static QueryEscrowAddressRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get portId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set portId($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasPortId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPortId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get channelId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set channelId($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasChannelId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearChannelId() => clearField(2);
+}
+
+class QueryEscrowAddressResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryEscrowAddressResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.applications.transfer.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'escrowAddress')
+    ..hasRequiredFields = false;
+
+  QueryEscrowAddressResponse._() : super();
+  factory QueryEscrowAddressResponse({
+    $core.String? escrowAddress,
+  }) {
+    final _result = create();
+    if (escrowAddress != null) {
+      _result.escrowAddress = escrowAddress;
+    }
+    return _result;
+  }
+  factory QueryEscrowAddressResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryEscrowAddressResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryEscrowAddressResponse clone() =>
+      QueryEscrowAddressResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryEscrowAddressResponse copyWith(
+          void Function(QueryEscrowAddressResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryEscrowAddressResponse))
+          as QueryEscrowAddressResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryEscrowAddressResponse create() => QueryEscrowAddressResponse._();
+  QueryEscrowAddressResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryEscrowAddressResponse> createRepeated() =>
+      $pb.PbList<QueryEscrowAddressResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryEscrowAddressResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryEscrowAddressResponse>(create);
+  static QueryEscrowAddressResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get escrowAddress => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set escrowAddress($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasEscrowAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearEscrowAddress() => clearField(1);
+}

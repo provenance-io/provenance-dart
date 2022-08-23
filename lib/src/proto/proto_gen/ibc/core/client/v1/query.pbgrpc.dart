@@ -38,6 +38,13 @@ class QueryClient extends $grpc.Client {
       ($0.QueryConsensusStatesRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.QueryConsensusStatesResponse.fromBuffer(value));
+  static final _$consensusStateHeights = $grpc.ClientMethod<
+          $0.QueryConsensusStateHeightsRequest,
+          $0.QueryConsensusStateHeightsResponse>(
+      '/ibc.core.client.v1.Query/ConsensusStateHeights',
+      ($0.QueryConsensusStateHeightsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryConsensusStateHeightsResponse.fromBuffer(value));
   static final _$clientStatus = $grpc.ClientMethod<$0.QueryClientStatusRequest,
           $0.QueryClientStatusResponse>(
       '/ibc.core.client.v1.Query/ClientStatus',
@@ -92,6 +99,12 @@ class QueryClient extends $grpc.Client {
       $0.QueryConsensusStatesRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$consensusStates, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.QueryConsensusStateHeightsResponse>
+      consensusStateHeights($0.QueryConsensusStateHeightsRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$consensusStateHeights, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.QueryClientStatusResponse> clientStatus(
@@ -160,6 +173,16 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.QueryConsensusStatesRequest.fromBuffer(value),
         ($0.QueryConsensusStatesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryConsensusStateHeightsRequest,
+            $0.QueryConsensusStateHeightsResponse>(
+        'ConsensusStateHeights',
+        consensusStateHeights_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryConsensusStateHeightsRequest.fromBuffer(value),
+        ($0.QueryConsensusStateHeightsResponse value) =>
+            value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.QueryClientStatusRequest,
             $0.QueryClientStatusResponse>(
         'ClientStatus',
@@ -223,6 +246,12 @@ abstract class QueryServiceBase extends $grpc.Service {
     return consensusStates(call, await request);
   }
 
+  $async.Future<$0.QueryConsensusStateHeightsResponse>
+      consensusStateHeights_Pre($grpc.ServiceCall call,
+          $async.Future<$0.QueryConsensusStateHeightsRequest> request) async {
+    return consensusStateHeights(call, await request);
+  }
+
   $async.Future<$0.QueryClientStatusResponse> clientStatus_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.QueryClientStatusRequest> request) async {
@@ -255,6 +284,8 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.QueryConsensusStateRequest request);
   $async.Future<$0.QueryConsensusStatesResponse> consensusStates(
       $grpc.ServiceCall call, $0.QueryConsensusStatesRequest request);
+  $async.Future<$0.QueryConsensusStateHeightsResponse> consensusStateHeights(
+      $grpc.ServiceCall call, $0.QueryConsensusStateHeightsRequest request);
   $async.Future<$0.QueryClientStatusResponse> clientStatus(
       $grpc.ServiceCall call, $0.QueryClientStatusRequest request);
   $async.Future<$0.QueryClientParamsResponse> clientParams(

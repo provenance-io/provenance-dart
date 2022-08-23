@@ -84,21 +84,23 @@ const EventNameBound$json = const {
   '2': const [
     const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'restricted', '3': 3, '4': 1, '5': 8, '10': 'restricted'},
   ],
 };
 
 /// Descriptor for `EventNameBound`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List eventNameBoundDescriptor = $convert.base64Decode(
-    'Cg5FdmVudE5hbWVCb3VuZBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEhIKBG5hbWUYAiABKAlSBG5hbWU=');
+    'Cg5FdmVudE5hbWVCb3VuZBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEhIKBG5hbWUYAiABKAlSBG5hbWUSHgoKcmVzdHJpY3RlZBgDIAEoCFIKcmVzdHJpY3RlZA==');
 @$core.Deprecated('Use eventNameUnboundDescriptor instead')
 const EventNameUnbound$json = const {
   '1': 'EventNameUnbound',
   '2': const [
     const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'restricted', '3': 3, '4': 1, '5': 8, '10': 'restricted'},
   ],
 };
 
 /// Descriptor for `EventNameUnbound`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List eventNameUnboundDescriptor = $convert.base64Decode(
-    'ChBFdmVudE5hbWVVbmJvdW5kEhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3MSEgoEbmFtZRgCIAEoCVIEbmFtZQ==');
+    'ChBFdmVudE5hbWVVbmJvdW5kEhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3MSEgoEbmFtZRgCIAEoCVIEbmFtZRIeCgpyZXN0cmljdGVkGAMgASgIUgpyZXN0cmljdGVk');

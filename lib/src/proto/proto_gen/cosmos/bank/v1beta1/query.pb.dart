@@ -351,6 +351,189 @@ class QueryAllBalancesResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+class QuerySpendableBalancesRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QuerySpendableBalancesRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'address')
+    ..aOM<$2.PageRequest>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  QuerySpendableBalancesRequest._() : super();
+  factory QuerySpendableBalancesRequest({
+    $core.String? address,
+    $2.PageRequest? pagination,
+  }) {
+    final _result = create();
+    if (address != null) {
+      _result.address = address;
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QuerySpendableBalancesRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QuerySpendableBalancesRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QuerySpendableBalancesRequest clone() =>
+      QuerySpendableBalancesRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QuerySpendableBalancesRequest copyWith(
+          void Function(QuerySpendableBalancesRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as QuerySpendableBalancesRequest))
+          as QuerySpendableBalancesRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QuerySpendableBalancesRequest create() =>
+      QuerySpendableBalancesRequest._();
+  QuerySpendableBalancesRequest createEmptyInstance() => create();
+  static $pb.PbList<QuerySpendableBalancesRequest> createRepeated() =>
+      $pb.PbList<QuerySpendableBalancesRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QuerySpendableBalancesRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QuerySpendableBalancesRequest>(create);
+  static QuerySpendableBalancesRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get address => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set address($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAddress() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $2.PageRequest get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageRequest v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageRequest ensurePagination() => $_ensure(1);
+}
+
+class QuerySpendableBalancesResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QuerySpendableBalancesResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.Coin>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'balances',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..aOM<$2.PageResponse>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  QuerySpendableBalancesResponse._() : super();
+  factory QuerySpendableBalancesResponse({
+    $core.Iterable<$1.Coin>? balances,
+    $2.PageResponse? pagination,
+  }) {
+    final _result = create();
+    if (balances != null) {
+      _result.balances.addAll(balances);
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QuerySpendableBalancesResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QuerySpendableBalancesResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QuerySpendableBalancesResponse clone() =>
+      QuerySpendableBalancesResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QuerySpendableBalancesResponse copyWith(
+          void Function(QuerySpendableBalancesResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QuerySpendableBalancesResponse))
+          as QuerySpendableBalancesResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QuerySpendableBalancesResponse create() =>
+      QuerySpendableBalancesResponse._();
+  QuerySpendableBalancesResponse createEmptyInstance() => create();
+  static $pb.PbList<QuerySpendableBalancesResponse> createRepeated() =>
+      $pb.PbList<QuerySpendableBalancesResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QuerySpendableBalancesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QuerySpendableBalancesResponse>(create);
+  static QuerySpendableBalancesResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$1.Coin> get balances => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $2.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageResponse v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageResponse ensurePagination() => $_ensure(1);
+}
+
 class QueryTotalSupplyRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
@@ -1062,4 +1245,174 @@ class QueryDenomMetadataResponse extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(1);
   @$pb.TagNumber(1)
   $3.Metadata ensureMetadata() => $_ensure(0);
+}
+
+class QuerySendEnabledRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QuerySendEnabledRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..pPS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'denoms')
+    ..aOM<$2.PageRequest>(
+        99,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  QuerySendEnabledRequest._() : super();
+  factory QuerySendEnabledRequest({
+    $core.Iterable<$core.String>? denoms,
+    $2.PageRequest? pagination,
+  }) {
+    final _result = create();
+    if (denoms != null) {
+      _result.denoms.addAll(denoms);
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QuerySendEnabledRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QuerySendEnabledRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QuerySendEnabledRequest clone() =>
+      QuerySendEnabledRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QuerySendEnabledRequest copyWith(
+          void Function(QuerySendEnabledRequest) updates) =>
+      super.copyWith((message) => updates(message as QuerySendEnabledRequest))
+          as QuerySendEnabledRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QuerySendEnabledRequest create() => QuerySendEnabledRequest._();
+  QuerySendEnabledRequest createEmptyInstance() => create();
+  static $pb.PbList<QuerySendEnabledRequest> createRepeated() =>
+      $pb.PbList<QuerySendEnabledRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QuerySendEnabledRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QuerySendEnabledRequest>(create);
+  static QuerySendEnabledRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.String> get denoms => $_getList(0);
+
+  @$pb.TagNumber(99)
+  $2.PageRequest get pagination => $_getN(1);
+  @$pb.TagNumber(99)
+  set pagination($2.PageRequest v) {
+    setField(99, v);
+  }
+
+  @$pb.TagNumber(99)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(99)
+  void clearPagination() => clearField(99);
+  @$pb.TagNumber(99)
+  $2.PageRequest ensurePagination() => $_ensure(1);
+}
+
+class QuerySendEnabledResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QuerySendEnabledResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$3.SendEnabled>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sendEnabled',
+        $pb.PbFieldType.PM,
+        subBuilder: $3.SendEnabled.create)
+    ..aOM<$2.PageResponse>(
+        99,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  QuerySendEnabledResponse._() : super();
+  factory QuerySendEnabledResponse({
+    $core.Iterable<$3.SendEnabled>? sendEnabled,
+    $2.PageResponse? pagination,
+  }) {
+    final _result = create();
+    if (sendEnabled != null) {
+      _result.sendEnabled.addAll(sendEnabled);
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QuerySendEnabledResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QuerySendEnabledResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QuerySendEnabledResponse clone() =>
+      QuerySendEnabledResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QuerySendEnabledResponse copyWith(
+          void Function(QuerySendEnabledResponse) updates) =>
+      super.copyWith((message) => updates(message as QuerySendEnabledResponse))
+          as QuerySendEnabledResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QuerySendEnabledResponse create() => QuerySendEnabledResponse._();
+  QuerySendEnabledResponse createEmptyInstance() => create();
+  static $pb.PbList<QuerySendEnabledResponse> createRepeated() =>
+      $pb.PbList<QuerySendEnabledResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QuerySendEnabledResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QuerySendEnabledResponse>(create);
+  static QuerySendEnabledResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$3.SendEnabled> get sendEnabled => $_getList(0);
+
+  @$pb.TagNumber(99)
+  $2.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(99)
+  set pagination($2.PageResponse v) {
+    setField(99, v);
+  }
+
+  @$pb.TagNumber(99)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(99)
+  void clearPagination() => clearField(99);
+  @$pb.TagNumber(99)
+  $2.PageResponse ensurePagination() => $_ensure(1);
 }

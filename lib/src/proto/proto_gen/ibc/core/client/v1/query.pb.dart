@@ -799,6 +799,191 @@ class QueryConsensusStatesResponse extends $pb.GeneratedMessage {
   $3.PageResponse ensurePagination() => $_ensure(1);
 }
 
+class QueryConsensusStateHeightsRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryConsensusStateHeightsRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'clientId')
+    ..aOM<$3.PageRequest>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  QueryConsensusStateHeightsRequest._() : super();
+  factory QueryConsensusStateHeightsRequest({
+    $core.String? clientId,
+    $3.PageRequest? pagination,
+  }) {
+    final _result = create();
+    if (clientId != null) {
+      _result.clientId = clientId;
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QueryConsensusStateHeightsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryConsensusStateHeightsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryConsensusStateHeightsRequest clone() =>
+      QueryConsensusStateHeightsRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryConsensusStateHeightsRequest copyWith(
+          void Function(QueryConsensusStateHeightsRequest) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryConsensusStateHeightsRequest))
+          as QueryConsensusStateHeightsRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryConsensusStateHeightsRequest create() =>
+      QueryConsensusStateHeightsRequest._();
+  QueryConsensusStateHeightsRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryConsensusStateHeightsRequest> createRepeated() =>
+      $pb.PbList<QueryConsensusStateHeightsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryConsensusStateHeightsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryConsensusStateHeightsRequest>(
+          create);
+  static QueryConsensusStateHeightsRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get clientId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set clientId($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasClientId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearClientId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $3.PageRequest get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($3.PageRequest v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $3.PageRequest ensurePagination() => $_ensure(1);
+}
+
+class QueryConsensusStateHeightsResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryConsensusStateHeightsResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..pc<$2.Height>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'consensusStateHeights',
+        $pb.PbFieldType.PM,
+        subBuilder: $2.Height.create)
+    ..aOM<$3.PageResponse>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  QueryConsensusStateHeightsResponse._() : super();
+  factory QueryConsensusStateHeightsResponse({
+    $core.Iterable<$2.Height>? consensusStateHeights,
+    $3.PageResponse? pagination,
+  }) {
+    final _result = create();
+    if (consensusStateHeights != null) {
+      _result.consensusStateHeights.addAll(consensusStateHeights);
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QueryConsensusStateHeightsResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryConsensusStateHeightsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryConsensusStateHeightsResponse clone() =>
+      QueryConsensusStateHeightsResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryConsensusStateHeightsResponse copyWith(
+          void Function(QueryConsensusStateHeightsResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryConsensusStateHeightsResponse))
+          as QueryConsensusStateHeightsResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryConsensusStateHeightsResponse create() =>
+      QueryConsensusStateHeightsResponse._();
+  QueryConsensusStateHeightsResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryConsensusStateHeightsResponse> createRepeated() =>
+      $pb.PbList<QueryConsensusStateHeightsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryConsensusStateHeightsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryConsensusStateHeightsResponse>(
+          create);
+  static QueryConsensusStateHeightsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$2.Height> get consensusStateHeights => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $3.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($3.PageResponse v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $3.PageResponse ensurePagination() => $_ensure(1);
+}
+
 class QueryClientStatusRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')

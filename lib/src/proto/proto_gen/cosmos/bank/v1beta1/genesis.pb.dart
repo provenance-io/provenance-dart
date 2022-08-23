@@ -49,6 +49,13 @@ class GenesisState extends $pb.GeneratedMessage {
             : 'denomMetadata',
         $pb.PbFieldType.PM,
         subBuilder: $0.Metadata.create)
+    ..pc<$0.SendEnabled>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sendEnabled',
+        $pb.PbFieldType.PM,
+        subBuilder: $0.SendEnabled.create)
     ..hasRequiredFields = false;
 
   GenesisState._() : super();
@@ -57,6 +64,7 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.Iterable<Balance>? balances,
     $core.Iterable<$1.Coin>? supply,
     $core.Iterable<$0.Metadata>? denomMetadata,
+    $core.Iterable<$0.SendEnabled>? sendEnabled,
   }) {
     final _result = create();
     if (params != null) {
@@ -70,6 +78,9 @@ class GenesisState extends $pb.GeneratedMessage {
     }
     if (denomMetadata != null) {
       _result.denomMetadata.addAll(denomMetadata);
+    }
+    if (sendEnabled != null) {
+      _result.sendEnabled.addAll(sendEnabled);
     }
     return _result;
   }
@@ -122,6 +133,9 @@ class GenesisState extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(4)
   $core.List<$0.Metadata> get denomMetadata => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.List<$0.SendEnabled> get sendEnabled => $_getList(4);
 }
 
 class Balance extends $pb.GeneratedMessage {

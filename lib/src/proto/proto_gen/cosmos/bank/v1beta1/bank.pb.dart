@@ -37,11 +37,13 @@ class Params extends $pb.GeneratedMessage {
 
   Params._() : super();
   factory Params({
-    $core.Iterable<SendEnabled>? sendEnabled,
+    @$core.Deprecated('This field is deprecated.')
+        $core.Iterable<SendEnabled>? sendEnabled,
     $core.bool? defaultSendEnabled,
   }) {
     final _result = create();
     if (sendEnabled != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.sendEnabled.addAll(sendEnabled);
     }
     if (defaultSendEnabled != null) {
@@ -75,6 +77,7 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.List<SendEnabled> get sendEnabled => $_getList(0);
 

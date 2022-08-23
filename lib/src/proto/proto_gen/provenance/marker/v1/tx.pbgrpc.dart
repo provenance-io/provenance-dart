@@ -86,6 +86,12 @@ class MsgClient extends $grpc.Client {
       ($0.MsgSetDenomMetadataRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgSetDenomMetadataResponse.fromBuffer(value));
+  static final _$grantAllowance = $grpc.ClientMethod<
+          $0.MsgGrantAllowanceRequest, $0.MsgGrantAllowanceResponse>(
+      '/provenance.marker.v1.Msg/GrantAllowance',
+      ($0.MsgGrantAllowanceRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgGrantAllowanceResponse.fromBuffer(value));
 
   MsgClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -158,6 +164,12 @@ class MsgClient extends $grpc.Client {
       $0.MsgSetDenomMetadataRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setDenomMetadata, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgGrantAllowanceResponse> grantAllowance(
+      $0.MsgGrantAllowanceRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$grantAllowance, request, options: options);
   }
 }
 
@@ -265,6 +277,15 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgSetDenomMetadataRequest.fromBuffer(value),
         ($0.MsgSetDenomMetadataResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgGrantAllowanceRequest,
+            $0.MsgGrantAllowanceResponse>(
+        'GrantAllowance',
+        grantAllowance_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgGrantAllowanceRequest.fromBuffer(value),
+        ($0.MsgGrantAllowanceResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.MsgFinalizeResponse> finalize_Pre($grpc.ServiceCall call,
@@ -329,6 +350,12 @@ abstract class MsgServiceBase extends $grpc.Service {
     return setDenomMetadata(call, await request);
   }
 
+  $async.Future<$0.MsgGrantAllowanceResponse> grantAllowance_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgGrantAllowanceRequest> request) async {
+    return grantAllowance(call, await request);
+  }
+
   $async.Future<$0.MsgFinalizeResponse> finalize(
       $grpc.ServiceCall call, $0.MsgFinalizeRequest request);
   $async.Future<$0.MsgActivateResponse> activate(
@@ -353,4 +380,6 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgTransferRequest request);
   $async.Future<$0.MsgSetDenomMetadataResponse> setDenomMetadata(
       $grpc.ServiceCall call, $0.MsgSetDenomMetadataRequest request);
+  $async.Future<$0.MsgGrantAllowanceResponse> grantAllowance(
+      $grpc.ServiceCall call, $0.MsgGrantAllowanceRequest request);
 }

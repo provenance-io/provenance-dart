@@ -56,3 +56,97 @@ const QueryGrantsResponse$json = const {
 /// Descriptor for `QueryGrantsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryGrantsResponseDescriptor = $convert.base64Decode(
     'ChNRdWVyeUdyYW50c1Jlc3BvbnNlEjMKBmdyYW50cxgBIAMoCzIbLmNvc21vcy5hdXRoei52MWJldGExLkdyYW50UgZncmFudHMSRwoKcGFnaW5hdGlvbhgCIAEoCzInLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlc3BvbnNlUgpwYWdpbmF0aW9u');
+@$core.Deprecated('Use queryGranterGrantsRequestDescriptor instead')
+const QueryGranterGrantsRequest$json = const {
+  '1': 'QueryGranterGrantsRequest',
+  '2': const [
+    const {'1': 'granter', '3': 1, '4': 1, '5': 9, '10': 'granter'},
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageRequest',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGranterGrantsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGranterGrantsRequestDescriptor =
+    $convert.base64Decode(
+        'ChlRdWVyeUdyYW50ZXJHcmFudHNSZXF1ZXN0EhgKB2dyYW50ZXIYASABKAlSB2dyYW50ZXISRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24=');
+@$core.Deprecated('Use queryGranterGrantsResponseDescriptor instead')
+const QueryGranterGrantsResponse$json = const {
+  '1': 'QueryGranterGrantsResponse',
+  '2': const [
+    const {
+      '1': 'grants',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.authz.v1beta1.GrantAuthorization',
+      '10': 'grants'
+    },
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageResponse',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGranterGrantsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGranterGrantsResponseDescriptor =
+    $convert.base64Decode(
+        'ChpRdWVyeUdyYW50ZXJHcmFudHNSZXNwb25zZRJACgZncmFudHMYASADKAsyKC5jb3Ntb3MuYXV0aHoudjFiZXRhMS5HcmFudEF1dGhvcml6YXRpb25SBmdyYW50cxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');
+@$core.Deprecated('Use queryGranteeGrantsRequestDescriptor instead')
+const QueryGranteeGrantsRequest$json = const {
+  '1': 'QueryGranteeGrantsRequest',
+  '2': const [
+    const {'1': 'grantee', '3': 1, '4': 1, '5': 9, '10': 'grantee'},
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageRequest',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGranteeGrantsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGranteeGrantsRequestDescriptor =
+    $convert.base64Decode(
+        'ChlRdWVyeUdyYW50ZWVHcmFudHNSZXF1ZXN0EhgKB2dyYW50ZWUYASABKAlSB2dyYW50ZWUSRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24=');
+@$core.Deprecated('Use queryGranteeGrantsResponseDescriptor instead')
+const QueryGranteeGrantsResponse$json = const {
+  '1': 'QueryGranteeGrantsResponse',
+  '2': const [
+    const {
+      '1': 'grants',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.authz.v1beta1.GrantAuthorization',
+      '10': 'grants'
+    },
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageResponse',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGranteeGrantsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGranteeGrantsResponseDescriptor =
+    $convert.base64Decode(
+        'ChpRdWVyeUdyYW50ZWVHcmFudHNSZXNwb25zZRJACgZncmFudHMYASADKAsyKC5jb3Ntb3MuYXV0aHoudjFiZXRhMS5HcmFudEF1dGhvcml6YXRpb25SBmdyYW50cxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');

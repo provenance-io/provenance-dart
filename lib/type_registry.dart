@@ -1,18 +1,26 @@
 library provenance_dart;
+
 import 'package:protobuf/protobuf.dart';
-import 'package:provenance_dart/proto_crypto_secp256r1.dart' as crypto_secp256r1;
+import 'package:provenance_dart/proto_crypto_secp256r1.dart'
+    as crypto_secp256r1;
 import 'package:provenance_dart/proto_crypto_multisig.dart' as crypto_multisig;
-import 'package:provenance_dart/proto_multisig_v1beta1.dart' as multisig_v1beta1;
-import 'package:provenance_dart/proto_crypto_secp256k1.dart' as crypto_secp256k1;
+import 'package:provenance_dart/proto_multisig_v1beta1.dart'
+    as multisig_v1beta1;
+import 'package:provenance_dart/proto_crypto_secp256k1.dart'
+    as crypto_secp256k1;
 import 'package:provenance_dart/proto_crypto_ed25519.dart' as crypto_ed25519;
 import 'package:provenance_dart/proto_upgrade_v1beta1.dart' as upgrade_v1beta1;
-import 'package:provenance_dart/proto_feegrant_v1beta1.dart' as feegrant_v1beta1;
+import 'package:provenance_dart/proto_feegrant_v1beta1.dart'
+    as feegrant_v1beta1;
 import 'package:provenance_dart/proto_mint_v1beta1.dart' as mint_v1beta1;
-import 'package:provenance_dart/proto_evidence_v1beta1.dart' as evidence_v1beta1;
+import 'package:provenance_dart/proto_evidence_v1beta1.dart'
+    as evidence_v1beta1;
 import 'package:provenance_dart/proto_auth_v1beta1.dart' as auth_v1beta1;
 import 'package:provenance_dart/proto_bank_v1beta1.dart' as bank_v1beta1;
-import 'package:provenance_dart/proto_capability_v1beta1.dart' as capability_v1beta1;
-import 'package:provenance_dart/proto_distribution_v1beta1.dart' as distribution_v1beta1;
+import 'package:provenance_dart/proto_capability_v1beta1.dart'
+    as capability_v1beta1;
+import 'package:provenance_dart/proto_distribution_v1beta1.dart'
+    as distribution_v1beta1;
 import 'package:provenance_dart/proto_crisis_v1beta1.dart' as crisis_v1beta1;
 import 'package:provenance_dart/proto_signing_v1beta1.dart' as signing_v1beta1;
 import 'package:provenance_dart/proto_tx_v1beta1.dart' as tx_v1beta1;
@@ -21,16 +29,21 @@ import 'package:provenance_dart/proto_staking_v1beta1.dart' as staking_v1beta1;
 import 'package:provenance_dart/proto_genutil_v1beta1.dart' as genutil_v1beta1;
 import 'package:provenance_dart/proto_params_v1beta1.dart' as params_v1beta1;
 import 'package:provenance_dart/proto_authz_v1beta1.dart' as authz_v1beta1;
-import 'package:provenance_dart/proto_slashing_v1beta1.dart' as slashing_v1beta1;
+import 'package:provenance_dart/proto_slashing_v1beta1.dart'
+    as slashing_v1beta1;
 import 'package:provenance_dart/proto_abci_v1beta1.dart' as abci_v1beta1;
 import 'package:provenance_dart/proto_kv_v1beta1.dart' as kv_v1beta1;
-import 'package:provenance_dart/proto_snapshots_v1beta1.dart' as snapshots_v1beta1;
+import 'package:provenance_dart/proto_snapshots_v1beta1.dart'
+    as snapshots_v1beta1;
 import 'package:provenance_dart/proto_base_v1beta1.dart' as base_v1beta1;
-import 'package:provenance_dart/proto_tendermint_v1beta1.dart' as tendermint_v1beta1;
+import 'package:provenance_dart/proto_tendermint_v1beta1.dart'
+    as tendermint_v1beta1;
 import 'package:provenance_dart/proto_query_v1beta1.dart' as query_v1beta1;
 import 'package:provenance_dart/proto_store_v1beta1.dart' as store_v1beta1;
-import 'package:provenance_dart/proto_reflection_v1beta1.dart' as reflection_v1beta1;
-import 'package:provenance_dart/proto_reflection_v2alpha1.dart' as reflection_v2alpha1;
+import 'package:provenance_dart/proto_reflection_v1beta1.dart'
+    as reflection_v1beta1;
+import 'package:provenance_dart/proto_reflection_v2alpha1.dart'
+    as reflection_v2alpha1;
 import 'package:provenance_dart/proto_gov_v1beta1.dart' as gov_v1beta1;
 import 'package:provenance_dart/proto_attribute_v1.dart' as attribute_v1;
 import 'package:provenance_dart/proto_msgfees_v1.dart' as msgfees_v1;
@@ -112,6 +125,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   bank_v1beta1.QueryBalanceResponse(),
   bank_v1beta1.QueryAllBalancesRequest(),
   bank_v1beta1.QueryAllBalancesResponse(),
+  bank_v1beta1.QuerySpendableBalancesRequest(),
+  bank_v1beta1.QuerySpendableBalancesResponse(),
   bank_v1beta1.QueryTotalSupplyRequest(),
   bank_v1beta1.QueryTotalSupplyResponse(),
   bank_v1beta1.QuerySupplyOfRequest(),
@@ -122,6 +137,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   bank_v1beta1.QueryDenomsMetadataResponse(),
   bank_v1beta1.QueryDenomMetadataRequest(),
   bank_v1beta1.QueryDenomMetadataResponse(),
+  bank_v1beta1.QuerySendEnabledRequest(),
+  bank_v1beta1.QuerySendEnabledResponse(),
   bank_v1beta1.Params(),
   bank_v1beta1.SendEnabled(),
   bank_v1beta1.Input(),
@@ -196,6 +213,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   tx_v1beta1.SimulateResponse(),
   tx_v1beta1.GetTxRequest(),
   tx_v1beta1.GetTxResponse(),
+  tx_v1beta1.GetBlockWithTxsRequest(),
+  tx_v1beta1.GetBlockWithTxsResponse(),
   tx_v1beta1.Tx(),
   tx_v1beta1.TxRaw(),
   tx_v1beta1.SignDoc(),
@@ -282,11 +301,12 @@ TypeRegistry provenanceTypes = TypeRegistry([
   params_v1beta1.QueryParamsRequest(),
   params_v1beta1.QueryParamsResponse(),
   authz_v1beta1.GenericAuthorization(),
+  authz_v1beta1.CountAuthorization(),
   authz_v1beta1.Grant(),
+  authz_v1beta1.GrantAuthorization(),
   authz_v1beta1.EventGrant(),
   authz_v1beta1.EventRevoke(),
   authz_v1beta1.GenesisState(),
-  authz_v1beta1.GrantAuthorization(),
   authz_v1beta1.MsgGrant(),
   authz_v1beta1.MsgExecResponse(),
   authz_v1beta1.MsgExec(),
@@ -295,6 +315,10 @@ TypeRegistry provenanceTypes = TypeRegistry([
   authz_v1beta1.MsgRevokeResponse(),
   authz_v1beta1.QueryGrantsRequest(),
   authz_v1beta1.QueryGrantsResponse(),
+  authz_v1beta1.QueryGranterGrantsRequest(),
+  authz_v1beta1.QueryGranterGrantsResponse(),
+  authz_v1beta1.QueryGranteeGrantsRequest(),
+  authz_v1beta1.QueryGranteeGrantsResponse(),
   slashing_v1beta1.ValidatorSigningInfo(),
   slashing_v1beta1.Params(),
   slashing_v1beta1.GenesisState(),
@@ -323,6 +347,11 @@ TypeRegistry provenanceTypes = TypeRegistry([
   kv_v1beta1.Pair(),
   snapshots_v1beta1.Snapshot(),
   snapshots_v1beta1.Metadata(),
+  snapshots_v1beta1.SnapshotItem(),
+  snapshots_v1beta1.SnapshotStoreItem(),
+  snapshots_v1beta1.SnapshotIAVLItem(),
+  snapshots_v1beta1.SnapshotExtensionMeta(),
+  snapshots_v1beta1.SnapshotExtensionPayload(),
   base_v1beta1.Coin(),
   base_v1beta1.DecCoin(),
   base_v1beta1.IntProto(),
@@ -347,9 +376,6 @@ TypeRegistry provenanceTypes = TypeRegistry([
   store_v1beta1.CommitInfo(),
   store_v1beta1.StoreInfo(),
   store_v1beta1.CommitID(),
-  store_v1beta1.SnapshotItem(),
-  store_v1beta1.SnapshotStoreItem(),
-  store_v1beta1.SnapshotIAVLItem(),
   store_v1beta1.StoreKVPair(),
   reflection_v1beta1.ListAllInterfacesRequest(),
   reflection_v1beta1.ListAllInterfacesResponse(),
@@ -441,11 +467,14 @@ TypeRegistry provenanceTypes = TypeRegistry([
   msgfees_v1.AddMsgFeeProposal(),
   msgfees_v1.UpdateMsgFeeProposal(),
   msgfees_v1.RemoveMsgFeeProposal(),
+  msgfees_v1.UpdateNhashPerUsdMilProposal(),
   msgfees_v1.Params(),
   msgfees_v1.MsgFee(),
   msgfees_v1.EventMsgFee(),
   msgfees_v1.EventMsgFees(),
   msgfees_v1.GenesisState(),
+  msgfees_v1.MsgAssessCustomMsgFeeRequest(),
+  msgfees_v1.MsgAssessCustomMsgFeeResponse(),
   msgfees_v1.QueryParamsRequest(),
   msgfees_v1.QueryParamsResponse(),
   msgfees_v1.QueryAllMsgFeesRequest(),
@@ -479,6 +508,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   marker_v1.MarkerTransferAuthorization(),
   marker_v1.AccessGrant(),
   marker_v1.GenesisState(),
+  marker_v1.MsgGrantAllowanceRequest(),
+  marker_v1.MsgGrantAllowanceResponse(),
   marker_v1.MsgAddMarkerRequest(),
   marker_v1.MsgAddMarkerResponse(),
   marker_v1.MsgAddAccessRequest(),
@@ -627,6 +658,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   metadata_v1.ContractSpecificationWrapper(),
   metadata_v1.ContractSpecificationsAllRequest(),
   metadata_v1.ContractSpecificationsAllResponse(),
+  metadata_v1.RecordSpecificationsForContractSpecificationRequest(),
+  metadata_v1.RecordSpecificationsForContractSpecificationResponse(),
   metadata_v1.RecordSpecificationRequest(),
   metadata_v1.RecordSpecificationResponse(),
   metadata_v1.RecordSpecificationWrapper(),

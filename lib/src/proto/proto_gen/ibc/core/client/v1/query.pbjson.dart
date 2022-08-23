@@ -201,6 +201,54 @@ const QueryConsensusStatesResponse$json = const {
 final $typed_data.Uint8List queryConsensusStatesResponseDescriptor =
     $convert.base64Decode(
         'ChxRdWVyeUNvbnNlbnN1c1N0YXRlc1Jlc3BvbnNlEl0KEGNvbnNlbnN1c19zdGF0ZXMYASADKAsyLC5pYmMuY29yZS5jbGllbnQudjEuQ29uc2Vuc3VzU3RhdGVXaXRoSGVpZ2h0QgTI3h8AUg9jb25zZW5zdXNTdGF0ZXMSRwoKcGFnaW5hdGlvbhgCIAEoCzInLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlc3BvbnNlUgpwYWdpbmF0aW9u');
+@$core.Deprecated('Use queryConsensusStateHeightsRequestDescriptor instead')
+const QueryConsensusStateHeightsRequest$json = const {
+  '1': 'QueryConsensusStateHeightsRequest',
+  '2': const [
+    const {'1': 'client_id', '3': 1, '4': 1, '5': 9, '10': 'clientId'},
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageRequest',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryConsensusStateHeightsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryConsensusStateHeightsRequestDescriptor =
+    $convert.base64Decode(
+        'CiFRdWVyeUNvbnNlbnN1c1N0YXRlSGVpZ2h0c1JlcXVlc3QSGwoJY2xpZW50X2lkGAEgASgJUghjbGllbnRJZBJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+@$core.Deprecated('Use queryConsensusStateHeightsResponseDescriptor instead')
+const QueryConsensusStateHeightsResponse$json = const {
+  '1': 'QueryConsensusStateHeightsResponse',
+  '2': const [
+    const {
+      '1': 'consensus_state_heights',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.ibc.core.client.v1.Height',
+      '8': const {},
+      '10': 'consensusStateHeights'
+    },
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageResponse',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryConsensusStateHeightsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryConsensusStateHeightsResponseDescriptor =
+    $convert.base64Decode(
+        'CiJRdWVyeUNvbnNlbnN1c1N0YXRlSGVpZ2h0c1Jlc3BvbnNlElgKF2NvbnNlbnN1c19zdGF0ZV9oZWlnaHRzGAEgAygLMhouaWJjLmNvcmUuY2xpZW50LnYxLkhlaWdodEIEyN4fAFIVY29uc2Vuc3VzU3RhdGVIZWlnaHRzEkcKCnBhZ2luYXRpb24YAiABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbg==');
 @$core.Deprecated('Use queryClientStatusRequestDescriptor instead')
 const QueryClientStatusRequest$json = const {
   '1': 'QueryClientStatusRequest',
