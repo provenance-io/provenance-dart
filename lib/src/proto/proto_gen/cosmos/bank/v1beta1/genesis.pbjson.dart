@@ -3,7 +3,7 @@
 //  source: cosmos/bank/v1beta1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
@@ -49,12 +49,21 @@ const GenesisState$json = const {
       '8': const {},
       '10': 'denomMetadata'
     },
+    const {
+      '1': 'send_enabled',
+      '3': 5,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.bank.v1beta1.SendEnabled',
+      '8': const {},
+      '10': 'sendEnabled'
+    },
   ],
 };
 
 /// Descriptor for `GenesisState`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List genesisStateDescriptor = $convert.base64Decode(
-    'CgxHZW5lc2lzU3RhdGUSOQoGcGFyYW1zGAEgASgLMhsuY29zbW9zLmJhbmsudjFiZXRhMS5QYXJhbXNCBMjeHwBSBnBhcmFtcxI+CghiYWxhbmNlcxgCIAMoCzIcLmNvc21vcy5iYW5rLnYxYmV0YTEuQmFsYW5jZUIEyN4fAFIIYmFsYW5jZXMSYwoGc3VwcGx5GAMgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc8jeHwBSBnN1cHBseRJjCg5kZW5vbV9tZXRhZGF0YRgEIAMoCzIdLmNvc21vcy5iYW5rLnYxYmV0YTEuTWV0YWRhdGFCHfLeHxV5YW1sOiJkZW5vbV9tZXRhZGF0YSLI3h8AUg1kZW5vbU1ldGFkYXRh');
+    'CgxHZW5lc2lzU3RhdGUSOQoGcGFyYW1zGAEgASgLMhsuY29zbW9zLmJhbmsudjFiZXRhMS5QYXJhbXNCBMjeHwBSBnBhcmFtcxI+CghiYWxhbmNlcxgCIAMoCzIcLmNvc21vcy5iYW5rLnYxYmV0YTEuQmFsYW5jZUIEyN4fAFIIYmFsYW5jZXMSYwoGc3VwcGx5GAMgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc8jeHwBSBnN1cHBseRJjCg5kZW5vbV9tZXRhZGF0YRgEIAMoCzIdLmNvc21vcy5iYW5rLnYxYmV0YTEuTWV0YWRhdGFCHfLeHxV5YW1sOiJkZW5vbV9tZXRhZGF0YSLI3h8AUg1kZW5vbU1ldGFkYXRhEmAKDHNlbmRfZW5hYmxlZBgFIAMoCzIgLmNvc21vcy5iYW5rLnYxYmV0YTEuU2VuZEVuYWJsZWRCG/LeHxN5YW1sOiJzZW5kX2VuYWJsZWQiyN4fAFILc2VuZEVuYWJsZWQ=');
 @$core.Deprecated('Use balanceDescriptor instead')
 const Balance$json = const {
   '1': 'Balance',

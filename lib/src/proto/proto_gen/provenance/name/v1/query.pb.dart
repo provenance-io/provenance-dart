@@ -3,7 +3,7 @@
 //  source: provenance/name/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -206,15 +206,24 @@ class QueryResolveResponse extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'address')
+    ..aOB(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'restricted')
     ..hasRequiredFields = false;
 
   QueryResolveResponse._() : super();
   factory QueryResolveResponse({
     $core.String? address,
+    $core.bool? restricted,
   }) {
     final _result = create();
     if (address != null) {
       _result.address = address;
+    }
+    if (restricted != null) {
+      _result.restricted = restricted;
     }
     return _result;
   }
@@ -257,6 +266,18 @@ class QueryResolveResponse extends $pb.GeneratedMessage {
   $core.bool hasAddress() => $_has(0);
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get restricted => $_getBF(1);
+  @$pb.TagNumber(2)
+  set restricted($core.bool v) {
+    $_setBool(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasRestricted() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRestricted() => clearField(2);
 }
 
 class QueryReverseLookupRequest extends $pb.GeneratedMessage {

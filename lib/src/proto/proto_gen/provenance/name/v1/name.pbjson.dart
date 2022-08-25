@@ -3,7 +3,7 @@
 //  source: provenance/name/v1/name.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
@@ -84,21 +84,23 @@ const EventNameBound$json = const {
   '2': const [
     const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'restricted', '3': 3, '4': 1, '5': 8, '10': 'restricted'},
   ],
 };
 
 /// Descriptor for `EventNameBound`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List eventNameBoundDescriptor = $convert.base64Decode(
-    'Cg5FdmVudE5hbWVCb3VuZBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEhIKBG5hbWUYAiABKAlSBG5hbWU=');
+    'Cg5FdmVudE5hbWVCb3VuZBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEhIKBG5hbWUYAiABKAlSBG5hbWUSHgoKcmVzdHJpY3RlZBgDIAEoCFIKcmVzdHJpY3RlZA==');
 @$core.Deprecated('Use eventNameUnboundDescriptor instead')
 const EventNameUnbound$json = const {
   '1': 'EventNameUnbound',
   '2': const [
     const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'restricted', '3': 3, '4': 1, '5': 8, '10': 'restricted'},
   ],
 };
 
 /// Descriptor for `EventNameUnbound`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List eventNameUnboundDescriptor = $convert.base64Decode(
-    'ChBFdmVudE5hbWVVbmJvdW5kEhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3MSEgoEbmFtZRgCIAEoCVIEbmFtZQ==');
+    'ChBFdmVudE5hbWVVbmJvdW5kEhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3MSEgoEbmFtZRgCIAEoCVIEbmFtZRIeCgpyZXN0cmljdGVkGAMgASgIUgpyZXN0cmljdGVk');

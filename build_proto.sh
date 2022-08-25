@@ -13,4 +13,6 @@ do
 		$file
 done
 
+dart bin/types_create.dart
+
 flutter format .

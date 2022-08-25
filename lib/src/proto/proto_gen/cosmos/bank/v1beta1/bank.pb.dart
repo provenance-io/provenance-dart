@@ -3,7 +3,7 @@
 //  source: cosmos/bank/v1beta1/bank.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -37,11 +37,13 @@ class Params extends $pb.GeneratedMessage {
 
   Params._() : super();
   factory Params({
-    $core.Iterable<SendEnabled>? sendEnabled,
+    @$core.Deprecated('This field is deprecated.')
+        $core.Iterable<SendEnabled>? sendEnabled,
     $core.bool? defaultSendEnabled,
   }) {
     final _result = create();
     if (sendEnabled != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.sendEnabled.addAll(sendEnabled);
     }
     if (defaultSendEnabled != null) {
@@ -75,6 +77,7 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.List<SendEnabled> get sendEnabled => $_getList(0);
 

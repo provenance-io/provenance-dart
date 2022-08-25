@@ -3,10 +3,11 @@
 //  source: provenance/msgfees/v1/msgfees.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $0;
@@ -27,15 +28,26 @@ class Params extends $pb.GeneratedMessage {
             ? ''
             : 'floorGasPrice',
         subBuilder: $0.Coin.create)
+    ..a<$fixnum.Int64>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'nhashPerUsdMil',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   Params._() : super();
   factory Params({
     $0.Coin? floorGasPrice,
+    $fixnum.Int64? nhashPerUsdMil,
   }) {
     final _result = create();
     if (floorGasPrice != null) {
       _result.floorGasPrice = floorGasPrice;
+    }
+    if (nhashPerUsdMil != null) {
+      _result.nhashPerUsdMil = nhashPerUsdMil;
     }
     return _result;
   }
@@ -78,6 +90,18 @@ class Params extends $pb.GeneratedMessage {
   void clearFloorGasPrice() => clearField(2);
   @$pb.TagNumber(2)
   $0.Coin ensureFloorGasPrice() => $_ensure(0);
+
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get nhashPerUsdMil => $_getI64(1);
+  @$pb.TagNumber(3)
+  set nhashPerUsdMil($fixnum.Int64 v) {
+    $_setInt64(1, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasNhashPerUsdMil() => $_has(1);
+  @$pb.TagNumber(3)
+  void clearNhashPerUsdMil() => clearField(3);
 }
 
 class MsgFee extends $pb.GeneratedMessage {
@@ -195,6 +219,11 @@ class EventMsgFee extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'total')
+    ..aOS(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'recipient')
     ..hasRequiredFields = false;
 
   EventMsgFee._() : super();
@@ -202,6 +231,7 @@ class EventMsgFee extends $pb.GeneratedMessage {
     $core.String? msgType,
     $core.String? count,
     $core.String? total,
+    $core.String? recipient,
   }) {
     final _result = create();
     if (msgType != null) {
@@ -212,6 +242,9 @@ class EventMsgFee extends $pb.GeneratedMessage {
     }
     if (total != null) {
       _result.total = total;
+    }
+    if (recipient != null) {
+      _result.recipient = recipient;
     }
     return _result;
   }
@@ -276,6 +309,18 @@ class EventMsgFee extends $pb.GeneratedMessage {
   $core.bool hasTotal() => $_has(2);
   @$pb.TagNumber(3)
   void clearTotal() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get recipient => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set recipient($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasRecipient() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRecipient() => clearField(4);
 }
 
 class EventMsgFees extends $pb.GeneratedMessage {

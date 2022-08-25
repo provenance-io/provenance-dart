@@ -3,17 +3,197 @@
 //  source: provenance/marker/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../cosmos/base/v1beta1/coin.pb.dart' as $1;
-import 'accessgrant.pb.dart' as $2;
-import '../../../cosmos/bank/v1beta1/bank.pb.dart' as $3;
+import '../../../google/protobuf/any.pb.dart' as $1;
+import '../../../cosmos/base/v1beta1/coin.pb.dart' as $2;
+import 'accessgrant.pb.dart' as $3;
+import '../../../cosmos/bank/v1beta1/bank.pb.dart' as $4;
 
-import 'marker.pbenum.dart' as $4;
+import 'marker.pbenum.dart' as $5;
+
+class MsgGrantAllowanceRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'MsgGrantAllowanceRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'denom')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'administrator')
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'grantee')
+    ..aOM<$1.Any>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'allowance',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
+  MsgGrantAllowanceRequest._() : super();
+  factory MsgGrantAllowanceRequest({
+    $core.String? denom,
+    $core.String? administrator,
+    $core.String? grantee,
+    $1.Any? allowance,
+  }) {
+    final _result = create();
+    if (denom != null) {
+      _result.denom = denom;
+    }
+    if (administrator != null) {
+      _result.administrator = administrator;
+    }
+    if (grantee != null) {
+      _result.grantee = grantee;
+    }
+    if (allowance != null) {
+      _result.allowance = allowance;
+    }
+    return _result;
+  }
+  factory MsgGrantAllowanceRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgGrantAllowanceRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgGrantAllowanceRequest clone() =>
+      MsgGrantAllowanceRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgGrantAllowanceRequest copyWith(
+          void Function(MsgGrantAllowanceRequest) updates) =>
+      super.copyWith((message) => updates(message as MsgGrantAllowanceRequest))
+          as MsgGrantAllowanceRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MsgGrantAllowanceRequest create() => MsgGrantAllowanceRequest._();
+  MsgGrantAllowanceRequest createEmptyInstance() => create();
+  static $pb.PbList<MsgGrantAllowanceRequest> createRepeated() =>
+      $pb.PbList<MsgGrantAllowanceRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MsgGrantAllowanceRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgGrantAllowanceRequest>(create);
+  static MsgGrantAllowanceRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get denom => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set denom($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasDenom() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDenom() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get administrator => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set administrator($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasAdministrator() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAdministrator() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get grantee => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set grantee($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasGrantee() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGrantee() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $1.Any get allowance => $_getN(3);
+  @$pb.TagNumber(4)
+  set allowance($1.Any v) {
+    setField(4, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasAllowance() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAllowance() => clearField(4);
+  @$pb.TagNumber(4)
+  $1.Any ensureAllowance() => $_ensure(3);
+}
+
+class MsgGrantAllowanceResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'MsgGrantAllowanceResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  MsgGrantAllowanceResponse._() : super();
+  factory MsgGrantAllowanceResponse() => create();
+  factory MsgGrantAllowanceResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgGrantAllowanceResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgGrantAllowanceResponse clone() =>
+      MsgGrantAllowanceResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgGrantAllowanceResponse copyWith(
+          void Function(MsgGrantAllowanceResponse) updates) =>
+      super.copyWith((message) => updates(message as MsgGrantAllowanceResponse))
+          as MsgGrantAllowanceResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MsgGrantAllowanceResponse create() => MsgGrantAllowanceResponse._();
+  MsgGrantAllowanceResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgGrantAllowanceResponse> createRepeated() =>
+      $pb.PbList<MsgGrantAllowanceResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgGrantAllowanceResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgGrantAllowanceResponse>(create);
+  static MsgGrantAllowanceResponse? _defaultInstance;
+}
 
 class MsgAddMarkerRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -25,12 +205,12 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
               ? ''
               : 'provenance.marker.v1'),
       createEmptyInstance: create)
-    ..aOM<$1.Coin>(
+    ..aOM<$2.Coin>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'amount',
-        subBuilder: $1.Coin.create)
+        subBuilder: $2.Coin.create)
     ..aOS(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -41,31 +221,31 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'fromAddress')
-    ..e<$4.MarkerStatus>(
+    ..e<$5.MarkerStatus>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'status',
         $pb.PbFieldType.OE,
-        defaultOrMaker: $4.MarkerStatus.MARKER_STATUS_UNSPECIFIED,
-        valueOf: $4.MarkerStatus.valueOf,
-        enumValues: $4.MarkerStatus.values)
-    ..e<$4.MarkerType>(
+        defaultOrMaker: $5.MarkerStatus.MARKER_STATUS_UNSPECIFIED,
+        valueOf: $5.MarkerStatus.valueOf,
+        enumValues: $5.MarkerStatus.values)
+    ..e<$5.MarkerType>(
         6,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'markerType',
         $pb.PbFieldType.OE,
-        defaultOrMaker: $4.MarkerType.MARKER_TYPE_UNSPECIFIED,
-        valueOf: $4.MarkerType.valueOf,
-        enumValues: $4.MarkerType.values)
-    ..pc<$2.AccessGrant>(
+        defaultOrMaker: $5.MarkerType.MARKER_TYPE_UNSPECIFIED,
+        valueOf: $5.MarkerType.valueOf,
+        enumValues: $5.MarkerType.values)
+    ..pc<$3.AccessGrant>(
         7,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'accessList',
         $pb.PbFieldType.PM,
-        subBuilder: $2.AccessGrant.create)
+        subBuilder: $3.AccessGrant.create)
     ..aOB(
         8,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -80,12 +260,12 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
 
   MsgAddMarkerRequest._() : super();
   factory MsgAddMarkerRequest({
-    $1.Coin? amount,
+    $2.Coin? amount,
     $core.String? manager,
     $core.String? fromAddress,
-    $4.MarkerStatus? status,
-    $4.MarkerType? markerType,
-    $core.Iterable<$2.AccessGrant>? accessList,
+    $5.MarkerStatus? status,
+    $5.MarkerType? markerType,
+    $core.Iterable<$3.AccessGrant>? accessList,
     $core.bool? supplyFixed,
     $core.bool? allowGovernanceControl,
   }) {
@@ -144,9 +324,9 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
   static MsgAddMarkerRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $1.Coin get amount => $_getN(0);
+  $2.Coin get amount => $_getN(0);
   @$pb.TagNumber(1)
-  set amount($1.Coin v) {
+  set amount($2.Coin v) {
     setField(1, v);
   }
 
@@ -155,7 +335,7 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAmount() => clearField(1);
   @$pb.TagNumber(1)
-  $1.Coin ensureAmount() => $_ensure(0);
+  $2.Coin ensureAmount() => $_ensure(0);
 
   @$pb.TagNumber(3)
   $core.String get manager => $_getSZ(1);
@@ -182,9 +362,9 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
   void clearFromAddress() => clearField(4);
 
   @$pb.TagNumber(5)
-  $4.MarkerStatus get status => $_getN(3);
+  $5.MarkerStatus get status => $_getN(3);
   @$pb.TagNumber(5)
-  set status($4.MarkerStatus v) {
+  set status($5.MarkerStatus v) {
     setField(5, v);
   }
 
@@ -194,9 +374,9 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
   void clearStatus() => clearField(5);
 
   @$pb.TagNumber(6)
-  $4.MarkerType get markerType => $_getN(4);
+  $5.MarkerType get markerType => $_getN(4);
   @$pb.TagNumber(6)
-  set markerType($4.MarkerType v) {
+  set markerType($5.MarkerType v) {
     setField(6, v);
   }
 
@@ -206,7 +386,7 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
   void clearMarkerType() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.List<$2.AccessGrant> get accessList => $_getList(5);
+  $core.List<$3.AccessGrant> get accessList => $_getList(5);
 
   @$pb.TagNumber(8)
   $core.bool get supplyFixed => $_getBF(6);
@@ -296,20 +476,20 @@ class MsgAddAccessRequest extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'administrator')
-    ..pc<$2.AccessGrant>(
+    ..pc<$3.AccessGrant>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'access',
         $pb.PbFieldType.PM,
-        subBuilder: $2.AccessGrant.create)
+        subBuilder: $3.AccessGrant.create)
     ..hasRequiredFields = false;
 
   MsgAddAccessRequest._() : super();
   factory MsgAddAccessRequest({
     $core.String? denom,
     $core.String? administrator,
-    $core.Iterable<$2.AccessGrant>? access,
+    $core.Iterable<$3.AccessGrant>? access,
   }) {
     final _result = create();
     if (denom != null) {
@@ -375,7 +555,7 @@ class MsgAddAccessRequest extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$2.AccessGrant> get access => $_getList(2);
+  $core.List<$3.AccessGrant> get access => $_getList(2);
 }
 
 class MsgAddAccessResponse extends $pb.GeneratedMessage {
@@ -1106,12 +1286,12 @@ class MsgMintRequest extends $pb.GeneratedMessage {
               ? ''
               : 'provenance.marker.v1'),
       createEmptyInstance: create)
-    ..aOM<$1.Coin>(
+    ..aOM<$2.Coin>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'amount',
-        subBuilder: $1.Coin.create)
+        subBuilder: $2.Coin.create)
     ..aOS(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1121,7 +1301,7 @@ class MsgMintRequest extends $pb.GeneratedMessage {
 
   MsgMintRequest._() : super();
   factory MsgMintRequest({
-    $1.Coin? amount,
+    $2.Coin? amount,
     $core.String? administrator,
   }) {
     final _result = create();
@@ -1161,9 +1341,9 @@ class MsgMintRequest extends $pb.GeneratedMessage {
   static MsgMintRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $1.Coin get amount => $_getN(0);
+  $2.Coin get amount => $_getN(0);
   @$pb.TagNumber(1)
-  set amount($1.Coin v) {
+  set amount($2.Coin v) {
     setField(1, v);
   }
 
@@ -1172,7 +1352,7 @@ class MsgMintRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAmount() => clearField(1);
   @$pb.TagNumber(1)
-  $1.Coin ensureAmount() => $_ensure(0);
+  $2.Coin ensureAmount() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get administrator => $_getSZ(1);
@@ -1239,12 +1419,12 @@ class MsgBurnRequest extends $pb.GeneratedMessage {
               ? ''
               : 'provenance.marker.v1'),
       createEmptyInstance: create)
-    ..aOM<$1.Coin>(
+    ..aOM<$2.Coin>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'amount',
-        subBuilder: $1.Coin.create)
+        subBuilder: $2.Coin.create)
     ..aOS(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1254,7 +1434,7 @@ class MsgBurnRequest extends $pb.GeneratedMessage {
 
   MsgBurnRequest._() : super();
   factory MsgBurnRequest({
-    $1.Coin? amount,
+    $2.Coin? amount,
     $core.String? administrator,
   }) {
     final _result = create();
@@ -1294,9 +1474,9 @@ class MsgBurnRequest extends $pb.GeneratedMessage {
   static MsgBurnRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $1.Coin get amount => $_getN(0);
+  $2.Coin get amount => $_getN(0);
   @$pb.TagNumber(1)
-  set amount($1.Coin v) {
+  set amount($2.Coin v) {
     setField(1, v);
   }
 
@@ -1305,7 +1485,7 @@ class MsgBurnRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAmount() => clearField(1);
   @$pb.TagNumber(1)
-  $1.Coin ensureAmount() => $_ensure(0);
+  $2.Coin ensureAmount() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get administrator => $_getSZ(1);
@@ -1387,13 +1567,13 @@ class MsgWithdrawRequest extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'toAddress')
-    ..pc<$1.Coin>(
+    ..pc<$2.Coin>(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'amount',
         $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
+        subBuilder: $2.Coin.create)
     ..hasRequiredFields = false;
 
   MsgWithdrawRequest._() : super();
@@ -1401,7 +1581,7 @@ class MsgWithdrawRequest extends $pb.GeneratedMessage {
     $core.String? denom,
     $core.String? administrator,
     $core.String? toAddress,
-    $core.Iterable<$1.Coin>? amount,
+    $core.Iterable<$2.Coin>? amount,
   }) {
     final _result = create();
     if (denom != null) {
@@ -1482,7 +1662,7 @@ class MsgWithdrawRequest extends $pb.GeneratedMessage {
   void clearToAddress() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$1.Coin> get amount => $_getList(3);
+  $core.List<$2.Coin> get amount => $_getList(3);
 }
 
 class MsgWithdrawResponse extends $pb.GeneratedMessage {
@@ -1537,12 +1717,12 @@ class MsgTransferRequest extends $pb.GeneratedMessage {
               ? ''
               : 'provenance.marker.v1'),
       createEmptyInstance: create)
-    ..aOM<$1.Coin>(
+    ..aOM<$2.Coin>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'amount',
-        subBuilder: $1.Coin.create)
+        subBuilder: $2.Coin.create)
     ..aOS(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1562,7 +1742,7 @@ class MsgTransferRequest extends $pb.GeneratedMessage {
 
   MsgTransferRequest._() : super();
   factory MsgTransferRequest({
-    $1.Coin? amount,
+    $2.Coin? amount,
     $core.String? administrator,
     $core.String? fromAddress,
     $core.String? toAddress,
@@ -1610,9 +1790,9 @@ class MsgTransferRequest extends $pb.GeneratedMessage {
   static MsgTransferRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $1.Coin get amount => $_getN(0);
+  $2.Coin get amount => $_getN(0);
   @$pb.TagNumber(1)
-  set amount($1.Coin v) {
+  set amount($2.Coin v) {
     setField(1, v);
   }
 
@@ -1621,7 +1801,7 @@ class MsgTransferRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAmount() => clearField(1);
   @$pb.TagNumber(1)
-  $1.Coin ensureAmount() => $_ensure(0);
+  $2.Coin ensureAmount() => $_ensure(0);
 
   @$pb.TagNumber(3)
   $core.String get administrator => $_getSZ(1);
@@ -1712,12 +1892,12 @@ class MsgSetDenomMetadataRequest extends $pb.GeneratedMessage {
               ? ''
               : 'provenance.marker.v1'),
       createEmptyInstance: create)
-    ..aOM<$3.Metadata>(
+    ..aOM<$4.Metadata>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'metadata',
-        subBuilder: $3.Metadata.create)
+        subBuilder: $4.Metadata.create)
     ..aOS(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1727,7 +1907,7 @@ class MsgSetDenomMetadataRequest extends $pb.GeneratedMessage {
 
   MsgSetDenomMetadataRequest._() : super();
   factory MsgSetDenomMetadataRequest({
-    $3.Metadata? metadata,
+    $4.Metadata? metadata,
     $core.String? administrator,
   }) {
     final _result = create();
@@ -1770,9 +1950,9 @@ class MsgSetDenomMetadataRequest extends $pb.GeneratedMessage {
   static MsgSetDenomMetadataRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $3.Metadata get metadata => $_getN(0);
+  $4.Metadata get metadata => $_getN(0);
   @$pb.TagNumber(1)
-  set metadata($3.Metadata v) {
+  set metadata($4.Metadata v) {
     setField(1, v);
   }
 
@@ -1781,7 +1961,7 @@ class MsgSetDenomMetadataRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMetadata() => clearField(1);
   @$pb.TagNumber(1)
-  $3.Metadata ensureMetadata() => $_ensure(0);
+  $4.Metadata ensureMetadata() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get administrator => $_getSZ(1);

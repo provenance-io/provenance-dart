@@ -3,7 +3,7 @@
 //  source: cosmos/bank/v1beta1/bank.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
@@ -19,8 +19,8 @@ const Params$json = const {
       '4': 3,
       '5': 11,
       '6': '.cosmos.bank.v1beta1.SendEnabled',
-      '8': const {},
-      '10': 'sendEnabled'
+      '8': const {'3': true},
+      '10': 'sendEnabled',
     },
     const {
       '1': 'default_send_enabled',
@@ -36,7 +36,7 @@ const Params$json = const {
 
 /// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode(
-    'CgZQYXJhbXMSZgoMc2VuZF9lbmFibGVkGAEgAygLMiAuY29zbW9zLmJhbmsudjFiZXRhMS5TZW5kRW5hYmxlZEIh8t4fHXlhbWw6InNlbmRfZW5hYmxlZCxvbWl0ZW1wdHkiUgtzZW5kRW5hYmxlZBJbChRkZWZhdWx0X3NlbmRfZW5hYmxlZBgCIAEoCEIp8t4fJXlhbWw6ImRlZmF1bHRfc2VuZF9lbmFibGVkLG9taXRlbXB0eSJSEmRlZmF1bHRTZW5kRW5hYmxlZDoEmKAfAA==');
+    'CgZQYXJhbXMSaAoMc2VuZF9lbmFibGVkGAEgAygLMiAuY29zbW9zLmJhbmsudjFiZXRhMS5TZW5kRW5hYmxlZEIjGAHy3h8deWFtbDoic2VuZF9lbmFibGVkLG9taXRlbXB0eSJSC3NlbmRFbmFibGVkElsKFGRlZmF1bHRfc2VuZF9lbmFibGVkGAIgASgIQiny3h8leWFtbDoiZGVmYXVsdF9zZW5kX2VuYWJsZWQsb21pdGVtcHR5IlISZGVmYXVsdFNlbmRFbmFibGVkOgSYoB8A');
 @$core.Deprecated('Use sendEnabledDescriptor instead')
 const SendEnabled$json = const {
   '1': 'SendEnabled',

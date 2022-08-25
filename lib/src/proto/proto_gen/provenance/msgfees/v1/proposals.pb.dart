@@ -3,10 +3,11 @@
 //  source: provenance/msgfees/v1/proposals.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $0;
@@ -386,4 +387,119 @@ class RemoveMsgFeeProposal extends $pb.GeneratedMessage {
   $core.bool hasMsgTypeUrl() => $_has(2);
   @$pb.TagNumber(3)
   void clearMsgTypeUrl() => clearField(3);
+}
+
+class UpdateNhashPerUsdMilProposal extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'UpdateNhashPerUsdMilProposal',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'title')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'description')
+    ..a<$fixnum.Int64>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'nhashPerUsdMil',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  UpdateNhashPerUsdMilProposal._() : super();
+  factory UpdateNhashPerUsdMilProposal({
+    $core.String? title,
+    $core.String? description,
+    $fixnum.Int64? nhashPerUsdMil,
+  }) {
+    final _result = create();
+    if (title != null) {
+      _result.title = title;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    if (nhashPerUsdMil != null) {
+      _result.nhashPerUsdMil = nhashPerUsdMil;
+    }
+    return _result;
+  }
+  factory UpdateNhashPerUsdMilProposal.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory UpdateNhashPerUsdMilProposal.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  UpdateNhashPerUsdMilProposal clone() =>
+      UpdateNhashPerUsdMilProposal()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  UpdateNhashPerUsdMilProposal copyWith(
+          void Function(UpdateNhashPerUsdMilProposal) updates) =>
+      super.copyWith(
+              (message) => updates(message as UpdateNhashPerUsdMilProposal))
+          as UpdateNhashPerUsdMilProposal; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UpdateNhashPerUsdMilProposal create() =>
+      UpdateNhashPerUsdMilProposal._();
+  UpdateNhashPerUsdMilProposal createEmptyInstance() => create();
+  static $pb.PbList<UpdateNhashPerUsdMilProposal> createRepeated() =>
+      $pb.PbList<UpdateNhashPerUsdMilProposal>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateNhashPerUsdMilProposal getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateNhashPerUsdMilProposal>(create);
+  static UpdateNhashPerUsdMilProposal? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get title => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set title($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasTitle() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTitle() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set description($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDescription() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get nhashPerUsdMil => $_getI64(2);
+  @$pb.TagNumber(3)
+  set nhashPerUsdMil($fixnum.Int64 v) {
+    $_setInt64(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasNhashPerUsdMil() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearNhashPerUsdMil() => clearField(3);
 }

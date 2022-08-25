@@ -3,7 +3,7 @@
 //  source: provenance/metadata/v1/specification.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
@@ -36,12 +36,14 @@ const PartyType$json = const {
     const {'1': 'PARTY_TYPE_AFFILIATE', '2': 6},
     const {'1': 'PARTY_TYPE_OMNIBUS', '2': 7},
     const {'1': 'PARTY_TYPE_PROVENANCE', '2': 8},
+    const {'1': 'PARTY_TYPE_CONTROLLER', '2': 10},
+    const {'1': 'PARTY_TYPE_VALIDATOR', '2': 11},
   ],
 };
 
 /// Descriptor for `PartyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List partyTypeDescriptor = $convert.base64Decode(
-    'CglQYXJ0eVR5cGUSGgoWUEFSVFlfVFlQRV9VTlNQRUNJRklFRBAAEhkKFVBBUlRZX1RZUEVfT1JJR0lOQVRPUhABEhcKE1BBUlRZX1RZUEVfU0VSVklDRVIQAhIXChNQQVJUWV9UWVBFX0lOVkVTVE9SEAMSGAoUUEFSVFlfVFlQRV9DVVNUT0RJQU4QBBIUChBQQVJUWV9UWVBFX09XTkVSEAUSGAoUUEFSVFlfVFlQRV9BRkZJTElBVEUQBhIWChJQQVJUWV9UWVBFX09NTklCVVMQBxIZChVQQVJUWV9UWVBFX1BST1ZFTkFOQ0UQCA==');
+    'CglQYXJ0eVR5cGUSGgoWUEFSVFlfVFlQRV9VTlNQRUNJRklFRBAAEhkKFVBBUlRZX1RZUEVfT1JJR0lOQVRPUhABEhcKE1BBUlRZX1RZUEVfU0VSVklDRVIQAhIXChNQQVJUWV9UWVBFX0lOVkVTVE9SEAMSGAoUUEFSVFlfVFlQRV9DVVNUT0RJQU4QBBIUChBQQVJUWV9UWVBFX09XTkVSEAUSGAoUUEFSVFlfVFlQRV9BRkZJTElBVEUQBhIWChJQQVJUWV9UWVBFX09NTklCVVMQBxIZChVQQVJUWV9UWVBFX1BST1ZFTkFOQ0UQCBIZChVQQVJUWV9UWVBFX0NPTlRST0xMRVIQChIYChRQQVJUWV9UWVBFX1ZBTElEQVRPUhAL');
 @$core.Deprecated('Use scopeSpecificationDescriptor instead')
 const ScopeSpecification$json = const {
   '1': 'ScopeSpecification',
