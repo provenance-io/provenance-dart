@@ -152,31 +152,6 @@ class Bech32 {
     }
 
     return converted;
-    /*
-    var acc = Int()
-    var bits = UInt8()
-    let maxv: Int = 255 // 255 = 0xff = 11111111
-    var converted: [UInt8] = []
-    for d in data {
-        guard (d >> 5) == 0 else {
-            throw DecodeError.invalidCharacter
-        }
-        acc = (acc << 5) | Int(d)
-        bits += 5
-
-        while bits >= 8 {
-            bits -= 8
-            converted.append(UInt8(acc >> Int(bits) & maxv))
-        }
-    }
-
-    let lastBits: UInt8 = UInt8(acc << (8 - bits) & maxv)
-    guard bits < 5 && lastBits == 0  else {
-        throw DecodeError.invalidBits
-    }
-
-    return Data(converted)
-    */
   }
 
   List<int> _expandHrp(String hrp) {
