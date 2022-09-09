@@ -29,14 +29,12 @@ class Bech32 {
       return null;
     }
 
-    if (!bech32.codeUnits
-        .every((c) => c >= minValidCodepoint && c <= maxValidCodepoint)) {
-      return null;
-    }
-
+    // ensure consistent case
     if (!(bech32.toLowerCase() == bech32 || bech32.toUpperCase() == bech32)) {
       return null;
     }
+
+    bech32 = bech32.toLowerCase();
 
     final oneIndex = bech32.lastIndexOf('1');
 
@@ -44,21 +42,55 @@ class Bech32 {
       return null;
     }
 
-    final hrp = bech32.substring(0, oneIndex).toLowerCase();
-    final dataString = bech32.substring(oneIndex + 1).toLowerCase();
+    final hrp = bech32.substring(0, oneIndex);
 
-    if (!dataString.codeUnits.every((c) => _charset.contains(c))) {
+    // ensure the hrp is in the valid range
+    if (!hrp.codeUnits
+        .every((c) => c >= minValidCodepoint && c <= maxValidCodepoint)) {
       return null;
     }
 
-    final dataBytes =
-        dataString.codeUnits.map((e) => _charset.indexOf(e)).toList();
+    final remainder = bech32.substring(oneIndex + 1).codeUnits;
 
-    if (!(1 == _polymod([..._expandHrp(hrp), ...dataBytes]))) {
+    if (!remainder.every((c) => _charset.contains(c))) {
       return null;
     }
-    return Bech32Data(
-        hrp, dataBytes.sublist(0, dataBytes.length - checksumSize));
+
+    final checkSumStart = remainder.length - checksumSize;
+    final encodedDataStr = remainder.sublist(0, checkSumStart);
+    final checksumStr = remainder.sublist(checkSumStart);
+
+    // helper functions
+    areArraysEqual(List<int> a, List<int> b) {
+      if (a.length != b.length) {
+        return false;
+      }
+      for (var index = 0; index < a.length; index++) {
+        if (a[index] != b[index]) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    convertCharacter(List<int> chars) =>
+        chars.map((e) => _charset.indexOf(e)).toList();
+
+    final encodedData = convertCharacter(encodedDataStr);
+    final checksumData = convertCharacter(checksumStr);
+
+    final calculatedCheckSum = _checksum(hrp.toLowerCase(), encodedData);
+
+    if (!areArraysEqual(calculatedCheckSum, checksumData)) {
+      return null;
+    }
+
+    final converted = _convertFrom5bit(encodedData);
+
+    if (converted == null) {
+      return null;
+    }
+    return Bech32Data(hrp, converted);
   }
 
   List<int> _checksum(String hrp, List<int> data) {
@@ -91,6 +123,34 @@ class Bech32 {
     if (pad && bits > 0) {
       converted.add(lastBits);
     }
+    return converted;
+  }
+
+  List<int>? _convertFrom5bit(List<int> data) {
+    final List<int> converted = <int>[];
+    const int maxv = 255;
+    var acc = 0;
+    int bits = 0;
+
+    for (final d in data) {
+      if (d >> 5 != 0) {
+        return null;
+      }
+
+      acc = (acc << 5) | d;
+      bits += 5;
+
+      while (bits >= 8) {
+        bits -= 8;
+        converted.add((acc >> (bits & 0xFFFFFFFF) & maxv) & 0xFF);
+      }
+    }
+
+    final lastBits = (acc << (8 - bits) & maxv) & 0xFF;
+    if (!(bits < 5 && lastBits == 0)) {
+      return null;
+    }
+
     return converted;
   }
 
