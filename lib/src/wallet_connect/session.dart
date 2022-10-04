@@ -39,11 +39,17 @@ class SessionRequestData {
 }
 
 class SessionApprovalData {
-  final PrivateKey privateKey;
+  final PrivateKey sessionSigningKey;
+  final IPubKey accountPublicKey;
   final String chainId;
   final WalletInfo walletInfo;
 
-  SessionApprovalData(this.privateKey, this.chainId, this.walletInfo);
+  SessionApprovalData(
+    this.sessionSigningKey,
+    this.accountPublicKey,
+    this.chainId,
+    this.walletInfo,
+  );
 }
 
 class AccountInfo {
@@ -81,13 +87,13 @@ class WalletInfo {
 }
 
 class SessionRestoreData {
-  final PrivateKey privateKey;
+  final PrivateKey sessionSigningKey;
   final String chainId;
   final String peerId;
   final String remotePeerId;
 
   SessionRestoreData(
-    this.privateKey,
+    this.sessionSigningKey,
     this.chainId,
     this.peerId,
     this.remotePeerId,
@@ -134,7 +140,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
   WalletConnectState _status = WalletConnectState.disconnected;
   WalletConnectionDelegate? _delegate;
-  PrivateKey? _privateKey;
+  PrivateKey? _sessionSigningKey;
   String? _chainId;
   WalletInfo? _walletInfo;
   WebSocket? _webSocket;
@@ -160,7 +166,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       _peerId = peerId;
       _remotePeerId = restoreData?.remotePeerId;
       _chainId = restoreData?.chainId;
-      _privateKey = restoreData?.privateKey;
+      _sessionSigningKey = restoreData?.sessionSigningKey;
 
       _updateStatus(WalletConnectState.connecting);
 
@@ -215,7 +221,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   void _handleDone() {
     _delegate = null;
     _webSocket = null;
-    _privateKey = null;
+    _sessionSigningKey = null;
     _chainId = null;
     _updateStatus(WalletConnectState.disconnected);
   }
@@ -331,7 +337,8 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     await _outSink?.addAsync(message);
   }
 
-  Future<void> sendApproveSession(int requestId, SessionApprovalData clientMeta,
+  Future<void> sendApproveSession(
+      int requestId, SessionApprovalData sessionApprovalData,
       [ClientMeta? peerMeta]) async {
     final result = <String, dynamic>{
       "peerId": _peerId,
@@ -342,11 +349,11 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       "accountData": null,
     };
 
-    _chainId = clientMeta.chainId;
-    _privateKey = clientMeta.privateKey;
-    _walletInfo = clientMeta.walletInfo;
+    _chainId = sessionApprovalData.chainId;
+    _sessionSigningKey = sessionApprovalData.sessionSigningKey;
+    _walletInfo = sessionApprovalData.walletInfo;
 
-    final signingKey = _privateKey!.defaultKey();
+    final signingKey = _sessionSigningKey!.defaultKey();
     final publicKey = signingKey.publicKey;
     final now = DateTime.now();
     final expiry = now.add(const Duration(days: 1));
@@ -376,7 +383,9 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     result["chainId"] = _chainId;
     result["peerMeta"] = peerMeta?.toJson();
     result["accounts"] = [
-      AccountInfo(pubKey, addressStr, jwt, _walletInfo!).toJson()
+      AccountInfo(pubKey, sessionApprovalData.accountPublicKey.address, jwt,
+              _walletInfo!)
+          .toJson()
     ];
 
     final response = JsonRpcResponse.response(requestId, result);
