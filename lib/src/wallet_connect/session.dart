@@ -18,6 +18,19 @@ import 'package:uuid/uuid.dart';
 
 import '../../wallet.dart';
 
+class Base64UrlEncoder extends Converter<List<int>, String> {
+  Base64UrlEncoder();
+
+  final _base64Encoder = Base64Encoder.urlSafe();
+  final _regex = RegExp(r'^([^=]+)=*$');
+
+  @override
+  String convert(List<int> input) {
+    final s = _base64Encoder.convert(input);
+    return s.replaceAllMapped(_regex, (m) => m.group(1) ?? "");
+  }
+}
+
 extension _DateTimeSecondsSinceEpoch on DateTime {
   int get secondsSinceEpoch => millisecondsSinceEpoch ~/ 1000;
 }
@@ -369,16 +382,16 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       "addr": addressStr
     };
 
-    final converter = const JsonEncoder()
-        .fuse(const Utf8Encoder())
-        .fuse(const Base64Encoder());
+    final base64Converter = Base64UrlEncoder();
+    final converter =
+        const JsonEncoder().fuse(const Utf8Encoder()).fuse(base64Converter);
 
     final header = converter.convert(headerDict);
     final payload = converter.convert(payloadDict);
     final signMe = "$header.$payload";
     final signature = signingKey.signData(Hash.sha256(utf8.encode(signMe)))
       ..removeLast();
-    final jwt = "$signMe.${base64.encode(signature)}";
+    final jwt = "$signMe.${base64Converter.convert(signature)}";
 
     result["chainId"] = _chainId;
     result["peerMeta"] = peerMeta?.toJson();
