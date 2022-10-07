@@ -1,12 +1,14 @@
+import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/crypto/encryption/crypto.dart';
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
-import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/keys.dart';
 
 class PublicKey implements IPubKey {
   final List<int> compressedPublicKey;
   final List<int> uncompressedPublicKey;
+
+  @override
   final Coin coin;
 
   PublicKey._(this.compressedPublicKey, this.uncompressedPublicKey, this.coin);

@@ -350,6 +350,23 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     await _outSink?.addAsync(message);
   }
 
+  Future<void> sendMultiSigSignResult(
+      int requestId, List<AminoSignature> signatures) async {
+    final result = signatures
+        .map((e) => <String, dynamic>{
+              "address": e.address,
+              "signedData": Encoding.toHex(e.signedData),
+            })
+        .toList();
+
+    final response = JsonRpcResponse.response(requestId, result);
+
+    PublishSinkMessage message =
+        PublishSinkMessage.publish(_remotePeerId!, response);
+
+    await _outSink?.addAsync(message);
+  }
+
   Future<void> sendApproveSession(
       int requestId, SessionApprovalData sessionApprovalData,
       [ClientMeta? peerMeta]) async {

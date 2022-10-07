@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:fixnum/fixnum.dart' as fixnum;
 import 'package:grpc/grpc.dart';
 import 'package:provenance_dart/proto.dart';
 import 'package:provenance_dart/proto_crypto_secp256k1.dart';
@@ -10,18 +11,10 @@ import 'package:provenance_dart/src/proto/proto_gen/cosmos/authz/v1beta1/query.p
     as authz_query_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/bank/v1beta1/query.pbgrpc.dart'
     as cosmos_bank_pb;
-import 'package:provenance_dart/src/proto/proto_gen/cosmos/crypto/multisig/keys.pb.dart';
-import 'package:provenance_dart/src/proto/proto_gen/cosmos/crypto/multisig/v1beta1/multisig.pb.dart';
-import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/service.pbgrpc.dart'
-    as cosmos_service_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/base/tendermint/v1beta1/query.pbgrpc.dart'
     as tindermint_service_pb;
-import 'package:provenance_dart/src/proto/proto_gen/provenance/attribute/v1/query.pbgrpc.dart'
-    as provenance_pb;
-import 'package:provenance_dart/src/proto/proto_gen/ibc/core/channel/v1/query.pbgrpc.dart'
-    as ibc_channel;
-import 'package:provenance_dart/src/proto/proto_gen/ibc/core/connection/v1/query.pbgrpc.dart'
-    as ibc_connect;
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/crypto/multisig/keys.pb.dart';
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/crypto/multisig/v1beta1/multisig.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/distribution/v1beta1/query.pbgrpc.dart'
     as distribution_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/evidence/v1beta1/query.pbgrpc.dart'
@@ -30,38 +23,45 @@ import 'package:provenance_dart/src/proto/proto_gen/cosmos/feegrant/v1beta1/quer
     as fee_grant_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/gov/v1beta1/query.pbgrpc.dart'
     as gov_pb;
-import 'package:provenance_dart/src/proto/proto_gen/provenance/marker/v1/query.pbgrpc.dart'
-    as prov_marker_pb;
-import 'package:provenance_dart/src/proto/proto_gen/provenance/metadata/v1/query.pbgrpc.dart'
-    as meta_data_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/mint/v1beta1/query.pbgrpc.dart'
     as mint_pb;
-import 'package:provenance_dart/src/proto/proto_gen/provenance/name/v1/query.pbgrpc.dart'
-    as name_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/params/v1beta1/query.pbgrpc.dart'
     as params_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/slashing/v1beta1/query.pbgrpc.dart'
     as slashing_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/staking/v1beta1/query.pbgrpc.dart'
     as stacking_pb;
-import 'package:provenance_dart/src/proto/proto_gen/ibc/applications/transfer/v1/query.pbgrpc.dart'
-    as ibc_transfer_pb;
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/service.pbgrpc.dart'
+    as cosmos_service_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/upgrade/v1beta1/query.pbgrpc.dart'
     as cosmos_upgrade_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmwasm/wasm/v1/query.pbgrpc.dart'
     as cosmwasm_pb;
+import 'package:provenance_dart/src/proto/proto_gen/ibc/applications/transfer/v1/query.pbgrpc.dart'
+    as ibc_transfer_pb;
+import 'package:provenance_dart/src/proto/proto_gen/ibc/core/channel/v1/query.pbgrpc.dart'
+    as ibc_channel;
+import 'package:provenance_dart/src/proto/proto_gen/ibc/core/connection/v1/query.pbgrpc.dart'
+    as ibc_connect;
+import 'package:provenance_dart/src/proto/proto_gen/provenance/attribute/v1/query.pbgrpc.dart'
+    as provenance_pb;
+import 'package:provenance_dart/src/proto/proto_gen/provenance/marker/v1/query.pbgrpc.dart'
+    as prov_marker_pb;
+import 'package:provenance_dart/src/proto/proto_gen/provenance/metadata/v1/query.pbgrpc.dart'
+    as meta_data_pb;
 import 'package:provenance_dart/src/proto/proto_gen/provenance/msgfees/v1/query.pbgrpc.dart'
     as msg_fees;
+import 'package:provenance_dart/src/proto/proto_gen/provenance/name/v1/query.pbgrpc.dart'
+    as name_pb;
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/keys.dart' as keys;
+import 'package:provenance_dart/src/wallet/multisig/amino_serializer.dart';
 import 'package:provenance_dart/src/wallet/multisig/compact_bit_array.dart'
     as compact;
 import 'package:provenance_dart/src/wallet/multisig/keys.dart'
     as multi_sig_keys;
 import 'package:provenance_dart/src/wallet/private_key.dart';
 import 'package:provenance_dart/src/wallet/public_key.dart';
-import 'package:provenance_dart/src/wallet/multisig/amino_serializer.dart';
-import 'package:fixnum/fixnum.dart' as fixnum;
 
 class ChannelOpts {
   final int inboundMessageSize; // ~ 20 MB
@@ -345,7 +345,7 @@ class PbClient {
     final signerInfos = await Future.wait(signers.map((e) async {
       final signingAddresses = <String>[];
       if (e is multi_sig_keys.AminoPrivKey) {
-        signingAddresses.addAll(e.signatureLookup.keys);
+        signingAddresses.addAll(e.signatures.map((s) => s.address));
       }
 
       final account = await getBaseAccount(e.publicKey.address);
@@ -412,7 +412,9 @@ class PbClient {
   ///
   List<int> _buidlSignature(keys.IPrivKey pk, SignDoc signDoc) {
     if (pk is multi_sig_keys.AminoPrivKey) {
-      final multiSig = MultiSignature(signatures: pk.signatureLookup.values);
+      final multiSig = MultiSignature(
+        signatures: pk.signatures.map((e) => e.signedData),
+      );
       return multiSig.writeToBuffer();
     } else if (pk is PrivateKey) {
       final hash = Hash.sha256(signDoc.writeToBuffer());
