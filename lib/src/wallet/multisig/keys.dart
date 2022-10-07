@@ -7,6 +7,8 @@ import 'package:provenance_dart/src/wallet/public_key.dart';
 class AminoPubKey implements IPubKey {
   final List<PublicKey> publicKeys;
   final int threshold;
+
+  @override
   final Coin coin;
 
   AminoPubKey(
