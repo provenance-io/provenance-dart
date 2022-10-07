@@ -509,13 +509,3 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   @override
   WalletConnectState get value => _status;
 }
-
-class AminoSignature {
-  AminoSignature({
-    required this.address,
-    required this.signedData,
-  });
-
-  final String address;
-  final List<int> signedData;
-}
