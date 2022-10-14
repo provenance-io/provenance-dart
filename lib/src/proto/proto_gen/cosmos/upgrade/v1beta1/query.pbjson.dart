@@ -126,3 +126,23 @@ const QueryModuleVersionsResponse$json = const {
 final $typed_data.Uint8List queryModuleVersionsResponseDescriptor =
     $convert.base64Decode(
         'ChtRdWVyeU1vZHVsZVZlcnNpb25zUmVzcG9uc2USTgoPbW9kdWxlX3ZlcnNpb25zGAEgAygLMiUuY29zbW9zLnVwZ3JhZGUudjFiZXRhMS5Nb2R1bGVWZXJzaW9uUg5tb2R1bGVWZXJzaW9ucw==');
+@$core.Deprecated('Use queryAuthorityRequestDescriptor instead')
+const QueryAuthorityRequest$json = const {
+  '1': 'QueryAuthorityRequest',
+};
+
+/// Descriptor for `QueryAuthorityRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryAuthorityRequestDescriptor =
+    $convert.base64Decode('ChVRdWVyeUF1dGhvcml0eVJlcXVlc3Q=');
+@$core.Deprecated('Use queryAuthorityResponseDescriptor instead')
+const QueryAuthorityResponse$json = const {
+  '1': 'QueryAuthorityResponse',
+  '2': const [
+    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+  ],
+};
+
+/// Descriptor for `QueryAuthorityResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryAuthorityResponseDescriptor =
+    $convert.base64Decode(
+        'ChZRdWVyeUF1dGhvcml0eVJlc3BvbnNlEhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3M=');

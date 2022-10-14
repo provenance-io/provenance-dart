@@ -46,6 +46,7 @@ const QueryValidatorOutstandingRewardsRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'validatorAddress'
     },
   ],
@@ -54,7 +55,7 @@ const QueryValidatorOutstandingRewardsRequest$json = const {
 /// Descriptor for `QueryValidatorOutstandingRewardsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryValidatorOutstandingRewardsRequestDescriptor =
     $convert.base64Decode(
-        'CidRdWVyeVZhbGlkYXRvck91dHN0YW5kaW5nUmV3YXJkc1JlcXVlc3QSKwoRdmFsaWRhdG9yX2FkZHJlc3MYASABKAlSEHZhbGlkYXRvckFkZHJlc3M=');
+        'CidRdWVyeVZhbGlkYXRvck91dHN0YW5kaW5nUmV3YXJkc1JlcXVlc3QSRQoRdmFsaWRhdG9yX2FkZHJlc3MYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IQdmFsaWRhdG9yQWRkcmVzcw==');
 @$core.Deprecated(
     'Use queryValidatorOutstandingRewardsResponseDescriptor instead')
 const QueryValidatorOutstandingRewardsResponse$json = const {
@@ -85,6 +86,7 @@ const QueryValidatorCommissionRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'validatorAddress'
     },
   ],
@@ -93,7 +95,7 @@ const QueryValidatorCommissionRequest$json = const {
 /// Descriptor for `QueryValidatorCommissionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryValidatorCommissionRequestDescriptor =
     $convert.base64Decode(
-        'Ch9RdWVyeVZhbGlkYXRvckNvbW1pc3Npb25SZXF1ZXN0EisKEXZhbGlkYXRvcl9hZGRyZXNzGAEgASgJUhB2YWxpZGF0b3JBZGRyZXNz');
+        'Ch9RdWVyeVZhbGlkYXRvckNvbW1pc3Npb25SZXF1ZXN0EkUKEXZhbGlkYXRvcl9hZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSEHZhbGlkYXRvckFkZHJlc3M=');
 @$core.Deprecated('Use queryValidatorCommissionResponseDescriptor instead')
 const QueryValidatorCommissionResponse$json = const {
   '1': 'QueryValidatorCommissionResponse',
@@ -123,6 +125,7 @@ const QueryValidatorSlashesRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'validatorAddress'
     },
     const {
@@ -148,7 +151,7 @@ const QueryValidatorSlashesRequest$json = const {
 /// Descriptor for `QueryValidatorSlashesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryValidatorSlashesRequestDescriptor =
     $convert.base64Decode(
-        'ChxRdWVyeVZhbGlkYXRvclNsYXNoZXNSZXF1ZXN0EisKEXZhbGlkYXRvcl9hZGRyZXNzGAEgASgJUhB2YWxpZGF0b3JBZGRyZXNzEicKD3N0YXJ0aW5nX2hlaWdodBgCIAEoBFIOc3RhcnRpbmdIZWlnaHQSIwoNZW5kaW5nX2hlaWdodBgDIAEoBFIMZW5kaW5nSGVpZ2h0EkYKCnBhZ2luYXRpb24YBCABKAsyJi5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXF1ZXN0UgpwYWdpbmF0aW9uOgiIoB8AmKAfAQ==');
+        'ChxRdWVyeVZhbGlkYXRvclNsYXNoZXNSZXF1ZXN0EkUKEXZhbGlkYXRvcl9hZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSEHZhbGlkYXRvckFkZHJlc3MSJwoPc3RhcnRpbmdfaGVpZ2h0GAIgASgEUg5zdGFydGluZ0hlaWdodBIjCg1lbmRpbmdfaGVpZ2h0GAMgASgEUgxlbmRpbmdIZWlnaHQSRgoKcGFnaW5hdGlvbhgEIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb246CIigHwCYoB8B');
 @$core.Deprecated('Use queryValidatorSlashesResponseDescriptor instead')
 const QueryValidatorSlashesResponse$json = const {
   '1': 'QueryValidatorSlashesResponse',
@@ -186,6 +189,7 @@ const QueryDelegationRewardsRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'delegatorAddress'
     },
     const {
@@ -193,6 +197,7 @@ const QueryDelegationRewardsRequest$json = const {
       '3': 2,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'validatorAddress'
     },
   ],
@@ -202,7 +207,7 @@ const QueryDelegationRewardsRequest$json = const {
 /// Descriptor for `QueryDelegationRewardsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDelegationRewardsRequestDescriptor =
     $convert.base64Decode(
-        'Ch1RdWVyeURlbGVnYXRpb25SZXdhcmRzUmVxdWVzdBIrChFkZWxlZ2F0b3JfYWRkcmVzcxgBIAEoCVIQZGVsZWdhdG9yQWRkcmVzcxIrChF2YWxpZGF0b3JfYWRkcmVzcxgCIAEoCVIQdmFsaWRhdG9yQWRkcmVzczoI6KAfAIigHwA=');
+        'Ch1RdWVyeURlbGVnYXRpb25SZXdhcmRzUmVxdWVzdBJFChFkZWxlZ2F0b3JfYWRkcmVzcxgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUhBkZWxlZ2F0b3JBZGRyZXNzEkUKEXZhbGlkYXRvcl9hZGRyZXNzGAIgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSEHZhbGlkYXRvckFkZHJlc3M6COigHwCIoB8A');
 @$core.Deprecated('Use queryDelegationRewardsResponseDescriptor instead')
 const QueryDelegationRewardsResponse$json = const {
   '1': 'QueryDelegationRewardsResponse',
@@ -232,6 +237,7 @@ const QueryDelegationTotalRewardsRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'delegatorAddress'
     },
   ],
@@ -241,7 +247,7 @@ const QueryDelegationTotalRewardsRequest$json = const {
 /// Descriptor for `QueryDelegationTotalRewardsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDelegationTotalRewardsRequestDescriptor =
     $convert.base64Decode(
-        'CiJRdWVyeURlbGVnYXRpb25Ub3RhbFJld2FyZHNSZXF1ZXN0EisKEWRlbGVnYXRvcl9hZGRyZXNzGAEgASgJUhBkZWxlZ2F0b3JBZGRyZXNzOgjooB8AiKAfAA==');
+        'CiJRdWVyeURlbGVnYXRpb25Ub3RhbFJld2FyZHNSZXF1ZXN0EkUKEWRlbGVnYXRvcl9hZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSEGRlbGVnYXRvckFkZHJlc3M6COigHwCIoB8A');
 @$core.Deprecated('Use queryDelegationTotalRewardsResponseDescriptor instead')
 const QueryDelegationTotalRewardsResponse$json = const {
   '1': 'QueryDelegationTotalRewardsResponse',
@@ -280,6 +286,7 @@ const QueryDelegatorValidatorsRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'delegatorAddress'
     },
   ],
@@ -289,7 +296,7 @@ const QueryDelegatorValidatorsRequest$json = const {
 /// Descriptor for `QueryDelegatorValidatorsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDelegatorValidatorsRequestDescriptor =
     $convert.base64Decode(
-        'Ch9RdWVyeURlbGVnYXRvclZhbGlkYXRvcnNSZXF1ZXN0EisKEWRlbGVnYXRvcl9hZGRyZXNzGAEgASgJUhBkZWxlZ2F0b3JBZGRyZXNzOgjooB8AiKAfAA==');
+        'Ch9RdWVyeURlbGVnYXRvclZhbGlkYXRvcnNSZXF1ZXN0EkUKEWRlbGVnYXRvcl9hZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSEGRlbGVnYXRvckFkZHJlc3M6COigHwCIoB8A');
 @$core.Deprecated('Use queryDelegatorValidatorsResponseDescriptor instead')
 const QueryDelegatorValidatorsResponse$json = const {
   '1': 'QueryDelegatorValidatorsResponse',
@@ -312,6 +319,7 @@ const QueryDelegatorWithdrawAddressRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'delegatorAddress'
     },
   ],
@@ -321,7 +329,7 @@ const QueryDelegatorWithdrawAddressRequest$json = const {
 /// Descriptor for `QueryDelegatorWithdrawAddressRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDelegatorWithdrawAddressRequestDescriptor =
     $convert.base64Decode(
-        'CiRRdWVyeURlbGVnYXRvcldpdGhkcmF3QWRkcmVzc1JlcXVlc3QSKwoRZGVsZWdhdG9yX2FkZHJlc3MYASABKAlSEGRlbGVnYXRvckFkZHJlc3M6COigHwCIoB8A');
+        'CiRRdWVyeURlbGVnYXRvcldpdGhkcmF3QWRkcmVzc1JlcXVlc3QSRQoRZGVsZWdhdG9yX2FkZHJlc3MYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IQZGVsZWdhdG9yQWRkcmVzczoI6KAfAIigHwA=');
 @$core.Deprecated('Use queryDelegatorWithdrawAddressResponseDescriptor instead')
 const QueryDelegatorWithdrawAddressResponse$json = const {
   '1': 'QueryDelegatorWithdrawAddressResponse',
@@ -331,6 +339,7 @@ const QueryDelegatorWithdrawAddressResponse$json = const {
       '3': 1,
       '4': 1,
       '5': 9,
+      '8': const {},
       '10': 'withdrawAddress'
     },
   ],
@@ -340,7 +349,7 @@ const QueryDelegatorWithdrawAddressResponse$json = const {
 /// Descriptor for `QueryDelegatorWithdrawAddressResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDelegatorWithdrawAddressResponseDescriptor =
     $convert.base64Decode(
-        'CiVRdWVyeURlbGVnYXRvcldpdGhkcmF3QWRkcmVzc1Jlc3BvbnNlEikKEHdpdGhkcmF3X2FkZHJlc3MYASABKAlSD3dpdGhkcmF3QWRkcmVzczoI6KAfAIigHwA=');
+        'CiVRdWVyeURlbGVnYXRvcldpdGhkcmF3QWRkcmVzc1Jlc3BvbnNlEkMKEHdpdGhkcmF3X2FkZHJlc3MYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IPd2l0aGRyYXdBZGRyZXNzOgjooB8AiKAfAA==');
 @$core.Deprecated('Use queryCommunityPoolRequestDescriptor instead')
 const QueryCommunityPoolRequest$json = const {
   '1': 'QueryCommunityPoolRequest',

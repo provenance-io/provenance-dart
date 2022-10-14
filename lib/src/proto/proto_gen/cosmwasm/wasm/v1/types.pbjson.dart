@@ -17,13 +17,14 @@ const AccessType$json = const {
     const {'1': 'ACCESS_TYPE_NOBODY', '2': 1, '3': const {}},
     const {'1': 'ACCESS_TYPE_ONLY_ADDRESS', '2': 2, '3': const {}},
     const {'1': 'ACCESS_TYPE_EVERYBODY', '2': 3, '3': const {}},
+    const {'1': 'ACCESS_TYPE_ANY_OF_ADDRESSES', '2': 4, '3': const {}},
   ],
   '3': const {},
 };
 
 /// Descriptor for `AccessType`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List accessTypeDescriptor = $convert.base64Decode(
-    'CgpBY2Nlc3NUeXBlEjYKF0FDQ0VTU19UWVBFX1VOU1BFQ0lGSUVEEAAaGYqdIBVBY2Nlc3NUeXBlVW5zcGVjaWZpZWQSLAoSQUNDRVNTX1RZUEVfTk9CT0RZEAEaFIqdIBBBY2Nlc3NUeXBlTm9ib2R5EjcKGEFDQ0VTU19UWVBFX09OTFlfQUREUkVTUxACGhmKnSAVQWNjZXNzVHlwZU9ubHlBZGRyZXNzEjIKFUFDQ0VTU19UWVBFX0VWRVJZQk9EWRADGheKnSATQWNjZXNzVHlwZUV2ZXJ5Ym9keRoIiKMeAKikHgA=');
+    'CgpBY2Nlc3NUeXBlEjYKF0FDQ0VTU19UWVBFX1VOU1BFQ0lGSUVEEAAaGYqdIBVBY2Nlc3NUeXBlVW5zcGVjaWZpZWQSLAoSQUNDRVNTX1RZUEVfTk9CT0RZEAEaFIqdIBBBY2Nlc3NUeXBlTm9ib2R5EjcKGEFDQ0VTU19UWVBFX09OTFlfQUREUkVTUxACGhmKnSAVQWNjZXNzVHlwZU9ubHlBZGRyZXNzEjIKFUFDQ0VTU19UWVBFX0VWRVJZQk9EWRADGheKnSATQWNjZXNzVHlwZUV2ZXJ5Ym9keRI+ChxBQ0NFU1NfVFlQRV9BTllfT0ZfQUREUkVTU0VTEAQaHIqdIBhBY2Nlc3NUeXBlQW55T2ZBZGRyZXNzZXMaCIijHgCopB4A');
 @$core.Deprecated('Use contractCodeHistoryOperationTypeDescriptor instead')
 const ContractCodeHistoryOperationType$json = const {
   '1': 'ContractCodeHistoryOperationType',
@@ -97,13 +98,21 @@ const AccessConfig$json = const {
       '8': const {},
       '10': 'address'
     },
+    const {
+      '1': 'addresses',
+      '3': 3,
+      '4': 3,
+      '5': 9,
+      '8': const {},
+      '10': 'addresses'
+    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `AccessConfig`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List accessConfigDescriptor = $convert.base64Decode(
-    'CgxBY2Nlc3NDb25maWcSUwoKcGVybWlzc2lvbhgBIAEoDjIcLmNvc213YXNtLndhc20udjEuQWNjZXNzVHlwZUIV8t4fEXlhbWw6InBlcm1pc3Npb24iUgpwZXJtaXNzaW9uEiwKB2FkZHJlc3MYAiABKAlCEvLeHw55YW1sOiJhZGRyZXNzIlIHYWRkcmVzczoEmKAfAQ==');
+    'CgxBY2Nlc3NDb25maWcSUwoKcGVybWlzc2lvbhgBIAEoDjIcLmNvc213YXNtLndhc20udjEuQWNjZXNzVHlwZUIV8t4fEXlhbWw6InBlcm1pc3Npb24iUgpwZXJtaXNzaW9uEiwKB2FkZHJlc3MYAiABKAlCEvLeHw55YW1sOiJhZGRyZXNzIlIHYWRkcmVzcxIyCglhZGRyZXNzZXMYAyADKAlCFPLeHxB5YW1sOiJhZGRyZXNzZXMiUglhZGRyZXNzZXM6BJigHwE=');
 @$core.Deprecated('Use paramsDescriptor instead')
 const Params$json = const {
   '1': 'Params',
@@ -126,21 +135,13 @@ const Params$json = const {
       '8': const {},
       '10': 'instantiateDefaultPermission'
     },
-    const {
-      '1': 'max_wasm_code_size',
-      '3': 3,
-      '4': 1,
-      '5': 4,
-      '8': const {},
-      '10': 'maxWasmCodeSize'
-    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode(
-    'CgZQYXJhbXMSbwoSY29kZV91cGxvYWRfYWNjZXNzGAEgASgLMh4uY29zbXdhc20ud2FzbS52MS5BY2Nlc3NDb25maWdCIcjeHwDy3h8ZeWFtbDoiY29kZV91cGxvYWRfYWNjZXNzIlIQY29kZVVwbG9hZEFjY2VzcxKNAQoeaW5zdGFudGlhdGVfZGVmYXVsdF9wZXJtaXNzaW9uGAIgASgOMhwuY29zbXdhc20ud2FzbS52MS5BY2Nlc3NUeXBlQiny3h8leWFtbDoiaW5zdGFudGlhdGVfZGVmYXVsdF9wZXJtaXNzaW9uIlIcaW5zdGFudGlhdGVEZWZhdWx0UGVybWlzc2lvbhJKChJtYXhfd2FzbV9jb2RlX3NpemUYAyABKARCHfLeHxl5YW1sOiJtYXhfd2FzbV9jb2RlX3NpemUiUg9tYXhXYXNtQ29kZVNpemU6BJigHwA=');
+    'CgZQYXJhbXMSbwoSY29kZV91cGxvYWRfYWNjZXNzGAEgASgLMh4uY29zbXdhc20ud2FzbS52MS5BY2Nlc3NDb25maWdCIcjeHwDy3h8ZeWFtbDoiY29kZV91cGxvYWRfYWNjZXNzIlIQY29kZVVwbG9hZEFjY2VzcxKNAQoeaW5zdGFudGlhdGVfZGVmYXVsdF9wZXJtaXNzaW9uGAIgASgOMhwuY29zbXdhc20ud2FzbS52MS5BY2Nlc3NUeXBlQiny3h8leWFtbDoiaW5zdGFudGlhdGVfZGVmYXVsdF9wZXJtaXNzaW9uIlIcaW5zdGFudGlhdGVEZWZhdWx0UGVybWlzc2lvbjoEmKAfAA==');
 @$core.Deprecated('Use codeInfoDescriptor instead')
 const CodeInfo$json = const {
   '1': 'CodeInfo',

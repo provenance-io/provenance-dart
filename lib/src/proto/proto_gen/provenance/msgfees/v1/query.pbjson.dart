@@ -130,18 +130,11 @@ const CalculateTxFeesResponse$json = const {
       '8': const {},
       '10': 'totalFees'
     },
-    const {
-      '1': 'estimated_gas',
-      '3': 3,
-      '4': 1,
-      '5': 4,
-      '8': const {},
-      '10': 'estimatedGas'
-    },
+    const {'1': 'estimated_gas', '3': 3, '4': 1, '5': 4, '10': 'estimatedGas'},
   ],
 };
 
 /// Descriptor for `CalculateTxFeesResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List calculateTxFeesResponseDescriptor =
     $convert.base64Decode(
-        'ChdDYWxjdWxhdGVUeEZlZXNSZXNwb25zZRJ0Cg9hZGRpdGlvbmFsX2ZlZXMYASADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc1IOYWRkaXRpb25hbEZlZXMSagoKdG90YWxfZmVlcxgCIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgl0b3RhbEZlZXMSPQoNZXN0aW1hdGVkX2dhcxgDIAEoBEIY8t4fFHlhbWw6ImVzdGltYXRlZF9nYXMiUgxlc3RpbWF0ZWRHYXM=');
+        'ChdDYWxjdWxhdGVUeEZlZXNSZXNwb25zZRJ0Cg9hZGRpdGlvbmFsX2ZlZXMYASADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc1IOYWRkaXRpb25hbEZlZXMSagoKdG90YWxfZmVlcxgCIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgl0b3RhbEZlZXMSIwoNZXN0aW1hdGVkX2dhcxgDIAEoBFIMZXN0aW1hdGVkR2Fz');

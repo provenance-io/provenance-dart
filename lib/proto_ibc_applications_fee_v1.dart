@@ -1,0 +1,22 @@
+library provenance_dart;
+
+export 'src/proto/proto_gen/ibc/applications/fee/v1/ack.pb.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/metadata.pb.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/genesis.pbenum.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/metadata.pbjson.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/query.pbjson.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/tx.pbenum.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/ack.pbjson.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/query.pbgrpc.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/fee.pbenum.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/fee.pb.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/ack.pbenum.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/fee.pbjson.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/tx.pbjson.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/genesis.pb.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/tx.pb.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/query.pbenum.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/metadata.pbenum.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/query.pb.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/genesis.pbjson.dart';
+export 'src/proto/proto_gen/ibc/applications/fee/v1/tx.pbgrpc.dart';

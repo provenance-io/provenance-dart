@@ -249,6 +249,34 @@ const PacketState$json = const {
 /// Descriptor for `PacketState`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List packetStateDescriptor = $convert.base64Decode(
     'CgtQYWNrZXRTdGF0ZRIrCgdwb3J0X2lkGAEgASgJQhLy3h8OeWFtbDoicG9ydF9pZCJSBnBvcnRJZBI0CgpjaGFubmVsX2lkGAIgASgJQhXy3h8ReWFtbDoiY2hhbm5lbF9pZCJSCWNoYW5uZWxJZBIaCghzZXF1ZW5jZRgDIAEoBFIIc2VxdWVuY2USEgoEZGF0YRgEIAEoDFIEZGF0YToEiKAfAA==');
+@$core.Deprecated('Use packetIdDescriptor instead')
+const PacketId$json = const {
+  '1': 'PacketId',
+  '2': const [
+    const {
+      '1': 'port_id',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'portId'
+    },
+    const {
+      '1': 'channel_id',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'channelId'
+    },
+    const {'1': 'sequence', '3': 3, '4': 1, '5': 4, '10': 'sequence'},
+  ],
+  '7': const {},
+};
+
+/// Descriptor for `PacketId`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List packetIdDescriptor = $convert.base64Decode(
+    'CghQYWNrZXRJZBIrCgdwb3J0X2lkGAEgASgJQhLy3h8OeWFtbDoicG9ydF9pZCJSBnBvcnRJZBI0CgpjaGFubmVsX2lkGAIgASgJQhXy3h8ReWFtbDoiY2hhbm5lbF9pZCJSCWNoYW5uZWxJZBIaCghzZXF1ZW5jZRgDIAEoBFIIc2VxdWVuY2U6BIigHwA=');
 @$core.Deprecated('Use acknowledgementDescriptor instead')
 const Acknowledgement$json = const {
   '1': 'Acknowledgement',

@@ -352,3 +352,188 @@ class QueryAllowancesResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
+
+class QueryAllowancesByGranterRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryAllowancesByGranterRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'granter')
+    ..aOM<$2.PageRequest>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  QueryAllowancesByGranterRequest._() : super();
+  factory QueryAllowancesByGranterRequest({
+    $core.String? granter,
+    $2.PageRequest? pagination,
+  }) {
+    final _result = create();
+    if (granter != null) {
+      _result.granter = granter;
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QueryAllowancesByGranterRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryAllowancesByGranterRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryAllowancesByGranterRequest clone() =>
+      QueryAllowancesByGranterRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryAllowancesByGranterRequest copyWith(
+          void Function(QueryAllowancesByGranterRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryAllowancesByGranterRequest))
+          as QueryAllowancesByGranterRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryAllowancesByGranterRequest create() =>
+      QueryAllowancesByGranterRequest._();
+  QueryAllowancesByGranterRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryAllowancesByGranterRequest> createRepeated() =>
+      $pb.PbList<QueryAllowancesByGranterRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryAllowancesByGranterRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryAllowancesByGranterRequest>(
+          create);
+  static QueryAllowancesByGranterRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get granter => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set granter($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasGranter() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearGranter() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $2.PageRequest get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageRequest v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageRequest ensurePagination() => $_ensure(1);
+}
+
+class QueryAllowancesByGranterResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryAllowancesByGranterResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.Grant>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'allowances',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Grant.create)
+    ..aOM<$2.PageResponse>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  QueryAllowancesByGranterResponse._() : super();
+  factory QueryAllowancesByGranterResponse({
+    $core.Iterable<$1.Grant>? allowances,
+    $2.PageResponse? pagination,
+  }) {
+    final _result = create();
+    if (allowances != null) {
+      _result.allowances.addAll(allowances);
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QueryAllowancesByGranterResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryAllowancesByGranterResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryAllowancesByGranterResponse clone() =>
+      QueryAllowancesByGranterResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryAllowancesByGranterResponse copyWith(
+          void Function(QueryAllowancesByGranterResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryAllowancesByGranterResponse))
+          as QueryAllowancesByGranterResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryAllowancesByGranterResponse create() =>
+      QueryAllowancesByGranterResponse._();
+  QueryAllowancesByGranterResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryAllowancesByGranterResponse> createRepeated() =>
+      $pb.PbList<QueryAllowancesByGranterResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryAllowancesByGranterResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryAllowancesByGranterResponse>(
+          create);
+  static QueryAllowancesByGranterResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$1.Grant> get allowances => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $2.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageResponse v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageResponse ensurePagination() => $_ensure(1);
+}

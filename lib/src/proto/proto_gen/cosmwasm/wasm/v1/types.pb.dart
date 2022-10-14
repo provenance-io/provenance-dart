@@ -111,12 +111,18 @@ class AccessConfig extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'address')
+    ..pPS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'addresses')
     ..hasRequiredFields = false;
 
   AccessConfig._() : super();
   factory AccessConfig({
     AccessType? permission,
     $core.String? address,
+    $core.Iterable<$core.String>? addresses,
   }) {
     final _result = create();
     if (permission != null) {
@@ -124,6 +130,9 @@ class AccessConfig extends $pb.GeneratedMessage {
     }
     if (address != null) {
       _result.address = address;
+    }
+    if (addresses != null) {
+      _result.addresses.addAll(addresses);
     }
     return _result;
   }
@@ -177,6 +186,9 @@ class AccessConfig extends $pb.GeneratedMessage {
   $core.bool hasAddress() => $_has(1);
   @$pb.TagNumber(2)
   void clearAddress() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<$core.String> get addresses => $_getList(2);
 }
 
 class Params extends $pb.GeneratedMessage {
@@ -204,20 +216,12 @@ class Params extends $pb.GeneratedMessage {
         defaultOrMaker: AccessType.ACCESS_TYPE_UNSPECIFIED,
         valueOf: AccessType.valueOf,
         enumValues: AccessType.values)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxWasmCodeSize',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   Params._() : super();
   factory Params({
     AccessConfig? codeUploadAccess,
     AccessType? instantiateDefaultPermission,
-    $fixnum.Int64? maxWasmCodeSize,
   }) {
     final _result = create();
     if (codeUploadAccess != null) {
@@ -225,9 +229,6 @@ class Params extends $pb.GeneratedMessage {
     }
     if (instantiateDefaultPermission != null) {
       _result.instantiateDefaultPermission = instantiateDefaultPermission;
-    }
-    if (maxWasmCodeSize != null) {
-      _result.maxWasmCodeSize = maxWasmCodeSize;
     }
     return _result;
   }
@@ -282,18 +283,6 @@ class Params extends $pb.GeneratedMessage {
   $core.bool hasInstantiateDefaultPermission() => $_has(1);
   @$pb.TagNumber(2)
   void clearInstantiateDefaultPermission() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $fixnum.Int64 get maxWasmCodeSize => $_getI64(2);
-  @$pb.TagNumber(3)
-  set maxWasmCodeSize($fixnum.Int64 v) {
-    $_setInt64(2, v);
-  }
-
-  @$pb.TagNumber(3)
-  $core.bool hasMaxWasmCodeSize() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearMaxWasmCodeSize() => clearField(3);
 }
 
 class CodeInfo extends $pb.GeneratedMessage {

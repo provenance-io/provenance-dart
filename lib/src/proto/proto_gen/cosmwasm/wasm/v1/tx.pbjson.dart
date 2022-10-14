@@ -52,12 +52,13 @@ const MsgStoreCodeResponse$json = const {
       '8': const {},
       '10': 'codeId'
     },
+    const {'1': 'checksum', '3': 2, '4': 1, '5': 12, '10': 'checksum'},
   ],
 };
 
 /// Descriptor for `MsgStoreCodeResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgStoreCodeResponseDescriptor = $convert.base64Decode(
-    'ChRNc2dTdG9yZUNvZGVSZXNwb25zZRIjCgdjb2RlX2lkGAEgASgEQgri3h8GQ29kZUlEUgZjb2RlSWQ=');
+    'ChRNc2dTdG9yZUNvZGVSZXNwb25zZRIjCgdjb2RlX2lkGAEgASgEQgri3h8GQ29kZUlEUgZjb2RlSWQSGgoIY2hlY2tzdW0YAiABKAxSCGNoZWNrc3Vt');
 @$core.Deprecated('Use msgInstantiateContractDescriptor instead')
 const MsgInstantiateContract$json = const {
   '1': 'MsgInstantiateContract',
@@ -90,6 +91,40 @@ const MsgInstantiateContract$json = const {
 final $typed_data.Uint8List msgInstantiateContractDescriptor =
     $convert.base64Decode(
         'ChZNc2dJbnN0YW50aWF0ZUNvbnRyYWN0EhYKBnNlbmRlchgBIAEoCVIGc2VuZGVyEhQKBWFkbWluGAIgASgJUgVhZG1pbhIjCgdjb2RlX2lkGAMgASgEQgri3h8GQ29kZUlEUgZjb2RlSWQSFAoFbGFiZWwYBCABKAlSBWxhYmVsEigKA21zZxgFIAEoDEIW+t4fElJhd0NvbnRyYWN0TWVzc2FnZVIDbXNnEmEKBWZ1bmRzGAYgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWZ1bmRz');
+@$core.Deprecated('Use msgInstantiateContract2Descriptor instead')
+const MsgInstantiateContract2$json = const {
+  '1': 'MsgInstantiateContract2',
+  '2': const [
+    const {'1': 'sender', '3': 1, '4': 1, '5': 9, '10': 'sender'},
+    const {'1': 'admin', '3': 2, '4': 1, '5': 9, '10': 'admin'},
+    const {
+      '1': 'code_id',
+      '3': 3,
+      '4': 1,
+      '5': 4,
+      '8': const {},
+      '10': 'codeId'
+    },
+    const {'1': 'label', '3': 4, '4': 1, '5': 9, '10': 'label'},
+    const {'1': 'msg', '3': 5, '4': 1, '5': 12, '8': const {}, '10': 'msg'},
+    const {
+      '1': 'funds',
+      '3': 6,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': const {},
+      '10': 'funds'
+    },
+    const {'1': 'salt', '3': 7, '4': 1, '5': 12, '10': 'salt'},
+    const {'1': 'fix_msg', '3': 8, '4': 1, '5': 8, '10': 'fixMsg'},
+  ],
+};
+
+/// Descriptor for `MsgInstantiateContract2`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List msgInstantiateContract2Descriptor =
+    $convert.base64Decode(
+        'ChdNc2dJbnN0YW50aWF0ZUNvbnRyYWN0MhIWCgZzZW5kZXIYASABKAlSBnNlbmRlchIUCgVhZG1pbhgCIAEoCVIFYWRtaW4SIwoHY29kZV9pZBgDIAEoBEIK4t4fBkNvZGVJRFIGY29kZUlkEhQKBWxhYmVsGAQgASgJUgVsYWJlbBIoCgNtc2cYBSABKAxCFvreHxJSYXdDb250cmFjdE1lc3NhZ2VSA21zZxJhCgVmdW5kcxgGIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgVmdW5kcxISCgRzYWx0GAcgASgMUgRzYWx0EhcKB2ZpeF9tc2cYCCABKAhSBmZpeE1zZw==');
 @$core.Deprecated('Use msgInstantiateContractResponseDescriptor instead')
 const MsgInstantiateContractResponse$json = const {
   '1': 'MsgInstantiateContractResponse',
@@ -103,6 +138,19 @@ const MsgInstantiateContractResponse$json = const {
 final $typed_data.Uint8List msgInstantiateContractResponseDescriptor =
     $convert.base64Decode(
         'Ch5Nc2dJbnN0YW50aWF0ZUNvbnRyYWN0UmVzcG9uc2USGAoHYWRkcmVzcxgBIAEoCVIHYWRkcmVzcxISCgRkYXRhGAIgASgMUgRkYXRh');
+@$core.Deprecated('Use msgInstantiateContract2ResponseDescriptor instead')
+const MsgInstantiateContract2Response$json = const {
+  '1': 'MsgInstantiateContract2Response',
+  '2': const [
+    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {'1': 'data', '3': 2, '4': 1, '5': 12, '10': 'data'},
+  ],
+};
+
+/// Descriptor for `MsgInstantiateContract2Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List msgInstantiateContract2ResponseDescriptor =
+    $convert.base64Decode(
+        'Ch9Nc2dJbnN0YW50aWF0ZUNvbnRyYWN0MlJlc3BvbnNlEhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3MSEgoEZGF0YRgCIAEoDFIEZGF0YQ==');
 @$core.Deprecated('Use msgExecuteContractDescriptor instead')
 const MsgExecuteContract$json = const {
   '1': 'MsgExecuteContract',

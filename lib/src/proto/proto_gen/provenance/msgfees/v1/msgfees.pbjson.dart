@@ -29,13 +29,20 @@ const Params$json = const {
       '5': 4,
       '10': 'nhashPerUsdMil'
     },
+    const {
+      '1': 'conversion_fee_denom',
+      '3': 4,
+      '4': 1,
+      '5': 9,
+      '10': 'conversionFeeDenom'
+    },
   ],
   '7': const {},
 };
 
 /// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode(
-    'CgZQYXJhbXMSYQoPZmxvb3JfZ2FzX3ByaWNlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQh7I3h8A8t4fFnlhbWw6ImZsb29yX2dhc19wcmljZSJSDWZsb29yR2FzUHJpY2USKQoRbmhhc2hfcGVyX3VzZF9taWwYAyABKARSDm5oYXNoUGVyVXNkTWlsOgjooB8AmKAfAA==');
+    'CgZQYXJhbXMSRwoPZmxvb3JfZ2FzX3ByaWNlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQgTI3h8AUg1mbG9vckdhc1ByaWNlEikKEW5oYXNoX3Blcl91c2RfbWlsGAMgASgEUg5uaGFzaFBlclVzZE1pbBIwChRjb252ZXJzaW9uX2ZlZV9kZW5vbRgEIAEoCVISY29udmVyc2lvbkZlZURlbm9tOgjooB8AmKAfAQ==');
 @$core.Deprecated('Use msgFeeDescriptor instead')
 const MsgFee$json = const {
   '1': 'MsgFee',
@@ -50,12 +57,20 @@ const MsgFee$json = const {
       '8': const {},
       '10': 'additionalFee'
     },
+    const {'1': 'recipient', '3': 3, '4': 1, '5': 9, '10': 'recipient'},
+    const {
+      '1': 'recipient_basis_points',
+      '3': 4,
+      '4': 1,
+      '5': 13,
+      '10': 'recipientBasisPoints'
+    },
   ],
 };
 
 /// Descriptor for `MsgFee`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgFeeDescriptor = $convert.base64Decode(
-    'CgZNc2dGZWUSIAoMbXNnX3R5cGVfdXJsGAEgASgJUgptc2dUeXBlVXJsEl8KDmFkZGl0aW9uYWxfZmVlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQh3I3h8A8t4fFXlhbWw6ImFkZGl0aW9uYWxfZmVlIlINYWRkaXRpb25hbEZlZQ==');
+    'CgZNc2dGZWUSIAoMbXNnX3R5cGVfdXJsGAEgASgJUgptc2dUeXBlVXJsEkYKDmFkZGl0aW9uYWxfZmVlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQgTI3h8AUg1hZGRpdGlvbmFsRmVlEhwKCXJlY2lwaWVudBgDIAEoCVIJcmVjaXBpZW50EjQKFnJlY2lwaWVudF9iYXNpc19wb2ludHMYBCABKA1SFHJlY2lwaWVudEJhc2lzUG9pbnRz');
 @$core.Deprecated('Use eventMsgFeeDescriptor instead')
 const EventMsgFee$json = const {
   '1': 'EventMsgFee',

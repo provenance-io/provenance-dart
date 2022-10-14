@@ -40,14 +40,21 @@ final $typed_data.Uint8List queryParamsResponseDescriptor = $convert.base64Decod
 const QuerySigningInfoRequest$json = const {
   '1': 'QuerySigningInfoRequest',
   '2': const [
-    const {'1': 'cons_address', '3': 1, '4': 1, '5': 9, '10': 'consAddress'},
+    const {
+      '1': 'cons_address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'consAddress'
+    },
   ],
 };
 
 /// Descriptor for `QuerySigningInfoRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List querySigningInfoRequestDescriptor =
     $convert.base64Decode(
-        'ChdRdWVyeVNpZ25pbmdJbmZvUmVxdWVzdBIhCgxjb25zX2FkZHJlc3MYASABKAlSC2NvbnNBZGRyZXNz');
+        'ChdRdWVyeVNpZ25pbmdJbmZvUmVxdWVzdBI7Cgxjb25zX2FkZHJlc3MYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1ILY29uc0FkZHJlc3M=');
 @$core.Deprecated('Use querySigningInfoResponseDescriptor instead')
 const QuerySigningInfoResponse$json = const {
   '1': 'QuerySigningInfoResponse',

@@ -545,3 +545,116 @@ class QueryModuleVersionsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$1.ModuleVersion> get moduleVersions => $_getList(0);
 }
+
+class QueryAuthorityRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryAuthorityRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  QueryAuthorityRequest._() : super();
+  factory QueryAuthorityRequest() => create();
+  factory QueryAuthorityRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryAuthorityRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryAuthorityRequest clone() =>
+      QueryAuthorityRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryAuthorityRequest copyWith(
+          void Function(QueryAuthorityRequest) updates) =>
+      super.copyWith((message) => updates(message as QueryAuthorityRequest))
+          as QueryAuthorityRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryAuthorityRequest create() => QueryAuthorityRequest._();
+  QueryAuthorityRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryAuthorityRequest> createRepeated() =>
+      $pb.PbList<QueryAuthorityRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryAuthorityRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryAuthorityRequest>(create);
+  static QueryAuthorityRequest? _defaultInstance;
+}
+
+class QueryAuthorityResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryAuthorityResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'address')
+    ..hasRequiredFields = false;
+
+  QueryAuthorityResponse._() : super();
+  factory QueryAuthorityResponse({
+    $core.String? address,
+  }) {
+    final _result = create();
+    if (address != null) {
+      _result.address = address;
+    }
+    return _result;
+  }
+  factory QueryAuthorityResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryAuthorityResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryAuthorityResponse clone() =>
+      QueryAuthorityResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryAuthorityResponse copyWith(
+          void Function(QueryAuthorityResponse) updates) =>
+      super.copyWith((message) => updates(message as QueryAuthorityResponse))
+          as QueryAuthorityResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryAuthorityResponse create() => QueryAuthorityResponse._();
+  QueryAuthorityResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryAuthorityResponse> createRepeated() =>
+      $pb.PbList<QueryAuthorityResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryAuthorityResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryAuthorityResponse>(create);
+  static QueryAuthorityResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get address => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set address($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAddress() => clearField(1);
+}

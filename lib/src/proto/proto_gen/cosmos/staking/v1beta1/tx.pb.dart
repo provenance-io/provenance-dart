@@ -7,6 +7,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'staking.pb.dart' as $1;
@@ -982,4 +983,189 @@ class MsgUndelegateResponse extends $pb.GeneratedMessage {
   void clearCompletionTime() => clearField(1);
   @$pb.TagNumber(1)
   $4.Timestamp ensureCompletionTime() => $_ensure(0);
+}
+
+class MsgCancelUnbondingDelegation extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'MsgCancelUnbondingDelegation',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'delegatorAddress')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'validatorAddress')
+    ..aOM<$3.Coin>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'amount',
+        subBuilder: $3.Coin.create)
+    ..aInt64(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'creationHeight')
+    ..hasRequiredFields = false;
+
+  MsgCancelUnbondingDelegation._() : super();
+  factory MsgCancelUnbondingDelegation({
+    $core.String? delegatorAddress,
+    $core.String? validatorAddress,
+    $3.Coin? amount,
+    $fixnum.Int64? creationHeight,
+  }) {
+    final _result = create();
+    if (delegatorAddress != null) {
+      _result.delegatorAddress = delegatorAddress;
+    }
+    if (validatorAddress != null) {
+      _result.validatorAddress = validatorAddress;
+    }
+    if (amount != null) {
+      _result.amount = amount;
+    }
+    if (creationHeight != null) {
+      _result.creationHeight = creationHeight;
+    }
+    return _result;
+  }
+  factory MsgCancelUnbondingDelegation.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgCancelUnbondingDelegation.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgCancelUnbondingDelegation clone() =>
+      MsgCancelUnbondingDelegation()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgCancelUnbondingDelegation copyWith(
+          void Function(MsgCancelUnbondingDelegation) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgCancelUnbondingDelegation))
+          as MsgCancelUnbondingDelegation; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MsgCancelUnbondingDelegation create() =>
+      MsgCancelUnbondingDelegation._();
+  MsgCancelUnbondingDelegation createEmptyInstance() => create();
+  static $pb.PbList<MsgCancelUnbondingDelegation> createRepeated() =>
+      $pb.PbList<MsgCancelUnbondingDelegation>();
+  @$core.pragma('dart2js:noInline')
+  static MsgCancelUnbondingDelegation getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgCancelUnbondingDelegation>(create);
+  static MsgCancelUnbondingDelegation? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get delegatorAddress => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set delegatorAddress($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasDelegatorAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDelegatorAddress() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get validatorAddress => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set validatorAddress($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasValidatorAddress() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearValidatorAddress() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $3.Coin get amount => $_getN(2);
+  @$pb.TagNumber(3)
+  set amount($3.Coin v) {
+    setField(3, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasAmount() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAmount() => clearField(3);
+  @$pb.TagNumber(3)
+  $3.Coin ensureAmount() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get creationHeight => $_getI64(3);
+  @$pb.TagNumber(4)
+  set creationHeight($fixnum.Int64 v) {
+    $_setInt64(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasCreationHeight() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCreationHeight() => clearField(4);
+}
+
+class MsgCancelUnbondingDelegationResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'MsgCancelUnbondingDelegationResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  MsgCancelUnbondingDelegationResponse._() : super();
+  factory MsgCancelUnbondingDelegationResponse() => create();
+  factory MsgCancelUnbondingDelegationResponse.fromBuffer(
+          $core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgCancelUnbondingDelegationResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgCancelUnbondingDelegationResponse clone() =>
+      MsgCancelUnbondingDelegationResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgCancelUnbondingDelegationResponse copyWith(
+          void Function(MsgCancelUnbondingDelegationResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as MsgCancelUnbondingDelegationResponse))
+          as MsgCancelUnbondingDelegationResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MsgCancelUnbondingDelegationResponse create() =>
+      MsgCancelUnbondingDelegationResponse._();
+  MsgCancelUnbondingDelegationResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgCancelUnbondingDelegationResponse> createRepeated() =>
+      $pb.PbList<MsgCancelUnbondingDelegationResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgCancelUnbondingDelegationResponse getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          MsgCancelUnbondingDelegationResponse>(create);
+  static MsgCancelUnbondingDelegationResponse? _defaultInstance;
 }

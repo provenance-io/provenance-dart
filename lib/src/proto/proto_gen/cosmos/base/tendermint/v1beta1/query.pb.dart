@@ -14,7 +14,8 @@ import '../../query/v1beta1/pagination.pb.dart' as $1;
 import '../../../../google/protobuf/any.pb.dart' as $2;
 import '../../../../tendermint/types/types.pb.dart' as $3;
 import '../../../../tendermint/types/block.pb.dart' as $4;
-import '../../../../tendermint/p2p/types.pb.dart' as $5;
+import 'types.pb.dart' as $5;
+import '../../../../tendermint/p2p/types.pb.dart' as $6;
 
 class GetValidatorSetByHeightRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -627,12 +628,19 @@ class GetBlockByHeightResponse extends $pb.GeneratedMessage {
             ? ''
             : 'block',
         subBuilder: $4.Block.create)
+    ..aOM<$5.Block>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sdkBlock',
+        subBuilder: $5.Block.create)
     ..hasRequiredFields = false;
 
   GetBlockByHeightResponse._() : super();
   factory GetBlockByHeightResponse({
     $3.BlockID? blockId,
     $4.Block? block,
+    $5.Block? sdkBlock,
   }) {
     final _result = create();
     if (blockId != null) {
@@ -640,6 +648,9 @@ class GetBlockByHeightResponse extends $pb.GeneratedMessage {
     }
     if (block != null) {
       _result.block = block;
+    }
+    if (sdkBlock != null) {
+      _result.sdkBlock = sdkBlock;
     }
     return _result;
   }
@@ -699,6 +710,20 @@ class GetBlockByHeightResponse extends $pb.GeneratedMessage {
   void clearBlock() => clearField(2);
   @$pb.TagNumber(2)
   $4.Block ensureBlock() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $5.Block get sdkBlock => $_getN(2);
+  @$pb.TagNumber(3)
+  set sdkBlock($5.Block v) {
+    setField(3, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasSdkBlock() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSdkBlock() => clearField(3);
+  @$pb.TagNumber(3)
+  $5.Block ensureSdkBlock() => $_ensure(2);
 }
 
 class GetLatestBlockRequest extends $pb.GeneratedMessage {
@@ -767,12 +792,19 @@ class GetLatestBlockResponse extends $pb.GeneratedMessage {
             ? ''
             : 'block',
         subBuilder: $4.Block.create)
+    ..aOM<$5.Block>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sdkBlock',
+        subBuilder: $5.Block.create)
     ..hasRequiredFields = false;
 
   GetLatestBlockResponse._() : super();
   factory GetLatestBlockResponse({
     $3.BlockID? blockId,
     $4.Block? block,
+    $5.Block? sdkBlock,
   }) {
     final _result = create();
     if (blockId != null) {
@@ -780,6 +812,9 @@ class GetLatestBlockResponse extends $pb.GeneratedMessage {
     }
     if (block != null) {
       _result.block = block;
+    }
+    if (sdkBlock != null) {
+      _result.sdkBlock = sdkBlock;
     }
     return _result;
   }
@@ -839,6 +874,20 @@ class GetLatestBlockResponse extends $pb.GeneratedMessage {
   void clearBlock() => clearField(2);
   @$pb.TagNumber(2)
   $4.Block ensureBlock() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $5.Block get sdkBlock => $_getN(2);
+  @$pb.TagNumber(3)
+  set sdkBlock($5.Block v) {
+    setField(3, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasSdkBlock() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSdkBlock() => clearField(3);
+  @$pb.TagNumber(3)
+  $5.Block ensureSdkBlock() => $_ensure(2);
 }
 
 class GetSyncingRequest extends $pb.GeneratedMessage {
@@ -1002,12 +1051,12 @@ class GetNodeInfoResponse extends $pb.GeneratedMessage {
               ? ''
               : 'cosmos.base.tendermint.v1beta1'),
       createEmptyInstance: create)
-    ..aOM<$5.DefaultNodeInfo>(
+    ..aOM<$6.DefaultNodeInfo>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'defaultNodeInfo',
-        subBuilder: $5.DefaultNodeInfo.create)
+        subBuilder: $6.DefaultNodeInfo.create)
     ..aOM<VersionInfo>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1018,7 +1067,7 @@ class GetNodeInfoResponse extends $pb.GeneratedMessage {
 
   GetNodeInfoResponse._() : super();
   factory GetNodeInfoResponse({
-    $5.DefaultNodeInfo? defaultNodeInfo,
+    $6.DefaultNodeInfo? defaultNodeInfo,
     VersionInfo? applicationVersion,
   }) {
     final _result = create();
@@ -1058,9 +1107,9 @@ class GetNodeInfoResponse extends $pb.GeneratedMessage {
   static GetNodeInfoResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $5.DefaultNodeInfo get defaultNodeInfo => $_getN(0);
+  $6.DefaultNodeInfo get defaultNodeInfo => $_getN(0);
   @$pb.TagNumber(1)
-  set defaultNodeInfo($5.DefaultNodeInfo v) {
+  set defaultNodeInfo($6.DefaultNodeInfo v) {
     setField(1, v);
   }
 
@@ -1069,7 +1118,7 @@ class GetNodeInfoResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearDefaultNodeInfo() => clearField(1);
   @$pb.TagNumber(1)
-  $5.DefaultNodeInfo ensureDefaultNodeInfo() => $_ensure(0);
+  $6.DefaultNodeInfo ensureDefaultNodeInfo() => $_ensure(0);
 
   @$pb.TagNumber(2)
   VersionInfo get applicationVersion => $_getN(1);
@@ -1398,4 +1447,545 @@ class Module extends $pb.GeneratedMessage {
   $core.bool hasSum() => $_has(2);
   @$pb.TagNumber(3)
   void clearSum() => clearField(3);
+}
+
+class ABCIQueryRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ABCIQueryRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'data',
+        $pb.PbFieldType.OY)
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'path')
+    ..aInt64(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'height')
+    ..aOB(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'prove')
+    ..hasRequiredFields = false;
+
+  ABCIQueryRequest._() : super();
+  factory ABCIQueryRequest({
+    $core.List<$core.int>? data,
+    $core.String? path,
+    $fixnum.Int64? height,
+    $core.bool? prove,
+  }) {
+    final _result = create();
+    if (data != null) {
+      _result.data = data;
+    }
+    if (path != null) {
+      _result.path = path;
+    }
+    if (height != null) {
+      _result.height = height;
+    }
+    if (prove != null) {
+      _result.prove = prove;
+    }
+    return _result;
+  }
+  factory ABCIQueryRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ABCIQueryRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ABCIQueryRequest clone() => ABCIQueryRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ABCIQueryRequest copyWith(void Function(ABCIQueryRequest) updates) =>
+      super.copyWith((message) => updates(message as ABCIQueryRequest))
+          as ABCIQueryRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ABCIQueryRequest create() => ABCIQueryRequest._();
+  ABCIQueryRequest createEmptyInstance() => create();
+  static $pb.PbList<ABCIQueryRequest> createRepeated() =>
+      $pb.PbList<ABCIQueryRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ABCIQueryRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ABCIQueryRequest>(create);
+  static ABCIQueryRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get data => $_getN(0);
+  @$pb.TagNumber(1)
+  set data($core.List<$core.int> v) {
+    $_setBytes(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasData() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearData() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get path => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set path($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPath() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPath() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get height => $_getI64(2);
+  @$pb.TagNumber(3)
+  set height($fixnum.Int64 v) {
+    $_setInt64(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasHeight() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearHeight() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get prove => $_getBF(3);
+  @$pb.TagNumber(4)
+  set prove($core.bool v) {
+    $_setBool(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasProve() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearProve() => clearField(4);
+}
+
+class ABCIQueryResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ABCIQueryResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'code',
+        $pb.PbFieldType.OU3)
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'log')
+    ..aOS(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'info')
+    ..aInt64(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'index')
+    ..a<$core.List<$core.int>>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'key',
+        $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'value',
+        $pb.PbFieldType.OY)
+    ..aOM<ProofOps>(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'proofOps',
+        subBuilder: ProofOps.create)
+    ..aInt64(
+        9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'height')
+    ..aOS(
+        10,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'codespace')
+    ..hasRequiredFields = false;
+
+  ABCIQueryResponse._() : super();
+  factory ABCIQueryResponse({
+    $core.int? code,
+    $core.String? log,
+    $core.String? info,
+    $fixnum.Int64? index,
+    $core.List<$core.int>? key,
+    $core.List<$core.int>? value,
+    ProofOps? proofOps,
+    $fixnum.Int64? height,
+    $core.String? codespace,
+  }) {
+    final _result = create();
+    if (code != null) {
+      _result.code = code;
+    }
+    if (log != null) {
+      _result.log = log;
+    }
+    if (info != null) {
+      _result.info = info;
+    }
+    if (index != null) {
+      _result.index = index;
+    }
+    if (key != null) {
+      _result.key = key;
+    }
+    if (value != null) {
+      _result.value = value;
+    }
+    if (proofOps != null) {
+      _result.proofOps = proofOps;
+    }
+    if (height != null) {
+      _result.height = height;
+    }
+    if (codespace != null) {
+      _result.codespace = codespace;
+    }
+    return _result;
+  }
+  factory ABCIQueryResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ABCIQueryResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ABCIQueryResponse clone() => ABCIQueryResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ABCIQueryResponse copyWith(void Function(ABCIQueryResponse) updates) =>
+      super.copyWith((message) => updates(message as ABCIQueryResponse))
+          as ABCIQueryResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ABCIQueryResponse create() => ABCIQueryResponse._();
+  ABCIQueryResponse createEmptyInstance() => create();
+  static $pb.PbList<ABCIQueryResponse> createRepeated() =>
+      $pb.PbList<ABCIQueryResponse>();
+  @$core.pragma('dart2js:noInline')
+  static ABCIQueryResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ABCIQueryResponse>(create);
+  static ABCIQueryResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get code => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set code($core.int v) {
+    $_setUnsignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCode() => clearField(1);
+
+  @$pb.TagNumber(3)
+  $core.String get log => $_getSZ(1);
+  @$pb.TagNumber(3)
+  set log($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasLog() => $_has(1);
+  @$pb.TagNumber(3)
+  void clearLog() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get info => $_getSZ(2);
+  @$pb.TagNumber(4)
+  set info($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasInfo() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearInfo() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get index => $_getI64(3);
+  @$pb.TagNumber(5)
+  set index($fixnum.Int64 v) {
+    $_setInt64(3, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasIndex() => $_has(3);
+  @$pb.TagNumber(5)
+  void clearIndex() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.List<$core.int> get key => $_getN(4);
+  @$pb.TagNumber(6)
+  set key($core.List<$core.int> v) {
+    $_setBytes(4, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasKey() => $_has(4);
+  @$pb.TagNumber(6)
+  void clearKey() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.List<$core.int> get value => $_getN(5);
+  @$pb.TagNumber(7)
+  set value($core.List<$core.int> v) {
+    $_setBytes(5, v);
+  }
+
+  @$pb.TagNumber(7)
+  $core.bool hasValue() => $_has(5);
+  @$pb.TagNumber(7)
+  void clearValue() => clearField(7);
+
+  @$pb.TagNumber(8)
+  ProofOps get proofOps => $_getN(6);
+  @$pb.TagNumber(8)
+  set proofOps(ProofOps v) {
+    setField(8, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasProofOps() => $_has(6);
+  @$pb.TagNumber(8)
+  void clearProofOps() => clearField(8);
+  @$pb.TagNumber(8)
+  ProofOps ensureProofOps() => $_ensure(6);
+
+  @$pb.TagNumber(9)
+  $fixnum.Int64 get height => $_getI64(7);
+  @$pb.TagNumber(9)
+  set height($fixnum.Int64 v) {
+    $_setInt64(7, v);
+  }
+
+  @$pb.TagNumber(9)
+  $core.bool hasHeight() => $_has(7);
+  @$pb.TagNumber(9)
+  void clearHeight() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get codespace => $_getSZ(8);
+  @$pb.TagNumber(10)
+  set codespace($core.String v) {
+    $_setString(8, v);
+  }
+
+  @$pb.TagNumber(10)
+  $core.bool hasCodespace() => $_has(8);
+  @$pb.TagNumber(10)
+  void clearCodespace() => clearField(10);
+}
+
+class ProofOp extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ProofOp',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'type')
+    ..a<$core.List<$core.int>>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'key',
+        $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'data',
+        $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
+  ProofOp._() : super();
+  factory ProofOp({
+    $core.String? type,
+    $core.List<$core.int>? key,
+    $core.List<$core.int>? data,
+  }) {
+    final _result = create();
+    if (type != null) {
+      _result.type = type;
+    }
+    if (key != null) {
+      _result.key = key;
+    }
+    if (data != null) {
+      _result.data = data;
+    }
+    return _result;
+  }
+  factory ProofOp.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ProofOp.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ProofOp clone() => ProofOp()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ProofOp copyWith(void Function(ProofOp) updates) =>
+      super.copyWith((message) => updates(message as ProofOp))
+          as ProofOp; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ProofOp create() => ProofOp._();
+  ProofOp createEmptyInstance() => create();
+  static $pb.PbList<ProofOp> createRepeated() => $pb.PbList<ProofOp>();
+  @$core.pragma('dart2js:noInline')
+  static ProofOp getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ProofOp>(create);
+  static ProofOp? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get type => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set type($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasType() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearType() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.int> get key => $_getN(1);
+  @$pb.TagNumber(2)
+  set key($core.List<$core.int> v) {
+    $_setBytes(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasKey() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKey() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<$core.int> get data => $_getN(2);
+  @$pb.TagNumber(3)
+  set data($core.List<$core.int> v) {
+    $_setBytes(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasData() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearData() => clearField(3);
+}
+
+class ProofOps extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ProofOps',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<ProofOp>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'ops',
+        $pb.PbFieldType.PM,
+        subBuilder: ProofOp.create)
+    ..hasRequiredFields = false;
+
+  ProofOps._() : super();
+  factory ProofOps({
+    $core.Iterable<ProofOp>? ops,
+  }) {
+    final _result = create();
+    if (ops != null) {
+      _result.ops.addAll(ops);
+    }
+    return _result;
+  }
+  factory ProofOps.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ProofOps.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ProofOps clone() => ProofOps()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ProofOps copyWith(void Function(ProofOps) updates) =>
+      super.copyWith((message) => updates(message as ProofOps))
+          as ProofOps; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ProofOps create() => ProofOps._();
+  ProofOps createEmptyInstance() => create();
+  static $pb.PbList<ProofOps> createRepeated() => $pb.PbList<ProofOps>();
+  @$core.pragma('dart2js:noInline')
+  static ProofOps getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ProofOps>(create);
+  static ProofOps? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<ProofOp> get ops => $_getList(0);
 }

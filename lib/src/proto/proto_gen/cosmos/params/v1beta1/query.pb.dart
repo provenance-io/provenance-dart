@@ -168,3 +168,187 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.ParamChange ensureParam() => $_ensure(0);
 }
+
+class QuerySubspacesRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QuerySubspacesRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  QuerySubspacesRequest._() : super();
+  factory QuerySubspacesRequest() => create();
+  factory QuerySubspacesRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QuerySubspacesRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QuerySubspacesRequest clone() =>
+      QuerySubspacesRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QuerySubspacesRequest copyWith(
+          void Function(QuerySubspacesRequest) updates) =>
+      super.copyWith((message) => updates(message as QuerySubspacesRequest))
+          as QuerySubspacesRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QuerySubspacesRequest create() => QuerySubspacesRequest._();
+  QuerySubspacesRequest createEmptyInstance() => create();
+  static $pb.PbList<QuerySubspacesRequest> createRepeated() =>
+      $pb.PbList<QuerySubspacesRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QuerySubspacesRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QuerySubspacesRequest>(create);
+  static QuerySubspacesRequest? _defaultInstance;
+}
+
+class QuerySubspacesResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QuerySubspacesResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<Subspace>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'subspaces',
+        $pb.PbFieldType.PM,
+        subBuilder: Subspace.create)
+    ..hasRequiredFields = false;
+
+  QuerySubspacesResponse._() : super();
+  factory QuerySubspacesResponse({
+    $core.Iterable<Subspace>? subspaces,
+  }) {
+    final _result = create();
+    if (subspaces != null) {
+      _result.subspaces.addAll(subspaces);
+    }
+    return _result;
+  }
+  factory QuerySubspacesResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QuerySubspacesResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QuerySubspacesResponse clone() =>
+      QuerySubspacesResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QuerySubspacesResponse copyWith(
+          void Function(QuerySubspacesResponse) updates) =>
+      super.copyWith((message) => updates(message as QuerySubspacesResponse))
+          as QuerySubspacesResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QuerySubspacesResponse create() => QuerySubspacesResponse._();
+  QuerySubspacesResponse createEmptyInstance() => create();
+  static $pb.PbList<QuerySubspacesResponse> createRepeated() =>
+      $pb.PbList<QuerySubspacesResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QuerySubspacesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QuerySubspacesResponse>(create);
+  static QuerySubspacesResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<Subspace> get subspaces => $_getList(0);
+}
+
+class Subspace extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'Subspace',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'subspace')
+    ..pPS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'keys')
+    ..hasRequiredFields = false;
+
+  Subspace._() : super();
+  factory Subspace({
+    $core.String? subspace,
+    $core.Iterable<$core.String>? keys,
+  }) {
+    final _result = create();
+    if (subspace != null) {
+      _result.subspace = subspace;
+    }
+    if (keys != null) {
+      _result.keys.addAll(keys);
+    }
+    return _result;
+  }
+  factory Subspace.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Subspace.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  Subspace clone() => Subspace()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  Subspace copyWith(void Function(Subspace) updates) =>
+      super.copyWith((message) => updates(message as Subspace))
+          as Subspace; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Subspace create() => Subspace._();
+  Subspace createEmptyInstance() => create();
+  static $pb.PbList<Subspace> createRepeated() => $pb.PbList<Subspace>();
+  @$core.pragma('dart2js:noInline')
+  static Subspace getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Subspace>(create);
+  static Subspace? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get subspace => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set subspace($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSubspace() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSubspace() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.String> get keys => $_getList(1);
+}

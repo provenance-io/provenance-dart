@@ -49,21 +49,14 @@ const BaseVestingAccount$json = const {
       '8': const {},
       '10': 'delegatedVesting'
     },
-    const {
-      '1': 'end_time',
-      '3': 5,
-      '4': 1,
-      '5': 3,
-      '8': const {},
-      '10': 'endTime'
-    },
+    const {'1': 'end_time', '3': 5, '4': 1, '5': 3, '10': 'endTime'},
   ],
   '7': const {},
 };
 
 /// Descriptor for `BaseVestingAccount`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List baseVestingAccountDescriptor = $convert.base64Decode(
-    'ChJCYXNlVmVzdGluZ0FjY291bnQSSQoMYmFzZV9hY2NvdW50GAEgASgLMiAuY29zbW9zLmF1dGgudjFiZXRhMS5CYXNlQWNjb3VudEIE0N4fAVILYmFzZUFjY291bnQSkQEKEG9yaWdpbmFsX3Zlc3RpbmcYAiADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CS8jeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc/LeHxd5YW1sOiJvcmlnaW5hbF92ZXN0aW5nIlIPb3JpZ2luYWxWZXN0aW5nEosBCg5kZWxlZ2F0ZWRfZnJlZRgDIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkJJyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5z8t4fFXlhbWw6ImRlbGVnYXRlZF9mcmVlIlINZGVsZWdhdGVkRnJlZRKUAQoRZGVsZWdhdGVkX3Zlc3RpbmcYBCADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CTMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc/LeHxh5YW1sOiJkZWxlZ2F0ZWRfdmVzdGluZyJSEGRlbGVnYXRlZFZlc3RpbmcSLgoIZW5kX3RpbWUYBSABKANCE/LeHw95YW1sOiJlbmRfdGltZSJSB2VuZFRpbWU6CIigHwCYoB8A');
+    'ChJCYXNlVmVzdGluZ0FjY291bnQSSQoMYmFzZV9hY2NvdW50GAEgASgLMiAuY29zbW9zLmF1dGgudjFiZXRhMS5CYXNlQWNjb3VudEIE0N4fAVILYmFzZUFjY291bnQSdgoQb3JpZ2luYWxfdmVzdGluZxgCIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUg9vcmlnaW5hbFZlc3RpbmcScgoOZGVsZWdhdGVkX2ZyZWUYAyADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc1INZGVsZWdhdGVkRnJlZRJ4ChFkZWxlZ2F0ZWRfdmVzdGluZxgEIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUhBkZWxlZ2F0ZWRWZXN0aW5nEhkKCGVuZF90aW1lGAUgASgDUgdlbmRUaW1lOgiIoB8AmKAfAA==');
 @$core.Deprecated('Use continuousVestingAccountDescriptor instead')
 const ContinuousVestingAccount$json = const {
   '1': 'ContinuousVestingAccount',
@@ -77,14 +70,7 @@ const ContinuousVestingAccount$json = const {
       '8': const {},
       '10': 'baseVestingAccount'
     },
-    const {
-      '1': 'start_time',
-      '3': 2,
-      '4': 1,
-      '5': 3,
-      '8': const {},
-      '10': 'startTime'
-    },
+    const {'1': 'start_time', '3': 2, '4': 1, '5': 3, '10': 'startTime'},
   ],
   '7': const {},
 };
@@ -92,7 +78,7 @@ const ContinuousVestingAccount$json = const {
 /// Descriptor for `ContinuousVestingAccount`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List continuousVestingAccountDescriptor =
     $convert.base64Decode(
-        'ChhDb250aW51b3VzVmVzdGluZ0FjY291bnQSYgoUYmFzZV92ZXN0aW5nX2FjY291bnQYASABKAsyKi5jb3Ntb3MudmVzdGluZy52MWJldGExLkJhc2VWZXN0aW5nQWNjb3VudEIE0N4fAVISYmFzZVZlc3RpbmdBY2NvdW50EjQKCnN0YXJ0X3RpbWUYAiABKANCFfLeHxF5YW1sOiJzdGFydF90aW1lIlIJc3RhcnRUaW1lOgiIoB8AmKAfAA==');
+        'ChhDb250aW51b3VzVmVzdGluZ0FjY291bnQSYgoUYmFzZV92ZXN0aW5nX2FjY291bnQYASABKAsyKi5jb3Ntb3MudmVzdGluZy52MWJldGExLkJhc2VWZXN0aW5nQWNjb3VudEIE0N4fAVISYmFzZVZlc3RpbmdBY2NvdW50Eh0KCnN0YXJ0X3RpbWUYAiABKANSCXN0YXJ0VGltZToIiKAfAJigHwA=');
 @$core.Deprecated('Use delayedVestingAccountDescriptor instead')
 const DelayedVestingAccount$json = const {
   '1': 'DelayedVestingAccount',
@@ -147,14 +133,7 @@ const PeriodicVestingAccount$json = const {
       '8': const {},
       '10': 'baseVestingAccount'
     },
-    const {
-      '1': 'start_time',
-      '3': 2,
-      '4': 1,
-      '5': 3,
-      '8': const {},
-      '10': 'startTime'
-    },
+    const {'1': 'start_time', '3': 2, '4': 1, '5': 3, '10': 'startTime'},
     const {
       '1': 'vesting_periods',
       '3': 3,
@@ -171,7 +150,7 @@ const PeriodicVestingAccount$json = const {
 /// Descriptor for `PeriodicVestingAccount`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List periodicVestingAccountDescriptor =
     $convert.base64Decode(
-        'ChZQZXJpb2RpY1Zlc3RpbmdBY2NvdW50EmIKFGJhc2VfdmVzdGluZ19hY2NvdW50GAEgASgLMiouY29zbW9zLnZlc3RpbmcudjFiZXRhMS5CYXNlVmVzdGluZ0FjY291bnRCBNDeHwFSEmJhc2VWZXN0aW5nQWNjb3VudBI0CgpzdGFydF90aW1lGAIgASgDQhXy3h8ReWFtbDoic3RhcnRfdGltZSJSCXN0YXJ0VGltZRJnCg92ZXN0aW5nX3BlcmlvZHMYAyADKAsyHi5jb3Ntb3MudmVzdGluZy52MWJldGExLlBlcmlvZEIe8t4fFnlhbWw6InZlc3RpbmdfcGVyaW9kcyLI3h8AUg52ZXN0aW5nUGVyaW9kczoIiKAfAJigHwA=');
+        'ChZQZXJpb2RpY1Zlc3RpbmdBY2NvdW50EmIKFGJhc2VfdmVzdGluZ19hY2NvdW50GAEgASgLMiouY29zbW9zLnZlc3RpbmcudjFiZXRhMS5CYXNlVmVzdGluZ0FjY291bnRCBNDeHwFSEmJhc2VWZXN0aW5nQWNjb3VudBIdCgpzdGFydF90aW1lGAIgASgDUglzdGFydFRpbWUSTQoPdmVzdGluZ19wZXJpb2RzGAMgAygLMh4uY29zbW9zLnZlc3RpbmcudjFiZXRhMS5QZXJpb2RCBMjeHwBSDnZlc3RpbmdQZXJpb2RzOgiIoB8AmKAfAA==');
 @$core.Deprecated('Use permanentLockedAccountDescriptor instead')
 const PermanentLockedAccount$json = const {
   '1': 'PermanentLockedAccount',

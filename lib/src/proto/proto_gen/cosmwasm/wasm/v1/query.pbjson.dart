@@ -268,6 +268,15 @@ const CodeInfoResponse$json = const {
       '8': const {},
       '10': 'dataHash'
     },
+    const {
+      '1': 'instantiate_permission',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmwasm.wasm.v1.AccessConfig',
+      '8': const {},
+      '10': 'instantiatePermission'
+    },
   ],
   '7': const {},
   '9': const [
@@ -278,7 +287,7 @@ const CodeInfoResponse$json = const {
 
 /// Descriptor for `CodeInfoResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List codeInfoResponseDescriptor = $convert.base64Decode(
-    'ChBDb2RlSW5mb1Jlc3BvbnNlEikKB2NvZGVfaWQYASABKARCEOLeHwZDb2RlSUTq3h8CaWRSBmNvZGVJZBIYCgdjcmVhdG9yGAIgASgJUgdjcmVhdG9yElUKCWRhdGFfaGFzaBgDIAEoDEI4+t4fNGdpdGh1Yi5jb20vdGVuZGVybWludC90ZW5kZXJtaW50L2xpYnMvYnl0ZXMuSGV4Qnl0ZXNSCGRhdGFIYXNoOgTooB8BSgQIBBAFSgQIBRAG');
+    'ChBDb2RlSW5mb1Jlc3BvbnNlEikKB2NvZGVfaWQYASABKARCEOLeHwZDb2RlSUTq3h8CaWRSBmNvZGVJZBIYCgdjcmVhdG9yGAIgASgJUgdjcmVhdG9yElUKCWRhdGFfaGFzaBgDIAEoDEI4+t4fNGdpdGh1Yi5jb20vdGVuZGVybWludC90ZW5kZXJtaW50L2xpYnMvYnl0ZXMuSGV4Qnl0ZXNSCGRhdGFIYXNoElsKFmluc3RhbnRpYXRlX3Blcm1pc3Npb24YBiABKAsyHi5jb3Ntd2FzbS53YXNtLnYxLkFjY2Vzc0NvbmZpZ0IEyN4fAFIVaW5zdGFudGlhdGVQZXJtaXNzaW9uOgTooB8BSgQIBBAFSgQIBRAG');
 @$core.Deprecated('Use queryCodeResponseDescriptor instead')
 const QueryCodeResponse$json = const {
   '1': 'QueryCodeResponse',
@@ -391,3 +400,30 @@ const QueryPinnedCodesResponse$json = const {
 final $typed_data.Uint8List queryPinnedCodesResponseDescriptor =
     $convert.base64Decode(
         'ChhRdWVyeVBpbm5lZENvZGVzUmVzcG9uc2USKgoIY29kZV9pZHMYASADKARCD8jeHwDi3h8HQ29kZUlEc1IHY29kZUlkcxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');
+@$core.Deprecated('Use queryParamsRequestDescriptor instead')
+const QueryParamsRequest$json = const {
+  '1': 'QueryParamsRequest',
+};
+
+/// Descriptor for `QueryParamsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryParamsRequestDescriptor =
+    $convert.base64Decode('ChJRdWVyeVBhcmFtc1JlcXVlc3Q=');
+@$core.Deprecated('Use queryParamsResponseDescriptor instead')
+const QueryParamsResponse$json = const {
+  '1': 'QueryParamsResponse',
+  '2': const [
+    const {
+      '1': 'params',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmwasm.wasm.v1.Params',
+      '8': const {},
+      '10': 'params'
+    },
+  ],
+};
+
+/// Descriptor for `QueryParamsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryParamsResponseDescriptor = $convert.base64Decode(
+    'ChNRdWVyeVBhcmFtc1Jlc3BvbnNlEjYKBnBhcmFtcxgBIAEoCzIYLmNvc213YXNtLndhc20udjEuUGFyYW1zQgTI3h8AUgZwYXJhbXM=');

@@ -84,6 +84,25 @@ const SnapshotItem$json = const {
       '9': 0,
       '10': 'extensionPayload'
     },
+    const {
+      '1': 'kv',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.snapshots.v1beta1.SnapshotKVItem',
+      '8': const {},
+      '9': 0,
+      '10': 'kv'
+    },
+    const {
+      '1': 'schema',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.snapshots.v1beta1.SnapshotSchema',
+      '9': 0,
+      '10': 'schema'
+    },
   ],
   '8': const [
     const {'1': 'item'},
@@ -92,7 +111,7 @@ const SnapshotItem$json = const {
 
 /// Descriptor for `SnapshotItem`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List snapshotItemDescriptor = $convert.base64Decode(
-    'CgxTbmFwc2hvdEl0ZW0SSAoFc3RvcmUYASABKAsyMC5jb3Ntb3MuYmFzZS5zbmFwc2hvdHMudjFiZXRhMS5TbmFwc2hvdFN0b3JlSXRlbUgAUgVzdG9yZRJPCgRpYXZsGAIgASgLMi8uY29zbW9zLmJhc2Uuc25hcHNob3RzLnYxYmV0YTEuU25hcHNob3RJQVZMSXRlbUII4t4fBElBVkxIAFIEaWF2bBJUCglleHRlbnNpb24YAyABKAsyNC5jb3Ntb3MuYmFzZS5zbmFwc2hvdHMudjFiZXRhMS5TbmFwc2hvdEV4dGVuc2lvbk1ldGFIAFIJZXh0ZW5zaW9uEmYKEWV4dGVuc2lvbl9wYXlsb2FkGAQgASgLMjcuY29zbW9zLmJhc2Uuc25hcHNob3RzLnYxYmV0YTEuU25hcHNob3RFeHRlbnNpb25QYXlsb2FkSABSEGV4dGVuc2lvblBheWxvYWRCBgoEaXRlbQ==');
+    'CgxTbmFwc2hvdEl0ZW0SSAoFc3RvcmUYASABKAsyMC5jb3Ntb3MuYmFzZS5zbmFwc2hvdHMudjFiZXRhMS5TbmFwc2hvdFN0b3JlSXRlbUgAUgVzdG9yZRJPCgRpYXZsGAIgASgLMi8uY29zbW9zLmJhc2Uuc25hcHNob3RzLnYxYmV0YTEuU25hcHNob3RJQVZMSXRlbUII4t4fBElBVkxIAFIEaWF2bBJUCglleHRlbnNpb24YAyABKAsyNC5jb3Ntb3MuYmFzZS5zbmFwc2hvdHMudjFiZXRhMS5TbmFwc2hvdEV4dGVuc2lvbk1ldGFIAFIJZXh0ZW5zaW9uEmYKEWV4dGVuc2lvbl9wYXlsb2FkGAQgASgLMjcuY29zbW9zLmJhc2Uuc25hcHNob3RzLnYxYmV0YTEuU25hcHNob3RFeHRlbnNpb25QYXlsb2FkSABSEGV4dGVuc2lvblBheWxvYWQSRwoCa3YYBSABKAsyLS5jb3Ntb3MuYmFzZS5zbmFwc2hvdHMudjFiZXRhMS5TbmFwc2hvdEtWSXRlbUIG4t4fAktWSABSAmt2EkcKBnNjaGVtYRgGIAEoCzItLmNvc21vcy5iYXNlLnNuYXBzaG90cy52MWJldGExLlNuYXBzaG90U2NoZW1hSABSBnNjaGVtYUIGCgRpdGVt');
 @$core.Deprecated('Use snapshotStoreItemDescriptor instead')
 const SnapshotStoreItem$json = const {
   '1': 'SnapshotStoreItem',
@@ -142,3 +161,26 @@ const SnapshotExtensionPayload$json = const {
 final $typed_data.Uint8List snapshotExtensionPayloadDescriptor =
     $convert.base64Decode(
         'ChhTbmFwc2hvdEV4dGVuc2lvblBheWxvYWQSGAoHcGF5bG9hZBgBIAEoDFIHcGF5bG9hZA==');
+@$core.Deprecated('Use snapshotKVItemDescriptor instead')
+const SnapshotKVItem$json = const {
+  '1': 'SnapshotKVItem',
+  '2': const [
+    const {'1': 'key', '3': 1, '4': 1, '5': 12, '10': 'key'},
+    const {'1': 'value', '3': 2, '4': 1, '5': 12, '10': 'value'},
+  ],
+};
+
+/// Descriptor for `SnapshotKVItem`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List snapshotKVItemDescriptor = $convert.base64Decode(
+    'Cg5TbmFwc2hvdEtWSXRlbRIQCgNrZXkYASABKAxSA2tleRIUCgV2YWx1ZRgCIAEoDFIFdmFsdWU=');
+@$core.Deprecated('Use snapshotSchemaDescriptor instead')
+const SnapshotSchema$json = const {
+  '1': 'SnapshotSchema',
+  '2': const [
+    const {'1': 'keys', '3': 1, '4': 3, '5': 12, '10': 'keys'},
+  ],
+};
+
+/// Descriptor for `SnapshotSchema`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List snapshotSchemaDescriptor =
+    $convert.base64Decode('Cg5TbmFwc2hvdFNjaGVtYRISCgRrZXlzGAEgAygMUgRrZXlz');

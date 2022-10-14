@@ -37,7 +37,7 @@ const BasicAllowance$json = const {
 
 /// Descriptor for `BasicAllowance`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List basicAllowanceDescriptor = $convert.base64Decode(
-    'Cg5CYXNpY0FsbG93YW5jZRJsCgtzcGVuZF9saW1pdBgBIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgpzcGVuZExpbWl0EkAKCmV4cGlyYXRpb24YAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wQgSQ3x8BUgpleHBpcmF0aW9uOhHStC0NRmVlQWxsb3dhbmNlSQ==');
+    'Cg5CYXNpY0FsbG93YW5jZRJsCgtzcGVuZF9saW1pdBgBIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgpzcGVuZExpbWl0EkAKCmV4cGlyYXRpb24YAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wQgSQ3x8BUgpleHBpcmF0aW9uOhHKtC0NRmVlQWxsb3dhbmNlSQ==');
 @$core.Deprecated('Use periodicAllowanceDescriptor instead')
 const PeriodicAllowance$json = const {
   '1': 'PeriodicAllowance',
@@ -93,7 +93,7 @@ const PeriodicAllowance$json = const {
 
 /// Descriptor for `PeriodicAllowance`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List periodicAllowanceDescriptor = $convert.base64Decode(
-    'ChFQZXJpb2RpY0FsbG93YW5jZRJDCgViYXNpYxgBIAEoCzInLmNvc21vcy5mZWVncmFudC52MWJldGExLkJhc2ljQWxsb3dhbmNlQgTI3h8AUgViYXNpYxI7CgZwZXJpb2QYAiABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25CCJjfHwHI3h8AUgZwZXJpb2QSeQoScGVyaW9kX3NwZW5kX2xpbWl0GAMgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSEHBlcmlvZFNwZW5kTGltaXQSdQoQcGVyaW9kX2Nhbl9zcGVuZBgEIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUg5wZXJpb2RDYW5TcGVuZBJHCgxwZXJpb2RfcmVzZXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wQgiQ3x8ByN4fAFILcGVyaW9kUmVzZXQ6EdK0LQ1GZWVBbGxvd2FuY2VJ');
+    'ChFQZXJpb2RpY0FsbG93YW5jZRJDCgViYXNpYxgBIAEoCzInLmNvc21vcy5mZWVncmFudC52MWJldGExLkJhc2ljQWxsb3dhbmNlQgTI3h8AUgViYXNpYxI7CgZwZXJpb2QYAiABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25CCJjfHwHI3h8AUgZwZXJpb2QSeQoScGVyaW9kX3NwZW5kX2xpbWl0GAMgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSEHBlcmlvZFNwZW5kTGltaXQSdQoQcGVyaW9kX2Nhbl9zcGVuZBgEIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUg5wZXJpb2RDYW5TcGVuZBJHCgxwZXJpb2RfcmVzZXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wQgiQ3x8ByN4fAFILcGVyaW9kUmVzZXQ6Ecq0LQ1GZWVBbGxvd2FuY2VJ');
 @$core.Deprecated('Use allowedMsgAllowanceDescriptor instead')
 const AllowedMsgAllowance$json = const {
   '1': 'AllowedMsgAllowance',
@@ -120,13 +120,27 @@ const AllowedMsgAllowance$json = const {
 
 /// Descriptor for `AllowedMsgAllowance`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List allowedMsgAllowanceDescriptor = $convert.base64Decode(
-    'ChNBbGxvd2VkTXNnQWxsb3dhbmNlEkUKCWFsbG93YW5jZRgBIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCEcq0LQ1GZWVBbGxvd2FuY2VJUglhbGxvd2FuY2USKQoQYWxsb3dlZF9tZXNzYWdlcxgCIAMoCVIPYWxsb3dlZE1lc3NhZ2VzOhWIoB8A0rQtDUZlZUFsbG93YW5jZUk=');
+    'ChNBbGxvd2VkTXNnQWxsb3dhbmNlEkUKCWFsbG93YW5jZRgBIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCEcq0LQ1GZWVBbGxvd2FuY2VJUglhbGxvd2FuY2USKQoQYWxsb3dlZF9tZXNzYWdlcxgCIAMoCVIPYWxsb3dlZE1lc3NhZ2VzOhWIoB8AyrQtDUZlZUFsbG93YW5jZUk=');
 @$core.Deprecated('Use grantDescriptor instead')
 const Grant$json = const {
   '1': 'Grant',
   '2': const [
-    const {'1': 'granter', '3': 1, '4': 1, '5': 9, '10': 'granter'},
-    const {'1': 'grantee', '3': 2, '4': 1, '5': 9, '10': 'grantee'},
+    const {
+      '1': 'granter',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'granter'
+    },
+    const {
+      '1': 'grantee',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'grantee'
+    },
     const {
       '1': 'allowance',
       '3': 3,
@@ -141,4 +155,4 @@ const Grant$json = const {
 
 /// Descriptor for `Grant`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List grantDescriptor = $convert.base64Decode(
-    'CgVHcmFudBIYCgdncmFudGVyGAEgASgJUgdncmFudGVyEhgKB2dyYW50ZWUYAiABKAlSB2dyYW50ZWUSRQoJYWxsb3dhbmNlGAMgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueUIRyrQtDUZlZUFsbG93YW5jZUlSCWFsbG93YW5jZQ==');
+    'CgVHcmFudBIyCgdncmFudGVyGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSB2dyYW50ZXISMgoHZ3JhbnRlZRgCIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdncmFudGVlEkUKCWFsbG93YW5jZRgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCEcq0LQ1GZWVBbGxvd2FuY2VJUglhbGxvd2FuY2U=');

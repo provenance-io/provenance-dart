@@ -9,8 +9,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'authz.pb.dart' as $2;
-import '../../../google/protobuf/any.pb.dart' as $3;
+import 'authz.pb.dart' as $1;
+import '../../../google/protobuf/any.pb.dart' as $2;
 
 class MsgGrant extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -32,19 +32,19 @@ class MsgGrant extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'grantee')
-    ..aOM<$2.Grant>(
+    ..aOM<$1.Grant>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'grant',
-        subBuilder: $2.Grant.create)
+        subBuilder: $1.Grant.create)
     ..hasRequiredFields = false;
 
   MsgGrant._() : super();
   factory MsgGrant({
     $core.String? granter,
     $core.String? grantee,
-    $2.Grant? grant,
+    $1.Grant? grant,
   }) {
     final _result = create();
     if (granter != null) {
@@ -109,9 +109,9 @@ class MsgGrant extends $pb.GeneratedMessage {
   void clearGrantee() => clearField(2);
 
   @$pb.TagNumber(3)
-  $2.Grant get grant => $_getN(2);
+  $1.Grant get grant => $_getN(2);
   @$pb.TagNumber(3)
-  set grant($2.Grant v) {
+  set grant($1.Grant v) {
     setField(3, v);
   }
 
@@ -120,7 +120,7 @@ class MsgGrant extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearGrant() => clearField(3);
   @$pb.TagNumber(3)
-  $2.Grant ensureGrant() => $_ensure(2);
+  $1.Grant ensureGrant() => $_ensure(2);
 }
 
 class MsgExecResponse extends $pb.GeneratedMessage {
@@ -197,19 +197,19 @@ class MsgExec extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'grantee')
-    ..pc<$3.Any>(
+    ..pc<$2.Any>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'msgs',
         $pb.PbFieldType.PM,
-        subBuilder: $3.Any.create)
+        subBuilder: $2.Any.create)
     ..hasRequiredFields = false;
 
   MsgExec._() : super();
   factory MsgExec({
     $core.String? grantee,
-    $core.Iterable<$3.Any>? msgs,
+    $core.Iterable<$2.Any>? msgs,
   }) {
     final _result = create();
     if (grantee != null) {
@@ -259,7 +259,7 @@ class MsgExec extends $pb.GeneratedMessage {
   void clearGrantee() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.List<$3.Any> get msgs => $_getList(1);
+  $core.List<$2.Any> get msgs => $_getList(1);
 }
 
 class MsgGrantResponse extends $pb.GeneratedMessage {

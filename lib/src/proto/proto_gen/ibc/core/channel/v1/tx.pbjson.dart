@@ -9,6 +9,20 @@ import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use responseResultTypeDescriptor instead')
+const ResponseResultType$json = const {
+  '1': 'ResponseResultType',
+  '2': const [
+    const {'1': 'RESPONSE_RESULT_TYPE_UNSPECIFIED', '2': 0, '3': const {}},
+    const {'1': 'RESPONSE_RESULT_TYPE_NOOP', '2': 1, '3': const {}},
+    const {'1': 'RESPONSE_RESULT_TYPE_SUCCESS', '2': 2, '3': const {}},
+  ],
+  '3': const {},
+};
+
+/// Descriptor for `ResponseResultType`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List responseResultTypeDescriptor = $convert.base64Decode(
+    'ChJSZXNwb25zZVJlc3VsdFR5cGUSNQogUkVTUE9OU0VfUkVTVUxUX1RZUEVfVU5TUEVDSUZJRUQQABoPip0gC1VOU1BFQ0lGSUVEEicKGVJFU1BPTlNFX1JFU1VMVF9UWVBFX05PT1AQARoIip0gBE5PT1ASLQocUkVTUE9OU0VfUkVTVUxUX1RZUEVfU1VDQ0VTUxACGguKnSAHU1VDQ0VTUxoEiKMeAA==');
 @$core.Deprecated('Use msgChannelOpenInitDescriptor instead')
 const MsgChannelOpenInit$json = const {
   '1': 'MsgChannelOpenInit',
@@ -41,11 +55,23 @@ final $typed_data.Uint8List msgChannelOpenInitDescriptor = $convert.base64Decode
 @$core.Deprecated('Use msgChannelOpenInitResponseDescriptor instead')
 const MsgChannelOpenInitResponse$json = const {
   '1': 'MsgChannelOpenInitResponse',
+  '2': const [
+    const {
+      '1': 'channel_id',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'channelId'
+    },
+    const {'1': 'version', '3': 2, '4': 1, '5': 9, '10': 'version'},
+  ],
 };
 
 /// Descriptor for `MsgChannelOpenInitResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgChannelOpenInitResponseDescriptor =
-    $convert.base64Decode('ChpNc2dDaGFubmVsT3BlbkluaXRSZXNwb25zZQ==');
+    $convert.base64Decode(
+        'ChpNc2dDaGFubmVsT3BlbkluaXRSZXNwb25zZRI0CgpjaGFubmVsX2lkGAEgASgJQhXy3h8ReWFtbDoiY2hhbm5lbF9pZCJSCWNoYW5uZWxJZBIYCgd2ZXJzaW9uGAIgASgJUgd2ZXJzaW9u');
 @$core.Deprecated('Use msgChannelOpenTryDescriptor instead')
 const MsgChannelOpenTry$json = const {
   '1': 'MsgChannelOpenTry',
@@ -63,8 +89,8 @@ const MsgChannelOpenTry$json = const {
       '3': 2,
       '4': 1,
       '5': 9,
-      '8': const {},
-      '10': 'previousChannelId'
+      '8': const {'3': true},
+      '10': 'previousChannelId',
     },
     const {
       '1': 'channel',
@@ -107,15 +133,19 @@ const MsgChannelOpenTry$json = const {
 
 /// Descriptor for `MsgChannelOpenTry`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgChannelOpenTryDescriptor = $convert.base64Decode(
-    'ChFNc2dDaGFubmVsT3BlblRyeRIrCgdwb3J0X2lkGAEgASgJQhLy3h8OeWFtbDoicG9ydF9pZCJSBnBvcnRJZBJOChNwcmV2aW91c19jaGFubmVsX2lkGAIgASgJQh7y3h8aeWFtbDoicHJldmlvdXNfY2hhbm5lbF9pZCJSEXByZXZpb3VzQ2hhbm5lbElkEjwKB2NoYW5uZWwYAyABKAsyHC5pYmMuY29yZS5jaGFubmVsLnYxLkNoYW5uZWxCBMjeHwBSB2NoYW5uZWwSUgoUY291bnRlcnBhcnR5X3ZlcnNpb24YBCABKAlCH/LeHxt5YW1sOiJjb3VudGVycGFydHlfdmVyc2lvbiJSE2NvdW50ZXJwYXJ0eVZlcnNpb24SNAoKcHJvb2ZfaW5pdBgFIAEoDEIV8t4fEXlhbWw6InByb29mX2luaXQiUglwcm9vZkluaXQSWgoMcHJvb2ZfaGVpZ2h0GAYgASgLMhouaWJjLmNvcmUuY2xpZW50LnYxLkhlaWdodEIb8t4fE3lhbWw6InByb29mX2hlaWdodCLI3h8AUgtwcm9vZkhlaWdodBIWCgZzaWduZXIYByABKAlSBnNpZ25lcjoI6KAfAIigHwA=');
+    'ChFNc2dDaGFubmVsT3BlblRyeRIrCgdwb3J0X2lkGAEgASgJQhLy3h8OeWFtbDoicG9ydF9pZCJSBnBvcnRJZBJQChNwcmV2aW91c19jaGFubmVsX2lkGAIgASgJQiAYAfLeHxp5YW1sOiJwcmV2aW91c19jaGFubmVsX2lkIlIRcHJldmlvdXNDaGFubmVsSWQSPAoHY2hhbm5lbBgDIAEoCzIcLmliYy5jb3JlLmNoYW5uZWwudjEuQ2hhbm5lbEIEyN4fAFIHY2hhbm5lbBJSChRjb3VudGVycGFydHlfdmVyc2lvbhgEIAEoCUIf8t4fG3lhbWw6ImNvdW50ZXJwYXJ0eV92ZXJzaW9uIlITY291bnRlcnBhcnR5VmVyc2lvbhI0Cgpwcm9vZl9pbml0GAUgASgMQhXy3h8ReWFtbDoicHJvb2ZfaW5pdCJSCXByb29mSW5pdBJaCgxwcm9vZl9oZWlnaHQYBiABKAsyGi5pYmMuY29yZS5jbGllbnQudjEuSGVpZ2h0Qhvy3h8TeWFtbDoicHJvb2ZfaGVpZ2h0IsjeHwBSC3Byb29mSGVpZ2h0EhYKBnNpZ25lchgHIAEoCVIGc2lnbmVyOgjooB8AiKAfAA==');
 @$core.Deprecated('Use msgChannelOpenTryResponseDescriptor instead')
 const MsgChannelOpenTryResponse$json = const {
   '1': 'MsgChannelOpenTryResponse',
+  '2': const [
+    const {'1': 'version', '3': 1, '4': 1, '5': 9, '10': 'version'},
+  ],
 };
 
 /// Descriptor for `MsgChannelOpenTryResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgChannelOpenTryResponseDescriptor =
-    $convert.base64Decode('ChlNc2dDaGFubmVsT3BlblRyeVJlc3BvbnNl');
+    $convert.base64Decode(
+        'ChlNc2dDaGFubmVsT3BlblRyeVJlc3BvbnNlEhgKB3ZlcnNpb24YASABKAlSB3ZlcnNpb24=');
 @$core.Deprecated('Use msgChannelOpenAckDescriptor instead')
 const MsgChannelOpenAck$json = const {
   '1': 'MsgChannelOpenAck',
@@ -369,11 +399,22 @@ final $typed_data.Uint8List msgRecvPacketDescriptor = $convert.base64Decode(
 @$core.Deprecated('Use msgRecvPacketResponseDescriptor instead')
 const MsgRecvPacketResponse$json = const {
   '1': 'MsgRecvPacketResponse',
+  '2': const [
+    const {
+      '1': 'result',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.ibc.core.channel.v1.ResponseResultType',
+      '10': 'result'
+    },
+  ],
+  '7': const {},
 };
 
 /// Descriptor for `MsgRecvPacketResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List msgRecvPacketResponseDescriptor =
-    $convert.base64Decode('ChVNc2dSZWN2UGFja2V0UmVzcG9uc2U=');
+final $typed_data.Uint8List msgRecvPacketResponseDescriptor = $convert.base64Decode(
+    'ChVNc2dSZWN2UGFja2V0UmVzcG9uc2USPwoGcmVzdWx0GAEgASgOMicuaWJjLmNvcmUuY2hhbm5lbC52MS5SZXNwb25zZVJlc3VsdFR5cGVSBnJlc3VsdDoEiKAfAA==');
 @$core.Deprecated('Use msgTimeoutDescriptor instead')
 const MsgTimeout$json = const {
   '1': 'MsgTimeout',
@@ -423,11 +464,22 @@ final $typed_data.Uint8List msgTimeoutDescriptor = $convert.base64Decode(
 @$core.Deprecated('Use msgTimeoutResponseDescriptor instead')
 const MsgTimeoutResponse$json = const {
   '1': 'MsgTimeoutResponse',
+  '2': const [
+    const {
+      '1': 'result',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.ibc.core.channel.v1.ResponseResultType',
+      '10': 'result'
+    },
+  ],
+  '7': const {},
 };
 
 /// Descriptor for `MsgTimeoutResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List msgTimeoutResponseDescriptor =
-    $convert.base64Decode('ChJNc2dUaW1lb3V0UmVzcG9uc2U=');
+final $typed_data.Uint8List msgTimeoutResponseDescriptor = $convert.base64Decode(
+    'ChJNc2dUaW1lb3V0UmVzcG9uc2USPwoGcmVzdWx0GAEgASgOMicuaWJjLmNvcmUuY2hhbm5lbC52MS5SZXNwb25zZVJlc3VsdFR5cGVSBnJlc3VsdDoEiKAfAA==');
 @$core.Deprecated('Use msgTimeoutOnCloseDescriptor instead')
 const MsgTimeoutOnClose$json = const {
   '1': 'MsgTimeoutOnClose',
@@ -485,11 +537,23 @@ final $typed_data.Uint8List msgTimeoutOnCloseDescriptor = $convert.base64Decode(
 @$core.Deprecated('Use msgTimeoutOnCloseResponseDescriptor instead')
 const MsgTimeoutOnCloseResponse$json = const {
   '1': 'MsgTimeoutOnCloseResponse',
+  '2': const [
+    const {
+      '1': 'result',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.ibc.core.channel.v1.ResponseResultType',
+      '10': 'result'
+    },
+  ],
+  '7': const {},
 };
 
 /// Descriptor for `MsgTimeoutOnCloseResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgTimeoutOnCloseResponseDescriptor =
-    $convert.base64Decode('ChlNc2dUaW1lb3V0T25DbG9zZVJlc3BvbnNl');
+    $convert.base64Decode(
+        'ChlNc2dUaW1lb3V0T25DbG9zZVJlc3BvbnNlEj8KBnJlc3VsdBgBIAEoDjInLmliYy5jb3JlLmNoYW5uZWwudjEuUmVzcG9uc2VSZXN1bHRUeXBlUgZyZXN1bHQ6BIigHwA=');
 @$core.Deprecated('Use msgAcknowledgementDescriptor instead')
 const MsgAcknowledgement$json = const {
   '1': 'MsgAcknowledgement',
@@ -538,8 +602,20 @@ final $typed_data.Uint8List msgAcknowledgementDescriptor = $convert.base64Decode
 @$core.Deprecated('Use msgAcknowledgementResponseDescriptor instead')
 const MsgAcknowledgementResponse$json = const {
   '1': 'MsgAcknowledgementResponse',
+  '2': const [
+    const {
+      '1': 'result',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.ibc.core.channel.v1.ResponseResultType',
+      '10': 'result'
+    },
+  ],
+  '7': const {},
 };
 
 /// Descriptor for `MsgAcknowledgementResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgAcknowledgementResponseDescriptor =
-    $convert.base64Decode('ChpNc2dBY2tub3dsZWRnZW1lbnRSZXNwb25zZQ==');
+    $convert.base64Decode(
+        'ChpNc2dBY2tub3dsZWRnZW1lbnRSZXNwb25zZRI/CgZyZXN1bHQYASABKA4yJy5pYmMuY29yZS5jaGFubmVsLnYxLlJlc3BvbnNlUmVzdWx0VHlwZVIGcmVzdWx0OgSIoB8A');

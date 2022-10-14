@@ -307,6 +307,97 @@ class ConsensusParamsInfo extends $pb.GeneratedMessage {
   void clearLastHeightChanged() => clearField(2);
 }
 
+class ABCIResponsesInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ABCIResponsesInfo',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'tendermint.state'),
+      createEmptyInstance: create)
+    ..aOM<ABCIResponses>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'abciResponses',
+        subBuilder: ABCIResponses.create)
+    ..aInt64(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'height')
+    ..hasRequiredFields = false;
+
+  ABCIResponsesInfo._() : super();
+  factory ABCIResponsesInfo({
+    ABCIResponses? abciResponses,
+    $fixnum.Int64? height,
+  }) {
+    final _result = create();
+    if (abciResponses != null) {
+      _result.abciResponses = abciResponses;
+    }
+    if (height != null) {
+      _result.height = height;
+    }
+    return _result;
+  }
+  factory ABCIResponsesInfo.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ABCIResponsesInfo.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ABCIResponsesInfo clone() => ABCIResponsesInfo()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ABCIResponsesInfo copyWith(void Function(ABCIResponsesInfo) updates) =>
+      super.copyWith((message) => updates(message as ABCIResponsesInfo))
+          as ABCIResponsesInfo; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ABCIResponsesInfo create() => ABCIResponsesInfo._();
+  ABCIResponsesInfo createEmptyInstance() => create();
+  static $pb.PbList<ABCIResponsesInfo> createRepeated() =>
+      $pb.PbList<ABCIResponsesInfo>();
+  @$core.pragma('dart2js:noInline')
+  static ABCIResponsesInfo getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ABCIResponsesInfo>(create);
+  static ABCIResponsesInfo? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ABCIResponses get abciResponses => $_getN(0);
+  @$pb.TagNumber(1)
+  set abciResponses(ABCIResponses v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAbciResponses() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAbciResponses() => clearField(1);
+  @$pb.TagNumber(1)
+  ABCIResponses ensureAbciResponses() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get height => $_getI64(1);
+  @$pb.TagNumber(2)
+  set height($fixnum.Int64 v) {
+    $_setInt64(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasHeight() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearHeight() => clearField(2);
+}
+
 class Version extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')

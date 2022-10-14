@@ -44,6 +44,13 @@ class MsgClient extends $grpc.Client {
           ($0.MsgUndelegate value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.MsgUndelegateResponse.fromBuffer(value));
+  static final _$cancelUnbondingDelegation = $grpc.ClientMethod<
+          $0.MsgCancelUnbondingDelegation,
+          $0.MsgCancelUnbondingDelegationResponse>(
+      '/cosmos.staking.v1beta1.Msg/CancelUnbondingDelegation',
+      ($0.MsgCancelUnbondingDelegation value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgCancelUnbondingDelegationResponse.fromBuffer(value));
 
   MsgClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -77,6 +84,13 @@ class MsgClient extends $grpc.Client {
       $0.MsgUndelegate request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$undelegate, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgCancelUnbondingDelegationResponse>
+      cancelUnbondingDelegation($0.MsgCancelUnbondingDelegation request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$cancelUnbondingDelegation, request,
+        options: options);
   }
 }
 
@@ -125,6 +139,16 @@ abstract class MsgServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.MsgUndelegate.fromBuffer(value),
         ($0.MsgUndelegateResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgCancelUnbondingDelegation,
+            $0.MsgCancelUnbondingDelegationResponse>(
+        'CancelUnbondingDelegation',
+        cancelUnbondingDelegation_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgCancelUnbondingDelegation.fromBuffer(value),
+        ($0.MsgCancelUnbondingDelegationResponse value) =>
+            value.writeToBuffer()));
   }
 
   $async.Future<$0.MsgCreateValidatorResponse> createValidator_Pre(
@@ -155,6 +179,12 @@ abstract class MsgServiceBase extends $grpc.Service {
     return undelegate(call, await request);
   }
 
+  $async.Future<$0.MsgCancelUnbondingDelegationResponse>
+      cancelUnbondingDelegation_Pre($grpc.ServiceCall call,
+          $async.Future<$0.MsgCancelUnbondingDelegation> request) async {
+    return cancelUnbondingDelegation(call, await request);
+  }
+
   $async.Future<$0.MsgCreateValidatorResponse> createValidator(
       $grpc.ServiceCall call, $0.MsgCreateValidator request);
   $async.Future<$0.MsgEditValidatorResponse> editValidator(
@@ -165,4 +195,7 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgBeginRedelegate request);
   $async.Future<$0.MsgUndelegateResponse> undelegate(
       $grpc.ServiceCall call, $0.MsgUndelegate request);
+  $async.Future<$0.MsgCancelUnbondingDelegationResponse>
+      cancelUnbondingDelegation(
+          $grpc.ServiceCall call, $0.MsgCancelUnbondingDelegation request);
 }

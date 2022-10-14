@@ -13,8 +13,22 @@ import 'dart:typed_data' as $typed_data;
 const MsgGrantAllowance$json = const {
   '1': 'MsgGrantAllowance',
   '2': const [
-    const {'1': 'granter', '3': 1, '4': 1, '5': 9, '10': 'granter'},
-    const {'1': 'grantee', '3': 2, '4': 1, '5': 9, '10': 'grantee'},
+    const {
+      '1': 'granter',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'granter'
+    },
+    const {
+      '1': 'grantee',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'grantee'
+    },
     const {
       '1': 'allowance',
       '3': 3,
@@ -25,11 +39,12 @@ const MsgGrantAllowance$json = const {
       '10': 'allowance'
     },
   ],
+  '7': const {},
 };
 
 /// Descriptor for `MsgGrantAllowance`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgGrantAllowanceDescriptor = $convert.base64Decode(
-    'ChFNc2dHcmFudEFsbG93YW5jZRIYCgdncmFudGVyGAEgASgJUgdncmFudGVyEhgKB2dyYW50ZWUYAiABKAlSB2dyYW50ZWUSRQoJYWxsb3dhbmNlGAMgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueUIRyrQtDUZlZUFsbG93YW5jZUlSCWFsbG93YW5jZQ==');
+    'ChFNc2dHcmFudEFsbG93YW5jZRIyCgdncmFudGVyGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSB2dyYW50ZXISMgoHZ3JhbnRlZRgCIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdncmFudGVlEkUKCWFsbG93YW5jZRgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCEcq0LQ1GZWVBbGxvd2FuY2VJUglhbGxvd2FuY2U6DILnsCoHZ3JhbnRlcg==');
 @$core.Deprecated('Use msgGrantAllowanceResponseDescriptor instead')
 const MsgGrantAllowanceResponse$json = const {
   '1': 'MsgGrantAllowanceResponse',
@@ -42,14 +57,29 @@ final $typed_data.Uint8List msgGrantAllowanceResponseDescriptor =
 const MsgRevokeAllowance$json = const {
   '1': 'MsgRevokeAllowance',
   '2': const [
-    const {'1': 'granter', '3': 1, '4': 1, '5': 9, '10': 'granter'},
-    const {'1': 'grantee', '3': 2, '4': 1, '5': 9, '10': 'grantee'},
+    const {
+      '1': 'granter',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'granter'
+    },
+    const {
+      '1': 'grantee',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'grantee'
+    },
   ],
+  '7': const {},
 };
 
 /// Descriptor for `MsgRevokeAllowance`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgRevokeAllowanceDescriptor = $convert.base64Decode(
-    'ChJNc2dSZXZva2VBbGxvd2FuY2USGAoHZ3JhbnRlchgBIAEoCVIHZ3JhbnRlchIYCgdncmFudGVlGAIgASgJUgdncmFudGVl');
+    'ChJNc2dSZXZva2VBbGxvd2FuY2USMgoHZ3JhbnRlchgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdncmFudGVyEjIKB2dyYW50ZWUYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlZToMguewKgdncmFudGVy');
 @$core.Deprecated('Use msgRevokeAllowanceResponseDescriptor instead')
 const MsgRevokeAllowanceResponse$json = const {
   '1': 'MsgRevokeAllowanceResponse',

@@ -81,6 +81,42 @@ const SignDoc$json = const {
 /// Descriptor for `SignDoc`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List signDocDescriptor = $convert.base64Decode(
     'CgdTaWduRG9jEh0KCmJvZHlfYnl0ZXMYASABKAxSCWJvZHlCeXRlcxImCg9hdXRoX2luZm9fYnl0ZXMYAiABKAxSDWF1dGhJbmZvQnl0ZXMSGQoIY2hhaW5faWQYAyABKAlSB2NoYWluSWQSJQoOYWNjb3VudF9udW1iZXIYBCABKARSDWFjY291bnROdW1iZXI=');
+@$core.Deprecated('Use signDocDirectAuxDescriptor instead')
+const SignDocDirectAux$json = const {
+  '1': 'SignDocDirectAux',
+  '2': const [
+    const {'1': 'body_bytes', '3': 1, '4': 1, '5': 12, '10': 'bodyBytes'},
+    const {
+      '1': 'public_key',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Any',
+      '10': 'publicKey'
+    },
+    const {'1': 'chain_id', '3': 3, '4': 1, '5': 9, '10': 'chainId'},
+    const {
+      '1': 'account_number',
+      '3': 4,
+      '4': 1,
+      '5': 4,
+      '10': 'accountNumber'
+    },
+    const {'1': 'sequence', '3': 5, '4': 1, '5': 4, '10': 'sequence'},
+    const {
+      '1': 'tip',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.tx.v1beta1.Tip',
+      '10': 'tip'
+    },
+  ],
+};
+
+/// Descriptor for `SignDocDirectAux`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List signDocDirectAuxDescriptor = $convert.base64Decode(
+    'ChBTaWduRG9jRGlyZWN0QXV4Eh0KCmJvZHlfYnl0ZXMYASABKAxSCWJvZHlCeXRlcxIzCgpwdWJsaWNfa2V5GAIgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueVIJcHVibGljS2V5EhkKCGNoYWluX2lkGAMgASgJUgdjaGFpbklkEiUKDmFjY291bnRfbnVtYmVyGAQgASgEUg1hY2NvdW50TnVtYmVyEhoKCHNlcXVlbmNlGAUgASgEUghzZXF1ZW5jZRIoCgN0aXAYBiABKAsyFi5jb3Ntb3MudHgudjFiZXRhMS5UaXBSA3RpcA==');
 @$core.Deprecated('Use txBodyDescriptor instead')
 const TxBody$json = const {
   '1': 'TxBody',
@@ -143,12 +179,20 @@ const AuthInfo$json = const {
       '6': '.cosmos.tx.v1beta1.Fee',
       '10': 'fee'
     },
+    const {
+      '1': 'tip',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.tx.v1beta1.Tip',
+      '10': 'tip'
+    },
   ],
 };
 
 /// Descriptor for `AuthInfo`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List authInfoDescriptor = $convert.base64Decode(
-    'CghBdXRoSW5mbxJACgxzaWduZXJfaW5mb3MYASADKAsyHS5jb3Ntb3MudHgudjFiZXRhMS5TaWduZXJJbmZvUgtzaWduZXJJbmZvcxIoCgNmZWUYAiABKAsyFi5jb3Ntb3MudHgudjFiZXRhMS5GZWVSA2ZlZQ==');
+    'CghBdXRoSW5mbxJACgxzaWduZXJfaW5mb3MYASADKAsyHS5jb3Ntb3MudHgudjFiZXRhMS5TaWduZXJJbmZvUgtzaWduZXJJbmZvcxIoCgNmZWUYAiABKAsyFi5jb3Ntb3MudHgudjFiZXRhMS5GZWVSA2ZlZRIoCgN0aXAYAyABKAsyFi5jb3Ntb3MudHgudjFiZXRhMS5UaXBSA3RpcA==');
 @$core.Deprecated('Use signerInfoDescriptor instead')
 const SignerInfo$json = const {
   '1': 'SignerInfo',
@@ -260,11 +304,80 @@ const Fee$json = const {
       '10': 'amount'
     },
     const {'1': 'gas_limit', '3': 2, '4': 1, '5': 4, '10': 'gasLimit'},
-    const {'1': 'payer', '3': 3, '4': 1, '5': 9, '10': 'payer'},
-    const {'1': 'granter', '3': 4, '4': 1, '5': 9, '10': 'granter'},
+    const {'1': 'payer', '3': 3, '4': 1, '5': 9, '8': const {}, '10': 'payer'},
+    const {
+      '1': 'granter',
+      '3': 4,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'granter'
+    },
   ],
 };
 
 /// Descriptor for `Fee`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List feeDescriptor = $convert.base64Decode(
-    'CgNGZWUSYwoGYW1vdW50GAEgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBmFtb3VudBIbCglnYXNfbGltaXQYAiABKARSCGdhc0xpbWl0EhQKBXBheWVyGAMgASgJUgVwYXllchIYCgdncmFudGVyGAQgASgJUgdncmFudGVy');
+    'CgNGZWUSYwoGYW1vdW50GAEgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBmFtb3VudBIbCglnYXNfbGltaXQYAiABKARSCGdhc0xpbWl0Ei4KBXBheWVyGAMgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSBXBheWVyEjIKB2dyYW50ZXIYBCABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlcg==');
+@$core.Deprecated('Use tipDescriptor instead')
+const Tip$json = const {
+  '1': 'Tip',
+  '2': const [
+    const {
+      '1': 'amount',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': const {},
+      '10': 'amount'
+    },
+    const {
+      '1': 'tipper',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'tipper'
+    },
+  ],
+};
+
+/// Descriptor for `Tip`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List tipDescriptor = $convert.base64Decode(
+    'CgNUaXASYwoGYW1vdW50GAEgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBmFtb3VudBIwCgZ0aXBwZXIYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IGdGlwcGVy');
+@$core.Deprecated('Use auxSignerDataDescriptor instead')
+const AuxSignerData$json = const {
+  '1': 'AuxSignerData',
+  '2': const [
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
+    const {
+      '1': 'sign_doc',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.tx.v1beta1.SignDocDirectAux',
+      '10': 'signDoc'
+    },
+    const {
+      '1': 'mode',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.cosmos.tx.signing.v1beta1.SignMode',
+      '10': 'mode'
+    },
+    const {'1': 'sig', '3': 4, '4': 1, '5': 12, '10': 'sig'},
+  ],
+};
+
+/// Descriptor for `AuxSignerData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List auxSignerDataDescriptor = $convert.base64Decode(
+    'Cg1BdXhTaWduZXJEYXRhEjIKB2FkZHJlc3MYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHYWRkcmVzcxI+CghzaWduX2RvYxgCIAEoCzIjLmNvc21vcy50eC52MWJldGExLlNpZ25Eb2NEaXJlY3RBdXhSB3NpZ25Eb2MSNwoEbW9kZRgDIAEoDjIjLmNvc21vcy50eC5zaWduaW5nLnYxYmV0YTEuU2lnbk1vZGVSBG1vZGUSEAoDc2lnGAQgASgMUgNzaWc=');

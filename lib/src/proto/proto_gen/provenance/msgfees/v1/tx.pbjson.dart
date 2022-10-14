@@ -32,7 +32,7 @@ const MsgAssessCustomMsgFeeRequest$json = const {
 /// Descriptor for `MsgAssessCustomMsgFeeRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgAssessCustomMsgFeeRequestDescriptor =
     $convert.base64Decode(
-        'ChxNc2dBc3Nlc3NDdXN0b21Nc2dGZWVSZXF1ZXN0EhIKBG5hbWUYASABKAlSBG5hbWUSSAoGYW1vdW50GAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQhXI3h8A8t4fDXlhbWw6ImFtb3VudCJSBmFtb3VudBIcCglyZWNpcGllbnQYAyABKAlSCXJlY2lwaWVudBISCgRmcm9tGAQgASgJUgRmcm9tOgzooB8AiKAfAJigHwA=');
+        'ChxNc2dBc3Nlc3NDdXN0b21Nc2dGZWVSZXF1ZXN0EhIKBG5hbWUYASABKAlSBG5hbWUSNwoGYW1vdW50GAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQgTI3h8AUgZhbW91bnQSHAoJcmVjaXBpZW50GAMgASgJUglyZWNpcGllbnQSEgoEZnJvbRgEIAEoCVIEZnJvbToM6KAfAIigHwCYoB8B');
 @$core.Deprecated('Use msgAssessCustomMsgFeeResponseDescriptor instead')
 const MsgAssessCustomMsgFeeResponse$json = const {
   '1': 'MsgAssessCustomMsgFeeResponse',

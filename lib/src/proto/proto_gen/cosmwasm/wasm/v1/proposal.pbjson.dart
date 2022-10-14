@@ -32,6 +32,7 @@ const StoreCodeProposal$json = const {
       '6': '.cosmwasm.wasm.v1.AccessConfig',
       '10': 'instantiatePermission'
     },
+    const {'1': 'unpin_code', '3': 8, '4': 1, '5': 8, '10': 'unpinCode'},
   ],
   '9': const [
     const {'1': 5, '2': 6},
@@ -41,7 +42,7 @@ const StoreCodeProposal$json = const {
 
 /// Descriptor for `StoreCodeProposal`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List storeCodeProposalDescriptor = $convert.base64Decode(
-    'ChFTdG9yZUNvZGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEhUKBnJ1bl9hcxgDIAEoCVIFcnVuQXMSNgoOd2FzbV9ieXRlX2NvZGUYBCABKAxCEOLeHwxXQVNNQnl0ZUNvZGVSDHdhc21CeXRlQ29kZRJVChZpbnN0YW50aWF0ZV9wZXJtaXNzaW9uGAcgASgLMh4uY29zbXdhc20ud2FzbS52MS5BY2Nlc3NDb25maWdSFWluc3RhbnRpYXRlUGVybWlzc2lvbkoECAUQBkoECAYQBw==');
+    'ChFTdG9yZUNvZGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEhUKBnJ1bl9hcxgDIAEoCVIFcnVuQXMSNgoOd2FzbV9ieXRlX2NvZGUYBCABKAxCEOLeHwxXQVNNQnl0ZUNvZGVSDHdhc21CeXRlQ29kZRJVChZpbnN0YW50aWF0ZV9wZXJtaXNzaW9uGAcgASgLMh4uY29zbXdhc20ud2FzbS52MS5BY2Nlc3NDb25maWdSFWluc3RhbnRpYXRlUGVybWlzc2lvbhIdCgp1bnBpbl9jb2RlGAggASgIUgl1bnBpbkNvZGVKBAgFEAZKBAgGEAc=');
 @$core.Deprecated('Use instantiateContractProposalDescriptor instead')
 const InstantiateContractProposal$json = const {
   '1': 'InstantiateContractProposal',
@@ -226,3 +227,59 @@ const UnpinCodesProposal$json = const {
 /// Descriptor for `UnpinCodesProposal`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List unpinCodesProposalDescriptor = $convert.base64Decode(
     'ChJVbnBpbkNvZGVzUHJvcG9zYWwSJgoFdGl0bGUYASABKAlCEPLeHwx5YW1sOiJ0aXRsZSJSBXRpdGxlEjgKC2Rlc2NyaXB0aW9uGAIgASgJQhby3h8SeWFtbDoiZGVzY3JpcHRpb24iUgtkZXNjcmlwdGlvbhI5Cghjb2RlX2lkcxgDIAMoBEIe4t4fB0NvZGVJRHPy3h8PeWFtbDoiY29kZV9pZHMiUgdjb2RlSWRz');
+@$core.Deprecated('Use accessConfigUpdateDescriptor instead')
+const AccessConfigUpdate$json = const {
+  '1': 'AccessConfigUpdate',
+  '2': const [
+    const {
+      '1': 'code_id',
+      '3': 1,
+      '4': 1,
+      '5': 4,
+      '8': const {},
+      '10': 'codeId'
+    },
+    const {
+      '1': 'instantiate_permission',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmwasm.wasm.v1.AccessConfig',
+      '8': const {},
+      '10': 'instantiatePermission'
+    },
+  ],
+};
+
+/// Descriptor for `AccessConfigUpdate`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List accessConfigUpdateDescriptor = $convert.base64Decode(
+    'ChJBY2Nlc3NDb25maWdVcGRhdGUSIwoHY29kZV9pZBgBIAEoBEIK4t4fBkNvZGVJRFIGY29kZUlkElsKFmluc3RhbnRpYXRlX3Blcm1pc3Npb24YAiABKAsyHi5jb3Ntd2FzbS53YXNtLnYxLkFjY2Vzc0NvbmZpZ0IEyN4fAFIVaW5zdGFudGlhdGVQZXJtaXNzaW9u');
+@$core.Deprecated('Use updateInstantiateConfigProposalDescriptor instead')
+const UpdateInstantiateConfigProposal$json = const {
+  '1': 'UpdateInstantiateConfigProposal',
+  '2': const [
+    const {'1': 'title', '3': 1, '4': 1, '5': 9, '8': const {}, '10': 'title'},
+    const {
+      '1': 'description',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'description'
+    },
+    const {
+      '1': 'access_config_updates',
+      '3': 3,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmwasm.wasm.v1.AccessConfigUpdate',
+      '8': const {},
+      '10': 'accessConfigUpdates'
+    },
+  ],
+};
+
+/// Descriptor for `UpdateInstantiateConfigProposal`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateInstantiateConfigProposalDescriptor =
+    $convert.base64Decode(
+        'Ch9VcGRhdGVJbnN0YW50aWF0ZUNvbmZpZ1Byb3Bvc2FsEiYKBXRpdGxlGAEgASgJQhDy3h8MeWFtbDoidGl0bGUiUgV0aXRsZRI4CgtkZXNjcmlwdGlvbhgCIAEoCUIW8t4fEnlhbWw6ImRlc2NyaXB0aW9uIlILZGVzY3JpcHRpb24SXgoVYWNjZXNzX2NvbmZpZ191cGRhdGVzGAMgAygLMiQuY29zbXdhc20ud2FzbS52MS5BY2Nlc3NDb25maWdVcGRhdGVCBMjeHwBSE2FjY2Vzc0NvbmZpZ1VwZGF0ZXM=');

@@ -13,7 +13,14 @@ import 'dart:typed_data' as $typed_data;
 const BaseAccount$json = const {
   '1': 'BaseAccount',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {
       '1': 'pub_key',
       '3': 2,
@@ -28,7 +35,6 @@ const BaseAccount$json = const {
       '3': 3,
       '4': 1,
       '5': 4,
-      '8': const {},
       '10': 'accountNumber'
     },
     const {'1': 'sequence', '3': 4, '4': 1, '5': 4, '10': 'sequence'},
@@ -38,7 +44,7 @@ const BaseAccount$json = const {
 
 /// Descriptor for `BaseAccount`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List baseAccountDescriptor = $convert.base64Decode(
-    'CgtCYXNlQWNjb3VudBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzElwKB3B1Yl9rZXkYAiABKAsyFC5nb29nbGUucHJvdG9idWYuQW55Qi3q3h8UcHVibGljX2tleSxvbWl0ZW1wdHny3h8ReWFtbDoicHVibGljX2tleSJSBnB1YktleRJACg5hY2NvdW50X251bWJlchgDIAEoBEIZ8t4fFXlhbWw6ImFjY291bnRfbnVtYmVyIlINYWNjb3VudE51bWJlchIaCghzZXF1ZW5jZRgEIAEoBFIIc2VxdWVuY2U6GIigHwCYoB8A6KAfANK0LQhBY2NvdW50SQ==');
+    'CgtCYXNlQWNjb3VudBIyCgdhZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSB2FkZHJlc3MSRwoHcHViX2tleRgCIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCGOreHxRwdWJsaWNfa2V5LG9taXRlbXB0eVIGcHViS2V5EiUKDmFjY291bnRfbnVtYmVyGAMgASgEUg1hY2NvdW50TnVtYmVyEhoKCHNlcXVlbmNlGAQgASgEUghzZXF1ZW5jZToYiKAfAJigHwDooB8AyrQtCEFjY291bnRJ');
 @$core.Deprecated('Use moduleAccountDescriptor instead')
 const ModuleAccount$json = const {
   '1': 'ModuleAccount',
@@ -60,7 +66,7 @@ const ModuleAccount$json = const {
 
 /// Descriptor for `ModuleAccount`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List moduleAccountDescriptor = $convert.base64Decode(
-    'Cg1Nb2R1bGVBY2NvdW50EmAKDGJhc2VfYWNjb3VudBgBIAEoCzIgLmNvc21vcy5hdXRoLnYxYmV0YTEuQmFzZUFjY291bnRCG9DeHwHy3h8TeWFtbDoiYmFzZV9hY2NvdW50IlILYmFzZUFjY291bnQSEgoEbmFtZRgCIAEoCVIEbmFtZRIgCgtwZXJtaXNzaW9ucxgDIAMoCVILcGVybWlzc2lvbnM6GoigHwCYoB8A0rQtDk1vZHVsZUFjY291bnRJ');
+    'Cg1Nb2R1bGVBY2NvdW50EkkKDGJhc2VfYWNjb3VudBgBIAEoCzIgLmNvc21vcy5hdXRoLnYxYmV0YTEuQmFzZUFjY291bnRCBNDeHwFSC2Jhc2VBY2NvdW50EhIKBG5hbWUYAiABKAlSBG5hbWUSIAoLcGVybWlzc2lvbnMYAyADKAlSC3Blcm1pc3Npb25zOhqIoB8AmKAfAMq0LQ5Nb2R1bGVBY2NvdW50SQ==');
 @$core.Deprecated('Use paramsDescriptor instead')
 const Params$json = const {
   '1': 'Params',
@@ -70,23 +76,14 @@ const Params$json = const {
       '3': 1,
       '4': 1,
       '5': 4,
-      '8': const {},
       '10': 'maxMemoCharacters'
     },
-    const {
-      '1': 'tx_sig_limit',
-      '3': 2,
-      '4': 1,
-      '5': 4,
-      '8': const {},
-      '10': 'txSigLimit'
-    },
+    const {'1': 'tx_sig_limit', '3': 2, '4': 1, '5': 4, '10': 'txSigLimit'},
     const {
       '1': 'tx_size_cost_per_byte',
       '3': 3,
       '4': 1,
       '5': 4,
-      '8': const {},
       '10': 'txSizeCostPerByte'
     },
     const {
@@ -111,4 +108,4 @@ const Params$json = const {
 
 /// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode(
-    'CgZQYXJhbXMSTgoTbWF4X21lbW9fY2hhcmFjdGVycxgBIAEoBEIe8t4fGnlhbWw6Im1heF9tZW1vX2NoYXJhY3RlcnMiUhFtYXhNZW1vQ2hhcmFjdGVycxI5Cgx0eF9zaWdfbGltaXQYAiABKARCF/LeHxN5YW1sOiJ0eF9zaWdfbGltaXQiUgp0eFNpZ0xpbWl0ElIKFXR4X3NpemVfY29zdF9wZXJfYnl0ZRgDIAEoBEIg8t4fHHlhbWw6InR4X3NpemVfY29zdF9wZXJfYnl0ZSJSEXR4U2l6ZUNvc3RQZXJCeXRlEnEKF3NpZ192ZXJpZnlfY29zdF9lZDI1NTE5GAQgASgEQjri3h8UU2lnVmVyaWZ5Q29zdEVEMjU1MTny3h8eeWFtbDoic2lnX3ZlcmlmeV9jb3N0X2VkMjU1MTkiUhRzaWdWZXJpZnlDb3N0RWQyNTUxORJ5ChlzaWdfdmVyaWZ5X2Nvc3Rfc2VjcDI1NmsxGAUgASgEQj7i3h8WU2lnVmVyaWZ5Q29zdFNlY3AyNTZrMfLeHyB5YW1sOiJzaWdfdmVyaWZ5X2Nvc3Rfc2VjcDI1NmsxIlIWc2lnVmVyaWZ5Q29zdFNlY3AyNTZrMToI6KAfAZigHwA=');
+    'CgZQYXJhbXMSLgoTbWF4X21lbW9fY2hhcmFjdGVycxgBIAEoBFIRbWF4TWVtb0NoYXJhY3RlcnMSIAoMdHhfc2lnX2xpbWl0GAIgASgEUgp0eFNpZ0xpbWl0EjAKFXR4X3NpemVfY29zdF9wZXJfYnl0ZRgDIAEoBFIRdHhTaXplQ29zdFBlckJ5dGUSTwoXc2lnX3ZlcmlmeV9jb3N0X2VkMjU1MTkYBCABKARCGOLeHxRTaWdWZXJpZnlDb3N0RUQyNTUxOVIUc2lnVmVyaWZ5Q29zdEVkMjU1MTkSVQoZc2lnX3ZlcmlmeV9jb3N0X3NlY3AyNTZrMRgFIAEoBEIa4t4fFlNpZ1ZlcmlmeUNvc3RTZWNwMjU2azFSFnNpZ1ZlcmlmeUNvc3RTZWNwMjU2azE6COigHwGYoB8A');

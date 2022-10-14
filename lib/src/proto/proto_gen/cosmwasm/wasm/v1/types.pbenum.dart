@@ -30,12 +30,18 @@ class AccessType extends $pb.ProtobufEnum {
       const $core.bool.fromEnvironment('protobuf.omit_enum_names')
           ? ''
           : 'ACCESS_TYPE_EVERYBODY');
+  static const AccessType ACCESS_TYPE_ANY_OF_ADDRESSES = AccessType._(
+      4,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'ACCESS_TYPE_ANY_OF_ADDRESSES');
 
   static const $core.List<AccessType> values = <AccessType>[
     ACCESS_TYPE_UNSPECIFIED,
     ACCESS_TYPE_NOBODY,
     ACCESS_TYPE_ONLY_ADDRESS,
     ACCESS_TYPE_EVERYBODY,
+    ACCESS_TYPE_ANY_OF_ADDRESSES,
   ];
 
   static final $core.Map<$core.int, AccessType> _byValue =

@@ -143,15 +143,25 @@ class MsgStoreCodeResponse extends $pb.GeneratedMessage {
             : 'codeId',
         $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$core.List<$core.int>>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'checksum',
+        $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
 
   MsgStoreCodeResponse._() : super();
   factory MsgStoreCodeResponse({
     $fixnum.Int64? codeId,
+    $core.List<$core.int>? checksum,
   }) {
     final _result = create();
     if (codeId != null) {
       _result.codeId = codeId;
+    }
+    if (checksum != null) {
+      _result.checksum = checksum;
     }
     return _result;
   }
@@ -194,6 +204,18 @@ class MsgStoreCodeResponse extends $pb.GeneratedMessage {
   $core.bool hasCodeId() => $_has(0);
   @$pb.TagNumber(1)
   void clearCodeId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.int> get checksum => $_getN(1);
+  @$pb.TagNumber(2)
+  set checksum($core.List<$core.int> v) {
+    $_setBytes(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasChecksum() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearChecksum() => clearField(2);
 }
 
 class MsgInstantiateContract extends $pb.GeneratedMessage {
@@ -366,6 +388,219 @@ class MsgInstantiateContract extends $pb.GeneratedMessage {
   $core.List<$2.Coin> get funds => $_getList(5);
 }
 
+class MsgInstantiateContract2 extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'MsgInstantiateContract2',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sender')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'admin')
+    ..a<$fixnum.Int64>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'codeId',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'label')
+    ..a<$core.List<$core.int>>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'msg',
+        $pb.PbFieldType.OY)
+    ..pc<$2.Coin>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'funds',
+        $pb.PbFieldType.PM,
+        subBuilder: $2.Coin.create)
+    ..a<$core.List<$core.int>>(
+        7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'salt',
+        $pb.PbFieldType.OY)
+    ..aOB(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'fixMsg')
+    ..hasRequiredFields = false;
+
+  MsgInstantiateContract2._() : super();
+  factory MsgInstantiateContract2({
+    $core.String? sender,
+    $core.String? admin,
+    $fixnum.Int64? codeId,
+    $core.String? label,
+    $core.List<$core.int>? msg,
+    $core.Iterable<$2.Coin>? funds,
+    $core.List<$core.int>? salt,
+    $core.bool? fixMsg,
+  }) {
+    final _result = create();
+    if (sender != null) {
+      _result.sender = sender;
+    }
+    if (admin != null) {
+      _result.admin = admin;
+    }
+    if (codeId != null) {
+      _result.codeId = codeId;
+    }
+    if (label != null) {
+      _result.label = label;
+    }
+    if (msg != null) {
+      _result.msg = msg;
+    }
+    if (funds != null) {
+      _result.funds.addAll(funds);
+    }
+    if (salt != null) {
+      _result.salt = salt;
+    }
+    if (fixMsg != null) {
+      _result.fixMsg = fixMsg;
+    }
+    return _result;
+  }
+  factory MsgInstantiateContract2.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgInstantiateContract2.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgInstantiateContract2 clone() =>
+      MsgInstantiateContract2()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgInstantiateContract2 copyWith(
+          void Function(MsgInstantiateContract2) updates) =>
+      super.copyWith((message) => updates(message as MsgInstantiateContract2))
+          as MsgInstantiateContract2; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MsgInstantiateContract2 create() => MsgInstantiateContract2._();
+  MsgInstantiateContract2 createEmptyInstance() => create();
+  static $pb.PbList<MsgInstantiateContract2> createRepeated() =>
+      $pb.PbList<MsgInstantiateContract2>();
+  @$core.pragma('dart2js:noInline')
+  static MsgInstantiateContract2 getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgInstantiateContract2>(create);
+  static MsgInstantiateContract2? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get sender => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set sender($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSender() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSender() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get admin => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set admin($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasAdmin() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAdmin() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get codeId => $_getI64(2);
+  @$pb.TagNumber(3)
+  set codeId($fixnum.Int64 v) {
+    $_setInt64(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasCodeId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCodeId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get label => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set label($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasLabel() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearLabel() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.List<$core.int> get msg => $_getN(4);
+  @$pb.TagNumber(5)
+  set msg($core.List<$core.int> v) {
+    $_setBytes(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasMsg() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMsg() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.List<$2.Coin> get funds => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $core.List<$core.int> get salt => $_getN(6);
+  @$pb.TagNumber(7)
+  set salt($core.List<$core.int> v) {
+    $_setBytes(6, v);
+  }
+
+  @$pb.TagNumber(7)
+  $core.bool hasSalt() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearSalt() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.bool get fixMsg => $_getBF(7);
+  @$pb.TagNumber(8)
+  set fixMsg($core.bool v) {
+    $_setBool(7, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasFixMsg() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearFixMsg() => clearField(8);
+}
+
 class MsgInstantiateContractResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
@@ -433,6 +668,100 @@ class MsgInstantiateContractResponse extends $pb.GeneratedMessage {
   static MsgInstantiateContractResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MsgInstantiateContractResponse>(create);
   static MsgInstantiateContractResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get address => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set address($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAddress() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.int> get data => $_getN(1);
+  @$pb.TagNumber(2)
+  set data($core.List<$core.int> v) {
+    $_setBytes(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasData() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearData() => clearField(2);
+}
+
+class MsgInstantiateContract2Response extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'MsgInstantiateContract2Response',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'address')
+    ..a<$core.List<$core.int>>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'data',
+        $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
+  MsgInstantiateContract2Response._() : super();
+  factory MsgInstantiateContract2Response({
+    $core.String? address,
+    $core.List<$core.int>? data,
+  }) {
+    final _result = create();
+    if (address != null) {
+      _result.address = address;
+    }
+    if (data != null) {
+      _result.data = data;
+    }
+    return _result;
+  }
+  factory MsgInstantiateContract2Response.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgInstantiateContract2Response.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgInstantiateContract2Response clone() =>
+      MsgInstantiateContract2Response()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgInstantiateContract2Response copyWith(
+          void Function(MsgInstantiateContract2Response) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgInstantiateContract2Response))
+          as MsgInstantiateContract2Response; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MsgInstantiateContract2Response create() =>
+      MsgInstantiateContract2Response._();
+  MsgInstantiateContract2Response createEmptyInstance() => create();
+  static $pb.PbList<MsgInstantiateContract2Response> createRepeated() =>
+      $pb.PbList<MsgInstantiateContract2Response>();
+  @$core.pragma('dart2js:noInline')
+  static MsgInstantiateContract2Response getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgInstantiateContract2Response>(
+          create);
+  static MsgInstantiateContract2Response? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);

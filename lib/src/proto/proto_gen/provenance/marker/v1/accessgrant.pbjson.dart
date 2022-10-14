@@ -47,4 +47,4 @@ const AccessGrant$json = const {
 
 /// Descriptor for `AccessGrant`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List accessGrantDescriptor = $convert.base64Decode(
-    'CgtBY2Nlc3NHcmFudBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEk4KC3Blcm1pc3Npb25zGAIgAygOMhwucHJvdmVuYW5jZS5tYXJrZXIudjEuQWNjZXNzQg6q3x8KQWNjZXNzTGlzdFILcGVybWlzc2lvbnM6HIigHwCYoB8A6KAfAdK0LQxBY2Nlc3NHcmFudEk=');
+    'CgtBY2Nlc3NHcmFudBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEk4KC3Blcm1pc3Npb25zGAIgAygOMhwucHJvdmVuYW5jZS5tYXJrZXIudjEuQWNjZXNzQg6q3x8KQWNjZXNzTGlzdFILcGVybWlzc2lvbnM6HIigHwCYoB8A6KAfAcq0LQxBY2Nlc3NHcmFudEk=');

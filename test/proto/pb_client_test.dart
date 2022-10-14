@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/proto.dart' as proto;
-import 'package:provenance_dart/proto_auth_v1beta1.dart';
-import 'package:provenance_dart/proto_bank_v1beta1.dart';
-import 'package:provenance_dart/proto_crypto_multisig.dart';
-import 'package:provenance_dart/proto_multisig_v1beta1.dart';
-import 'package:provenance_dart/proto_crypto_secp256k1.dart';
+import 'package:provenance_dart/proto_cosmos_auth_v1beta1.dart';
+import 'package:provenance_dart/proto_cosmos_bank_v1beta1.dart';
+import 'package:provenance_dart/proto_cosmos_crypto_ed25519.dart';
+import 'package:provenance_dart/proto_cosmos_crypto_multisig.dart';
+import 'package:provenance_dart/proto_cosmos_crypto_multisig_v1beta1.dart';
 import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/mnemonic.dart';
@@ -39,6 +39,41 @@ class _TestAuthServer extends auth.QueryServiceBase {
   @override
   Future<auth.QueryParamsResponse> params(
       ServiceCall call, auth.QueryParamsRequest request) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<QueryAccountAddressByIDResponse> accountAddressByID(
+      ServiceCall call, QueryAccountAddressByIDRequest request) {
+    // TODO: implement accountAddressByID
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<AddressBytesToStringResponse> addressBytesToString(
+      ServiceCall call, AddressBytesToStringRequest request) {
+    // TODO: implement addressBytesToString
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<AddressStringToBytesResponse> addressStringToBytes(
+      ServiceCall call, AddressStringToBytesRequest request) {
+    // TODO: implement addressStringToBytes
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Bech32PrefixResponse> bech32Prefix(
+      ServiceCall call, Bech32PrefixRequest request) {
+    // TODO: implement bech32Prefix
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<QueryModuleAccountsResponse> moduleAccounts(
+      ServiceCall call, QueryModuleAccountsRequest request) {
+    // TODO: implement moduleAccounts
     throw UnimplementedError();
   }
 }

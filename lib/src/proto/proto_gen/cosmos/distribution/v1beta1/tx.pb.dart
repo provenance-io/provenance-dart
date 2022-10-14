@@ -248,10 +248,25 @@ class MsgWithdrawDelegatorRewardResponse extends $pb.GeneratedMessage {
               ? ''
               : 'cosmos.distribution.v1beta1'),
       createEmptyInstance: create)
+    ..pc<$1.Coin>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'amount',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
     ..hasRequiredFields = false;
 
   MsgWithdrawDelegatorRewardResponse._() : super();
-  factory MsgWithdrawDelegatorRewardResponse() => create();
+  factory MsgWithdrawDelegatorRewardResponse({
+    $core.Iterable<$1.Coin>? amount,
+  }) {
+    final _result = create();
+    if (amount != null) {
+      _result.amount.addAll(amount);
+    }
+    return _result;
+  }
   factory MsgWithdrawDelegatorRewardResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
@@ -283,6 +298,9 @@ class MsgWithdrawDelegatorRewardResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgWithdrawDelegatorRewardResponse>(
           create);
   static MsgWithdrawDelegatorRewardResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$1.Coin> get amount => $_getList(0);
 }
 
 class MsgWithdrawValidatorCommission extends $pb.GeneratedMessage {
@@ -366,10 +384,25 @@ class MsgWithdrawValidatorCommissionResponse extends $pb.GeneratedMessage {
               ? ''
               : 'cosmos.distribution.v1beta1'),
       createEmptyInstance: create)
+    ..pc<$1.Coin>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'amount',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
     ..hasRequiredFields = false;
 
   MsgWithdrawValidatorCommissionResponse._() : super();
-  factory MsgWithdrawValidatorCommissionResponse() => create();
+  factory MsgWithdrawValidatorCommissionResponse({
+    $core.Iterable<$1.Coin>? amount,
+  }) {
+    final _result = create();
+    if (amount != null) {
+      _result.amount.addAll(amount);
+    }
+    return _result;
+  }
   factory MsgWithdrawValidatorCommissionResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -402,6 +435,9 @@ class MsgWithdrawValidatorCommissionResponse extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
           MsgWithdrawValidatorCommissionResponse>(create);
   static MsgWithdrawValidatorCommissionResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$1.Coin> get amount => $_getList(0);
 }
 
 class MsgFundCommunityPool extends $pb.GeneratedMessage {

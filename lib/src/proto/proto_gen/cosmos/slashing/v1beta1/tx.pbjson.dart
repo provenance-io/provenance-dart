@@ -27,7 +27,7 @@ const MsgUnjail$json = const {
 
 /// Descriptor for `MsgUnjail`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgUnjailDescriptor = $convert.base64Decode(
-    'CglNc2dVbmphaWwSRAoOdmFsaWRhdG9yX2FkZHIYASABKAlCHfLeHw55YW1sOiJhZGRyZXNzIureHwdhZGRyZXNzUg12YWxpZGF0b3JBZGRyOgiIoB8AmKAfAQ==');
+    'CglNc2dVbmphaWwSSgoOdmFsaWRhdG9yX2FkZHIYASABKAlCI9K0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ+reHwdhZGRyZXNzUg12YWxpZGF0b3JBZGRyOhuC57AqDnZhbGlkYXRvcl9hZGRyiKAfAJigHwE=');
 @$core.Deprecated('Use msgUnjailResponseDescriptor instead')
 const MsgUnjailResponse$json = const {
   '1': 'MsgUnjailResponse',

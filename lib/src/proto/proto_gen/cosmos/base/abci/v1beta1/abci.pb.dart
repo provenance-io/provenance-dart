@@ -710,16 +710,25 @@ class Result extends $pb.GeneratedMessage {
             : 'events',
         $pb.PbFieldType.PM,
         subBuilder: $0.Event.create)
+    ..pc<$1.Any>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'msgResponses',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Any.create)
     ..hasRequiredFields = false;
 
   Result._() : super();
   factory Result({
-    $core.List<$core.int>? data,
+    @$core.Deprecated('This field is deprecated.') $core.List<$core.int>? data,
     $core.String? log,
     $core.Iterable<$0.Event>? events,
+    $core.Iterable<$1.Any>? msgResponses,
   }) {
     final _result = create();
     if (data != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.data = data;
     }
     if (log != null) {
@@ -727,6 +736,9 @@ class Result extends $pb.GeneratedMessage {
     }
     if (events != null) {
       _result.events.addAll(events);
+    }
+    if (msgResponses != null) {
+      _result.msgResponses.addAll(msgResponses);
     }
     return _result;
   }
@@ -756,15 +768,19 @@ class Result extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Result>(create);
   static Result? _defaultInstance;
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.List<$core.int> get data => $_getN(0);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   set data($core.List<$core.int> v) {
     $_setBytes(0, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.bool hasData() => $_has(0);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   void clearData() => clearField(1);
 
@@ -782,6 +798,9 @@ class Result extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.List<$0.Event> get events => $_getList(2);
+
+  @$pb.TagNumber(4)
+  $core.List<$1.Any> get msgResponses => $_getList(3);
 }
 
 class SimulationResponse extends $pb.GeneratedMessage {
@@ -983,15 +1002,28 @@ class TxMsgData extends $pb.GeneratedMessage {
             : 'data',
         $pb.PbFieldType.PM,
         subBuilder: MsgData.create)
+    ..pc<$1.Any>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'msgResponses',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Any.create)
     ..hasRequiredFields = false;
 
   TxMsgData._() : super();
   factory TxMsgData({
-    $core.Iterable<MsgData>? data,
+    @$core.Deprecated('This field is deprecated.')
+        $core.Iterable<MsgData>? data,
+    $core.Iterable<$1.Any>? msgResponses,
   }) {
     final _result = create();
     if (data != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.data.addAll(data);
+    }
+    if (msgResponses != null) {
+      _result.msgResponses.addAll(msgResponses);
     }
     return _result;
   }
@@ -1021,8 +1053,12 @@ class TxMsgData extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TxMsgData>(create);
   static TxMsgData? _defaultInstance;
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.List<MsgData> get data => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $core.List<$1.Any> get msgResponses => $_getList(1);
 }
 
 class SearchTxsResult extends $pb.GeneratedMessage {

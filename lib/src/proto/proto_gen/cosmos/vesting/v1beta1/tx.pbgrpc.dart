@@ -20,6 +20,20 @@ class MsgClient extends $grpc.Client {
       ($0.MsgCreateVestingAccount value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgCreateVestingAccountResponse.fromBuffer(value));
+  static final _$createPermanentLockedAccount = $grpc.ClientMethod<
+          $0.MsgCreatePermanentLockedAccount,
+          $0.MsgCreatePermanentLockedAccountResponse>(
+      '/cosmos.vesting.v1beta1.Msg/CreatePermanentLockedAccount',
+      ($0.MsgCreatePermanentLockedAccount value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgCreatePermanentLockedAccountResponse.fromBuffer(value));
+  static final _$createPeriodicVestingAccount = $grpc.ClientMethod<
+          $0.MsgCreatePeriodicVestingAccount,
+          $0.MsgCreatePeriodicVestingAccountResponse>(
+      '/cosmos.vesting.v1beta1.Msg/CreatePeriodicVestingAccount',
+      ($0.MsgCreatePeriodicVestingAccount value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgCreatePeriodicVestingAccountResponse.fromBuffer(value));
 
   MsgClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -30,6 +44,20 @@ class MsgClient extends $grpc.Client {
       $0.MsgCreateVestingAccount request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$createVestingAccount, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgCreatePermanentLockedAccountResponse>
+      createPermanentLockedAccount($0.MsgCreatePermanentLockedAccount request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$createPermanentLockedAccount, request,
+        options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgCreatePeriodicVestingAccountResponse>
+      createPeriodicVestingAccount($0.MsgCreatePeriodicVestingAccount request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$createPeriodicVestingAccount, request,
+        options: options);
   }
 }
 
@@ -46,6 +74,26 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgCreateVestingAccount.fromBuffer(value),
         ($0.MsgCreateVestingAccountResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgCreatePermanentLockedAccount,
+            $0.MsgCreatePermanentLockedAccountResponse>(
+        'CreatePermanentLockedAccount',
+        createPermanentLockedAccount_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgCreatePermanentLockedAccount.fromBuffer(value),
+        ($0.MsgCreatePermanentLockedAccountResponse value) =>
+            value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgCreatePeriodicVestingAccount,
+            $0.MsgCreatePeriodicVestingAccountResponse>(
+        'CreatePeriodicVestingAccount',
+        createPeriodicVestingAccount_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgCreatePeriodicVestingAccount.fromBuffer(value),
+        ($0.MsgCreatePeriodicVestingAccountResponse value) =>
+            value.writeToBuffer()));
   }
 
   $async.Future<$0.MsgCreateVestingAccountResponse> createVestingAccount_Pre(
@@ -54,6 +102,24 @@ abstract class MsgServiceBase extends $grpc.Service {
     return createVestingAccount(call, await request);
   }
 
+  $async.Future<$0.MsgCreatePermanentLockedAccountResponse>
+      createPermanentLockedAccount_Pre($grpc.ServiceCall call,
+          $async.Future<$0.MsgCreatePermanentLockedAccount> request) async {
+    return createPermanentLockedAccount(call, await request);
+  }
+
+  $async.Future<$0.MsgCreatePeriodicVestingAccountResponse>
+      createPeriodicVestingAccount_Pre($grpc.ServiceCall call,
+          $async.Future<$0.MsgCreatePeriodicVestingAccount> request) async {
+    return createPeriodicVestingAccount(call, await request);
+  }
+
   $async.Future<$0.MsgCreateVestingAccountResponse> createVestingAccount(
       $grpc.ServiceCall call, $0.MsgCreateVestingAccount request);
+  $async.Future<$0.MsgCreatePermanentLockedAccountResponse>
+      createPermanentLockedAccount(
+          $grpc.ServiceCall call, $0.MsgCreatePermanentLockedAccount request);
+  $async.Future<$0.MsgCreatePeriodicVestingAccountResponse>
+      createPeriodicVestingAccount(
+          $grpc.ServiceCall call, $0.MsgCreatePeriodicVestingAccount request);
 }
