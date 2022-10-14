@@ -20,9 +20,16 @@ void main() async {
   final Map<String, ProtoExport> dictionary = {};
 
   for (var file in files) {
-    final segments = file.path.split('/');
-    String name =
-        '${segments[segments.length - 3]}_${segments[segments.length - 2]}';
+    String name = "";
+
+    final segments =
+        file.path.replaceAll('lib/src/proto/proto_gen/', '').split('/');
+    if (segments.length > 1) {
+      segments.removeLast();
+      name = segments.join('_');
+    } else {
+      name = segments.first.split('.').first;
+    }
 
     var url = file.path.replaceAll('lib/', '');
 
