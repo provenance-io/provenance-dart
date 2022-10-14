@@ -6,6 +6,12 @@ void main() async {
     await provenanceTypes.delete();
   }
 
+  for (var file in Directory('lib').listSync()) {
+    if (file.path.contains('lib/proto_')) {
+      file.deleteSync();
+    }
+  }
+
   final dir = Directory('lib/src/proto/proto_gen');
   final List<FileSystemEntity> entities =
       await dir.list(recursive: true).toList();
