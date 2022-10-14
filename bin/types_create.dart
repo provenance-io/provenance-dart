@@ -15,12 +15,7 @@ void main() async {
   final dir = Directory('lib/src/proto/proto_gen');
   final List<FileSystemEntity> entities =
       await dir.list(recursive: true).toList();
-  final Iterable<File> files = entities
-      .whereType<File>()
-      .where((element) =>
-          element.path.contains("/cosmos/") ||
-          element.path.contains("provenance"))
-      .toList();
+  final Iterable<File> files = entities.whereType<File>().toList();
 
   final Map<String, ProtoExport> dictionary = {};
 
