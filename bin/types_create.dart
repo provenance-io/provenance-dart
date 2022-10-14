@@ -77,8 +77,22 @@ void main() async {
           .allMatches(content)
           .map((e) => e[0]!)
           .where((element) => element.contains("GeneratedMessage"))
-          .map((e) =>
-              "  ${entry.name}.${e.replaceAll('class ', '').replaceAll(' extends \$pb.GeneratedMessage {', '')}(),\n")
+          .map((e) => "  ${entry.name}.${e.replaceAll(
+                'class ',
+                '',
+              ).replaceAll(
+                ' with \$mixin.TimestampMixin',
+                '',
+              ).replaceAll(
+                ' with \$mixin.DurationMixin',
+                '',
+              ).replaceAll(
+                ' with \$mixin.AnyMixin',
+                '',
+              ).replaceAll(
+                ' extends \$pb.GeneratedMessage {',
+                '',
+              )}(),\n")
           .toList();
       await provenanceTypes.writeAsString(
         matches.join(''),
