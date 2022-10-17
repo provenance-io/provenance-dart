@@ -397,3 +397,61 @@ class GrantAuthorization extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $1.Timestamp ensureExpiration() => $_ensure(3);
 }
+
+class GrantQueueItem extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'GrantQueueItem',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..pPS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'msgTypeUrls')
+    ..hasRequiredFields = false;
+
+  GrantQueueItem._() : super();
+  factory GrantQueueItem({
+    $core.Iterable<$core.String>? msgTypeUrls,
+  }) {
+    final _result = create();
+    if (msgTypeUrls != null) {
+      _result.msgTypeUrls.addAll(msgTypeUrls);
+    }
+    return _result;
+  }
+  factory GrantQueueItem.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GrantQueueItem.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  GrantQueueItem clone() => GrantQueueItem()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  GrantQueueItem copyWith(void Function(GrantQueueItem) updates) =>
+      super.copyWith((message) => updates(message as GrantQueueItem))
+          as GrantQueueItem; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GrantQueueItem create() => GrantQueueItem._();
+  GrantQueueItem createEmptyInstance() => create();
+  static $pb.PbList<GrantQueueItem> createRepeated() =>
+      $pb.PbList<GrantQueueItem>();
+  @$core.pragma('dart2js:noInline')
+  static GrantQueueItem getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GrantQueueItem>(create);
+  static GrantQueueItem? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.String> get msgTypeUrls => $_getList(0);
+}

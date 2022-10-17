@@ -542,6 +542,16 @@ class Metadata extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'symbol')
+    ..aOS(
+        7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uri')
+    ..aOS(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uriHash')
     ..hasRequiredFields = false;
 
   Metadata._() : super();
@@ -552,6 +562,8 @@ class Metadata extends $pb.GeneratedMessage {
     $core.String? display,
     $core.String? name,
     $core.String? symbol,
+    $core.String? uri,
+    $core.String? uriHash,
   }) {
     final _result = create();
     if (description != null) {
@@ -571,6 +583,12 @@ class Metadata extends $pb.GeneratedMessage {
     }
     if (symbol != null) {
       _result.symbol = symbol;
+    }
+    if (uri != null) {
+      _result.uri = uri;
+    }
+    if (uriHash != null) {
+      _result.uriHash = uriHash;
     }
     return _result;
   }
@@ -662,4 +680,28 @@ class Metadata extends $pb.GeneratedMessage {
   $core.bool hasSymbol() => $_has(5);
   @$pb.TagNumber(6)
   void clearSymbol() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get uri => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set uri($core.String v) {
+    $_setString(6, v);
+  }
+
+  @$pb.TagNumber(7)
+  $core.bool hasUri() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearUri() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get uriHash => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set uriHash($core.String v) {
+    $_setString(7, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasUriHash() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearUriHash() => clearField(8);
 }

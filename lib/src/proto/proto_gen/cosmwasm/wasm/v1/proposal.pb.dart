@@ -50,6 +50,11 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
             ? ''
             : 'instantiatePermission',
         subBuilder: $0.AccessConfig.create)
+    ..aOB(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'unpinCode')
     ..hasRequiredFields = false;
 
   StoreCodeProposal._() : super();
@@ -59,6 +64,7 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
     $core.String? runAs,
     $core.List<$core.int>? wasmByteCode,
     $0.AccessConfig? instantiatePermission,
+    $core.bool? unpinCode,
   }) {
     final _result = create();
     if (title != null) {
@@ -75,6 +81,9 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
     }
     if (instantiatePermission != null) {
       _result.instantiatePermission = instantiatePermission;
+    }
+    if (unpinCode != null) {
+      _result.unpinCode = unpinCode;
     }
     return _result;
   }
@@ -166,6 +175,18 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
   void clearInstantiatePermission() => clearField(7);
   @$pb.TagNumber(7)
   $0.AccessConfig ensureInstantiatePermission() => $_ensure(4);
+
+  @$pb.TagNumber(8)
+  $core.bool get unpinCode => $_getBF(5);
+  @$pb.TagNumber(8)
+  set unpinCode($core.bool v) {
+    $_setBool(5, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasUnpinCode() => $_has(5);
+  @$pb.TagNumber(8)
+  void clearUnpinCode() => clearField(8);
 }
 
 class InstantiateContractProposal extends $pb.GeneratedMessage {
@@ -1277,4 +1298,204 @@ class UnpinCodesProposal extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.List<$fixnum.Int64> get codeIds => $_getList(2);
+}
+
+class AccessConfigUpdate extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'AccessConfigUpdate',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'codeId',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$0.AccessConfig>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'instantiatePermission',
+        subBuilder: $0.AccessConfig.create)
+    ..hasRequiredFields = false;
+
+  AccessConfigUpdate._() : super();
+  factory AccessConfigUpdate({
+    $fixnum.Int64? codeId,
+    $0.AccessConfig? instantiatePermission,
+  }) {
+    final _result = create();
+    if (codeId != null) {
+      _result.codeId = codeId;
+    }
+    if (instantiatePermission != null) {
+      _result.instantiatePermission = instantiatePermission;
+    }
+    return _result;
+  }
+  factory AccessConfigUpdate.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AccessConfigUpdate.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  AccessConfigUpdate clone() => AccessConfigUpdate()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  AccessConfigUpdate copyWith(void Function(AccessConfigUpdate) updates) =>
+      super.copyWith((message) => updates(message as AccessConfigUpdate))
+          as AccessConfigUpdate; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AccessConfigUpdate create() => AccessConfigUpdate._();
+  AccessConfigUpdate createEmptyInstance() => create();
+  static $pb.PbList<AccessConfigUpdate> createRepeated() =>
+      $pb.PbList<AccessConfigUpdate>();
+  @$core.pragma('dart2js:noInline')
+  static AccessConfigUpdate getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AccessConfigUpdate>(create);
+  static AccessConfigUpdate? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get codeId => $_getI64(0);
+  @$pb.TagNumber(1)
+  set codeId($fixnum.Int64 v) {
+    $_setInt64(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasCodeId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCodeId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $0.AccessConfig get instantiatePermission => $_getN(1);
+  @$pb.TagNumber(2)
+  set instantiatePermission($0.AccessConfig v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasInstantiatePermission() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearInstantiatePermission() => clearField(2);
+  @$pb.TagNumber(2)
+  $0.AccessConfig ensureInstantiatePermission() => $_ensure(1);
+}
+
+class UpdateInstantiateConfigProposal extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'UpdateInstantiateConfigProposal',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'title')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'description')
+    ..pc<AccessConfigUpdate>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'accessConfigUpdates',
+        $pb.PbFieldType.PM,
+        subBuilder: AccessConfigUpdate.create)
+    ..hasRequiredFields = false;
+
+  UpdateInstantiateConfigProposal._() : super();
+  factory UpdateInstantiateConfigProposal({
+    $core.String? title,
+    $core.String? description,
+    $core.Iterable<AccessConfigUpdate>? accessConfigUpdates,
+  }) {
+    final _result = create();
+    if (title != null) {
+      _result.title = title;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    if (accessConfigUpdates != null) {
+      _result.accessConfigUpdates.addAll(accessConfigUpdates);
+    }
+    return _result;
+  }
+  factory UpdateInstantiateConfigProposal.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory UpdateInstantiateConfigProposal.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  UpdateInstantiateConfigProposal clone() =>
+      UpdateInstantiateConfigProposal()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  UpdateInstantiateConfigProposal copyWith(
+          void Function(UpdateInstantiateConfigProposal) updates) =>
+      super.copyWith(
+              (message) => updates(message as UpdateInstantiateConfigProposal))
+          as UpdateInstantiateConfigProposal; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UpdateInstantiateConfigProposal create() =>
+      UpdateInstantiateConfigProposal._();
+  UpdateInstantiateConfigProposal createEmptyInstance() => create();
+  static $pb.PbList<UpdateInstantiateConfigProposal> createRepeated() =>
+      $pb.PbList<UpdateInstantiateConfigProposal>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateInstantiateConfigProposal getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateInstantiateConfigProposal>(
+          create);
+  static UpdateInstantiateConfigProposal? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get title => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set title($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasTitle() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTitle() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set description($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDescription() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<AccessConfigUpdate> get accessConfigUpdates => $_getList(2);
 }

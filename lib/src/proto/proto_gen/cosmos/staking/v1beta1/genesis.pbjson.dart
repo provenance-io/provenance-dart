@@ -81,12 +81,19 @@ const GenesisState$json = const {
 
 /// Descriptor for `GenesisState`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List genesisStateDescriptor = $convert.base64Decode(
-    'CgxHZW5lc2lzU3RhdGUSPAoGcGFyYW1zGAEgASgLMh4uY29zbW9zLnN0YWtpbmcudjFiZXRhMS5QYXJhbXNCBMjeHwBSBnBhcmFtcxJzChBsYXN0X3RvdGFsX3Bvd2VyGAIgASgMQkna3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5JbnTy3h8XeWFtbDoibGFzdF90b3RhbF9wb3dlciLI3h8AUg5sYXN0VG90YWxQb3dlchKEAQoVbGFzdF92YWxpZGF0b3JfcG93ZXJzGAMgAygLMiouY29zbW9zLnN0YWtpbmcudjFiZXRhMS5MYXN0VmFsaWRhdG9yUG93ZXJCJPLeHxx5YW1sOiJsYXN0X3ZhbGlkYXRvcl9wb3dlcnMiyN4fAFITbGFzdFZhbGlkYXRvclBvd2VycxJHCgp2YWxpZGF0b3JzGAQgAygLMiEuY29zbW9zLnN0YWtpbmcudjFiZXRhMS5WYWxpZGF0b3JCBMjeHwBSCnZhbGlkYXRvcnMSSgoLZGVsZWdhdGlvbnMYBSADKAsyIi5jb3Ntb3Muc3Rha2luZy52MWJldGExLkRlbGVnYXRpb25CBMjeHwBSC2RlbGVnYXRpb25zEoYBChV1bmJvbmRpbmdfZGVsZWdhdGlvbnMYBiADKAsyKy5jb3Ntb3Muc3Rha2luZy52MWJldGExLlVuYm9uZGluZ0RlbGVnYXRpb25CJPLeHxx5YW1sOiJ1bmJvbmRpbmdfZGVsZWdhdGlvbnMiyN4fAFIUdW5ib25kaW5nRGVsZWdhdGlvbnMSUAoNcmVkZWxlZ2F0aW9ucxgHIAMoCzIkLmNvc21vcy5zdGFraW5nLnYxYmV0YTEuUmVkZWxlZ2F0aW9uQgTI3h8AUg1yZWRlbGVnYXRpb25zEhoKCGV4cG9ydGVkGAggASgIUghleHBvcnRlZA==');
+    'CgxHZW5lc2lzU3RhdGUSPAoGcGFyYW1zGAEgASgLMh4uY29zbW9zLnN0YWtpbmcudjFiZXRhMS5QYXJhbXNCBMjeHwBSBnBhcmFtcxJYChBsYXN0X3RvdGFsX3Bvd2VyGAIgASgMQi7a3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5JbnTI3h8AUg5sYXN0VG90YWxQb3dlchJkChVsYXN0X3ZhbGlkYXRvcl9wb3dlcnMYAyADKAsyKi5jb3Ntb3Muc3Rha2luZy52MWJldGExLkxhc3RWYWxpZGF0b3JQb3dlckIEyN4fAFITbGFzdFZhbGlkYXRvclBvd2VycxJHCgp2YWxpZGF0b3JzGAQgAygLMiEuY29zbW9zLnN0YWtpbmcudjFiZXRhMS5WYWxpZGF0b3JCBMjeHwBSCnZhbGlkYXRvcnMSSgoLZGVsZWdhdGlvbnMYBSADKAsyIi5jb3Ntb3Muc3Rha2luZy52MWJldGExLkRlbGVnYXRpb25CBMjeHwBSC2RlbGVnYXRpb25zEmYKFXVuYm9uZGluZ19kZWxlZ2F0aW9ucxgGIAMoCzIrLmNvc21vcy5zdGFraW5nLnYxYmV0YTEuVW5ib25kaW5nRGVsZWdhdGlvbkIEyN4fAFIUdW5ib25kaW5nRGVsZWdhdGlvbnMSUAoNcmVkZWxlZ2F0aW9ucxgHIAMoCzIkLmNvc21vcy5zdGFraW5nLnYxYmV0YTEuUmVkZWxlZ2F0aW9uQgTI3h8AUg1yZWRlbGVnYXRpb25zEhoKCGV4cG9ydGVkGAggASgIUghleHBvcnRlZA==');
 @$core.Deprecated('Use lastValidatorPowerDescriptor instead')
 const LastValidatorPower$json = const {
   '1': 'LastValidatorPower',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {'1': 'power', '3': 2, '4': 1, '5': 3, '10': 'power'},
   ],
   '7': const {},
@@ -94,4 +101,4 @@ const LastValidatorPower$json = const {
 
 /// Descriptor for `LastValidatorPower`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List lastValidatorPowerDescriptor = $convert.base64Decode(
-    'ChJMYXN0VmFsaWRhdG9yUG93ZXISGAoHYWRkcmVzcxgBIAEoCVIHYWRkcmVzcxIUCgVwb3dlchgCIAEoA1IFcG93ZXI6COigHwCIoB8A');
+    'ChJMYXN0VmFsaWRhdG9yUG93ZXISMgoHYWRkcmVzcxgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdhZGRyZXNzEhQKBXBvd2VyGAIgASgDUgVwb3dlcjoI6KAfAIigHwA=');

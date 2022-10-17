@@ -6,22 +6,30 @@ void main() async {
     await provenanceTypes.delete();
   }
 
+  for (var file in Directory('lib').listSync()) {
+    if (file.path.contains('lib/proto_')) {
+      file.deleteSync();
+    }
+  }
+
   final dir = Directory('lib/src/proto/proto_gen');
   final List<FileSystemEntity> entities =
       await dir.list(recursive: true).toList();
-  final Iterable<File> files = entities
-      .whereType<File>()
-      .where((element) =>
-          element.path.contains("/cosmos/") ||
-          element.path.contains("provenance"))
-      .toList();
+  final Iterable<File> files = entities.whereType<File>().toList();
 
   final Map<String, ProtoExport> dictionary = {};
 
   for (var file in files) {
-    final segments = file.path.split('/');
-    String name =
-        '${segments[segments.length - 3]}_${segments[segments.length - 2]}';
+    String name = "";
+
+    final segments =
+        file.path.replaceAll('lib/src/proto/proto_gen/', '').split('/');
+    if (segments.length > 1) {
+      segments.removeLast();
+      name = segments.join('_');
+    } else {
+      name = segments.first.split('.').first;
+    }
 
     var url = file.path.replaceAll('lib/', '');
 
@@ -69,8 +77,22 @@ void main() async {
           .allMatches(content)
           .map((e) => e[0]!)
           .where((element) => element.contains("GeneratedMessage"))
-          .map((e) =>
-              "  ${entry.name}.${e.replaceAll('class ', '').replaceAll(' extends \$pb.GeneratedMessage {', '')}(),\n")
+          .map((e) => "  ${entry.name}.${e.replaceAll(
+                'class ',
+                '',
+              ).replaceAll(
+                ' with \$mixin.TimestampMixin',
+                '',
+              ).replaceAll(
+                ' with \$mixin.DurationMixin',
+                '',
+              ).replaceAll(
+                ' with \$mixin.AnyMixin',
+                '',
+              ).replaceAll(
+                ' extends \$pb.GeneratedMessage {',
+                '',
+              )}(),\n")
           .toList();
       await provenanceTypes.writeAsString(
         matches.join(''),

@@ -357,6 +357,189 @@ class SignDoc extends $pb.GeneratedMessage {
   void clearAccountNumber() => clearField(4);
 }
 
+class SignDocDirectAux extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SignDocDirectAux',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.tx.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'bodyBytes',
+        $pb.PbFieldType.OY)
+    ..aOM<$0.Any>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'publicKey',
+        subBuilder: $0.Any.create)
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'chainId')
+    ..a<$fixnum.Int64>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'accountNumber',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sequence',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<Tip>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'tip',
+        subBuilder: Tip.create)
+    ..hasRequiredFields = false;
+
+  SignDocDirectAux._() : super();
+  factory SignDocDirectAux({
+    $core.List<$core.int>? bodyBytes,
+    $0.Any? publicKey,
+    $core.String? chainId,
+    $fixnum.Int64? accountNumber,
+    $fixnum.Int64? sequence,
+    Tip? tip,
+  }) {
+    final _result = create();
+    if (bodyBytes != null) {
+      _result.bodyBytes = bodyBytes;
+    }
+    if (publicKey != null) {
+      _result.publicKey = publicKey;
+    }
+    if (chainId != null) {
+      _result.chainId = chainId;
+    }
+    if (accountNumber != null) {
+      _result.accountNumber = accountNumber;
+    }
+    if (sequence != null) {
+      _result.sequence = sequence;
+    }
+    if (tip != null) {
+      _result.tip = tip;
+    }
+    return _result;
+  }
+  factory SignDocDirectAux.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SignDocDirectAux.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SignDocDirectAux clone() => SignDocDirectAux()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SignDocDirectAux copyWith(void Function(SignDocDirectAux) updates) =>
+      super.copyWith((message) => updates(message as SignDocDirectAux))
+          as SignDocDirectAux; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SignDocDirectAux create() => SignDocDirectAux._();
+  SignDocDirectAux createEmptyInstance() => create();
+  static $pb.PbList<SignDocDirectAux> createRepeated() =>
+      $pb.PbList<SignDocDirectAux>();
+  @$core.pragma('dart2js:noInline')
+  static SignDocDirectAux getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SignDocDirectAux>(create);
+  static SignDocDirectAux? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get bodyBytes => $_getN(0);
+  @$pb.TagNumber(1)
+  set bodyBytes($core.List<$core.int> v) {
+    $_setBytes(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasBodyBytes() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBodyBytes() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $0.Any get publicKey => $_getN(1);
+  @$pb.TagNumber(2)
+  set publicKey($0.Any v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPublicKey() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPublicKey() => clearField(2);
+  @$pb.TagNumber(2)
+  $0.Any ensurePublicKey() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get chainId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set chainId($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasChainId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearChainId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get accountNumber => $_getI64(3);
+  @$pb.TagNumber(4)
+  set accountNumber($fixnum.Int64 v) {
+    $_setInt64(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasAccountNumber() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAccountNumber() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get sequence => $_getI64(4);
+  @$pb.TagNumber(5)
+  set sequence($fixnum.Int64 v) {
+    $_setInt64(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasSequence() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearSequence() => clearField(5);
+
+  @$pb.TagNumber(6)
+  Tip get tip => $_getN(5);
+  @$pb.TagNumber(6)
+  set tip(Tip v) {
+    setField(6, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasTip() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTip() => clearField(6);
+  @$pb.TagNumber(6)
+  Tip ensureTip() => $_ensure(5);
+}
+
 class TxBody extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
@@ -511,12 +694,19 @@ class AuthInfo extends $pb.GeneratedMessage {
             ? ''
             : 'fee',
         subBuilder: Fee.create)
+    ..aOM<Tip>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'tip',
+        subBuilder: Tip.create)
     ..hasRequiredFields = false;
 
   AuthInfo._() : super();
   factory AuthInfo({
     $core.Iterable<SignerInfo>? signerInfos,
     Fee? fee,
+    Tip? tip,
   }) {
     final _result = create();
     if (signerInfos != null) {
@@ -524,6 +714,9 @@ class AuthInfo extends $pb.GeneratedMessage {
     }
     if (fee != null) {
       _result.fee = fee;
+    }
+    if (tip != null) {
+      _result.tip = tip;
     }
     return _result;
   }
@@ -569,6 +762,20 @@ class AuthInfo extends $pb.GeneratedMessage {
   void clearFee() => clearField(2);
   @$pb.TagNumber(2)
   Fee ensureFee() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  Tip get tip => $_getN(2);
+  @$pb.TagNumber(3)
+  set tip(Tip v) {
+    setField(3, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasTip() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTip() => clearField(3);
+  @$pb.TagNumber(3)
+  Tip ensureTip() => $_ensure(2);
 }
 
 class SignerInfo extends $pb.GeneratedMessage {
@@ -1068,4 +1275,222 @@ class Fee extends $pb.GeneratedMessage {
   $core.bool hasGranter() => $_has(3);
   @$pb.TagNumber(4)
   void clearGranter() => clearField(4);
+}
+
+class Tip extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'Tip',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.tx.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$2.Coin>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'amount',
+        $pb.PbFieldType.PM,
+        subBuilder: $2.Coin.create)
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'tipper')
+    ..hasRequiredFields = false;
+
+  Tip._() : super();
+  factory Tip({
+    $core.Iterable<$2.Coin>? amount,
+    $core.String? tipper,
+  }) {
+    final _result = create();
+    if (amount != null) {
+      _result.amount.addAll(amount);
+    }
+    if (tipper != null) {
+      _result.tipper = tipper;
+    }
+    return _result;
+  }
+  factory Tip.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Tip.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  Tip clone() => Tip()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  Tip copyWith(void Function(Tip) updates) =>
+      super.copyWith((message) => updates(message as Tip))
+          as Tip; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Tip create() => Tip._();
+  Tip createEmptyInstance() => create();
+  static $pb.PbList<Tip> createRepeated() => $pb.PbList<Tip>();
+  @$core.pragma('dart2js:noInline')
+  static Tip getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Tip>(create);
+  static Tip? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$2.Coin> get amount => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $core.String get tipper => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set tipper($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasTipper() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTipper() => clearField(2);
+}
+
+class AuxSignerData extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'AuxSignerData',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.tx.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'address')
+    ..aOM<SignDocDirectAux>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'signDoc',
+        subBuilder: SignDocDirectAux.create)
+    ..e<$3.SignMode>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'mode',
+        $pb.PbFieldType.OE,
+        defaultOrMaker: $3.SignMode.SIGN_MODE_UNSPECIFIED,
+        valueOf: $3.SignMode.valueOf,
+        enumValues: $3.SignMode.values)
+    ..a<$core.List<$core.int>>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sig',
+        $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
+  AuxSignerData._() : super();
+  factory AuxSignerData({
+    $core.String? address,
+    SignDocDirectAux? signDoc,
+    $3.SignMode? mode,
+    $core.List<$core.int>? sig,
+  }) {
+    final _result = create();
+    if (address != null) {
+      _result.address = address;
+    }
+    if (signDoc != null) {
+      _result.signDoc = signDoc;
+    }
+    if (mode != null) {
+      _result.mode = mode;
+    }
+    if (sig != null) {
+      _result.sig = sig;
+    }
+    return _result;
+  }
+  factory AuxSignerData.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AuxSignerData.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  AuxSignerData clone() => AuxSignerData()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  AuxSignerData copyWith(void Function(AuxSignerData) updates) =>
+      super.copyWith((message) => updates(message as AuxSignerData))
+          as AuxSignerData; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AuxSignerData create() => AuxSignerData._();
+  AuxSignerData createEmptyInstance() => create();
+  static $pb.PbList<AuxSignerData> createRepeated() =>
+      $pb.PbList<AuxSignerData>();
+  @$core.pragma('dart2js:noInline')
+  static AuxSignerData getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuxSignerData>(create);
+  static AuxSignerData? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get address => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set address($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAddress() => clearField(1);
+
+  @$pb.TagNumber(2)
+  SignDocDirectAux get signDoc => $_getN(1);
+  @$pb.TagNumber(2)
+  set signDoc(SignDocDirectAux v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasSignDoc() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSignDoc() => clearField(2);
+  @$pb.TagNumber(2)
+  SignDocDirectAux ensureSignDoc() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $3.SignMode get mode => $_getN(2);
+  @$pb.TagNumber(3)
+  set mode($3.SignMode v) {
+    setField(3, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasMode() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMode() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<$core.int> get sig => $_getN(3);
+  @$pb.TagNumber(4)
+  set sig($core.List<$core.int> v) {
+    $_setBytes(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasSig() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearSig() => clearField(4);
 }

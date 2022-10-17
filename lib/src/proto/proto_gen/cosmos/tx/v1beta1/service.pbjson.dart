@@ -47,7 +47,8 @@ const GetTxsEventRequest$json = const {
       '4': 1,
       '5': 11,
       '6': '.cosmos.base.query.v1beta1.PageRequest',
-      '10': 'pagination'
+      '8': const {'3': true},
+      '10': 'pagination',
     },
     const {
       '1': 'order_by',
@@ -57,12 +58,14 @@ const GetTxsEventRequest$json = const {
       '6': '.cosmos.tx.v1beta1.OrderBy',
       '10': 'orderBy'
     },
+    const {'1': 'page', '3': 4, '4': 1, '5': 4, '10': 'page'},
+    const {'1': 'limit', '3': 5, '4': 1, '5': 4, '10': 'limit'},
   ],
 };
 
 /// Descriptor for `GetTxsEventRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getTxsEventRequestDescriptor = $convert.base64Decode(
-    'ChJHZXRUeHNFdmVudFJlcXVlc3QSFgoGZXZlbnRzGAEgAygJUgZldmVudHMSRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24SNQoIb3JkZXJfYnkYAyABKA4yGi5jb3Ntb3MudHgudjFiZXRhMS5PcmRlckJ5UgdvcmRlckJ5');
+    'ChJHZXRUeHNFdmVudFJlcXVlc3QSFgoGZXZlbnRzGAEgAygJUgZldmVudHMSSgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RCAhgBUgpwYWdpbmF0aW9uEjUKCG9yZGVyX2J5GAMgASgOMhouY29zbW9zLnR4LnYxYmV0YTEuT3JkZXJCeVIHb3JkZXJCeRISCgRwYWdlGAQgASgEUgRwYWdlEhQKBWxpbWl0GAUgASgEUgVsaW1pdA==');
 @$core.Deprecated('Use getTxsEventResponseDescriptor instead')
 const GetTxsEventResponse$json = const {
   '1': 'GetTxsEventResponse',
@@ -89,14 +92,16 @@ const GetTxsEventResponse$json = const {
       '4': 1,
       '5': 11,
       '6': '.cosmos.base.query.v1beta1.PageResponse',
-      '10': 'pagination'
+      '8': const {'3': true},
+      '10': 'pagination',
     },
+    const {'1': 'total', '3': 4, '4': 1, '5': 4, '10': 'total'},
   ],
 };
 
 /// Descriptor for `GetTxsEventResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getTxsEventResponseDescriptor = $convert.base64Decode(
-    'ChNHZXRUeHNFdmVudFJlc3BvbnNlEicKA3R4cxgBIAMoCzIVLmNvc21vcy50eC52MWJldGExLlR4UgN0eHMSRwoMdHhfcmVzcG9uc2VzGAIgAygLMiQuY29zbW9zLmJhc2UuYWJjaS52MWJldGExLlR4UmVzcG9uc2VSC3R4UmVzcG9uc2VzEkcKCnBhZ2luYXRpb24YAyABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbg==');
+    'ChNHZXRUeHNFdmVudFJlc3BvbnNlEicKA3R4cxgBIAMoCzIVLmNvc21vcy50eC52MWJldGExLlR4UgN0eHMSRwoMdHhfcmVzcG9uc2VzGAIgAygLMiQuY29zbW9zLmJhc2UuYWJjaS52MWJldGExLlR4UmVzcG9uc2VSC3R4UmVzcG9uc2VzEksKCnBhZ2luYXRpb24YAyABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZUICGAFSCnBhZ2luYXRpb24SFAoFdG90YWwYBCABKARSBXRvdGFs');
 @$core.Deprecated('Use broadcastTxRequestDescriptor instead')
 const BroadcastTxRequest$json = const {
   '1': 'BroadcastTxRequest',

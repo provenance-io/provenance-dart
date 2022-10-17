@@ -1759,6 +1759,11 @@ class Params extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'bondDenom')
+    ..aOS(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'minCommissionRate')
     ..hasRequiredFields = false;
 
   Params._() : super();
@@ -1768,6 +1773,7 @@ class Params extends $pb.GeneratedMessage {
     $core.int? maxEntries,
     $core.int? historicalEntries,
     $core.String? bondDenom,
+    $core.String? minCommissionRate,
   }) {
     final _result = create();
     if (unbondingTime != null) {
@@ -1784,6 +1790,9 @@ class Params extends $pb.GeneratedMessage {
     }
     if (bondDenom != null) {
       _result.bondDenom = bondDenom;
+    }
+    if (minCommissionRate != null) {
+      _result.minCommissionRate = minCommissionRate;
     }
     return _result;
   }
@@ -1874,6 +1883,18 @@ class Params extends $pb.GeneratedMessage {
   $core.bool hasBondDenom() => $_has(4);
   @$pb.TagNumber(5)
   void clearBondDenom() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get minCommissionRate => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set minCommissionRate($core.String v) {
+    $_setString(5, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasMinCommissionRate() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearMinCommissionRate() => clearField(6);
 }
 
 class DelegationResponse extends $pb.GeneratedMessage {

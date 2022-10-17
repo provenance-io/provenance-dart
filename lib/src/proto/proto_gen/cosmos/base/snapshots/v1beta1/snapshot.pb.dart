@@ -226,7 +226,15 @@ class Metadata extends $pb.GeneratedMessage {
   $core.List<$core.List<$core.int>> get chunkHashes => $_getList(0);
 }
 
-enum SnapshotItem_Item { store, iavl, extension_3, extensionPayload, notSet }
+enum SnapshotItem_Item {
+  store,
+  iavl,
+  extension_3,
+  extensionPayload,
+  kv,
+  schema,
+  notSet
+}
 
 class SnapshotItem extends $pb.GeneratedMessage {
   static const $core.Map<$core.int, SnapshotItem_Item> _SnapshotItem_ItemByTag =
@@ -235,6 +243,8 @@ class SnapshotItem extends $pb.GeneratedMessage {
     2: SnapshotItem_Item.iavl,
     3: SnapshotItem_Item.extension_3,
     4: SnapshotItem_Item.extensionPayload,
+    5: SnapshotItem_Item.kv,
+    6: SnapshotItem_Item.schema,
     0: SnapshotItem_Item.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -246,7 +256,7 @@ class SnapshotItem extends $pb.GeneratedMessage {
               ? ''
               : 'cosmos.base.snapshots.v1beta1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 3, 4])
+    ..oo(0, [1, 2, 3, 4, 5, 6])
     ..aOM<SnapshotStoreItem>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -271,6 +281,18 @@ class SnapshotItem extends $pb.GeneratedMessage {
             ? ''
             : 'extensionPayload',
         subBuilder: SnapshotExtensionPayload.create)
+    ..aOM<SnapshotKVItem>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'kv',
+        subBuilder: SnapshotKVItem.create)
+    ..aOM<SnapshotSchema>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'schema',
+        subBuilder: SnapshotSchema.create)
     ..hasRequiredFields = false;
 
   SnapshotItem._() : super();
@@ -279,6 +301,8 @@ class SnapshotItem extends $pb.GeneratedMessage {
     SnapshotIAVLItem? iavl,
     SnapshotExtensionMeta? extension_3,
     SnapshotExtensionPayload? extensionPayload,
+    SnapshotKVItem? kv,
+    SnapshotSchema? schema,
   }) {
     final _result = create();
     if (store != null) {
@@ -292,6 +316,12 @@ class SnapshotItem extends $pb.GeneratedMessage {
     }
     if (extensionPayload != null) {
       _result.extensionPayload = extensionPayload;
+    }
+    if (kv != null) {
+      _result.kv = kv;
+    }
+    if (schema != null) {
+      _result.schema = schema;
     }
     return _result;
   }
@@ -380,6 +410,34 @@ class SnapshotItem extends $pb.GeneratedMessage {
   void clearExtensionPayload() => clearField(4);
   @$pb.TagNumber(4)
   SnapshotExtensionPayload ensureExtensionPayload() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  SnapshotKVItem get kv => $_getN(4);
+  @$pb.TagNumber(5)
+  set kv(SnapshotKVItem v) {
+    setField(5, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasKv() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearKv() => clearField(5);
+  @$pb.TagNumber(5)
+  SnapshotKVItem ensureKv() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  SnapshotSchema get schema => $_getN(5);
+  @$pb.TagNumber(6)
+  set schema(SnapshotSchema v) {
+    setField(6, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasSchema() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSchema() => clearField(6);
+  @$pb.TagNumber(6)
+  SnapshotSchema ensureSchema() => $_ensure(5);
 }
 
 class SnapshotStoreItem extends $pb.GeneratedMessage {
@@ -741,4 +799,153 @@ class SnapshotExtensionPayload extends $pb.GeneratedMessage {
   $core.bool hasPayload() => $_has(0);
   @$pb.TagNumber(1)
   void clearPayload() => clearField(1);
+}
+
+class SnapshotKVItem extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SnapshotKVItem',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'key',
+        $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'value',
+        $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
+  SnapshotKVItem._() : super();
+  factory SnapshotKVItem({
+    $core.List<$core.int>? key,
+    $core.List<$core.int>? value,
+  }) {
+    final _result = create();
+    if (key != null) {
+      _result.key = key;
+    }
+    if (value != null) {
+      _result.value = value;
+    }
+    return _result;
+  }
+  factory SnapshotKVItem.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SnapshotKVItem.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SnapshotKVItem clone() => SnapshotKVItem()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SnapshotKVItem copyWith(void Function(SnapshotKVItem) updates) =>
+      super.copyWith((message) => updates(message as SnapshotKVItem))
+          as SnapshotKVItem; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SnapshotKVItem create() => SnapshotKVItem._();
+  SnapshotKVItem createEmptyInstance() => create();
+  static $pb.PbList<SnapshotKVItem> createRepeated() =>
+      $pb.PbList<SnapshotKVItem>();
+  @$core.pragma('dart2js:noInline')
+  static SnapshotKVItem getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SnapshotKVItem>(create);
+  static SnapshotKVItem? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get key => $_getN(0);
+  @$pb.TagNumber(1)
+  set key($core.List<$core.int> v) {
+    $_setBytes(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKey() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.int> get value => $_getN(1);
+  @$pb.TagNumber(2)
+  set value($core.List<$core.int> v) {
+    $_setBytes(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasValue() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearValue() => clearField(2);
+}
+
+class SnapshotSchema extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SnapshotSchema',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..p<$core.List<$core.int>>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'keys',
+        $pb.PbFieldType.PY)
+    ..hasRequiredFields = false;
+
+  SnapshotSchema._() : super();
+  factory SnapshotSchema({
+    $core.Iterable<$core.List<$core.int>>? keys,
+  }) {
+    final _result = create();
+    if (keys != null) {
+      _result.keys.addAll(keys);
+    }
+    return _result;
+  }
+  factory SnapshotSchema.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SnapshotSchema.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SnapshotSchema clone() => SnapshotSchema()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SnapshotSchema copyWith(void Function(SnapshotSchema) updates) =>
+      super.copyWith((message) => updates(message as SnapshotSchema))
+          as SnapshotSchema; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SnapshotSchema create() => SnapshotSchema._();
+  SnapshotSchema createEmptyInstance() => create();
+  static $pb.PbList<SnapshotSchema> createRepeated() =>
+      $pb.PbList<SnapshotSchema>();
+  @$core.pragma('dart2js:noInline')
+  static SnapshotSchema getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SnapshotSchema>(create);
+  static SnapshotSchema? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.List<$core.int>> get keys => $_getList(0);
 }

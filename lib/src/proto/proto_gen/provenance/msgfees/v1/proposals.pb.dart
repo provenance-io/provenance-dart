@@ -43,6 +43,16 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
             ? ''
             : 'additionalFee',
         subBuilder: $0.Coin.create)
+    ..aOS(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'recipient')
+    ..aOS(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'recipientBasisPoints')
     ..hasRequiredFields = false;
 
   AddMsgFeeProposal._() : super();
@@ -51,6 +61,8 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
     $core.String? description,
     $core.String? msgTypeUrl,
     $0.Coin? additionalFee,
+    $core.String? recipient,
+    $core.String? recipientBasisPoints,
   }) {
     final _result = create();
     if (title != null) {
@@ -64,6 +76,12 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
     }
     if (additionalFee != null) {
       _result.additionalFee = additionalFee;
+    }
+    if (recipient != null) {
+      _result.recipient = recipient;
+    }
+    if (recipientBasisPoints != null) {
+      _result.recipientBasisPoints = recipientBasisPoints;
     }
     return _result;
   }
@@ -143,6 +161,30 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
   void clearAdditionalFee() => clearField(4);
   @$pb.TagNumber(4)
   $0.Coin ensureAdditionalFee() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $core.String get recipient => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set recipient($core.String v) {
+    $_setString(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasRecipient() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearRecipient() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get recipientBasisPoints => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set recipientBasisPoints($core.String v) {
+    $_setString(5, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasRecipientBasisPoints() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearRecipientBasisPoints() => clearField(6);
 }
 
 class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
@@ -176,6 +218,16 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
             ? ''
             : 'additionalFee',
         subBuilder: $0.Coin.create)
+    ..aOS(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'recipient')
+    ..aOS(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'recipientBasisPoints')
     ..hasRequiredFields = false;
 
   UpdateMsgFeeProposal._() : super();
@@ -184,6 +236,8 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
     $core.String? description,
     $core.String? msgTypeUrl,
     $0.Coin? additionalFee,
+    $core.String? recipient,
+    $core.String? recipientBasisPoints,
   }) {
     final _result = create();
     if (title != null) {
@@ -197,6 +251,12 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
     }
     if (additionalFee != null) {
       _result.additionalFee = additionalFee;
+    }
+    if (recipient != null) {
+      _result.recipient = recipient;
+    }
+    if (recipientBasisPoints != null) {
+      _result.recipientBasisPoints = recipientBasisPoints;
     }
     return _result;
   }
@@ -277,6 +337,30 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
   void clearAdditionalFee() => clearField(4);
   @$pb.TagNumber(4)
   $0.Coin ensureAdditionalFee() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $core.String get recipient => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set recipient($core.String v) {
+    $_setString(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasRecipient() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearRecipient() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get recipientBasisPoints => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set recipientBasisPoints($core.String v) {
+    $_setString(5, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasRecipientBasisPoints() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearRecipientBasisPoints() => clearField(6);
 }
 
 class RemoveMsgFeeProposal extends $pb.GeneratedMessage {
@@ -502,4 +586,118 @@ class UpdateNhashPerUsdMilProposal extends $pb.GeneratedMessage {
   $core.bool hasNhashPerUsdMil() => $_has(2);
   @$pb.TagNumber(3)
   void clearNhashPerUsdMil() => clearField(3);
+}
+
+class UpdateConversionFeeDenomProposal extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'UpdateConversionFeeDenomProposal',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'title')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'description')
+    ..aOS(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'conversionFeeDenom')
+    ..hasRequiredFields = false;
+
+  UpdateConversionFeeDenomProposal._() : super();
+  factory UpdateConversionFeeDenomProposal({
+    $core.String? title,
+    $core.String? description,
+    $core.String? conversionFeeDenom,
+  }) {
+    final _result = create();
+    if (title != null) {
+      _result.title = title;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    if (conversionFeeDenom != null) {
+      _result.conversionFeeDenom = conversionFeeDenom;
+    }
+    return _result;
+  }
+  factory UpdateConversionFeeDenomProposal.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory UpdateConversionFeeDenomProposal.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  UpdateConversionFeeDenomProposal clone() =>
+      UpdateConversionFeeDenomProposal()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  UpdateConversionFeeDenomProposal copyWith(
+          void Function(UpdateConversionFeeDenomProposal) updates) =>
+      super.copyWith(
+              (message) => updates(message as UpdateConversionFeeDenomProposal))
+          as UpdateConversionFeeDenomProposal; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UpdateConversionFeeDenomProposal create() =>
+      UpdateConversionFeeDenomProposal._();
+  UpdateConversionFeeDenomProposal createEmptyInstance() => create();
+  static $pb.PbList<UpdateConversionFeeDenomProposal> createRepeated() =>
+      $pb.PbList<UpdateConversionFeeDenomProposal>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateConversionFeeDenomProposal getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateConversionFeeDenomProposal>(
+          create);
+  static UpdateConversionFeeDenomProposal? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get title => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set title($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasTitle() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTitle() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set description($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDescription() => clearField(2);
+
+  @$pb.TagNumber(4)
+  $core.String get conversionFeeDenom => $_getSZ(2);
+  @$pb.TagNumber(4)
+  set conversionFeeDenom($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasConversionFeeDenom() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearConversionFeeDenom() => clearField(4);
 }

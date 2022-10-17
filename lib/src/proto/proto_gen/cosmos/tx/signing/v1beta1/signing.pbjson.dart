@@ -16,6 +16,7 @@ const SignMode$json = const {
     const {'1': 'SIGN_MODE_UNSPECIFIED', '2': 0},
     const {'1': 'SIGN_MODE_DIRECT', '2': 1},
     const {'1': 'SIGN_MODE_TEXTUAL', '2': 2},
+    const {'1': 'SIGN_MODE_DIRECT_AUX', '2': 3},
     const {'1': 'SIGN_MODE_LEGACY_AMINO_JSON', '2': 127},
     const {'1': 'SIGN_MODE_EIP_191', '2': 191},
   ],
@@ -23,7 +24,7 @@ const SignMode$json = const {
 
 /// Descriptor for `SignMode`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List signModeDescriptor = $convert.base64Decode(
-    'CghTaWduTW9kZRIZChVTSUdOX01PREVfVU5TUEVDSUZJRUQQABIUChBTSUdOX01PREVfRElSRUNUEAESFQoRU0lHTl9NT0RFX1RFWFRVQUwQAhIfChtTSUdOX01PREVfTEVHQUNZX0FNSU5PX0pTT04QfxIWChFTSUdOX01PREVfRUlQXzE5MRC/AQ==');
+    'CghTaWduTW9kZRIZChVTSUdOX01PREVfVU5TUEVDSUZJRUQQABIUChBTSUdOX01PREVfRElSRUNUEAESFQoRU0lHTl9NT0RFX1RFWFRVQUwQAhIYChRTSUdOX01PREVfRElSRUNUX0FVWBADEh8KG1NJR05fTU9ERV9MRUdBQ1lfQU1JTk9fSlNPThB/EhYKEVNJR05fTU9ERV9FSVBfMTkxEL8B');
 @$core.Deprecated('Use signatureDescriptorsDescriptor instead')
 const SignatureDescriptors$json = const {
   '1': 'SignatureDescriptors',

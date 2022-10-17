@@ -1247,6 +1247,275 @@ class QueryDenomMetadataResponse extends $pb.GeneratedMessage {
   $3.Metadata ensureMetadata() => $_ensure(0);
 }
 
+class QueryDenomOwnersRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryDenomOwnersRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'denom')
+    ..aOM<$2.PageRequest>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  QueryDenomOwnersRequest._() : super();
+  factory QueryDenomOwnersRequest({
+    $core.String? denom,
+    $2.PageRequest? pagination,
+  }) {
+    final _result = create();
+    if (denom != null) {
+      _result.denom = denom;
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QueryDenomOwnersRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryDenomOwnersRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryDenomOwnersRequest clone() =>
+      QueryDenomOwnersRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryDenomOwnersRequest copyWith(
+          void Function(QueryDenomOwnersRequest) updates) =>
+      super.copyWith((message) => updates(message as QueryDenomOwnersRequest))
+          as QueryDenomOwnersRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryDenomOwnersRequest create() => QueryDenomOwnersRequest._();
+  QueryDenomOwnersRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryDenomOwnersRequest> createRepeated() =>
+      $pb.PbList<QueryDenomOwnersRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryDenomOwnersRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryDenomOwnersRequest>(create);
+  static QueryDenomOwnersRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get denom => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set denom($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasDenom() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDenom() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $2.PageRequest get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageRequest v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageRequest ensurePagination() => $_ensure(1);
+}
+
+class DenomOwner extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'DenomOwner',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'address')
+    ..aOM<$1.Coin>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'balance',
+        subBuilder: $1.Coin.create)
+    ..hasRequiredFields = false;
+
+  DenomOwner._() : super();
+  factory DenomOwner({
+    $core.String? address,
+    $1.Coin? balance,
+  }) {
+    final _result = create();
+    if (address != null) {
+      _result.address = address;
+    }
+    if (balance != null) {
+      _result.balance = balance;
+    }
+    return _result;
+  }
+  factory DenomOwner.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory DenomOwner.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  DenomOwner clone() => DenomOwner()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  DenomOwner copyWith(void Function(DenomOwner) updates) =>
+      super.copyWith((message) => updates(message as DenomOwner))
+          as DenomOwner; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static DenomOwner create() => DenomOwner._();
+  DenomOwner createEmptyInstance() => create();
+  static $pb.PbList<DenomOwner> createRepeated() => $pb.PbList<DenomOwner>();
+  @$core.pragma('dart2js:noInline')
+  static DenomOwner getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DenomOwner>(create);
+  static DenomOwner? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get address => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set address($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAddress() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $1.Coin get balance => $_getN(1);
+  @$pb.TagNumber(2)
+  set balance($1.Coin v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasBalance() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBalance() => clearField(2);
+  @$pb.TagNumber(2)
+  $1.Coin ensureBalance() => $_ensure(1);
+}
+
+class QueryDenomOwnersResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'QueryDenomOwnersResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<DenomOwner>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'denomOwners',
+        $pb.PbFieldType.PM,
+        subBuilder: DenomOwner.create)
+    ..aOM<$2.PageResponse>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  QueryDenomOwnersResponse._() : super();
+  factory QueryDenomOwnersResponse({
+    $core.Iterable<DenomOwner>? denomOwners,
+    $2.PageResponse? pagination,
+  }) {
+    final _result = create();
+    if (denomOwners != null) {
+      _result.denomOwners.addAll(denomOwners);
+    }
+    if (pagination != null) {
+      _result.pagination = pagination;
+    }
+    return _result;
+  }
+  factory QueryDenomOwnersResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryDenomOwnersResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryDenomOwnersResponse clone() =>
+      QueryDenomOwnersResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryDenomOwnersResponse copyWith(
+          void Function(QueryDenomOwnersResponse) updates) =>
+      super.copyWith((message) => updates(message as QueryDenomOwnersResponse))
+          as QueryDenomOwnersResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static QueryDenomOwnersResponse create() => QueryDenomOwnersResponse._();
+  QueryDenomOwnersResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryDenomOwnersResponse> createRepeated() =>
+      $pb.PbList<QueryDenomOwnersResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryDenomOwnersResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryDenomOwnersResponse>(create);
+  static QueryDenomOwnersResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<DenomOwner> get denomOwners => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $2.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageResponse v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageResponse ensurePagination() => $_ensure(1);
+}
+
 class QuerySendEnabledRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')

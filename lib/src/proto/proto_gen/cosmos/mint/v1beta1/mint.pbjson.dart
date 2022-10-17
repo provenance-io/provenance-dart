@@ -34,7 +34,7 @@ const Minter$json = const {
 
 /// Descriptor for `Minter`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List minterDescriptor = $convert.base64Decode(
-    'CgZNaW50ZXISTAoJaW5mbGF0aW9uGAEgASgJQi7a3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUglpbmZsYXRpb24SdwoRYW5udWFsX3Byb3Zpc2lvbnMYAiABKAlCSvLeHxh5YW1sOiJhbm51YWxfcHJvdmlzaW9ucyLa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUhBhbm51YWxQcm92aXNpb25z');
+    'CgZNaW50ZXISWgoJaW5mbGF0aW9uGAEgASgJQjzStC0KY29zbW9zLkRlY9reHyZnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkRlY8jeHwBSCWluZmxhdGlvbhJpChFhbm51YWxfcHJvdmlzaW9ucxgCIAEoCUI80rQtCmNvc21vcy5EZWPa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUhBhbm51YWxQcm92aXNpb25z');
 @$core.Deprecated('Use paramsDescriptor instead')
 const Params$json = const {
   '1': 'Params',
@@ -77,7 +77,6 @@ const Params$json = const {
       '3': 6,
       '4': 1,
       '5': 4,
-      '8': const {},
       '10': 'blocksPerYear'
     },
   ],
@@ -86,4 +85,4 @@ const Params$json = const {
 
 /// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode(
-    'CgZQYXJhbXMSHQoKbWludF9kZW5vbRgBIAEoCVIJbWludERlbm9tEoIBChVpbmZsYXRpb25fcmF0ZV9jaGFuZ2UYAiABKAlCTvLeHxx5YW1sOiJpbmZsYXRpb25fcmF0ZV9jaGFuZ2Ui2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFITaW5mbGF0aW9uUmF0ZUNoYW5nZRJrCg1pbmZsYXRpb25fbWF4GAMgASgJQkby3h8UeWFtbDoiaW5mbGF0aW9uX21heCLa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUgxpbmZsYXRpb25NYXgSawoNaW5mbGF0aW9uX21pbhgEIAEoCUJG8t4fFHlhbWw6ImluZmxhdGlvbl9taW4i2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFIMaW5mbGF0aW9uTWluEmUKC2dvYWxfYm9uZGVkGAUgASgJQkTy3h8SeWFtbDoiZ29hbF9ib25kZWQi2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFIKZ29hbEJvbmRlZBJCCg9ibG9ja3NfcGVyX3llYXIYBiABKARCGvLeHxZ5YW1sOiJibG9ja3NfcGVyX3llYXIiUg1ibG9ja3NQZXJZZWFyOgSYoB8A');
+    'CgZQYXJhbXMSHQoKbWludF9kZW5vbRgBIAEoCVIJbWludERlbm9tEnAKFWluZmxhdGlvbl9yYXRlX2NoYW5nZRgCIAEoCUI80rQtCmNvc21vcy5EZWPa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUhNpbmZsYXRpb25SYXRlQ2hhbmdlEmEKDWluZmxhdGlvbl9tYXgYAyABKAlCPNK0LQpjb3Ntb3MuRGVj2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFIMaW5mbGF0aW9uTWF4EmEKDWluZmxhdGlvbl9taW4YBCABKAlCPNK0LQpjb3Ntb3MuRGVj2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFIMaW5mbGF0aW9uTWluEl0KC2dvYWxfYm9uZGVkGAUgASgJQjzStC0KY29zbW9zLkRlY9reHyZnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkRlY8jeHwBSCmdvYWxCb25kZWQSJgoPYmxvY2tzX3Blcl95ZWFyGAYgASgEUg1ibG9ja3NQZXJZZWFyOgSYoB8A');

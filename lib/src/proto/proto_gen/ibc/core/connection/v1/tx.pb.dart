@@ -307,7 +307,8 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
   MsgConnectionOpenTry._() : super();
   factory MsgConnectionOpenTry({
     $core.String? clientId,
-    $core.String? previousConnectionId,
+    @$core.Deprecated('This field is deprecated.')
+        $core.String? previousConnectionId,
     $2.Any? clientState,
     $1.Counterparty? counterparty,
     $fixnum.Int64? delayPeriod,
@@ -324,6 +325,7 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
       _result.clientId = clientId;
     }
     if (previousConnectionId != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.previousConnectionId = previousConnectionId;
     }
     if (clientState != null) {
@@ -398,15 +400,19 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $core.String get previousConnectionId => $_getSZ(1);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   set previousConnectionId($core.String v) {
     $_setString(1, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $core.bool hasPreviousConnectionId() => $_has(1);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   void clearPreviousConnectionId() => clearField(2);
 

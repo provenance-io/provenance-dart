@@ -50,23 +50,46 @@ class GetTxsEventRequest extends $pb.GeneratedMessage {
         defaultOrMaker: OrderBy.ORDER_BY_UNSPECIFIED,
         valueOf: OrderBy.valueOf,
         enumValues: OrderBy.values)
+    ..a<$fixnum.Int64>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'page',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'limit',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   GetTxsEventRequest._() : super();
   factory GetTxsEventRequest({
     $core.Iterable<$core.String>? events,
-    $2.PageRequest? pagination,
+    @$core.Deprecated('This field is deprecated.') $2.PageRequest? pagination,
     OrderBy? orderBy,
+    $fixnum.Int64? page,
+    $fixnum.Int64? limit,
   }) {
     final _result = create();
     if (events != null) {
       _result.events.addAll(events);
     }
     if (pagination != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.pagination = pagination;
     }
     if (orderBy != null) {
       _result.orderBy = orderBy;
+    }
+    if (page != null) {
+      _result.page = page;
+    }
+    if (limit != null) {
+      _result.limit = limit;
     }
     return _result;
   }
@@ -100,17 +123,22 @@ class GetTxsEventRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$core.String> get events => $_getList(0);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   set pagination($2.PageRequest v) {
     setField(2, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $core.bool hasPagination() => $_has(1);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   void clearPagination() => clearField(2);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $2.PageRequest ensurePagination() => $_ensure(1);
 
@@ -125,6 +153,30 @@ class GetTxsEventRequest extends $pb.GeneratedMessage {
   $core.bool hasOrderBy() => $_has(2);
   @$pb.TagNumber(3)
   void clearOrderBy() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get page => $_getI64(3);
+  @$pb.TagNumber(4)
+  set page($fixnum.Int64 v) {
+    $_setInt64(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasPage() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPage() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get limit => $_getI64(4);
+  @$pb.TagNumber(5)
+  set limit($fixnum.Int64 v) {
+    $_setInt64(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasLimit() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLimit() => clearField(5);
 }
 
 class GetTxsEventResponse extends $pb.GeneratedMessage {
@@ -157,13 +209,21 @@ class GetTxsEventResponse extends $pb.GeneratedMessage {
             ? ''
             : 'pagination',
         subBuilder: $2.PageResponse.create)
+    ..a<$fixnum.Int64>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'total',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   GetTxsEventResponse._() : super();
   factory GetTxsEventResponse({
     $core.Iterable<$3.Tx>? txs,
     $core.Iterable<$4.TxResponse>? txResponses,
-    $2.PageResponse? pagination,
+    @$core.Deprecated('This field is deprecated.') $2.PageResponse? pagination,
+    $fixnum.Int64? total,
   }) {
     final _result = create();
     if (txs != null) {
@@ -173,7 +233,11 @@ class GetTxsEventResponse extends $pb.GeneratedMessage {
       _result.txResponses.addAll(txResponses);
     }
     if (pagination != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.pagination = pagination;
+    }
+    if (total != null) {
+      _result.total = total;
     }
     return _result;
   }
@@ -210,19 +274,36 @@ class GetTxsEventResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.List<$4.TxResponse> get txResponses => $_getList(1);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3)
   $2.PageResponse get pagination => $_getN(2);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3)
   set pagination($2.PageResponse v) {
     setField(3, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3)
   $core.bool hasPagination() => $_has(2);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3)
   void clearPagination() => clearField(3);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3)
   $2.PageResponse ensurePagination() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get total => $_getI64(3);
+  @$pb.TagNumber(4)
+  set total($fixnum.Int64 v) {
+    $_setInt64(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasTotal() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTotal() => clearField(4);
 }
 
 class BroadcastTxRequest extends $pb.GeneratedMessage {

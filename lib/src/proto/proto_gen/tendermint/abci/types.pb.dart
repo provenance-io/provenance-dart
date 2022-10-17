@@ -3214,6 +3214,21 @@ class ResponseCheckTx extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'codespace')
+    ..aOS(
+        9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sender')
+    ..aInt64(
+        10,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'priority')
+    ..aOS(
+        11,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'mempoolError')
     ..hasRequiredFields = false;
 
   ResponseCheckTx._() : super();
@@ -3226,6 +3241,9 @@ class ResponseCheckTx extends $pb.GeneratedMessage {
     $fixnum.Int64? gasUsed,
     $core.Iterable<Event>? events,
     $core.String? codespace,
+    $core.String? sender,
+    $fixnum.Int64? priority,
+    $core.String? mempoolError,
   }) {
     final _result = create();
     if (code != null) {
@@ -3251,6 +3269,15 @@ class ResponseCheckTx extends $pb.GeneratedMessage {
     }
     if (codespace != null) {
       _result.codespace = codespace;
+    }
+    if (sender != null) {
+      _result.sender = sender;
+    }
+    if (priority != null) {
+      _result.priority = priority;
+    }
+    if (mempoolError != null) {
+      _result.mempoolError = mempoolError;
     }
     return _result;
   }
@@ -3367,6 +3394,42 @@ class ResponseCheckTx extends $pb.GeneratedMessage {
   $core.bool hasCodespace() => $_has(7);
   @$pb.TagNumber(8)
   void clearCodespace() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get sender => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set sender($core.String v) {
+    $_setString(8, v);
+  }
+
+  @$pb.TagNumber(9)
+  $core.bool hasSender() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearSender() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $fixnum.Int64 get priority => $_getI64(9);
+  @$pb.TagNumber(10)
+  set priority($fixnum.Int64 v) {
+    $_setInt64(9, v);
+  }
+
+  @$pb.TagNumber(10)
+  $core.bool hasPriority() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearPriority() => clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.String get mempoolError => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set mempoolError($core.String v) {
+    $_setString(10, v);
+  }
+
+  @$pb.TagNumber(11)
+  $core.bool hasMempoolError() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearMempoolError() => clearField(11);
 }
 
 class ResponseDeliverTx extends $pb.GeneratedMessage {

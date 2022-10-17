@@ -753,12 +753,15 @@ const ResponseCheckTx$json = const {
       '10': 'events'
     },
     const {'1': 'codespace', '3': 8, '4': 1, '5': 9, '10': 'codespace'},
+    const {'1': 'sender', '3': 9, '4': 1, '5': 9, '10': 'sender'},
+    const {'1': 'priority', '3': 10, '4': 1, '5': 3, '10': 'priority'},
+    const {'1': 'mempool_error', '3': 11, '4': 1, '5': 9, '10': 'mempoolError'},
   ],
 };
 
 /// Descriptor for `ResponseCheckTx`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List responseCheckTxDescriptor = $convert.base64Decode(
-    'Cg9SZXNwb25zZUNoZWNrVHgSEgoEY29kZRgBIAEoDVIEY29kZRISCgRkYXRhGAIgASgMUgRkYXRhEhAKA2xvZxgDIAEoCVIDbG9nEhIKBGluZm8YBCABKAlSBGluZm8SHgoKZ2FzX3dhbnRlZBgFIAEoA1IKZ2FzX3dhbnRlZBIaCghnYXNfdXNlZBgGIAEoA1IIZ2FzX3VzZWQSSAoGZXZlbnRzGAcgAygLMhYudGVuZGVybWludC5hYmNpLkV2ZW50QhjI3h8A6t4fEGV2ZW50cyxvbWl0ZW1wdHlSBmV2ZW50cxIcCgljb2Rlc3BhY2UYCCABKAlSCWNvZGVzcGFjZQ==');
+    'Cg9SZXNwb25zZUNoZWNrVHgSEgoEY29kZRgBIAEoDVIEY29kZRISCgRkYXRhGAIgASgMUgRkYXRhEhAKA2xvZxgDIAEoCVIDbG9nEhIKBGluZm8YBCABKAlSBGluZm8SHgoKZ2FzX3dhbnRlZBgFIAEoA1IKZ2FzX3dhbnRlZBIaCghnYXNfdXNlZBgGIAEoA1IIZ2FzX3VzZWQSSAoGZXZlbnRzGAcgAygLMhYudGVuZGVybWludC5hYmNpLkV2ZW50QhjI3h8A6t4fEGV2ZW50cyxvbWl0ZW1wdHlSBmV2ZW50cxIcCgljb2Rlc3BhY2UYCCABKAlSCWNvZGVzcGFjZRIWCgZzZW5kZXIYCSABKAlSBnNlbmRlchIaCghwcmlvcml0eRgKIAEoA1IIcHJpb3JpdHkSIwoNbWVtcG9vbF9lcnJvchgLIAEoCVIMbWVtcG9vbEVycm9y');
 @$core.Deprecated('Use responseDeliverTxDescriptor instead')
 const ResponseDeliverTx$json = const {
   '1': 'ResponseDeliverTx',

@@ -28,4 +28,4 @@ const SendAuthorization$json = const {
 
 /// Descriptor for `SendAuthorization`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List sendAuthorizationDescriptor = $convert.base64Decode(
-    'ChFTZW5kQXV0aG9yaXphdGlvbhJsCgtzcGVuZF9saW1pdBgBIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgpzcGVuZExpbWl0OhHStC0NQXV0aG9yaXphdGlvbg==');
+    'ChFTZW5kQXV0aG9yaXphdGlvbhJsCgtzcGVuZF9saW1pdBgBIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgpzcGVuZExpbWl0OhHKtC0NQXV0aG9yaXphdGlvbg==');

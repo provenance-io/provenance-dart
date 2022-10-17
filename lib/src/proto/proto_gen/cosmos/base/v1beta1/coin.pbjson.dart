@@ -28,7 +28,7 @@ const Coin$json = const {
 
 /// Descriptor for `Coin`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List coinDescriptor = $convert.base64Decode(
-    'CgRDb2luEhQKBWRlbm9tGAEgASgJUgVkZW5vbRIjCgZhbW91bnQYAiABKAlCC9reHwNJbnTI3h8AUgZhbW91bnQ6BOigHwE=');
+    'CgRDb2luEhQKBWRlbm9tGAEgASgJUgVkZW5vbRIxCgZhbW91bnQYAiABKAlCGdK0LQpjb3Ntb3MuSW502t4fA0ludMjeHwBSBmFtb3VudDoE6KAfAQ==');
 @$core.Deprecated('Use decCoinDescriptor instead')
 const DecCoin$json = const {
   '1': 'DecCoin',
@@ -48,7 +48,7 @@ const DecCoin$json = const {
 
 /// Descriptor for `DecCoin`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List decCoinDescriptor = $convert.base64Decode(
-    'CgdEZWNDb2luEhQKBWRlbm9tGAEgASgJUgVkZW5vbRIjCgZhbW91bnQYAiABKAlCC9reHwNEZWPI3h8AUgZhbW91bnQ6BOigHwE=');
+    'CgdEZWNDb2luEhQKBWRlbm9tGAEgASgJUgVkZW5vbRIxCgZhbW91bnQYAiABKAlCGdK0LQpjb3Ntb3MuRGVj2t4fA0RlY8jeHwBSBmFtb3VudDoE6KAfAQ==');
 @$core.Deprecated('Use intProtoDescriptor instead')
 const IntProto$json = const {
   '1': 'IntProto',
@@ -58,8 +58,8 @@ const IntProto$json = const {
 };
 
 /// Descriptor for `IntProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List intProtoDescriptor = $convert
-    .base64Decode('CghJbnRQcm90bxIdCgNpbnQYASABKAlCC9reHwNJbnTI3h8AUgNpbnQ=');
+final $typed_data.Uint8List intProtoDescriptor = $convert.base64Decode(
+    'CghJbnRQcm90bxIrCgNpbnQYASABKAlCGdK0LQpjb3Ntb3MuSW502t4fA0ludMjeHwBSA2ludA==');
 @$core.Deprecated('Use decProtoDescriptor instead')
 const DecProto$json = const {
   '1': 'DecProto',
@@ -69,5 +69,5 @@ const DecProto$json = const {
 };
 
 /// Descriptor for `DecProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List decProtoDescriptor = $convert
-    .base64Decode('CghEZWNQcm90bxIdCgNkZWMYASABKAlCC9reHwNEZWPI3h8AUgNkZWM=');
+final $typed_data.Uint8List decProtoDescriptor = $convert.base64Decode(
+    'CghEZWNQcm90bxIrCgNkZWMYASABKAlCGdK0LQpjb3Ntb3MuRGVj2t4fA0RlY8jeHwBSA2RlYw==');

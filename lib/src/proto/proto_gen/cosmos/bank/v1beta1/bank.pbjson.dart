@@ -27,7 +27,6 @@ const Params$json = const {
       '3': 2,
       '4': 1,
       '5': 8,
-      '8': const {},
       '10': 'defaultSendEnabled'
     },
   ],
@@ -36,7 +35,7 @@ const Params$json = const {
 
 /// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode(
-    'CgZQYXJhbXMSaAoMc2VuZF9lbmFibGVkGAEgAygLMiAuY29zbW9zLmJhbmsudjFiZXRhMS5TZW5kRW5hYmxlZEIjGAHy3h8deWFtbDoic2VuZF9lbmFibGVkLG9taXRlbXB0eSJSC3NlbmRFbmFibGVkElsKFGRlZmF1bHRfc2VuZF9lbmFibGVkGAIgASgIQiny3h8leWFtbDoiZGVmYXVsdF9zZW5kX2VuYWJsZWQsb21pdGVtcHR5IlISZGVmYXVsdFNlbmRFbmFibGVkOgSYoB8A');
+    'CgZQYXJhbXMSRwoMc2VuZF9lbmFibGVkGAEgAygLMiAuY29zbW9zLmJhbmsudjFiZXRhMS5TZW5kRW5hYmxlZEICGAFSC3NlbmRFbmFibGVkEjAKFGRlZmF1bHRfc2VuZF9lbmFibGVkGAIgASgIUhJkZWZhdWx0U2VuZEVuYWJsZWQ6BJigHwA=');
 @$core.Deprecated('Use sendEnabledDescriptor instead')
 const SendEnabled$json = const {
   '1': 'SendEnabled',
@@ -54,7 +53,14 @@ final $typed_data.Uint8List sendEnabledDescriptor = $convert.base64Decode(
 const Input$json = const {
   '1': 'Input',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {
       '1': 'coins',
       '3': 2,
@@ -70,12 +76,19 @@ const Input$json = const {
 
 /// Descriptor for `Input`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List inputDescriptor = $convert.base64Decode(
-    'CgVJbnB1dBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEmEKBWNvaW5zGAIgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWNvaW5zOgjooB8AiKAfAA==');
+    'CgVJbnB1dBIyCgdhZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSB2FkZHJlc3MSYQoFY29pbnMYAiADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc1IFY29pbnM6FILnsCoHYWRkcmVzc+igHwCIoB8A');
 @$core.Deprecated('Use outputDescriptor instead')
 const Output$json = const {
   '1': 'Output',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {
       '1': 'coins',
       '3': 2,
@@ -91,7 +104,7 @@ const Output$json = const {
 
 /// Descriptor for `Output`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List outputDescriptor = $convert.base64Decode(
-    'CgZPdXRwdXQSGAoHYWRkcmVzcxgBIAEoCVIHYWRkcmVzcxJhCgVjb2lucxgCIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgVjb2luczoI6KAfAIigHwA=');
+    'CgZPdXRwdXQSMgoHYWRkcmVzcxgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdhZGRyZXNzEmEKBWNvaW5zGAIgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSBWNvaW5zOgjooB8AiKAfAA==');
 @$core.Deprecated('Use supplyDescriptor instead')
 const Supply$json = const {
   '1': 'Supply',
@@ -111,7 +124,7 @@ const Supply$json = const {
 
 /// Descriptor for `Supply`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List supplyDescriptor = $convert.base64Decode(
-    'CgZTdXBwbHkSYQoFdG90YWwYASADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc1IFdG90YWw6RhgB6KAfAYigHwDStC04KmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsveC9iYW5rL2xlZ2FjeS92MDQwLlN1cHBseUk=');
+    'CgZTdXBwbHkSYQoFdG90YWwYASADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc1IFdG90YWw6ShgB6KAfAYigHwDKtC08KmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsveC9iYW5rL21pZ3JhdGlvbnMvdjA0MC5TdXBwbHlJ');
 @$core.Deprecated('Use denomUnitDescriptor instead')
 const DenomUnit$json = const {
   '1': 'DenomUnit',
@@ -142,9 +155,18 @@ const Metadata$json = const {
     const {'1': 'display', '3': 4, '4': 1, '5': 9, '10': 'display'},
     const {'1': 'name', '3': 5, '4': 1, '5': 9, '10': 'name'},
     const {'1': 'symbol', '3': 6, '4': 1, '5': 9, '10': 'symbol'},
+    const {'1': 'uri', '3': 7, '4': 1, '5': 9, '8': const {}, '10': 'uri'},
+    const {
+      '1': 'uri_hash',
+      '3': 8,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'uriHash'
+    },
   ],
 };
 
 /// Descriptor for `Metadata`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List metadataDescriptor = $convert.base64Decode(
-    'CghNZXRhZGF0YRIgCgtkZXNjcmlwdGlvbhgBIAEoCVILZGVzY3JpcHRpb24SPwoLZGVub21fdW5pdHMYAiADKAsyHi5jb3Ntb3MuYmFuay52MWJldGExLkRlbm9tVW5pdFIKZGVub21Vbml0cxISCgRiYXNlGAMgASgJUgRiYXNlEhgKB2Rpc3BsYXkYBCABKAlSB2Rpc3BsYXkSEgoEbmFtZRgFIAEoCVIEbmFtZRIWCgZzeW1ib2wYBiABKAlSBnN5bWJvbA==');
+    'CghNZXRhZGF0YRIgCgtkZXNjcmlwdGlvbhgBIAEoCVILZGVzY3JpcHRpb24SPwoLZGVub21fdW5pdHMYAiADKAsyHi5jb3Ntb3MuYmFuay52MWJldGExLkRlbm9tVW5pdFIKZGVub21Vbml0cxISCgRiYXNlGAMgASgJUgRiYXNlEhgKB2Rpc3BsYXkYBCABKAlSB2Rpc3BsYXkSEgoEbmFtZRgFIAEoCVIEbmFtZRIWCgZzeW1ib2wYBiABKAlSBnN5bWJvbBIZCgN1cmkYByABKAlCB+LeHwNVUklSA3VyaRImCgh1cmlfaGFzaBgIIAEoCUIL4t4fB1VSSUhhc2hSB3VyaUhhc2g=');

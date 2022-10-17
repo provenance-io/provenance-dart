@@ -51,6 +51,12 @@ class ServiceClient extends $grpc.Client {
       ($0.GetValidatorSetByHeightRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.GetValidatorSetByHeightResponse.fromBuffer(value));
+  static final _$aBCIQuery =
+      $grpc.ClientMethod<$0.ABCIQueryRequest, $0.ABCIQueryResponse>(
+          '/cosmos.base.tendermint.v1beta1.Service/ABCIQuery',
+          ($0.ABCIQueryRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.ABCIQueryResponse.fromBuffer(value));
 
   ServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -92,6 +98,12 @@ class ServiceClient extends $grpc.Client {
           {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getValidatorSetByHeight, request,
         options: options);
+  }
+
+  $grpc.ResponseFuture<$0.ABCIQueryResponse> aBCIQuery(
+      $0.ABCIQueryRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$aBCIQuery, request, options: options);
   }
 }
 
@@ -151,6 +163,13 @@ abstract class ServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.GetValidatorSetByHeightRequest.fromBuffer(value),
         ($0.GetValidatorSetByHeightResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ABCIQueryRequest, $0.ABCIQueryResponse>(
+        'ABCIQuery',
+        aBCIQuery_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.ABCIQueryRequest.fromBuffer(value),
+        ($0.ABCIQueryResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNodeInfoResponse> getNodeInfo_Pre($grpc.ServiceCall call,
@@ -187,6 +206,11 @@ abstract class ServiceBase extends $grpc.Service {
     return getValidatorSetByHeight(call, await request);
   }
 
+  $async.Future<$0.ABCIQueryResponse> aBCIQuery_Pre($grpc.ServiceCall call,
+      $async.Future<$0.ABCIQueryRequest> request) async {
+    return aBCIQuery(call, await request);
+  }
+
   $async.Future<$0.GetNodeInfoResponse> getNodeInfo(
       $grpc.ServiceCall call, $0.GetNodeInfoRequest request);
   $async.Future<$0.GetSyncingResponse> getSyncing(
@@ -199,4 +223,6 @@ abstract class ServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.GetLatestValidatorSetRequest request);
   $async.Future<$0.GetValidatorSetByHeightResponse> getValidatorSetByHeight(
       $grpc.ServiceCall call, $0.GetValidatorSetByHeightRequest request);
+  $async.Future<$0.ABCIQueryResponse> aBCIQuery(
+      $grpc.ServiceCall call, $0.ABCIQueryRequest request);
 }

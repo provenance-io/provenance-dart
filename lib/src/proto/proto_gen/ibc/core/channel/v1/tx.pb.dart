@@ -13,6 +13,10 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'channel.pb.dart' as $1;
 import '../../client/v1/client.pb.dart' as $2;
 
+import 'tx.pbenum.dart';
+
+export 'tx.pbenum.dart';
+
 class MsgChannelOpenInit extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
@@ -135,10 +139,32 @@ class MsgChannelOpenInitResponse extends $pb.GeneratedMessage {
               ? ''
               : 'ibc.core.channel.v1'),
       createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'channelId')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'version')
     ..hasRequiredFields = false;
 
   MsgChannelOpenInitResponse._() : super();
-  factory MsgChannelOpenInitResponse() => create();
+  factory MsgChannelOpenInitResponse({
+    $core.String? channelId,
+    $core.String? version,
+  }) {
+    final _result = create();
+    if (channelId != null) {
+      _result.channelId = channelId;
+    }
+    if (version != null) {
+      _result.version = version;
+    }
+    return _result;
+  }
   factory MsgChannelOpenInitResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
@@ -168,6 +194,30 @@ class MsgChannelOpenInitResponse extends $pb.GeneratedMessage {
   static MsgChannelOpenInitResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MsgChannelOpenInitResponse>(create);
   static MsgChannelOpenInitResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get channelId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set channelId($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasChannelId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannelId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get version => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set version($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasVersion() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearVersion() => clearField(2);
 }
 
 class MsgChannelOpenTry extends $pb.GeneratedMessage {
@@ -223,7 +273,8 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
   MsgChannelOpenTry._() : super();
   factory MsgChannelOpenTry({
     $core.String? portId,
-    $core.String? previousChannelId,
+    @$core.Deprecated('This field is deprecated.')
+        $core.String? previousChannelId,
     $1.Channel? channel,
     $core.String? counterpartyVersion,
     $core.List<$core.int>? proofInit,
@@ -235,6 +286,7 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
       _result.portId = portId;
     }
     if (previousChannelId != null) {
+      // ignore: deprecated_member_use_from_same_package
       _result.previousChannelId = previousChannelId;
     }
     if (channel != null) {
@@ -293,15 +345,19 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $core.String get previousChannelId => $_getSZ(1);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   set previousChannelId($core.String v) {
     $_setString(1, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $core.bool hasPreviousChannelId() => $_has(1);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   void clearPreviousChannelId() => clearField(2);
 
@@ -380,10 +436,23 @@ class MsgChannelOpenTryResponse extends $pb.GeneratedMessage {
               ? ''
               : 'ibc.core.channel.v1'),
       createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'version')
     ..hasRequiredFields = false;
 
   MsgChannelOpenTryResponse._() : super();
-  factory MsgChannelOpenTryResponse() => create();
+  factory MsgChannelOpenTryResponse({
+    $core.String? version,
+  }) {
+    final _result = create();
+    if (version != null) {
+      _result.version = version;
+    }
+    return _result;
+  }
   factory MsgChannelOpenTryResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
@@ -412,6 +481,18 @@ class MsgChannelOpenTryResponse extends $pb.GeneratedMessage {
   static MsgChannelOpenTryResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MsgChannelOpenTryResponse>(create);
   static MsgChannelOpenTryResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get version => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set version($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearVersion() => clearField(1);
 }
 
 class MsgChannelOpenAck extends $pb.GeneratedMessage {
@@ -1363,10 +1444,27 @@ class MsgRecvPacketResponse extends $pb.GeneratedMessage {
               ? ''
               : 'ibc.core.channel.v1'),
       createEmptyInstance: create)
+    ..e<ResponseResultType>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'result',
+        $pb.PbFieldType.OE,
+        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
+        valueOf: ResponseResultType.valueOf,
+        enumValues: ResponseResultType.values)
     ..hasRequiredFields = false;
 
   MsgRecvPacketResponse._() : super();
-  factory MsgRecvPacketResponse() => create();
+  factory MsgRecvPacketResponse({
+    ResponseResultType? result,
+  }) {
+    final _result = create();
+    if (result != null) {
+      _result.result = result;
+    }
+    return _result;
+  }
   factory MsgRecvPacketResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
@@ -1395,6 +1493,18 @@ class MsgRecvPacketResponse extends $pb.GeneratedMessage {
   static MsgRecvPacketResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MsgRecvPacketResponse>(create);
   static MsgRecvPacketResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ResponseResultType get result => $_getN(0);
+  @$pb.TagNumber(1)
+  set result(ResponseResultType v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasResult() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearResult() => clearField(1);
 }
 
 class MsgTimeout extends $pb.GeneratedMessage {
@@ -1566,10 +1676,27 @@ class MsgTimeoutResponse extends $pb.GeneratedMessage {
               ? ''
               : 'ibc.core.channel.v1'),
       createEmptyInstance: create)
+    ..e<ResponseResultType>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'result',
+        $pb.PbFieldType.OE,
+        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
+        valueOf: ResponseResultType.valueOf,
+        enumValues: ResponseResultType.values)
     ..hasRequiredFields = false;
 
   MsgTimeoutResponse._() : super();
-  factory MsgTimeoutResponse() => create();
+  factory MsgTimeoutResponse({
+    ResponseResultType? result,
+  }) {
+    final _result = create();
+    if (result != null) {
+      _result.result = result;
+    }
+    return _result;
+  }
   factory MsgTimeoutResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
@@ -1596,6 +1723,18 @@ class MsgTimeoutResponse extends $pb.GeneratedMessage {
   static MsgTimeoutResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MsgTimeoutResponse>(create);
   static MsgTimeoutResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ResponseResultType get result => $_getN(0);
+  @$pb.TagNumber(1)
+  set result(ResponseResultType v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasResult() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearResult() => clearField(1);
 }
 
 class MsgTimeoutOnClose extends $pb.GeneratedMessage {
@@ -1790,10 +1929,27 @@ class MsgTimeoutOnCloseResponse extends $pb.GeneratedMessage {
               ? ''
               : 'ibc.core.channel.v1'),
       createEmptyInstance: create)
+    ..e<ResponseResultType>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'result',
+        $pb.PbFieldType.OE,
+        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
+        valueOf: ResponseResultType.valueOf,
+        enumValues: ResponseResultType.values)
     ..hasRequiredFields = false;
 
   MsgTimeoutOnCloseResponse._() : super();
-  factory MsgTimeoutOnCloseResponse() => create();
+  factory MsgTimeoutOnCloseResponse({
+    ResponseResultType? result,
+  }) {
+    final _result = create();
+    if (result != null) {
+      _result.result = result;
+    }
+    return _result;
+  }
   factory MsgTimeoutOnCloseResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
@@ -1822,6 +1978,18 @@ class MsgTimeoutOnCloseResponse extends $pb.GeneratedMessage {
   static MsgTimeoutOnCloseResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MsgTimeoutOnCloseResponse>(create);
   static MsgTimeoutOnCloseResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ResponseResultType get result => $_getN(0);
+  @$pb.TagNumber(1)
+  set result(ResponseResultType v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasResult() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearResult() => clearField(1);
 }
 
 class MsgAcknowledgement extends $pb.GeneratedMessage {
@@ -1993,10 +2161,27 @@ class MsgAcknowledgementResponse extends $pb.GeneratedMessage {
               ? ''
               : 'ibc.core.channel.v1'),
       createEmptyInstance: create)
+    ..e<ResponseResultType>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'result',
+        $pb.PbFieldType.OE,
+        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
+        valueOf: ResponseResultType.valueOf,
+        enumValues: ResponseResultType.values)
     ..hasRequiredFields = false;
 
   MsgAcknowledgementResponse._() : super();
-  factory MsgAcknowledgementResponse() => create();
+  factory MsgAcknowledgementResponse({
+    ResponseResultType? result,
+  }) {
+    final _result = create();
+    if (result != null) {
+      _result.result = result;
+    }
+    return _result;
+  }
   factory MsgAcknowledgementResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
@@ -2026,4 +2211,16 @@ class MsgAcknowledgementResponse extends $pb.GeneratedMessage {
   static MsgAcknowledgementResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MsgAcknowledgementResponse>(create);
   static MsgAcknowledgementResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ResponseResultType get result => $_getN(0);
+  @$pb.TagNumber(1)
+  set result(ResponseResultType v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasResult() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearResult() => clearField(1);
 }

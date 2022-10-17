@@ -13,8 +13,22 @@ import 'dart:typed_data' as $typed_data;
 const QueryGrantsRequest$json = const {
   '1': 'QueryGrantsRequest',
   '2': const [
-    const {'1': 'granter', '3': 1, '4': 1, '5': 9, '10': 'granter'},
-    const {'1': 'grantee', '3': 2, '4': 1, '5': 9, '10': 'grantee'},
+    const {
+      '1': 'granter',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'granter'
+    },
+    const {
+      '1': 'grantee',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'grantee'
+    },
     const {'1': 'msg_type_url', '3': 3, '4': 1, '5': 9, '10': 'msgTypeUrl'},
     const {
       '1': 'pagination',
@@ -29,7 +43,7 @@ const QueryGrantsRequest$json = const {
 
 /// Descriptor for `QueryGrantsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryGrantsRequestDescriptor = $convert.base64Decode(
-    'ChJRdWVyeUdyYW50c1JlcXVlc3QSGAoHZ3JhbnRlchgBIAEoCVIHZ3JhbnRlchIYCgdncmFudGVlGAIgASgJUgdncmFudGVlEiAKDG1zZ190eXBlX3VybBgDIAEoCVIKbXNnVHlwZVVybBJGCgpwYWdpbmF0aW9uGAQgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+    'ChJRdWVyeUdyYW50c1JlcXVlc3QSMgoHZ3JhbnRlchgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdncmFudGVyEjIKB2dyYW50ZWUYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlZRIgCgxtc2dfdHlwZV91cmwYAyABKAlSCm1zZ1R5cGVVcmwSRgoKcGFnaW5hdGlvbhgEIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24=');
 @$core.Deprecated('Use queryGrantsResponseDescriptor instead')
 const QueryGrantsResponse$json = const {
   '1': 'QueryGrantsResponse',
@@ -60,7 +74,14 @@ final $typed_data.Uint8List queryGrantsResponseDescriptor = $convert.base64Decod
 const QueryGranterGrantsRequest$json = const {
   '1': 'QueryGranterGrantsRequest',
   '2': const [
-    const {'1': 'granter', '3': 1, '4': 1, '5': 9, '10': 'granter'},
+    const {
+      '1': 'granter',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'granter'
+    },
     const {
       '1': 'pagination',
       '3': 2,
@@ -75,7 +96,7 @@ const QueryGranterGrantsRequest$json = const {
 /// Descriptor for `QueryGranterGrantsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryGranterGrantsRequestDescriptor =
     $convert.base64Decode(
-        'ChlRdWVyeUdyYW50ZXJHcmFudHNSZXF1ZXN0EhgKB2dyYW50ZXIYASABKAlSB2dyYW50ZXISRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24=');
+        'ChlRdWVyeUdyYW50ZXJHcmFudHNSZXF1ZXN0EjIKB2dyYW50ZXIYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlchJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
 @$core.Deprecated('Use queryGranterGrantsResponseDescriptor instead')
 const QueryGranterGrantsResponse$json = const {
   '1': 'QueryGranterGrantsResponse',
@@ -107,7 +128,14 @@ final $typed_data.Uint8List queryGranterGrantsResponseDescriptor =
 const QueryGranteeGrantsRequest$json = const {
   '1': 'QueryGranteeGrantsRequest',
   '2': const [
-    const {'1': 'grantee', '3': 1, '4': 1, '5': 9, '10': 'grantee'},
+    const {
+      '1': 'grantee',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'grantee'
+    },
     const {
       '1': 'pagination',
       '3': 2,
@@ -122,7 +150,7 @@ const QueryGranteeGrantsRequest$json = const {
 /// Descriptor for `QueryGranteeGrantsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryGranteeGrantsRequestDescriptor =
     $convert.base64Decode(
-        'ChlRdWVyeUdyYW50ZWVHcmFudHNSZXF1ZXN0EhgKB2dyYW50ZWUYASABKAlSB2dyYW50ZWUSRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24=');
+        'ChlRdWVyeUdyYW50ZWVHcmFudHNSZXF1ZXN0EjIKB2dyYW50ZWUYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlZRJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
 @$core.Deprecated('Use queryGranteeGrantsResponseDescriptor instead')
 const QueryGranteeGrantsResponse$json = const {
   '1': 'QueryGranteeGrantsResponse',

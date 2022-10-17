@@ -108,7 +108,14 @@ final $typed_data.Uint8List getLatestValidatorSetResponseDescriptor =
 const Validator$json = const {
   '1': 'Validator',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {
       '1': 'pub_key',
       '3': 2,
@@ -130,7 +137,7 @@ const Validator$json = const {
 
 /// Descriptor for `Validator`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validatorDescriptor = $convert.base64Decode(
-    'CglWYWxpZGF0b3ISGAoHYWRkcmVzcxgBIAEoCVIHYWRkcmVzcxItCgdwdWJfa2V5GAIgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueVIGcHViS2V5EiEKDHZvdGluZ19wb3dlchgDIAEoA1ILdm90aW5nUG93ZXISKwoRcHJvcG9zZXJfcHJpb3JpdHkYBCABKANSEHByb3Bvc2VyUHJpb3JpdHk=');
+    'CglWYWxpZGF0b3ISMgoHYWRkcmVzcxgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdhZGRyZXNzEi0KB3B1Yl9rZXkYAiABKAsyFC5nb29nbGUucHJvdG9idWYuQW55UgZwdWJLZXkSIQoMdm90aW5nX3Bvd2VyGAMgASgDUgt2b3RpbmdQb3dlchIrChFwcm9wb3Nlcl9wcmlvcml0eRgEIAEoA1IQcHJvcG9zZXJQcmlvcml0eQ==');
 @$core.Deprecated('Use getBlockByHeightRequestDescriptor instead')
 const GetBlockByHeightRequest$json = const {
   '1': 'GetBlockByHeightRequest',
@@ -163,13 +170,21 @@ const GetBlockByHeightResponse$json = const {
       '6': '.tendermint.types.Block',
       '10': 'block'
     },
+    const {
+      '1': 'sdk_block',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.tendermint.v1beta1.Block',
+      '10': 'sdkBlock'
+    },
   ],
 };
 
 /// Descriptor for `GetBlockByHeightResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getBlockByHeightResponseDescriptor =
     $convert.base64Decode(
-        'ChhHZXRCbG9ja0J5SGVpZ2h0UmVzcG9uc2USNAoIYmxvY2tfaWQYASABKAsyGS50ZW5kZXJtaW50LnR5cGVzLkJsb2NrSURSB2Jsb2NrSWQSLQoFYmxvY2sYAiABKAsyFy50ZW5kZXJtaW50LnR5cGVzLkJsb2NrUgVibG9jaw==');
+        'ChhHZXRCbG9ja0J5SGVpZ2h0UmVzcG9uc2USNAoIYmxvY2tfaWQYASABKAsyGS50ZW5kZXJtaW50LnR5cGVzLkJsb2NrSURSB2Jsb2NrSWQSLQoFYmxvY2sYAiABKAsyFy50ZW5kZXJtaW50LnR5cGVzLkJsb2NrUgVibG9jaxJCCglzZGtfYmxvY2sYAyABKAsyJS5jb3Ntb3MuYmFzZS50ZW5kZXJtaW50LnYxYmV0YTEuQmxvY2tSCHNka0Jsb2Nr');
 @$core.Deprecated('Use getLatestBlockRequestDescriptor instead')
 const GetLatestBlockRequest$json = const {
   '1': 'GetLatestBlockRequest',
@@ -198,13 +213,21 @@ const GetLatestBlockResponse$json = const {
       '6': '.tendermint.types.Block',
       '10': 'block'
     },
+    const {
+      '1': 'sdk_block',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.tendermint.v1beta1.Block',
+      '10': 'sdkBlock'
+    },
   ],
 };
 
 /// Descriptor for `GetLatestBlockResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getLatestBlockResponseDescriptor =
     $convert.base64Decode(
-        'ChZHZXRMYXRlc3RCbG9ja1Jlc3BvbnNlEjQKCGJsb2NrX2lkGAEgASgLMhkudGVuZGVybWludC50eXBlcy5CbG9ja0lEUgdibG9ja0lkEi0KBWJsb2NrGAIgASgLMhcudGVuZGVybWludC50eXBlcy5CbG9ja1IFYmxvY2s=');
+        'ChZHZXRMYXRlc3RCbG9ja1Jlc3BvbnNlEjQKCGJsb2NrX2lkGAEgASgLMhkudGVuZGVybWludC50eXBlcy5CbG9ja0lEUgdibG9ja0lkEi0KBWJsb2NrGAIgASgLMhcudGVuZGVybWludC50eXBlcy5CbG9ja1IFYmxvY2sSQgoJc2RrX2Jsb2NrGAMgASgLMiUuY29zbW9zLmJhc2UudGVuZGVybWludC52MWJldGExLkJsb2NrUghzZGtCbG9jaw==');
 @$core.Deprecated('Use getSyncingRequestDescriptor instead')
 const GetSyncingRequest$json = const {
   '1': 'GetSyncingRequest',
@@ -303,3 +326,78 @@ const Module$json = const {
 /// Descriptor for `Module`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List moduleDescriptor = $convert.base64Decode(
     'CgZNb2R1bGUSEgoEcGF0aBgBIAEoCVIEcGF0aBIYCgd2ZXJzaW9uGAIgASgJUgd2ZXJzaW9uEhAKA3N1bRgDIAEoCVIDc3Vt');
+@$core.Deprecated('Use aBCIQueryRequestDescriptor instead')
+const ABCIQueryRequest$json = const {
+  '1': 'ABCIQueryRequest',
+  '2': const [
+    const {'1': 'data', '3': 1, '4': 1, '5': 12, '10': 'data'},
+    const {'1': 'path', '3': 2, '4': 1, '5': 9, '10': 'path'},
+    const {'1': 'height', '3': 3, '4': 1, '5': 3, '10': 'height'},
+    const {'1': 'prove', '3': 4, '4': 1, '5': 8, '10': 'prove'},
+  ],
+};
+
+/// Descriptor for `ABCIQueryRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List aBCIQueryRequestDescriptor = $convert.base64Decode(
+    'ChBBQkNJUXVlcnlSZXF1ZXN0EhIKBGRhdGEYASABKAxSBGRhdGESEgoEcGF0aBgCIAEoCVIEcGF0aBIWCgZoZWlnaHQYAyABKANSBmhlaWdodBIUCgVwcm92ZRgEIAEoCFIFcHJvdmU=');
+@$core.Deprecated('Use aBCIQueryResponseDescriptor instead')
+const ABCIQueryResponse$json = const {
+  '1': 'ABCIQueryResponse',
+  '2': const [
+    const {'1': 'code', '3': 1, '4': 1, '5': 13, '10': 'code'},
+    const {'1': 'log', '3': 3, '4': 1, '5': 9, '10': 'log'},
+    const {'1': 'info', '3': 4, '4': 1, '5': 9, '10': 'info'},
+    const {'1': 'index', '3': 5, '4': 1, '5': 3, '10': 'index'},
+    const {'1': 'key', '3': 6, '4': 1, '5': 12, '10': 'key'},
+    const {'1': 'value', '3': 7, '4': 1, '5': 12, '10': 'value'},
+    const {
+      '1': 'proof_ops',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.tendermint.v1beta1.ProofOps',
+      '10': 'proofOps'
+    },
+    const {'1': 'height', '3': 9, '4': 1, '5': 3, '10': 'height'},
+    const {'1': 'codespace', '3': 10, '4': 1, '5': 9, '10': 'codespace'},
+  ],
+  '9': const [
+    const {'1': 2, '2': 3},
+  ],
+};
+
+/// Descriptor for `ABCIQueryResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List aBCIQueryResponseDescriptor = $convert.base64Decode(
+    'ChFBQkNJUXVlcnlSZXNwb25zZRISCgRjb2RlGAEgASgNUgRjb2RlEhAKA2xvZxgDIAEoCVIDbG9nEhIKBGluZm8YBCABKAlSBGluZm8SFAoFaW5kZXgYBSABKANSBWluZGV4EhAKA2tleRgGIAEoDFIDa2V5EhQKBXZhbHVlGAcgASgMUgV2YWx1ZRJFCglwcm9vZl9vcHMYCCABKAsyKC5jb3Ntb3MuYmFzZS50ZW5kZXJtaW50LnYxYmV0YTEuUHJvb2ZPcHNSCHByb29mT3BzEhYKBmhlaWdodBgJIAEoA1IGaGVpZ2h0EhwKCWNvZGVzcGFjZRgKIAEoCVIJY29kZXNwYWNlSgQIAhAD');
+@$core.Deprecated('Use proofOpDescriptor instead')
+const ProofOp$json = const {
+  '1': 'ProofOp',
+  '2': const [
+    const {'1': 'type', '3': 1, '4': 1, '5': 9, '10': 'type'},
+    const {'1': 'key', '3': 2, '4': 1, '5': 12, '10': 'key'},
+    const {'1': 'data', '3': 3, '4': 1, '5': 12, '10': 'data'},
+  ],
+};
+
+/// Descriptor for `ProofOp`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List proofOpDescriptor = $convert.base64Decode(
+    'CgdQcm9vZk9wEhIKBHR5cGUYASABKAlSBHR5cGUSEAoDa2V5GAIgASgMUgNrZXkSEgoEZGF0YRgDIAEoDFIEZGF0YQ==');
+@$core.Deprecated('Use proofOpsDescriptor instead')
+const ProofOps$json = const {
+  '1': 'ProofOps',
+  '2': const [
+    const {
+      '1': 'ops',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.tendermint.v1beta1.ProofOp',
+      '8': const {},
+      '10': 'ops'
+    },
+  ],
+};
+
+/// Descriptor for `ProofOps`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List proofOpsDescriptor = $convert.base64Decode(
+    'CghQcm9vZk9wcxI/CgNvcHMYASADKAsyJy5jb3Ntb3MuYmFzZS50ZW5kZXJtaW50LnYxYmV0YTEuUHJvb2ZPcEIEyN4fAFIDb3Bz');

@@ -13,7 +13,14 @@ import 'dart:typed_data' as $typed_data;
 const MsgSubmitEvidence$json = const {
   '1': 'MsgSubmitEvidence',
   '2': const [
-    const {'1': 'submitter', '3': 1, '4': 1, '5': 9, '10': 'submitter'},
+    const {
+      '1': 'submitter',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'submitter'
+    },
     const {
       '1': 'evidence',
       '3': 2,
@@ -29,7 +36,7 @@ const MsgSubmitEvidence$json = const {
 
 /// Descriptor for `MsgSubmitEvidence`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgSubmitEvidenceDescriptor = $convert.base64Decode(
-    'ChFNc2dTdWJtaXRFdmlkZW5jZRIcCglzdWJtaXR0ZXIYASABKAlSCXN1Ym1pdHRlchI+CghldmlkZW5jZRgCIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCDMq0LQhFdmlkZW5jZVIIZXZpZGVuY2U6COigHwCIoB8A');
+    'ChFNc2dTdWJtaXRFdmlkZW5jZRI2CglzdWJtaXR0ZXIYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IJc3VibWl0dGVyEj4KCGV2aWRlbmNlGAIgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueUIMyrQtCEV2aWRlbmNlUghldmlkZW5jZToWguewKglzdWJtaXR0ZXLooB8AiKAfAA==');
 @$core.Deprecated('Use msgSubmitEvidenceResponseDescriptor instead')
 const MsgSubmitEvidenceResponse$json = const {
   '1': 'MsgSubmitEvidenceResponse',

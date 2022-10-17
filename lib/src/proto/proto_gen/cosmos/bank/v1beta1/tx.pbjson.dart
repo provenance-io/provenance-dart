@@ -44,7 +44,7 @@ const MsgSend$json = const {
 
 /// Descriptor for `MsgSend`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgSendDescriptor = $convert.base64Decode(
-    'CgdNc2dTZW5kEjoKDGZyb21fYWRkcmVzcxgBIAEoCUIX8t4fE3lhbWw6ImZyb21fYWRkcmVzcyJSC2Zyb21BZGRyZXNzEjQKCnRvX2FkZHJlc3MYAiABKAlCFfLeHxF5YW1sOiJ0b19hZGRyZXNzIlIJdG9BZGRyZXNzEmMKBmFtb3VudBgDIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgZhbW91bnQ6COigHwCIoB8A');
+    'CgdNc2dTZW5kEjsKDGZyb21fYWRkcmVzcxgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgtmcm9tQWRkcmVzcxI3Cgp0b19hZGRyZXNzGAIgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSCXRvQWRkcmVzcxJjCgZhbW91bnQYAyADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc1IGYW1vdW50OhmC57AqDGZyb21fYWRkcmVzc+igHwCIoB8A');
 @$core.Deprecated('Use msgSendResponseDescriptor instead')
 const MsgSendResponse$json = const {
   '1': 'MsgSendResponse',
@@ -81,7 +81,7 @@ const MsgMultiSend$json = const {
 
 /// Descriptor for `MsgMultiSend`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgMultiSendDescriptor = $convert.base64Decode(
-    'CgxNc2dNdWx0aVNlbmQSOAoGaW5wdXRzGAEgAygLMhouY29zbW9zLmJhbmsudjFiZXRhMS5JbnB1dEIEyN4fAFIGaW5wdXRzEjsKB291dHB1dHMYAiADKAsyGy5jb3Ntb3MuYmFuay52MWJldGExLk91dHB1dEIEyN4fAFIHb3V0cHV0czoE6KAfAA==');
+    'CgxNc2dNdWx0aVNlbmQSOAoGaW5wdXRzGAEgAygLMhouY29zbW9zLmJhbmsudjFiZXRhMS5JbnB1dEIEyN4fAFIGaW5wdXRzEjsKB291dHB1dHMYAiADKAsyGy5jb3Ntb3MuYmFuay52MWJldGExLk91dHB1dEIEyN4fAFIHb3V0cHV0czoPguewKgZpbnB1dHPooB8A');
 @$core.Deprecated('Use msgMultiSendResponseDescriptor instead')
 const MsgMultiSendResponse$json = const {
   '1': 'MsgMultiSendResponse',

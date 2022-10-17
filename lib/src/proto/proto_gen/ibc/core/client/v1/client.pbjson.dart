@@ -64,7 +64,7 @@ const ConsensusStateWithHeight$json = const {
 /// Descriptor for `ConsensusStateWithHeight`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List consensusStateWithHeightDescriptor =
     $convert.base64Decode(
-        'ChhDb25zZW5zdXNTdGF0ZVdpdGhIZWlnaHQSOAoGaGVpZ2h0GAEgASgLMhouaWJjLmNvcmUuY2xpZW50LnYxLkhlaWdodEIEyN4fAFIGaGVpZ2h0ElgKD2NvbnNlbnN1c19zdGF0ZRgCIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCGfLeHxV5YW1sImNvbnNlbnN1c19zdGF0ZSJSDmNvbnNlbnN1c1N0YXRl');
+        'ChhDb25zZW5zdXNTdGF0ZVdpdGhIZWlnaHQSOAoGaGVpZ2h0GAEgASgLMhouaWJjLmNvcmUuY2xpZW50LnYxLkhlaWdodEIEyN4fAFIGaGVpZ2h0ElkKD2NvbnNlbnN1c19zdGF0ZRgCIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCGvLeHxZ5YW1sOiJjb25zZW5zdXNfc3RhdGUiUg5jb25zZW5zdXNTdGF0ZQ==');
 @$core.Deprecated('Use clientConsensusStatesDescriptor instead')
 const ClientConsensusStates$json = const {
   '1': 'ClientConsensusStates',
@@ -120,7 +120,7 @@ const ClientUpdateProposal$json = const {
 
 /// Descriptor for `ClientUpdateProposal`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List clientUpdateProposalDescriptor = $convert.base64Decode(
-    'ChRDbGllbnRVcGRhdGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEkgKEXN1YmplY3RfY2xpZW50X2lkGAMgASgJQhzy3h8YeWFtbDoic3ViamVjdF9jbGllbnRfaWQiUg9zdWJqZWN0Q2xpZW50SWQSUQoUc3Vic3RpdHV0ZV9jbGllbnRfaWQYBCABKAlCH/LeHxt5YW1sOiJzdWJzdGl0dXRlX2NsaWVudF9pZCJSEnN1YnN0aXR1dGVDbGllbnRJZDoEiKAfAA==');
+    'ChRDbGllbnRVcGRhdGVQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEkgKEXN1YmplY3RfY2xpZW50X2lkGAMgASgJQhzy3h8YeWFtbDoic3ViamVjdF9jbGllbnRfaWQiUg9zdWJqZWN0Q2xpZW50SWQSUQoUc3Vic3RpdHV0ZV9jbGllbnRfaWQYBCABKAlCH/LeHxt5YW1sOiJzdWJzdGl0dXRlX2NsaWVudF9pZCJSEnN1YnN0aXR1dGVDbGllbnRJZDoiiKAfAMq0LRpjb3Ntb3MuZ292LnYxYmV0YTEuQ29udGVudA==');
 @$core.Deprecated('Use upgradeProposalDescriptor instead')
 const UpgradeProposal$json = const {
   '1': 'UpgradeProposal',
@@ -151,7 +151,7 @@ const UpgradeProposal$json = const {
 
 /// Descriptor for `UpgradeProposal`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List upgradeProposalDescriptor = $convert.base64Decode(
-    'Cg9VcGdyYWRlUHJvcG9zYWwSFAoFdGl0bGUYASABKAlSBXRpdGxlEiAKC2Rlc2NyaXB0aW9uGAIgASgJUgtkZXNjcmlwdGlvbhI2CgRwbGFuGAMgASgLMhwuY29zbW9zLnVwZ3JhZGUudjFiZXRhMS5QbGFuQgTI3h8AUgRwbGFuEmoKFXVwZ3JhZGVkX2NsaWVudF9zdGF0ZRgEIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCIPLeHxx5YW1sOiJ1cGdyYWRlZF9jbGllbnRfc3RhdGUiUhN1cGdyYWRlZENsaWVudFN0YXRlOgyIoB8AmKAfAOigHwE=');
+    'Cg9VcGdyYWRlUHJvcG9zYWwSFAoFdGl0bGUYASABKAlSBXRpdGxlEiAKC2Rlc2NyaXB0aW9uGAIgASgJUgtkZXNjcmlwdGlvbhI2CgRwbGFuGAMgASgLMhwuY29zbW9zLnVwZ3JhZGUudjFiZXRhMS5QbGFuQgTI3h8AUgRwbGFuEmoKFXVwZ3JhZGVkX2NsaWVudF9zdGF0ZRgEIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlCIPLeHxx5YW1sOiJ1cGdyYWRlZF9jbGllbnRfc3RhdGUiUhN1cGdyYWRlZENsaWVudFN0YXRlOiqIoB8AmKAfAOigHwHKtC0aY29zbW9zLmdvdi52MWJldGExLkNvbnRlbnQ=');
 @$core.Deprecated('Use heightDescriptor instead')
 const Height$json = const {
   '1': 'Height',

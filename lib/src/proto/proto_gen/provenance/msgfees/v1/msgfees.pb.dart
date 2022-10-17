@@ -35,12 +35,18 @@ class Params extends $pb.GeneratedMessage {
             : 'nhashPerUsdMil',
         $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'conversionFeeDenom')
     ..hasRequiredFields = false;
 
   Params._() : super();
   factory Params({
     $0.Coin? floorGasPrice,
     $fixnum.Int64? nhashPerUsdMil,
+    $core.String? conversionFeeDenom,
   }) {
     final _result = create();
     if (floorGasPrice != null) {
@@ -48,6 +54,9 @@ class Params extends $pb.GeneratedMessage {
     }
     if (nhashPerUsdMil != null) {
       _result.nhashPerUsdMil = nhashPerUsdMil;
+    }
+    if (conversionFeeDenom != null) {
+      _result.conversionFeeDenom = conversionFeeDenom;
     }
     return _result;
   }
@@ -102,6 +111,18 @@ class Params extends $pb.GeneratedMessage {
   $core.bool hasNhashPerUsdMil() => $_has(1);
   @$pb.TagNumber(3)
   void clearNhashPerUsdMil() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get conversionFeeDenom => $_getSZ(2);
+  @$pb.TagNumber(4)
+  set conversionFeeDenom($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasConversionFeeDenom() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearConversionFeeDenom() => clearField(4);
 }
 
 class MsgFee extends $pb.GeneratedMessage {
@@ -125,12 +146,25 @@ class MsgFee extends $pb.GeneratedMessage {
             ? ''
             : 'additionalFee',
         subBuilder: $0.Coin.create)
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'recipient')
+    ..a<$core.int>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'recipientBasisPoints',
+        $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   MsgFee._() : super();
   factory MsgFee({
     $core.String? msgTypeUrl,
     $0.Coin? additionalFee,
+    $core.String? recipient,
+    $core.int? recipientBasisPoints,
   }) {
     final _result = create();
     if (msgTypeUrl != null) {
@@ -138,6 +172,12 @@ class MsgFee extends $pb.GeneratedMessage {
     }
     if (additionalFee != null) {
       _result.additionalFee = additionalFee;
+    }
+    if (recipient != null) {
+      _result.recipient = recipient;
+    }
+    if (recipientBasisPoints != null) {
+      _result.recipientBasisPoints = recipientBasisPoints;
     }
     return _result;
   }
@@ -192,6 +232,30 @@ class MsgFee extends $pb.GeneratedMessage {
   void clearAdditionalFee() => clearField(2);
   @$pb.TagNumber(2)
   $0.Coin ensureAdditionalFee() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get recipient => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set recipient($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasRecipient() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRecipient() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get recipientBasisPoints => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set recipientBasisPoints($core.int v) {
+    $_setUnsignedInt32(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasRecipientBasisPoints() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRecipientBasisPoints() => clearField(4);
 }
 
 class EventMsgFee extends $pb.GeneratedMessage {

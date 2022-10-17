@@ -39,6 +39,12 @@ class QueryClient extends $grpc.Client {
       ($0.QueryModuleVersionsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.QueryModuleVersionsResponse.fromBuffer(value));
+  static final _$authority =
+      $grpc.ClientMethod<$0.QueryAuthorityRequest, $0.QueryAuthorityResponse>(
+          '/cosmos.upgrade.v1beta1.Query/Authority',
+          ($0.QueryAuthorityRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.QueryAuthorityResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -68,6 +74,12 @@ class QueryClient extends $grpc.Client {
       $0.QueryModuleVersionsRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$moduleVersions, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.QueryAuthorityResponse> authority(
+      $0.QueryAuthorityRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$authority, request, options: options);
   }
 }
 
@@ -112,6 +124,15 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.QueryModuleVersionsRequest.fromBuffer(value),
         ($0.QueryModuleVersionsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryAuthorityRequest,
+            $0.QueryAuthorityResponse>(
+        'Authority',
+        authority_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryAuthorityRequest.fromBuffer(value),
+        ($0.QueryAuthorityResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryCurrentPlanResponse> currentPlan_Pre(
@@ -138,6 +159,11 @@ abstract class QueryServiceBase extends $grpc.Service {
     return moduleVersions(call, await request);
   }
 
+  $async.Future<$0.QueryAuthorityResponse> authority_Pre($grpc.ServiceCall call,
+      $async.Future<$0.QueryAuthorityRequest> request) async {
+    return authority(call, await request);
+  }
+
   $async.Future<$0.QueryCurrentPlanResponse> currentPlan(
       $grpc.ServiceCall call, $0.QueryCurrentPlanRequest request);
   $async.Future<$0.QueryAppliedPlanResponse> appliedPlan(
@@ -146,4 +172,6 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.QueryUpgradedConsensusStateRequest request);
   $async.Future<$0.QueryModuleVersionsResponse> moduleVersions(
       $grpc.ServiceCall call, $0.QueryModuleVersionsRequest request);
+  $async.Future<$0.QueryAuthorityResponse> authority(
+      $grpc.ServiceCall call, $0.QueryAuthorityRequest request);
 }

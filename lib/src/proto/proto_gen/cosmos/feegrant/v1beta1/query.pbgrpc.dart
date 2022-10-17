@@ -26,6 +26,13 @@ class QueryClient extends $grpc.Client {
           ($0.QueryAllowancesRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.QueryAllowancesResponse.fromBuffer(value));
+  static final _$allowancesByGranter = $grpc.ClientMethod<
+          $0.QueryAllowancesByGranterRequest,
+          $0.QueryAllowancesByGranterResponse>(
+      '/cosmos.feegrant.v1beta1.Query/AllowancesByGranter',
+      ($0.QueryAllowancesByGranterRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryAllowancesByGranterResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -42,6 +49,12 @@ class QueryClient extends $grpc.Client {
       $0.QueryAllowancesRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$allowances, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.QueryAllowancesByGranterResponse> allowancesByGranter(
+      $0.QueryAllowancesByGranterRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$allowancesByGranter, request, options: options);
   }
 }
 
@@ -67,6 +80,15 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.QueryAllowancesRequest.fromBuffer(value),
         ($0.QueryAllowancesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryAllowancesByGranterRequest,
+            $0.QueryAllowancesByGranterResponse>(
+        'AllowancesByGranter',
+        allowancesByGranter_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryAllowancesByGranterRequest.fromBuffer(value),
+        ($0.QueryAllowancesByGranterResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryAllowanceResponse> allowance_Pre($grpc.ServiceCall call,
@@ -80,8 +102,16 @@ abstract class QueryServiceBase extends $grpc.Service {
     return allowances(call, await request);
   }
 
+  $async.Future<$0.QueryAllowancesByGranterResponse> allowancesByGranter_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryAllowancesByGranterRequest> request) async {
+    return allowancesByGranter(call, await request);
+  }
+
   $async.Future<$0.QueryAllowanceResponse> allowance(
       $grpc.ServiceCall call, $0.QueryAllowanceRequest request);
   $async.Future<$0.QueryAllowancesResponse> allowances(
       $grpc.ServiceCall call, $0.QueryAllowancesRequest request);
+  $async.Future<$0.QueryAllowancesByGranterResponse> allowancesByGranter(
+      $grpc.ServiceCall call, $0.QueryAllowancesByGranterRequest request);
 }

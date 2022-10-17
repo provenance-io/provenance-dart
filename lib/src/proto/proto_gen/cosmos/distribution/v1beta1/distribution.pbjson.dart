@@ -42,7 +42,6 @@ const Params$json = const {
       '3': 4,
       '4': 1,
       '5': 8,
-      '8': const {},
       '10': 'withdrawAddrEnabled'
     },
   ],
@@ -51,7 +50,7 @@ const Params$json = const {
 
 /// Descriptor for `Params`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List paramsDescriptor = $convert.base64Decode(
-    'CgZQYXJhbXMSawoNY29tbXVuaXR5X3RheBgBIAEoCUJG8t4fFHlhbWw6ImNvbW11bml0eV90YXgi2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFIMY29tbXVuaXR5VGF4En8KFGJhc2VfcHJvcG9zZXJfcmV3YXJkGAIgASgJQk3y3h8beWFtbDoiYmFzZV9wcm9wb3Nlcl9yZXdhcmQi2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFISYmFzZVByb3Bvc2VyUmV3YXJkEoIBChVib251c19wcm9wb3Nlcl9yZXdhcmQYAyABKAlCTvLeHxx5YW1sOiJib251c19wcm9wb3Nlcl9yZXdhcmQi2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFITYm9udXNQcm9wb3NlclJld2FyZBJUChV3aXRoZHJhd19hZGRyX2VuYWJsZWQYBCABKAhCIPLeHxx5YW1sOiJ3aXRoZHJhd19hZGRyX2VuYWJsZWQiUhN3aXRoZHJhd0FkZHJFbmFibGVkOgSYoB8A');
+    'CgZQYXJhbXMSYQoNY29tbXVuaXR5X3RheBgBIAEoCUI80rQtCmNvc21vcy5EZWPa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUgxjb21tdW5pdHlUYXgSbgoUYmFzZV9wcm9wb3Nlcl9yZXdhcmQYAiABKAlCPNK0LQpjb3Ntb3MuRGVj2t4fJmdpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjyN4fAFISYmFzZVByb3Bvc2VyUmV3YXJkEnAKFWJvbnVzX3Byb3Bvc2VyX3Jld2FyZBgDIAEoCUI80rQtCmNvc21vcy5EZWPa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUhNib251c1Byb3Bvc2VyUmV3YXJkEjIKFXdpdGhkcmF3X2FkZHJfZW5hYmxlZBgEIAEoCFITd2l0aGRyYXdBZGRyRW5hYmxlZDoEmKAfAA==');
 @$core.Deprecated('Use validatorHistoricalRewardsDescriptor instead')
 const ValidatorHistoricalRewards$json = const {
   '1': 'ValidatorHistoricalRewards',
@@ -70,7 +69,6 @@ const ValidatorHistoricalRewards$json = const {
       '3': 2,
       '4': 1,
       '5': 13,
-      '8': const {},
       '10': 'referenceCount'
     },
   ],
@@ -79,7 +77,7 @@ const ValidatorHistoricalRewards$json = const {
 /// Descriptor for `ValidatorHistoricalRewards`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validatorHistoricalRewardsDescriptor =
     $convert.base64Decode(
-        'ChpWYWxpZGF0b3JIaXN0b3JpY2FsUmV3YXJkcxKrAQoXY3VtdWxhdGl2ZV9yZXdhcmRfcmF0aW8YASADKAsyHC5jb3Ntb3MuYmFzZS52MWJldGExLkRlY0NvaW5CVfLeHx55YW1sOiJjdW11bGF0aXZlX3Jld2FyZF9yYXRpbyKq3x8rZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWNDb2luc8jeHwBSFWN1bXVsYXRpdmVSZXdhcmRSYXRpbxJDCg9yZWZlcmVuY2VfY291bnQYAiABKA1CGvLeHxZ5YW1sOiJyZWZlcmVuY2VfY291bnQiUg5yZWZlcmVuY2VDb3VudA==');
+        'ChpWYWxpZGF0b3JIaXN0b3JpY2FsUmV3YXJkcxKJAQoXY3VtdWxhdGl2ZV9yZXdhcmRfcmF0aW8YASADKAsyHC5jb3Ntb3MuYmFzZS52MWJldGExLkRlY0NvaW5CM6rfHytnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkRlY0NvaW5zyN4fAFIVY3VtdWxhdGl2ZVJld2FyZFJhdGlvEicKD3JlZmVyZW5jZV9jb3VudBgCIAEoDVIOcmVmZXJlbmNlQ291bnQ=');
 @$core.Deprecated('Use validatorCurrentRewardsDescriptor instead')
 const ValidatorCurrentRewards$json = const {
   '1': 'ValidatorCurrentRewards',
@@ -140,7 +138,7 @@ const ValidatorOutstandingRewards$json = const {
 /// Descriptor for `ValidatorOutstandingRewards`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validatorOutstandingRewardsDescriptor =
     $convert.base64Decode(
-        'ChtWYWxpZGF0b3JPdXRzdGFuZGluZ1Jld2FyZHMSfQoHcmV3YXJkcxgBIAMoCzIcLmNvc21vcy5iYXNlLnYxYmV0YTEuRGVjQ29pbkJF8t4fDnlhbWw6InJld2FyZHMiqt8fK2dpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjQ29pbnPI3h8AUgdyZXdhcmRz');
+        'ChtWYWxpZGF0b3JPdXRzdGFuZGluZ1Jld2FyZHMSawoHcmV3YXJkcxgBIAMoCzIcLmNvc21vcy5iYXNlLnYxYmV0YTEuRGVjQ29pbkIzqt8fK2dpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjQ29pbnPI3h8AUgdyZXdhcmRz');
 @$core.Deprecated('Use validatorSlashEventDescriptor instead')
 const ValidatorSlashEvent$json = const {
   '1': 'ValidatorSlashEvent',
@@ -150,7 +148,6 @@ const ValidatorSlashEvent$json = const {
       '3': 1,
       '4': 1,
       '5': 4,
-      '8': const {},
       '10': 'validatorPeriod'
     },
     const {
@@ -166,7 +163,7 @@ const ValidatorSlashEvent$json = const {
 
 /// Descriptor for `ValidatorSlashEvent`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validatorSlashEventDescriptor = $convert.base64Decode(
-    'ChNWYWxpZGF0b3JTbGFzaEV2ZW50EkYKEHZhbGlkYXRvcl9wZXJpb2QYASABKARCG/LeHxd5YW1sOiJ2YWxpZGF0b3JfcGVyaW9kIlIPdmFsaWRhdG9yUGVyaW9kEkoKCGZyYWN0aW9uGAIgASgJQi7a3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUghmcmFjdGlvbg==');
+    'ChNWYWxpZGF0b3JTbGFzaEV2ZW50EikKEHZhbGlkYXRvcl9wZXJpb2QYASABKARSD3ZhbGlkYXRvclBlcmlvZBJYCghmcmFjdGlvbhgCIAEoCUI80rQtCmNvc21vcy5EZWPa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUghmcmFjdGlvbg==');
 @$core.Deprecated('Use validatorSlashEventsDescriptor instead')
 const ValidatorSlashEvents$json = const {
   '1': 'ValidatorSlashEvents',
@@ -186,7 +183,7 @@ const ValidatorSlashEvents$json = const {
 
 /// Descriptor for `ValidatorSlashEvents`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validatorSlashEventsDescriptor = $convert.base64Decode(
-    'ChRWYWxpZGF0b3JTbGFzaEV2ZW50cxKNAQoWdmFsaWRhdG9yX3NsYXNoX2V2ZW50cxgBIAMoCzIwLmNvc21vcy5kaXN0cmlidXRpb24udjFiZXRhMS5WYWxpZGF0b3JTbGFzaEV2ZW50QiXy3h8deWFtbDoidmFsaWRhdG9yX3NsYXNoX2V2ZW50cyLI3h8AUhR2YWxpZGF0b3JTbGFzaEV2ZW50czoEmKAfAA==');
+    'ChRWYWxpZGF0b3JTbGFzaEV2ZW50cxJsChZ2YWxpZGF0b3Jfc2xhc2hfZXZlbnRzGAEgAygLMjAuY29zbW9zLmRpc3RyaWJ1dGlvbi52MWJldGExLlZhbGlkYXRvclNsYXNoRXZlbnRCBMjeHwBSFHZhbGlkYXRvclNsYXNoRXZlbnRzOgSYoB8A');
 @$core.Deprecated('Use feePoolDescriptor instead')
 const FeePool$json = const {
   '1': 'FeePool',
@@ -205,7 +202,7 @@ const FeePool$json = const {
 
 /// Descriptor for `FeePool`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List feePoolDescriptor = $convert.base64Decode(
-    'CgdGZWVQb29sEpEBCg5jb21tdW5pdHlfcG9vbBgBIAMoCzIcLmNvc21vcy5iYXNlLnYxYmV0YTEuRGVjQ29pbkJMyN4fAKrfHytnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkRlY0NvaW5z8t4fFXlhbWw6ImNvbW11bml0eV9wb29sIlINY29tbXVuaXR5UG9vbA==');
+    'CgdGZWVQb29sEngKDmNvbW11bml0eV9wb29sGAEgAygLMhwuY29zbW9zLmJhc2UudjFiZXRhMS5EZWNDb2luQjPI3h8Aqt8fK2dpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjQ29pbnNSDWNvbW11bml0eVBvb2w=');
 @$core.Deprecated('Use communityPoolSpendProposalDescriptor instead')
 const CommunityPoolSpendProposal$json = const {
   '1': 'CommunityPoolSpendProposal',
@@ -229,7 +226,7 @@ const CommunityPoolSpendProposal$json = const {
 /// Descriptor for `CommunityPoolSpendProposal`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List communityPoolSpendProposalDescriptor =
     $convert.base64Decode(
-        'ChpDb21tdW5pdHlQb29sU3BlbmRQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEhwKCXJlY2lwaWVudBgDIAEoCVIJcmVjaXBpZW50EmMKBmFtb3VudBgEIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgZhbW91bnQ6DOigHwCIoB8AmKAfAA==');
+        'ChpDb21tdW5pdHlQb29sU3BlbmRQcm9wb3NhbBIUCgV0aXRsZRgBIAEoCVIFdGl0bGUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEhwKCXJlY2lwaWVudBgDIAEoCVIJcmVjaXBpZW50EmMKBmFtb3VudBgEIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YTEuQ29pbkIwyN4fAKrfHyhnaXRodWIuY29tL2Nvc21vcy9jb3Ntb3Mtc2RrL3R5cGVzLkNvaW5zUgZhbW91bnQ6KuigHwCIoB8AmKAfAMq0LRpjb3Ntb3MuZ292LnYxYmV0YTEuQ29udGVudA==');
 @$core.Deprecated('Use delegatorStartingInfoDescriptor instead')
 const DelegatorStartingInfo$json = const {
   '1': 'DelegatorStartingInfo',
@@ -239,7 +236,6 @@ const DelegatorStartingInfo$json = const {
       '3': 1,
       '4': 1,
       '5': 4,
-      '8': const {},
       '10': 'previousPeriod'
     },
     const {'1': 'stake', '3': 2, '4': 1, '5': 9, '8': const {}, '10': 'stake'},
@@ -256,7 +252,7 @@ const DelegatorStartingInfo$json = const {
 
 /// Descriptor for `DelegatorStartingInfo`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List delegatorStartingInfoDescriptor = $convert.base64Decode(
-    'ChVEZWxlZ2F0b3JTdGFydGluZ0luZm8SQwoPcHJldmlvdXNfcGVyaW9kGAEgASgEQhry3h8WeWFtbDoicHJldmlvdXNfcGVyaW9kIlIOcHJldmlvdXNQZXJpb2QSVAoFc3Rha2UYAiABKAlCPvLeHwx5YW1sOiJzdGFrZSLa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUgVzdGFrZRJFCgZoZWlnaHQYAyABKARCLfLeHxZ5YW1sOiJjcmVhdGlvbl9oZWlnaHQi6t4fD2NyZWF0aW9uX2hlaWdodFIGaGVpZ2h0');
+    'ChVEZWxlZ2F0b3JTdGFydGluZ0luZm8SJwoPcHJldmlvdXNfcGVyaW9kGAEgASgEUg5wcmV2aW91c1BlcmlvZBJSCgVzdGFrZRgCIAEoCUI80rQtCmNvc21vcy5EZWPa3h8mZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWPI3h8AUgVzdGFrZRIrCgZoZWlnaHQYAyABKARCE+reHw9jcmVhdGlvbl9oZWlnaHRSBmhlaWdodA==');
 @$core.Deprecated('Use delegationDelegatorRewardDescriptor instead')
 const DelegationDelegatorReward$json = const {
   '1': 'DelegationDelegatorReward',
@@ -285,44 +281,16 @@ const DelegationDelegatorReward$json = const {
 /// Descriptor for `DelegationDelegatorReward`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List delegationDelegatorRewardDescriptor =
     $convert.base64Decode(
-        'ChlEZWxlZ2F0aW9uRGVsZWdhdG9yUmV3YXJkEkkKEXZhbGlkYXRvcl9hZGRyZXNzGAEgASgJQhzy3h8YeWFtbDoidmFsaWRhdG9yX2FkZHJlc3MiUhB2YWxpZGF0b3JBZGRyZXNzEmkKBnJld2FyZBgCIAMoCzIcLmNvc21vcy5iYXNlLnYxYmV0YTEuRGVjQ29pbkIzqt8fK2dpdGh1Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuRGVjQ29pbnPI3h8AUgZyZXdhcmQ6CIigHwCYoB8B');
+        'ChlEZWxlZ2F0aW9uRGVsZWdhdG9yUmV3YXJkEkUKEXZhbGlkYXRvcl9hZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSEHZhbGlkYXRvckFkZHJlc3MSaQoGcmV3YXJkGAIgAygLMhwuY29zbW9zLmJhc2UudjFiZXRhMS5EZWNDb2luQjOq3x8rZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5EZWNDb2luc8jeHwBSBnJld2FyZDoIiKAfAJigHwE=');
 @$core.Deprecated('Use communityPoolSpendProposalWithDepositDescriptor instead')
 const CommunityPoolSpendProposalWithDeposit$json = const {
   '1': 'CommunityPoolSpendProposalWithDeposit',
   '2': const [
-    const {'1': 'title', '3': 1, '4': 1, '5': 9, '8': const {}, '10': 'title'},
-    const {
-      '1': 'description',
-      '3': 2,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'description'
-    },
-    const {
-      '1': 'recipient',
-      '3': 3,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'recipient'
-    },
-    const {
-      '1': 'amount',
-      '3': 4,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'amount'
-    },
-    const {
-      '1': 'deposit',
-      '3': 5,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'deposit'
-    },
+    const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
+    const {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
+    const {'1': 'recipient', '3': 3, '4': 1, '5': 9, '10': 'recipient'},
+    const {'1': 'amount', '3': 4, '4': 1, '5': 9, '10': 'amount'},
+    const {'1': 'deposit', '3': 5, '4': 1, '5': 9, '10': 'deposit'},
   ],
   '7': const {},
 };
@@ -330,4 +298,4 @@ const CommunityPoolSpendProposalWithDeposit$json = const {
 /// Descriptor for `CommunityPoolSpendProposalWithDeposit`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List communityPoolSpendProposalWithDepositDescriptor =
     $convert.base64Decode(
-        'CiVDb21tdW5pdHlQb29sU3BlbmRQcm9wb3NhbFdpdGhEZXBvc2l0EiYKBXRpdGxlGAEgASgJQhDy3h8MeWFtbDoidGl0bGUiUgV0aXRsZRI4CgtkZXNjcmlwdGlvbhgCIAEoCUIW8t4fEnlhbWw6ImRlc2NyaXB0aW9uIlILZGVzY3JpcHRpb24SMgoJcmVjaXBpZW50GAMgASgJQhTy3h8QeWFtbDoicmVjaXBpZW50IlIJcmVjaXBpZW50EikKBmFtb3VudBgEIAEoCUIR8t4fDXlhbWw6ImFtb3VudCJSBmFtb3VudBIsCgdkZXBvc2l0GAUgASgJQhLy3h8OeWFtbDoiZGVwb3NpdCJSB2RlcG9zaXQ6CIigHwCYoB8B');
+        'CiVDb21tdW5pdHlQb29sU3BlbmRQcm9wb3NhbFdpdGhEZXBvc2l0EhQKBXRpdGxlGAEgASgJUgV0aXRsZRIgCgtkZXNjcmlwdGlvbhgCIAEoCVILZGVzY3JpcHRpb24SHAoJcmVjaXBpZW50GAMgASgJUglyZWNpcGllbnQSFgoGYW1vdW50GAQgASgJUgZhbW91bnQSGAoHZGVwb3NpdBgFIAEoCVIHZGVwb3NpdDomiKAfAJigHwHKtC0aY29zbW9zLmdvdi52MWJldGExLkNvbnRlbnQ=');

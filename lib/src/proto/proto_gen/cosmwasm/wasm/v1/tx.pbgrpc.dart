@@ -26,6 +26,12 @@ class MsgClient extends $grpc.Client {
       ($0.MsgInstantiateContract value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgInstantiateContractResponse.fromBuffer(value));
+  static final _$instantiateContract2 = $grpc.ClientMethod<
+          $0.MsgInstantiateContract2, $0.MsgInstantiateContract2Response>(
+      '/cosmwasm.wasm.v1.Msg/InstantiateContract2',
+      ($0.MsgInstantiateContract2 value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgInstantiateContract2Response.fromBuffer(value));
   static final _$executeContract =
       $grpc.ClientMethod<$0.MsgExecuteContract, $0.MsgExecuteContractResponse>(
           '/cosmwasm.wasm.v1.Msg/ExecuteContract',
@@ -66,6 +72,12 @@ class MsgClient extends $grpc.Client {
       $0.MsgInstantiateContract request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$instantiateContract, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgInstantiateContract2Response> instantiateContract2(
+      $0.MsgInstantiateContract2 request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$instantiateContract2, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.MsgExecuteContractResponse> executeContract(
@@ -113,6 +125,15 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgInstantiateContract.fromBuffer(value),
         ($0.MsgInstantiateContractResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgInstantiateContract2,
+            $0.MsgInstantiateContract2Response>(
+        'InstantiateContract2',
+        instantiateContract2_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgInstantiateContract2.fromBuffer(value),
+        ($0.MsgInstantiateContract2Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgExecuteContract,
             $0.MsgExecuteContractResponse>(
         'ExecuteContract',
@@ -160,6 +181,12 @@ abstract class MsgServiceBase extends $grpc.Service {
     return instantiateContract(call, await request);
   }
 
+  $async.Future<$0.MsgInstantiateContract2Response> instantiateContract2_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgInstantiateContract2> request) async {
+    return instantiateContract2(call, await request);
+  }
+
   $async.Future<$0.MsgExecuteContractResponse> executeContract_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.MsgExecuteContract> request) async {
@@ -186,6 +213,8 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgStoreCode request);
   $async.Future<$0.MsgInstantiateContractResponse> instantiateContract(
       $grpc.ServiceCall call, $0.MsgInstantiateContract request);
+  $async.Future<$0.MsgInstantiateContract2Response> instantiateContract2(
+      $grpc.ServiceCall call, $0.MsgInstantiateContract2 request);
   $async.Future<$0.MsgExecuteContractResponse> executeContract(
       $grpc.ServiceCall call, $0.MsgExecuteContract request);
   $async.Future<$0.MsgMigrateContractResponse> migrateContract(

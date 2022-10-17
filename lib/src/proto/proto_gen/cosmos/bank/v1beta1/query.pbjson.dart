@@ -13,7 +13,14 @@ import 'dart:typed_data' as $typed_data;
 const QueryBalanceRequest$json = const {
   '1': 'QueryBalanceRequest',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {'1': 'denom', '3': 2, '4': 1, '5': 9, '10': 'denom'},
   ],
   '7': const {},
@@ -21,7 +28,7 @@ const QueryBalanceRequest$json = const {
 
 /// Descriptor for `QueryBalanceRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryBalanceRequestDescriptor = $convert.base64Decode(
-    'ChNRdWVyeUJhbGFuY2VSZXF1ZXN0EhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3MSFAoFZGVub20YAiABKAlSBWRlbm9tOgjooB8AiKAfAA==');
+    'ChNRdWVyeUJhbGFuY2VSZXF1ZXN0EjIKB2FkZHJlc3MYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHYWRkcmVzcxIUCgVkZW5vbRgCIAEoCVIFZGVub206COigHwCIoB8A');
 @$core.Deprecated('Use queryBalanceResponseDescriptor instead')
 const QueryBalanceResponse$json = const {
   '1': 'QueryBalanceResponse',
@@ -44,7 +51,14 @@ final $typed_data.Uint8List queryBalanceResponseDescriptor = $convert.base64Deco
 const QueryAllBalancesRequest$json = const {
   '1': 'QueryAllBalancesRequest',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {
       '1': 'pagination',
       '3': 2,
@@ -60,7 +74,7 @@ const QueryAllBalancesRequest$json = const {
 /// Descriptor for `QueryAllBalancesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryAllBalancesRequestDescriptor =
     $convert.base64Decode(
-        'ChdRdWVyeUFsbEJhbGFuY2VzUmVxdWVzdBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEkYKCnBhZ2luYXRpb24YAiABKAsyJi5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXF1ZXN0UgpwYWdpbmF0aW9uOgjooB8AiKAfAA==');
+        'ChdRdWVyeUFsbEJhbGFuY2VzUmVxdWVzdBIyCgdhZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSB2FkZHJlc3MSRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb246COigHwCIoB8A');
 @$core.Deprecated('Use queryAllBalancesResponseDescriptor instead')
 const QueryAllBalancesResponse$json = const {
   '1': 'QueryAllBalancesResponse',
@@ -93,7 +107,14 @@ final $typed_data.Uint8List queryAllBalancesResponseDescriptor =
 const QuerySpendableBalancesRequest$json = const {
   '1': 'QuerySpendableBalancesRequest',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {
       '1': 'pagination',
       '3': 2,
@@ -109,7 +130,7 @@ const QuerySpendableBalancesRequest$json = const {
 /// Descriptor for `QuerySpendableBalancesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List querySpendableBalancesRequestDescriptor =
     $convert.base64Decode(
-        'Ch1RdWVyeVNwZW5kYWJsZUJhbGFuY2VzUmVxdWVzdBIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEkYKCnBhZ2luYXRpb24YAiABKAsyJi5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXF1ZXN0UgpwYWdpbmF0aW9uOgjooB8AiKAfAA==');
+        'Ch1RdWVyeVNwZW5kYWJsZUJhbGFuY2VzUmVxdWVzdBIyCgdhZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSB2FkZHJlc3MSRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb246COigHwCIoB8A');
 @$core.Deprecated('Use querySpendableBalancesResponseDescriptor instead')
 const QuerySpendableBalancesResponse$json = const {
   '1': 'QuerySpendableBalancesResponse',
@@ -323,6 +344,80 @@ const QueryDenomMetadataResponse$json = const {
 final $typed_data.Uint8List queryDenomMetadataResponseDescriptor =
     $convert.base64Decode(
         'ChpRdWVyeURlbm9tTWV0YWRhdGFSZXNwb25zZRI/CghtZXRhZGF0YRgBIAEoCzIdLmNvc21vcy5iYW5rLnYxYmV0YTEuTWV0YWRhdGFCBMjeHwBSCG1ldGFkYXRh');
+@$core.Deprecated('Use queryDenomOwnersRequestDescriptor instead')
+const QueryDenomOwnersRequest$json = const {
+  '1': 'QueryDenomOwnersRequest',
+  '2': const [
+    const {'1': 'denom', '3': 1, '4': 1, '5': 9, '10': 'denom'},
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageRequest',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryDenomOwnersRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryDenomOwnersRequestDescriptor =
+    $convert.base64Decode(
+        'ChdRdWVyeURlbm9tT3duZXJzUmVxdWVzdBIUCgVkZW5vbRgBIAEoCVIFZGVub20SRgoKcGFnaW5hdGlvbhgCIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24=');
+@$core.Deprecated('Use denomOwnerDescriptor instead')
+const DenomOwner$json = const {
+  '1': 'DenomOwner',
+  '2': const [
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
+    const {
+      '1': 'balance',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': const {},
+      '10': 'balance'
+    },
+  ],
+};
+
+/// Descriptor for `DenomOwner`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List denomOwnerDescriptor = $convert.base64Decode(
+    'CgpEZW5vbU93bmVyEjIKB2FkZHJlc3MYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHYWRkcmVzcxI5CgdiYWxhbmNlGAIgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQgTI3h8AUgdiYWxhbmNl');
+@$core.Deprecated('Use queryDenomOwnersResponseDescriptor instead')
+const QueryDenomOwnersResponse$json = const {
+  '1': 'QueryDenomOwnersResponse',
+  '2': const [
+    const {
+      '1': 'denom_owners',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.bank.v1beta1.DenomOwner',
+      '10': 'denomOwners'
+    },
+    const {
+      '1': 'pagination',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageResponse',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryDenomOwnersResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryDenomOwnersResponseDescriptor =
+    $convert.base64Decode(
+        'ChhRdWVyeURlbm9tT3duZXJzUmVzcG9uc2USQgoMZGVub21fb3duZXJzGAEgAygLMh8uY29zbW9zLmJhbmsudjFiZXRhMS5EZW5vbU93bmVyUgtkZW5vbU93bmVycxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');
 @$core.Deprecated('Use querySendEnabledRequestDescriptor instead')
 const QuerySendEnabledRequest$json = const {
   '1': 'QuerySendEnabledRequest',

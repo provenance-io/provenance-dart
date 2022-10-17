@@ -804,6 +804,116 @@ class PacketState extends $pb.GeneratedMessage {
   void clearData() => clearField(4);
 }
 
+class PacketId extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'PacketId',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'portId')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'channelId')
+    ..a<$fixnum.Int64>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sequence',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  PacketId._() : super();
+  factory PacketId({
+    $core.String? portId,
+    $core.String? channelId,
+    $fixnum.Int64? sequence,
+  }) {
+    final _result = create();
+    if (portId != null) {
+      _result.portId = portId;
+    }
+    if (channelId != null) {
+      _result.channelId = channelId;
+    }
+    if (sequence != null) {
+      _result.sequence = sequence;
+    }
+    return _result;
+  }
+  factory PacketId.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory PacketId.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  PacketId clone() => PacketId()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  PacketId copyWith(void Function(PacketId) updates) =>
+      super.copyWith((message) => updates(message as PacketId))
+          as PacketId; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static PacketId create() => PacketId._();
+  PacketId createEmptyInstance() => create();
+  static $pb.PbList<PacketId> createRepeated() => $pb.PbList<PacketId>();
+  @$core.pragma('dart2js:noInline')
+  static PacketId getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PacketId>(create);
+  static PacketId? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get portId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set portId($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasPortId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPortId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get channelId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set channelId($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasChannelId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearChannelId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get sequence => $_getI64(2);
+  @$pb.TagNumber(3)
+  set sequence($fixnum.Int64 v) {
+    $_setInt64(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasSequence() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSequence() => clearField(3);
+}
+
 enum Acknowledgement_Response { result, error, notSet }
 
 class Acknowledgement extends $pb.GeneratedMessage {

@@ -94,6 +94,25 @@ const ConsensusParamsInfo$json = const {
 /// Descriptor for `ConsensusParamsInfo`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List consensusParamsInfoDescriptor = $convert.base64Decode(
     'ChNDb25zZW5zdXNQYXJhbXNJbmZvElIKEGNvbnNlbnN1c19wYXJhbXMYASABKAsyIS50ZW5kZXJtaW50LnR5cGVzLkNvbnNlbnN1c1BhcmFtc0IEyN4fAFIPY29uc2Vuc3VzUGFyYW1zEi4KE2xhc3RfaGVpZ2h0X2NoYW5nZWQYAiABKANSEWxhc3RIZWlnaHRDaGFuZ2Vk');
+@$core.Deprecated('Use aBCIResponsesInfoDescriptor instead')
+const ABCIResponsesInfo$json = const {
+  '1': 'ABCIResponsesInfo',
+  '2': const [
+    const {
+      '1': 'abci_responses',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.tendermint.state.ABCIResponses',
+      '10': 'abciResponses'
+    },
+    const {'1': 'height', '3': 2, '4': 1, '5': 3, '10': 'height'},
+  ],
+};
+
+/// Descriptor for `ABCIResponsesInfo`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List aBCIResponsesInfoDescriptor = $convert.base64Decode(
+    'ChFBQkNJUmVzcG9uc2VzSW5mbxJGCg5hYmNpX3Jlc3BvbnNlcxgBIAEoCzIfLnRlbmRlcm1pbnQuc3RhdGUuQUJDSVJlc3BvbnNlc1INYWJjaVJlc3BvbnNlcxIWCgZoZWlnaHQYAiABKANSBmhlaWdodA==');
 @$core.Deprecated('Use versionDescriptor instead')
 const Version$json = const {
   '1': 'Version',

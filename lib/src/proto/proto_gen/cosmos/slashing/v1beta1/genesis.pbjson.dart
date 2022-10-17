@@ -45,12 +45,19 @@ const GenesisState$json = const {
 
 /// Descriptor for `GenesisState`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List genesisStateDescriptor = $convert.base64Decode(
-    'CgxHZW5lc2lzU3RhdGUSPQoGcGFyYW1zGAEgASgLMh8uY29zbW9zLnNsYXNoaW5nLnYxYmV0YTEuUGFyYW1zQgTI3h8AUgZwYXJhbXMSZwoNc2lnbmluZ19pbmZvcxgCIAMoCzIkLmNvc21vcy5zbGFzaGluZy52MWJldGExLlNpZ25pbmdJbmZvQhzy3h8UeWFtbDoic2lnbmluZ19pbmZvcyLI3h8AUgxzaWduaW5nSW5mb3MScQoNbWlzc2VkX2Jsb2NrcxgDIAMoCzIuLmNvc21vcy5zbGFzaGluZy52MWJldGExLlZhbGlkYXRvck1pc3NlZEJsb2Nrc0Ic8t4fFHlhbWw6Im1pc3NlZF9ibG9ja3MiyN4fAFIMbWlzc2VkQmxvY2tz');
+    'CgxHZW5lc2lzU3RhdGUSPQoGcGFyYW1zGAEgASgLMh8uY29zbW9zLnNsYXNoaW5nLnYxYmV0YTEuUGFyYW1zQgTI3h8AUgZwYXJhbXMSTwoNc2lnbmluZ19pbmZvcxgCIAMoCzIkLmNvc21vcy5zbGFzaGluZy52MWJldGExLlNpZ25pbmdJbmZvQgTI3h8AUgxzaWduaW5nSW5mb3MSWQoNbWlzc2VkX2Jsb2NrcxgDIAMoCzIuLmNvc21vcy5zbGFzaGluZy52MWJldGExLlZhbGlkYXRvck1pc3NlZEJsb2Nrc0IEyN4fAFIMbWlzc2VkQmxvY2tz');
 @$core.Deprecated('Use signingInfoDescriptor instead')
 const SigningInfo$json = const {
   '1': 'SigningInfo',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {
       '1': 'validator_signing_info',
       '3': 2,
@@ -65,12 +72,19 @@ const SigningInfo$json = const {
 
 /// Descriptor for `SigningInfo`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List signingInfoDescriptor = $convert.base64Decode(
-    'CgtTaWduaW5nSW5mbxIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEooBChZ2YWxpZGF0b3Jfc2lnbmluZ19pbmZvGAIgASgLMi0uY29zbW9zLnNsYXNoaW5nLnYxYmV0YTEuVmFsaWRhdG9yU2lnbmluZ0luZm9CJcjeHwDy3h8deWFtbDoidmFsaWRhdG9yX3NpZ25pbmdfaW5mbyJSFHZhbGlkYXRvclNpZ25pbmdJbmZv');
+    'CgtTaWduaW5nSW5mbxIyCgdhZGRyZXNzGAEgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSB2FkZHJlc3MSaQoWdmFsaWRhdG9yX3NpZ25pbmdfaW5mbxgCIAEoCzItLmNvc21vcy5zbGFzaGluZy52MWJldGExLlZhbGlkYXRvclNpZ25pbmdJbmZvQgTI3h8AUhR2YWxpZGF0b3JTaWduaW5nSW5mbw==');
 @$core.Deprecated('Use validatorMissedBlocksDescriptor instead')
 const ValidatorMissedBlocks$json = const {
   '1': 'ValidatorMissedBlocks',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {
+      '1': 'address',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'address'
+    },
     const {
       '1': 'missed_blocks',
       '3': 2,
@@ -85,7 +99,7 @@ const ValidatorMissedBlocks$json = const {
 
 /// Descriptor for `ValidatorMissedBlocks`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validatorMissedBlocksDescriptor = $convert.base64Decode(
-    'ChVWYWxpZGF0b3JNaXNzZWRCbG9ja3MSGAoHYWRkcmVzcxgBIAEoCVIHYWRkcmVzcxJnCg1taXNzZWRfYmxvY2tzGAIgAygLMiQuY29zbW9zLnNsYXNoaW5nLnYxYmV0YTEuTWlzc2VkQmxvY2tCHMjeHwDy3h8UeWFtbDoibWlzc2VkX2Jsb2NrcyJSDG1pc3NlZEJsb2Nrcw==');
+    'ChVWYWxpZGF0b3JNaXNzZWRCbG9ja3MSMgoHYWRkcmVzcxgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdhZGRyZXNzEk8KDW1pc3NlZF9ibG9ja3MYAiADKAsyJC5jb3Ntb3Muc2xhc2hpbmcudjFiZXRhMS5NaXNzZWRCbG9ja0IEyN4fAFIMbWlzc2VkQmxvY2tz');
 @$core.Deprecated('Use missedBlockDescriptor instead')
 const MissedBlock$json = const {
   '1': 'MissedBlock',
