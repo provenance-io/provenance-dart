@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:fixnum/fixnum.dart' as fixnum;
 import 'package:grpc/grpc.dart';
 import 'package:provenance_dart/proto.dart';
-import 'package:provenance_dart/proto_cosmos_crypto_ed25519.dart';
+import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/auth.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/query.pbgrpc.dart'
     as auth_1uery_pb;
