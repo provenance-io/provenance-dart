@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/proto.dart' as proto;
 import 'package:provenance_dart/proto_cosmos_auth_v1beta1.dart';
 import 'package:provenance_dart/proto_cosmos_bank_v1beta1.dart';
-import 'package:provenance_dart/proto_cosmos_crypto_ed25519.dart';
+import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart';
 import 'package:provenance_dart/proto_cosmos_crypto_multisig.dart';
 import 'package:provenance_dart/proto_cosmos_crypto_multisig_v1beta1.dart';
 import 'package:provenance_dart/src/wallet/coin.dart';
