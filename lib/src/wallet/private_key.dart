@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:flutter/material.dart';
 import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/crypto/encryption/crypto.dart';
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
@@ -11,11 +12,37 @@ class DerivationNode {
   final int index;
   final bool hardened;
 
-  DerivationNode._(this.index, this.hardened);
+  const DerivationNode._(this.index, this.hardened);
 
-  DerivationNode.hardened(int index) : this._(index, true);
+  const DerivationNode.hardened(int index) : this._(index, true);
 
-  DerivationNode.notHardened(int index) : this._(index, false);
+  const DerivationNode.notHardened(int index) : this._(index, false);
+
+  static Iterable<DerivationNode> fromPathString(String input) {
+    final pieces = input.split("/");
+    if (pieces[0] != "m") {
+      throw Exception("$input is not a valid path string");
+    }
+
+    return pieces.sublist(1).map((piece) {
+      final hardened = piece.endsWith("'");
+      if (hardened) {
+        piece = piece.substring(0, piece.length - 1);
+      }
+
+      return DerivationNode._(int.parse(piece), hardened);
+    });
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return (other is DerivationNode) &&
+        index == other.index &&
+        hardened == other.hardened;
+  }
+
+  @override
+  int get hashCode => hashValues(index, hardened);
 }
 
 enum PrivateKeyType { hd, nonHd }
@@ -272,26 +299,15 @@ class PrivateKey implements IPrivKey {
   ///
   ///    Returns the preferred wallet path: m/44'/<coin type>'/0'/0/0
   ///
-  PrivateKey defaultKey([int accountNum = 0]) {
-    // BIP44 key derivation
-    // m/44'
-    final purpose = derived(DerivationNode.hardened(44));
+  PrivateKey defaultKey() {
+    final String path =
+        (coin == Coin.mainNet) ? "m/44'/505'/0'/0/0" : "m/44'/1'/0'/0/0'";
+    final nodeList = DerivationNode.fromPathString(path);
 
-    // m/44'/**coin type**'
-    final coinType = purpose.derived(DerivationNode.hardened(coin.coinType));
+    return deriveKeyFromPath(nodeList);
+  }
 
-    // m/44'/1'/0'
-    final account = coinType.derived(DerivationNode.hardened(accountNum));
-
-    // m/44'/1'/0'/0
-    final change = account.derived(DerivationNode.notHardened(0));
-
-    final derivationNode = (coin == Coin.mainNet)
-        ? DerivationNode.notHardened(0)
-        : DerivationNode.hardened(0);
-    // m/44'/1'/0'/0/0
-    final address = change.derived(derivationNode);
-
-    return address;
+  PrivateKey deriveKeyFromPath(Iterable<DerivationNode> path) {
+    return path.fold(this, (key, node) => key.derived(node));
   }
 }

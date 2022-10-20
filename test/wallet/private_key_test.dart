@@ -35,6 +35,37 @@ class _PrivateKeyMatcher extends Matcher {
 }
 
 main() {
+  group("DerivationNode", () {
+    test("path string is properly converted to a list of derivation nodes", () {
+      expect(DerivationNode.fromPathString("m/44'/1'/0'/0/0'"), const [
+        DerivationNode.hardened(44),
+        DerivationNode.hardened(1),
+        DerivationNode.hardened(0),
+        DerivationNode.notHardened(0),
+        DerivationNode.hardened(0),
+      ]);
+
+      expect(DerivationNode.fromPathString("m/44'/61'/0'/0"), const [
+        DerivationNode.hardened(44),
+        DerivationNode.hardened(61),
+        DerivationNode.hardened(0),
+        DerivationNode.notHardened(0),
+      ]);
+
+      expect(DerivationNode.fromPathString("m/44'"), const [
+        DerivationNode.hardened(44),
+      ]);
+    });
+
+    test("path strings must start with m and use apostraphe", () {
+      expect(() => DerivationNode.fromPathString("M/44'/1'/0'/0/0'"),
+          throwsException);
+      expect(() => DerivationNode.fromPathString("/44'/1'/0'/0/0'"),
+          throwsException);
+      expect(() => DerivationNode.fromPathString(""), throwsException);
+    });
+  });
+
   group("testNet", () {
     final privKey = PrivateKey.fromSeed(seed, Coin.testNet);
 
@@ -75,7 +106,7 @@ main() {
     });
 
     test("depth matches number of derivations", () {
-      final path = [
+      const path = [
         DerivationNode.notHardened(1),
         DerivationNode.notHardened(3),
         DerivationNode.notHardened(4),
@@ -148,7 +179,7 @@ main() {
     });
 
     test("depth matches number of derivations", () {
-      final path = [
+      const path = [
         DerivationNode.notHardened(1),
         DerivationNode.notHardened(3),
         DerivationNode.notHardened(4),
