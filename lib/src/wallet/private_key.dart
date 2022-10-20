@@ -300,8 +300,7 @@ class PrivateKey implements IPrivKey {
   ///    Returns the preferred wallet path: m/44'/<coin type>'/0'/0/0
   ///
   PrivateKey defaultKey() {
-    final String path =
-        (coin == Coin.mainNet) ? "m/44'/505'/0'/0/0" : "m/44'/1'/0'/0/0'";
+    final String path = coin.defaultKeyPath;
     final nodeList = DerivationNode.fromPathString(path);
 
     return deriveKeyFromPath(nodeList);

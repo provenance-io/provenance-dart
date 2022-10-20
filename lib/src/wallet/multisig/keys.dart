@@ -25,7 +25,7 @@ class AminoPubKey implements IPubKey {
     final bytes = _aminoEncode();
     final sha256 = Hash.sha256(bytes);
     final sha = sha256.sublist(0, 20);
-    final prefix = (coin == Coin.testNet) ? "tp" : "pb";
+    final prefix = coin.prefix;
     return Encoding.toBech32(sha, prefix, "1");
   }
 
