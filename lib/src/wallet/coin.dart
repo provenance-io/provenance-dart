@@ -1,5 +1,3 @@
-import 'package:provenance_dart/src/wallet/private_key.dart';
-
 enum Coin {
   mainNet(
       chainId: 'pio-mainnet-1',
@@ -19,11 +17,6 @@ enum Coin {
   final String chainId;
   final String defaultKeyPath;
   final String prefix;
-
-  static Coin forCoinType(int coinType) => values.firstWhere((e) {
-        final path = DerivationNode.fromPathString(e.defaultKeyPath);
-        return path.toList()[1].index == coinType;
-      });
 
   static Coin forChainId(String chainId) =>
       values.firstWhere((e) => e.chainId == chainId);
