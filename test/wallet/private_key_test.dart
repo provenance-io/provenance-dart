@@ -35,12 +35,6 @@ class _PrivateKeyMatcher extends Matcher {
 }
 
 main() {
-  test("forCoinType", () {
-    expect(Coin.forCoinType(1), Coin.testNet);
-    expect(Coin.forCoinType(505), Coin.mainNet);
-    expect(() => Coin.forCoinType(4), throwsStateError);
-  });
-
   test("forChainId", () {
     expect(Coin.forChainId("pio-testnet-1"), Coin.testNet);
     expect(Coin.forChainId("pio-mainnet-1"), Coin.mainNet);
