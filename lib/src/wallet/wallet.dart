@@ -62,12 +62,12 @@ class Wallet {
 
   //https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
   PrivateKey get _bip44PrivateKey {
-    var bip44Purpose = 44;
-    final purpose = _privateKey.derived(DerivationNode.hardened(bip44Purpose));
-    final coinType = purpose.derived(DerivationNode.hardened(_coin.coinType));
-    final account = coinType.derived(DerivationNode.hardened(0));
-    final receive = account.derived(DerivationNode.notHardened(0));
-    return receive;
+    final path =
+        DerivationNode.fromPathString(_privateKey.coin.defaultKeyPath).toList();
+
+    path.removeLast();
+
+    return _privateKey.deriveKeyFromPath(path);
   }
 
   PrivateKey generatePrivateKey(List<DerivationNode> nodes) {

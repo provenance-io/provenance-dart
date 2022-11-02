@@ -37,9 +37,9 @@ class PublicKey implements IPubKey {
   String get address {
     switch (coin) {
       case Coin.mainNet:
-        return _generateAddress("pb");
+        return _generateAddress(coin.prefix);
       case Coin.testNet:
-        return _generateAddress("tp");
+        return _generateAddress(coin.prefix);
       default:
         throw Exception("Invalid coin type: $coin");
     }
