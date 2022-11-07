@@ -383,7 +383,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     _sessionSigningKey = sessionApprovalData.sessionSigningKey;
     _walletInfo = sessionApprovalData.walletInfo;
 
-    final signingKey = _sessionSigningKey!.defaultKey();
+    final signingKey = _sessionSigningKey!;
     final publicKey = signingKey.publicKey;
     final now = DateTime.now();
     final expiry = now.add(const Duration(days: 1));
