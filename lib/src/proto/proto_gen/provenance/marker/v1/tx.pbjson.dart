@@ -355,6 +355,34 @@ const MsgTransferResponse$json = const {
 /// Descriptor for `MsgTransferResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgTransferResponseDescriptor =
     $convert.base64Decode('ChNNc2dUcmFuc2ZlclJlc3BvbnNl');
+@$core.Deprecated('Use msgIbcTransferRequestDescriptor instead')
+const MsgIbcTransferRequest$json = const {
+  '1': 'MsgIbcTransferRequest',
+  '2': const [
+    const {
+      '1': 'transfer',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.ibc.applications.transfer.v1.MsgTransfer',
+      '8': const {},
+      '10': 'transfer'
+    },
+    const {'1': 'administrator', '3': 2, '4': 1, '5': 9, '10': 'administrator'},
+  ],
+};
+
+/// Descriptor for `MsgIbcTransferRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List msgIbcTransferRequestDescriptor = $convert.base64Decode(
+    'ChVNc2dJYmNUcmFuc2ZlclJlcXVlc3QSkgEKCHRyYW5zZmVyGAEgASgLMikuaWJjLmFwcGxpY2F0aW9ucy50cmFuc2Zlci52MS5Nc2dUcmFuc2ZlckJLyN4fANreH0NnaXRodWIuY29tL2Nvc21vcy9pYmMtZ28vdjUvbW9kdWxlcy9hcHBzL3RyYW5zZmVyL3R5cGVzLk1zZ1RyYW5zZmVyUgh0cmFuc2ZlchIkCg1hZG1pbmlzdHJhdG9yGAIgASgJUg1hZG1pbmlzdHJhdG9y');
+@$core.Deprecated('Use msgIbcTransferResponseDescriptor instead')
+const MsgIbcTransferResponse$json = const {
+  '1': 'MsgIbcTransferResponse',
+};
+
+/// Descriptor for `MsgIbcTransferResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List msgIbcTransferResponseDescriptor =
+    $convert.base64Decode('ChZNc2dJYmNUcmFuc2ZlclJlc3BvbnNl');
 @$core.Deprecated('Use msgSetDenomMetadataRequestDescriptor instead')
 const MsgSetDenomMetadataRequest$json = const {
   '1': 'MsgSetDenomMetadataRequest',
