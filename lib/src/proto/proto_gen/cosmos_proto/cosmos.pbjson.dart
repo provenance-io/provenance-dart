@@ -48,9 +48,16 @@ const ScalarDescriptor$json = const {
       '6': '.cosmos_proto.ScalarType',
       '10': 'fieldType'
     },
+    const {
+      '1': 'legacy_amino_encoding',
+      '3': 4,
+      '4': 1,
+      '5': 9,
+      '10': 'legacyAminoEncoding'
+    },
   ],
 };
 
 /// Descriptor for `ScalarDescriptor`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List scalarDescriptorDescriptor = $convert.base64Decode(
-    'ChBTY2FsYXJEZXNjcmlwdG9yEhIKBG5hbWUYASABKAlSBG5hbWUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEjcKCmZpZWxkX3R5cGUYAyADKA4yGC5jb3Ntb3NfcHJvdG8uU2NhbGFyVHlwZVIJZmllbGRUeXBl');
+    'ChBTY2FsYXJEZXNjcmlwdG9yEhIKBG5hbWUYASABKAlSBG5hbWUSIAoLZGVzY3JpcHRpb24YAiABKAlSC2Rlc2NyaXB0aW9uEjcKCmZpZWxkX3R5cGUYAyADKA4yGC5jb3Ntb3NfcHJvdG8uU2NhbGFyVHlwZVIJZmllbGRUeXBlEjIKFWxlZ2FjeV9hbWlub19lbmNvZGluZxgEIAEoCVITbGVnYWN5QW1pbm9FbmNvZGluZw==');

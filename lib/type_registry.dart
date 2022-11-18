@@ -81,6 +81,8 @@ import 'package:provenance_dart/proto_cosmos_base_v1beta1.dart'
     as cosmos_base_v1beta1;
 import 'package:provenance_dart/proto_cosmos_base_tendermint_v1beta1.dart'
     as cosmos_base_tendermint_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_node_v1beta1.dart'
+    as cosmos_base_node_v1beta1;
 import 'package:provenance_dart/proto_cosmos_base_query_v1beta1.dart'
     as cosmos_base_query_v1beta1;
 import 'package:provenance_dart/proto_cosmos_base_store_v1beta1.dart'
@@ -792,6 +794,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_base_tendermint_v1beta1.ABCIQueryResponse(),
   cosmos_base_tendermint_v1beta1.ProofOp(),
   cosmos_base_tendermint_v1beta1.ProofOps(),
+  cosmos_base_node_v1beta1.ConfigRequest(),
+  cosmos_base_node_v1beta1.ConfigResponse(),
   cosmos_base_query_v1beta1.PageRequest(),
   cosmos_base_query_v1beta1.PageResponse(),
   cosmos_base_store_v1beta1.CommitInfo(),
@@ -1256,6 +1260,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_marker_v1.MsgWithdrawResponse(),
   provenance_marker_v1.MsgTransferRequest(),
   provenance_marker_v1.MsgTransferResponse(),
+  provenance_marker_v1.MsgIbcTransferRequest(),
+  provenance_marker_v1.MsgIbcTransferResponse(),
   provenance_marker_v1.MsgSetDenomMetadataRequest(),
   provenance_marker_v1.MsgSetDenomMetadataResponse(),
   provenance_marker_v1.QueryParamsRequest(),

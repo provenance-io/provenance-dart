@@ -24,7 +24,9 @@ import 'package:provenance_dart/src/proto/proto_gen/cosmos/crisis/v1beta1/tx.pb.
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/distribution/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/evidence/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/feegrant/v1beta1/tx.pb.dart';
-import 'package:provenance_dart/src/proto/proto_gen/cosmos/gov/v1beta1/tx.pb.dart';
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/gov/v1/tx.pb.dart';
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/group/v1/tx.pb.dart' as group;
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/nft/v1beta1/tx.pb.dart' as nft;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/slashing/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/staking/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/service.pb.dart';
@@ -95,35 +97,38 @@ extension AnyToMessage on Any {
       case "/cosmos.gov.v1beta2.MsgDeposit":
         return MsgDeposit.fromBuffer(value);
 
-      /* future
-        case "/cosmos.group.v1beta1.MsgCreateGroupRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgCreateGroupRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgUpdateGroupMembersRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgUpdateGroupMembersRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgUpdateGroupAdminRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgUpdateGroupAdminRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgUpdateGroupMetadataRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgUpdateGroupMetadataRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgCreateGroupAccountRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgCreateGroupAccountRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgUpdateGroupAccountAdminRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgUpdateGroupAccountAdminRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgUpdateGroupAccountDecisionPolicyRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgUpdateGroupAccountDecisionPolicyRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgUpdateGroupAccountMetadataRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgUpdateGroupAccountMetadataRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgCreateProposalRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgCreateProposalRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgVoteRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgVoteRequest(unpackingAny: msgAny))
-        case "/cosmos.group.v1beta1.MsgExecRequest":
-          return(msgAny.typeURL, try Cosmos_Group_V1beta1_MsgExecRequest(unpackingAny: msgAny))
+      case "/cosmos.group.v1.MsgCreateGroup":
+        return group.MsgCreateGroup.fromBuffer(value);
+      case "/cosmos.group.v1.MsgUpdateGroupMembers":
+        return group.MsgUpdateGroupMembers.fromBuffer(value);
+      case "/cosmos.group.v1.MsgUpdateGroupAdmin":
+        return group.MsgUpdateGroupAdmin.fromBuffer(value);
+      case "/cosmos.group.v1.MsgUpdateGroupMetadata":
+        return group.MsgUpdateGroupMetadata.fromBuffer(value);
+      case "/cosmos.group.v1.MsgCreateGroupPolicy":
+        return group.MsgCreateGroupPolicy.fromBuffer(value);
+      case "/cosmos.group.v1.MsgUpdateGroupPolicyAdmin":
+        return group.MsgUpdateGroupPolicyAdmin.fromBuffer(value);
+      case "/cosmos.group.v1.MsgCreateGroupWithPolicy":
+        return group.MsgCreateGroupWithPolicy.fromBuffer(value);
+      case "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy":
+        return group.MsgUpdateGroupPolicyDecisionPolicy.fromBuffer(value);
+      case "/cosmos.group.v1.MsgUpdateGroupPolicyMetadata":
+        return group.MsgUpdateGroupPolicyMetadata.fromBuffer(value);
+      case "/cosmos.group.v1.MsgSubmitProposal":
+        return group.MsgSubmitProposal.fromBuffer(value);
+      case "/cosmos.group.v1.MsgWithdrawProposal":
+        return group.MsgWithdrawProposal.fromBuffer(value);
+      case "/cosmos.group.v1.MsgVote":
+        return group.MsgVote.fromBuffer(value);
+      case "/cosmos.group.v1.MsgExec":
+        return group.MsgExec.fromBuffer(value);
+      case "/cosmos.group.v1.MsgLeaveGroup":
+        return group.MsgLeaveGroup.fromBuffer(value);
 
-        case "/cosmos.nft.v1beta1.MsgSend":
-          return(msgAny.typeURL, try Cosmos_Nft_V1beta1_MsgSend(unpackingAny: msgAny))
+      case "/cosmos.nft.v1beta1.MsgSend":
+        return nft.MsgSend.fromBuffer(value);
 
-
-           */
       case "/cosmos.slashing.v1beta1.MsgUnjail":
         return MsgUnjail.fromBuffer(value);
 

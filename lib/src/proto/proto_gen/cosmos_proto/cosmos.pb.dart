@@ -130,6 +130,11 @@ class ScalarDescriptor extends $pb.GeneratedMessage {
         valueOf: ScalarType.valueOf,
         enumValues: ScalarType.values,
         defaultEnumValue: ScalarType.SCALAR_TYPE_UNSPECIFIED)
+    ..aOS(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'legacyAminoEncoding')
     ..hasRequiredFields = false;
 
   ScalarDescriptor._() : super();
@@ -137,6 +142,7 @@ class ScalarDescriptor extends $pb.GeneratedMessage {
     $core.String? name,
     $core.String? description,
     $core.Iterable<ScalarType>? fieldType,
+    $core.String? legacyAminoEncoding,
   }) {
     final _result = create();
     if (name != null) {
@@ -147,6 +153,9 @@ class ScalarDescriptor extends $pb.GeneratedMessage {
     }
     if (fieldType != null) {
       _result.fieldType.addAll(fieldType);
+    }
+    if (legacyAminoEncoding != null) {
+      _result.legacyAminoEncoding = legacyAminoEncoding;
     }
     return _result;
   }
@@ -203,6 +212,18 @@ class ScalarDescriptor extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.List<ScalarType> get fieldType => $_getList(2);
+
+  @$pb.TagNumber(4)
+  $core.String get legacyAminoEncoding => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set legacyAminoEncoding($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasLegacyAminoEncoding() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearLegacyAminoEncoding() => clearField(4);
 }
 
 class Cosmos {
