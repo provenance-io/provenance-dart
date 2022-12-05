@@ -277,7 +277,7 @@ class PbClient {
   ///
   Future<GasEstimate> estimateTransactionFees(
       TxBody transactionBody, Iterable<keys.IPubKey> signers,
-      {double? gasAdjustment}) async {
+      {double gasAdjustment = defaultFeeAdjustment}) async {
     final signerInfos = await Future.wait(signers.map((publicKey) async {
       final account = await getBaseAccount(publicKey.address);
 
@@ -305,8 +305,9 @@ class PbClient {
         signatures: signaturePlaceholders);
 
     final calculateRequest = msg_fees.CalculateTxFeesRequest(
-        txBytes: txRaw.writeToBuffer(),
-        gasAdjustment: gasAdjustment ?? defaultFeeAdjustment);
+      txBytes: txRaw.writeToBuffer(),
+      gasAdjustment: gasAdjustment,
+    );
 
     final msgFee = await msgFeeClient.calculateTxFees(calculateRequest);
 
@@ -320,7 +321,7 @@ class PbClient {
   ///
   Future<RawTxResponsePair> estimateAndBroadcastTransaction(
       TxBody transactionBody, List<keys.IPrivKey> signers,
-      {double? gasAdjustment, String? feeGranter}) async {
+      {double gasAdjustment = defaultFeeAdjustment, String? feeGranter}) async {
     final publicKeys = signers.map((e) => e.publicKey);
 
     final gasEstimate = await estimateTransactionFees(
