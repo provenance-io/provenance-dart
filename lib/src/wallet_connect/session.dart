@@ -127,10 +127,12 @@ class WalletConnectException implements Exception {
 }
 
 class SignTransactionData {
-  SignTransactionData(this.proposedMessages, [this.gasEstimate]);
+  SignTransactionData(this.proposedMessages,
+      [this.gasEstimate, this.feeGranter]);
 
   List<GeneratedMessage> proposedMessages;
   proto.Coin? gasEstimate;
+  String? feeGranter;
 }
 
 abstract class WalletConnectionDelegate {
@@ -451,8 +453,12 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
+    final feeGranter = (descriptionJson['feePayer']?.isNotEmpty ?? false)
+        ? descriptionJson['feePayer']
+        : null;
 
-    final signTransactionData = SignTransactionData(messages, gasEstimate);
+    final signTransactionData =
+        SignTransactionData(messages, gasEstimate, feeGranter);
     _delegate?.onApproveTransaction(
         request.id, description, address, signTransactionData);
   }

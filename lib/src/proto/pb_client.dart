@@ -277,7 +277,7 @@ class PbClient {
   ///
   Future<GasEstimate> estimateTransactionFees(
       TxBody transactionBody, Iterable<keys.IPubKey> signers,
-      {double gasAdjustment = defaultFeeAdjustment}) async {
+      {double gasAdjustment = defaultFeeAdjustment, String? feeGranter}) async {
     final signerInfos = await Future.wait(signers.map((publicKey) async {
       final account = await getBaseAccount(publicKey.address);
 
@@ -285,7 +285,8 @@ class PbClient {
     }));
 
     final authInfo = AuthInfo(
-        fee: Fee(amount: <Coin>[], gasLimit: fixnum.Int64(0), granter: null),
+        fee: Fee(
+            amount: <Coin>[], gasLimit: fixnum.Int64(0), granter: feeGranter),
         signerInfos: signerInfos);
 
     // generate placeholders for the actual signatures.
@@ -326,7 +327,7 @@ class PbClient {
 
     final gasEstimate = await estimateTransactionFees(
         transactionBody, publicKeys,
-        gasAdjustment: gasAdjustment);
+        gasAdjustment: gasAdjustment, feeGranter: feeGranter);
 
     final fee = Fee(
         amount: gasEstimate.feeCalculated,
