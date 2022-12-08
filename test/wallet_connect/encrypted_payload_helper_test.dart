@@ -1,22 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
 
 import 'dart:math' as math;
-
-class _TestEncodable implements JsonEncodable {
-  final String msg;
-
-  _TestEncodable(this.msg);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{"msg": msg};
-  }
-}
 
 extension EncryptionPayloadCopy on EncryptionPayload {
   EncryptionPayload copyWith(
@@ -48,25 +35,27 @@ main() {
     0x41,
     0xc7
   ];
+
   final EncryptedPayloadHelper _helper = EncryptedPayloadHelper(key);
-  final encodable = _TestEncodable("Test Message");
 
-  test('encrypt/decrypt', () {
-    final encrypted = _helper.encrypt(encodable);
-    final decrypted = _helper.decryptAndVerify(encrypted);
-    final decodedJson = jsonDecode(decrypted);
+  const request = JsonRequest(123, "Test", [1, "B"]);
 
-    expect(decodedJson["msg"], encodable.msg);
+  test('encrypt/decrypt', () async {
+    final encrypted = await _helper.encrypt(request);
+    final decrypted = await _helper.decrypt(encrypted) as JsonRequest;
+
+    expect(decrypted.id, request.id);
+    expect(decrypted.method, request.method);
+    expect(decrypted.params, request.params);
   });
 
-  test('hmac mismatch', () {
+  test('hmac mismatch', () async {
     final invalidHmac =
         List<int>.generate(16, (_) => math.Random().nextInt(255));
-    final encrypted = _helper.encrypt(encodable);
+    final encrypted = await _helper.encrypt(request);
     final copyEncrypted = encrypted.copyWith(hmac: invalidHmac);
 
-    expect(() => _helper.decryptAndVerify(copyEncrypted),
-        throwsA(predicate((ex) {
+    expect(() => _helper.decrypt(copyEncrypted), throwsA(predicate((ex) {
       return ex is HmacMisMatchException &&
           ex.toString() ==
               "The calculated hmac does not match ${Encoding.toHex(invalidHmac)}";

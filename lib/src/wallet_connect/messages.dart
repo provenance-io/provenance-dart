@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:provenance_dart/proto.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
+import 'package:provenance_dart/wallet_connect.dart';
 
 extension ByteCompare on List<int> {
   bool areListsEqual(List<int> other) {
@@ -46,13 +48,65 @@ class EncryptionPayload implements JsonEncodable {
   }
 }
 
-class JsonRequest implements JsonEncodable {
+abstract class JsonRpcBase implements JsonEncodable {}
+
+class RpcException implements Exception {
+  final int code;
+  final dynamic data;
+  final String message;
+
+  RpcException({required this.code, required this.message, this.data});
+
+  @override
+  String toString() => message;
+}
+
+class JsonRequest implements JsonRpcBase {
   final int id;
   final String jsonrpc;
   final String method;
   final List<dynamic> params;
 
   const JsonRequest(this.id, this.method, this.params, [this.jsonrpc = "2.0"]);
+
+  JsonRequest.sessionApproval(SessionRequest sessionRequest)
+      : this(DateTime.now().millisecondsSinceEpoch ~/ 1000, "wc_sessionRequest",
+            [sessionRequest]);
+
+  JsonRequest.disconnect()
+      : this(
+            DateTime.now().millisecondsSinceEpoch ~/ 1000, "wc_sessionUpdate", [
+          <String, dynamic>{
+            "approved": false,
+            "chainId": null,
+            "accounts": null
+          }
+        ]);
+
+  JsonRequest.provenanceSign(List<int> data, String description, String address)
+      : this(DateTime.now().millisecondsSinceEpoch ~/ 1000, "provenance_sign", [
+          jsonEncode(<String, dynamic>{
+            "description": description,
+            "address": address,
+          }),
+          Encoding.toHex(data)
+        ]);
+
+  JsonRequest.sendTransaction(
+      List<GeneratedMessage> messages, String description, String address)
+      : this(DateTime.now().millisecondsSinceEpoch ~/ 1000,
+            "provenance_sendTransaction", [
+          jsonEncode(<String, dynamic>{
+            "description": description,
+            "address": address,
+          }),
+          ...messages.map((e) {
+            final any = e.toAny();
+            final base64 = base64Encode(any.writeToBuffer());
+            final charCodes = base64.codeUnits;
+            return Encoding.toHex(charCodes);
+          })
+        ]);
 
   factory JsonRequest.fromJson(Map<String, dynamic> jsonObj) {
     return JsonRequest(jsonObj['id'], jsonObj['method'], jsonObj['params'],
@@ -70,7 +124,7 @@ class JsonRequest implements JsonEncodable {
   }
 }
 
-class JsonRpcResponse implements JsonEncodable {
+class JsonRpcResponse implements JsonRpcBase {
   final int? id;
   final String? jsonrpc;
   final dynamic result;
@@ -82,12 +136,40 @@ class JsonRpcResponse implements JsonEncodable {
   const JsonRpcResponse.response(int? id, dynamic result)
       : this._(id, result: result);
 
+  JsonRpcResponse.provenanceSign(int id, List<int> signature)
+      : this._(id, result: Encoding.toHex(signature));
+
+  factory JsonRpcResponse.sendTransaction(
+      int id, RawTxResponsePair responsePair) {
+    if (responsePair.txResponse.code == 0) {
+      return JsonRpcResponse.response(id, responsePair.asJsonString());
+    } else {
+      final messageStr =
+          "${responsePair.txResponse.code} ${responsePair.txResponse.codespace} ${responsePair.txResponse.info}";
+
+      return JsonRpcResponse.response(id, <String, dynamic>{
+        "code": "${responsePair.txResponse.code}",
+        "message": messageStr,
+        "value": responsePair.asJsonString()
+      });
+    }
+  }
+
+  factory JsonRpcResponse.fromJson(Map<String, dynamic> json) {
+    final errorJson = json['error'] as Map<String, dynamic>?;
+    final result = json['result'];
+    final id = json['id'];
+
+    return JsonRpcResponse._(id, result: result, error: errorJson);
+  }
+
   JsonRpcResponse.error(int? id, String message, int code)
       : this._(id, error: <String, dynamic>{"code": code, "message": message});
 
   JsonRpcResponse.reject(int id) : this.error(id, "Request rejected", -32050);
 
-  JsonRpcResponse.invalidJson() : this.error(null, "Parse error", -32700);
+  JsonRpcResponse.invalidJson({int? id})
+      : this.error(id, "Parse error", -32700);
 
   JsonRpcResponse.invalidRequest(int id)
       : this.error(id, "Invalid Request", -32600);
@@ -137,6 +219,91 @@ class Message implements JsonEncodable {
       "topic": topic,
       "type": type,
       "payload": payload,
+    };
+  }
+}
+
+class SessionApproval implements JsonEncodable {
+  final ClientMeta? clientMeta;
+  final String? peerId;
+  final bool approved;
+  final String? chainId;
+  final AccountInfo? accounts;
+  final String? accountData;
+
+  SessionApproval._(
+      {this.clientMeta,
+      this.peerId,
+      this.chainId,
+      this.accounts,
+      this.accountData,
+      required this.approved});
+
+  SessionApproval.approve(ClientMeta? clientMeta, String peerId, String chainId,
+      AccountInfo accounts, String? accountData)
+      : this._(
+            approved: true,
+            accountData: accountData,
+            accounts: accounts,
+            chainId: chainId,
+            clientMeta: clientMeta,
+            peerId: peerId);
+
+  SessionApproval.reject()
+      : this._(
+          approved: false,
+        );
+
+  factory SessionApproval.fromJson(Map<String, dynamic> json) {
+    final clientMeta = json['peerMeta'];
+    final accountInfo = json['accounts'].first;
+
+    return SessionApproval._(
+      clientMeta: (clientMeta != null) ? ClientMeta.fromJson(clientMeta) : null,
+      approved: json['approved'],
+      accountData: json['accountData'],
+      accounts: AccountInfo.fromJson(accountInfo),
+      chainId: json['chainId'],
+      peerId: json['peerId'],
+    );
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      "peerId": peerId,
+      "approved": approved,
+      "chainId": chainId,
+      "peerMeta": clientMeta?.toJson(),
+      "accounts": [accounts?.toJson()],
+      "accountData": accountData,
+    };
+  }
+}
+
+class SessionRequest implements JsonEncodable {
+  final ClientMeta? clientMeta;
+  final String peerId;
+
+  SessionRequest({
+    required this.clientMeta,
+    required this.peerId,
+  });
+
+  factory SessionRequest.fromJson(Map<String, dynamic> json) {
+    final clientMeta = json['peerMeta'];
+
+    return SessionRequest(
+      clientMeta: ClientMeta.fromJson(clientMeta),
+      peerId: json['peerId'],
+    );
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      "peerId": peerId,
+      "peerMeta": clientMeta?.toJson(),
     };
   }
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:encrypt/encrypt.dart';
+import 'package:provenance_dart/src/wallet_connect/relay_client.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
@@ -20,7 +21,7 @@ class HmacMisMatchException implements Exception {
   }
 }
 
-class EncryptedPayloadHelper {
+class EncryptedPayloadHelper implements RelayEncryptionService {
   final Key _key;
   late Encrypter _encrypter;
 
@@ -29,7 +30,12 @@ class EncryptedPayloadHelper {
     _encrypter = Encrypter(AES(_key, mode: AESMode.cbc));
   }
 
-  EncryptionPayload encrypt(JsonEncodable encodable) {
+  List<int> _computeHash(List<int> data, List<int> key, List<int> ivBytes) {
+    return Hash.hmacSha256(key, data + ivBytes);
+  }
+
+  @override
+  Future<EncryptionPayload> encrypt(JsonRpcBase encodable) async {
     final ivBytes = Uint8List.fromList(
         List<int>.generate(16, (_) => math.Random().nextInt(255)));
     final jsonString = jsonEncode(encodable);
@@ -45,7 +51,8 @@ class EncryptedPayloadHelper {
     return EncryptionPayload(decryptedData, computedHmac, iv.bytes);
   }
 
-  String decryptAndVerify(EncryptionPayload encryptionPayload) {
+  @override
+  Future<JsonRpcBase> decrypt(EncryptionPayload encryptionPayload) async {
     final data = encryptionPayload.data;
     final iv = encryptionPayload.iv;
     final hmac = encryptionPayload.hmac;
@@ -60,11 +67,14 @@ class EncryptedPayloadHelper {
     final encryptIv = IV(Uint8List.fromList(iv));
     final decryptedData = _encrypter
         .decryptBytes(Encrypted(Uint8List.fromList(data)), iv: encryptIv);
-    return Encoding.toUtf8(decryptedData);
-  }
 
-  static List<int> _computeHash(
-      List<int> data, List<int> key, List<int> ivBytes) {
-    return Hash.hmacSha256(key, data + ivBytes);
+    final json = jsonDecode(Utf8Decoder().convert(decryptedData))
+        as Map<String, dynamic>;
+
+    if (json.containsKey("method")) {
+      return JsonRequest.fromJson(json);
+    } else {
+      return JsonRpcResponse.fromJson(json);
+    }
   }
 }
