@@ -62,6 +62,7 @@ import 'package:provenance_dart/src/wallet/multisig/keys.dart'
     as multi_sig_keys;
 import 'package:provenance_dart/src/wallet/private_key.dart';
 import 'package:provenance_dart/src/wallet/public_key.dart';
+import 'package:provenance_dart/proto_cosmos_group_v1.dart' as group_pb;
 
 class ChannelOpts {
   final int inboundMessageSize; // ~ 20 MB
@@ -132,6 +133,8 @@ class PbClient {
       fee_grant_pb.QueryClient(_channel);
 
   gov_pb.QueryClient get govClient => gov_pb.QueryClient(_channel);
+
+  group_pb.QueryClient get groupClient => group_pb.QueryClient(_channel);
 
   prov_marker_pb.QueryClient get markerClient =>
       prov_marker_pb.QueryClient(_channel);
