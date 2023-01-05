@@ -56,13 +56,11 @@ class SessionApprovalData {
   final IPubKey accountPublicKey;
   final String chainId;
   final WalletInfo walletInfo;
+  final String? policyAddress;
 
-  SessionApprovalData(
-    this.sessionSigningKey,
-    this.accountPublicKey,
-    this.chainId,
-    this.walletInfo,
-  );
+  SessionApprovalData(this.sessionSigningKey, this.accountPublicKey,
+      this.chainId, this.walletInfo,
+      {this.policyAddress});
 }
 
 class AccountInfo {
@@ -379,7 +377,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       "peerMeta": null,
       "accounts": null,
       "accountData": null,
-    };
+    }; 
 
     _chainId = sessionApprovalData.chainId;
     _sessionSigningKey = sessionApprovalData.sessionSigningKey;
@@ -417,7 +415,10 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     result["accounts"] = [
       AccountInfo(pubKey, sessionApprovalData.accountPublicKey.address, jwt,
               _walletInfo!)
-          .toJson()
+          .toJson(),
+      <String, dynamic>{
+        "representedPolicyAddress": sessionApprovalData.policyAddress,
+      }
     ];
 
     final response = JsonRpcResponse.response(requestId, result);
