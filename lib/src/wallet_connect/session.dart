@@ -51,16 +51,65 @@ class SessionRequestData {
   );
 }
 
+class RepresentedPolicy {
+  RepresentedPolicy({
+    required this.groupId,
+    required this.metadata,
+    required this.address,
+    required this.admin,
+    required this.version,
+    required this.createdAt,
+    required this.decisionPolicy,
+  });
+
+  final int groupId;
+  final String address;
+  final String admin;
+  final int version;
+  final DateTime createdAt;
+  final String? metadata;
+  final DecisionPolicy decisionPolicy;
+
+  Map<String, dynamic> toJson() {
+    return {
+      "decisionPolicy": decisionPolicy.toJson(),
+      "groupId": groupId,
+      "metadata": metadata,
+      "address": address,
+      "admin": admin,
+      "version": version,
+      "createdAt": createdAt.toIso8601String(),
+    };
+  }
+}
+
+class DecisionPolicy {
+  DecisionPolicy({
+    required this.typeUrl,
+    required this.value,
+  });
+
+  final String typeUrl;
+  final String value;
+
+  Map<String, dynamic> toJson() {
+    return {
+      "typeUrl": typeUrl,
+      "value": value,
+    };
+  }
+}
+
 class SessionApprovalData {
   final PrivateKey sessionSigningKey;
   final IPubKey accountPublicKey;
   final String chainId;
   final WalletInfo walletInfo;
-  final String? policyAddress;
+  final RepresentedPolicy? representedPolicy;
 
   SessionApprovalData(this.sessionSigningKey, this.accountPublicKey,
       this.chainId, this.walletInfo,
-      {this.policyAddress});
+      {this.representedPolicy});
 }
 
 class AccountInfo {
@@ -377,7 +426,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       "peerMeta": null,
       "accounts": null,
       "accountData": null,
-    }; 
+    };
 
     _chainId = sessionApprovalData.chainId;
     _sessionSigningKey = sessionApprovalData.sessionSigningKey;
@@ -417,7 +466,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
               _walletInfo!)
           .toJson(),
       <String, dynamic>{
-        "representedPolicyAddress": sessionApprovalData.policyAddress,
+        "representedPolicy": sessionApprovalData.representedPolicy?.toJson(),
       }
     ];
 
