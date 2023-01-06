@@ -20,7 +20,7 @@ class WalletConnectAddress {
   }) {
     const version = 1;
     final encodedBridge = Uri.encodeComponent(bridge.toString());
-    final raw = "wc:$topic@$version?bridge=${encodedBridge}&key=$key";
+    final raw = "wc:$topic@$version?bridge=$encodedBridge&key=$key";
     return WalletConnectAddress._(topic, version, bridge, key, raw);
   }
 
