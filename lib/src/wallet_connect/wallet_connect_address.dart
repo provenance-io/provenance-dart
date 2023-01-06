@@ -1,5 +1,3 @@
-import 'package:provenance_dart/src/wallet/wallet.dart';
-
 class WalletConnectAddress {
   final String topic;
   final int version;
@@ -21,7 +19,7 @@ class WalletConnectAddress {
     required String key,
   }) {
     const version = 1;
-    final encodedBridge = Uri.encodeFull(bridge.toString());
+    final encodedBridge = Uri.encodeComponent(bridge.toString());
     final raw = "wc:$topic@$version?bridge=${encodedBridge}&key=$key";
     return WalletConnectAddress._(topic, version, bridge, key, raw);
   }
