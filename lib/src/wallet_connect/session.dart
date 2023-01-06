@@ -503,8 +503,8 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
-    final feeGranter = (descriptionJson['feePayer']?.isNotEmpty ?? false)
-        ? descriptionJson['feePayer']
+    final feeGranter = (descriptionJson['feeGranter']?.isNotEmpty ?? false)
+        ? descriptionJson['feeGranter']
         : null;
 
     final signTransactionData =
