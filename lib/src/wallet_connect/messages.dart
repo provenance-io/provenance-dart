@@ -46,17 +46,38 @@ class EncryptionPayload implements JsonEncodable {
   }
 }
 
-class JsonRequest implements JsonEncodable {
-  final int id;
+abstract class JsonRpcBase implements JsonEncodable {
+  JsonRpcBase({
+    required this.jsonrpc,
+    required this.id,
+  });
+
+  final dynamic id;
   final String jsonrpc;
+
+  factory JsonRpcBase.fromJson(Map<String, dynamic> json) {
+    if (json.containsKey("method")) {
+      return JsonRequest.fromJson(json);
+    } else {
+      return JsonRpcResponse.fromJson(json);
+    }
+  }
+}
+
+class JsonRequest extends JsonRpcBase {
   final String method;
   final List<dynamic> params;
 
-  const JsonRequest(this.id, this.method, this.params, [this.jsonrpc = "2.0"]);
+  JsonRequest(this.method, this.params, {int? id, super.jsonrpc = "2.0"})
+      : super(id: id ?? DateTime.now().millisecondsSinceEpoch);
 
   factory JsonRequest.fromJson(Map<String, dynamic> jsonObj) {
-    return JsonRequest(jsonObj['id'], jsonObj['method'], jsonObj['params'],
-        jsonObj['jsonrpc']);
+    return JsonRequest(
+      jsonObj['method'],
+      jsonObj['params'],
+      jsonrpc: jsonObj['jsonrpc'],
+      id: jsonObj['id'],
+    );
   }
 
   @override
@@ -70,20 +91,56 @@ class JsonRequest implements JsonEncodable {
   }
 }
 
-class JsonRpcResponse implements JsonEncodable {
-  final int? id;
-  final String? jsonrpc;
+class JsonRpcError implements JsonEncodable {
+  const JsonRpcError({required this.code, required this.message, this.data});
+
+  final int code;
+  final String message;
+  final dynamic data;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      "code": code,
+      "message": message,
+      if (data != null) "data": data
+    };
+  }
+
+  factory JsonRpcError.fromJson(Map<String, dynamic> json) {
+    return JsonRpcError(
+      code: json['code'],
+      message: json['message'],
+      data: json['data'],
+    );
+  }
+}
+
+class JsonRpcResponse extends JsonRpcBase {
   final dynamic result;
-  final Map<String, dynamic>? error;
+  final JsonRpcError? error;
 
-  const JsonRpcResponse._(this.id,
-      {this.result, this.error, this.jsonrpc = "2.0"});
+  JsonRpcResponse(dynamic id, {this.result, this.error, super.jsonrpc = "2.0"})
+      : super(id: id);
 
-  const JsonRpcResponse.response(int? id, dynamic result)
-      : this._(id, result: result);
+  factory JsonRpcResponse.fromJson(Map<String, dynamic> json) {
+    final error = json['error'];
+    if (error != null) {
+      return JsonRpcResponse(json['id'],
+          jsonrpc: json['jsonrpc'], error: JsonRpcError.fromJson(error));
+    } else {
+      return JsonRpcResponse(
+        json['id'],
+        jsonrpc: json['jsonrpc'],
+        result: json['result'],
+      );
+    }
+  }
+
+  JsonRpcResponse.response(int? id, dynamic result) : this(id, result: result);
 
   JsonRpcResponse.error(int? id, String message, int code)
-      : this._(id, error: <String, dynamic>{"code": code, "message": message});
+      : this(id, error: JsonRpcError(code: code, message: message));
 
   JsonRpcResponse.reject(int id) : this.error(id, "Request rejected", -32050);
 
@@ -106,7 +163,11 @@ class JsonRpcResponse implements JsonEncodable {
     if (error == null) {
       return <String, dynamic>{"jsonrpc": jsonrpc, "id": id, "result": result};
     } else {
-      return <String, dynamic>{"jsonrpc": jsonrpc, "id": id, "error": error};
+      return <String, dynamic>{
+        "jsonrpc": jsonrpc,
+        "id": id,
+        "error": error!.toJson()
+      };
     }
   }
 }
@@ -119,7 +180,8 @@ class Message implements JsonEncodable {
   const Message._(this.topic, this.type, this.payload);
 
   factory Message.fromJson(Map<String, dynamic> jsonObj) {
-    return Message._(jsonObj['topic'], jsonObj['type'], jsonObj['payload']);
+    return Message._(
+        jsonObj['topic'], jsonObj['type'], jsonObj['payload'] ?? "");
   }
 
   factory Message.pub(String topic, encodable) {
@@ -139,4 +201,12 @@ class Message implements JsonEncodable {
       "payload": payload,
     };
   }
+}
+
+class JrpcRequestException implements Exception {
+  final dynamic requestId;
+  final dynamic innerException;
+  final String topic;
+
+  JrpcRequestException(this.topic, this.requestId, this.innerException);
 }

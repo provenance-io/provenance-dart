@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:protobuf/protobuf.dart';
@@ -11,8 +10,7 @@ import 'package:provenance_dart/src/proto/proto_gen/google/protobuf/any.pb.dart'
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
-import 'package:provenance_dart/src/wallet_connect/sink_transform.dart';
-import 'package:provenance_dart/src/wallet_connect/wallet_connect_transform.dart';
+import 'package:provenance_dart/src/wallet_connect/relay.dart';
 import 'package:provenance_dart/wallet_connect.dart';
 import 'package:uuid/uuid.dart';
 
@@ -199,29 +197,30 @@ abstract class WalletConnectionDelegate {
   void onClose();
 }
 
-class WalletConnection extends ValueListenable<WalletConnectState> {
+class WalletConnection extends ValueListenable<WalletConnectState>
+    implements RelayDelegate {
   final List<VoidCallback> _listeners = <VoidCallback>[];
   final WalletConnectAddress address;
+  final EncryptedPayloadHelper _encryptedPayloadHelper;
 
   WalletConnectState _status = WalletConnectState.disconnected;
   WalletConnectionDelegate? _delegate;
   PrivateKey? _sessionSigningKey;
   String? _chainId;
   WalletInfo? _walletInfo;
-  WebSocket? _webSocket;
   String? _peerId;
   String? _remotePeerId;
+  Relay? _relay;
 
-  Stream<JsonRequest>? _stream;
-  Sink<PublishSinkMessage>? _outSink;
-
-  WalletConnection(this.address);
+  WalletConnection(this.address)
+      : _encryptedPayloadHelper =
+            EncryptedPayloadHelper(Encoding.fromHex(address.key));
 
   Future<void> connect(
     WalletConnectionDelegate delegate, [
     SessionRestoreData? restoreData,
   ]) async {
-    if (_webSocket != null) {
+    if (_relay != null) {
       return Future.value();
     }
 
@@ -235,30 +234,14 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
       _updateStatus(WalletConnectState.connecting);
 
-      final keyBytes = Encoding.fromHex(address.key);
-      final encryptedPayloadHelper = EncryptedPayloadHelper(keyBytes);
+      final webSocket = await WebSocket.connect(address.bridge.toString());
+      webSocket.pingInterval = const Duration(seconds: 5);
 
-      _webSocket = await WebSocket.connect(address.bridge.toString());
-      _webSocket!.pingInterval = const Duration(seconds: 5);
-
-      // create the sink that we write our responses to
-      _outSink = _webSocket!
-          .fuse(JsonSinkTransformer())
-          .fuse(PublishSinkTransform(encryptedPayloadHelper));
-
-      // create the stream that receives messages from the server
-      _stream = _webSocket!
-          .cast<String>()
-          .transform(JsonStreamTransformer())
-          .transform(WalletConnectTransform(encryptedPayloadHelper));
-
-      _stream!
-          .listen(_processRequest, onError: _handleError, onDone: _handleDone);
-
-      _updateStatus(WalletConnectState.connected);
-
-      _outSink!.add(PublishSinkMessage.subscribe(address.topic));
-      _outSink!.add(PublishSinkMessage.subscribe(peerId));
+      _relay = Relay(webSocket, _encryptedPayloadHelper, this);
+      await Future.wait([
+        _relay!.subscribe(address.topic),
+        _relay!.subscribe(peerId),
+      ]);
     } catch (e) {
       _delegate = null;
       _updateStatus(WalletConnectState.disconnected);
@@ -285,14 +268,14 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
   void _handleDone() {
     _delegate = null;
-    _webSocket = null;
+    _relay = null;
     _sessionSigningKey = null;
     _chainId = null;
     _updateStatus(WalletConnectState.disconnected);
   }
 
-  Future<void> dispose() {
-    return _webSocket?.close() ?? Future.value();
+  Future<void> dispose() async {
+    return _relay?.close();
   }
 
   void _processRequest(JsonRequest jsonRequest) {
@@ -316,9 +299,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         default:
           log("Unknown request method: ${jsonRequest.method}");
           final response = JsonRpcResponse.methodNotFound(jsonRequest.id);
-          final publishMessage =
-              PublishSinkMessage.publish(_remotePeerId!, response);
-          _outSink?.add(publishMessage);
+          _relay?.respond(_remotePeerId!, response);
           break;
       }
     } catch (e) {
@@ -329,8 +310,26 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   void _handleRequestErrors(Object? error, int requestId) {
     final response = JsonRpcResponse.error(
         requestId, error?.toString() ?? "Internal error", -32603);
-    final publishMessage = PublishSinkMessage.publish(_remotePeerId!, response);
-    _outSink?.add(publishMessage);
+    _relay?.respond(_remotePeerId!, response);
+  }
+
+  Future<SessionRestoreData?> close() async {
+    SessionRestoreData? restoreData;
+    if (!(_remotePeerId == null ||
+        _sessionSigningKey == null ||
+        _chainId == null ||
+        _peerId == null)) {
+      restoreData = SessionRestoreData(
+        _sessionSigningKey!,
+        _chainId!,
+        _peerId!,
+        _remotePeerId!,
+      );
+    }
+
+    await _relay!.close();
+    _relay = null;
+    return restoreData;
   }
 
   Future<void> disconnect() async {
@@ -341,15 +340,11 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
         "accounts": null
       };
 
-      final response = JsonRequest(
-          math.Random().nextInt(100000), "wc_sessionUpdate", [result]);
-
-      final publishMessage =
-          PublishSinkMessage.publish(_remotePeerId!, response);
-
-      await _outSink?.addAsync(publishMessage);
+      final response = JsonRequest("wc_sessionUpdate", [result]);
+      await _relay?.publish(_remotePeerId!, response);
     }
-    await _webSocket?.close();
+    await _relay?.close();
+    _relay = null;
   }
 
   void _handleUpdateSession(JsonRequest request) {
@@ -358,29 +353,23 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     final approved = param['approved'];
 
     if (approved != null && !approved) {
-      _webSocket?.close();
+      _relay?.close();
       _delegate?.onClose();
     }
   }
 
   Future<void> sendError(int requestId, String error) async {
-    PublishSinkMessage message =
-        PublishSinkMessage.error(_remotePeerId!, requestId, error);
-
-    await _outSink?.addAsync(message);
+    final response = JsonRpcResponse.error(requestId, error, -32010);
+    await _relay?.respond(_remotePeerId!, response);
   }
 
   Future<void> reject(int requestId) async {
-    PublishSinkMessage message =
-        PublishSinkMessage.reject(_remotePeerId!, requestId);
-
-    await _outSink?.addAsync(message);
+    final response = JsonRpcResponse.reject(requestId);
+    await _relay?.respond(_remotePeerId!, response);
   }
 
   Future<void> sendTransactionResult(
       int requestId, proto.RawTxResponsePair txResponsePair) async {
-    PublishSinkMessage message;
-
     JsonRpcResponse response;
     if (txResponsePair.txResponse.code == 0) {
       response =
@@ -395,18 +384,14 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
       });
     }
 
-    message = PublishSinkMessage.publish(_remotePeerId!, response);
-    await _outSink?.addAsync(message);
+    await _relay?.respond(_remotePeerId!, response);
   }
 
   Future<void> sendSignResult(int requestId, List<int> signedData) async {
     final result = Encoding.toHex(signedData);
     final response = JsonRpcResponse.response(requestId, result);
 
-    PublishSinkMessage message =
-        PublishSinkMessage.publish(_remotePeerId!, response);
-
-    await _outSink?.addAsync(message);
+    await _relay?.respond(_remotePeerId!, response);
   }
 
   Future<void> sendMultiSigSignResult(
@@ -420,10 +405,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
     final response = JsonRpcResponse.response(requestId, result);
 
-    PublishSinkMessage message =
-        PublishSinkMessage.publish(_remotePeerId!, response);
-
-    await _outSink?.addAsync(message);
+    await _relay?.respond(_remotePeerId!, response);
   }
 
   Future<void> sendApproveSession(
@@ -482,10 +464,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     ];
 
     final response = JsonRpcResponse.response(requestId, result);
-    PublishSinkMessage message =
-        PublishSinkMessage.publish(_remotePeerId!, response);
-
-    await _outSink?.addAsync(message);
+    await _relay?.respond(_remotePeerId!, response);
   }
 
   Future<void> _handlerSendTransaction(JsonRequest request) async {
@@ -575,4 +554,33 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
 
   @override
   WalletConnectState get value => _status;
+
+  /* RelayDelegate */
+  @override
+  void onJsonRpc(String topic, JsonRpcBase jsonRpc) {
+    if (jsonRpc is JsonRequest) {
+      _processRequest(jsonRpc);
+    } else if (jsonRpc is JsonRpcResponse) {
+      // not supported yet
+    }
+  }
+
+  @override
+  void onStatusUpdated(RelayStatus relayStatus) {
+    if (relayStatus == RelayStatus.connected) {
+      _updateStatus(WalletConnectState.connected);
+    } else if (relayStatus == RelayStatus.disconnected) {
+      _updateStatus(WalletConnectState.disconnected);
+    }
+  }
+
+  @override
+  void onSubscribe(String subscribedTopic) {
+    // TODO: implement onSubscribe
+  }
+
+  @override
+  void onError(Exception error) {
+    _handleError(error);
+  }
 }

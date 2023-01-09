@@ -21,15 +21,13 @@ class HmacMisMatchException implements Exception {
 }
 
 class EncryptedPayloadHelper {
-  final Key _key;
-  late Encrypter _encrypter;
+  final Encrypter _encrypter;
 
   EncryptedPayloadHelper(List<int> keyBytes)
-      : _key = Key(Uint8List.fromList(keyBytes)) {
-    _encrypter = Encrypter(AES(_key, mode: AESMode.cbc));
-  }
+      : _encrypter = Encrypter(
+            AES(Key(Uint8List.fromList(keyBytes)), mode: AESMode.cbc));
 
-  EncryptionPayload encrypt(JsonEncodable encodable) {
+  EncryptionPayload encrypt(JsonRpcBase encodable) {
     final ivBytes = Uint8List.fromList(
         List<int>.generate(16, (_) => math.Random().nextInt(255)));
     final jsonString = jsonEncode(encodable);
@@ -40,17 +38,17 @@ class EncryptedPayloadHelper {
         .encryptBytes(Uint8List.fromList(responseBytes), iv: iv)
         .bytes;
 
-    final computedHmac = _computeHash(decryptedData, _key.bytes, iv.bytes);
+    final computedHmac = _computeHash(decryptedData, iv.bytes);
 
     return EncryptionPayload(decryptedData, computedHmac, iv.bytes);
   }
 
-  String decryptAndVerify(EncryptionPayload encryptionPayload) {
+  JsonRpcBase decryptAndVerify(EncryptionPayload encryptionPayload) {
     final data = encryptionPayload.data;
     final iv = encryptionPayload.iv;
     final hmac = encryptionPayload.hmac;
 
-    final computedHmac = _computeHash(data, _key.bytes, iv);
+    final computedHmac = _computeHash(data, iv);
 
     if (!computedHmac.areListsEqual(hmac)) {
       throw HmacMisMatchException(
@@ -60,11 +58,15 @@ class EncryptedPayloadHelper {
     final encryptIv = IV(Uint8List.fromList(iv));
     final decryptedData = _encrypter
         .decryptBytes(Encrypted(Uint8List.fromList(data)), iv: encryptIv);
-    return Encoding.toUtf8(decryptedData);
+
+    final jsonString = Encoding.toUtf8(decryptedData);
+    final json = jsonDecode(jsonString);
+
+    return JsonRpcBase.fromJson(json);
   }
 
-  static List<int> _computeHash(
-      List<int> data, List<int> key, List<int> ivBytes) {
+  List<int> _computeHash(List<int> data, List<int> ivBytes) {
+    final key = (_encrypter.algo as AES).key.bytes;
     return Hash.hmacSha256(key, data + ivBytes);
   }
 }

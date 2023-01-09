@@ -1,10 +1,8 @@
-import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:provenance_dart/wallet_connect.dart';
 
-@GenerateMocks([WebSocket])
 main() {
   test("validAddress ", () {
     const address =
@@ -15,6 +13,7 @@ main() {
     expect(connectAddress.version, 12);
     expect(connectAddress.bridge, Uri.parse("http://tester.com"));
     expect(connectAddress.key, "MyTestKey");
+    expect(connectAddress.raw, address);
   });
 
   test("returns null on invalid address ", () {
@@ -30,5 +29,17 @@ main() {
     expect(WalletConnectAddress.create(missingVersion), null);
     expect(WalletConnectAddress.create(decimalVersion), null);
     expect(WalletConnectAddress.create(missinKey), null);
+  });
+
+  test("toString returns an encoded address ", () {
+    final address = WalletConnectAddress(
+      "E75F695D-389F-4649-A25B-22FC458B6089",
+      2,
+      Uri.parse("http://www.test.com?param=1"),
+      "A9930B20-30E7-40DB-872C-F60BC33598E1",
+    );
+
+    expect(address.toString(),
+        "wc:E75F695D-389F-4649-A25B-22FC458B6089@2?bridge=http%3A%2F%2Fwww.test.com%3Fparam%3D1&key=A9930B20-30E7-40DB-872C-F60BC33598E1");
   });
 }

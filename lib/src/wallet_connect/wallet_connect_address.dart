@@ -6,12 +6,11 @@ class WalletConnectAddress {
   final String raw;
 
   WalletConnectAddress._(
-    this.topic,
-    this.version,
-    this.bridge,
-    this.key,
-    this.raw,
-  );
+      this.topic, this.version, this.bridge, this.key, this.raw);
+
+  WalletConnectAddress(String topic, int version, Uri bridge, String key)
+      : this._(topic, version, bridge, key,
+            "wc:$topic@$version?bridge=${Uri.encodeComponent(bridge.toString())}&key=$key");
 
   static WalletConnectAddress? create(String str) {
     final regex = RegExp(
@@ -35,4 +34,7 @@ class WalletConnectAddress {
       str,
     );
   }
+
+  @override
+  String toString() => raw;
 }

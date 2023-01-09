@@ -93,13 +93,13 @@ main() {
     });
 
     test('toJson', () {
-      const request = JsonRequest(
-          123,
+      final request = JsonRequest(
           "Test Method",
           [
             {"a": 1, "B": "CDE"}
           ],
-          "3.0");
+          id: 123,
+          jsonrpc: "3.0");
 
       final json = request.toJson();
 
@@ -116,7 +116,7 @@ main() {
 
   group('JsonRpcResponse', () {
     test('toJson - success', () {
-      const request = JsonRpcResponse.response(123, [
+      final request = JsonRpcResponse.response(123, [
         {"a": 1, "B": "CDE"}
       ]);
 
