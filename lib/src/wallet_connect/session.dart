@@ -117,8 +117,10 @@ class AccountInfo {
   final String address;
   final String jwt;
   final WalletInfo walletInfo;
+  final RepresentedPolicy? representedGroupPolicy;
 
-  AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo);
+  AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo,
+      this.representedGroupPolicy);
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -126,6 +128,7 @@ class AccountInfo {
       "address": address,
       "jwt": jwt,
       "walletInfo": walletInfo.toJson(),
+      "representedGroupPolicy": representedGroupPolicy?.toJson()
     };
   }
 }
@@ -462,12 +465,13 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     result["chainId"] = _chainId;
     result["peerMeta"] = peerMeta?.toJson();
     result["accounts"] = [
-      AccountInfo(pubKey, sessionApprovalData.accountPublicKey.address, jwt,
-              _walletInfo!)
-          .toJson(),
-      <String, dynamic>{
-        "representedPolicy": sessionApprovalData.representedPolicy?.toJson(),
-      }
+      AccountInfo(
+        pubKey,
+        sessionApprovalData.accountPublicKey.address,
+        jwt,
+        _walletInfo!,
+        sessionApprovalData.representedPolicy,
+      ).toJson(),
     ];
 
     final response = JsonRpcResponse.response(requestId, result);
