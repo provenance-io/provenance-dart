@@ -6,6 +6,21 @@ import 'package:provenance_dart/wallet_connect.dart';
 
 @GenerateMocks([WebSocket])
 main() {
+  test('Encodes bridge', () {
+    const topic = 'the-topic';
+    const bridge = 'wss://example.com/bridge/ws/external';
+    const key = 'key1';
+    final connectAddress = WalletConnectAddress(
+      topic: topic,
+      bridge: Uri.parse(bridge),
+      key: key,
+    );
+
+    const encodedBridge = 'wss%3A%2F%2Fexample.com%2Fbridge%2Fws%2Fexternal';
+
+    expect(connectAddress.raw, 'wc:$topic@1?bridge=$encodedBridge&key=$key');
+  });
+
   test("validAddress ", () {
     const address =
         "wc:TheTopic@12?bridge=http%3A%2F%2Ftester.com&key=MyTestKey";
