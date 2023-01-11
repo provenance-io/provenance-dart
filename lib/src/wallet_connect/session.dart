@@ -51,18 +51,65 @@ class SessionRequestData {
   );
 }
 
+class RepresentedPolicy {
+  RepresentedPolicy({
+    required this.groupId,
+    required this.metadata,
+    required this.address,
+    required this.admin,
+    required this.version,
+    required this.createdAt,
+    required this.decisionPolicy,
+  });
+
+  final int groupId;
+  final String address;
+  final String admin;
+  final int version;
+  final DateTime createdAt;
+  final String? metadata;
+  final DecisionPolicy decisionPolicy;
+
+  Map<String, dynamic> toJson() {
+    return {
+      "decisionPolicy": decisionPolicy.toJson(),
+      "groupId": groupId,
+      "metadata": metadata,
+      "address": address,
+      "admin": admin,
+      "version": version,
+      "createdAt": createdAt.toIso8601String(),
+    };
+  }
+}
+
+class DecisionPolicy {
+  DecisionPolicy({
+    required this.typeUrl,
+    required this.value,
+  });
+
+  final String typeUrl;
+  final String value;
+
+  Map<String, dynamic> toJson() {
+    return {
+      "typeUrl": typeUrl,
+      "value": value,
+    };
+  }
+}
+
 class SessionApprovalData {
   final PrivateKey sessionSigningKey;
   final IPubKey accountPublicKey;
   final String chainId;
   final WalletInfo walletInfo;
+  final RepresentedPolicy? representedPolicy;
 
-  SessionApprovalData(
-    this.sessionSigningKey,
-    this.accountPublicKey,
-    this.chainId,
-    this.walletInfo,
-  );
+  SessionApprovalData(this.sessionSigningKey, this.accountPublicKey,
+      this.chainId, this.walletInfo,
+      {this.representedPolicy});
 }
 
 class AccountInfo {
@@ -70,8 +117,10 @@ class AccountInfo {
   final String address;
   final String jwt;
   final WalletInfo walletInfo;
+  final RepresentedPolicy? representedGroupPolicy;
 
-  AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo);
+  AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo,
+      this.representedGroupPolicy);
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -79,6 +128,7 @@ class AccountInfo {
       "address": address,
       "jwt": jwt,
       "walletInfo": walletInfo.toJson(),
+      "representedGroupPolicy": representedGroupPolicy?.toJson()
     };
   }
 }
@@ -415,9 +465,13 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     result["chainId"] = _chainId;
     result["peerMeta"] = peerMeta?.toJson();
     result["accounts"] = [
-      AccountInfo(pubKey, sessionApprovalData.accountPublicKey.address, jwt,
-              _walletInfo!)
-          .toJson()
+      AccountInfo(
+        pubKey,
+        sessionApprovalData.accountPublicKey.address,
+        jwt,
+        _walletInfo!,
+        sessionApprovalData.representedPolicy,
+      ).toJson(),
     ];
 
     final response = JsonRpcResponse.response(requestId, result);
