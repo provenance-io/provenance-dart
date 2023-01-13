@@ -352,7 +352,7 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     await _webSocket?.close();
   }
 
-  void _handleUpdateSession(JsonRequest request) {
+  Future<void> _handleUpdateSession(JsonRequest request) async {
     final param = request.params.first;
 
     final approved = param['approved'];
