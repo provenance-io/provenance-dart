@@ -296,33 +296,30 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
   }
 
   void _processRequest(JsonRequest jsonRequest) {
-    try {
-      switch (jsonRequest.method) {
-        case "wc_sessionRequest":
-          _handleSessionRequest(jsonRequest).onError(
-              (error, _) => _handleRequestErrors(error, jsonRequest.id));
-          break;
-        case "provenance_sign":
-          _handleProvenanceSign(jsonRequest).onError(
-              (error, _) => _handleRequestErrors(error, jsonRequest.id));
-          break;
-        case "provenance_sendTransaction":
-          _handlerSendTransaction(jsonRequest).onError(
-              (error, _) => _handleRequestErrors(error, jsonRequest.id));
-          break;
-        case "wc_sessionUpdate":
-          _handleUpdateSession(jsonRequest);
-          break;
-        default:
-          log("Unknown request method: ${jsonRequest.method}");
-          final response = JsonRpcResponse.methodNotFound(jsonRequest.id);
-          final publishMessage =
-              PublishSinkMessage.publish(_remotePeerId!, response);
-          _outSink?.add(publishMessage);
-          break;
-      }
-    } catch (e) {
-      _handleRequestErrors(e, jsonRequest.id);
+    switch (jsonRequest.method) {
+      case "wc_sessionRequest":
+        _handleSessionRequest(jsonRequest)
+            .onError((error, _) => _handleRequestErrors(error, jsonRequest.id));
+        break;
+      case "provenance_sign":
+        _handleProvenanceSign(jsonRequest)
+            .onError((error, _) => _handleRequestErrors(error, jsonRequest.id));
+        break;
+      case "provenance_sendTransaction":
+        _handlerSendTransaction(jsonRequest)
+            .onError((error, _) => _handleRequestErrors(error, jsonRequest.id));
+        break;
+      case "wc_sessionUpdate":
+        _handleUpdateSession(jsonRequest)
+            .onError((error, _) => _handleRequestErrors(error, jsonRequest.id));
+        break;
+      default:
+        log("Unknown request method: ${jsonRequest.method}");
+        final response = JsonRpcResponse.methodNotFound(jsonRequest.id);
+        final publishMessage =
+            PublishSinkMessage.publish(_remotePeerId!, response);
+        _outSink?.add(publishMessage);
+        break;
     }
   }
 
