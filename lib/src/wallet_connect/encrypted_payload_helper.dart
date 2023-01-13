@@ -32,7 +32,7 @@ class EncryptedPayloadHelper {
   EncryptionPayload encrypt(JsonEncodable encodable) {
     final ivBytes = Uint8List.fromList(
         List<int>.generate(16, (_) => math.Random().nextInt(255)));
-    final jsonString = jsonEncode(encodable.toJson());
+    final jsonString = jsonEncode(encodable);
     final responseBytes = utf8.encode(jsonString);
     final iv = IV(ivBytes);
 
