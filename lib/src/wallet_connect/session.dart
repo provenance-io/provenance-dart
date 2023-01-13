@@ -21,7 +21,7 @@ import '../../wallet.dart';
 class Base64UrlEncoder extends Converter<List<int>, String> {
   Base64UrlEncoder();
 
-  final _base64Encoder = Base64Encoder.urlSafe();
+  final _base64Encoder = const Base64Encoder.urlSafe();
   final _regex = RegExp(r'^([^=]+)=*$');
 
   @override
