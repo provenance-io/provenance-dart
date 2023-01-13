@@ -299,13 +299,16 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
     try {
       switch (jsonRequest.method) {
         case "wc_sessionRequest":
-          _handleSessionRequest(jsonRequest);
+          _handleSessionRequest(jsonRequest).onError(
+              (error, _) => _handleRequestErrors(error, jsonRequest.id));
           break;
         case "provenance_sign":
-          _handleProvenanceSign(jsonRequest);
+          _handleProvenanceSign(jsonRequest).onError(
+              (error, _) => _handleRequestErrors(error, jsonRequest.id));
           break;
         case "provenance_sendTransaction":
-          _handlerSendTransaction(jsonRequest);
+          _handlerSendTransaction(jsonRequest).onError(
+              (error, _) => _handleRequestErrors(error, jsonRequest.id));
           break;
         case "wc_sessionUpdate":
           _handleUpdateSession(jsonRequest);
@@ -319,11 +322,14 @@ class WalletConnection extends ValueListenable<WalletConnectState> {
           break;
       }
     } catch (e) {
-      final response = JsonRpcResponse.internalError(jsonRequest.id);
-      final publishMessage =
-          PublishSinkMessage.publish(_remotePeerId!, response);
-      _outSink?.add(publishMessage);
+      _handleRequestErrors(e, jsonRequest.id);
     }
+  }
+
+  void _handleRequestErrors(Object? error, int requestId) {
+    final response = JsonRpcResponse.response(requestId, error);
+    final publishMessage = PublishSinkMessage.publish(_remotePeerId!, response);
+    _outSink?.add(publishMessage);
   }
 
   Future<void> disconnect() async {
