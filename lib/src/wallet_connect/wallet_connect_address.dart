@@ -3,25 +3,15 @@ class WalletConnectAddress {
   final int version;
   final Uri bridge;
   final String key;
-  late Map<String, String> parameters;
+  final Map<String, String> parameters;
 
-  WalletConnectAddress._(
+  WalletConnectAddress(
     this.topic,
     this.version,
     this.bridge,
-    this.key,
-    Map<String, String> parameters,
-  ) {
-    this.parameters = Map.unmodifiable(parameters);
-  }
-
-  WalletConnectAddress(
-    String topic,
-    int version,
-    Uri bridge,
-    String key, [
+    this.key, [
     Map<String, String>? parameters,
-  ]) : this._(topic, version, bridge, key, parameters ?? <String, String>{});
+  ]) : parameters = Map.unmodifiable(parameters ?? <String, String>{});
 
   static WalletConnectAddress? create(String str) {
     final regex =
@@ -61,7 +51,7 @@ class WalletConnectAddress {
     final topic = match.namedGroup("topic")!;
     final version = int.parse(match.namedGroup("version")!);
 
-    return WalletConnectAddress._(
+    return WalletConnectAddress(
       topic,
       version,
       bridgeUri,
@@ -75,5 +65,5 @@ class WalletConnectAddress {
 
   @override
   String toString() =>
-      "wc:$topic@$version?bridge=${Uri.encodeComponent(bridge.toString())}&key=$key${(parameters?.isNotEmpty ?? false) ? "&${parameters!.entries.map((e) => "${e.key}=${e.value}").join("&")}" : ""}";
+      "wc:$topic@$version?bridge=${Uri.encodeComponent(bridge.toString())}&key=$key${parameters.isNotEmpty ? "&${parameters.entries.map((e) => "${e.key}=${e.value}").join("&")}" : ""}";
 }
