@@ -3,7 +3,6 @@ class WalletConnectAddress {
   final int version;
   final Uri bridge;
   final String key;
-  late String raw;
   late Map<String, String> parameters;
 
   WalletConnectAddress._(
@@ -11,23 +10,9 @@ class WalletConnectAddress {
     this.version,
     this.bridge,
     this.key,
-    String? raw,
     Map<String, String> parameters,
   ) {
     this.parameters = Map.unmodifiable(parameters);
-
-    if (raw != null) {
-      this.raw = raw;
-    } else {
-      String paramStrings = "";
-      if (parameters.isNotEmpty) {
-        paramStrings =
-            parameters.entries.map((e) => "${e.key}=${e.value}").join("&");
-      }
-
-      this.raw =
-          "wc:$topic@$version?bridge=${Uri.encodeComponent(bridge.toString())}&key=$key${(paramStrings.isNotEmpty) ? "&$paramStrings" : ""}";
-    }
   }
 
   WalletConnectAddress(
@@ -36,13 +21,7 @@ class WalletConnectAddress {
     Uri bridge,
     String key, [
     Map<String, String>? parameters,
-  ]) : this._(
-            topic,
-            version,
-            bridge,
-            key,
-            "wc:$topic@$version?bridge=${Uri.encodeComponent(bridge.toString())}&key=$key${(parameters?.isNotEmpty ?? false) ? "&${parameters!.entries.map((e) => "${e.key}=${e.value}").join("&")}" : ""}",
-            parameters ?? <String, String>{});
+  ]) : this._(topic, version, bridge, key, parameters ?? <String, String>{});
 
   static WalletConnectAddress? create(String str) {
     final regex =
@@ -87,11 +66,11 @@ class WalletConnectAddress {
       version,
       bridgeUri,
       key,
-      str,
       otherParameters,
     );
   }
 
   @override
-  String toString() => raw;
+  String toString() =>
+      "wc:$topic@$version?bridge=${Uri.encodeComponent(bridge.toString())}&key=$key${(parameters?.isNotEmpty ?? false) ? "&${parameters!.entries.map((e) => "${e.key}=${e.value}").join("&")}" : ""}";
 }

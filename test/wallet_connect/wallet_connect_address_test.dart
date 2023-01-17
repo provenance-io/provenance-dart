@@ -6,8 +6,10 @@ main() {
     const topic = "TheTopic";
     const key = "MyTestKey";
     final bridge = Uri.parse("http://tester.com");
-    final encodedBridge = Uri.encodeFull(bridge.toString());
+    final encodedBridge = Uri.encodeComponent(bridge.toString());
     const version = 12;
+    final toStringAddress =
+        "wc:$topic@$version?bridge=$encodedBridge&key=$key"; // the toString method always returns bridge, then key, then any additional params in alphabetical order
 
     {
       final address = "wc:$topic@$version?bridge=$encodedBridge&key=$key";
@@ -17,7 +19,7 @@ main() {
       expect(connectAddress.version, version);
       expect(connectAddress.bridge, bridge);
       expect(connectAddress.key, key);
-      expect(connectAddress.raw, address);
+      expect(connectAddress.toString(), toStringAddress);
     }
     // reorder params
     {
@@ -29,7 +31,7 @@ main() {
       expect(connectAddress.version, version);
       expect(connectAddress.bridge, bridge);
       expect(connectAddress.key, key);
-      expect(connectAddress.raw, address);
+      expect(connectAddress.toString(), toStringAddress);
     }
     // url is successfully processed even if there are extra parameters
     {
@@ -42,7 +44,8 @@ main() {
       expect(connectAddress.version, version);
       expect(connectAddress.bridge, bridge);
       expect(connectAddress.key, key);
-      expect(connectAddress.raw, address);
+      expect(
+          connectAddress.toString(), "$toStringAddress&extra1=444&extra2=100");
     }
   });
 
