@@ -70,6 +70,9 @@ class WalletConnectAddress {
     );
   }
 
+  @Deprecated("use toString() instead")
+  String get raw => this.toString();
+
   @override
   String toString() =>
       "wc:$topic@$version?bridge=${Uri.encodeComponent(bridge.toString())}&key=$key${(parameters?.isNotEmpty ?? false) ? "&${parameters!.entries.map((e) => "${e.key}=${e.value}").join("&")}" : ""}";

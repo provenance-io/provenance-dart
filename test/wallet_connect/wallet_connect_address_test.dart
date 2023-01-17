@@ -20,6 +20,7 @@ main() {
       expect(connectAddress.bridge, bridge);
       expect(connectAddress.key, key);
       expect(connectAddress.toString(), toStringAddress);
+      expect(connectAddress.raw, toStringAddress);
     }
     // reorder params
     {
@@ -32,6 +33,7 @@ main() {
       expect(connectAddress.bridge, bridge);
       expect(connectAddress.key, key);
       expect(connectAddress.toString(), toStringAddress);
+      expect(connectAddress.raw, toStringAddress);
     }
     // url is successfully processed even if there are extra parameters
     {
@@ -46,6 +48,7 @@ main() {
       expect(connectAddress.key, key);
       expect(
           connectAddress.toString(), "$toStringAddress&extra1=444&extra2=100");
+      expect(connectAddress.raw, "$toStringAddress&extra1=444&extra2=100");
     }
   });
 
