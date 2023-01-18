@@ -1,5 +1,6 @@
 library provenance_dart;
 
+export 'src/wallet/authorization_jwt.dart';
 export 'src/wallet/coin.dart';
 export 'src/wallet/private_key.dart';
 export 'src/wallet/public_key.dart';
