@@ -1,12 +1,13 @@
 import 'dart:convert';
 
+import 'package:convert/convert.dart';
 import 'package:provenance_dart/src/wallet/encoding/bech32.dart';
 
 class Encoding {
   Encoding._();
 
   static String toHex(List<int> data) {
-    return _Hex().encode(data);
+    return hex.encode(data);
   }
 
   static String toBase2(List<int> data) {
@@ -34,56 +35,11 @@ class Encoding {
   }
 
   static List<int> fromHex(String data) {
-    return _Hex().decode(data);
+    return hex.decode(data);
   }
 
   static List<int> fromAscii(String data) {
     return const AsciiEncoder().convert(data);
-  }
-}
-
-class _Hex {
-  static final b16Alphabet = "0123456789abcdef".codeUnits;
-
-  List<int> decode(String input) {
-    if (input.isEmpty) {
-      return <int>[];
-    }
-
-    if (input.length.isOdd) {
-      input = "0$input";
-    }
-
-    final output = List<int>.filled(input.length ~/ 2, 0);
-
-    for (var index = 0, outIndex = 0;
-        index < input.length;
-        index += 2, outIndex += 1) {
-      final upperStr = input.codeUnitAt(index);
-      final lowerStr = input.codeUnitAt(index + 1);
-
-      final upper = b16Alphabet.indexOf(upperStr);
-      final lower = b16Alphabet.indexOf(lowerStr);
-
-      if (upper == -1 || lower == -1) {
-        throw Exception("$upper$lower is not a valid character");
-      }
-      output[outIndex] = (upper << 4) | lower;
-    }
-    return output;
-  }
-
-  String encode(List<int> input) {
-    final encodes = List<int>.filled(2 * input.length, 0);
-    for (var index = 0; index < input.length; index++) {
-      final val = input[index];
-      final upper = (val & 0xF0) >> 4;
-      final lower = val & 0x0F;
-      encodes[index * 2] = b16Alphabet[upper];
-      encodes[index * 2 + 1] = b16Alphabet[lower];
-    }
-
-    return String.fromCharCodes(encodes);
   }
 }
 
