@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:provenance_dart/proto.dart' as proto;
 import 'package:provenance_dart/src/proto/proto_gen/google/protobuf/any.pb.dart';
+import 'package:provenance_dart/src/wallet/authorization_jwt.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
@@ -423,30 +424,9 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     final signingKey = _sessionSigningKey!;
     final publicKey = signingKey.publicKey;
-    final now = DateTime.now();
-    final expiry = now.add(const Duration(days: 1));
-
-    final addressStr = publicKey.address;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
-    const headerDict = <String, dynamic>{"alg": "ES256K", "typ": "JWT"};
-    final payloadDict = <String, dynamic>{
-      "sub": pubKey,
-      "iss": "provenance.io",
-      "iat": now.secondsSinceEpoch,
-      "exp": expiry.secondsSinceEpoch,
-      "addr": addressStr
-    };
 
-    final base64Converter = Base64UrlEncoder();
-    final converter =
-        const JsonEncoder().fuse(const Utf8Encoder()).fuse(base64Converter);
-
-    final header = converter.convert(headerDict);
-    final payload = converter.convert(payloadDict);
-    final signMe = "$header.$payload";
-    final signature = signingKey.signData(Hash.sha256(utf8.encode(signMe)))
-      ..removeLast();
-    final jwt = "$signMe.${base64Converter.convert(signature)}";
+    final authJwt = AuthorizationJwt().build(_sessionSigningKey!);
 
     result["chainId"] = _chainId;
     result["peerMeta"] = peerMeta?.toJson();
@@ -454,7 +434,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       AccountInfo(
         pubKey,
         sessionApprovalData.accountPublicKey.address,
-        jwt,
+        authJwt,
         _walletInfo!,
         sessionApprovalData.representedPolicy,
       ).toJson(),
