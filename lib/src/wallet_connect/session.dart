@@ -243,6 +243,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         _relay!.subscribe(address.topic),
         _relay!.subscribe(peerId),
       ]);
+      _updateStatus(WalletConnectState.connected);
     } catch (e) {
       _delegate = null;
       _updateStatus(WalletConnectState.disconnected);
