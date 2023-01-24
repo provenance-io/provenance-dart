@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:provenance_dart/proto.dart' as proto;
 import 'package:provenance_dart/src/proto/proto_gen/google/protobuf/any.pb.dart';
-import 'package:provenance_dart/src/wallet/authorization_jwt.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
@@ -176,12 +175,31 @@ class WalletConnectException implements Exception {
 }
 
 class SignTransactionData {
-  SignTransactionData(this.proposedMessages,
-      [this.gasEstimate, this.feeGranter]);
+  SignTransactionData(
+    this.proposedMessages,
+    this.gasEstimate, {
+    this.feeGranter,
+    this.feePayer,
+    this.memo,
+    this.timeoutHeight,
+    List<String>? nonCriticalExtensionOptions,
+    List<String>? extensionOptions,
+  })  : nonCriticalExtensionOptions = (nonCriticalExtensionOptions != null)
+            ? List.unmodifiable(nonCriticalExtensionOptions)
+            : null,
+        extensionOptions = (extensionOptions != null)
+            ? List.unmodifiable(extensionOptions)
+            : null;
 
-  List<GeneratedMessage> proposedMessages;
-  proto.Coin? gasEstimate;
-  String? feeGranter;
+  final List<GeneratedMessage> proposedMessages;
+  final proto.Coin? gasEstimate;
+  final String? feeGranter;
+  final String? feePayer;
+  final String? memo;
+  final int? timeoutHeight;
+  // These are base64 encoded messages
+  final List<String>? nonCriticalExtensionOptions;
+  final List<String>? extensionOptions;
 }
 
 abstract class WalletConnectionDelegate {
@@ -474,9 +492,25 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final feeGranter = (descriptionJson['feeGranter']?.isNotEmpty ?? false)
         ? descriptionJson['feeGranter']
         : null;
+    final feePayer = (descriptionJson['feePayer']?.isNotEmpty ?? false)
+        ? descriptionJson['feePayer']
+        : null;
+    final memo = (descriptionJson['memo']?.isNotEmpty ?? false)
+        ? descriptionJson['memo']
+        : null;
+    final timeoutHeight = descriptionJson['timeoutHeight'];
 
-    final signTransactionData =
-        SignTransactionData(messages, gasEstimate, feeGranter);
+    final signTransactionData = SignTransactionData(
+      messages,
+      gasEstimate,
+      feeGranter: feeGranter,
+      feePayer: feePayer,
+      memo: memo,
+      timeoutHeight: timeoutHeight,
+      nonCriticalExtensionOptions:
+          descriptionJson['nonCriticalExtensionOptions']?.cast<String>(),
+      extensionOptions: descriptionJson['extensionOptions']?.cast<String>(),
+    );
     _delegate?.onApproveTransaction(
         request.id, description, address, signTransactionData);
   }
