@@ -257,7 +257,7 @@ abstract class WalletConnectionDelegate {
 
   void onClose();
 
-  void onSessionCreated();
+  void onSessionCreated() {}
 }
 
 class WalletConnection extends ValueListenable<WalletConnectState>
@@ -371,9 +371,32 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   }
 
   Future<String> sendTransactionRequest(
-      List<GeneratedMessage> messages, String description) async {
+    List<GeneratedMessage> messages,
+    String description, {
+    proto.Coin? gasEstimate,
+    String? feeGranter,
+    String? feePayer,
+    String? memo,
+    int? timeoutHeight,
+    List<proto.GeneratedMessage>? nonCriticalExtensionOptions,
+    List<proto.GeneratedMessage>? extensionOptions,
+  }) async {
     final request = JsonRequest.sendTransaction(
-        messages, description, remoteAccountInfo!.address);
+      messages,
+      description,
+      remoteAccountInfo!.address,
+      feeGranter: feeGranter,
+      feePayer: feePayer,
+      gasEstimate: gasEstimate,
+      memo: memo,
+      timeoutHeight: timeoutHeight,
+      nonCriticalExtensionOptions: nonCriticalExtensionOptions
+          ?.map((e) => base64Encode(e.toAny().writeToBuffer()))
+          .toList(),
+      extensionOptions: extensionOptions
+          ?.map((e) => base64Encode(e.toAny().writeToBuffer()))
+          .toList(),
+    );
 
     final completer = Completer<String>();
     _responseLookup[request.id] = completer;

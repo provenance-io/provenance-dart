@@ -95,11 +95,33 @@ class JsonRequest extends JsonRpcBase {
         ]);
 
   JsonRequest.sendTransaction(
-      List<GeneratedMessage> messages, String description, String address)
-      : this("provenance_sendTransaction", [
+    List<GeneratedMessage> messages,
+    String description,
+    String address, {
+    Coin? gasEstimate,
+    String? feeGranter,
+    String? feePayer,
+    String? memo,
+    int? timeoutHeight,
+    List<String>? nonCriticalExtensionOptions,
+    List<String>? extensionOptions,
+  }) : this("provenance_sendTransaction", [
           jsonEncode(<String, dynamic>{
             "description": description,
             "address": address,
+            if (gasEstimate != null)
+              "gasPrice": <String, dynamic>{
+                "gasPrice": gasEstimate.amount,
+                "gasPriceDenom": gasEstimate.denom
+              },
+            if (feeGranter?.isNotEmpty ?? false) "feeGranter": feeGranter,
+            if (feePayer?.isNotEmpty ?? false) "feePayer": feePayer,
+            if (memo?.isNotEmpty ?? false) "memo": memo,
+            if (timeoutHeight != null) "timeoutHeight": timeoutHeight,
+            if (nonCriticalExtensionOptions?.isNotEmpty ?? false)
+              "nonCriticalExtensionOptions": nonCriticalExtensionOptions,
+            if (extensionOptions?.isNotEmpty ?? false)
+              "extensionOptions": extensionOptions,
           }),
           ...messages.map((e) {
             final any = e.toAny();
@@ -196,8 +218,8 @@ class JsonRpcResponse extends JsonRpcBase {
     }
   }
 
-  JsonRpcResponse.error(int? id, String message, int code)
-      : this(id, error: JsonRpcError(code: code, message: message));
+  JsonRpcResponse.error(int? id, String message, int code, [dynamic data])
+      : this(id, error: JsonRpcError(code: code, message: message, data: data));
 
   JsonRpcResponse.reject(int id) : this.error(id, "Request rejected", -32050);
 
