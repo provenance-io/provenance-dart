@@ -38,24 +38,83 @@ main() {
 
   final EncryptedPayloadHelper _helper = EncryptedPayloadHelper(key);
 
-  const request = JsonRequest(123, "Test", [1, "B"]);
+  test('encrypt/decrypt jsonRequest', () {
+    final request = JsonRequest(
+        "Method",
+        [
+          1,
+          {"A": 2.1},
+        ],
+        id: 100,
+        jsonrpc: "1111");
 
-  test('encrypt/decrypt', () async {
-    final encrypted = await _helper.encrypt(request);
-    final decrypted = await _helper.decrypt(encrypted) as JsonRequest;
+    final encrypted = _helper.encrypt(request);
+    final decrypted = _helper.decryptAndVerify(encrypted) as JsonRequest;
 
     expect(decrypted.id, request.id);
-    expect(decrypted.method, request.method);
+    expect(decrypted.jsonrpc, request.jsonrpc);
     expect(decrypted.params, request.params);
+    expect(decrypted.method, request.method);
   });
 
-  test('hmac mismatch', () async {
+  test('encrypt/decrypt jsonRpcResponse with response', () {
+    final request = JsonRpcResponse(1234,
+        result: [
+          1,
+          {"A": 2.1},
+        ],
+        jsonrpc: "1111");
+
+    final encrypted = _helper.encrypt(request);
+    final decrypted = _helper.decryptAndVerify(encrypted) as JsonRpcResponse;
+
+    expect(decrypted.id, request.id);
+    expect(decrypted.jsonrpc, request.jsonrpc);
+    expect(decrypted.error, request.error);
+    expect(decrypted.result, request.result);
+  });
+
+  test('encrypt/decrypt jsonRpcResponse with error', () {
+    final request = JsonRpcResponse(1234,
+        error: const JsonRpcError(
+          code: 3333,
+          message: "An error Message",
+          data: [
+            1,
+            2,
+            3,
+          ],
+        ),
+        jsonrpc: "1111");
+
+    final encrypted = _helper.encrypt(request);
+    final decrypted = _helper.decryptAndVerify(encrypted) as JsonRpcResponse;
+
+    expect(decrypted.id, request.id);
+    expect(decrypted.jsonrpc, request.jsonrpc);
+    expect(decrypted.result, request.result);
+    expect(decrypted.error!.code, request.error!.code);
+    expect(decrypted.error!.message, request.error!.message);
+    expect(decrypted.error!.data, request.error!.data);
+  });
+
+  test('hmac mismatch', () {
+    final request = JsonRequest(
+        "Method",
+        [
+          1,
+          {"A": 2.1},
+        ],
+        id: 100,
+        jsonrpc: "1111");
+
     final invalidHmac =
         List<int>.generate(16, (_) => math.Random().nextInt(255));
-    final encrypted = await _helper.encrypt(request);
+    final encrypted = _helper.encrypt(request);
     final copyEncrypted = encrypted.copyWith(hmac: invalidHmac);
 
-    expect(() => _helper.decrypt(copyEncrypted), throwsA(predicate((ex) {
+    expect(() => _helper.decryptAndVerify(copyEncrypted),
+        throwsA(predicate((ex) {
       return ex is HmacMisMatchException &&
           ex.toString() ==
               "The calculated hmac does not match ${Encoding.toHex(invalidHmac)}";

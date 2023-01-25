@@ -17,6 +17,7 @@ export 'package:provenance_dart/src/proto/proto_gen/cosmos/base/abci/v1beta1/abc
 
 export 'package:fixnum/fixnum.dart' show Int64;
 export 'package:protobuf/protobuf.dart' show GeneratedMessage;
+export 'package:grpc/grpc.dart' show GrpcError;
 
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/authz/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/bank/v1beta1/tx.pb.dart';
@@ -25,8 +26,10 @@ import 'package:provenance_dart/src/proto/proto_gen/cosmos/distribution/v1beta1/
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/evidence/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/feegrant/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/gov/v1/tx.pb.dart';
-import 'package:provenance_dart/src/proto/proto_gen/cosmos/group/v1/tx.pb.dart' as group;
-import 'package:provenance_dart/src/proto/proto_gen/cosmos/nft/v1beta1/tx.pb.dart' as nft;
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/group/v1/tx.pb.dart'
+    as group;
+import 'package:provenance_dart/src/proto/proto_gen/cosmos/nft/v1beta1/tx.pb.dart'
+    as nft;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/slashing/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/staking/v1beta1/tx.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/service.pb.dart';
