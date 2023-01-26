@@ -279,8 +279,12 @@ class PbClient {
   /// estimate the abount of gas required to execute a transaction.
   ///
   Future<GasEstimate> estimateTransactionFees(
-      TxBody transactionBody, Iterable<keys.IPubKey> signers,
-      {double gasAdjustment = defaultFeeAdjustment, String? feeGranter}) async {
+    TxBody transactionBody,
+    Iterable<keys.IPubKey> signers, {
+    double gasAdjustment = defaultFeeAdjustment,
+    String? feeGranter,
+    String? feePayer,
+  }) async {
     final signerInfos = await Future.wait(signers.map((publicKey) async {
       final account = await getBaseAccount(publicKey.address);
 
@@ -289,7 +293,10 @@ class PbClient {
 
     final authInfo = AuthInfo(
         fee: Fee(
-            amount: <Coin>[], gasLimit: fixnum.Int64(0), granter: feeGranter),
+            amount: <Coin>[],
+            gasLimit: fixnum.Int64(0),
+            granter: feeGranter,
+            payer: feePayer),
         signerInfos: signerInfos);
 
     // generate placeholders for the actual signatures.
@@ -324,18 +331,28 @@ class PbClient {
   /// it to the blockchain.
   ///
   Future<RawTxResponsePair> estimateAndBroadcastTransaction(
-      TxBody transactionBody, List<keys.IPrivKey> signers,
-      {double gasAdjustment = defaultFeeAdjustment, String? feeGranter}) async {
+    TxBody transactionBody,
+    List<keys.IPrivKey> signers, {
+    double gasAdjustment = defaultFeeAdjustment,
+    String? feeGranter,
+    String? feePayer,
+  }) async {
     final publicKeys = signers.map((e) => e.publicKey);
 
     final gasEstimate = await estimateTransactionFees(
-        transactionBody, publicKeys,
-        gasAdjustment: gasAdjustment, feeGranter: feeGranter);
+      transactionBody,
+      publicKeys,
+      gasAdjustment: gasAdjustment,
+      feeGranter: feeGranter,
+      feePayer: feePayer,
+    );
 
     final fee = Fee(
-        amount: gasEstimate.feeCalculated,
-        gasLimit: fixnum.Int64(gasEstimate.limit),
-        granter: feeGranter);
+      amount: gasEstimate.feeCalculated,
+      gasLimit: fixnum.Int64(gasEstimate.limit),
+      granter: feeGranter,
+      payer: feePayer,
+    );
 
     return broadcastTransaction(transactionBody, signers, fee);
   }
