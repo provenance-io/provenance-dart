@@ -260,6 +260,11 @@ abstract class WalletConnectionDelegate {
   void onSessionCreated() {}
 }
 
+class WalletConnectionSessionClosedException implements Exception {
+  @override
+  String toString() => "The wallet connect session has been closed";
+}
+
 class WalletConnection extends ValueListenable<WalletConnectState>
     implements RelayDelegate {
   final List<VoidCallback> _listeners = <VoidCallback>[];
@@ -512,6 +517,15 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     }
     await _relay?.close();
     _relay = null;
+
+    // close out an existing futures.
+    final pendingCompleters =
+        List<Completer<dynamic>>.from(_responseLookup.values);
+    _responseLookup.clear();
+
+    for (final completer in pendingCompleters) {
+      completer.completeError(WalletConnectionSessionClosedException());
+    }
   }
 
   Future<void> _handleUpdateSession(JsonRequest request) async {
