@@ -445,7 +445,9 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final publicKey = signingKey.publicKey;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
 
-    final authJwt = AuthorizationJwt().build(_sessionSigningKey!);
+    final authJwt = AuthorizationJwt(
+      representedGroup: sessionApprovalData.representedPolicy?.address,
+    ).build(_sessionSigningKey!);
 
     result["chainId"] = _chainId;
     result["peerMeta"] = peerMeta?.toJson();

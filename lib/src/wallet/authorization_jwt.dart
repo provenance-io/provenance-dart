@@ -28,6 +28,10 @@ extension _DateTimeSecondsSinceEpoch on DateTime {
 }
 
 class AuthorizationJwt {
+  final String? representedGroup;
+
+  AuthorizationJwt({this.representedGroup});
+
   String build(PrivateKey signingKey) {
     final publicKey = signingKey.publicKey;
     final now = DateTime.now();
@@ -41,7 +45,8 @@ class AuthorizationJwt {
       "iss": "provenance.io",
       "iat": now.secondsSinceEpoch,
       "exp": expiry.secondsSinceEpoch,
-      "addr": addressStr
+      "addr": addressStr,
+      if (representedGroup != null) "grp": representedGroup
     };
 
     final base64Converter = Base64UrlEncoder();
