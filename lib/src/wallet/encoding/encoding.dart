@@ -22,6 +22,10 @@ class Encoding {
     return Bech32().encode(prefix, data, seperator);
   }
 
+  static List<int>? fromBech32(String input) {
+    return Bech32().decode(input)?.fiveBitData;
+  }
+
   static String toBase58(List<int> data) {
     return _Base58.encode(data);
   }
