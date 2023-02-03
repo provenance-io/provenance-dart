@@ -104,10 +104,11 @@ class SessionApprovalData {
   final String chainId;
   final WalletInfo walletInfo;
   final RepresentedPolicy? representedPolicy;
+  final String? walletAppId;
 
   SessionApprovalData(this.sessionSigningKey, this.accountPublicKey,
       this.chainId, this.walletInfo,
-      {this.representedPolicy});
+      {this.representedPolicy, this.walletAppId});
 }
 
 class AccountInfo {
@@ -116,9 +117,10 @@ class AccountInfo {
   final String jwt;
   final WalletInfo walletInfo;
   final RepresentedPolicy? representedGroupPolicy;
+  final String? walletAppId;
 
   AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo,
-      this.representedGroupPolicy);
+      this.representedGroupPolicy, this.walletAppId);
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -126,7 +128,8 @@ class AccountInfo {
       "address": address,
       "jwt": jwt,
       "walletInfo": walletInfo.toJson(),
-      "representedGroupPolicy": representedGroupPolicy?.toJson()
+      "representedGroupPolicy": representedGroupPolicy?.toJson(),
+      if (walletAppId != null) "walletAppId": walletAppId,
     };
   }
 }
@@ -458,6 +461,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         authJwt,
         _walletInfo!,
         sessionApprovalData.representedPolicy,
+        sessionApprovalData.walletAppId,
       ).toJson(),
     ];
 
