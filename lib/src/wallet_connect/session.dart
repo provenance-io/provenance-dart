@@ -280,7 +280,6 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   WalletConnectionDelegate? _delegate;
   PrivateKey? _sessionSigningKey;
   String? _chainId;
-  WalletInfo? _walletInfo;
   String? _peerId;
   String? _remotePeerId;
   Relay? _relay;
@@ -311,6 +310,22 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final connection = WalletConnection._(address, clientMeta);
     connection._peerId = uuid.v1().toString();
     return connection;
+  }
+
+  SessionRestoreData? get restoreData {
+    if (!(_remotePeerId == null ||
+        _sessionSigningKey == null ||
+        _chainId == null ||
+        _peerId == null)) {
+      return SessionRestoreData(
+        _sessionSigningKey!,
+        _chainId!,
+        _peerId!,
+        _remotePeerId!,
+      );
+    }
+
+    return null;
   }
 
   Future<void> connect(
@@ -490,18 +505,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   }
 
   Future<SessionRestoreData?> close() async {
-    SessionRestoreData? restoreData;
-    if (!(_remotePeerId == null ||
-        _sessionSigningKey == null ||
-        _chainId == null ||
-        _peerId == null)) {
-      restoreData = SessionRestoreData(
-        _sessionSigningKey!,
-        _chainId!,
-        _peerId!,
-        _remotePeerId!,
-      );
-    }
+    SessionRestoreData? restoreData = this.restoreData;
 
     await _relay!.close();
     _relay = null;
@@ -587,10 +591,8 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       int requestId, SessionApprovalData sessionApprovalData,
       [ClientMeta? peerMeta]) async {
     _chainId = sessionApprovalData.chainId;
-    _sessionSigningKey = sessionApprovalData.sessionSigningKey;
-    _walletInfo = sessionApprovalData.walletInfo;
 
-    final signingKey = _sessionSigningKey!;
+    final signingKey = sessionApprovalData.sessionSigningKey;
     final publicKey = signingKey.publicKey;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
     final authJwt = AuthorizationJwt(
@@ -601,7 +603,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       pubKey,
       sessionApprovalData.accountPublicKey.address,
       authJwt,
-      _walletInfo!,
+      sessionApprovalData.walletInfo,
       sessionApprovalData.representedPolicy,
       sessionApprovalData.walletAppId,
     );
