@@ -9,3 +9,5 @@ export 'src/wallet/crypto/encryption/crypto.dart';
 export 'src/wallet/crypto/hash/hash.dart';
 export 'src/wallet/multisig/keys.dart';
 export 'src/wallet/keys.dart';
+
+export 'src/wallet/encoding/encoding.dart';

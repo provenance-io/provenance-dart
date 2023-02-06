@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provenance_dart/src/wallet/authorization_jwt.dart';
 import 'package:provenance_dart/wallet.dart';
 
 class Base64UrlDecoder extends Converter<String, List<int>> {
@@ -76,5 +75,22 @@ main() {
     expect(bodyMap["iat"], timeComparer(DateTime.now(), 2));
     expect(bodyMap["exp"],
         timeComparer(DateTime.now().add(const Duration(days: 1)), 2));
+  });
+
+  test('RepresentedGroup is properly added if present', () {
+    helper(AuthorizationJwt jwt) {
+      final str = jwt.build(signingKey);
+      final claims = str.split(".")[1];
+      final bytes = Base64UrlDecoder().convert(claims);
+      return jsonDecode(String.fromCharCodes(bytes)) as Map<String, dynamic>;
+    }
+
+    final claimsWithOutRepresentedGroup = helper(AuthorizationJwt());
+    expect(claimsWithOutRepresentedGroup["grp"], null);
+
+    final claimsWithRepresentedGroup = helper(AuthorizationJwt(
+      representedGroup: "ABCDE",
+    ));
+    expect(claimsWithRepresentedGroup["grp"], "ABCDE");
   });
 }

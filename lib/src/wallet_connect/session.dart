@@ -122,10 +122,11 @@ class SessionApprovalData {
   final String chainId;
   final WalletInfo walletInfo;
   final RepresentedPolicy? representedPolicy;
+  final String? walletAppId;
 
   SessionApprovalData(this.sessionSigningKey, this.accountPublicKey,
       this.chainId, this.walletInfo,
-      {this.representedPolicy});
+      {this.representedPolicy, this.walletAppId});
 }
 
 class AccountInfo implements JsonEncodable {
@@ -134,9 +135,10 @@ class AccountInfo implements JsonEncodable {
   final String jwt;
   final WalletInfo walletInfo;
   final RepresentedPolicy? representedGroupPolicy;
+  final String? walletAppId;
 
   AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo,
-      this.representedGroupPolicy);
+      this.representedGroupPolicy, this.walletAppId);
 
   factory AccountInfo.fromJson(Map<String, dynamic> json) {
     final walletInfo = json['walletInfo'];
@@ -150,6 +152,7 @@ class AccountInfo implements JsonEncodable {
       representedGroupPolicy != null
           ? RepresentedPolicy.fromJson(representedGroupPolicy)
           : null,
+      json['walletAppId'],
     );
   }
 
@@ -160,7 +163,8 @@ class AccountInfo implements JsonEncodable {
       "address": address,
       "jwt": jwt,
       "walletInfo": walletInfo.toJson(),
-      "representedGroupPolicy": representedGroupPolicy?.toJson()
+      "representedGroupPolicy": representedGroupPolicy?.toJson(),
+      if (walletAppId != null) "walletAppId": walletAppId,
     };
   }
 }
@@ -589,7 +593,9 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final signingKey = _sessionSigningKey!;
     final publicKey = signingKey.publicKey;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
-    final authJwt = AuthorizationJwt().build(_sessionSigningKey!);
+    final authJwt = AuthorizationJwt(
+      representedGroup: sessionApprovalData.representedPolicy?.address,
+    ).build(_sessionSigningKey!);
 
     final accountInfo = AccountInfo(
       pubKey,
@@ -597,7 +603,9 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       authJwt,
       _walletInfo!,
       sessionApprovalData.representedPolicy,
+      sessionApprovalData.walletAppId,
     );
+
     final sessionApproval = SessionApproval.approve(
         peerMeta, _peerId!, _chainId!, accountInfo, null);
 
