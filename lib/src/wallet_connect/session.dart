@@ -448,7 +448,16 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final publicKey = signingKey.publicKey;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
 
+    Duration? jwtDuration;
+    final durationStr = address.parameters['jwtExpiration'];
+    if (durationStr != null) {
+      int durationInSeconds = int.parse(durationStr);
+      assert(durationInSeconds > 0);
+      jwtDuration = Duration(seconds: durationInSeconds);
+    }
+
     final authJwt = AuthorizationJwt(
+      expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
     ).build(_sessionSigningKey!);
 

@@ -93,4 +93,38 @@ main() {
     ));
     expect(claimsWithRepresentedGroup["grp"], "ABCDE");
   });
+
+  test('a custom expiration duration is used instead of the default', () {
+    const duration = Duration(seconds: 100);
+
+    final jwtStr =
+        AuthorizationJwt(expirationDuration: duration).build(signingKey);
+    final pieces = jwtStr.split(".");
+    final bodyBytes = Base64UrlDecoder().convert(pieces[1]);
+    final bodyMap = jsonDecode(String.fromCharCodes(bodyBytes));
+
+    timeComparer(DateTime target, int tolerance) {
+      return predicate((arg) {
+        final dt = arg as int;
+
+        return (dt - (target.millisecondsSinceEpoch ~/ 1000)).abs() < tolerance;
+      });
+    }
+
+    expect(bodyMap["exp"], timeComparer(DateTime.now().add(duration), 2));
+  });
+
+  test('a represented group address is added to the jwt', () {
+    const representedGroup = "ABCDE";
+
+    final jwtStr =
+        AuthorizationJwt(representedGroup: representedGroup).build(signingKey);
+
+    final pieces = jwtStr.split(".");
+    final bodyBytes = Base64UrlDecoder().convert(pieces[1]);
+    final bodyMap = jsonDecode(String.fromCharCodes(bodyBytes));
+
+    expect(bodyMap.length, 6);
+    expect(bodyMap["grp"], "ABCDE");
+  });
 }
