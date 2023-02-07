@@ -29,13 +29,15 @@ extension _DateTimeSecondsSinceEpoch on DateTime {
 
 class AuthorizationJwt {
   final String? representedGroup;
+  final Duration expirationDuration;
 
-  AuthorizationJwt({this.representedGroup});
+  AuthorizationJwt({this.representedGroup, Duration? expirationDuration})
+    : expirationDuration = expirationDuration ?? const Duration(days: 1);
 
   String build(PrivateKey signingKey) {
     final publicKey = signingKey.publicKey;
     final now = DateTime.now();
-    final expiry = now.add(const Duration(days: 1));
+    final expiry = now.add(expirationDuration);
 
     final addressStr = publicKey.address;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
