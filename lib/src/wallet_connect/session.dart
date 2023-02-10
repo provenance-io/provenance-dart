@@ -49,6 +49,38 @@ class SessionRequestData {
   );
 }
 
+class MemberData {
+  MemberData({
+    required this.address,
+    required this.metadata,
+  });
+
+  final String address;
+  final String? metadata;
+
+  Map<String, dynamic> toJson() {
+    return {
+      "metadata": metadata,
+      "address": address,
+    };
+  }
+}
+
+class GroupData {
+  GroupData({required this.metadata, required List<MemberData> members})
+      : members = List.unmodifiable(members);
+
+  final String? metadata;
+  final List<MemberData> members;
+
+  Map<String, dynamic> toJson() {
+    return {
+      "metadata": metadata,
+      "members": members.map((e) => e.toJson()).toList()
+    };
+  }
+}
+
 class RepresentedPolicy {
   RepresentedPolicy({
     required this.groupId,
@@ -58,6 +90,7 @@ class RepresentedPolicy {
     required this.version,
     required this.createdAt,
     required this.decisionPolicy,
+    required this.groupData,
   });
 
   final int groupId;
@@ -66,6 +99,7 @@ class RepresentedPolicy {
   final int version;
   final DateTime createdAt;
   final String? metadata;
+  final GroupData groupData;
   final DecisionPolicy decisionPolicy;
 
   Map<String, dynamic> toJson() {
@@ -73,6 +107,7 @@ class RepresentedPolicy {
       "decisionPolicy": decisionPolicy.toJson(),
       "groupId": groupId,
       "metadata": metadata,
+      "groupMeta": groupData.toJson(),
       "address": address,
       "admin": admin,
       "version": version,
