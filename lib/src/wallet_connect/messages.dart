@@ -155,8 +155,8 @@ class JsonRpcResponse extends JsonRpcBase {
   JsonRpcResponse.invalidParameters([int? id])
       : this.error(id, "Invalid params", -32602);
 
-  JsonRpcResponse.internalError(int id)
-      : this.error(id, "Internal error", -32603);
+  JsonRpcResponse.internalError(int id, [String? msg])
+      : this.error(id, msg ?? "Internal error", -32603);
 
   @override
   Map<String, dynamic> toJson() {

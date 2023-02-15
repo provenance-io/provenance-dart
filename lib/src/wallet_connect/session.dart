@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:provenance_dart/proto.dart' as proto;
 import 'package:provenance_dart/src/proto/proto_gen/google/protobuf/any.pb.dart';
-import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
 import 'package:provenance_dart/src/wallet_connect/relay.dart';
@@ -240,6 +239,18 @@ class SignTransactionData {
   final List<String>? extensionOptions;
 }
 
+class CustomMessageData {
+  CustomMessageData({
+    required this.action,
+    required this.description,
+    required this.data,
+  });
+
+  final String action;
+  final String description;
+  final dynamic data;
+}
+
 abstract class WalletConnectionDelegate {
   void onApproveSign(
       int requestId, String description, String address, List<int> msg);
@@ -252,6 +263,8 @@ abstract class WalletConnectionDelegate {
   void onError(Exception exception);
 
   void onClose();
+
+  bool onUnknownMessage(int requestId, CustomMessageData data) => false;
 }
 
 class WalletConnection extends ValueListenable<WalletConnectState>
@@ -354,10 +367,42 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         _handleUpdateSession(jsonRequest)
             .onError((error, _) => _handleRequestErrors(error, jsonRequest.id));
         break;
+      case "wallet_message":
+        try {
+          final messageObj = jsonDecode(jsonRequest.params[0]);
+
+          final description = messageObj["description"] ?? "";
+          final action = messageObj['action'] ?? "";
+          final payload = messageObj["payload"];
+
+          final data = CustomMessageData(
+            action: action,
+            data: payload,
+            description: description,
+          );
+
+          final wasHandled = _delegate?.onUnknownMessage(
+                jsonRequest.id,
+                data,
+              ) ??
+              false;
+
+          if (!wasHandled) {
+            log("Unknown request method: ${jsonRequest.method}");
+            final response = JsonRpcResponse.methodNotFound(jsonRequest.id);
+            _relay?.respond(_remotePeerId!, response);
+          }
+        } catch (e) {
+          final response =
+              JsonRpcResponse.internalError(jsonRequest.id, e.toString());
+          _relay?.respond(_remotePeerId!, response);
+        }
+        break;
       default:
-        log("Unknown request method: ${jsonRequest.method}");
+        log("Unk nown request method: ${jsonRequest.method}");
         final response = JsonRpcResponse.methodNotFound(jsonRequest.id);
         _relay?.respond(_remotePeerId!, response);
+
         break;
     }
   }
@@ -463,6 +508,12 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     await _relay?.respond(_remotePeerId!, response);
   }
 
+  Future<void> sendResult(int requestId, dynamic result) async {
+    final response = JsonRpcResponse.response(requestId, result);
+
+    await _relay?.respond(_remotePeerId!, response);
+  }
+
   Future<void> sendApproveSession(
       int requestId, SessionApprovalData sessionApprovalData,
       [ClientMeta? peerMeta]) async {
@@ -511,6 +562,49 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     final response = JsonRpcResponse.response(requestId, result);
     await _relay?.respond(_remotePeerId!, response);
+  }
+
+  Future<void> sendUpdateSession(
+      SessionApprovalData sessionApprovalData) async {
+    _chainId = sessionApprovalData.chainId;
+
+    _sessionSigningKey = sessionApprovalData.sessionSigningKey;
+    _walletInfo = sessionApprovalData.walletInfo;
+
+    final signingKey = _sessionSigningKey!;
+    final publicKey = signingKey.publicKey;
+    final pubKey = base64Encode(publicKey.compressedPublicKey);
+
+    Duration? jwtDuration;
+    final durationStr = address.parameters['jwtExpiration'];
+    if (durationStr != null) {
+      int durationInSeconds = int.parse(durationStr);
+      assert(durationInSeconds > 0);
+      jwtDuration = Duration(seconds: durationInSeconds);
+    }
+
+    final authJwt = AuthorizationJwt(
+      expirationDuration: jwtDuration,
+      representedGroup: sessionApprovalData.representedPolicy?.address,
+    ).build(_sessionSigningKey!);
+
+    final result = <String, dynamic>{
+      "approved": true,
+      "chainId": _chainId,
+      "accounts": [
+        AccountInfo(
+          pubKey,
+          sessionApprovalData.accountPublicKey.address,
+          authJwt,
+          _walletInfo!,
+          sessionApprovalData.representedPolicy,
+          sessionApprovalData.walletAppId,
+        ).toJson(),
+      ],
+    };
+
+    final request = JsonRequest("wc_sessionUpdate", [result]);
+    await _relay?.publish(_remotePeerId!, request);
   }
 
   Future<void> _handlerSendTransaction(JsonRequest request) async {
