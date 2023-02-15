@@ -367,7 +367,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         _handleUpdateSession(jsonRequest)
             .onError((error, _) => _handleRequestErrors(error, jsonRequest.id));
         break;
-      case "wallet_message":
+      case "wallet_action":
         try {
           final messageObj = jsonDecode(jsonRequest.params[0]);
 
@@ -399,7 +399,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         }
         break;
       default:
-        log("Unk nown request method: ${jsonRequest.method}");
+        log("Unknown request method: ${jsonRequest.method}");
         final response = JsonRpcResponse.methodNotFound(jsonRequest.id);
         _relay?.respond(_remotePeerId!, response);
 
