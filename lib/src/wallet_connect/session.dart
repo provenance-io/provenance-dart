@@ -218,6 +218,7 @@ class SignTransactionData {
     this.feeGranter,
     this.feePayer,
     this.memo,
+    this.date,
     this.timeoutHeight,
     List<String>? nonCriticalExtensionOptions,
     List<String>? extensionOptions,
@@ -233,6 +234,7 @@ class SignTransactionData {
   final String? feeGranter;
   final String? feePayer;
   final String? memo;
+  final int? date;
   final int? timeoutHeight;
   // These are base64 encoded messages
   final List<String>? nonCriticalExtensionOptions;
@@ -633,6 +635,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
+    final date = descriptionJson['date'];
     final feeGranter = (descriptionJson['feeGranter']?.isNotEmpty ?? false)
         ? descriptionJson['feeGranter']
         : null;
@@ -650,6 +653,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       feeGranter: feeGranter,
       feePayer: feePayer,
       memo: memo,
+      date: date,
       timeoutHeight: timeoutHeight,
       nonCriticalExtensionOptions:
           descriptionJson['nonCriticalExtensionOptions']?.cast<String>(),
