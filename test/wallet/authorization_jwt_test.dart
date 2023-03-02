@@ -67,14 +67,15 @@ main() {
       });
     }
 
+    final now = DateTime.now().subtract(const Duration(minutes: 1));
+
     expect(bodyMap.length, 5);
     expect(
         bodyMap["sub"], base64Encode(signingKey.publicKey.compressedPublicKey));
     expect(bodyMap["iss"], "provenance.io");
     expect(bodyMap["addr"], signingKey.publicKey.address);
-    expect(bodyMap["iat"], timeComparer(DateTime.now(), 2));
-    expect(bodyMap["exp"],
-        timeComparer(DateTime.now().add(const Duration(days: 1)), 2));
+    expect(bodyMap["iat"], timeComparer(now, 2));
+    expect(bodyMap["exp"], timeComparer(now.add(const Duration(days: 1)), 2));
   });
 
   test('RepresentedGroup is properly added if present', () {
@@ -111,7 +112,8 @@ main() {
       });
     }
 
-    expect(bodyMap["exp"], timeComparer(DateTime.now().add(duration), 2));
+    final now = DateTime.now().subtract(const Duration(minutes: 1));
+    expect(bodyMap["exp"], timeComparer(now.add(duration), 2));
   });
 
   test('a represented group address is added to the jwt', () {
