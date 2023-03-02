@@ -32,7 +32,7 @@ class AuthorizationJwt {
   final Duration expirationDuration;
 
   AuthorizationJwt({this.representedGroup, Duration? expirationDuration})
-    : expirationDuration = expirationDuration ?? const Duration(days: 1);
+      : expirationDuration = expirationDuration ?? const Duration(days: 1);
 
   String build(PrivateKey signingKey) {
     final publicKey = signingKey.publicKey;
