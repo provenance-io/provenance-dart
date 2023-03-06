@@ -52,30 +52,38 @@ class MemberData {
   MemberData({
     required this.address,
     required this.metadata,
+    required this.weight,
   });
 
   final String address;
   final String? metadata;
+  final String weight;
 
   Map<String, dynamic> toJson() {
     return {
       "metadata": metadata,
       "address": address,
+      "weight": weight,
     };
   }
 }
 
 class GroupData {
-  GroupData({required this.metadata, required List<MemberData> members})
-      : members = List.unmodifiable(members);
+  GroupData({
+    required this.metadata,
+    required List<MemberData> members,
+    required this.totalWeight,
+  }) : members = List.unmodifiable(members);
 
   final String? metadata;
   final List<MemberData> members;
+  final String totalWeight;
 
   Map<String, dynamic> toJson() {
     return {
       "metadata": metadata,
-      "members": members.map((e) => e.toJson()).toList()
+      "members": members.map((e) => e.toJson()).toList(),
+      "totalWeight": totalWeight,
     };
   }
 }

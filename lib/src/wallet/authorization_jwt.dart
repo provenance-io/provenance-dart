@@ -36,7 +36,9 @@ class AuthorizationJwt {
 
   String build(PrivateKey signingKey) {
     final publicKey = signingKey.publicKey;
-    final now = DateTime.now();
+    final now = DateTime.now().subtract(const Duration(
+        minutes:
+            1)); // we are having an issue where some devices appear to be slightly ahead, causing the jwt to be invalid
     final expiry = now.add(expirationDuration);
 
     final addressStr = publicKey.address;
