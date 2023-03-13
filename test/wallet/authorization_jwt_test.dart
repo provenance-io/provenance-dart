@@ -30,7 +30,7 @@ main() {
   });
 
   test('signature matches the body', () {
-    final jwtStr = AuthorizationJwt().build(signingKey);
+    final jwtStr = AuthorizationJwt(iss: "provenance.io").build(signingKey);
     final lastIndex = jwtStr.lastIndexOf(".");
     final signatureSection = jwtStr.substring(lastIndex + 1);
     final bodySection = jwtStr.substring(0, lastIndex);
@@ -42,7 +42,7 @@ main() {
   });
 
   test('verify header section', () {
-    final jwtStr = AuthorizationJwt().build(signingKey);
+    final jwtStr = AuthorizationJwt(iss: "provenance.io").build(signingKey);
     final dotIndex = jwtStr.indexOf(".");
     final headerSection = jwtStr.substring(0, dotIndex);
     final headerBytes = Base64UrlDecoder().convert(headerSection);
@@ -52,7 +52,7 @@ main() {
   });
 
   test('verify body section', () {
-    final jwtStr = AuthorizationJwt().build(signingKey);
+    final jwtStr = AuthorizationJwt(iss: "provenance.io").build(signingKey);
     final dotFirstIndex = jwtStr.indexOf(".");
     final dotLastIndex = jwtStr.indexOf(".", dotFirstIndex + 1);
     final bodySection = jwtStr.substring(dotFirstIndex + 1, dotLastIndex);
@@ -86,10 +86,12 @@ main() {
       return jsonDecode(String.fromCharCodes(bytes)) as Map<String, dynamic>;
     }
 
-    final claimsWithOutRepresentedGroup = helper(AuthorizationJwt());
+    final claimsWithOutRepresentedGroup =
+        helper(AuthorizationJwt(iss: "provenance.io"));
     expect(claimsWithOutRepresentedGroup["grp"], null);
 
     final claimsWithRepresentedGroup = helper(AuthorizationJwt(
+      iss: "provenance.io",
       representedGroup: "ABCDE",
     ));
     expect(claimsWithRepresentedGroup["grp"], "ABCDE");
@@ -98,8 +100,10 @@ main() {
   test('a custom expiration duration is used instead of the default', () {
     const duration = Duration(seconds: 100);
 
-    final jwtStr =
-        AuthorizationJwt(expirationDuration: duration).build(signingKey);
+    final jwtStr = AuthorizationJwt(
+      expirationDuration: duration,
+      iss: "provenance.io",
+    ).build(signingKey);
     final pieces = jwtStr.split(".");
     final bodyBytes = Base64UrlDecoder().convert(pieces[1]);
     final bodyMap = jsonDecode(String.fromCharCodes(bodyBytes));
@@ -119,8 +123,10 @@ main() {
   test('a represented group address is added to the jwt', () {
     const representedGroup = "ABCDE";
 
-    final jwtStr =
-        AuthorizationJwt(representedGroup: representedGroup).build(signingKey);
+    final jwtStr = AuthorizationJwt(
+      representedGroup: representedGroup,
+      iss: "provenance.io",
+    ).build(signingKey);
 
     final pieces = jwtStr.split(".");
     final bodyBytes = Base64UrlDecoder().convert(pieces[1]);
