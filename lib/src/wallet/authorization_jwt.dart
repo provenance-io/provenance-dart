@@ -30,11 +30,17 @@ extension _DateTimeSecondsSinceEpoch on DateTime {
 class AuthorizationJwt {
   final String? representedGroup;
   final Duration expirationDuration;
+  final String iss;
 
-  AuthorizationJwt({this.representedGroup, Duration? expirationDuration})
-      : expirationDuration = expirationDuration ?? const Duration(days: 1);
+  AuthorizationJwt({
+    this.representedGroup,
+    Duration? expirationDuration,
+    required this.iss,
+  }) : expirationDuration = expirationDuration ?? const Duration(days: 1);
 
-  String build(PrivateKey signingKey) {
+  String build(
+    PrivateKey signingKey,
+  ) {
     final publicKey = signingKey.publicKey;
     final now = DateTime.now().subtract(const Duration(
         minutes:
@@ -46,7 +52,7 @@ class AuthorizationJwt {
     const headerDict = <String, dynamic>{"alg": "ES256K", "typ": "JWT"};
     final payloadDict = <String, dynamic>{
       "sub": pubKey,
-      "iss": "provenance.io",
+      "iss": iss,
       "iat": now.secondsSinceEpoch,
       "exp": expiry.secondsSinceEpoch,
       "addr": addressStr,
