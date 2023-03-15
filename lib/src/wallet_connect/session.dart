@@ -10,6 +10,7 @@ import 'package:provenance_dart/src/proto/proto_gen/google/protobuf/any.pb.dart'
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
 import 'package:provenance_dart/src/wallet_connect/relay.dart';
+import 'package:provenance_dart/src/wallet_connect/tx_response.dart';
 import 'package:provenance_dart/wallet_connect.dart';
 import 'package:uuid/uuid.dart';
 
@@ -145,18 +146,18 @@ class SessionApprovalData {
   final IPubKey accountPublicKey;
   final String chainId;
   final WalletInfo walletInfo;
+  final String jwtIssuer;
   final RepresentedPolicy? representedPolicy;
   final String? walletAppId;
-  final String iss;
 
   SessionApprovalData(
     this.sessionSigningKey,
     this.accountPublicKey,
     this.chainId,
-    this.walletInfo, {
+    this.walletInfo,
+    this.jwtIssuer, {
     this.representedPolicy,
     this.walletAppId,
-    required this.iss,
   });
 }
 
@@ -425,6 +426,8 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   }
 
   void _handleRequestErrors(Object? error, int requestId) {
+    _handleError(error);
+
     final response = JsonRpcResponse.error(
         requestId, error?.toString() ?? "Internal error", -32603);
     _relay?.respond(_remotePeerId!, response);
@@ -487,19 +490,14 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
   Future<void> sendTransactionResult(
       int requestId, proto.RawTxResponsePair txResponsePair) async {
-    JsonRpcResponse response;
-    if (txResponsePair.txResponse.code == 0) {
-      response =
-          JsonRpcResponse.response(requestId, txResponsePair.asJsonString());
-    } else {
-      final messageStr =
-          "${txResponsePair.txResponse.code} ${txResponsePair.txResponse.codespace} ${txResponsePair.txResponse.info}";
-      response = JsonRpcResponse.response(requestId, <String, dynamic>{
-        "code": "${txResponsePair.txResponse.code}",
-        "message": messageStr,
-        "value": txResponsePair.asJsonString()
-      });
-    }
+    final txResponse = WalletConnectTxResponse.fromProto(
+      txResponsePair.txResponse,
+    );
+
+    final response = JsonRpcResponse.response(
+      requestId,
+      WalletConnectTransactionResult(txResponse),
+    );
 
     await _relay?.respond(_remotePeerId!, response);
   }
@@ -562,7 +560,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final authJwt = AuthorizationJwt(
       expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
-      iss: sessionApprovalData.iss,
+      issuer: sessionApprovalData.jwtIssuer,
     ).build(_sessionSigningKey!);
 
     result["chainId"] = _chainId;
@@ -604,7 +602,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final authJwt = AuthorizationJwt(
       expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
-      iss: sessionApprovalData.iss,
+      issuer: sessionApprovalData.jwtIssuer,
     ).build(_sessionSigningKey!);
 
     final result = <String, dynamic>{
