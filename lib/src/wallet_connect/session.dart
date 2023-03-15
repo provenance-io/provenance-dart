@@ -145,18 +145,18 @@ class SessionApprovalData {
   final IPubKey accountPublicKey;
   final String chainId;
   final WalletInfo walletInfo;
+  final String jwtIssuer;
   final RepresentedPolicy? representedPolicy;
   final String? walletAppId;
-  final String jwtIssuer;
 
   SessionApprovalData(
     this.sessionSigningKey,
     this.accountPublicKey,
     this.chainId,
-    this.walletInfo, {
+    this.walletInfo,
+    this.jwtIssuer, {
     this.representedPolicy,
     this.walletAppId,
-    required this.jwtIssuer,
   });
 }
 
