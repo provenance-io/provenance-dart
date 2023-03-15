@@ -147,7 +147,7 @@ class SessionApprovalData {
   final WalletInfo walletInfo;
   final RepresentedPolicy? representedPolicy;
   final String? walletAppId;
-  final String iss;
+  final String jwtIssuer;
 
   SessionApprovalData(
     this.sessionSigningKey,
@@ -156,7 +156,7 @@ class SessionApprovalData {
     this.walletInfo, {
     this.representedPolicy,
     this.walletAppId,
-    required this.iss,
+    required this.jwtIssuer,
   });
 }
 
@@ -564,7 +564,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final authJwt = AuthorizationJwt(
       expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
-      iss: sessionApprovalData.iss,
+      issuer: sessionApprovalData.jwtIssuer,
     ).build(_sessionSigningKey!);
 
     result["chainId"] = _chainId;
@@ -606,7 +606,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     final authJwt = AuthorizationJwt(
       expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
-      iss: sessionApprovalData.iss,
+      issuer: sessionApprovalData.jwtIssuer,
     ).build(_sessionSigningKey!);
 
     final result = <String, dynamic>{

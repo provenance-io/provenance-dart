@@ -30,7 +30,7 @@ main() {
   });
 
   test('signature matches the body', () {
-    final jwtStr = AuthorizationJwt(iss: "provenance.io").build(signingKey);
+    final jwtStr = AuthorizationJwt(issuer: "provenance.io").build(signingKey);
     final lastIndex = jwtStr.lastIndexOf(".");
     final signatureSection = jwtStr.substring(lastIndex + 1);
     final bodySection = jwtStr.substring(0, lastIndex);
@@ -42,7 +42,7 @@ main() {
   });
 
   test('verify header section', () {
-    final jwtStr = AuthorizationJwt(iss: "provenance.io").build(signingKey);
+    final jwtStr = AuthorizationJwt(issuer: "provenance.io").build(signingKey);
     final dotIndex = jwtStr.indexOf(".");
     final headerSection = jwtStr.substring(0, dotIndex);
     final headerBytes = Base64UrlDecoder().convert(headerSection);
@@ -52,7 +52,7 @@ main() {
   });
 
   test('verify body section', () {
-    final jwtStr = AuthorizationJwt(iss: "provenance.io").build(signingKey);
+    final jwtStr = AuthorizationJwt(issuer: "provenance.io").build(signingKey);
     final dotFirstIndex = jwtStr.indexOf(".");
     final dotLastIndex = jwtStr.indexOf(".", dotFirstIndex + 1);
     final bodySection = jwtStr.substring(dotFirstIndex + 1, dotLastIndex);
@@ -87,11 +87,11 @@ main() {
     }
 
     final claimsWithOutRepresentedGroup =
-        helper(AuthorizationJwt(iss: "provenance.io"));
+        helper(AuthorizationJwt(issuer: "provenance.io"));
     expect(claimsWithOutRepresentedGroup["grp"], null);
 
     final claimsWithRepresentedGroup = helper(AuthorizationJwt(
-      iss: "provenance.io",
+      issuer: "provenance.io",
       representedGroup: "ABCDE",
     ));
     expect(claimsWithRepresentedGroup["grp"], "ABCDE");
@@ -102,7 +102,7 @@ main() {
 
     final jwtStr = AuthorizationJwt(
       expirationDuration: duration,
-      iss: "provenance.io",
+      issuer: "provenance.io",
     ).build(signingKey);
     final pieces = jwtStr.split(".");
     final bodyBytes = Base64UrlDecoder().convert(pieces[1]);
@@ -125,7 +125,7 @@ main() {
 
     final jwtStr = AuthorizationJwt(
       representedGroup: representedGroup,
-      iss: "provenance.io",
+      issuer: "provenance.io",
     ).build(signingKey);
 
     final pieces = jwtStr.split(".");
