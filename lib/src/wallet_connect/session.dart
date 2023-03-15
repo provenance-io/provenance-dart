@@ -425,6 +425,8 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   }
 
   void _handleRequestErrors(Object? error, int requestId) {
+    _handleError(error);
+
     final response = JsonRpcResponse.error(
         requestId, error?.toString() ?? "Internal error", -32603);
     _relay?.respond(_remotePeerId!, response);
