@@ -49,22 +49,57 @@ class SessionRequestData {
   );
 }
 
-class MemberData {
-  MemberData({
-    required this.address,
-    required this.metadata,
-    required this.weight,
-  });
+class Metadata {
+  final String? name;
+  final String? description;
+  final String? email;
+  final bool? masterPolicy;
+  final bool? isSingleSigner;
 
-  final String address;
-  final String? metadata;
-  final String weight;
+  Metadata({
+    required this.name,
+    required this.description,
+    this.email,
+    this.masterPolicy,
+    this.isSingleSigner,
+  });
 
   Map<String, dynamic> toJson() {
     return {
-      "metadata": metadata,
+      "name": name,
+      "description": description,
+      "email": email,
+      "masterPolicy": masterPolicy,
+      "isSingleSigner": isSingleSigner,
+    };
+  }
+}
+
+class MemberData {
+  MemberData({
+    required this.groupId,
+    required this.address,
+    required this.metadata,
+    required this.weight,
+    required this.addedAt,
+    required this.hasApproved,
+  });
+
+  final int groupId;
+  final String address;
+  final Metadata? metadata;
+  final String weight;
+  final DateTime addedAt;
+  final bool hasApproved;
+
+  Map<String, dynamic> toJson() {
+    return {
+      "groupId": groupId,
       "address": address,
+      "metadata": metadata?.toJson(),
       "weight": weight,
+      "addedAt": addedAt.toIso8601String(),
+      "hasApproved": hasApproved,
     };
   }
 }
@@ -76,13 +111,13 @@ class GroupData {
     required this.totalWeight,
   }) : members = List.unmodifiable(members);
 
-  final String? metadata;
+  final Metadata? metadata; // metadata
   final List<MemberData> members;
   final String totalWeight;
 
   Map<String, dynamic> toJson() {
     return {
-      "metadata": metadata,
+      "metadata": metadata?.toJson(),
       "members": members.map((e) => e.toJson()).toList(),
       "totalWeight": totalWeight,
     };
@@ -92,51 +127,77 @@ class GroupData {
 class RepresentedPolicy {
   RepresentedPolicy({
     required this.groupId,
-    required this.metadata,
     required this.address,
     required this.admin,
+    required this.metadata,
     required this.version,
-    required this.createdAt,
     required this.decisionPolicy,
+    required this.createdAt,
     required this.groupData,
   });
 
-  final int groupId;
   final String address;
+  final int groupId;
   final String admin;
+  final Metadata? metadata;
   final int version;
-  final DateTime createdAt;
-  final String? metadata;
-  final GroupData groupData;
   final DecisionPolicy decisionPolicy;
+  final DateTime createdAt;
+  final GroupData groupData;
 
   Map<String, dynamic> toJson() {
     return {
-      "decisionPolicy": decisionPolicy.toJson(),
-      "groupId": groupId,
-      "metadata": metadata,
-      "groupMeta": groupData.toJson(),
       "address": address,
+      "groupId": groupId,
       "admin": admin,
+      "metadata": metadata?.toJson(),
       "version": version,
+      "decisionPolicy": decisionPolicy.toJson(),
       "createdAt": createdAt.toIso8601String(),
+      "groupData": groupData.toJson(),
+    };
+  }
+}
+
+class Window {
+  final Duration votingPeriod;
+  final Duration minExecutionPeriod;
+
+  Window({
+    required this.votingPeriod,
+    required this.minExecutionPeriod,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      "votingPeriod": <String, dynamic>{
+        "seconds": votingPeriod.inSeconds,
+        "nanos": 0
+      },
+      "minExecutionPeriod": <String, dynamic>{
+        "seconds": minExecutionPeriod.inSeconds,
+        "nanos": 0
+      },
     };
   }
 }
 
 class DecisionPolicy {
   DecisionPolicy({
-    required this.typeUrl,
-    required this.value,
+    required this.type,
+    required this.threshold,
+    required this.windows,
   });
 
-  final String typeUrl;
-  final String value;
+  final Window windows;
+  final String type;
+  final String threshold;
 
   Map<String, dynamic> toJson() {
     return {
-      "typeUrl": typeUrl,
-      "value": value,
+      "@type": type,
+      "threshold": threshold,
+      "windows": windows.toJson(),
     };
   }
 }
