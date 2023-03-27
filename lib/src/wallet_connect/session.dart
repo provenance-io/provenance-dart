@@ -55,6 +55,8 @@ class Metadata {
   final String? email;
   final bool? masterPolicy;
   final bool? isSingleSigner;
+  final bool? adminNotificationsDisabled;
+  final bool? notificationsDisabled;
 
   Metadata({
     required this.name,
@@ -62,15 +64,21 @@ class Metadata {
     this.email,
     this.masterPolicy,
     this.isSingleSigner,
+    this.adminNotificationsDisabled,
+    this.notificationsDisabled,
   });
 
   Map<String, dynamic> toJson() {
     return {
-      "name": name,
-      "description": description,
-      "email": email,
-      "masterPolicy": masterPolicy,
-      "isSingleSigner": isSingleSigner,
+      if (name != null) "name": name,
+      if (description != null) "description": description,
+      if (email != null) "email": email,
+      if (masterPolicy != null) "masterPolicy": masterPolicy,
+      if (isSingleSigner != null) "isSingleSigner": isSingleSigner,
+      if (adminNotificationsDisabled != null)
+        "adminNotificationsDisabled": adminNotificationsDisabled,
+      if (notificationsDisabled != null)
+        "notificationsDisabled": notificationsDisabled,
     };
   }
 }
@@ -185,18 +193,19 @@ class Window {
 class DecisionPolicy {
   DecisionPolicy({
     required this.type,
-    required this.threshold,
+    required this.value,
     required this.windows,
   });
 
   final Window windows;
   final String type;
-  final String threshold;
+  final String value;
 
   Map<String, dynamic> toJson() {
     return {
       "@type": type,
-      "threshold": threshold,
+      if (type == "percentage") "percentage": value,
+      if (type == "threshold") "threshold": value,
       "windows": windows.toJson(),
     };
   }
