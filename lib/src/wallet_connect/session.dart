@@ -724,6 +724,8 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     _chainId = sessionApprovalData.chainId;
 
     final signingKey = sessionApprovalData.sessionSigningKey;
+    _sessionSigningKey = signingKey;
+
     final publicKey = signingKey.publicKey;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
 
@@ -739,7 +741,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
       issuer: sessionApprovalData.jwtIssuer,
-    ).build(_sessionSigningKey!);
+    ).build(signingKey);
 
     final accountInfo = AccountInfo(
       pubKey,
@@ -768,9 +770,9 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       SessionApprovalData sessionApprovalData) async {
     _chainId = sessionApprovalData.chainId;
 
-    _sessionSigningKey = sessionApprovalData.sessionSigningKey;
+    final signingKey = sessionApprovalData.sessionSigningKey;
+    _sessionSigningKey = signingKey;
 
-    final signingKey = _sessionSigningKey!;
     final publicKey = signingKey.publicKey;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
 
@@ -786,7 +788,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
       issuer: sessionApprovalData.jwtIssuer,
-    ).build(_sessionSigningKey!);
+    ).build(signingKey);
 
     final result = <String, dynamic>{
       "approved": true,
