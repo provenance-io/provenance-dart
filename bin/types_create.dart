@@ -12,6 +12,17 @@ void main() async {
     }
   }
 
+  final provenanceTypesTest = File('test/type_registry_test.dart');
+  if (await provenanceTypesTest.exists()) {
+    await provenanceTypesTest.delete();
+  }
+
+  provenanceTypesTest.writeAsString("""
+import 'package:flutter_test/flutter_test.dart';
+import 'package:provenance_dart/proto.dart';
+
+""");
+
   final dir = Directory('lib/src/proto/proto_gen');
   final List<FileSystemEntity> entities =
       await dir.list(recursive: true).toList();
@@ -62,10 +73,17 @@ void main() async {
     await provenanceTypes.writeAsString(
         "import 'package:provenance_dart/${file.path.replaceAll('lib/', '')}' as ${entry.name};\n",
         mode: FileMode.append);
+
+    await provenanceTypesTest.writeAsString(
+        "import 'package:provenance_dart/${file.path.replaceAll('lib/', '')}' as ${entry.name};\n",
+        mode: FileMode.append);
   }
 
   await provenanceTypes.writeAsString(
       '\nTypeRegistry provenanceTypes = TypeRegistry([\n',
+      mode: FileMode.append);
+
+  await provenanceTypesTest.writeAsString("\n\nmain() {\n",
       mode: FileMode.append);
 
   for (var entry in dictionary.values) {
@@ -98,8 +116,20 @@ void main() async {
         matches.join(''),
         mode: FileMode.append,
       );
+
+      await Future.forEach<String>(matches, (element) async {
+        final className = element.replaceAll(RegExp("\\(\\),\\s+"), "").trim();
+        await provenanceTypesTest.writeAsString("""
+  test('$className', () {
+    final msg = $className().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });\n""", mode: FileMode.append);
+      });
     }
   }
+
+  await provenanceTypesTest.writeAsString("}", mode: FileMode.append);
   await provenanceTypes.writeAsString(
     "]);\n",
     mode: FileMode.append,
