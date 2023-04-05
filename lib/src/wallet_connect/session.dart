@@ -658,6 +658,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     if (approved != null && !approved) {
       _relay?.close();
+      _relay = null;
       _delegate?.onClose();
       _updateStatus(WalletConnectState.disconnected);
     }
