@@ -540,10 +540,6 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     _updateStatus(WalletConnectState.disconnected);
   }
 
-  Future<void> dispose() async {
-    return _relay?.close();
-  }
-
   Future<SessionApproval> _requestSession() async {
     final sessionRequest =
         SessionRequest(clientMeta: _clientMeta!, peerId: _peerId!);
