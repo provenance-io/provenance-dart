@@ -619,14 +619,23 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     _relay?.respond(_remotePeerId!, response);
   }
 
+  ///
+  /// Close the connection but maintain the session.
+  ///
+  /// Returns state required to reconnect the session.
+  ///
   Future<SessionRestoreData?> close() async {
     SessionRestoreData? restoreData = this.restoreData;
 
     await _relay!.close();
     _relay = null;
+
     return restoreData;
   }
 
+  ///
+  /// Close the connection and end the session.
+  ///
   Future<void> disconnect() async {
     if (_remotePeerId != null) {
       final result = <String, dynamic>{
