@@ -30,7 +30,7 @@ main() {
   });
 
   test('signature matches the body', () {
-    final jwtStr = AuthorizationJwt().build(signingKey);
+    final jwtStr = AuthorizationJwt(issuer: "provenance.io").build(signingKey);
     final lastIndex = jwtStr.lastIndexOf(".");
     final signatureSection = jwtStr.substring(lastIndex + 1);
     final bodySection = jwtStr.substring(0, lastIndex);
@@ -42,7 +42,7 @@ main() {
   });
 
   test('verify header section', () {
-    final jwtStr = AuthorizationJwt().build(signingKey);
+    final jwtStr = AuthorizationJwt(issuer: "provenance.io").build(signingKey);
     final dotIndex = jwtStr.indexOf(".");
     final headerSection = jwtStr.substring(0, dotIndex);
     final headerBytes = Base64UrlDecoder().convert(headerSection);
@@ -52,7 +52,7 @@ main() {
   });
 
   test('verify body section', () {
-    final jwtStr = AuthorizationJwt().build(signingKey);
+    final jwtStr = AuthorizationJwt(issuer: "provenance.io").build(signingKey);
     final dotFirstIndex = jwtStr.indexOf(".");
     final dotLastIndex = jwtStr.indexOf(".", dotFirstIndex + 1);
     final bodySection = jwtStr.substring(dotFirstIndex + 1, dotLastIndex);
@@ -67,14 +67,15 @@ main() {
       });
     }
 
+    final now = DateTime.now().subtract(const Duration(minutes: 1));
+
     expect(bodyMap.length, 5);
     expect(
         bodyMap["sub"], base64Encode(signingKey.publicKey.compressedPublicKey));
     expect(bodyMap["iss"], "provenance.io");
     expect(bodyMap["addr"], signingKey.publicKey.address);
-    expect(bodyMap["iat"], timeComparer(DateTime.now(), 2));
-    expect(bodyMap["exp"],
-        timeComparer(DateTime.now().add(const Duration(days: 1)), 2));
+    expect(bodyMap["iat"], timeComparer(now, 2));
+    expect(bodyMap["exp"], timeComparer(now.add(const Duration(days: 1)), 2));
   });
 
   test('RepresentedGroup is properly added if present', () {
@@ -85,12 +86,53 @@ main() {
       return jsonDecode(String.fromCharCodes(bytes)) as Map<String, dynamic>;
     }
 
-    final claimsWithOutRepresentedGroup = helper(AuthorizationJwt());
+    final claimsWithOutRepresentedGroup =
+        helper(AuthorizationJwt(issuer: "provenance.io"));
     expect(claimsWithOutRepresentedGroup["grp"], null);
 
     final claimsWithRepresentedGroup = helper(AuthorizationJwt(
+      issuer: "provenance.io",
       representedGroup: "ABCDE",
     ));
     expect(claimsWithRepresentedGroup["grp"], "ABCDE");
+  });
+
+  test('a custom expiration duration is used instead of the default', () {
+    const duration = Duration(seconds: 100);
+
+    final jwtStr = AuthorizationJwt(
+      expirationDuration: duration,
+      issuer: "provenance.io",
+    ).build(signingKey);
+    final pieces = jwtStr.split(".");
+    final bodyBytes = Base64UrlDecoder().convert(pieces[1]);
+    final bodyMap = jsonDecode(String.fromCharCodes(bodyBytes));
+
+    timeComparer(DateTime target, int tolerance) {
+      return predicate((arg) {
+        final dt = arg as int;
+
+        return (dt - (target.millisecondsSinceEpoch ~/ 1000)).abs() < tolerance;
+      });
+    }
+
+    final now = DateTime.now().subtract(const Duration(minutes: 1));
+    expect(bodyMap["exp"], timeComparer(now.add(duration), 2));
+  });
+
+  test('a represented group address is added to the jwt', () {
+    const representedGroup = "ABCDE";
+
+    final jwtStr = AuthorizationJwt(
+      representedGroup: representedGroup,
+      issuer: "provenance.io",
+    ).build(signingKey);
+
+    final pieces = jwtStr.split(".");
+    final bodyBytes = Base64UrlDecoder().convert(pieces[1]);
+    final bodyMap = jsonDecode(String.fromCharCodes(bodyBytes));
+
+    expect(bodyMap.length, 6);
+    expect(bodyMap["grp"], "ABCDE");
   });
 }

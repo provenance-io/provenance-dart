@@ -29,20 +29,30 @@ extension _DateTimeSecondsSinceEpoch on DateTime {
 
 class AuthorizationJwt {
   final String? representedGroup;
+  final Duration expirationDuration;
+  final String issuer;
 
-  AuthorizationJwt({this.representedGroup});
+  AuthorizationJwt({
+    this.representedGroup,
+    Duration? expirationDuration,
+    required this.issuer,
+  }) : expirationDuration = expirationDuration ?? const Duration(days: 1);
 
-  String build(PrivateKey signingKey) {
+  String build(
+    PrivateKey signingKey,
+  ) {
     final publicKey = signingKey.publicKey;
-    final now = DateTime.now();
-    final expiry = now.add(const Duration(days: 1));
+    final now = DateTime.now().subtract(const Duration(
+        minutes:
+            1)); // we are having an issue where some devices appear to be slightly ahead, causing the jwt to be invalid
+    final expiry = now.add(expirationDuration);
 
     final addressStr = publicKey.address;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
     const headerDict = <String, dynamic>{"alg": "ES256K", "typ": "JWT"};
     final payloadDict = <String, dynamic>{
       "sub": pubKey,
-      "iss": "provenance.io",
+      "iss": issuer,
       "iat": now.secondsSinceEpoch,
       "exp": expiry.secondsSinceEpoch,
       "addr": addressStr,
