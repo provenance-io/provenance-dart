@@ -48,30 +48,87 @@ class SessionRequestData {
   );
 }
 
+class Metadata {
+  final String? name;
+  final String? description;
+  final String? email;
+  final bool? masterPolicy;
+  final bool? isSingleSigner;
+  final bool? adminNotificationsDisabled;
+  final bool? notificationsDisabled;
+
+  Metadata({
+    required this.name,
+    required this.description,
+    this.email,
+    this.masterPolicy,
+    this.isSingleSigner,
+    this.adminNotificationsDisabled,
+    this.notificationsDisabled,
+  });
+
+  factory Metadata.fromJson(Map<String, dynamic> json) => Metadata(
+        name: json["name"],
+        description: json["description"],
+        email: json["email"],
+        masterPolicy: json["masterPolicy"],
+        isSingleSigner: json["isSingleSigner"],
+        adminNotificationsDisabled: json["adminNotificationsDisabled"],
+        notificationsDisabled: json["notificationsDisabled"],
+      );
+
+  Map<String, dynamic> toJson() {
+    return {
+      if (name != null) "name": name,
+      if (description != null) "description": description,
+      if (email != null) "email": email,
+      if (masterPolicy != null) "masterPolicy": masterPolicy,
+      if (isSingleSigner != null) "isSingleSigner": isSingleSigner,
+      if (adminNotificationsDisabled != null)
+        "adminNotificationsDisabled": adminNotificationsDisabled,
+      if (notificationsDisabled != null)
+        "notificationsDisabled": notificationsDisabled,
+    };
+  }
+}
+
 class MemberData {
   MemberData({
+    required this.groupId,
     required this.address,
     required this.metadata,
     required this.weight,
+    required this.addedAt,
+    required this.hasApproved,
   });
 
+  final int groupId;
   final String address;
-  final String? metadata;
+  final Metadata? metadata;
   final String weight;
+  final DateTime addedAt;
+  final bool hasApproved;
 
   factory MemberData.fromJson(Map<String, dynamic> json) {
     return MemberData(
+      groupId: json["groupId"],
       address: json["address"],
-      metadata: json["metadata"],
+      metadata:
+          json["metadata"] == null ? null : Metadata.fromJson(json["metadata"]),
       weight: json["weight"],
+      addedAt: DateTime.parse(json["addedAt"]),
+      hasApproved: json["hasApproved"],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
+      "groupId": groupId,
       "address": address,
-      "metadata": metadata,
+      "metadata": metadata?.toJson(),
       "weight": weight,
+      "addedAt": addedAt.toIso8601String(),
+      "hasApproved": hasApproved,
     };
   }
 }
@@ -83,7 +140,7 @@ class GroupData {
     required this.totalWeight,
   }) : members = List.unmodifiable(members);
 
-  final String? metadata;
+  final Metadata? metadata; // metadata
   final List<MemberData> members;
   final String totalWeight;
 
@@ -99,7 +156,7 @@ class GroupData {
 
   Map<String, dynamic> toJson() {
     return {
-      "metadata": metadata,
+      "metadata": metadata?.toJson(),
       "members": members.map((e) => e.toJson()).toList(),
       "totalWeight": totalWeight,
     };
@@ -109,14 +166,23 @@ class GroupData {
 class RepresentedPolicy {
   RepresentedPolicy({
     required this.groupId,
-    required this.metadata,
     required this.address,
     required this.admin,
+    required this.metadata,
     required this.version,
-    required this.createdAt,
     required this.decisionPolicy,
+    required this.createdAt,
     required this.groupData,
   });
+
+  final String address;
+  final int groupId;
+  final String admin;
+  final Metadata? metadata;
+  final int version;
+  final DecisionPolicy decisionPolicy;
+  final DateTime createdAt;
+  final GroupData groupData;
 
   factory RepresentedPolicy.fromJson(Map<String, dynamic> json) {
     final createdAt = json['createdAt'];
@@ -134,46 +200,87 @@ class RepresentedPolicy {
     );
   }
 
-  final int groupId;
-  final String address;
-  final String admin;
-  final int version;
-  final DateTime createdAt;
-  final String? metadata;
-  final GroupData groupData;
-  final DecisionPolicy decisionPolicy;
+  Map<String, dynamic> toJson() {
+    return {
+      "address": address,
+      "groupId": groupId,
+      "admin": admin,
+      "metadata": metadata?.toJson(),
+      "version": version,
+      "decisionPolicy": decisionPolicy.toJson(),
+      "createdAt": createdAt.toIso8601String(),
+      "groupData": groupData.toJson(),
+    };
+  }
+}
+
+class Window {
+  final Duration votingPeriod;
+  final Duration minExecutionPeriod;
+
+  Window({
+    required this.votingPeriod,
+    required this.minExecutionPeriod,
+  });
+
+  factory Window.fromJson(Map<String, dynamic> json) => Window(
+        votingPeriod: Duration(seconds: json['votingPeriod']['seconds']),
+        minExecutionPeriod:
+            Duration(seconds: json['minExecutionPeriod']['seconds']),
+      );
 
   Map<String, dynamic> toJson() {
     return {
-      "decisionPolicy": decisionPolicy.toJson(),
-      "groupId": groupId,
-      "metadata": metadata,
-      "groupMeta": groupData.toJson(),
-      "address": address,
-      "admin": admin,
-      "version": version,
-      "createdAt": createdAt.toIso8601String(),
+      "votingPeriod": <String, dynamic>{
+        "seconds": votingPeriod.inSeconds,
+        "nanos": 0
+      },
+      "minExecutionPeriod": <String, dynamic>{
+        "seconds": minExecutionPeriod.inSeconds,
+        "nanos": 0
+      },
     };
   }
 }
 
 class DecisionPolicy {
   DecisionPolicy({
-    required this.typeUrl,
+    required this.type,
     required this.value,
+    required this.windows,
   });
 
-  factory DecisionPolicy.fromJson(Map<String, dynamic> json) {
-    return DecisionPolicy(typeUrl: json['typeUrl'], value: json['value']);
-  }
-
-  final String typeUrl;
+  final Window windows;
+  final String type;
   final String value;
+
+  factory DecisionPolicy.fromJson(Map<String, dynamic> json) {
+    final type = json['@type'];
+    String value;
+    switch (type) {
+      case 'percentage':
+        value = json['percentage'];
+        break;
+      case 'threshold':
+        value = json['threshold'];
+        break;
+      default:
+        throw 'Invalid type: $type';
+    }
+
+    return DecisionPolicy(
+      type: type,
+      value: value,
+      windows: Window.fromJson(json['windows']),
+    );
+  }
 
   Map<String, dynamic> toJson() {
     return {
-      "typeUrl": typeUrl,
-      "value": value,
+      "@type": type,
+      if (type == "percentage") "percentage": value,
+      if (type == "threshold") "threshold": value,
+      "windows": windows.toJson(),
     };
   }
 }
