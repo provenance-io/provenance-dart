@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 
@@ -16456,7 +16457,7 @@ class Mnemonic {
       WordList language = WordList.english]) {
     final strengthInt = (strength == MnemonicStrength.normal) ? 128 : 256;
     final byteCount = strengthInt ~/ 8;
-    final random = Random();
+    final random = Random.secure();
     final bytes = List<int>.generate(byteCount, (_) => random.nextInt(255));
 
     return Mnemonic.fromEntropy(bytes, language);
