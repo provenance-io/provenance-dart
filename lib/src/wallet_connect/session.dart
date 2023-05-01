@@ -187,10 +187,11 @@ class RepresentedPolicy {
   factory RepresentedPolicy.fromJson(Map<String, dynamic> json) {
     final createdAt = json['createdAt'];
     final decisionPolicy = json['decisionPolicy'];
+    final metadata = json['metadata'];
 
     return RepresentedPolicy(
       groupId: json['groupId'],
-      metadata: json['metadata'],
+      metadata: metadata == null ? null : Metadata.fromJson(metadata),
       groupData: GroupData.fromJson(json['groupMeta']),
       address: json['address'],
       admin: json['admin'],
