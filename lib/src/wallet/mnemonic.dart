@@ -16453,7 +16453,7 @@ class Mnemonic {
   /// Generate a new recovery phrase.
   ///
   static Iterable<String> random(
-      [MnemonicStrength strength = MnemonicStrength.normal,
+      [MnemonicStrength strength = MnemonicStrength.high,
       WordList language = WordList.english]) {
     final strengthInt = (strength == MnemonicStrength.normal) ? 128 : 256;
     final byteCount = strengthInt ~/ 8;
