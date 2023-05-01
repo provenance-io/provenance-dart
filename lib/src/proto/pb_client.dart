@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:fixnum/fixnum.dart' as fixnum;
 import 'package:grpc/grpc.dart';
 import 'package:provenance_dart/proto.dart';
+import 'package:provenance_dart/proto_cosmos_base_tendermint_v1beta1.dart';
 import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/auth.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/query.pbgrpc.dart'
@@ -403,6 +404,12 @@ class PbClient {
     final response = await cosmosService.broadcastTx(broadcastRequest);
 
     return RawTxResponsePair(txRaw, response.txResponse);
+  }
+
+  Future<Int64> getCurrentBlockHeight() {
+    return tindermintService
+        .getLatestBlock(GetLatestBlockRequest())
+        .then((p0) => p0.block.header.height);
   }
 
   ///
