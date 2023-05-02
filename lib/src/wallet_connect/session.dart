@@ -182,17 +182,18 @@ class RepresentedPolicy {
   final int version;
   final DecisionPolicy decisionPolicy;
   final DateTime createdAt;
-  final GroupData groupData;
+  final GroupData? groupData;
 
   factory RepresentedPolicy.fromJson(Map<String, dynamic> json) {
     final createdAt = json['createdAt'];
     final decisionPolicy = json['decisionPolicy'];
     final metadata = json['metadata'];
+    final groupMeta = json['groupMeta'];
 
     return RepresentedPolicy(
       groupId: json['groupId'],
       metadata: metadata == null ? null : Metadata.fromJson(metadata),
-      groupData: GroupData.fromJson(json['groupMeta']),
+      groupData: groupMeta == null ? null : GroupData.fromJson(groupMeta),
       address: json['address'],
       admin: json['admin'],
       version: json['version'],
@@ -210,7 +211,7 @@ class RepresentedPolicy {
       "version": version,
       "decisionPolicy": decisionPolicy.toJson(),
       "createdAt": createdAt.toIso8601String(),
-      "groupData": groupData.toJson(),
+      "groupData": groupData?.toJson(),
     };
   }
 }
