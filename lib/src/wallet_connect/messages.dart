@@ -85,11 +85,16 @@ class JsonRequest extends JsonRpcBase {
           }
         ]);
 
-  JsonRequest.provenanceSign(List<int> data, String description, String address)
-      : this("provenance_sign", [
+  JsonRequest.provenanceSign(
+    List<int> data,
+    String description,
+    String address, {
+    String? redirectUrl,
+  }) : this("provenance_sign", [
           jsonEncode(<String, dynamic>{
             "description": description,
             "address": address,
+            if (redirectUrl != null) "redirectUrl": redirectUrl,
           }),
           Encoding.toHex(data)
         ]);
@@ -105,10 +110,12 @@ class JsonRequest extends JsonRpcBase {
     int? timeoutHeight,
     List<String>? nonCriticalExtensionOptions,
     List<String>? extensionOptions,
+    String? redirectUrl,
   }) : this("provenance_sendTransaction", [
           jsonEncode(<String, dynamic>{
             "description": description,
             "address": address,
+            if (redirectUrl != null) "redirectUrl": redirectUrl,
             if (gasEstimate != null)
               "gasPrice": <String, dynamic>{
                 "gasPrice": gasEstimate.amount,
@@ -128,6 +135,18 @@ class JsonRequest extends JsonRpcBase {
             final base64 = base64Encode(any.writeToBuffer());
             final charCodes = base64.codeUnits;
             return Encoding.toHex(charCodes);
+          })
+        ]);
+
+  JsonRequest.sendWalletAction(
+      String action, String description, dynamic payload,
+      {String? redirectUrl})
+      : this("wallet_action", [
+          jsonEncode(<String, dynamic>{
+            "description": description,
+            "action": action,
+            "payload": payload,
+            if (redirectUrl != null) "redirectUrl": redirectUrl,
           })
         ]);
 
@@ -294,10 +313,12 @@ class JrpcRequestException implements Exception {
 class SessionRequest implements JsonEncodable {
   final ClientMeta? clientMeta;
   final String peerId;
+  final String? redirectUrl;
 
   SessionRequest({
     required this.clientMeta,
     required this.peerId,
+    this.redirectUrl,
   });
 
   factory SessionRequest.fromJson(Map<String, dynamic> json) {
@@ -306,6 +327,7 @@ class SessionRequest implements JsonEncodable {
     return SessionRequest(
       clientMeta: ClientMeta.fromJson(clientMeta),
       peerId: json['peerId'],
+      redirectUrl: json['redirectUrl'],
     );
   }
 
@@ -314,6 +336,7 @@ class SessionRequest implements JsonEncodable {
     return <String, dynamic>{
       "peerId": peerId,
       "peerMeta": clientMeta?.toJson(),
+      if (redirectUrl != null) "redirectUrl": redirectUrl,
     };
   }
 }
