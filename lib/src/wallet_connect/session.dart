@@ -442,12 +442,26 @@ class CustomMessageData {
 
 abstract class WalletConnectionDelegate {
   void onApproveSign(
-      int requestId, String description, String address, List<int> msg);
+    int requestId,
+    String description,
+    String address,
+    List<int> msg, {
+    String? redirectUrl,
+  });
 
-  void onApproveTransaction(int requestId, String description, String address,
-      SignTransactionData signTransactionData);
+  void onApproveTransaction(
+    int requestId,
+    String description,
+    String address,
+    SignTransactionData signTransactionData, {
+    String? redirectUrl,
+  });
 
-  void onApproveSession(int requestId, SessionRequestData data);
+  void onApproveSession(
+    int requestId,
+    SessionRequestData data, {
+    String? redirectUrl,
+  });
 
   void onError(Exception exception);
 
@@ -455,7 +469,12 @@ abstract class WalletConnectionDelegate {
 
   void onSessionCreated() {}
 
-  bool onUnknownMessage(int requestId, CustomMessageData data) => false;
+  bool onUnknownMessage(
+    int requestId,
+    CustomMessageData data, {
+    String? redirectUrl,
+  }) =>
+      false;
 }
 
 class WalletConnectionSessionClosedException implements Exception {
@@ -553,19 +572,6 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         await Future.value([
           _relay!.subscribe(_peerId!),
         ]);
-
-        _requestSession().then((response) {
-          if (!response.approved) {
-            close();
-          } else {
-            _remotePeerId = response.peerId;
-            remoteAccountInfo = response.accounts;
-            remoteClientMeta = response.clientMeta;
-            _delegate!.onSessionCreated();
-          }
-        }).catchError((err) {
-          print(err.toString());
-        });
       }
       _updateStatus(WalletConnectState.connected);
     } catch (e) {
@@ -575,10 +581,14 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     }
   }
 
-  Future<List<int>> sendSignRequest(
-      List<int> message, String description) async {
+  Future<List<int>> sendSignRequest(List<int> message, String description,
+      {String? redirectUrl}) async {
     final request = JsonRequest.provenanceSign(
-        message, description, remoteAccountInfo!.address);
+      message,
+      description,
+      remoteAccountInfo!.address,
+      redirectUrl: redirectUrl,
+    );
 
     final completer = Completer<String>();
     _responseLookup[request.id] = completer;
@@ -589,16 +599,15 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   }
 
   Future<String> sendTransactionRequest(
-    List<GeneratedMessage> messages,
-    String description, {
-    proto.Coin? gasEstimate,
-    String? feeGranter,
-    String? feePayer,
-    String? memo,
-    int? timeoutHeight,
-    List<proto.GeneratedMessage>? nonCriticalExtensionOptions,
-    List<proto.GeneratedMessage>? extensionOptions,
-  }) async {
+      List<GeneratedMessage> messages, String description,
+      {proto.Coin? gasEstimate,
+      String? feeGranter,
+      String? feePayer,
+      String? memo,
+      int? timeoutHeight,
+      List<proto.GeneratedMessage>? nonCriticalExtensionOptions,
+      List<proto.GeneratedMessage>? extensionOptions,
+      String? redirectUrl}) async {
     final request = JsonRequest.sendTransaction(
       messages,
       description,
@@ -614,9 +623,31 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       extensionOptions: extensionOptions
           ?.map((e) => base64Encode(e.toAny().writeToBuffer()))
           .toList(),
+      redirectUrl: redirectUrl,
     );
 
     final completer = Completer<String>();
+    _responseLookup[request.id] = completer;
+
+    await _relay!.publish(_remotePeerId!, request);
+
+    return completer.future;
+  }
+
+  Future<dynamic> sendWalletAction(
+    String action,
+    String description,
+    dynamic payload, {
+    String? redirectUrl,
+  }) async {
+    final request = JsonRequest.sendWalletAction(
+      action,
+      payload,
+      description,
+      redirectUrl: redirectUrl,
+    );
+
+    final completer = Completer<dynamic>();
     _responseLookup[request.id] = completer;
 
     await _relay!.publish(_remotePeerId!, request);
@@ -649,9 +680,14 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     _updateStatus(WalletConnectState.disconnected);
   }
 
-  Future<SessionApproval> _requestSession() async {
-    final sessionRequest =
-        SessionRequest(clientMeta: _clientMeta!, peerId: _peerId!);
+  Future<SessionApproval> sendRequestSession({
+    String? redirectUrl,
+  }) async {
+    final sessionRequest = SessionRequest(
+      clientMeta: _clientMeta!,
+      peerId: _peerId!,
+      redirectUrl: redirectUrl,
+    );
     final request = JsonRequest.sessionApproval(sessionRequest);
 
     final completer = Completer<Map<String, dynamic>>();
@@ -659,7 +695,19 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     await _relay!.publish(address.topic, request);
 
-    return completer.future.then((json) => SessionApproval.fromJson(json));
+    final approval =
+        await completer.future.then((json) => SessionApproval.fromJson(json));
+
+    if (!approval.approved) {
+      close();
+    } else {
+      _remotePeerId = approval.peerId;
+      remoteAccountInfo = approval.accounts;
+      remoteClientMeta = approval.clientMeta;
+      _delegate!.onSessionCreated();
+    }
+
+    return approval;
   }
 
   void _processRequest(JsonRequest jsonRequest) {
@@ -687,6 +735,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
           final description = messageObj["description"] ?? "";
           final action = messageObj['action'] ?? "";
           final payload = messageObj["payload"];
+          final redirectUrl = messageObj['redirectUrl'] as String?;
 
           final data = CustomMessageData(
             action: action,
@@ -697,6 +746,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
           final wasHandled = _delegate?.onUnknownMessage(
                 jsonRequest.id,
                 data,
+                redirectUrl: redirectUrl,
               ) ??
               false;
 
@@ -961,6 +1011,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         ? descriptionJson['memo']
         : null;
     final timeoutHeight = descriptionJson['timeoutHeight'];
+    final redirectUrl = descriptionJson['redirectUrl'] as String?;
 
     final signTransactionData = SignTransactionData(
       messages,
@@ -975,7 +1026,12 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       extensionOptions: descriptionJson['extensionOptions']?.cast<String>(),
     );
     _delegate?.onApproveTransaction(
-        request.id, description, address, signTransactionData);
+      request.id,
+      description,
+      address,
+      signTransactionData,
+      redirectUrl: redirectUrl,
+    );
   }
 
   Future<void> _handleProvenanceSign(JsonRequest request) async {
@@ -985,14 +1041,17 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
+    final redirectUrl = descriptionJson['redirectUrl'] as String?;
 
-    _delegate?.onApproveSign(request.id, description, address, bytes);
+    _delegate?.onApproveSign(request.id, description, address, bytes,
+        redirectUrl: redirectUrl);
   }
 
   Future<void> _handleSessionRequest(JsonRequest request) async {
     final param = request.params.first;
     _remotePeerId = param['peerId'];
     final peerMeta = param['peerMeta'];
+    final redirectUrl = param['redirectUrl'] as String?;
 
     final clientMeta = ClientMeta.fromJson(peerMeta);
 
@@ -1003,7 +1062,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       address,
     );
 
-    _delegate?.onApproveSession(request.id, data);
+    _delegate?.onApproveSession(request.id, data, redirectUrl: redirectUrl);
   }
 
   void _updateStatus(WalletConnectState status) {
