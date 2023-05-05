@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:provenance_dart/proto.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/wallet_connect.dart';
@@ -74,7 +75,7 @@ class JsonRequest extends JsonRpcBase {
       : super(id: id ?? DateTime.now().millisecondsSinceEpoch);
 
   JsonRequest.sessionApproval(SessionRequest sessionRequest)
-      : this("wc_sessionRequest", [sessionRequest]);
+      : this("wc_sessionRequest", [sessionRequest.toJson()]);
 
   JsonRequest.disconnect()
       : this("wc_sessionUpdate", [
