@@ -7,6 +7,7 @@ import 'package:sembast/sembast_io.dart';
 class SessionStoreImpl implements SessionStore {
   static const _keyVersion = 'version';
   static const _keySession = 'session';
+  static const _keyActivity = 'activity';
 
   final _store = StoreRef<String, dynamic>.main();
   late final Future<Database> _db = _init();
@@ -43,6 +44,27 @@ class SessionStoreImpl implements SessionStore {
   @override
   Future<void> putSession(SessionState? state) async {
     final record = _store.record(_keySession);
+
+    if (state == null) {
+      await record.delete(await _db);
+    } else {
+      final json = state.toJson();
+
+      await record.put(await _db, json);
+    }
+  }
+
+  @override
+  Future<ActivityState?> getActivity() async {
+    final json =
+        _store.record(_keyActivity).get(await _db) as Map<String, dynamic>?;
+
+    return json == null ? null : ActivityState.fromJson(json);
+  }
+
+  @override
+  Future<void> putActivity(ActivityState? state) async {
+    final record = _store.record(_keyActivity);
 
     if (state == null) {
       await record.delete(await _db);

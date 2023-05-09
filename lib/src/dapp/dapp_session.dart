@@ -14,6 +14,7 @@ import 'package:provenance_dart/src/wallet_connect/request_method.dart';
 import 'package:provenance_dart/wallet.dart';
 import 'package:provenance_dart/wallet_connect.dart';
 
+import 'activity_state.dart';
 import 'session_state.dart';
 
 const storeVersion = 1;
@@ -23,6 +24,8 @@ abstract class SessionStore {
   Future<void> putVersion(int version);
   Future<SessionState?> getSession();
   Future<void> putSession(SessionState? state);
+  Future<ActivityState?> getActivity();
+  Future<void> putActivity(ActivityState? state);
 }
 
 ///
@@ -35,6 +38,9 @@ class DappSession implements RelayDelegate {
     required SessionStore store,
   }) : _store = store;
 
+  static const _defaultTimeout = Duration(
+    minutes: 30,
+  );
   static final _tag = '$DappSession';
 
   final ClientMeta meta;
@@ -52,6 +58,10 @@ class DappSession implements RelayDelegate {
   final _response = StreamController<JsonRpcResponse>.broadcast();
   final _error = StreamController<Object>.broadcast();
   final _workQueue = WorkQueue();
+  late final _timeoutTimer = _TimeoutTimer(
+    duration: _defaultTimeout,
+    onTimeout: _onTimeout,
+  );
 
   late EncryptedPayloadHelper _payloadHelper;
   Relay? _relay;
@@ -149,7 +159,23 @@ class DappSession implements RelayDelegate {
 
     await relay.publish(topic, request);
 
+    await _putActivity(state.peerId);
     await _putSession(state);
+  }
+
+  Future<void> _putActivity(String? topic) async {
+    if (topic == null) {
+      _timeoutTimer.cancel();
+      await _store.putActivity(null);
+    } else {
+      _timeoutTimer.start();
+      await _store.putActivity(
+        ActivityState(
+          topic: topic,
+          last: DateTime.now(),
+        ),
+      );
+    }
   }
 
   Future<void> _putSession(SessionState? state) async {
@@ -174,8 +200,18 @@ class DappSession implements RelayDelegate {
         await _store.putVersion(storeVersion);
       }
 
+      final activity = await _store.getActivity();
+      final now = DateTime.now();
+      final lastActive = activity?.last ?? now;
+      final millisInactivity =
+          now.millisecondsSinceEpoch - lastActive.millisecondsSinceEpoch;
+      final millisRemaining = _defaultTimeout.inMilliseconds - millisInactivity;
+      final expired = millisRemaining <= 0;
+
       var state = await _store.getSession();
-      if (state == null || state.denial != null) {
+      if (state == null ||
+          state.denial != null ||
+          (state.peerId == activity?.topic && expired)) {
         state = _initState();
       }
 
@@ -189,6 +225,14 @@ class DappSession implements RelayDelegate {
       await _connect(
         redirectUrl: redirectUrl,
       );
+
+      Duration? duration;
+      if (!expired) {
+        duration = Duration(
+          milliseconds: millisRemaining,
+        );
+      }
+      _timeoutTimer.start(duration);
     });
   }
 
@@ -250,6 +294,7 @@ class DappSession implements RelayDelegate {
       }
 
       _workQueue.clear();
+      await _putActivity(null);
 
       if (state != null) {
         state = state.copyWith(
@@ -262,6 +307,18 @@ class DappSession implements RelayDelegate {
       _updateStatus();
 
       log('$_tag: Disconnected: ${state?.peerId}');
+    });
+  }
+
+  void _onTimeout() {
+    log('$_tag: Session timed out');
+
+    disconnect().onError((e, s) {
+      log(
+        '$_tag: Error disconnecting on timeout',
+        error: e,
+        stackTrace: s,
+      );
     });
   }
 
@@ -359,6 +416,8 @@ class DappSession implements RelayDelegate {
 
             _workQueue.clear();
 
+            await _store.putActivity(null);
+
             var state = _state.value;
             if (state != null) {
               state = state.copyWith(
@@ -401,6 +460,8 @@ class DappSession implements RelayDelegate {
         state = state.copyWith(
           requests: map.values.toList(),
         );
+
+        await _putActivity(state.peerId);
 
         if (request.method == RequestMethod.sessionRequest) {
           final json = jsonRpc.result as Map<String, dynamic>;
@@ -534,4 +595,27 @@ SessionStatus _getStatus(RelayStatus relayStatus, SessionState? state) {
   }
 
   return SessionStatus.error;
+}
+
+class _TimeoutTimer {
+  _TimeoutTimer({
+    required Duration duration,
+    required void Function() onTimeout,
+  })  : _duration = duration,
+        _onTimeout = onTimeout;
+
+  final Duration _duration;
+  final void Function() _onTimeout;
+
+  Timer? _timer;
+
+  void start([Duration? override]) {
+    _timer?.cancel();
+
+    _timer = Timer(override ?? _duration, _onTimeout);
+  }
+
+  void cancel() {
+    _timer?.cancel();
+  }
 }
