@@ -6,20 +6,20 @@
     "configurations": [
         {
             "name": "dapp",
-            "cwd": "example/app",
+            "cwd": "example/dapp",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "dapp (profile mode)",
-            "cwd": "example/app",
+            "cwd": "example/dapp",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
             "name": "dapp (release mode)",
-            "cwd": "example/app",
+            "cwd": "example/dapp",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
