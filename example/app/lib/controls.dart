@@ -173,9 +173,7 @@ class _ControlsState extends State<Controls> {
 
   void _onResponse(JsonRpcResponse response) {
     final id = response.id as int;
-    final result = response.result == null
-        ? ''
-        : const JsonEncoder.withIndent('  ').convert(response.result);
+    final result = const JsonEncoder.withIndent('  ').convert(response);
 
     log('$_tag: Response $id $result');
     setState(() {
