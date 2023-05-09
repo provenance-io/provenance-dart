@@ -65,6 +65,8 @@ class DappSession implements RelayDelegate {
   ///
   /// Sends a message to be signed and returned.
   ///
+  /// Returns the request id.
+  ///
   Future<int> sendSignRequest(
     List<int> message,
     String description,
@@ -92,6 +94,8 @@ class DappSession implements RelayDelegate {
 
   ///
   /// Sends messages to be transmitted by the wallet.
+  ///
+  /// Returns the request id.
   ///
   Future<int> sendTransactionRequest(
     List<proto.GeneratedMessage> messages,
@@ -134,51 +138,6 @@ class DappSession implements RelayDelegate {
 
       return request.id as int;
     });
-  }
-
-  Future<void> _publishRequest(String topic, JsonRequest request) async {
-    var state = _state.value;
-    if (state == null) {
-      throw StateError('State is not set');
-    }
-
-    final relay = _relay;
-    if (relay == null) {
-      throw StateError('Relay is not set');
-    }
-
-    state = state.copyWith(
-      requests: [
-        request,
-      ],
-    );
-
-    await relay.publish(topic, request);
-
-    await _putActivity(state.peerId);
-    await _putSession(state);
-  }
-
-  Future<void> _putActivity(String? topic) async {
-    if (topic == null) {
-      _timeoutTimer.cancel();
-      await _store.putActivity(null);
-    } else {
-      _timeoutTimer.start();
-      await _store.putActivity(
-        ActivityState(
-          topic: topic,
-          last: DateTime.now(),
-        ),
-      );
-    }
-  }
-
-  Future<void> _putSession(SessionState? state) async {
-    await _store.putSession(state);
-    _state.value = state;
-
-    _updateStatus();
   }
 
   ///
@@ -304,6 +263,51 @@ class DappSession implements RelayDelegate {
 
       log('$_tag: Disconnected: ${state?.peerId}');
     });
+  }
+
+  Future<void> _publishRequest(String topic, JsonRequest request) async {
+    var state = _state.value;
+    if (state == null) {
+      throw StateError('State is not set');
+    }
+
+    final relay = _relay;
+    if (relay == null) {
+      throw StateError('Relay is not set');
+    }
+
+    state = state.copyWith(
+      requests: [
+        request,
+      ],
+    );
+
+    await relay.publish(topic, request);
+
+    await _putActivity(state.peerId);
+    await _putSession(state);
+  }
+
+  Future<void> _putActivity(String? topic) async {
+    if (topic == null) {
+      _timeoutTimer.cancel();
+      await _store.putActivity(null);
+    } else {
+      _timeoutTimer.start();
+      await _store.putActivity(
+        ActivityState(
+          topic: topic,
+          last: DateTime.now(),
+        ),
+      );
+    }
+  }
+
+  Future<void> _putSession(SessionState? state) async {
+    await _store.putSession(state);
+    _state.value = state;
+
+    _updateStatus();
   }
 
   void _onTimeout() {
