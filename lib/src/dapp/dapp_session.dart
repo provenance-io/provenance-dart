@@ -6,6 +6,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:provenance_dart/proto.dart' as proto;
+import 'package:provenance_dart/src/dapp/callback_relay_delegate.dart';
 import 'package:provenance_dart/src/utility/work_queue.dart';
 import 'package:provenance_dart/src/wallet_connect/encrypted_payload_helper.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
@@ -27,7 +28,7 @@ abstract class KeyValueStore {
 ///
 /// Manages a single session and its associated state.
 ///
-class DappSession implements RelayDelegate {
+class DappSession {
   DappSession({
     required this.meta,
     required this.bridge,
@@ -339,7 +340,18 @@ class DappSession implements RelayDelegate {
       final webSocket = await WebSocket.connect(address.bridge.toString());
       webSocket.pingInterval = const Duration(seconds: 5);
 
-      final relay = Relay(webSocket, _payloadHelper, this);
+      final delegate = CallbackRelayDelegate(
+        onError: _onError,
+        onJsonRpc: _onJsonRpc,
+        onStatusUpdated: (_) => _updateStatus(),
+      );
+
+      final relay = Relay(
+        webSocket,
+        _payloadHelper,
+        delegate,
+      );
+
       _relay = relay;
       await relay.subscribe(peerId);
 
@@ -389,9 +401,7 @@ class DappSession implements RelayDelegate {
     );
   }
 
-  @override
-  @visibleForTesting
-  void onJsonRpc(String topic, JsonRpcBase jsonRpc) {
+  void _onJsonRpc(String topic, JsonRpcBase jsonRpc) {
     log('$_tag: $topic Received message ${jsonRpc.toJson()}');
 
     final relay = _relay;
@@ -514,23 +524,7 @@ class DappSession implements RelayDelegate {
     }
   }
 
-  @override
-  @visibleForTesting
-  void onStatusUpdated(RelayStatus relayStatus) {
-    _updateStatus();
-  }
-
-  @override
-  @visibleForTesting
-  void onSubscribe(String subscribedTopic) {}
-
-  @override
-  @visibleForTesting
-  void onError(Exception error) {
-    _handleError(error);
-  }
-
-  void _handleError(dynamic e) {
+  void _onError(dynamic e) {
     Exception exception;
     if (e is Exception) {
       exception = e;
