@@ -19,13 +19,9 @@ import 'session_state.dart';
 
 const storeVersion = 1;
 
-abstract class SessionStore {
-  Future<int?> getVersion();
-  Future<void> putVersion(int version);
-  Future<SessionState?> getSession();
-  Future<void> putSession(SessionState? state);
-  Future<ActivityState?> getActivity();
-  Future<void> putActivity(ActivityState? state);
+abstract class KeyValueStore {
+  Future<String?> getString(String key);
+  Future<void> putString(String key, String? value);
 }
 
 ///
@@ -35,8 +31,8 @@ class DappSession implements RelayDelegate {
   DappSession({
     required this.meta,
     required this.bridge,
-    required SessionStore store,
-  }) : _store = store;
+    required KeyValueStore store,
+  }) : _store = _SessionStore(store);
 
   static const _defaultTimeout = Duration(
     minutes: 30,
@@ -51,7 +47,7 @@ class DappSession implements RelayDelegate {
   Stream<JsonRpcResponse> get response => _response.stream;
   Stream<Object> get error => _error.stream;
 
-  final SessionStore _store;
+  final _SessionStore _store;
 
   final _status = ValueNotifier(SessionStatus.paused);
   final _state = ValueNotifier<SessionState?>(null);
@@ -617,5 +613,49 @@ class _TimeoutTimer {
 
   void cancel() {
     _timer?.cancel();
+  }
+}
+
+class _SessionStore {
+  _SessionStore(KeyValueStore store) : _store = store;
+
+  static const _keyVersion = 'version';
+  static const _keySession = 'session';
+  static const _keyActivity = 'activity';
+
+  final KeyValueStore _store;
+
+  Future<int?> getVersion() async {
+    final str = await _store.getString(_keyVersion);
+
+    return str == null ? null : int.parse(str);
+  }
+
+  Future<void> putVersion(int version) async {
+    await _store.putString(_keyVersion, version.toString());
+  }
+
+  Future<SessionState?> getSession() async {
+    final str = await _store.getString(_keySession);
+
+    return str == null ? null : SessionState.fromJson(jsonDecode(str));
+  }
+
+  Future<void> putSession(SessionState? state) async {
+    final json = state == null ? null : jsonEncode(state.toJson());
+
+    await _store.putString(_keySession, json);
+  }
+
+  Future<ActivityState?> getActivity() async {
+    final str = await _store.getString(_keyActivity);
+
+    return str == null ? null : ActivityState.fromJson(jsonDecode(str));
+  }
+
+  Future<void> putActivity(ActivityState? state) async {
+    final json = state == null ? null : jsonEncode(state.toJson());
+
+    await _store.putString(_keyActivity, json);
   }
 }
