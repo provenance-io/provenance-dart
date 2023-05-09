@@ -156,14 +156,17 @@ class _ControlsState extends State<Controls> {
             ],
           ),
           VerticalSpacer.xSmall,
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Container(
-              color: Colors.grey.shade200,
-              padding: const EdgeInsets.all(
-                Spacing.small,
+          Container(
+            color: Colors.grey.shade200,
+            width: double.infinity,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Container(
+                padding: const EdgeInsets.all(
+                  Spacing.small,
+                ),
+                child: SelectableText(_result),
               ),
-              child: SelectableText(_result),
             ),
           ),
         ],
