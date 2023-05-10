@@ -1,5 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
 import 'package:provenance_dart/src/wallet_connect/messages.dart';
 import 'package:provenance_dart/wallet_connect.dart';
+
+part 'session_state.g.dart';
 
 class ApprovedSessionState extends SessionState {
   ApprovedSessionState._({
@@ -106,6 +109,7 @@ class SessionState {
       };
 }
 
+@JsonSerializable()
 class ApprovalState {
   ApprovalState({
     required this.remotePeerId,
@@ -117,17 +121,9 @@ class ApprovalState {
   final String chainId;
   final AccountInfo account;
 
-  factory ApprovalState.fromJson(Map<String, dynamic> json) => ApprovalState(
-        remotePeerId: json['remotePeerId'],
-        chainId: json['chainId'],
-        account: AccountInfo.fromJson(json['account']),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'remotePeerId': remotePeerId,
-        'chainId': chainId,
-        'account': account.toJson(),
-      };
+  factory ApprovalState.fromJson(Map<String, dynamic> json) =>
+      _$ApprovalStateFromJson(json);
+  Map<String, dynamic> toJson() => _$ApprovalStateToJson(this);
 }
 
 enum DenialReason {

@@ -46,13 +46,12 @@ final groupData = GroupData(
 );
 
 final windowData = Window(
-  votingPeriod: const Duration(seconds: 172800),
-  minExecutionPeriod: const Duration(seconds: 0),
+  votingPeriod: WindowPeriod(seconds: 172800, nanos: 0),
+  minExecutionPeriod: WindowPeriod(seconds: 0, nanos: 0),
 );
 
-final decisionData = DecisionPolicy(
-  type: "percentage",
-  value: "0.51",
+final decisionData = PercentageDecisionPolicy(
+  percentage: "0.51",
   windows: windowData,
 );
 
