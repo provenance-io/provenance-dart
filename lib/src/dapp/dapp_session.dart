@@ -75,10 +75,11 @@ class DappSession {
   ) {
     return _workQueue.add<int>((c) async {
       var state = _state.value;
-      final approval = state?.approval;
-      if (approval == null) {
-        throw StateError('Session not yet approved');
+      if (state is! ApprovedSessionState) {
+        throw StateError('Session is not approved');
       }
+
+      final approval = state.approval;
 
       final request = JsonRequest.provenanceSign(
         message,
@@ -112,10 +113,11 @@ class DappSession {
   }) {
     return _workQueue.add<int>((c) async {
       var state = _state.value;
-      final approval = state?.approval;
-      if (approval == null) {
-        throw StateError('Session not yet approved');
+      if (state is! ApprovedSessionState) {
+        throw StateError('Session is not approved');
       }
+
+      final approval = state.approval;
 
       final request = JsonRequest.sendTransaction(
         messages,
@@ -166,7 +168,7 @@ class DappSession {
 
       var state = await _store.getSession();
       if (state == null ||
-          state.denial != null ||
+          state is ClosedSessionState ||
           (state.peerId == activity?.topic && expired)) {
         state = _initState();
       }
@@ -224,8 +226,7 @@ class DappSession {
       var state = _state.value;
 
       try {
-        final approval = state?.approval;
-        if (approval != null) {
+        if (state is ApprovedSessionState) {
           final result = <String, dynamic>{
             'approved': false,
             'chainId': null,
@@ -237,7 +238,7 @@ class DappSession {
             [result],
           );
 
-          await relay.publish(approval.remotePeerId, response);
+          await relay.publish(state.approval.remotePeerId, response);
         }
 
         await relay.close();
@@ -253,8 +254,10 @@ class DappSession {
       await _putActivity(null);
 
       if (state != null) {
-        state = state.copyWith(
-          denial: DenialReason.ended,
+        state = ClosedSessionState(
+          address: state.address,
+          peerId: state.peerId,
+          reason: ClosedReason.ended,
         );
 
         await _putSession(state);
@@ -277,11 +280,20 @@ class DappSession {
       throw StateError('Relay is not set');
     }
 
-    state = state.copyWith(
-      requests: [
-        request,
-      ],
-    );
+    switch (state.kind) {
+      case SessionStateKind.pending:
+      case SessionStateKind.approved:
+        state as OpenSessionState;
+        state = state.copyWith(
+          requests: [
+            ...state.requests,
+            request,
+          ],
+        );
+        break;
+      case SessionStateKind.closed:
+        throw StateError('Cannot add request in state ${state.kind.name}');
+    }
 
     await relay.publish(topic, request);
 
@@ -357,7 +369,7 @@ class DappSession {
 
       log('$_tag: Connected: $peerId');
 
-      if (state.approval == null &&
+      if (state is PendingSessionState &&
           !state.requests
               .any((e) => e.method == RequestMethod.sessionRequest)) {
         final sessionRequest = SessionRequest(
@@ -395,7 +407,7 @@ class DappSession {
       Encoding.toHex(key),
     );
 
-    return SessionState.create(
+    return PendingSessionState(
       peerId: peerId,
       address: address,
     );
@@ -430,8 +442,10 @@ class DappSession {
 
             var state = _state.value;
             if (state != null) {
-              state = state.copyWith(
-                denial: DenialReason.ended,
+              state = ClosedSessionState(
+                address: state.address,
+                peerId: state.peerId,
+                reason: ClosedReason.ended,
               );
               await _putSession(state);
 
@@ -456,8 +470,8 @@ class DappSession {
       _workQueue.add((c) async {
         final requestId = jsonRpc.id as int;
         var state = _state.value;
-        if (state == null) {
-          throw StateError('State is not set');
+        if (state is! OpenSessionState) {
+          throw StateError('State is not open session');
         }
 
         final map =
@@ -483,7 +497,9 @@ class DappSession {
           if (remotePeerId != null && chainId != null && account != null) {
             log('$_tag: Session approved: ${state.peerId}');
 
-            state = state.copyWith(
+            state = ApprovedSessionState(
+              address: state.address,
+              peerId: state.peerId,
               approval: ApprovalState(
                 remotePeerId: remotePeerId,
                 chainId: approval.chainId!,
@@ -496,8 +512,10 @@ class DappSession {
             await relay.close();
             _workQueue.clear();
 
-            state = state.copyWith(
-              denial: DenialReason.rejected,
+            state = ClosedSessionState(
+              address: state.address,
+              peerId: state.peerId,
+              reason: ClosedReason.rejected,
             );
             await _putSession(state);
 
@@ -557,38 +575,31 @@ SessionStatus _getStatus(RelayStatus relayStatus, SessionState? state) {
     return SessionStatus.paused;
   }
 
-  final approval = state.approval;
-  final denial = state.denial;
-
-  if (denial != null) {
-    switch (denial) {
-      case DenialReason.rejected:
-        return SessionStatus.rejected;
-      case DenialReason.ended:
-        return SessionStatus.ended;
-    }
+  switch (state.kind) {
+    case SessionStateKind.pending:
+      state as PendingSessionState;
+      switch (relayStatus) {
+        case RelayStatus.disconnected:
+          return SessionStatus.paused;
+        case RelayStatus.connected:
+          return SessionStatus.approving;
+      }
+    case SessionStateKind.approved:
+      switch (relayStatus) {
+        case RelayStatus.disconnected:
+          return SessionStatus.paused;
+        case RelayStatus.connected:
+          return SessionStatus.active;
+      }
+    case SessionStateKind.closed:
+      state as ClosedSessionState;
+      switch (state.reason) {
+        case ClosedReason.rejected:
+          return SessionStatus.rejected;
+        case ClosedReason.ended:
+          return SessionStatus.ended;
+      }
   }
-
-  if (approval != null) {
-    switch (relayStatus) {
-      case RelayStatus.disconnected:
-        return SessionStatus.paused;
-      case RelayStatus.connected:
-        return SessionStatus.active;
-    }
-  }
-
-  if (approval == null &&
-      state.requests.any((e) => e.method == RequestMethod.sessionRequest)) {
-    switch (relayStatus) {
-      case RelayStatus.disconnected:
-        return SessionStatus.paused;
-      case RelayStatus.connected:
-        return SessionStatus.approving;
-    }
-  }
-
-  return SessionStatus.error;
 }
 
 class _TimeoutTimer {

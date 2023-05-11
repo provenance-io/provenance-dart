@@ -66,4 +66,9 @@ class WalletConnectAddress {
   @override
   String toString() =>
       "wc:$topic@$version?bridge=${Uri.encodeComponent(bridge.toString())}&key=$key${parameters.isNotEmpty ? "&${parameters.entries.map((e) => "${e.key}=${e.value}").join("&")}" : ""}";
+
+  String toJson() => toString();
+
+  factory WalletConnectAddress.fromJson(String json) =>
+      WalletConnectAddress.create(json)!;
 }

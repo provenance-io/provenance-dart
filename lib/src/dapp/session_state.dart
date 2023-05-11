@@ -4,109 +4,143 @@ import 'package:provenance_dart/wallet_connect.dart';
 
 part 'session_state.g.dart';
 
-class ApprovedSessionState extends SessionState {
-  ApprovedSessionState._({
-    required String peerId,
-    required WalletConnectAddress address,
-    required ApprovalState approval,
-    DenialReason? denial,
+enum SessionStateKind {
+  pending,
+  approved,
+  closed,
+}
+
+abstract class SessionState {
+  String get peerId;
+  WalletConnectAddress get address;
+  SessionStateKind get kind;
+
+  Map<String, dynamic> toJson();
+
+  factory SessionState.fromJson(Map<String, dynamic> json) {
+    final kind = SessionStateKind.values.byName(json['kind']);
+    switch (kind) {
+      case SessionStateKind.pending:
+        return PendingSessionState.fromJson(json);
+      case SessionStateKind.approved:
+        return ApprovedSessionState.fromJson(json);
+      case SessionStateKind.closed:
+        return ClosedSessionState.fromJson(json);
+    }
+  }
+}
+
+abstract class OpenSessionState implements SessionState {
+  List<JsonRequest> get requests;
+
+  OpenSessionState copyWith({
     List<JsonRequest>? requests,
-  }) : super._(
-          peerId: peerId,
-          address: address,
-          approval: approval,
-          denial: denial,
-          requests: requests,
-        );
+  });
+}
+
+@JsonSerializable()
+class PendingSessionState implements OpenSessionState {
+  PendingSessionState({
+    required this.address,
+    required this.peerId,
+    List<JsonRequest>? requests,
+  }) : requests = List.unmodifiable(requests ?? []);
 
   @override
-  ApprovalState get approval => super.approval!;
+  final kind = SessionStateKind.pending;
+
+  @override
+  final WalletConnectAddress address;
+
+  @override
+  final String peerId;
+
+  @override
+  final List<JsonRequest> requests;
+
+  @override
+  PendingSessionState copyWith({
+    List<JsonRequest>? requests,
+  }) =>
+      PendingSessionState(
+        address: address,
+        peerId: peerId,
+        requests: requests,
+      );
+
+  factory PendingSessionState.fromJson(Map<String, dynamic> json) =>
+      _$PendingSessionStateFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$PendingSessionStateToJson(this);
+}
+
+@JsonSerializable()
+class ApprovedSessionState implements OpenSessionState {
+  ApprovedSessionState({
+    required this.address,
+    required this.peerId,
+    required this.approval,
+    List<JsonRequest>? requests,
+  }) : requests = List.unmodifiable(requests ?? []);
+
+  @override
+  final kind = SessionStateKind.approved;
+
+  @override
+  final WalletConnectAddress address;
+
+  @override
+  final String peerId;
+
+  final ApprovalState approval;
+
+  @override
+  final List<JsonRequest> requests;
 
   @override
   ApprovedSessionState copyWith({
     ApprovalState? approval,
-    DenialReason? denial,
     List<JsonRequest>? requests,
   }) =>
-      super.copyWith(
-        approval: approval,
-        denial: denial,
-        requests: requests,
-      ) as ApprovedSessionState;
-}
-
-class SessionState {
-  SessionState._({
-    required this.peerId,
-    required this.address,
-    this.approval,
-    this.denial,
-    List<JsonRequest>? requests,
-  }) : requests = List.unmodifiable(requests ?? []);
-
-  factory SessionState.create({
-    required String peerId,
-    required WalletConnectAddress address,
-    ApprovalState? approval,
-    DenialReason? denial,
-    List<JsonRequest>? requests,
-  }) =>
-      approval == null
-          ? SessionState._(
-              peerId: peerId,
-              address: address,
-              approval: approval,
-              denial: denial,
-              requests: requests,
-            )
-          : ApprovedSessionState._(
-              peerId: peerId,
-              address: address,
-              approval: approval,
-              denial: denial,
-              requests: requests,
-            );
-
-  final String peerId;
-  final WalletConnectAddress address;
-  final ApprovalState? approval;
-  final DenialReason? denial;
-  final List<JsonRequest> requests;
-
-  SessionState copyWith({
-    ApprovalState? approval,
-    DenialReason? denial,
-    List<JsonRequest>? requests,
-  }) =>
-      SessionState.create(
+      ApprovedSessionState(
         peerId: peerId,
         address: address,
         approval: approval ?? this.approval,
-        denial: denial ?? this.denial,
         requests: requests ?? this.requests,
       );
 
-  factory SessionState.fromJson(Map<String, dynamic> json) {
-    final approval = json['approval'];
-    final denial = json['denial'];
-    final requests = json['requests'] as List?;
+  factory ApprovedSessionState.fromJson(Map<String, dynamic> json) =>
+      _$ApprovedSessionStateFromJson(json);
 
-    return SessionState.create(
-      peerId: json['peerId'],
-      address: WalletConnectAddress.create(json['address'])!,
-      approval: approval == null ? null : ApprovalState.fromJson(approval),
-      denial: denial == null ? null : DenialReason.values.byName(denial),
-      requests: requests?.map((e) => JsonRequest.fromJson(e)).toList(),
-    );
-  }
+  @override
+  Map<String, dynamic> toJson() => _$ApprovedSessionStateToJson(this);
+}
 
-  Map<String, dynamic> toJson() => {
-        'peerId': peerId,
-        'address': address.toString(),
-        'approval': approval?.toJson(),
-        'denial': denial?.name,
-        'requests': requests.map((e) => e.toJson()).toList(),
-      };
+@JsonSerializable()
+class ClosedSessionState implements SessionState {
+  ClosedSessionState({
+    required this.address,
+    required this.peerId,
+    required this.reason,
+  });
+
+  @override
+  final kind = SessionStateKind.closed;
+
+  @override
+  final WalletConnectAddress address;
+
+  @override
+  final String peerId;
+
+  final ClosedReason reason;
+
+  factory ClosedSessionState.fromJson(Map<String, dynamic> json) =>
+      _$ClosedSessionStateFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$ClosedSessionStateToJson(this);
 }
 
 @JsonSerializable()
@@ -126,7 +160,7 @@ class ApprovalState {
   Map<String, dynamic> toJson() => _$ApprovalStateToJson(this);
 }
 
-enum DenialReason {
+enum ClosedReason {
   rejected,
   ended,
 }
