@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
       content: ValueListenableBuilder(
         valueListenable: session.state,
         builder: (context, state, child) {
-          if (state is ApprovedSessionState && state.denial == null) {
+          if (state is ApprovedSessionState) {
             return Controls(
               state: state,
               session: session,

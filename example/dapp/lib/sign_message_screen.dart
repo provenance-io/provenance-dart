@@ -112,7 +112,11 @@ class _SignMessageScreenState extends State<SignMessageScreen> {
     final msg = _msgController.text;
 
     final state = widget.session.state.value!;
-    final approval = state.approval!;
+    if (state is! ApprovedSessionState) {
+      throw StateError('Session is not approved');
+    }
+
+    final approval = state.approval;
 
     final description = _descriptionController.text;
 

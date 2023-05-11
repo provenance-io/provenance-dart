@@ -125,7 +125,11 @@ class _SendCoinScreenState extends State<SendCoinScreen> {
     final nhash = (hash * math.pow(10, asset.exponent)).toInt();
 
     final state = widget.session.state.value!;
-    final approval = state.approval!;
+    if (state is! ApprovedSessionState) {
+      throw StateError('Session is not approved');
+    }
+
+    final approval = state.approval;
 
     final fromAddress = approval.account.address;
 

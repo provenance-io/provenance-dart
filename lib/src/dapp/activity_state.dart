@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'activity_state.g.dart';
+
+@JsonSerializable()
 class ActivityState {
   ActivityState({
     required this.topic,
@@ -7,15 +12,7 @@ class ActivityState {
   final String topic;
   final DateTime last;
 
-  Map<String, dynamic> toJson() => {
-        'topic': topic,
-        'last': last.toIso8601String(),
-      };
-
-  factory ActivityState.fromJson(Map<String, dynamic> json) => ActivityState(
-        topic: json['topic'],
-        last: DateTime.parse(
-          json['last'],
-        ),
-      );
+  factory ActivityState.fromJson(Map<String, dynamic> json) =>
+      _$ActivityStateFromJson(json);
+  Map<String, dynamic> toJson() => _$ActivityStateToJson(this);
 }
