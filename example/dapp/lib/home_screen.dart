@@ -54,7 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
       redirectUrl: DeepLinker.dappUrl,
     )
         .onError((e, s) {
-      log('$_tag: Failed to connect');
+      log(
+        '$_tag: Failed to connect',
+        error: e,
+        stackTrace: s,
+      );
     });
 
     lifecycle.attach(session);

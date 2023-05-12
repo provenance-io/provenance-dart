@@ -46,6 +46,7 @@ class PendingSessionState implements OpenSessionState {
     List<JsonRequest>? requests,
   }) : requests = List.unmodifiable(requests ?? []);
 
+  @JsonKey(includeToJson: true)
   @override
   final kind = SessionStateKind.pending;
 
@@ -84,6 +85,7 @@ class ApprovedSessionState implements OpenSessionState {
     List<JsonRequest>? requests,
   }) : requests = List.unmodifiable(requests ?? []);
 
+  @JsonKey(includeToJson: true)
   @override
   final kind = SessionStateKind.approved;
 
@@ -125,6 +127,7 @@ class ClosedSessionState implements SessionState {
     required this.reason,
   });
 
+  @JsonKey(includeToJson: true)
   @override
   final kind = SessionStateKind.closed;
 

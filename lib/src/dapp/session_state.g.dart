@@ -18,10 +18,17 @@ PendingSessionState _$PendingSessionStateFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$PendingSessionStateToJson(
         PendingSessionState instance) =>
     <String, dynamic>{
+      'kind': _$SessionStateKindEnumMap[instance.kind]!,
       'address': instance.address,
       'peerId': instance.peerId,
       'requests': instance.requests,
     };
+
+const _$SessionStateKindEnumMap = {
+  SessionStateKind.pending: 'pending',
+  SessionStateKind.approved: 'approved',
+  SessionStateKind.closed: 'closed',
+};
 
 ApprovedSessionState _$ApprovedSessionStateFromJson(
         Map<String, dynamic> json) =>
@@ -38,6 +45,7 @@ ApprovedSessionState _$ApprovedSessionStateFromJson(
 Map<String, dynamic> _$ApprovedSessionStateToJson(
         ApprovedSessionState instance) =>
     <String, dynamic>{
+      'kind': _$SessionStateKindEnumMap[instance.kind]!,
       'address': instance.address,
       'peerId': instance.peerId,
       'approval': instance.approval,
@@ -53,6 +61,7 @@ ClosedSessionState _$ClosedSessionStateFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ClosedSessionStateToJson(ClosedSessionState instance) =>
     <String, dynamic>{
+      'kind': _$SessionStateKindEnumMap[instance.kind]!,
       'address': instance.address,
       'peerId': instance.peerId,
       'reason': _$ClosedReasonEnumMap[instance.reason]!,
