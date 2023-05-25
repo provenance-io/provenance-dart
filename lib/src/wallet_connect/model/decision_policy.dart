@@ -14,6 +14,25 @@ abstract class DecisionPolicy {
   Window get windows;
   String get value;
 
+  factory DecisionPolicy.type({
+    required DecisionPolicyType type,
+    required Window window,
+    required String value,
+  }) {
+    switch (type) {
+      case DecisionPolicyType.threshold:
+        return ThresholdDecisionPolicy(
+          windows: window,
+          threshold: value,
+        );
+      case DecisionPolicyType.percentage:
+        return PercentageDecisionPolicy(
+          windows: window,
+          percentage: value,
+        );
+    }
+  }
+
   factory DecisionPolicy.fromJson(Map<String, dynamic> json) {
     final type = DecisionPolicyType.values.byName(json['@type']);
     switch (type) {
