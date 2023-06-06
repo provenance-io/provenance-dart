@@ -38,7 +38,7 @@ class Connect extends StatelessWidget {
               child: SizedBox(
                 width: 200,
                 height: 200,
-                child: QrImage(
+                child: QrImageView(
                   data: state.address.toString(),
                 ),
               ),
