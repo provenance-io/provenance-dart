@@ -69,17 +69,17 @@ class SessionApprovalData {
 }
 
 class SessionRestoreData {
-  final PrivateKey sessionSigningKey;
-  final String chainId;
-  final String peerId;
-  final String remotePeerId;
+  final String? peerId;
+  final String? remotePeerId;
+  final PrivateKey? sessionSigningKey;
+  final String? chainId;
 
-  SessionRestoreData(
-    this.sessionSigningKey,
-    this.chainId,
+  SessionRestoreData({
     this.peerId,
     this.remotePeerId,
-  );
+    this.sessionSigningKey,
+    this.chainId,
+  });
 }
 
 class WalletConnectException implements Exception {
@@ -222,20 +222,13 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     return connection;
   }
 
-  SessionRestoreData? get restoreData {
-    if (!(_remotePeerId == null ||
-        _sessionSigningKey == null ||
-        _chainId == null ||
-        _peerId == null)) {
-      return SessionRestoreData(
-        _sessionSigningKey!,
-        _chainId!,
-        _peerId!,
-        _remotePeerId!,
-      );
-    }
-
-    return null;
+  SessionRestoreData get restoreData {
+    return SessionRestoreData(
+      peerId: _peerId,
+      remotePeerId: _remotePeerId,
+      sessionSigningKey: _sessionSigningKey,
+      chainId: _chainId,
+    );
   }
 
   Future<void> connect(
