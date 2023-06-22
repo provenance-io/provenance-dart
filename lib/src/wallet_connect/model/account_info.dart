@@ -15,7 +15,7 @@ class AccountInfo {
     this.walletInfo,
     this.representedGroupPolicy,
     this.walletAppId,
-    this.attrubutes,
+    this.attributes,
   );
 
   final String publicKey;
@@ -24,7 +24,7 @@ class AccountInfo {
   final WalletInfo walletInfo;
   final RepresentedPolicy? representedGroupPolicy;
   final String? walletAppId;
-  final List<AccountAttribute>? attrubutes;
+  final List<AccountAttribute>? attributes;
 
   factory AccountInfo.fromJson(Map<String, dynamic> json) =>
       _$AccountInfoFromJson(json);

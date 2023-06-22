@@ -29,5 +29,5 @@ Map<String, dynamic> _$AccountInfoToJson(AccountInfo instance) =>
       'walletInfo': instance.walletInfo,
       'representedGroupPolicy': instance.representedGroupPolicy,
       'walletAppId': instance.walletAppId,
-      'attrubutes': instance.attrubutes,
+      'attrubutes': instance.attributes,
     };
