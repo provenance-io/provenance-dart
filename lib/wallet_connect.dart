@@ -10,5 +10,6 @@ export 'src/wallet_connect/model/metadata.dart';
 export 'src/wallet_connect/model/represented_policy.dart';
 export 'src/wallet_connect/model/wallet_info.dart';
 export 'src/wallet_connect/model/window.dart';
+export 'src/wallet_connect/model/account_attribute.dart';
 export 'src/wallet_connect/session.dart';
 export 'src/wallet_connect/wallet_connect_address.dart';

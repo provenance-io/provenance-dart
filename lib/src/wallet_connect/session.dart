@@ -56,6 +56,7 @@ class SessionApprovalData {
   final String jwtIssuer;
   final RepresentedPolicy? representedPolicy;
   final String? walletAppId;
+  final List<AccountAttribute>? attributes;
 
   SessionApprovalData(
     this.sessionSigningKey,
@@ -65,6 +66,7 @@ class SessionApprovalData {
     this.jwtIssuer, {
     this.representedPolicy,
     this.walletAppId,
+    this.attributes,
   });
 }
 
@@ -605,6 +607,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       sessionApprovalData.walletInfo,
       sessionApprovalData.representedPolicy,
       sessionApprovalData.walletAppId,
+      sessionApprovalData.attributes,
     );
 
     final sessionApproval = SessionApproval.approve(
@@ -656,6 +659,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
           sessionApprovalData.walletInfo,
           sessionApprovalData.representedPolicy,
           sessionApprovalData.walletAppId,
+          sessionApprovalData.attributes,
         ).toJson(),
       ],
     };
