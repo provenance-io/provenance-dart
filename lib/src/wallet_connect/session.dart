@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:protobuf/protobuf.dart';
@@ -166,8 +165,6 @@ abstract class WalletConnectionDelegate {
 
   void onClose();
 
-  void onSessionCreated() {}
-
   bool onUnknownMessage(
     int requestId,
     CustomMessageData data, {
@@ -206,23 +203,6 @@ class WalletConnection extends ValueListenable<WalletConnectState>
             EncryptedPayloadHelper(Encoding.fromHex(address.key));
 
   WalletConnection(WalletConnectAddress address) : this._(address, null);
-
-  factory WalletConnection.createSession(Uri bridgeUri, ClientMeta clientMeta) {
-    final topic = uuid.v1().toString();
-    final key =
-        List.generate(32, (index) => math.Random().nextInt(255)).toList();
-
-    final address = WalletConnectAddress(
-      topic,
-      1,
-      bridgeUri,
-      Encoding.toHex(key),
-    );
-
-    final connection = WalletConnection._(address, clientMeta);
-    connection._peerId = uuid.v1().toString();
-    return connection;
-  }
 
   SessionRestoreData get restoreData {
     return SessionRestoreData(
@@ -273,80 +253,6 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     }
   }
 
-  Future<List<int>> sendSignRequest(List<int> message, String description,
-      {String? redirectUrl}) async {
-    final request = JsonRequest.provenanceSign(
-      message,
-      description,
-      remoteAccountInfo!.address,
-      redirectUrl: redirectUrl,
-    );
-
-    final completer = Completer<String>();
-    _responseLookup[request.id] = completer;
-
-    await _relay!.publish(_remotePeerId!, request);
-
-    return completer.future.then((hexString) => Encoding.fromHex(hexString));
-  }
-
-  Future<String> sendTransactionRequest(
-      List<GeneratedMessage> messages, String description,
-      {proto.Coin? gasEstimate,
-      String? feeGranter,
-      String? feePayer,
-      String? memo,
-      int? timeoutHeight,
-      List<proto.GeneratedMessage>? nonCriticalExtensionOptions,
-      List<proto.GeneratedMessage>? extensionOptions,
-      String? redirectUrl}) async {
-    final request = JsonRequest.sendTransaction(
-      messages,
-      description,
-      remoteAccountInfo!.address,
-      feeGranter: feeGranter,
-      feePayer: feePayer,
-      gasEstimate: gasEstimate,
-      memo: memo,
-      timeoutHeight: timeoutHeight,
-      nonCriticalExtensionOptions: nonCriticalExtensionOptions
-          ?.map((e) => base64Encode(e.toAny().writeToBuffer()))
-          .toList(),
-      extensionOptions: extensionOptions
-          ?.map((e) => base64Encode(e.toAny().writeToBuffer()))
-          .toList(),
-      redirectUrl: redirectUrl,
-    );
-
-    final completer = Completer<String>();
-    _responseLookup[request.id] = completer;
-
-    await _relay!.publish(_remotePeerId!, request);
-
-    return completer.future;
-  }
-
-  Future<dynamic> sendWalletAction(
-    String action,
-    String description,
-    dynamic payload, {
-    String? redirectUrl,
-  }) async {
-    final request = JsonRequest.sendWalletAction(
-      action,
-      payload,
-      description,
-      redirectUrl: redirectUrl,
-    );
-
-    final completer = Completer<dynamic>();
-    _responseLookup[request.id] = completer;
-
-    await _relay!.publish(_remotePeerId!, request);
-
-    return completer.future;
-  }
-
   void _handleError(dynamic error) {
     Exception exception;
     if (error is Exception) {
@@ -362,44 +268,6 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       );
     }
     _delegate?.onError(exception);
-  }
-
-  void _handleDone() {
-    _delegate = null;
-    _relay = null;
-    _sessionSigningKey = null;
-    _chainId = null;
-    _updateStatus(WalletConnectState.disconnected);
-  }
-
-  Future<SessionApproval> sendRequestSession({
-    String? redirectUrl,
-  }) async {
-    final sessionRequest = SessionRequest(
-      clientMeta: _clientMeta!,
-      peerId: _peerId!,
-      redirectUrl: redirectUrl,
-    );
-    final request = JsonRequest.sessionApproval(sessionRequest);
-
-    final completer = Completer<Map<String, dynamic>>();
-    _responseLookup[request.id] = completer;
-
-    await _relay!.publish(address.topic, request);
-
-    final approval =
-        await completer.future.then((json) => SessionApproval.fromJson(json));
-
-    if (!approval.approved) {
-      close();
-    } else {
-      _remotePeerId = approval.peerId;
-      remoteAccountInfo = approval.accounts;
-      remoteClientMeta = approval.clientMeta;
-      _delegate!.onSessionCreated();
-    }
-
-    return approval;
   }
 
   void _processRequest(JsonRequest jsonRequest) {
