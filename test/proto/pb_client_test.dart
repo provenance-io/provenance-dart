@@ -193,12 +193,7 @@ main() {
       chainId: 'pio-testnet-1',
       host: 'localhost',
       port: port,
-      options: const ChannelOptions(
-        connectionTimeout: Duration(
-          minutes: 5,
-        ),
-        credentials: ChannelCredentials.insecure(),
-      ),
+      secure: false,
     );
 
     server = Server([authServer, txServer, feeServer]);
