@@ -16,6 +16,8 @@ import 'package:uuid/uuid.dart';
 
 import '../../wallet.dart';
 
+const uuid = Uuid();
+
 class Base64UrlEncoder extends Converter<List<int>, String> {
   Base64UrlEncoder();
 
@@ -27,10 +29,6 @@ class Base64UrlEncoder extends Converter<List<int>, String> {
     final s = _base64Encoder.convert(input);
     return s.replaceAllMapped(_regex, (m) => m.group(1) ?? "");
   }
-}
-
-extension _DateTimeSecondsSinceEpoch on DateTime {
-  int get secondsSinceEpoch => millisecondsSinceEpoch ~/ 1000;
 }
 
 enum WalletConnectState { connecting, connected, disconnected }
@@ -49,168 +47,6 @@ class SessionRequestData {
   );
 }
 
-class Metadata {
-  final String? name;
-  final String? description;
-  final String? email;
-  final bool? masterPolicy;
-  final bool? isSingleSigner;
-  final bool? adminNotificationsDisabled;
-  final bool? notificationsDisabled;
-
-  Metadata({
-    required this.name,
-    required this.description,
-    this.email,
-    this.masterPolicy,
-    this.isSingleSigner,
-    this.adminNotificationsDisabled,
-    this.notificationsDisabled,
-  });
-
-  Map<String, dynamic> toJson() {
-    return {
-      if (name != null) "name": name,
-      if (description != null) "description": description,
-      if (email != null) "email": email,
-      if (masterPolicy != null) "masterPolicy": masterPolicy,
-      if (isSingleSigner != null) "isSingleSigner": isSingleSigner,
-      if (adminNotificationsDisabled != null)
-        "adminNotificationsDisabled": adminNotificationsDisabled,
-      if (notificationsDisabled != null)
-        "notificationsDisabled": notificationsDisabled,
-    };
-  }
-}
-
-class MemberData {
-  MemberData({
-    required this.groupId,
-    required this.address,
-    required this.metadata,
-    required this.weight,
-    required this.addedAt,
-    required this.hasApproved,
-  });
-
-  final int groupId;
-  final String address;
-  final Metadata? metadata;
-  final String weight;
-  final DateTime addedAt;
-  final bool hasApproved;
-
-  Map<String, dynamic> toJson() {
-    return {
-      "groupId": groupId,
-      "address": address,
-      "metadata": metadata?.toJson(),
-      "weight": weight,
-      "addedAt": addedAt.toIso8601String(),
-      "hasApproved": hasApproved,
-    };
-  }
-}
-
-class GroupData {
-  GroupData({
-    required this.metadata,
-    required List<MemberData> members,
-    required this.totalWeight,
-  }) : members = List.unmodifiable(members);
-
-  final Metadata? metadata; // metadata
-  final List<MemberData> members;
-  final String totalWeight;
-
-  Map<String, dynamic> toJson() {
-    return {
-      "metadata": metadata?.toJson(),
-      "members": members.map((e) => e.toJson()).toList(),
-      "totalWeight": totalWeight,
-    };
-  }
-}
-
-class RepresentedPolicy {
-  RepresentedPolicy({
-    required this.groupId,
-    required this.address,
-    required this.admin,
-    required this.metadata,
-    required this.version,
-    required this.decisionPolicy,
-    required this.createdAt,
-    required this.groupData,
-  });
-
-  final String address;
-  final int groupId;
-  final String admin;
-  final Metadata? metadata;
-  final int version;
-  final DecisionPolicy decisionPolicy;
-  final DateTime createdAt;
-  final GroupData groupData;
-
-  Map<String, dynamic> toJson() {
-    return {
-      "address": address,
-      "groupId": groupId,
-      "admin": admin,
-      "metadata": metadata?.toJson(),
-      "version": version,
-      "decisionPolicy": decisionPolicy.toJson(),
-      "createdAt": createdAt.toIso8601String(),
-      "groupData": groupData.toJson(),
-    };
-  }
-}
-
-class Window {
-  final Duration votingPeriod;
-  final Duration minExecutionPeriod;
-
-  Window({
-    required this.votingPeriod,
-    required this.minExecutionPeriod,
-  });
-
-  Map<String, dynamic> toJson() {
-    return {
-      "votingPeriod": <String, dynamic>{
-        "seconds": votingPeriod.inSeconds,
-        "nanos": 0
-      },
-      "minExecutionPeriod": <String, dynamic>{
-        "seconds": minExecutionPeriod.inSeconds,
-        "nanos": 0
-      },
-    };
-  }
-}
-
-class DecisionPolicy {
-  DecisionPolicy({
-    required this.type,
-    required this.value,
-    required this.windows,
-  });
-
-  final Window windows;
-  final String type;
-  final String value;
-
-  Map<String, dynamic> toJson() {
-    return {
-      "@type": type,
-      if (type == "percentage") "percentage": value,
-      if (type == "threshold") "threshold": value,
-      "windows": windows.toJson(),
-    };
-  }
-}
-
 class SessionApprovalData {
   final PrivateKey sessionSigningKey;
   final IPubKey accountPublicKey;
@@ -219,6 +55,7 @@ class SessionApprovalData {
   final String jwtIssuer;
   final RepresentedPolicy? representedPolicy;
   final String? walletAppId;
+  final List<AccountAttribute>? attributes;
 
   SessionApprovalData(
     this.sessionSigningKey,
@@ -228,60 +65,22 @@ class SessionApprovalData {
     this.jwtIssuer, {
     this.representedPolicy,
     this.walletAppId,
+    this.attributes,
   });
 }
 
-class AccountInfo {
-  final String publicKey;
-  final String address;
-  final String jwt;
-  final WalletInfo walletInfo;
-  final RepresentedPolicy? representedGroupPolicy;
-  final String? walletAppId;
-
-  AccountInfo(this.publicKey, this.address, this.jwt, this.walletInfo,
-      this.representedGroupPolicy, this.walletAppId);
-
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      "publicKey": publicKey,
-      "address": address,
-      "jwt": jwt,
-      "walletInfo": walletInfo.toJson(),
-      "representedGroupPolicy": representedGroupPolicy?.toJson(),
-      if (walletAppId != null) "walletAppId": walletAppId,
-    };
-  }
-}
-
-class WalletInfo {
-  final String id;
-  final String name;
-  final Coin coin;
-
-  WalletInfo(this.id, this.name, this.coin);
-
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      "id": id,
-      "name": name,
-      "coin": coin.name,
-    };
-  }
-}
-
 class SessionRestoreData {
-  final PrivateKey sessionSigningKey;
-  final String chainId;
-  final String peerId;
-  final String remotePeerId;
+  final String? peerId;
+  final String? remotePeerId;
+  final PrivateKey? sessionSigningKey;
+  final String? chainId;
 
-  SessionRestoreData(
-    this.sessionSigningKey,
-    this.chainId,
+  SessionRestoreData({
     this.peerId,
     this.remotePeerId,
-  );
+    this.sessionSigningKey,
+    this.chainId,
+  });
 }
 
 class WalletConnectException implements Exception {
@@ -341,18 +140,42 @@ class CustomMessageData {
 
 abstract class WalletConnectionDelegate {
   void onApproveSign(
-      int requestId, String description, String address, List<int> msg);
+    int requestId,
+    String description,
+    String address,
+    List<int> msg, {
+    String? redirectUrl,
+  });
 
-  void onApproveTransaction(int requestId, String description, String address,
-      SignTransactionData signTransactionData);
+  void onApproveTransaction(
+    int requestId,
+    String description,
+    String address,
+    SignTransactionData signTransactionData, {
+    String? redirectUrl,
+  });
 
-  void onApproveSession(int requestId, SessionRequestData data);
+  void onApproveSession(
+    int requestId,
+    SessionRequestData data, {
+    String? redirectUrl,
+  });
 
   void onError(Exception exception);
 
   void onClose();
 
-  bool onUnknownMessage(int requestId, CustomMessageData data) => false;
+  bool onUnknownMessage(
+    int requestId,
+    CustomMessageData data, {
+    String? redirectUrl,
+  }) =>
+      false;
+}
+
+class WalletConnectionSessionClosedException implements Exception {
+  @override
+  String toString() => "The wallet connect session has been closed";
 }
 
 class WalletConnection extends ValueListenable<WalletConnectState>
@@ -360,19 +183,35 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   final List<VoidCallback> _listeners = <VoidCallback>[];
   final WalletConnectAddress address;
   final EncryptedPayloadHelper _encryptedPayloadHelper;
+  final Map<dynamic, Completer> _responseLookup = <dynamic, Completer>{};
 
   WalletConnectState _status = WalletConnectState.disconnected;
   WalletConnectionDelegate? _delegate;
   PrivateKey? _sessionSigningKey;
   String? _chainId;
-  WalletInfo? _walletInfo;
   String? _peerId;
   String? _remotePeerId;
   Relay? _relay;
 
-  WalletConnection(this.address)
+  final ClientMeta? _clientMeta;
+
+  ClientMeta? remoteClientMeta;
+  AccountInfo? remoteAccountInfo;
+
+  WalletConnection._(this.address, this._clientMeta)
       : _encryptedPayloadHelper =
             EncryptedPayloadHelper(Encoding.fromHex(address.key));
+
+  WalletConnection(WalletConnectAddress address) : this._(address, null);
+
+  SessionRestoreData get restoreData {
+    return SessionRestoreData(
+      peerId: _peerId,
+      remotePeerId: _remotePeerId,
+      sessionSigningKey: _sessionSigningKey,
+      chainId: _chainId,
+    );
+  }
 
   Future<void> connect(
     WalletConnectionDelegate delegate, [
@@ -384,7 +223,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     try {
       _delegate = delegate;
-      final peerId = restoreData?.peerId ?? const Uuid().v1().toString();
+      final peerId = restoreData?.peerId ?? uuid.v1().toString();
       _peerId = peerId;
       _remotePeerId = restoreData?.remotePeerId;
       _chainId = restoreData?.chainId;
@@ -396,10 +235,16 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       webSocket.pingInterval = const Duration(seconds: 5);
 
       _relay = Relay(webSocket, _encryptedPayloadHelper, this);
-      await Future.wait([
-        _relay!.subscribe(address.topic),
-        _relay!.subscribe(peerId),
-      ]);
+      if (_clientMeta == null) {
+        await Future.value([
+          _relay!.subscribe(address.topic),
+          _relay!.subscribe(peerId),
+        ]);
+      } else {
+        await Future.value([
+          _relay!.subscribe(_peerId!),
+        ]);
+      }
       _updateStatus(WalletConnectState.connected);
     } catch (e) {
       _delegate = null;
@@ -423,18 +268,6 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       );
     }
     _delegate?.onError(exception);
-  }
-
-  void _handleDone() {
-    _delegate = null;
-    _relay = null;
-    _sessionSigningKey = null;
-    _chainId = null;
-    _updateStatus(WalletConnectState.disconnected);
-  }
-
-  Future<void> dispose() async {
-    return _relay?.close();
   }
 
   void _processRequest(JsonRequest jsonRequest) {
@@ -462,6 +295,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
           final description = messageObj["description"] ?? "";
           final action = messageObj['action'] ?? "";
           final payload = messageObj["payload"];
+          final redirectUrl = messageObj['redirectUrl'] as String?;
 
           final data = CustomMessageData(
             action: action,
@@ -472,6 +306,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
           final wasHandled = _delegate?.onUnknownMessage(
                 jsonRequest.id,
                 data,
+                redirectUrl: redirectUrl,
               ) ??
               false;
 
@@ -503,25 +338,23 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     _relay?.respond(_remotePeerId!, response);
   }
 
+  ///
+  /// Close the connection but maintain the session.
+  ///
+  /// Returns state required to reconnect the session.
+  ///
   Future<SessionRestoreData?> close() async {
-    SessionRestoreData? restoreData;
-    if (!(_remotePeerId == null ||
-        _sessionSigningKey == null ||
-        _chainId == null ||
-        _peerId == null)) {
-      restoreData = SessionRestoreData(
-        _sessionSigningKey!,
-        _chainId!,
-        _peerId!,
-        _remotePeerId!,
-      );
-    }
+    SessionRestoreData? restoreData = this.restoreData;
 
     await _relay!.close();
     _relay = null;
+
     return restoreData;
   }
 
+  ///
+  /// Close the connection and end the session.
+  ///
   Future<void> disconnect() async {
     if (_remotePeerId != null) {
       final result = <String, dynamic>{
@@ -535,6 +368,15 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     }
     await _relay?.close();
     _relay = null;
+
+    // close out an existing futures.
+    final pendingCompleters =
+        List<Completer<dynamic>>.from(_responseLookup.values);
+    _responseLookup.clear();
+
+    for (final completer in pendingCompleters) {
+      completer.completeError(WalletConnectionSessionClosedException());
+    }
   }
 
   Future<void> _handleUpdateSession(JsonRequest request) async {
@@ -544,7 +386,9 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     if (approved != null && !approved) {
       _relay?.close();
+      _relay = null;
       _delegate?.onClose();
+      _updateStatus(WalletConnectState.disconnected);
     }
   }
 
@@ -569,7 +413,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       WalletConnectTransactionResult(txResponse),
     );
 
-    await _relay?.respond(_remotePeerId!, response);
+    await _relay!.respond(_remotePeerId!, response);
   }
 
   Future<void> sendSignResult(int requestId, List<int> signedData) async {
@@ -602,20 +446,11 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   Future<void> sendApproveSession(
       int requestId, SessionApprovalData sessionApprovalData,
       [ClientMeta? peerMeta]) async {
-    final result = <String, dynamic>{
-      "peerId": _peerId,
-      "approved": true,
-      "chainId": _chainId,
-      "peerMeta": null,
-      "accounts": null,
-      "accountData": null,
-    };
-
     _chainId = sessionApprovalData.chainId;
-    _sessionSigningKey = sessionApprovalData.sessionSigningKey;
-    _walletInfo = sessionApprovalData.walletInfo;
 
-    final signingKey = _sessionSigningKey!;
+    final signingKey = sessionApprovalData.sessionSigningKey;
+    _sessionSigningKey = signingKey;
+
     final publicKey = signingKey.publicKey;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
 
@@ -631,33 +466,39 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
       issuer: sessionApprovalData.jwtIssuer,
-    ).build(_sessionSigningKey!);
+    ).build(signingKey);
 
-    result["chainId"] = _chainId;
-    result["peerMeta"] = peerMeta?.toJson();
-    result["accounts"] = [
-      AccountInfo(
-        pubKey,
-        sessionApprovalData.accountPublicKey.address,
-        authJwt,
-        _walletInfo!,
-        sessionApprovalData.representedPolicy,
-        sessionApprovalData.walletAppId,
-      ).toJson(),
-    ];
+    final accountInfo = AccountInfo(
+      pubKey,
+      sessionApprovalData.accountPublicKey.address,
+      authJwt,
+      sessionApprovalData.walletInfo,
+      sessionApprovalData.representedPolicy,
+      sessionApprovalData.walletAppId,
+      sessionApprovalData.attributes,
+    );
 
-    final response = JsonRpcResponse.response(requestId, result);
-    await _relay?.respond(_remotePeerId!, response);
+    final sessionApproval = SessionApproval.approve(
+        peerMeta, _peerId!, _chainId!, accountInfo, null);
+
+    final response = JsonRpcResponse.response(requestId, sessionApproval);
+    await _relay!.respond(_remotePeerId!, response);
+  }
+
+  Future<void> sendRejectSession(int requestId) async {
+    final sessionRejection = SessionApproval.reject();
+
+    final response = JsonRpcResponse.response(requestId, sessionRejection);
+    await _relay!.respond(_remotePeerId!, response);
   }
 
   Future<void> sendUpdateSession(
       SessionApprovalData sessionApprovalData) async {
     _chainId = sessionApprovalData.chainId;
 
-    _sessionSigningKey = sessionApprovalData.sessionSigningKey;
-    _walletInfo = sessionApprovalData.walletInfo;
+    final signingKey = sessionApprovalData.sessionSigningKey;
+    _sessionSigningKey = signingKey;
 
-    final signingKey = _sessionSigningKey!;
     final publicKey = signingKey.publicKey;
     final pubKey = base64Encode(publicKey.compressedPublicKey);
 
@@ -673,7 +514,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       expirationDuration: jwtDuration,
       representedGroup: sessionApprovalData.representedPolicy?.address,
       issuer: sessionApprovalData.jwtIssuer,
-    ).build(_sessionSigningKey!);
+    ).build(signingKey);
 
     final result = <String, dynamic>{
       "approved": true,
@@ -683,9 +524,10 @@ class WalletConnection extends ValueListenable<WalletConnectState>
           pubKey,
           sessionApprovalData.accountPublicKey.address,
           authJwt,
-          _walletInfo!,
+          sessionApprovalData.walletInfo,
           sessionApprovalData.representedPolicy,
           sessionApprovalData.walletAppId,
+          sessionApprovalData.attributes,
         ).toJson(),
       ],
     };
@@ -731,6 +573,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         ? descriptionJson['memo']
         : null;
     final timeoutHeight = descriptionJson['timeoutHeight'];
+    final redirectUrl = descriptionJson['redirectUrl'] as String?;
 
     final signTransactionData = SignTransactionData(
       messages,
@@ -745,7 +588,12 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       extensionOptions: descriptionJson['extensionOptions']?.cast<String>(),
     );
     _delegate?.onApproveTransaction(
-        request.id, description, address, signTransactionData);
+      request.id,
+      description,
+      address,
+      signTransactionData,
+      redirectUrl: redirectUrl,
+    );
   }
 
   Future<void> _handleProvenanceSign(JsonRequest request) async {
@@ -755,14 +603,17 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
+    final redirectUrl = descriptionJson['redirectUrl'] as String?;
 
-    _delegate?.onApproveSign(request.id, description, address, bytes);
+    _delegate?.onApproveSign(request.id, description, address, bytes,
+        redirectUrl: redirectUrl);
   }
 
   Future<void> _handleSessionRequest(JsonRequest request) async {
     final param = request.params.first;
     _remotePeerId = param['peerId'];
     final peerMeta = param['peerMeta'];
+    final redirectUrl = param['redirectUrl'] as String?;
 
     final clientMeta = ClientMeta.fromJson(peerMeta);
 
@@ -773,7 +624,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       address,
     );
 
-    _delegate?.onApproveSession(request.id, data);
+    _delegate?.onApproveSession(request.id, data, redirectUrl: redirectUrl);
   }
 
   void _updateStatus(WalletConnectState status) {
@@ -806,7 +657,12 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     if (jsonRpc is JsonRequest) {
       _processRequest(jsonRpc);
     } else if (jsonRpc is JsonRpcResponse) {
-      // not supported yet
+      final completer = _responseLookup.remove(jsonRpc.id);
+      if (jsonRpc.error != null) {
+        completer?.completeError(jsonRpc.error!);
+      } else {
+        completer?.complete(jsonRpc.result);
+      }
     }
   }
 
@@ -820,9 +676,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
   }
 
   @override
-  void onSubscribe(String subscribedTopic) {
-    // TODO: implement onSubscribe
-  }
+  void onSubscribe(String subscribedTopic) {}
 
   @override
   void onError(Exception error) {

@@ -46,13 +46,12 @@ final groupData = GroupData(
 );
 
 final windowData = Window(
-  votingPeriod: const Duration(seconds: 172800),
-  minExecutionPeriod: const Duration(seconds: 0),
+  votingPeriod: WindowPeriod(seconds: 172800, nanos: 0),
+  minExecutionPeriod: WindowPeriod(seconds: 0, nanos: 0),
 );
 
-final decisionData = DecisionPolicy(
-  type: "percentage",
-  value: "0.51",
+final decisionData = PercentageDecisionPolicy(
+  percentage: "0.51",
   windows: windowData,
 );
 
@@ -81,48 +80,75 @@ main() {
           "tp1xdg2cj73querfvn3axvt6ta2lfaagcwnlxtqf87vf6rkvmefkvhqy8l7lx",
       "groupId": 55,
       "admin": "tp1k3zh5ak5xcx0pfq3lynnw0lejnhhrlgfwy33xl",
-      "metadata": {
-        "name": "Master Policy",
-        "description": "Master Policy",
-        "masterPolicy": true,
-        "isSingleSigner": false
-      },
+      "metadata": predicate((arg) {
+        final metadata = arg as Metadata;
+        expect(metadata.name, "Master Policy");
+        expect(metadata.description, "Master Policy");
+        expect(metadata.masterPolicy, true);
+        expect(metadata.isSingleSigner, false);
+        return true;
+      }),
       "version": 1,
-      "decisionPolicy": {
-        "@type": "percentage",
-        "percentage": "0.51",
-        "windows": {
-          "votingPeriod": {"seconds": 172800, "nanos": 0},
-          "minExecutionPeriod": {"seconds": 0, "nanos": 0}
-        }
-      },
+      "decisionPolicy": predicate((arg) {
+        final policy = arg as PercentageDecisionPolicy;
+        expect(policy.percentage, "0.51");
+        expect(policy.windows, predicate((arg) {
+          final window = arg as Window;
+
+          expect(window.votingPeriod.seconds, 172800);
+          expect(window.votingPeriod.nanos, 0);
+          expect(window.minExecutionPeriod.seconds, 0);
+          expect(window.minExecutionPeriod.nanos, 0);
+          return true;
+        }));
+
+        return true;
+      }),
       "createdAt": "2022-12-19T22:12:35.862137Z",
-      "groupData": {
-        "metadata": {
-          "name": "djhTestAccount",
-          "description": "My simple majority test account",
-          "adminNotificationsDisabled": false
-        },
-        "totalWeight": "2",
-        "members": [
-          {
-            "groupId": 55,
-            "address": "tp1g5ugfegkl5gmn049n5a9hgjn3ged0ekp8f2fwx",
-            "weight": "1",
-            "metadata": {"name": "test1", "notificationsDisabled": false},
-            "addedAt": "2022-12-19T22:12:35.862137Z",
-            "hasApproved": false
-          },
-          {
-            "groupId": 55,
-            "address": "tp1k3zh5ak5xcx0pfq3lynnw0lejnhhrlgfwy33xl",
-            "weight": "1",
-            "metadata": {"name": "test2", "notificationsDisabled": false},
-            "addedAt": "2022-12-19T22:12:35.862137Z",
-            "hasApproved": true
-          }
-        ]
-      }
+      "groupData": predicate((arg) {
+        final groupData = arg as GroupData;
+        expect(groupData.totalWeight, "2");
+        expect(groupData.metadata!.name, "djhTestAccount");
+        expect(
+            groupData.metadata!.description, "My simple majority test account");
+        expect(groupData.metadata!.adminNotificationsDisabled, false);
+        expect(groupData.members, [
+          predicate((arg) {
+            final member = arg as MemberData;
+            expect(member.groupId, 55);
+            expect(member.address, "tp1g5ugfegkl5gmn049n5a9hgjn3ged0ekp8f2fwx");
+            expect(member.weight, "1");
+            expect(member.hasApproved, false);
+            expect(
+                member.addedAt, DateTime.parse("2022-12-19T22:12:35.862137Z"));
+            expect(member.metadata, predicate((arg) {
+              final meta = arg as Metadata;
+              expect(meta.name, "test1");
+              expect(meta.notificationsDisabled, false);
+              return true;
+            }));
+            return true;
+          }),
+          predicate((arg) {
+            final member = arg as MemberData;
+            expect(member.groupId, 55);
+            expect(member.address, "tp1k3zh5ak5xcx0pfq3lynnw0lejnhhrlgfwy33xl");
+            expect(member.weight, "1");
+            expect(member.hasApproved, true);
+            expect(
+                member.addedAt, DateTime.parse("2022-12-19T22:12:35.862137Z"));
+            expect(member.metadata, predicate((arg) {
+              final meta = arg as Metadata;
+              expect(meta.name, "test2");
+              expect(meta.notificationsDisabled, false);
+              return true;
+            }));
+            return true;
+          }),
+        ]);
+
+        return true;
+      }),
     });
   });
 }

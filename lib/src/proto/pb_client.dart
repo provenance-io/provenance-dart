@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:fixnum/fixnum.dart' as fixnum;
 import 'package:grpc/grpc.dart';
 import 'package:provenance_dart/proto.dart';
+import 'package:provenance_dart/proto_cosmos_base_tendermint_v1beta1.dart';
 import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart';
+import 'package:provenance_dart/proto_cosmos_group_v1.dart' as group_pb;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/auth.pb.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/query.pbgrpc.dart'
     as auth_1uery_pb;
@@ -62,37 +64,31 @@ import 'package:provenance_dart/src/wallet/multisig/keys.dart'
     as multi_sig_keys;
 import 'package:provenance_dart/src/wallet/private_key.dart';
 import 'package:provenance_dart/src/wallet/public_key.dart';
-import 'package:provenance_dart/proto_cosmos_group_v1.dart' as group_pb;
-
-class ChannelOpts {
-  final int inboundMessageSize; // ~ 20 MB
-  final Duration idleTimeout;
-  final Duration keepAliveTime; // ~ 12 pbc block cuts
-  final Duration keepAliveTimeout;
-
-  const ChannelOpts(
-      {this.inboundMessageSize = 40 * 1024 * 1024,
-      this.idleTimeout = const Duration(minutes: 5),
-      this.keepAliveTime = const Duration(seconds: 60),
-      this.keepAliveTimeout = const Duration(seconds: 20)});
-}
 
 class PbClient {
   final String chainId;
 
   late ClientChannel _channel;
 
-  PbClient(Uri channelUri, this.chainId,
-      [ChannelOpts channelOpts = const ChannelOpts()]) {
-    final channelCredentials = (channelUri.scheme == "grpcs")
-        ? const ChannelCredentials.secure()
-        : const ChannelCredentials.insecure();
+  PbClient({
+    required this.chainId,
+    required String host,
+    int? port,
+    bool secure = true,
+  }) {
+    port ??= 443;
 
-    final channelOptions = ChannelOptions(
-        idleTimeout: channelOpts.idleTimeout, credentials: channelCredentials);
+    final options = ChannelOptions(
+      idleTimeout: Duration(minutes: 5),
+      credentials:
+          secure ? ChannelCredentials.secure() : ChannelCredentials.insecure(),
+    );
 
-    _channel = ClientChannel(channelUri.host,
-        port: channelUri.port, options: channelOptions);
+    _channel = ClientChannel(
+      host,
+      port: port!,
+      options: options,
+    );
   }
 
   Future<void> dispose() {
@@ -403,6 +399,12 @@ class PbClient {
     final response = await cosmosService.broadcastTx(broadcastRequest);
 
     return RawTxResponsePair(txRaw, response.txResponse);
+  }
+
+  Future<Int64> getCurrentBlockHeight() {
+    return tindermintService
+        .getLatestBlock(GetLatestBlockRequest())
+        .then((p0) => p0.block.header.height);
   }
 
   ///

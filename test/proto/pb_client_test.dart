@@ -1,24 +1,23 @@
+import 'package:fixnum/fixnum.dart' as fixnum;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:grpc/grpc.dart';
 import 'package:provenance_dart/proto.dart' as proto;
 import 'package:provenance_dart/proto_cosmos_auth_v1beta1.dart';
 import 'package:provenance_dart/proto_cosmos_bank_v1beta1.dart';
-import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart';
 import 'package:provenance_dart/proto_cosmos_crypto_multisig.dart';
 import 'package:provenance_dart/proto_cosmos_crypto_multisig_v1beta1.dart';
-import 'package:provenance_dart/src/wallet/coin.dart';
-import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
-import 'package:provenance_dart/src/wallet/mnemonic.dart';
-import 'package:provenance_dart/src/wallet/multisig/keys.dart';
-import 'package:provenance_dart/src/wallet/private_key.dart';
-import 'package:grpc/grpc.dart';
-
+import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart';
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/auth/v1beta1/query.pbgrpc.dart'
     as auth;
 import 'package:provenance_dart/src/proto/proto_gen/cosmos/tx/v1beta1/service.pbgrpc.dart'
     as tx;
 import 'package:provenance_dart/src/proto/proto_gen/provenance/msgfees/v1/query.pbgrpc.dart'
     as msg_fees;
-import 'package:fixnum/fixnum.dart' as fixnum;
+import 'package:provenance_dart/src/wallet/coin.dart';
+import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
+import 'package:provenance_dart/src/wallet/mnemonic.dart';
+import 'package:provenance_dart/src/wallet/multisig/keys.dart';
+import 'package:provenance_dart/src/wallet/private_key.dart';
 
 class _TestAuthServer extends auth.QueryServiceBase {
   @override
@@ -188,11 +187,17 @@ main() {
     txServer = _TestTxServer();
     feeServer = _TestMsgFee();
 
-    final targetUrl = Uri.parse("http://localhost:8080");
-    pbClient = proto.PbClient(targetUrl, "pio-testnet-1");
+    const port = 8080;
+
+    pbClient = proto.PbClient(
+      chainId: 'pio-testnet-1',
+      host: 'localhost',
+      port: port,
+      secure: false,
+    );
 
     server = Server([authServer, txServer, feeServer]);
-    await server.serve(port: targetUrl.port);
+    await server.serve(port: port);
   });
 
   tearDown(() {

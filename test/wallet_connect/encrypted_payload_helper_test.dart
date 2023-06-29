@@ -35,6 +35,7 @@ main() {
     0x41,
     0xc7
   ];
+
   final EncryptedPayloadHelper _helper = EncryptedPayloadHelper(key);
 
   test('encrypt/decrypt jsonRequest', () {
