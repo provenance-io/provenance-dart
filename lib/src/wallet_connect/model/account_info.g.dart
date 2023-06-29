@@ -16,7 +16,7 @@ AccountInfo _$AccountInfoFromJson(Map<String, dynamic> json) => AccountInfo(
           : RepresentedPolicy.fromJson(
               json['representedGroupPolicy'] as Map<String, dynamic>),
       json['walletAppId'] as String?,
-      (json['attrubutes'] as List<dynamic>?)
+      (json['attributes'] as List<dynamic>?)
           ?.map((e) => AccountAttribute.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -29,5 +29,5 @@ Map<String, dynamic> _$AccountInfoToJson(AccountInfo instance) =>
       'walletInfo': instance.walletInfo,
       'representedGroupPolicy': instance.representedGroupPolicy,
       'walletAppId': instance.walletAppId,
-      'attrubutes': instance.attributes,
+      'attributes': instance.attributes,
     };
