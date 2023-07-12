@@ -105,6 +105,7 @@ class SignTransactionData {
     this.memo,
     this.date,
     this.timeoutHeight,
+    this.customId,
     List<String>? nonCriticalExtensionOptions,
     List<String>? extensionOptions,
   })  : nonCriticalExtensionOptions = (nonCriticalExtensionOptions != null)
@@ -121,6 +122,7 @@ class SignTransactionData {
   final String? memo;
   final int? date;
   final int? timeoutHeight;
+  final String? customId;
   // These are base64 encoded messages
   final List<String>? nonCriticalExtensionOptions;
   final List<String>? extensionOptions;
@@ -145,6 +147,7 @@ abstract class WalletConnectionDelegate {
     String address,
     List<int> msg, {
     String? redirectUrl,
+    String? customId,
   });
 
   void onApproveTransaction(
@@ -574,6 +577,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
         : null;
     final timeoutHeight = descriptionJson['timeoutHeight'];
     final redirectUrl = descriptionJson['redirectUrl'] as String?;
+    final customId = descriptionJson['customId'] as String?;
 
     final signTransactionData = SignTransactionData(
       messages,
@@ -583,6 +587,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       memo: memo,
       date: date,
       timeoutHeight: timeoutHeight,
+      customId: customId,
       nonCriticalExtensionOptions:
           descriptionJson['nonCriticalExtensionOptions']?.cast<String>(),
       extensionOptions: descriptionJson['extensionOptions']?.cast<String>(),
@@ -598,15 +603,23 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
   Future<void> _handleProvenanceSign(JsonRequest request) async {
     final descriptionJson = jsonDecode(request.params.first as String);
+
     final payload = request.params.last as String;
     final bytes = Encoding.fromHex(payload.replaceFirst(RegExp(r'^0x'), ""));
 
     final description = descriptionJson['description'];
     final address = descriptionJson['address'];
     final redirectUrl = descriptionJson['redirectUrl'] as String?;
+    final customId = descriptionJson['customId'] as String?;
 
-    _delegate?.onApproveSign(request.id, description, address, bytes,
-        redirectUrl: redirectUrl);
+    _delegate?.onApproveSign(
+      request.id,
+      description,
+      address,
+      bytes,
+      redirectUrl: redirectUrl,
+      customId: customId,
+    );
   }
 
   Future<void> _handleSessionRequest(JsonRequest request) async {
