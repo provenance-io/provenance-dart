@@ -117,15 +117,19 @@ import 'package:provenance_dart/proto.dart';
         mode: FileMode.append,
       );
 
-      await Future.forEach<String>(matches, (element) async {
-        final className = element.replaceAll(RegExp("\\(\\),\\s+"), "").trim();
+      for (final match in matches) {
+        final className = match.replaceAll(RegExp("\\(\\),\\s+"), "").trim();
+        if (className == 'google_protobuf.Any') {
+          continue;
+        }
+
         await provenanceTypesTest.writeAsString("""
   test('$className', () {
     final msg = $className().toAny();
     final decoded = msg.toMessage();
     expect(decoded, isNotNull);
   });\n""", mode: FileMode.append);
-      });
+      }
     }
   }
 

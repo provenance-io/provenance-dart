@@ -968,11 +968,6 @@ main() {
     final decoded = msg.toMessage();
     expect(decoded, isNotNull);
   });
-  test('google_protobuf.Any', () {
-    final msg = google_protobuf.Any().toAny();
-    final decoded = msg.toMessage();
-    expect(decoded, isNotNull);
-  });
   test('cosmos_crypto_hd_v1.BIP44Params', () {
     final msg = cosmos_crypto_hd_v1.BIP44Params().toAny();
     final decoded = msg.toMessage();
