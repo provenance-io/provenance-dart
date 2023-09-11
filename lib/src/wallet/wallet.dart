@@ -5,26 +5,24 @@ import 'package:provenance_dart/src/wallet/private_key.dart';
 
 class Wallet {
   final PrivateKey _privateKey;
-  final Coin _coin;
 
-  Wallet._(this._privateKey, this._coin);
+  Wallet._(this._privateKey);
 
   factory Wallet.fromSeed(List<int> seed, Coin coin) {
     var privateKey = PrivateKey.fromSeed(seed, coin);
-    return Wallet._(privateKey, coin);
+    return Wallet._(privateKey);
   }
 
   factory Wallet.fromBip32(String bip32Serialized) {
     final privateKey = PrivateKey.fromBip32(bip32Serialized);
-    final coin = privateKey.coin;
-    return Wallet._(privateKey, coin);
+    return Wallet._(privateKey);
   }
 
   factory Wallet.fromMnemonic(List<String> recoveryPhrase, Coin coin,
       [String passphrase = ""]) {
     final seed = Mnemonic.createSeed(recoveryPhrase, passphrase);
     final privateKey = PrivateKey.fromSeed(seed, coin);
-    return Wallet._(privateKey, coin);
+    return Wallet._(privateKey);
   }
 
   String get address => _privateKey.publicKey.address;

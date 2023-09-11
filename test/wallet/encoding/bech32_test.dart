@@ -43,31 +43,32 @@ const encodedData2 = [
   0xF0
 ];
 
-class _testCase {
+class _TestCase {
   final String hrp;
   final String bech32String;
   final List<int> encodedData;
 
-  const _testCase(
-      {required this.hrp,
-      required this.bech32String,
-      required this.encodedData});
+  const _TestCase({
+    required this.hrp,
+    required this.bech32String,
+    required this.encodedData,
+  });
 }
 
 const _testDataSet = [
-  _testCase(
+  _TestCase(
       hrp: "tp",
       bech32String: "tp1qqqsyqcyq5rqwzqf5x328f9956n632ds27t4tf",
       encodedData: encodedData1),
-  _testCase(
+  _TestCase(
       hrp: "test%=",
       bech32String: "test%=1qqqsyqcyq5rqwzqf5x328f9956n632ds49wcws",
       encodedData: encodedData1),
-  _testCase(
+  _TestCase(
       hrp: "tp",
       bech32String: "tp1lll0ml8mltul3alk7h608uh37qtz7avc",
       encodedData: encodedData2),
-  _testCase(
+  _TestCase(
       hrp: "test%=",
       bech32String: "test%=1lll0ml8mltul3alk7h608uh37qnlyj4e",
       encodedData: encodedData2)

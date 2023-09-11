@@ -11,63 +11,11 @@ import 'package:provenance_dart/src/wallet_connect/relay.dart';
 
 import 'relay_test.mocks.dart';
 
-class _jsonRpcBaseMatcher<X extends JsonRpcBase> extends Matcher {
-  final X _request;
-
-  _jsonRpcBaseMatcher(this._request);
-
-  @override
-  Description describe(Description description) => description;
-
-  @override
-  bool matches(item, Map matchState) {
-    final request = item as X;
-
-    expect(_request.jsonrpc, request.jsonrpc);
-    expect(_request.id, request.id);
-
-    return true;
-  }
-}
-
-class _jsonRequestMatcher extends _jsonRpcBaseMatcher<JsonRequest> {
-  _jsonRequestMatcher(super._request);
-
-  @override
-  bool matches(item, Map matchState) {
-    if (!super.matches(item, matchState)) {
-      return false;
-    }
-    final request = item as JsonRequest;
-    expect(_request.method, request.method);
-    expect(_request.params, request.params);
-
-    return true;
-  }
-}
-
-class _jsonResponseMatcher extends _jsonRpcBaseMatcher<JsonRpcResponse> {
-  _jsonResponseMatcher(super._request);
-
-  @override
-  bool matches(item, Map matchState) {
-    if (!super.matches(item, matchState)) {
-      return false;
-    }
-
-    final response = item as JsonRpcResponse;
-    expect(_request.result, response.result);
-    expect(_request.error, response.error);
-
-    return true;
-  }
-}
-
-class _messageMatcher extends Matcher {
+class _MessageMatcher extends Matcher {
   final String topic;
   final JsonRpcBase? jsonRpc;
 
-  _messageMatcher(this.topic, [this.jsonRpc]);
+  _MessageMatcher(this.topic, [this.jsonRpc]);
 
   @override
   Description describe(Description description) => description;
@@ -183,7 +131,7 @@ main() {
       relay.subscribe("abcdefg1234");
       final str = verify(mockWebSocket.add(captureAny)).captured.first;
 
-      expect(Message.fromJson(jsonDecode(str)), _messageMatcher("abcdefg1234"));
+      expect(Message.fromJson(jsonDecode(str)), _MessageMatcher("abcdefg1234"));
     });
   });
 
@@ -209,29 +157,8 @@ main() {
       final capturedMessage =
           Message.fromJson(jsonDecode(capturedMessageString));
 
-      expect(capturedMessage, _messageMatcher("ABCDE", request1));
+      expect(capturedMessage, _MessageMatcher("ABCDE", request1));
     });
-
-    // test('the publish method waits for the associated reply', () async {
-    //   final sendReply = JsonRpcResponse(request1.id, result: 1);
-
-    //   when(mockWebSocket.add(any)).thenAnswer((_) {
-    //     final message2 = Message.pub(
-    //         "ABCDE",
-    //         EncryptionPayload(
-    //           utf8.encode(jsonEncode(sendReply)),
-    //           List.filled(16, 4),
-    //           List.filled(32, 9),
-    //         ));
-
-    //     _mockStream.add(jsonEncode(message2));
-    //   });
-
-    //   final reply = await relay.publish("ABCDE", request1);
-    //   expect(sendReply.id, reply.id);
-    //   expect(sendReply.result, reply.result);
-    //   expect(sendReply.error, reply.error);
-    // });
   });
 
   group("respond", () {
@@ -245,7 +172,7 @@ main() {
       final capturedMessage =
           Message.fromJson(jsonDecode(capturedMessageString));
 
-      expect(capturedMessage, _messageMatcher("ABCDE", sendReply));
+      expect(capturedMessage, _MessageMatcher("ABCDE", sendReply));
     });
   });
 
