@@ -38,7 +38,7 @@ class Params extends $pb.GeneratedMessage {
   Params._() : super();
   factory Params({
     @$core.Deprecated('This field is deprecated.')
-        $core.Iterable<SendEnabled>? sendEnabled,
+    $core.Iterable<SendEnabled>? sendEnabled,
     $core.bool? defaultSendEnabled,
   }) {
     final _result = create();
