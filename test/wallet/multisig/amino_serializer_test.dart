@@ -1,19 +1,17 @@
 import 'dart:convert';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:protobuf/protobuf.dart';
-import 'package:provenance_dart/proto.dart';
-import 'package:provenance_dart/proto_cosmos_bank_v1beta1.dart' as bank;
-import 'package:provenance_dart/proto_cosmos_distribution_v1beta1.dart'
-    as distribution;
-import 'package:provenance_dart/proto_cosmos_gov_v1beta1.dart' as gov;
-import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart'
-    as secp256k1;
-import 'package:provenance_dart/proto_cosmos_staking_v1beta1.dart' as staking;
-import 'package:provenance_dart/proto_cosmos_evidence_v1beta1.dart' as evidence;
-
-import 'package:provenance_dart/src/wallet/multisig/amino_serializer.dart';
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
+import 'package:flutter_test/flutter_test.dart';
+import 'package:provenance_dart/proto.dart';
+import 'package:provenance_dart/proto_cosmos_bank_v1beta1.dart' as bank;
+import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart'
+    as secp256k1;
+import 'package:provenance_dart/proto_cosmos_distribution_v1beta1.dart'
+    as distribution;
+import 'package:provenance_dart/proto_cosmos_evidence_v1beta1.dart' as evidence;
+import 'package:provenance_dart/proto_cosmos_gov_v1beta1.dart' as gov;
+import 'package:provenance_dart/proto_cosmos_staking_v1beta1.dart' as staking;
+import 'package:provenance_dart/src/wallet/multisig/amino_serializer.dart';
 
 Matcher messageNotSupported(GeneratedMessage message) {
   return predicate((arg) {

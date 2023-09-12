@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:flutter/material.dart';
+
 import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/crypto/encryption/crypto.dart';
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
@@ -42,7 +42,7 @@ class DerivationNode {
   }
 
   @override
-  int get hashCode => hashValues(index, hardened);
+  int get hashCode => Object.hash(index, hardened);
 }
 
 enum PrivateKeyType { hd, nonHd }

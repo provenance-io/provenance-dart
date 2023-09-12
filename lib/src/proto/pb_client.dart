@@ -86,7 +86,7 @@ class PbClient {
 
     _channel = ClientChannel(
       host,
-      port: port!,
+      port: port,
       options: options,
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/wallet.dart';
 import 'package:provenance_dart/wallet.dart';
 

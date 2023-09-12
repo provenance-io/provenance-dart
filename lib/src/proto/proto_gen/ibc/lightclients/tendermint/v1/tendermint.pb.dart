@@ -105,9 +105,9 @@ class ClientState extends $pb.GeneratedMessage {
     $core.Iterable<$2.ProofSpec>? proofSpecs,
     $core.Iterable<$core.String>? upgradePath,
     @$core.Deprecated('This field is deprecated.')
-        $core.bool? allowUpdateAfterExpiry,
+    $core.bool? allowUpdateAfterExpiry,
     @$core.Deprecated('This field is deprecated.')
-        $core.bool? allowUpdateAfterMisbehaviour,
+    $core.bool? allowUpdateAfterMisbehaviour,
   }) {
     final _result = create();
     if (chainId != null) {

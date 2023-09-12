@@ -308,7 +308,7 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
   factory MsgConnectionOpenTry({
     $core.String? clientId,
     @$core.Deprecated('This field is deprecated.')
-        $core.String? previousConnectionId,
+    $core.String? previousConnectionId,
     $2.Any? clientState,
     $1.Counterparty? counterparty,
     $fixnum.Int64? delayPeriod,

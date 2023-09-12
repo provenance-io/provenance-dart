@@ -274,7 +274,7 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
   factory MsgChannelOpenTry({
     $core.String? portId,
     @$core.Deprecated('This field is deprecated.')
-        $core.String? previousChannelId,
+    $core.String? previousChannelId,
     $1.Channel? channel,
     $core.String? counterpartyVersion,
     $core.List<$core.int>? proofInit,

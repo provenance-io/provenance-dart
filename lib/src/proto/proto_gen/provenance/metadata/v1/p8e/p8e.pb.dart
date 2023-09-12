@@ -97,7 +97,7 @@ class Contract extends $pb.GeneratedMessage {
     SigningAndEncryptionPublicKeys? invoker,
     $core.Iterable<Fact>? inputs,
     @$core.Deprecated('This field is deprecated.')
-        $core.Iterable<Condition>? conditions,
+    $core.Iterable<Condition>? conditions,
     $core.Iterable<Consideration>? considerations,
     $core.Iterable<Recital>? recitals,
     $core.int? timesExecuted,

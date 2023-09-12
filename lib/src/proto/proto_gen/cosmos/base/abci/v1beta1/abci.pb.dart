@@ -1014,7 +1014,7 @@ class TxMsgData extends $pb.GeneratedMessage {
   TxMsgData._() : super();
   factory TxMsgData({
     @$core.Deprecated('This field is deprecated.')
-        $core.Iterable<MsgData>? data,
+    $core.Iterable<MsgData>? data,
     $core.Iterable<$1.Any>? msgResponses,
   }) {
     final _result = create();
