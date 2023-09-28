@@ -1,17 +1,21 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmwasm/wasm/v1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'types.pb.dart' as $1;
 import 'tx.pb.dart' as $0;
+import 'types.pb.dart' as $1;
 
 enum GenesisState_GenMsgs_Sum {
   storeCode,
@@ -20,7 +24,34 @@ enum GenesisState_GenMsgs_Sum {
   notSet
 }
 
+/// GenMsgs define the messages that can be executed during genesis phase in
+/// order. The intention is to have more human readable data that is auditable.
 class GenesisState_GenMsgs extends $pb.GeneratedMessage {
+  factory GenesisState_GenMsgs({
+    $0.MsgStoreCode? storeCode,
+    $0.MsgInstantiateContract? instantiateContract,
+    $0.MsgExecuteContract? executeContract,
+  }) {
+    final $result = create();
+    if (storeCode != null) {
+      $result.storeCode = storeCode;
+    }
+    if (instantiateContract != null) {
+      $result.instantiateContract = instantiateContract;
+    }
+    if (executeContract != null) {
+      $result.executeContract = executeContract;
+    }
+    return $result;
+  }
+  GenesisState_GenMsgs._() : super();
+  factory GenesisState_GenMsgs.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GenesisState_GenMsgs.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GenesisState_GenMsgs_Sum>
       _GenesisState_GenMsgs_SumByTag = {
     1: GenesisState_GenMsgs_Sum.storeCode,
@@ -29,59 +60,20 @@ class GenesisState_GenMsgs extends $pb.GeneratedMessage {
     0: GenesisState_GenMsgs_Sum.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState.GenMsgs',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
+      _omitMessageNames ? '' : 'GenesisState.GenMsgs',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3])
-    ..aOM<$0.MsgStoreCode>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'storeCode',
+    ..aOM<$0.MsgStoreCode>(1, _omitFieldNames ? '' : 'storeCode',
         subBuilder: $0.MsgStoreCode.create)
     ..aOM<$0.MsgInstantiateContract>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'instantiateContract',
+        2, _omitFieldNames ? '' : 'instantiateContract',
         subBuilder: $0.MsgInstantiateContract.create)
-    ..aOM<$0.MsgExecuteContract>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'executeContract',
+    ..aOM<$0.MsgExecuteContract>(3, _omitFieldNames ? '' : 'executeContract',
         subBuilder: $0.MsgExecuteContract.create)
     ..hasRequiredFields = false;
 
-  GenesisState_GenMsgs._() : super();
-  factory GenesisState_GenMsgs({
-    $0.MsgStoreCode? storeCode,
-    $0.MsgInstantiateContract? instantiateContract,
-    $0.MsgExecuteContract? executeContract,
-  }) {
-    final _result = create();
-    if (storeCode != null) {
-      _result.storeCode = storeCode;
-    }
-    if (instantiateContract != null) {
-      _result.instantiateContract = instantiateContract;
-    }
-    if (executeContract != null) {
-      _result.executeContract = executeContract;
-    }
-    return _result;
-  }
-  factory GenesisState_GenMsgs.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory GenesisState_GenMsgs.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -92,8 +84,10 @@ class GenesisState_GenMsgs extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState_GenMsgs copyWith(void Function(GenesisState_GenMsgs) updates) =>
       super.copyWith((message) => updates(message as GenesisState_GenMsgs))
-          as GenesisState_GenMsgs; // ignore: deprecated_member_use
+          as GenesisState_GenMsgs;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState_GenMsgs create() => GenesisState_GenMsgs._();
   GenesisState_GenMsgs createEmptyInstance() => create();
@@ -151,53 +145,8 @@ class GenesisState_GenMsgs extends $pb.GeneratedMessage {
   $0.MsgExecuteContract ensureExecuteContract() => $_ensure(2);
 }
 
+/// GenesisState - genesis state of x/wasm
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Params>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $1.Params.create)
-    ..pc<Code>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codes',
-        $pb.PbFieldType.PM,
-        subBuilder: Code.create)
-    ..pc<Contract>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contracts',
-        $pb.PbFieldType.PM,
-        subBuilder: Contract.create)
-    ..pc<Sequence>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequences',
-        $pb.PbFieldType.PM,
-        subBuilder: Sequence.create)
-    ..pc<GenesisState_GenMsgs>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'genMsgs',
-        $pb.PbFieldType.PM,
-        subBuilder: GenesisState_GenMsgs.create)
-    ..hasRequiredFields = false;
-
-  GenesisState._() : super();
   factory GenesisState({
     $1.Params? params,
     $core.Iterable<Code>? codes,
@@ -205,30 +154,50 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.Iterable<Sequence>? sequences,
     $core.Iterable<GenesisState_GenMsgs>? genMsgs,
   }) {
-    final _result = create();
+    final $result = create();
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
     if (codes != null) {
-      _result.codes.addAll(codes);
+      $result.codes.addAll(codes);
     }
     if (contracts != null) {
-      _result.contracts.addAll(contracts);
+      $result.contracts.addAll(contracts);
     }
     if (sequences != null) {
-      _result.sequences.addAll(sequences);
+      $result.sequences.addAll(sequences);
     }
     if (genMsgs != null) {
-      _result.genMsgs.addAll(genMsgs);
+      $result.genMsgs.addAll(genMsgs);
     }
-    return _result;
+    return $result;
   }
+  GenesisState._() : super();
   factory GenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisState',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Params>(1, _omitFieldNames ? '' : 'params',
+        subBuilder: $1.Params.create)
+    ..pc<Code>(2, _omitFieldNames ? '' : 'codes', $pb.PbFieldType.PM,
+        subBuilder: Code.create)
+    ..pc<Contract>(3, _omitFieldNames ? '' : 'contracts', $pb.PbFieldType.PM,
+        subBuilder: Contract.create)
+    ..pc<Sequence>(4, _omitFieldNames ? '' : 'sequences', $pb.PbFieldType.PM,
+        subBuilder: Sequence.create)
+    ..pc<GenesisState_GenMsgs>(
+        5, _omitFieldNames ? '' : 'genMsgs', $pb.PbFieldType.PM,
+        subBuilder: GenesisState_GenMsgs.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -238,8 +207,10 @@ class GenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState copyWith(void Function(GenesisState) updates) =>
       super.copyWith((message) => updates(message as GenesisState))
-          as GenesisState; // ignore: deprecated_member_use
+          as GenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
@@ -277,70 +248,51 @@ class GenesisState extends $pb.GeneratedMessage {
   $core.List<GenesisState_GenMsgs> get genMsgs => $_getList(4);
 }
 
+/// Code struct encompasses CodeInfo and CodeBytes
 class Code extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Code',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$1.CodeInfo>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeInfo',
-        subBuilder: $1.CodeInfo.create)
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeBytes',
-        $pb.PbFieldType.OY)
-    ..aOB(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pinned')
-    ..hasRequiredFields = false;
-
-  Code._() : super();
   factory Code({
     $fixnum.Int64? codeId,
     $1.CodeInfo? codeInfo,
     $core.List<$core.int>? codeBytes,
     $core.bool? pinned,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
     if (codeInfo != null) {
-      _result.codeInfo = codeInfo;
+      $result.codeInfo = codeInfo;
     }
     if (codeBytes != null) {
-      _result.codeBytes = codeBytes;
+      $result.codeBytes = codeBytes;
     }
     if (pinned != null) {
-      _result.pinned = pinned;
+      $result.pinned = pinned;
     }
-    return _result;
+    return $result;
   }
+  Code._() : super();
   factory Code.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Code.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Code',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$1.CodeInfo>(2, _omitFieldNames ? '' : 'codeInfo',
+        subBuilder: $1.CodeInfo.create)
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'codeBytes', $pb.PbFieldType.OY)
+    ..aOB(4, _omitFieldNames ? '' : 'pinned')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -349,9 +301,10 @@ class Code extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Code copyWith(void Function(Code) updates) =>
-      super.copyWith((message) => updates(message as Code))
-          as Code; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Code)) as Code;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Code create() => Code._();
   Code createEmptyInstance() => create();
@@ -399,6 +352,7 @@ class Code extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearCodeBytes() => clearField(3);
 
+  /// Pinned to wasmvm cache
   @$pb.TagNumber(4)
   $core.bool get pinned => $_getBF(3);
   @$pb.TagNumber(4)
@@ -412,60 +366,53 @@ class Code extends $pb.GeneratedMessage {
   void clearPinned() => clearField(4);
 }
 
+/// Contract struct encompasses ContractAddress, ContractInfo, and ContractState
 class Contract extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Contract',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractAddress')
-    ..aOM<$1.ContractInfo>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractInfo',
-        subBuilder: $1.ContractInfo.create)
-    ..pc<$1.Model>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractState',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Model.create)
-    ..hasRequiredFields = false;
-
-  Contract._() : super();
   factory Contract({
     $core.String? contractAddress,
     $1.ContractInfo? contractInfo,
     $core.Iterable<$1.Model>? contractState,
+    $core.Iterable<$1.ContractCodeHistoryEntry>? contractCodeHistory,
   }) {
-    final _result = create();
+    final $result = create();
     if (contractAddress != null) {
-      _result.contractAddress = contractAddress;
+      $result.contractAddress = contractAddress;
     }
     if (contractInfo != null) {
-      _result.contractInfo = contractInfo;
+      $result.contractInfo = contractInfo;
     }
     if (contractState != null) {
-      _result.contractState.addAll(contractState);
+      $result.contractState.addAll(contractState);
     }
-    return _result;
+    if (contractCodeHistory != null) {
+      $result.contractCodeHistory.addAll(contractCodeHistory);
+    }
+    return $result;
   }
+  Contract._() : super();
   factory Contract.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Contract.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Contract',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractAddress')
+    ..aOM<$1.ContractInfo>(2, _omitFieldNames ? '' : 'contractInfo',
+        subBuilder: $1.ContractInfo.create)
+    ..pc<$1.Model>(
+        3, _omitFieldNames ? '' : 'contractState', $pb.PbFieldType.PM,
+        subBuilder: $1.Model.create)
+    ..pc<$1.ContractCodeHistoryEntry>(
+        4, _omitFieldNames ? '' : 'contractCodeHistory', $pb.PbFieldType.PM,
+        subBuilder: $1.ContractCodeHistoryEntry.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -474,9 +421,10 @@ class Contract extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Contract copyWith(void Function(Contract) updates) =>
-      super.copyWith((message) => updates(message as Contract))
-          as Contract; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Contract)) as Contract;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Contract create() => Contract._();
   Contract createEmptyInstance() => create();
@@ -514,53 +462,46 @@ class Contract extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.List<$1.Model> get contractState => $_getList(2);
+
+  @$pb.TagNumber(4)
+  $core.List<$1.ContractCodeHistoryEntry> get contractCodeHistory =>
+      $_getList(3);
 }
 
+/// Sequence key and value of an id generation counter
 class Sequence extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Sequence',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'idKey',
-        $pb.PbFieldType.OY)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  Sequence._() : super();
   factory Sequence({
     $core.List<$core.int>? idKey,
     $fixnum.Int64? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (idKey != null) {
-      _result.idKey = idKey;
+      $result.idKey = idKey;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  Sequence._() : super();
   factory Sequence.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Sequence.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Sequence',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'idKey', $pb.PbFieldType.OY)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -569,9 +510,10 @@ class Sequence extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Sequence copyWith(void Function(Sequence) updates) =>
-      super.copyWith((message) => updates(message as Sequence))
-          as Sequence; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Sequence)) as Sequence;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Sequence create() => Sequence._();
   Sequence createEmptyInstance() => create();
@@ -605,3 +547,7 @@ class Sequence extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearValue() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

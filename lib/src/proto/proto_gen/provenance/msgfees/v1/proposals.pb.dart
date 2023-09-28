@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/msgfees/v1/proposals.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,50 +16,8 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $0;
 
+/// AddMsgFeeProposal defines a governance proposal to add additional msg based fee
 class AddMsgFeeProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'AddMsgFeeProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgTypeUrl')
-    ..aOM<$0.Coin>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'additionalFee',
-        subBuilder: $0.Coin.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recipient')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recipientBasisPoints')
-    ..hasRequiredFields = false;
-
-  AddMsgFeeProposal._() : super();
   factory AddMsgFeeProposal({
     $core.String? title,
     $core.String? description,
@@ -64,33 +26,49 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
     $core.String? recipient,
     $core.String? recipientBasisPoints,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (msgTypeUrl != null) {
-      _result.msgTypeUrl = msgTypeUrl;
+      $result.msgTypeUrl = msgTypeUrl;
     }
     if (additionalFee != null) {
-      _result.additionalFee = additionalFee;
+      $result.additionalFee = additionalFee;
     }
     if (recipient != null) {
-      _result.recipient = recipient;
+      $result.recipient = recipient;
     }
     if (recipientBasisPoints != null) {
-      _result.recipientBasisPoints = recipientBasisPoints;
+      $result.recipientBasisPoints = recipientBasisPoints;
     }
-    return _result;
+    return $result;
   }
+  AddMsgFeeProposal._() : super();
   factory AddMsgFeeProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory AddMsgFeeProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AddMsgFeeProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'msgTypeUrl')
+    ..aOM<$0.Coin>(4, _omitFieldNames ? '' : 'additionalFee',
+        subBuilder: $0.Coin.create)
+    ..aOS(5, _omitFieldNames ? '' : 'recipient')
+    ..aOS(6, _omitFieldNames ? '' : 'recipientBasisPoints')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -100,8 +78,10 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   AddMsgFeeProposal copyWith(void Function(AddMsgFeeProposal) updates) =>
       super.copyWith((message) => updates(message as AddMsgFeeProposal))
-          as AddMsgFeeProposal; // ignore: deprecated_member_use
+          as AddMsgFeeProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AddMsgFeeProposal create() => AddMsgFeeProposal._();
   AddMsgFeeProposal createEmptyInstance() => create();
@@ -112,6 +92,7 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<AddMsgFeeProposal>(create);
   static AddMsgFeeProposal? _defaultInstance;
 
+  /// propsal title
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -124,6 +105,7 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// propsal description
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -136,6 +118,7 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// type url of msg to add fee
   @$pb.TagNumber(3)
   $core.String get msgTypeUrl => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -148,6 +131,7 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMsgTypeUrl() => clearField(3);
 
+  /// additional fee for msg type
   @$pb.TagNumber(4)
   $0.Coin get additionalFee => $_getN(3);
   @$pb.TagNumber(4)
@@ -162,6 +146,7 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $0.Coin ensureAdditionalFee() => $_ensure(3);
 
+  /// optional recipient to recieve basis points
   @$pb.TagNumber(5)
   $core.String get recipient => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -174,6 +159,7 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearRecipient() => clearField(5);
 
+  /// basis points to use when recipient is present (1 - 10,000)
   @$pb.TagNumber(6)
   $core.String get recipientBasisPoints => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -187,50 +173,8 @@ class AddMsgFeeProposal extends $pb.GeneratedMessage {
   void clearRecipientBasisPoints() => clearField(6);
 }
 
+/// UpdateMsgFeeProposal defines a governance proposal to update a current msg based fee
 class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'UpdateMsgFeeProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgTypeUrl')
-    ..aOM<$0.Coin>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'additionalFee',
-        subBuilder: $0.Coin.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recipient')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recipientBasisPoints')
-    ..hasRequiredFields = false;
-
-  UpdateMsgFeeProposal._() : super();
   factory UpdateMsgFeeProposal({
     $core.String? title,
     $core.String? description,
@@ -239,33 +183,49 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
     $core.String? recipient,
     $core.String? recipientBasisPoints,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (msgTypeUrl != null) {
-      _result.msgTypeUrl = msgTypeUrl;
+      $result.msgTypeUrl = msgTypeUrl;
     }
     if (additionalFee != null) {
-      _result.additionalFee = additionalFee;
+      $result.additionalFee = additionalFee;
     }
     if (recipient != null) {
-      _result.recipient = recipient;
+      $result.recipient = recipient;
     }
     if (recipientBasisPoints != null) {
-      _result.recipientBasisPoints = recipientBasisPoints;
+      $result.recipientBasisPoints = recipientBasisPoints;
     }
-    return _result;
+    return $result;
   }
+  UpdateMsgFeeProposal._() : super();
   factory UpdateMsgFeeProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory UpdateMsgFeeProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateMsgFeeProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'msgTypeUrl')
+    ..aOM<$0.Coin>(4, _omitFieldNames ? '' : 'additionalFee',
+        subBuilder: $0.Coin.create)
+    ..aOS(5, _omitFieldNames ? '' : 'recipient')
+    ..aOS(6, _omitFieldNames ? '' : 'recipientBasisPoints')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -276,8 +236,10 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   UpdateMsgFeeProposal copyWith(void Function(UpdateMsgFeeProposal) updates) =>
       super.copyWith((message) => updates(message as UpdateMsgFeeProposal))
-          as UpdateMsgFeeProposal; // ignore: deprecated_member_use
+          as UpdateMsgFeeProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateMsgFeeProposal create() => UpdateMsgFeeProposal._();
   UpdateMsgFeeProposal createEmptyInstance() => create();
@@ -288,6 +250,7 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UpdateMsgFeeProposal>(create);
   static UpdateMsgFeeProposal? _defaultInstance;
 
+  /// propsal title
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -300,6 +263,7 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// propsal description
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -312,6 +276,7 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// type url of msg to update fee
   @$pb.TagNumber(3)
   $core.String get msgTypeUrl => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -324,6 +289,7 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMsgTypeUrl() => clearField(3);
 
+  /// additional fee for msg type
   @$pb.TagNumber(4)
   $0.Coin get additionalFee => $_getN(3);
   @$pb.TagNumber(4)
@@ -338,6 +304,7 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $0.Coin ensureAdditionalFee() => $_ensure(3);
 
+  /// optional recipient to recieve basis points
   @$pb.TagNumber(5)
   $core.String get recipient => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -350,6 +317,7 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearRecipient() => clearField(5);
 
+  /// basis points to use when recipient is present (1 - 10,000)
   @$pb.TagNumber(6)
   $core.String get recipientBasisPoints => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -363,57 +331,43 @@ class UpdateMsgFeeProposal extends $pb.GeneratedMessage {
   void clearRecipientBasisPoints() => clearField(6);
 }
 
+/// RemoveMsgFeeProposal defines a governance proposal to delete a current msg based fee
 class RemoveMsgFeeProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RemoveMsgFeeProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgTypeUrl')
-    ..hasRequiredFields = false;
-
-  RemoveMsgFeeProposal._() : super();
   factory RemoveMsgFeeProposal({
     $core.String? title,
     $core.String? description,
     $core.String? msgTypeUrl,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (msgTypeUrl != null) {
-      _result.msgTypeUrl = msgTypeUrl;
+      $result.msgTypeUrl = msgTypeUrl;
     }
-    return _result;
+    return $result;
   }
+  RemoveMsgFeeProposal._() : super();
   factory RemoveMsgFeeProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RemoveMsgFeeProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RemoveMsgFeeProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'msgTypeUrl')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -424,8 +378,10 @@ class RemoveMsgFeeProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   RemoveMsgFeeProposal copyWith(void Function(RemoveMsgFeeProposal) updates) =>
       super.copyWith((message) => updates(message as RemoveMsgFeeProposal))
-          as RemoveMsgFeeProposal; // ignore: deprecated_member_use
+          as RemoveMsgFeeProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RemoveMsgFeeProposal create() => RemoveMsgFeeProposal._();
   RemoveMsgFeeProposal createEmptyInstance() => create();
@@ -436,6 +392,7 @@ class RemoveMsgFeeProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<RemoveMsgFeeProposal>(create);
   static RemoveMsgFeeProposal? _defaultInstance;
 
+  /// propsal title
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -448,6 +405,7 @@ class RemoveMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// propsal description
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -460,6 +418,7 @@ class RemoveMsgFeeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// type url of msg fee to remove
   @$pb.TagNumber(3)
   $core.String get msgTypeUrl => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -473,59 +432,45 @@ class RemoveMsgFeeProposal extends $pb.GeneratedMessage {
   void clearMsgTypeUrl() => clearField(3);
 }
 
+/// UpdateNhashPerUsdMilProposal defines a governance proposal to update the nhash per usd mil param
 class UpdateNhashPerUsdMilProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'UpdateNhashPerUsdMilProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nhashPerUsdMil',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  UpdateNhashPerUsdMilProposal._() : super();
   factory UpdateNhashPerUsdMilProposal({
     $core.String? title,
     $core.String? description,
     $fixnum.Int64? nhashPerUsdMil,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (nhashPerUsdMil != null) {
-      _result.nhashPerUsdMil = nhashPerUsdMil;
+      $result.nhashPerUsdMil = nhashPerUsdMil;
     }
-    return _result;
+    return $result;
   }
+  UpdateNhashPerUsdMilProposal._() : super();
   factory UpdateNhashPerUsdMilProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory UpdateNhashPerUsdMilProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateNhashPerUsdMilProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'nhashPerUsdMil', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -538,8 +483,10 @@ class UpdateNhashPerUsdMilProposal extends $pb.GeneratedMessage {
           void Function(UpdateNhashPerUsdMilProposal) updates) =>
       super.copyWith(
               (message) => updates(message as UpdateNhashPerUsdMilProposal))
-          as UpdateNhashPerUsdMilProposal; // ignore: deprecated_member_use
+          as UpdateNhashPerUsdMilProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateNhashPerUsdMilProposal create() =>
       UpdateNhashPerUsdMilProposal._();
@@ -575,6 +522,7 @@ class UpdateNhashPerUsdMilProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// nhash_per_usd_mil is number of nhash per usd mil
   @$pb.TagNumber(3)
   $fixnum.Int64 get nhashPerUsdMil => $_getI64(2);
   @$pb.TagNumber(3)
@@ -588,57 +536,43 @@ class UpdateNhashPerUsdMilProposal extends $pb.GeneratedMessage {
   void clearNhashPerUsdMil() => clearField(3);
 }
 
+/// UpdateConversionFeeDenomProposal defines a governance proposal to update the msg fee conversion denom
 class UpdateConversionFeeDenomProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'UpdateConversionFeeDenomProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'conversionFeeDenom')
-    ..hasRequiredFields = false;
-
-  UpdateConversionFeeDenomProposal._() : super();
   factory UpdateConversionFeeDenomProposal({
     $core.String? title,
     $core.String? description,
     $core.String? conversionFeeDenom,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (conversionFeeDenom != null) {
-      _result.conversionFeeDenom = conversionFeeDenom;
+      $result.conversionFeeDenom = conversionFeeDenom;
     }
-    return _result;
+    return $result;
   }
+  UpdateConversionFeeDenomProposal._() : super();
   factory UpdateConversionFeeDenomProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory UpdateConversionFeeDenomProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateConversionFeeDenomProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(4, _omitFieldNames ? '' : 'conversionFeeDenom')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -651,8 +585,10 @@ class UpdateConversionFeeDenomProposal extends $pb.GeneratedMessage {
           void Function(UpdateConversionFeeDenomProposal) updates) =>
       super.copyWith(
               (message) => updates(message as UpdateConversionFeeDenomProposal))
-          as UpdateConversionFeeDenomProposal; // ignore: deprecated_member_use
+          as UpdateConversionFeeDenomProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateConversionFeeDenomProposal create() =>
       UpdateConversionFeeDenomProposal._();
@@ -689,6 +625,7 @@ class UpdateConversionFeeDenomProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// conversion_fee_denom is the denom that usd will be converted to
   @$pb.TagNumber(4)
   $core.String get conversionFeeDenom => $_getSZ(2);
   @$pb.TagNumber(4)
@@ -701,3 +638,7 @@ class UpdateConversionFeeDenomProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearConversionFeeDenom() => clearField(4);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -1,18 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmwasm/wasm/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import 'query.pb.dart' as $0;
+
 export 'query.pb.dart';
 
+@$pb.GrpcServiceName('cosmwasm.wasm.v1.Query')
 class QueryClient extends $grpc.Client {
   static final _$contractInfo = $grpc.ClientMethod<$0.QueryContractInfoRequest,
           $0.QueryContractInfoResponse>(
@@ -75,6 +82,13 @@ class QueryClient extends $grpc.Client {
           ($0.QueryParamsRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.QueryParamsResponse.fromBuffer(value));
+  static final _$contractsByCreator = $grpc.ClientMethod<
+          $0.QueryContractsByCreatorRequest,
+          $0.QueryContractsByCreatorResponse>(
+      '/cosmwasm.wasm.v1.Query/ContractsByCreator',
+      ($0.QueryContractsByCreatorRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryContractsByCreatorResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -139,8 +153,15 @@ class QueryClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$params, request, options: options);
   }
+
+  $grpc.ResponseFuture<$0.QueryContractsByCreatorResponse> contractsByCreator(
+      $0.QueryContractsByCreatorRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$contractsByCreator, request, options: options);
+  }
 }
 
+@$pb.GrpcServiceName('cosmwasm.wasm.v1.Query')
 abstract class QueryServiceBase extends $grpc.Service {
   $core.String get $name => 'cosmwasm.wasm.v1.Query';
 
@@ -231,6 +252,15 @@ abstract class QueryServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.QueryParamsRequest.fromBuffer(value),
             ($0.QueryParamsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryContractsByCreatorRequest,
+            $0.QueryContractsByCreatorResponse>(
+        'ContractsByCreator',
+        contractsByCreator_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryContractsByCreatorRequest.fromBuffer(value),
+        ($0.QueryContractsByCreatorResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryContractInfoResponse> contractInfo_Pre(
@@ -290,6 +320,12 @@ abstract class QueryServiceBase extends $grpc.Service {
     return params(call, await request);
   }
 
+  $async.Future<$0.QueryContractsByCreatorResponse> contractsByCreator_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryContractsByCreatorRequest> request) async {
+    return contractsByCreator(call, await request);
+  }
+
   $async.Future<$0.QueryContractInfoResponse> contractInfo(
       $grpc.ServiceCall call, $0.QueryContractInfoRequest request);
   $async.Future<$0.QueryContractHistoryResponse> contractHistory(
@@ -310,4 +346,6 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.QueryPinnedCodesRequest request);
   $async.Future<$0.QueryParamsResponse> params(
       $grpc.ServiceCall call, $0.QueryParamsRequest request);
+  $async.Future<$0.QueryContractsByCreatorResponse> contractsByCreator(
+      $grpc.ServiceCall call, $0.QueryContractsByCreatorRequest request);
 }

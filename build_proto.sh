@@ -15,4 +15,4 @@ done
 
 dart bin/types_create.dart
 
-flutter format .
+dart format .

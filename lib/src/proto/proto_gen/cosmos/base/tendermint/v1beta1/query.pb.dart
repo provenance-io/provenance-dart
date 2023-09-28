@@ -1,65 +1,60 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/tendermint/v1beta1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../query/v1beta1/pagination.pb.dart' as $1;
 import '../../../../google/protobuf/any.pb.dart' as $2;
-import '../../../../tendermint/types/types.pb.dart' as $3;
-import '../../../../tendermint/types/block.pb.dart' as $4;
-import 'types.pb.dart' as $5;
 import '../../../../tendermint/p2p/types.pb.dart' as $6;
+import '../../../../tendermint/types/block.pb.dart' as $4;
+import '../../../../tendermint/types/types.pb.dart' as $3;
+import '../../query/v1beta1/pagination.pb.dart' as $1;
+import 'types.pb.dart' as $5;
 
+/// GetValidatorSetByHeightRequest is the request type for the
+/// Query/GetValidatorSetByHeight RPC method.
 class GetValidatorSetByHeightRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetValidatorSetByHeightRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..aOM<$1.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  GetValidatorSetByHeightRequest._() : super();
   factory GetValidatorSetByHeightRequest({
     $fixnum.Int64? height,
     $1.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  GetValidatorSetByHeightRequest._() : super();
   factory GetValidatorSetByHeightRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetValidatorSetByHeightRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetValidatorSetByHeightRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..aOM<$1.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -72,8 +67,10 @@ class GetValidatorSetByHeightRequest extends $pb.GeneratedMessage {
           void Function(GetValidatorSetByHeightRequest) updates) =>
       super.copyWith(
               (message) => updates(message as GetValidatorSetByHeightRequest))
-          as GetValidatorSetByHeightRequest; // ignore: deprecated_member_use
+          as GetValidatorSetByHeightRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetValidatorSetByHeightRequest create() =>
       GetValidatorSetByHeightRequest._();
@@ -97,6 +94,7 @@ class GetValidatorSetByHeightRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearHeight() => clearField(1);
 
+  /// pagination defines an pagination for the request.
   @$pb.TagNumber(2)
   $1.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -112,60 +110,46 @@ class GetValidatorSetByHeightRequest extends $pb.GeneratedMessage {
   $1.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// GetValidatorSetByHeightResponse is the response type for the
+/// Query/GetValidatorSetByHeight RPC method.
 class GetValidatorSetByHeightResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetValidatorSetByHeightResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockHeight')
-    ..pc<Validator>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validators',
-        $pb.PbFieldType.PM,
-        subBuilder: Validator.create)
-    ..aOM<$1.PageResponse>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  GetValidatorSetByHeightResponse._() : super();
   factory GetValidatorSetByHeightResponse({
     $fixnum.Int64? blockHeight,
     $core.Iterable<Validator>? validators,
     $1.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (blockHeight != null) {
-      _result.blockHeight = blockHeight;
+      $result.blockHeight = blockHeight;
     }
     if (validators != null) {
-      _result.validators.addAll(validators);
+      $result.validators.addAll(validators);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  GetValidatorSetByHeightResponse._() : super();
   factory GetValidatorSetByHeightResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetValidatorSetByHeightResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetValidatorSetByHeightResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'blockHeight')
+    ..pc<Validator>(2, _omitFieldNames ? '' : 'validators', $pb.PbFieldType.PM,
+        subBuilder: Validator.create)
+    ..aOM<$1.PageResponse>(3, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -178,8 +162,10 @@ class GetValidatorSetByHeightResponse extends $pb.GeneratedMessage {
           void Function(GetValidatorSetByHeightResponse) updates) =>
       super.copyWith(
               (message) => updates(message as GetValidatorSetByHeightResponse))
-          as GetValidatorSetByHeightResponse; // ignore: deprecated_member_use
+          as GetValidatorSetByHeightResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetValidatorSetByHeightResponse create() =>
       GetValidatorSetByHeightResponse._();
@@ -207,6 +193,7 @@ class GetValidatorSetByHeightResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.List<Validator> get validators => $_getList(1);
 
+  /// pagination defines an pagination for the response.
   @$pb.TagNumber(3)
   $1.PageResponse get pagination => $_getN(2);
   @$pb.TagNumber(3)
@@ -222,40 +209,35 @@ class GetValidatorSetByHeightResponse extends $pb.GeneratedMessage {
   $1.PageResponse ensurePagination() => $_ensure(2);
 }
 
+/// GetLatestValidatorSetRequest is the request type for the
+/// Query/GetValidatorSetByHeight RPC method.
 class GetLatestValidatorSetRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetLatestValidatorSetRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$1.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  GetLatestValidatorSetRequest._() : super();
   factory GetLatestValidatorSetRequest({
     $1.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  GetLatestValidatorSetRequest._() : super();
   factory GetLatestValidatorSetRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetLatestValidatorSetRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetLatestValidatorSetRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$1.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -268,8 +250,10 @@ class GetLatestValidatorSetRequest extends $pb.GeneratedMessage {
           void Function(GetLatestValidatorSetRequest) updates) =>
       super.copyWith(
               (message) => updates(message as GetLatestValidatorSetRequest))
-          as GetLatestValidatorSetRequest; // ignore: deprecated_member_use
+          as GetLatestValidatorSetRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetLatestValidatorSetRequest create() =>
       GetLatestValidatorSetRequest._();
@@ -281,6 +265,7 @@ class GetLatestValidatorSetRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetLatestValidatorSetRequest>(create);
   static GetLatestValidatorSetRequest? _defaultInstance;
 
+  /// pagination defines an pagination for the request.
   @$pb.TagNumber(1)
   $1.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(1)
@@ -296,60 +281,46 @@ class GetLatestValidatorSetRequest extends $pb.GeneratedMessage {
   $1.PageRequest ensurePagination() => $_ensure(0);
 }
 
+/// GetLatestValidatorSetResponse is the response type for the
+/// Query/GetValidatorSetByHeight RPC method.
 class GetLatestValidatorSetResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetLatestValidatorSetResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockHeight')
-    ..pc<Validator>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validators',
-        $pb.PbFieldType.PM,
-        subBuilder: Validator.create)
-    ..aOM<$1.PageResponse>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  GetLatestValidatorSetResponse._() : super();
   factory GetLatestValidatorSetResponse({
     $fixnum.Int64? blockHeight,
     $core.Iterable<Validator>? validators,
     $1.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (blockHeight != null) {
-      _result.blockHeight = blockHeight;
+      $result.blockHeight = blockHeight;
     }
     if (validators != null) {
-      _result.validators.addAll(validators);
+      $result.validators.addAll(validators);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  GetLatestValidatorSetResponse._() : super();
   factory GetLatestValidatorSetResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetLatestValidatorSetResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetLatestValidatorSetResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'blockHeight')
+    ..pc<Validator>(2, _omitFieldNames ? '' : 'validators', $pb.PbFieldType.PM,
+        subBuilder: Validator.create)
+    ..aOM<$1.PageResponse>(3, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -362,8 +333,10 @@ class GetLatestValidatorSetResponse extends $pb.GeneratedMessage {
           void Function(GetLatestValidatorSetResponse) updates) =>
       super.copyWith(
               (message) => updates(message as GetLatestValidatorSetResponse))
-          as GetLatestValidatorSetResponse; // ignore: deprecated_member_use
+          as GetLatestValidatorSetResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetLatestValidatorSetResponse create() =>
       GetLatestValidatorSetResponse._();
@@ -390,6 +363,7 @@ class GetLatestValidatorSetResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.List<Validator> get validators => $_getList(1);
 
+  /// pagination defines an pagination for the response.
   @$pb.TagNumber(3)
   $1.PageResponse get pagination => $_getN(2);
   @$pb.TagNumber(3)
@@ -405,67 +379,48 @@ class GetLatestValidatorSetResponse extends $pb.GeneratedMessage {
   $1.PageResponse ensurePagination() => $_ensure(2);
 }
 
+/// Validator is the type for the validator-set.
 class Validator extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Validator',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOM<$2.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pubKey',
-        subBuilder: $2.Any.create)
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votingPower')
-    ..aInt64(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposerPriority')
-    ..hasRequiredFields = false;
-
-  Validator._() : super();
   factory Validator({
     $core.String? address,
     $2.Any? pubKey,
     $fixnum.Int64? votingPower,
     $fixnum.Int64? proposerPriority,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (pubKey != null) {
-      _result.pubKey = pubKey;
+      $result.pubKey = pubKey;
     }
     if (votingPower != null) {
-      _result.votingPower = votingPower;
+      $result.votingPower = votingPower;
     }
     if (proposerPriority != null) {
-      _result.proposerPriority = proposerPriority;
+      $result.proposerPriority = proposerPriority;
     }
-    return _result;
+    return $result;
   }
+  Validator._() : super();
   factory Validator.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Validator.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Validator',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOM<$2.Any>(2, _omitFieldNames ? '' : 'pubKey', subBuilder: $2.Any.create)
+    ..aInt64(3, _omitFieldNames ? '' : 'votingPower')
+    ..aInt64(4, _omitFieldNames ? '' : 'proposerPriority')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -474,9 +429,10 @@ class Validator extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Validator copyWith(void Function(Validator) updates) =>
-      super.copyWith((message) => updates(message as Validator))
-          as Validator; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Validator)) as Validator;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Validator create() => Validator._();
   Validator createEmptyInstance() => create();
@@ -537,39 +493,34 @@ class Validator extends $pb.GeneratedMessage {
   void clearProposerPriority() => clearField(4);
 }
 
+/// GetBlockByHeightRequest is the request type for the Query/GetBlockByHeight
+/// RPC method.
 class GetBlockByHeightRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetBlockByHeightRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..hasRequiredFields = false;
-
-  GetBlockByHeightRequest._() : super();
   factory GetBlockByHeightRequest({
     $fixnum.Int64? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  GetBlockByHeightRequest._() : super();
   factory GetBlockByHeightRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetBlockByHeightRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetBlockByHeightRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -581,8 +532,10 @@ class GetBlockByHeightRequest extends $pb.GeneratedMessage {
   GetBlockByHeightRequest copyWith(
           void Function(GetBlockByHeightRequest) updates) =>
       super.copyWith((message) => updates(message as GetBlockByHeightRequest))
-          as GetBlockByHeightRequest; // ignore: deprecated_member_use
+          as GetBlockByHeightRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetBlockByHeightRequest create() => GetBlockByHeightRequest._();
   GetBlockByHeightRequest createEmptyInstance() => create();
@@ -606,60 +559,47 @@ class GetBlockByHeightRequest extends $pb.GeneratedMessage {
   void clearHeight() => clearField(1);
 }
 
+/// GetBlockByHeightResponse is the response type for the Query/GetBlockByHeight
+/// RPC method.
 class GetBlockByHeightResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetBlockByHeightResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$3.BlockID>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockId',
-        subBuilder: $3.BlockID.create)
-    ..aOM<$4.Block>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'block',
-        subBuilder: $4.Block.create)
-    ..aOM<$5.Block>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sdkBlock',
-        subBuilder: $5.Block.create)
-    ..hasRequiredFields = false;
-
-  GetBlockByHeightResponse._() : super();
   factory GetBlockByHeightResponse({
     $3.BlockID? blockId,
     $4.Block? block,
     $5.Block? sdkBlock,
   }) {
-    final _result = create();
+    final $result = create();
     if (blockId != null) {
-      _result.blockId = blockId;
+      $result.blockId = blockId;
     }
     if (block != null) {
-      _result.block = block;
+      $result.block = block;
     }
     if (sdkBlock != null) {
-      _result.sdkBlock = sdkBlock;
+      $result.sdkBlock = sdkBlock;
     }
-    return _result;
+    return $result;
   }
+  GetBlockByHeightResponse._() : super();
   factory GetBlockByHeightResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetBlockByHeightResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetBlockByHeightResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$3.BlockID>(1, _omitFieldNames ? '' : 'blockId',
+        subBuilder: $3.BlockID.create)
+    ..aOM<$4.Block>(2, _omitFieldNames ? '' : 'block',
+        subBuilder: $4.Block.create)
+    ..aOM<$5.Block>(3, _omitFieldNames ? '' : 'sdkBlock',
+        subBuilder: $5.Block.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -671,8 +611,10 @@ class GetBlockByHeightResponse extends $pb.GeneratedMessage {
   GetBlockByHeightResponse copyWith(
           void Function(GetBlockByHeightResponse) updates) =>
       super.copyWith((message) => updates(message as GetBlockByHeightResponse))
-          as GetBlockByHeightResponse; // ignore: deprecated_member_use
+          as GetBlockByHeightResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetBlockByHeightResponse create() => GetBlockByHeightResponse._();
   GetBlockByHeightResponse createEmptyInstance() => create();
@@ -697,6 +639,7 @@ class GetBlockByHeightResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $3.BlockID ensureBlockId() => $_ensure(0);
 
+  /// Deprecated: please use `sdk_block` instead
   @$pb.TagNumber(2)
   $4.Block get block => $_getN(1);
   @$pb.TagNumber(2)
@@ -711,6 +654,7 @@ class GetBlockByHeightResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $4.Block ensureBlock() => $_ensure(1);
 
+  /// Since: cosmos-sdk 0.47
   @$pb.TagNumber(3)
   $5.Block get sdkBlock => $_getN(2);
   @$pb.TagNumber(3)
@@ -726,26 +670,25 @@ class GetBlockByHeightResponse extends $pb.GeneratedMessage {
   $5.Block ensureSdkBlock() => $_ensure(2);
 }
 
+/// GetLatestBlockRequest is the request type for the Query/GetLatestBlock RPC
+/// method.
 class GetLatestBlockRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetLatestBlockRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  GetLatestBlockRequest._() : super();
   factory GetLatestBlockRequest() => create();
+  GetLatestBlockRequest._() : super();
   factory GetLatestBlockRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetLatestBlockRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetLatestBlockRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -757,8 +700,10 @@ class GetLatestBlockRequest extends $pb.GeneratedMessage {
   GetLatestBlockRequest copyWith(
           void Function(GetLatestBlockRequest) updates) =>
       super.copyWith((message) => updates(message as GetLatestBlockRequest))
-          as GetLatestBlockRequest; // ignore: deprecated_member_use
+          as GetLatestBlockRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetLatestBlockRequest create() => GetLatestBlockRequest._();
   GetLatestBlockRequest createEmptyInstance() => create();
@@ -770,60 +715,47 @@ class GetLatestBlockRequest extends $pb.GeneratedMessage {
   static GetLatestBlockRequest? _defaultInstance;
 }
 
+/// GetLatestBlockResponse is the response type for the Query/GetLatestBlock RPC
+/// method.
 class GetLatestBlockResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetLatestBlockResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$3.BlockID>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockId',
-        subBuilder: $3.BlockID.create)
-    ..aOM<$4.Block>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'block',
-        subBuilder: $4.Block.create)
-    ..aOM<$5.Block>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sdkBlock',
-        subBuilder: $5.Block.create)
-    ..hasRequiredFields = false;
-
-  GetLatestBlockResponse._() : super();
   factory GetLatestBlockResponse({
     $3.BlockID? blockId,
     $4.Block? block,
     $5.Block? sdkBlock,
   }) {
-    final _result = create();
+    final $result = create();
     if (blockId != null) {
-      _result.blockId = blockId;
+      $result.blockId = blockId;
     }
     if (block != null) {
-      _result.block = block;
+      $result.block = block;
     }
     if (sdkBlock != null) {
-      _result.sdkBlock = sdkBlock;
+      $result.sdkBlock = sdkBlock;
     }
-    return _result;
+    return $result;
   }
+  GetLatestBlockResponse._() : super();
   factory GetLatestBlockResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetLatestBlockResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetLatestBlockResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$3.BlockID>(1, _omitFieldNames ? '' : 'blockId',
+        subBuilder: $3.BlockID.create)
+    ..aOM<$4.Block>(2, _omitFieldNames ? '' : 'block',
+        subBuilder: $4.Block.create)
+    ..aOM<$5.Block>(3, _omitFieldNames ? '' : 'sdkBlock',
+        subBuilder: $5.Block.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -835,8 +767,10 @@ class GetLatestBlockResponse extends $pb.GeneratedMessage {
   GetLatestBlockResponse copyWith(
           void Function(GetLatestBlockResponse) updates) =>
       super.copyWith((message) => updates(message as GetLatestBlockResponse))
-          as GetLatestBlockResponse; // ignore: deprecated_member_use
+          as GetLatestBlockResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetLatestBlockResponse create() => GetLatestBlockResponse._();
   GetLatestBlockResponse createEmptyInstance() => create();
@@ -861,6 +795,7 @@ class GetLatestBlockResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $3.BlockID ensureBlockId() => $_ensure(0);
 
+  /// Deprecated: please use `sdk_block` instead
   @$pb.TagNumber(2)
   $4.Block get block => $_getN(1);
   @$pb.TagNumber(2)
@@ -875,6 +810,7 @@ class GetLatestBlockResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $4.Block ensureBlock() => $_ensure(1);
 
+  /// Since: cosmos-sdk 0.47
   @$pb.TagNumber(3)
   $5.Block get sdkBlock => $_getN(2);
   @$pb.TagNumber(3)
@@ -890,26 +826,24 @@ class GetLatestBlockResponse extends $pb.GeneratedMessage {
   $5.Block ensureSdkBlock() => $_ensure(2);
 }
 
+/// GetSyncingRequest is the request type for the Query/GetSyncing RPC method.
 class GetSyncingRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetSyncingRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  GetSyncingRequest._() : super();
   factory GetSyncingRequest() => create();
+  GetSyncingRequest._() : super();
   factory GetSyncingRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetSyncingRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetSyncingRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -919,8 +853,10 @@ class GetSyncingRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GetSyncingRequest copyWith(void Function(GetSyncingRequest) updates) =>
       super.copyWith((message) => updates(message as GetSyncingRequest))
-          as GetSyncingRequest; // ignore: deprecated_member_use
+          as GetSyncingRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetSyncingRequest create() => GetSyncingRequest._();
   GetSyncingRequest createEmptyInstance() => create();
@@ -932,39 +868,33 @@ class GetSyncingRequest extends $pb.GeneratedMessage {
   static GetSyncingRequest? _defaultInstance;
 }
 
+/// GetSyncingResponse is the response type for the Query/GetSyncing RPC method.
 class GetSyncingResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetSyncingResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOB(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'syncing')
-    ..hasRequiredFields = false;
-
-  GetSyncingResponse._() : super();
   factory GetSyncingResponse({
     $core.bool? syncing,
   }) {
-    final _result = create();
+    final $result = create();
     if (syncing != null) {
-      _result.syncing = syncing;
+      $result.syncing = syncing;
     }
-    return _result;
+    return $result;
   }
+  GetSyncingResponse._() : super();
   factory GetSyncingResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetSyncingResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetSyncingResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'syncing')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -974,8 +904,10 @@ class GetSyncingResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GetSyncingResponse copyWith(void Function(GetSyncingResponse) updates) =>
       super.copyWith((message) => updates(message as GetSyncingResponse))
-          as GetSyncingResponse; // ignore: deprecated_member_use
+          as GetSyncingResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetSyncingResponse create() => GetSyncingResponse._();
   GetSyncingResponse createEmptyInstance() => create();
@@ -999,26 +931,24 @@ class GetSyncingResponse extends $pb.GeneratedMessage {
   void clearSyncing() => clearField(1);
 }
 
+/// GetNodeInfoRequest is the request type for the Query/GetNodeInfo RPC method.
 class GetNodeInfoRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetNodeInfoRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  GetNodeInfoRequest._() : super();
   factory GetNodeInfoRequest() => create();
+  GetNodeInfoRequest._() : super();
   factory GetNodeInfoRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetNodeInfoRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetNodeInfoRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1028,8 +958,10 @@ class GetNodeInfoRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GetNodeInfoRequest copyWith(void Function(GetNodeInfoRequest) updates) =>
       super.copyWith((message) => updates(message as GetNodeInfoRequest))
-          as GetNodeInfoRequest; // ignore: deprecated_member_use
+          as GetNodeInfoRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetNodeInfoRequest create() => GetNodeInfoRequest._();
   GetNodeInfoRequest createEmptyInstance() => create();
@@ -1041,50 +973,41 @@ class GetNodeInfoRequest extends $pb.GeneratedMessage {
   static GetNodeInfoRequest? _defaultInstance;
 }
 
+/// GetNodeInfoResponse is the response type for the Query/GetNodeInfo RPC
+/// method.
 class GetNodeInfoResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GetNodeInfoResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$6.DefaultNodeInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'defaultNodeInfo',
-        subBuilder: $6.DefaultNodeInfo.create)
-    ..aOM<VersionInfo>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'applicationVersion',
-        subBuilder: VersionInfo.create)
-    ..hasRequiredFields = false;
-
-  GetNodeInfoResponse._() : super();
   factory GetNodeInfoResponse({
     $6.DefaultNodeInfo? defaultNodeInfo,
     VersionInfo? applicationVersion,
   }) {
-    final _result = create();
+    final $result = create();
     if (defaultNodeInfo != null) {
-      _result.defaultNodeInfo = defaultNodeInfo;
+      $result.defaultNodeInfo = defaultNodeInfo;
     }
     if (applicationVersion != null) {
-      _result.applicationVersion = applicationVersion;
+      $result.applicationVersion = applicationVersion;
     }
-    return _result;
+    return $result;
   }
+  GetNodeInfoResponse._() : super();
   factory GetNodeInfoResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetNodeInfoResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetNodeInfoResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$6.DefaultNodeInfo>(1, _omitFieldNames ? '' : 'defaultNodeInfo',
+        subBuilder: $6.DefaultNodeInfo.create)
+    ..aOM<VersionInfo>(2, _omitFieldNames ? '' : 'applicationVersion',
+        subBuilder: VersionInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1094,8 +1017,10 @@ class GetNodeInfoResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GetNodeInfoResponse copyWith(void Function(GetNodeInfoResponse) updates) =>
       super.copyWith((message) => updates(message as GetNodeInfoResponse))
-          as GetNodeInfoResponse; // ignore: deprecated_member_use
+          as GetNodeInfoResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetNodeInfoResponse create() => GetNodeInfoResponse._();
   GetNodeInfoResponse createEmptyInstance() => create();
@@ -1135,61 +1060,8 @@ class GetNodeInfoResponse extends $pb.GeneratedMessage {
   VersionInfo ensureApplicationVersion() => $_ensure(1);
 }
 
+/// VersionInfo is the type for the GetNodeInfoResponse message.
 class VersionInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'VersionInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'appName')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'gitCommit')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'buildTags')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'goVersion')
-    ..pc<Module>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'buildDeps',
-        $pb.PbFieldType.PM,
-        subBuilder: Module.create)
-    ..aOS(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'cosmosSdkVersion')
-    ..hasRequiredFields = false;
-
-  VersionInfo._() : super();
   factory VersionInfo({
     $core.String? name,
     $core.String? appName,
@@ -1200,39 +1072,57 @@ class VersionInfo extends $pb.GeneratedMessage {
     $core.Iterable<Module>? buildDeps,
     $core.String? cosmosSdkVersion,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (appName != null) {
-      _result.appName = appName;
+      $result.appName = appName;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (gitCommit != null) {
-      _result.gitCommit = gitCommit;
+      $result.gitCommit = gitCommit;
     }
     if (buildTags != null) {
-      _result.buildTags = buildTags;
+      $result.buildTags = buildTags;
     }
     if (goVersion != null) {
-      _result.goVersion = goVersion;
+      $result.goVersion = goVersion;
     }
     if (buildDeps != null) {
-      _result.buildDeps.addAll(buildDeps);
+      $result.buildDeps.addAll(buildDeps);
     }
     if (cosmosSdkVersion != null) {
-      _result.cosmosSdkVersion = cosmosSdkVersion;
+      $result.cosmosSdkVersion = cosmosSdkVersion;
     }
-    return _result;
+    return $result;
   }
+  VersionInfo._() : super();
   factory VersionInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory VersionInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VersionInfo',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOS(2, _omitFieldNames ? '' : 'appName')
+    ..aOS(3, _omitFieldNames ? '' : 'version')
+    ..aOS(4, _omitFieldNames ? '' : 'gitCommit')
+    ..aOS(5, _omitFieldNames ? '' : 'buildTags')
+    ..aOS(6, _omitFieldNames ? '' : 'goVersion')
+    ..pc<Module>(7, _omitFieldNames ? '' : 'buildDeps', $pb.PbFieldType.PM,
+        subBuilder: Module.create)
+    ..aOS(8, _omitFieldNames ? '' : 'cosmosSdkVersion')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1242,8 +1132,10 @@ class VersionInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   VersionInfo copyWith(void Function(VersionInfo) updates) =>
       super.copyWith((message) => updates(message as VersionInfo))
-          as VersionInfo; // ignore: deprecated_member_use
+          as VersionInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static VersionInfo create() => VersionInfo._();
   VersionInfo createEmptyInstance() => create();
@@ -1328,6 +1220,7 @@ class VersionInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.List<Module> get buildDeps => $_getList(6);
 
+  /// Since: cosmos-sdk 0.43
   @$pb.TagNumber(8)
   $core.String get cosmosSdkVersion => $_getSZ(7);
   @$pb.TagNumber(8)
@@ -1341,57 +1234,43 @@ class VersionInfo extends $pb.GeneratedMessage {
   void clearCosmosSdkVersion() => clearField(8);
 }
 
+/// Module is the type for VersionInfo
 class Module extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Module',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'path')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sum')
-    ..hasRequiredFields = false;
-
-  Module._() : super();
   factory Module({
     $core.String? path,
     $core.String? version,
     $core.String? sum,
   }) {
-    final _result = create();
+    final $result = create();
     if (path != null) {
-      _result.path = path;
+      $result.path = path;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (sum != null) {
-      _result.sum = sum;
+      $result.sum = sum;
     }
-    return _result;
+    return $result;
   }
+  Module._() : super();
   factory Module.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Module.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Module',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'path')
+    ..aOS(2, _omitFieldNames ? '' : 'version')
+    ..aOS(3, _omitFieldNames ? '' : 'sum')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1400,9 +1279,10 @@ class Module extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Module copyWith(void Function(Module) updates) =>
-      super.copyWith((message) => updates(message as Module))
-          as Module; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Module)) as Module;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Module create() => Module._();
   Module createEmptyInstance() => create();
@@ -1412,6 +1292,7 @@ class Module extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Module>(create);
   static Module? _defaultInstance;
 
+  /// module path
   @$pb.TagNumber(1)
   $core.String get path => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1424,6 +1305,7 @@ class Module extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPath() => clearField(1);
 
+  /// module version
   @$pb.TagNumber(2)
   $core.String get version => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1436,6 +1318,7 @@ class Module extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearVersion() => clearField(2);
 
+  /// checksum
   @$pb.TagNumber(3)
   $core.String get sum => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1449,67 +1332,49 @@ class Module extends $pb.GeneratedMessage {
   void clearSum() => clearField(3);
 }
 
+/// ABCIQueryRequest defines the request structure for the ABCIQuery gRPC query.
 class ABCIQueryRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ABCIQueryRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'path')
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..aOB(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'prove')
-    ..hasRequiredFields = false;
-
-  ABCIQueryRequest._() : super();
   factory ABCIQueryRequest({
     $core.List<$core.int>? data,
     $core.String? path,
     $fixnum.Int64? height,
     $core.bool? prove,
   }) {
-    final _result = create();
+    final $result = create();
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
     if (path != null) {
-      _result.path = path;
+      $result.path = path;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (prove != null) {
-      _result.prove = prove;
+      $result.prove = prove;
     }
-    return _result;
+    return $result;
   }
+  ABCIQueryRequest._() : super();
   factory ABCIQueryRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ABCIQueryRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ABCIQueryRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..aOS(2, _omitFieldNames ? '' : 'path')
+    ..aInt64(3, _omitFieldNames ? '' : 'height')
+    ..aOB(4, _omitFieldNames ? '' : 'prove')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1519,8 +1384,10 @@ class ABCIQueryRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ABCIQueryRequest copyWith(void Function(ABCIQueryRequest) updates) =>
       super.copyWith((message) => updates(message as ABCIQueryRequest))
-          as ABCIQueryRequest; // ignore: deprecated_member_use
+          as ABCIQueryRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ABCIQueryRequest create() => ABCIQueryRequest._();
   ABCIQueryRequest createEmptyInstance() => create();
@@ -1580,68 +1447,12 @@ class ABCIQueryRequest extends $pb.GeneratedMessage {
   void clearProve() => clearField(4);
 }
 
+///  ABCIQueryResponse defines the response structure for the ABCIQuery gRPC
+///  query.
+///
+///  Note: This type is a duplicate of the ResponseQuery proto type defined in
+///  Tendermint.
 class ABCIQueryResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ABCIQueryResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.int>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'code',
-        $pb.PbFieldType.OU3)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'log')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'info')
-    ..aInt64(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'index')
-    ..a<$core.List<$core.int>>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OY)
-    ..aOM<ProofOps>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofOps',
-        subBuilder: ProofOps.create)
-    ..aInt64(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..aOS(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codespace')
-    ..hasRequiredFields = false;
-
-  ABCIQueryResponse._() : super();
   factory ABCIQueryResponse({
     $core.int? code,
     $core.String? log,
@@ -1653,42 +1464,63 @@ class ABCIQueryResponse extends $pb.GeneratedMessage {
     $fixnum.Int64? height,
     $core.String? codespace,
   }) {
-    final _result = create();
+    final $result = create();
     if (code != null) {
-      _result.code = code;
+      $result.code = code;
     }
     if (log != null) {
-      _result.log = log;
+      $result.log = log;
     }
     if (info != null) {
-      _result.info = info;
+      $result.info = info;
     }
     if (index != null) {
-      _result.index = index;
+      $result.index = index;
     }
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
     if (proofOps != null) {
-      _result.proofOps = proofOps;
+      $result.proofOps = proofOps;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (codespace != null) {
-      _result.codespace = codespace;
+      $result.codespace = codespace;
     }
-    return _result;
+    return $result;
   }
+  ABCIQueryResponse._() : super();
   factory ABCIQueryResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ABCIQueryResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ABCIQueryResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OU3)
+    ..aOS(3, _omitFieldNames ? '' : 'log')
+    ..aOS(4, _omitFieldNames ? '' : 'info')
+    ..aInt64(5, _omitFieldNames ? '' : 'index')
+    ..a<$core.List<$core.int>>(
+        6, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        7, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OY)
+    ..aOM<ProofOps>(8, _omitFieldNames ? '' : 'proofOps',
+        subBuilder: ProofOps.create)
+    ..aInt64(9, _omitFieldNames ? '' : 'height')
+    ..aOS(10, _omitFieldNames ? '' : 'codespace')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1698,8 +1530,10 @@ class ABCIQueryResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ABCIQueryResponse copyWith(void Function(ABCIQueryResponse) updates) =>
       super.copyWith((message) => updates(message as ABCIQueryResponse))
-          as ABCIQueryResponse; // ignore: deprecated_member_use
+          as ABCIQueryResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ABCIQueryResponse create() => ABCIQueryResponse._();
   ABCIQueryResponse createEmptyInstance() => create();
@@ -1821,59 +1655,50 @@ class ABCIQueryResponse extends $pb.GeneratedMessage {
   void clearCodespace() => clearField(10);
 }
 
+///  ProofOp defines an operation used for calculating Merkle root. The data could
+///  be arbitrary format, providing nessecary data for example neighbouring node
+///  hash.
+///
+///  Note: This type is a duplicate of the ProofOp proto type defined in
+///  Tendermint.
 class ProofOp extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ProofOp',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'type')
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  ProofOp._() : super();
   factory ProofOp({
     $core.String? type,
     $core.List<$core.int>? key,
     $core.List<$core.int>? data,
   }) {
-    final _result = create();
+    final $result = create();
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
-    return _result;
+    return $result;
   }
+  ProofOp._() : super();
   factory ProofOp.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ProofOp.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ProofOp',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'type')
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1882,9 +1707,10 @@ class ProofOp extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   ProofOp copyWith(void Function(ProofOp) updates) =>
-      super.copyWith((message) => updates(message as ProofOp))
-          as ProofOp; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as ProofOp)) as ProofOp;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ProofOp create() => ProofOp._();
   ProofOp createEmptyInstance() => create();
@@ -1931,41 +1757,37 @@ class ProofOp extends $pb.GeneratedMessage {
   void clearData() => clearField(3);
 }
 
+///  ProofOps is Merkle proof defined by the list of ProofOps.
+///
+///  Note: This type is a duplicate of the ProofOps proto type defined in
+///  Tendermint.
 class ProofOps extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ProofOps',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<ProofOp>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ops',
-        $pb.PbFieldType.PM,
-        subBuilder: ProofOp.create)
-    ..hasRequiredFields = false;
-
-  ProofOps._() : super();
   factory ProofOps({
     $core.Iterable<ProofOp>? ops,
   }) {
-    final _result = create();
+    final $result = create();
     if (ops != null) {
-      _result.ops.addAll(ops);
+      $result.ops.addAll(ops);
     }
-    return _result;
+    return $result;
   }
+  ProofOps._() : super();
   factory ProofOps.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ProofOps.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ProofOps',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<ProofOp>(1, _omitFieldNames ? '' : 'ops', $pb.PbFieldType.PM,
+        subBuilder: ProofOp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1974,9 +1796,10 @@ class ProofOps extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   ProofOps copyWith(void Function(ProofOps) updates) =>
-      super.copyWith((message) => updates(message as ProofOps))
-          as ProofOps; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as ProofOps)) as ProofOps;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ProofOps create() => ProofOps._();
   ProofOps createEmptyInstance() => create();
@@ -1989,3 +1812,7 @@ class ProofOps extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<ProofOp> get ops => $_getList(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

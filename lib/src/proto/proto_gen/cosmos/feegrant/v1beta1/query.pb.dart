@@ -1,59 +1,53 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/feegrant/v1beta1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'feegrant.pb.dart' as $1;
 import '../../base/query/v1beta1/pagination.pb.dart' as $2;
+import 'feegrant.pb.dart' as $1;
 
+/// QueryAllowanceRequest is the request type for the Query/Allowance RPC method.
 class QueryAllowanceRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllowanceRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..hasRequiredFields = false;
-
-  QueryAllowanceRequest._() : super();
   factory QueryAllowanceRequest({
     $core.String? granter,
     $core.String? grantee,
   }) {
-    final _result = create();
+    final $result = create();
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
-    return _result;
+    return $result;
   }
+  QueryAllowanceRequest._() : super();
   factory QueryAllowanceRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllowanceRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllowanceRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'granter')
+    ..aOS(2, _omitFieldNames ? '' : 'grantee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -65,8 +59,10 @@ class QueryAllowanceRequest extends $pb.GeneratedMessage {
   QueryAllowanceRequest copyWith(
           void Function(QueryAllowanceRequest) updates) =>
       super.copyWith((message) => updates(message as QueryAllowanceRequest))
-          as QueryAllowanceRequest; // ignore: deprecated_member_use
+          as QueryAllowanceRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllowanceRequest create() => QueryAllowanceRequest._();
   QueryAllowanceRequest createEmptyInstance() => create();
@@ -77,6 +73,7 @@ class QueryAllowanceRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAllowanceRequest>(create);
   static QueryAllowanceRequest? _defaultInstance;
 
+  /// granter is the address of the user granting an allowance of their funds.
   @$pb.TagNumber(1)
   $core.String get granter => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -89,6 +86,7 @@ class QueryAllowanceRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGranter() => clearField(1);
 
+  /// grantee is the address of the user being granted an allowance of another user's funds.
   @$pb.TagNumber(2)
   $core.String get grantee => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -102,40 +100,34 @@ class QueryAllowanceRequest extends $pb.GeneratedMessage {
   void clearGrantee() => clearField(2);
 }
 
+/// QueryAllowanceResponse is the response type for the Query/Allowance RPC method.
 class QueryAllowanceResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllowanceResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Grant>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowance',
-        subBuilder: $1.Grant.create)
-    ..hasRequiredFields = false;
-
-  QueryAllowanceResponse._() : super();
   factory QueryAllowanceResponse({
     $1.Grant? allowance,
   }) {
-    final _result = create();
+    final $result = create();
     if (allowance != null) {
-      _result.allowance = allowance;
+      $result.allowance = allowance;
     }
-    return _result;
+    return $result;
   }
+  QueryAllowanceResponse._() : super();
   factory QueryAllowanceResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllowanceResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllowanceResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Grant>(1, _omitFieldNames ? '' : 'allowance',
+        subBuilder: $1.Grant.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -147,8 +139,10 @@ class QueryAllowanceResponse extends $pb.GeneratedMessage {
   QueryAllowanceResponse copyWith(
           void Function(QueryAllowanceResponse) updates) =>
       super.copyWith((message) => updates(message as QueryAllowanceResponse))
-          as QueryAllowanceResponse; // ignore: deprecated_member_use
+          as QueryAllowanceResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllowanceResponse create() => QueryAllowanceResponse._();
   QueryAllowanceResponse createEmptyInstance() => create();
@@ -159,6 +153,7 @@ class QueryAllowanceResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAllowanceResponse>(create);
   static QueryAllowanceResponse? _defaultInstance;
 
+  /// allowance is a allowance granted for grantee by granter.
   @$pb.TagNumber(1)
   $1.Grant get allowance => $_getN(0);
   @$pb.TagNumber(1)
@@ -174,49 +169,39 @@ class QueryAllowanceResponse extends $pb.GeneratedMessage {
   $1.Grant ensureAllowance() => $_ensure(0);
 }
 
+/// QueryAllowancesRequest is the request type for the Query/Allowances RPC method.
 class QueryAllowancesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllowancesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryAllowancesRequest._() : super();
   factory QueryAllowancesRequest({
     $core.String? grantee,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryAllowancesRequest._() : super();
   factory QueryAllowancesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllowancesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllowancesRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'grantee')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -228,8 +213,10 @@ class QueryAllowancesRequest extends $pb.GeneratedMessage {
   QueryAllowancesRequest copyWith(
           void Function(QueryAllowancesRequest) updates) =>
       super.copyWith((message) => updates(message as QueryAllowancesRequest))
-          as QueryAllowancesRequest; // ignore: deprecated_member_use
+          as QueryAllowancesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllowancesRequest create() => QueryAllowancesRequest._();
   QueryAllowancesRequest createEmptyInstance() => create();
@@ -252,6 +239,7 @@ class QueryAllowancesRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGrantee() => clearField(1);
 
+  /// pagination defines an pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -267,51 +255,40 @@ class QueryAllowancesRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryAllowancesResponse is the response type for the Query/Allowances RPC method.
 class QueryAllowancesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllowancesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$1.Grant>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowances',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Grant.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryAllowancesResponse._() : super();
   factory QueryAllowancesResponse({
     $core.Iterable<$1.Grant>? allowances,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (allowances != null) {
-      _result.allowances.addAll(allowances);
+      $result.allowances.addAll(allowances);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryAllowancesResponse._() : super();
   factory QueryAllowancesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllowancesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllowancesResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.Grant>(1, _omitFieldNames ? '' : 'allowances', $pb.PbFieldType.PM,
+        subBuilder: $1.Grant.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -323,8 +300,10 @@ class QueryAllowancesResponse extends $pb.GeneratedMessage {
   QueryAllowancesResponse copyWith(
           void Function(QueryAllowancesResponse) updates) =>
       super.copyWith((message) => updates(message as QueryAllowancesResponse))
-          as QueryAllowancesResponse; // ignore: deprecated_member_use
+          as QueryAllowancesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllowancesResponse create() => QueryAllowancesResponse._();
   QueryAllowancesResponse createEmptyInstance() => create();
@@ -335,9 +314,11 @@ class QueryAllowancesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAllowancesResponse>(create);
   static QueryAllowancesResponse? _defaultInstance;
 
+  /// allowances are allowance's granted for grantee by granter.
   @$pb.TagNumber(1)
   $core.List<$1.Grant> get allowances => $_getList(0);
 
+  /// pagination defines an pagination for the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -353,49 +334,41 @@ class QueryAllowancesResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+///  QueryAllowancesByGranterRequest is the request type for the Query/AllowancesByGranter RPC method.
+///
+///  Since: cosmos-sdk 0.46
 class QueryAllowancesByGranterRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllowancesByGranterRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryAllowancesByGranterRequest._() : super();
   factory QueryAllowancesByGranterRequest({
     $core.String? granter,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryAllowancesByGranterRequest._() : super();
   factory QueryAllowancesByGranterRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllowancesByGranterRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllowancesByGranterRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'granter')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -408,8 +381,10 @@ class QueryAllowancesByGranterRequest extends $pb.GeneratedMessage {
           void Function(QueryAllowancesByGranterRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryAllowancesByGranterRequest))
-          as QueryAllowancesByGranterRequest; // ignore: deprecated_member_use
+          as QueryAllowancesByGranterRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllowancesByGranterRequest create() =>
       QueryAllowancesByGranterRequest._();
@@ -434,6 +409,7 @@ class QueryAllowancesByGranterRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGranter() => clearField(1);
 
+  /// pagination defines an pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -449,51 +425,42 @@ class QueryAllowancesByGranterRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+///  QueryAllowancesByGranterResponse is the response type for the Query/AllowancesByGranter RPC method.
+///
+///  Since: cosmos-sdk 0.46
 class QueryAllowancesByGranterResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllowancesByGranterResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$1.Grant>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowances',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Grant.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryAllowancesByGranterResponse._() : super();
   factory QueryAllowancesByGranterResponse({
     $core.Iterable<$1.Grant>? allowances,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (allowances != null) {
-      _result.allowances.addAll(allowances);
+      $result.allowances.addAll(allowances);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryAllowancesByGranterResponse._() : super();
   factory QueryAllowancesByGranterResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllowancesByGranterResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllowancesByGranterResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.Grant>(1, _omitFieldNames ? '' : 'allowances', $pb.PbFieldType.PM,
+        subBuilder: $1.Grant.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -506,8 +473,10 @@ class QueryAllowancesByGranterResponse extends $pb.GeneratedMessage {
           void Function(QueryAllowancesByGranterResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryAllowancesByGranterResponse))
-          as QueryAllowancesByGranterResponse; // ignore: deprecated_member_use
+          as QueryAllowancesByGranterResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllowancesByGranterResponse create() =>
       QueryAllowancesByGranterResponse._();
@@ -520,9 +489,11 @@ class QueryAllowancesByGranterResponse extends $pb.GeneratedMessage {
           create);
   static QueryAllowancesByGranterResponse? _defaultInstance;
 
+  /// allowances that have been issued by the granter.
   @$pb.TagNumber(1)
   $core.List<$1.Grant> get allowances => $_getList(0);
 
+  /// pagination defines an pagination for the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -537,3 +508,7 @@ class QueryAllowancesByGranterResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

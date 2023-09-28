@@ -1,93 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/metadata/v1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'metadata.pb.dart' as $0;
+import 'objectstore.pb.dart' as $3;
 import 'scope.pb.dart' as $1;
 import 'specification.pb.dart' as $2;
-import 'objectstore.pb.dart' as $3;
 
+/// GenesisState defines the account module's genesis state.
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$0.Params>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $0.Params.create)
-    ..pc<$1.Scope>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopes',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Scope.create)
-    ..pc<$1.Session>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessions',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Session.create)
-    ..pc<$1.Record>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'records',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Record.create)
-    ..pc<$2.ScopeSpecification>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeSpecifications',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.ScopeSpecification.create)
-    ..pc<$2.ContractSpecification>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecifications',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.ContractSpecification.create)
-    ..pc<$2.RecordSpecification>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordSpecifications',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.RecordSpecification.create)
-    ..aOM<$3.OSLocatorParams>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'oSLocatorParams',
-        subBuilder: $3.OSLocatorParams.create)
-    ..pc<$3.ObjectStoreLocator>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'objectStoreLocators',
-        $pb.PbFieldType.PM,
-        subBuilder: $3.ObjectStoreLocator.create)
-    ..hasRequiredFields = false;
-
-  GenesisState._() : super();
   factory GenesisState({
     $0.Params? params,
     $core.Iterable<$1.Scope>? scopes,
@@ -99,42 +31,73 @@ class GenesisState extends $pb.GeneratedMessage {
     $3.OSLocatorParams? oSLocatorParams,
     $core.Iterable<$3.ObjectStoreLocator>? objectStoreLocators,
   }) {
-    final _result = create();
+    final $result = create();
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
     if (scopes != null) {
-      _result.scopes.addAll(scopes);
+      $result.scopes.addAll(scopes);
     }
     if (sessions != null) {
-      _result.sessions.addAll(sessions);
+      $result.sessions.addAll(sessions);
     }
     if (records != null) {
-      _result.records.addAll(records);
+      $result.records.addAll(records);
     }
     if (scopeSpecifications != null) {
-      _result.scopeSpecifications.addAll(scopeSpecifications);
+      $result.scopeSpecifications.addAll(scopeSpecifications);
     }
     if (contractSpecifications != null) {
-      _result.contractSpecifications.addAll(contractSpecifications);
+      $result.contractSpecifications.addAll(contractSpecifications);
     }
     if (recordSpecifications != null) {
-      _result.recordSpecifications.addAll(recordSpecifications);
+      $result.recordSpecifications.addAll(recordSpecifications);
     }
     if (oSLocatorParams != null) {
-      _result.oSLocatorParams = oSLocatorParams;
+      $result.oSLocatorParams = oSLocatorParams;
     }
     if (objectStoreLocators != null) {
-      _result.objectStoreLocators.addAll(objectStoreLocators);
+      $result.objectStoreLocators.addAll(objectStoreLocators);
     }
-    return _result;
+    return $result;
   }
+  GenesisState._() : super();
   factory GenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisState',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$0.Params>(1, _omitFieldNames ? '' : 'params',
+        subBuilder: $0.Params.create)
+    ..pc<$1.Scope>(2, _omitFieldNames ? '' : 'scopes', $pb.PbFieldType.PM,
+        subBuilder: $1.Scope.create)
+    ..pc<$1.Session>(3, _omitFieldNames ? '' : 'sessions', $pb.PbFieldType.PM,
+        subBuilder: $1.Session.create)
+    ..pc<$1.Record>(4, _omitFieldNames ? '' : 'records', $pb.PbFieldType.PM,
+        subBuilder: $1.Record.create)
+    ..pc<$2.ScopeSpecification>(
+        5, _omitFieldNames ? '' : 'scopeSpecifications', $pb.PbFieldType.PM,
+        subBuilder: $2.ScopeSpecification.create)
+    ..pc<$2.ContractSpecification>(
+        6, _omitFieldNames ? '' : 'contractSpecifications', $pb.PbFieldType.PM,
+        subBuilder: $2.ContractSpecification.create)
+    ..pc<$2.RecordSpecification>(
+        7, _omitFieldNames ? '' : 'recordSpecifications', $pb.PbFieldType.PM,
+        subBuilder: $2.RecordSpecification.create)
+    ..aOM<$3.OSLocatorParams>(8, _omitFieldNames ? '' : 'oSLocatorParams',
+        subBuilder: $3.OSLocatorParams.create)
+    ..pc<$3.ObjectStoreLocator>(
+        9, _omitFieldNames ? '' : 'objectStoreLocators', $pb.PbFieldType.PM,
+        subBuilder: $3.ObjectStoreLocator.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -144,8 +107,10 @@ class GenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState copyWith(void Function(GenesisState) updates) =>
       super.copyWith((message) => updates(message as GenesisState))
-          as GenesisState; // ignore: deprecated_member_use
+          as GenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
@@ -156,6 +121,7 @@ class GenesisState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
   static GenesisState? _defaultInstance;
 
+  /// params defines all the parameters of the module.
   @$pb.TagNumber(1)
   $0.Params get params => $_getN(0);
   @$pb.TagNumber(1)
@@ -170,6 +136,7 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $0.Params ensureParams() => $_ensure(0);
 
+  /// A collection of metadata scopes and specs to create on start
   @$pb.TagNumber(2)
   $core.List<$1.Scope> get scopes => $_getList(1);
 
@@ -206,3 +173,7 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.List<$3.ObjectStoreLocator> get objectStoreLocators => $_getList(8);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

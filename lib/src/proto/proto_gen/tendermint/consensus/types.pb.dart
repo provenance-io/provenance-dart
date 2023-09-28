@@ -1,61 +1,26 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/consensus/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../types/types.pb.dart' as $0;
 import '../libs/bits/types.pb.dart' as $1;
-
+import '../types/types.pb.dart' as $0;
 import '../types/types.pbenum.dart' as $0;
 
+/// NewRoundStep is sent for every step taken in the ConsensusState.
+/// For every height/round/step transition
 class NewRoundStep extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'NewRoundStep',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'step',
-        $pb.PbFieldType.OU3)
-    ..aInt64(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'secondsSinceStartTime')
-    ..a<$core.int>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastCommitRound',
-        $pb.PbFieldType.O3)
-    ..hasRequiredFields = false;
-
-  NewRoundStep._() : super();
   factory NewRoundStep({
     $fixnum.Int64? height,
     $core.int? round,
@@ -63,30 +28,45 @@ class NewRoundStep extends $pb.GeneratedMessage {
     $fixnum.Int64? secondsSinceStartTime,
     $core.int? lastCommitRound,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (step != null) {
-      _result.step = step;
+      $result.step = step;
     }
     if (secondsSinceStartTime != null) {
-      _result.secondsSinceStartTime = secondsSinceStartTime;
+      $result.secondsSinceStartTime = secondsSinceStartTime;
     }
     if (lastCommitRound != null) {
-      _result.lastCommitRound = lastCommitRound;
+      $result.lastCommitRound = lastCommitRound;
     }
-    return _result;
+    return $result;
   }
+  NewRoundStep._() : super();
   factory NewRoundStep.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NewRoundStep.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'NewRoundStep',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'round', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'step', $pb.PbFieldType.OU3)
+    ..aInt64(4, _omitFieldNames ? '' : 'secondsSinceStartTime')
+    ..a<$core.int>(
+        5, _omitFieldNames ? '' : 'lastCommitRound', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -96,8 +76,10 @@ class NewRoundStep extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   NewRoundStep copyWith(void Function(NewRoundStep) updates) =>
       super.copyWith((message) => updates(message as NewRoundStep))
-          as NewRoundStep; // ignore: deprecated_member_use
+          as NewRoundStep;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NewRoundStep create() => NewRoundStep._();
   NewRoundStep createEmptyInstance() => create();
@@ -169,47 +151,10 @@ class NewRoundStep extends $pb.GeneratedMessage {
   void clearLastCommitRound() => clearField(5);
 }
 
+/// NewValidBlock is sent when a validator observes a valid block B in some round r,
+/// i.e., there is a Proposal for block B and 2/3+ prevotes for the block B in the round r.
+/// In case the block is also committed, then IsCommit flag is set to true.
 class NewValidBlock extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'NewValidBlock',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.O3)
-    ..aOM<$0.PartSetHeader>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockPartSetHeader',
-        subBuilder: $0.PartSetHeader.create)
-    ..aOM<$1.BitArray>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockParts',
-        subBuilder: $1.BitArray.create)
-    ..aOB(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'isCommit')
-    ..hasRequiredFields = false;
-
-  NewValidBlock._() : super();
   factory NewValidBlock({
     $fixnum.Int64? height,
     $core.int? round,
@@ -217,30 +162,46 @@ class NewValidBlock extends $pb.GeneratedMessage {
     $1.BitArray? blockParts,
     $core.bool? isCommit,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (blockPartSetHeader != null) {
-      _result.blockPartSetHeader = blockPartSetHeader;
+      $result.blockPartSetHeader = blockPartSetHeader;
     }
     if (blockParts != null) {
-      _result.blockParts = blockParts;
+      $result.blockParts = blockParts;
     }
     if (isCommit != null) {
-      _result.isCommit = isCommit;
+      $result.isCommit = isCommit;
     }
-    return _result;
+    return $result;
   }
+  NewValidBlock._() : super();
   factory NewValidBlock.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NewValidBlock.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'NewValidBlock',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'round', $pb.PbFieldType.O3)
+    ..aOM<$0.PartSetHeader>(3, _omitFieldNames ? '' : 'blockPartSetHeader',
+        subBuilder: $0.PartSetHeader.create)
+    ..aOM<$1.BitArray>(4, _omitFieldNames ? '' : 'blockParts',
+        subBuilder: $1.BitArray.create)
+    ..aOB(5, _omitFieldNames ? '' : 'isCommit')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -250,8 +211,10 @@ class NewValidBlock extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   NewValidBlock copyWith(void Function(NewValidBlock) updates) =>
       super.copyWith((message) => updates(message as NewValidBlock))
-          as NewValidBlock; // ignore: deprecated_member_use
+          as NewValidBlock;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NewValidBlock create() => NewValidBlock._();
   NewValidBlock createEmptyInstance() => create();
@@ -327,40 +290,34 @@ class NewValidBlock extends $pb.GeneratedMessage {
   void clearIsCommit() => clearField(5);
 }
 
+/// Proposal is sent when a new block is proposed.
 class Proposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Proposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aOM<$0.Proposal>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposal',
-        subBuilder: $0.Proposal.create)
-    ..hasRequiredFields = false;
-
-  Proposal._() : super();
   factory Proposal({
     $0.Proposal? proposal,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposal != null) {
-      _result.proposal = proposal;
+      $result.proposal = proposal;
     }
-    return _result;
+    return $result;
   }
+  Proposal._() : super();
   factory Proposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Proposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Proposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aOM<$0.Proposal>(1, _omitFieldNames ? '' : 'proposal',
+        subBuilder: $0.Proposal.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -369,9 +326,10 @@ class Proposal extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Proposal copyWith(void Function(Proposal) updates) =>
-      super.copyWith((message) => updates(message as Proposal))
-          as Proposal; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Proposal)) as Proposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Proposal create() => Proposal._();
   Proposal createEmptyInstance() => create();
@@ -396,59 +354,45 @@ class Proposal extends $pb.GeneratedMessage {
   $0.Proposal ensureProposal() => $_ensure(0);
 }
 
+/// ProposalPOL is sent when a previous proposal is re-proposed.
 class ProposalPOL extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ProposalPOL',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalPolRound',
-        $pb.PbFieldType.O3)
-    ..aOM<$1.BitArray>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalPol',
-        subBuilder: $1.BitArray.create)
-    ..hasRequiredFields = false;
-
-  ProposalPOL._() : super();
   factory ProposalPOL({
     $fixnum.Int64? height,
     $core.int? proposalPolRound,
     $1.BitArray? proposalPol,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (proposalPolRound != null) {
-      _result.proposalPolRound = proposalPolRound;
+      $result.proposalPolRound = proposalPolRound;
     }
     if (proposalPol != null) {
-      _result.proposalPol = proposalPol;
+      $result.proposalPol = proposalPol;
     }
-    return _result;
+    return $result;
   }
+  ProposalPOL._() : super();
   factory ProposalPOL.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ProposalPOL.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ProposalPOL',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..a<$core.int>(
+        2, _omitFieldNames ? '' : 'proposalPolRound', $pb.PbFieldType.O3)
+    ..aOM<$1.BitArray>(3, _omitFieldNames ? '' : 'proposalPol',
+        subBuilder: $1.BitArray.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -458,8 +402,10 @@ class ProposalPOL extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ProposalPOL copyWith(void Function(ProposalPOL) updates) =>
       super.copyWith((message) => updates(message as ProposalPOL))
-          as ProposalPOL; // ignore: deprecated_member_use
+          as ProposalPOL;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ProposalPOL create() => ProposalPOL._();
   ProposalPOL createEmptyInstance() => create();
@@ -508,59 +454,43 @@ class ProposalPOL extends $pb.GeneratedMessage {
   $1.BitArray ensureProposalPol() => $_ensure(2);
 }
 
+/// BlockPart is sent when gossipping a piece of the proposed block.
 class BlockPart extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BlockPart',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.O3)
-    ..aOM<$0.Part>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'part',
-        subBuilder: $0.Part.create)
-    ..hasRequiredFields = false;
-
-  BlockPart._() : super();
   factory BlockPart({
     $fixnum.Int64? height,
     $core.int? round,
     $0.Part? part,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (part != null) {
-      _result.part = part;
+      $result.part = part;
     }
-    return _result;
+    return $result;
   }
+  BlockPart._() : super();
   factory BlockPart.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BlockPart.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BlockPart',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'round', $pb.PbFieldType.O3)
+    ..aOM<$0.Part>(3, _omitFieldNames ? '' : 'part', subBuilder: $0.Part.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -569,9 +499,10 @@ class BlockPart extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   BlockPart copyWith(void Function(BlockPart) updates) =>
-      super.copyWith((message) => updates(message as BlockPart))
-          as BlockPart; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as BlockPart)) as BlockPart;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BlockPart create() => BlockPart._();
   BlockPart createEmptyInstance() => create();
@@ -620,40 +551,33 @@ class BlockPart extends $pb.GeneratedMessage {
   $0.Part ensurePart() => $_ensure(2);
 }
 
+/// Vote is sent when voting for a proposal (or lack thereof).
 class Vote extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Vote',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aOM<$0.Vote>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vote',
-        subBuilder: $0.Vote.create)
-    ..hasRequiredFields = false;
-
-  Vote._() : super();
   factory Vote({
     $0.Vote? vote,
   }) {
-    final _result = create();
+    final $result = create();
     if (vote != null) {
-      _result.vote = vote;
+      $result.vote = vote;
     }
-    return _result;
+    return $result;
   }
+  Vote._() : super();
   factory Vote.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Vote.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Vote',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aOM<$0.Vote>(1, _omitFieldNames ? '' : 'vote', subBuilder: $0.Vote.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -662,9 +586,10 @@ class Vote extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Vote copyWith(void Function(Vote) updates) =>
-      super.copyWith((message) => updates(message as Vote))
-          as Vote; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Vote)) as Vote;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Vote create() => Vote._();
   Vote createEmptyInstance() => create();
@@ -689,72 +614,51 @@ class Vote extends $pb.GeneratedMessage {
   $0.Vote ensureVote() => $_ensure(0);
 }
 
+/// HasVote is sent to indicate that a particular vote has been received.
 class HasVote extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'HasVote',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.O3)
-    ..e<$0.SignedMsgType>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'type',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $0.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
-        valueOf: $0.SignedMsgType.valueOf,
-        enumValues: $0.SignedMsgType.values)
-    ..a<$core.int>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'index',
-        $pb.PbFieldType.O3)
-    ..hasRequiredFields = false;
-
-  HasVote._() : super();
   factory HasVote({
     $fixnum.Int64? height,
     $core.int? round,
     $0.SignedMsgType? type,
     $core.int? index,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (index != null) {
-      _result.index = index;
+      $result.index = index;
     }
-    return _result;
+    return $result;
   }
+  HasVote._() : super();
   factory HasVote.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory HasVote.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HasVote',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'round', $pb.PbFieldType.O3)
+    ..e<$0.SignedMsgType>(3, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE,
+        defaultOrMaker: $0.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
+        valueOf: $0.SignedMsgType.valueOf,
+        enumValues: $0.SignedMsgType.values)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'index', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -763,9 +667,10 @@ class HasVote extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   HasVote copyWith(void Function(HasVote) updates) =>
-      super.copyWith((message) => updates(message as HasVote))
-          as HasVote; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as HasVote)) as HasVote;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static HasVote create() => HasVote._();
   HasVote createEmptyInstance() => create();
@@ -824,72 +729,52 @@ class HasVote extends $pb.GeneratedMessage {
   void clearIndex() => clearField(4);
 }
 
+/// VoteSetMaj23 is sent to indicate that a given BlockID has seen +2/3 votes.
 class VoteSetMaj23 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'VoteSetMaj23',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.O3)
-    ..e<$0.SignedMsgType>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'type',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $0.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
-        valueOf: $0.SignedMsgType.valueOf,
-        enumValues: $0.SignedMsgType.values)
-    ..aOM<$0.BlockID>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockId',
-        subBuilder: $0.BlockID.create)
-    ..hasRequiredFields = false;
-
-  VoteSetMaj23._() : super();
   factory VoteSetMaj23({
     $fixnum.Int64? height,
     $core.int? round,
     $0.SignedMsgType? type,
     $0.BlockID? blockId,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (blockId != null) {
-      _result.blockId = blockId;
+      $result.blockId = blockId;
     }
-    return _result;
+    return $result;
   }
+  VoteSetMaj23._() : super();
   factory VoteSetMaj23.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory VoteSetMaj23.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VoteSetMaj23',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'round', $pb.PbFieldType.O3)
+    ..e<$0.SignedMsgType>(3, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE,
+        defaultOrMaker: $0.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
+        valueOf: $0.SignedMsgType.valueOf,
+        enumValues: $0.SignedMsgType.values)
+    ..aOM<$0.BlockID>(4, _omitFieldNames ? '' : 'blockId',
+        subBuilder: $0.BlockID.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -899,8 +784,10 @@ class VoteSetMaj23 extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   VoteSetMaj23 copyWith(void Function(VoteSetMaj23) updates) =>
       super.copyWith((message) => updates(message as VoteSetMaj23))
-          as VoteSetMaj23; // ignore: deprecated_member_use
+          as VoteSetMaj23;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static VoteSetMaj23 create() => VoteSetMaj23._();
   VoteSetMaj23 createEmptyInstance() => create();
@@ -962,51 +849,8 @@ class VoteSetMaj23 extends $pb.GeneratedMessage {
   $0.BlockID ensureBlockId() => $_ensure(3);
 }
 
+/// VoteSetBits is sent to communicate the bit-array of votes seen for the BlockID.
 class VoteSetBits extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'VoteSetBits',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.O3)
-    ..e<$0.SignedMsgType>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'type',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $0.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
-        valueOf: $0.SignedMsgType.valueOf,
-        enumValues: $0.SignedMsgType.values)
-    ..aOM<$0.BlockID>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockId',
-        subBuilder: $0.BlockID.create)
-    ..aOM<$1.BitArray>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votes',
-        subBuilder: $1.BitArray.create)
-    ..hasRequiredFields = false;
-
-  VoteSetBits._() : super();
   factory VoteSetBits({
     $fixnum.Int64? height,
     $core.int? round,
@@ -1014,30 +858,49 @@ class VoteSetBits extends $pb.GeneratedMessage {
     $0.BlockID? blockId,
     $1.BitArray? votes,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (blockId != null) {
-      _result.blockId = blockId;
+      $result.blockId = blockId;
     }
     if (votes != null) {
-      _result.votes = votes;
+      $result.votes = votes;
     }
-    return _result;
+    return $result;
   }
+  VoteSetBits._() : super();
   factory VoteSetBits.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory VoteSetBits.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VoteSetBits',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'round', $pb.PbFieldType.O3)
+    ..e<$0.SignedMsgType>(3, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE,
+        defaultOrMaker: $0.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
+        valueOf: $0.SignedMsgType.valueOf,
+        enumValues: $0.SignedMsgType.values)
+    ..aOM<$0.BlockID>(4, _omitFieldNames ? '' : 'blockId',
+        subBuilder: $0.BlockID.create)
+    ..aOM<$1.BitArray>(5, _omitFieldNames ? '' : 'votes',
+        subBuilder: $1.BitArray.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1047,8 +910,10 @@ class VoteSetBits extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   VoteSetBits copyWith(void Function(VoteSetBits) updates) =>
       super.copyWith((message) => updates(message as VoteSetBits))
-          as VoteSetBits; // ignore: deprecated_member_use
+          as VoteSetBits;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static VoteSetBits create() => VoteSetBits._();
   VoteSetBits createEmptyInstance() => create();
@@ -1137,6 +1002,55 @@ enum Message_Sum {
 }
 
 class Message extends $pb.GeneratedMessage {
+  factory Message({
+    NewRoundStep? newRoundStep,
+    NewValidBlock? newValidBlock,
+    Proposal? proposal,
+    ProposalPOL? proposalPol,
+    BlockPart? blockPart,
+    Vote? vote,
+    HasVote? hasVote_7,
+    VoteSetMaj23? voteSetMaj23,
+    VoteSetBits? voteSetBits,
+  }) {
+    final $result = create();
+    if (newRoundStep != null) {
+      $result.newRoundStep = newRoundStep;
+    }
+    if (newValidBlock != null) {
+      $result.newValidBlock = newValidBlock;
+    }
+    if (proposal != null) {
+      $result.proposal = proposal;
+    }
+    if (proposalPol != null) {
+      $result.proposalPol = proposalPol;
+    }
+    if (blockPart != null) {
+      $result.blockPart = blockPart;
+    }
+    if (vote != null) {
+      $result.vote = vote;
+    }
+    if (hasVote_7 != null) {
+      $result.hasVote_7 = hasVote_7;
+    }
+    if (voteSetMaj23 != null) {
+      $result.voteSetMaj23 = voteSetMaj23;
+    }
+    if (voteSetBits != null) {
+      $result.voteSetBits = voteSetBits;
+    }
+    return $result;
+  }
+  Message._() : super();
+  factory Message.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Message.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, Message_Sum> _Message_SumByTag = {
     1: Message_Sum.newRoundStep,
     2: Message_Sum.newValidBlock,
@@ -1150,119 +1064,30 @@ class Message extends $pb.GeneratedMessage {
     0: Message_Sum.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Message',
+      _omitMessageNames ? '' : 'Message',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
+          _omitMessageNames ? '' : 'tendermint.consensus'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4, 5, 6, 7, 8, 9])
-    ..aOM<NewRoundStep>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'newRoundStep',
+    ..aOM<NewRoundStep>(1, _omitFieldNames ? '' : 'newRoundStep',
         subBuilder: NewRoundStep.create)
-    ..aOM<NewValidBlock>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'newValidBlock',
+    ..aOM<NewValidBlock>(2, _omitFieldNames ? '' : 'newValidBlock',
         subBuilder: NewValidBlock.create)
-    ..aOM<Proposal>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposal',
+    ..aOM<Proposal>(3, _omitFieldNames ? '' : 'proposal',
         subBuilder: Proposal.create)
-    ..aOM<ProposalPOL>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalPol',
+    ..aOM<ProposalPOL>(4, _omitFieldNames ? '' : 'proposalPol',
         subBuilder: ProposalPOL.create)
-    ..aOM<BlockPart>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockPart',
+    ..aOM<BlockPart>(5, _omitFieldNames ? '' : 'blockPart',
         subBuilder: BlockPart.create)
-    ..aOM<Vote>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vote',
-        subBuilder: Vote.create)
-    ..aOM<HasVote>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hasVote',
+    ..aOM<Vote>(6, _omitFieldNames ? '' : 'vote', subBuilder: Vote.create)
+    ..aOM<HasVote>(7, _omitFieldNames ? '' : 'hasVote',
         subBuilder: HasVote.create)
-    ..aOM<VoteSetMaj23>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voteSetMaj23',
+    ..aOM<VoteSetMaj23>(8, _omitFieldNames ? '' : 'voteSetMaj23',
         subBuilder: VoteSetMaj23.create)
-    ..aOM<VoteSetBits>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voteSetBits',
+    ..aOM<VoteSetBits>(9, _omitFieldNames ? '' : 'voteSetBits',
         subBuilder: VoteSetBits.create)
     ..hasRequiredFields = false;
 
-  Message._() : super();
-  factory Message({
-    NewRoundStep? newRoundStep,
-    NewValidBlock? newValidBlock,
-    Proposal? proposal,
-    ProposalPOL? proposalPol,
-    BlockPart? blockPart,
-    Vote? vote,
-    HasVote? hasVote_7,
-    VoteSetMaj23? voteSetMaj23,
-    VoteSetBits? voteSetBits,
-  }) {
-    final _result = create();
-    if (newRoundStep != null) {
-      _result.newRoundStep = newRoundStep;
-    }
-    if (newValidBlock != null) {
-      _result.newValidBlock = newValidBlock;
-    }
-    if (proposal != null) {
-      _result.proposal = proposal;
-    }
-    if (proposalPol != null) {
-      _result.proposalPol = proposalPol;
-    }
-    if (blockPart != null) {
-      _result.blockPart = blockPart;
-    }
-    if (vote != null) {
-      _result.vote = vote;
-    }
-    if (hasVote_7 != null) {
-      _result.hasVote_7 = hasVote_7;
-    }
-    if (voteSetMaj23 != null) {
-      _result.voteSetMaj23 = voteSetMaj23;
-    }
-    if (voteSetBits != null) {
-      _result.voteSetBits = voteSetBits;
-    }
-    return _result;
-  }
-  factory Message.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Message.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1271,9 +1096,10 @@ class Message extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Message copyWith(void Function(Message) updates) =>
-      super.copyWith((message) => updates(message as Message))
-          as Message; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Message)) as Message;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Message create() => Message._();
   Message createEmptyInstance() => create();
@@ -1412,3 +1238,7 @@ class Message extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   VoteSetBits ensureVoteSetBits() => $_ensure(8);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

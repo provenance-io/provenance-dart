@@ -1,61 +1,26 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/connection/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'connection.pb.dart' as $1;
 import '../../../../google/protobuf/any.pb.dart' as $2;
 import '../../client/v1/client.pb.dart' as $3;
+import 'connection.pb.dart' as $1;
 
+/// MsgConnectionOpenInit defines the msg sent by an account on Chain A to
+/// initialize a connection with Chain B.
 class MsgConnectionOpenInit extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgConnectionOpenInit',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..aOM<$1.Counterparty>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterparty',
-        subBuilder: $1.Counterparty.create)
-    ..aOM<$1.Version>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version',
-        subBuilder: $1.Version.create)
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delayPeriod',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgConnectionOpenInit._() : super();
   factory MsgConnectionOpenInit({
     $core.String? clientId,
     $1.Counterparty? counterparty,
@@ -63,30 +28,48 @@ class MsgConnectionOpenInit extends $pb.GeneratedMessage {
     $fixnum.Int64? delayPeriod,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (counterparty != null) {
-      _result.counterparty = counterparty;
+      $result.counterparty = counterparty;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (delayPeriod != null) {
-      _result.delayPeriod = delayPeriod;
+      $result.delayPeriod = delayPeriod;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgConnectionOpenInit._() : super();
   factory MsgConnectionOpenInit.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgConnectionOpenInit.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgConnectionOpenInit',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..aOM<$1.Counterparty>(2, _omitFieldNames ? '' : 'counterparty',
+        subBuilder: $1.Counterparty.create)
+    ..aOM<$1.Version>(3, _omitFieldNames ? '' : 'version',
+        subBuilder: $1.Version.create)
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'delayPeriod', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(5, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -98,8 +81,10 @@ class MsgConnectionOpenInit extends $pb.GeneratedMessage {
   MsgConnectionOpenInit copyWith(
           void Function(MsgConnectionOpenInit) updates) =>
       super.copyWith((message) => updates(message as MsgConnectionOpenInit))
-          as MsgConnectionOpenInit; // ignore: deprecated_member_use
+          as MsgConnectionOpenInit;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgConnectionOpenInit create() => MsgConnectionOpenInit._();
   MsgConnectionOpenInit createEmptyInstance() => create();
@@ -175,26 +160,25 @@ class MsgConnectionOpenInit extends $pb.GeneratedMessage {
   void clearSigner() => clearField(5);
 }
 
+/// MsgConnectionOpenInitResponse defines the Msg/ConnectionOpenInit response
+/// type.
 class MsgConnectionOpenInitResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgConnectionOpenInitResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgConnectionOpenInitResponse._() : super();
   factory MsgConnectionOpenInitResponse() => create();
+  MsgConnectionOpenInitResponse._() : super();
   factory MsgConnectionOpenInitResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgConnectionOpenInitResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgConnectionOpenInitResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -207,8 +191,10 @@ class MsgConnectionOpenInitResponse extends $pb.GeneratedMessage {
           void Function(MsgConnectionOpenInitResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgConnectionOpenInitResponse))
-          as MsgConnectionOpenInitResponse; // ignore: deprecated_member_use
+          as MsgConnectionOpenInitResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgConnectionOpenInitResponse create() =>
       MsgConnectionOpenInitResponse._();
@@ -221,90 +207,9 @@ class MsgConnectionOpenInitResponse extends $pb.GeneratedMessage {
   static MsgConnectionOpenInitResponse? _defaultInstance;
 }
 
+/// MsgConnectionOpenTry defines a msg sent by a Relayer to try to open a
+/// connection on Chain B.
 class MsgConnectionOpenTry extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgConnectionOpenTry',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'previousConnectionId')
-    ..aOM<$2.Any>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientState',
-        subBuilder: $2.Any.create)
-    ..aOM<$1.Counterparty>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterparty',
-        subBuilder: $1.Counterparty.create)
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delayPeriod',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..pc<$1.Version>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterpartyVersions',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Version.create)
-    ..aOM<$3.Height>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $3.Height.create)
-    ..a<$core.List<$core.int>>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofInit',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofClient',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofConsensus',
-        $pb.PbFieldType.OY)
-    ..aOM<$3.Height>(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusHeight',
-        subBuilder: $3.Height.create)
-    ..aOS(
-        12,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgConnectionOpenTry._() : super();
   factory MsgConnectionOpenTry({
     $core.String? clientId,
     @$core.Deprecated('This field is deprecated.')
@@ -320,52 +225,84 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
     $3.Height? consensusHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (previousConnectionId != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.previousConnectionId = previousConnectionId;
+      $result.previousConnectionId = previousConnectionId;
     }
     if (clientState != null) {
-      _result.clientState = clientState;
+      $result.clientState = clientState;
     }
     if (counterparty != null) {
-      _result.counterparty = counterparty;
+      $result.counterparty = counterparty;
     }
     if (delayPeriod != null) {
-      _result.delayPeriod = delayPeriod;
+      $result.delayPeriod = delayPeriod;
     }
     if (counterpartyVersions != null) {
-      _result.counterpartyVersions.addAll(counterpartyVersions);
+      $result.counterpartyVersions.addAll(counterpartyVersions);
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (proofInit != null) {
-      _result.proofInit = proofInit;
+      $result.proofInit = proofInit;
     }
     if (proofClient != null) {
-      _result.proofClient = proofClient;
+      $result.proofClient = proofClient;
     }
     if (proofConsensus != null) {
-      _result.proofConsensus = proofConsensus;
+      $result.proofConsensus = proofConsensus;
     }
     if (consensusHeight != null) {
-      _result.consensusHeight = consensusHeight;
+      $result.consensusHeight = consensusHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgConnectionOpenTry._() : super();
   factory MsgConnectionOpenTry.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgConnectionOpenTry.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgConnectionOpenTry',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..aOS(2, _omitFieldNames ? '' : 'previousConnectionId')
+    ..aOM<$2.Any>(3, _omitFieldNames ? '' : 'clientState',
+        subBuilder: $2.Any.create)
+    ..aOM<$1.Counterparty>(4, _omitFieldNames ? '' : 'counterparty',
+        subBuilder: $1.Counterparty.create)
+    ..a<$fixnum.Int64>(
+        5, _omitFieldNames ? '' : 'delayPeriod', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pc<$1.Version>(
+        6, _omitFieldNames ? '' : 'counterpartyVersions', $pb.PbFieldType.PM,
+        subBuilder: $1.Version.create)
+    ..aOM<$3.Height>(7, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $3.Height.create)
+    ..a<$core.List<$core.int>>(
+        8, _omitFieldNames ? '' : 'proofInit', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        9, _omitFieldNames ? '' : 'proofClient', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        10, _omitFieldNames ? '' : 'proofConsensus', $pb.PbFieldType.OY)
+    ..aOM<$3.Height>(11, _omitFieldNames ? '' : 'consensusHeight',
+        subBuilder: $3.Height.create)
+    ..aOS(12, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -376,8 +313,10 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgConnectionOpenTry copyWith(void Function(MsgConnectionOpenTry) updates) =>
       super.copyWith((message) => updates(message as MsgConnectionOpenTry))
-          as MsgConnectionOpenTry; // ignore: deprecated_member_use
+          as MsgConnectionOpenTry;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgConnectionOpenTry create() => MsgConnectionOpenTry._();
   MsgConnectionOpenTry createEmptyInstance() => create();
@@ -400,6 +339,7 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// Deprecated: this field is unused. Crossing hellos are no longer supported in core IBC.
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $core.String get previousConnectionId => $_getSZ(1);
@@ -473,6 +413,8 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $3.Height ensureProofHeight() => $_ensure(6);
 
+  /// proof of the initialization the connection on Chain A: `UNITIALIZED ->
+  /// INIT`
   @$pb.TagNumber(8)
   $core.List<$core.int> get proofInit => $_getN(7);
   @$pb.TagNumber(8)
@@ -485,6 +427,7 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearProofInit() => clearField(8);
 
+  /// proof of client state included in message
   @$pb.TagNumber(9)
   $core.List<$core.int> get proofClient => $_getN(8);
   @$pb.TagNumber(9)
@@ -497,6 +440,7 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   void clearProofClient() => clearField(9);
 
+  /// proof of client consensus state
   @$pb.TagNumber(10)
   $core.List<$core.int> get proofConsensus => $_getN(9);
   @$pb.TagNumber(10)
@@ -536,26 +480,24 @@ class MsgConnectionOpenTry extends $pb.GeneratedMessage {
   void clearSigner() => clearField(12);
 }
 
+/// MsgConnectionOpenTryResponse defines the Msg/ConnectionOpenTry response type.
 class MsgConnectionOpenTryResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgConnectionOpenTryResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgConnectionOpenTryResponse._() : super();
   factory MsgConnectionOpenTryResponse() => create();
+  MsgConnectionOpenTryResponse._() : super();
   factory MsgConnectionOpenTryResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgConnectionOpenTryResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgConnectionOpenTryResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -568,8 +510,10 @@ class MsgConnectionOpenTryResponse extends $pb.GeneratedMessage {
           void Function(MsgConnectionOpenTryResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgConnectionOpenTryResponse))
-          as MsgConnectionOpenTryResponse; // ignore: deprecated_member_use
+          as MsgConnectionOpenTryResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgConnectionOpenTryResponse create() =>
       MsgConnectionOpenTryResponse._();
@@ -582,76 +526,9 @@ class MsgConnectionOpenTryResponse extends $pb.GeneratedMessage {
   static MsgConnectionOpenTryResponse? _defaultInstance;
 }
 
+/// MsgConnectionOpenAck defines a msg sent by a Relayer to Chain A to
+/// acknowledge the change of connection state to TRYOPEN on Chain B.
 class MsgConnectionOpenAck extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgConnectionOpenAck',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterpartyConnectionId')
-    ..aOM<$1.Version>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version',
-        subBuilder: $1.Version.create)
-    ..aOM<$2.Any>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientState',
-        subBuilder: $2.Any.create)
-    ..aOM<$3.Height>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $3.Height.create)
-    ..a<$core.List<$core.int>>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofTry',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofClient',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofConsensus',
-        $pb.PbFieldType.OY)
-    ..aOM<$3.Height>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusHeight',
-        subBuilder: $3.Height.create)
-    ..aOS(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgConnectionOpenAck._() : super();
   factory MsgConnectionOpenAck({
     $core.String? connectionId,
     $core.String? counterpartyConnectionId,
@@ -664,45 +541,71 @@ class MsgConnectionOpenAck extends $pb.GeneratedMessage {
     $3.Height? consensusHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
     if (counterpartyConnectionId != null) {
-      _result.counterpartyConnectionId = counterpartyConnectionId;
+      $result.counterpartyConnectionId = counterpartyConnectionId;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (clientState != null) {
-      _result.clientState = clientState;
+      $result.clientState = clientState;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (proofTry != null) {
-      _result.proofTry = proofTry;
+      $result.proofTry = proofTry;
     }
     if (proofClient != null) {
-      _result.proofClient = proofClient;
+      $result.proofClient = proofClient;
     }
     if (proofConsensus != null) {
-      _result.proofConsensus = proofConsensus;
+      $result.proofConsensus = proofConsensus;
     }
     if (consensusHeight != null) {
-      _result.consensusHeight = consensusHeight;
+      $result.consensusHeight = consensusHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgConnectionOpenAck._() : super();
   factory MsgConnectionOpenAck.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgConnectionOpenAck.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgConnectionOpenAck',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'connectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'counterpartyConnectionId')
+    ..aOM<$1.Version>(3, _omitFieldNames ? '' : 'version',
+        subBuilder: $1.Version.create)
+    ..aOM<$2.Any>(4, _omitFieldNames ? '' : 'clientState',
+        subBuilder: $2.Any.create)
+    ..aOM<$3.Height>(5, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $3.Height.create)
+    ..a<$core.List<$core.int>>(
+        6, _omitFieldNames ? '' : 'proofTry', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        7, _omitFieldNames ? '' : 'proofClient', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        8, _omitFieldNames ? '' : 'proofConsensus', $pb.PbFieldType.OY)
+    ..aOM<$3.Height>(9, _omitFieldNames ? '' : 'consensusHeight',
+        subBuilder: $3.Height.create)
+    ..aOS(10, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -713,8 +616,10 @@ class MsgConnectionOpenAck extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgConnectionOpenAck copyWith(void Function(MsgConnectionOpenAck) updates) =>
       super.copyWith((message) => updates(message as MsgConnectionOpenAck))
-          as MsgConnectionOpenAck; // ignore: deprecated_member_use
+          as MsgConnectionOpenAck;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgConnectionOpenAck create() => MsgConnectionOpenAck._();
   MsgConnectionOpenAck createEmptyInstance() => create();
@@ -791,6 +696,8 @@ class MsgConnectionOpenAck extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $3.Height ensureProofHeight() => $_ensure(4);
 
+  /// proof of the initialization the connection on Chain B: `UNITIALIZED ->
+  /// TRYOPEN`
   @$pb.TagNumber(6)
   $core.List<$core.int> get proofTry => $_getN(5);
   @$pb.TagNumber(6)
@@ -803,6 +710,7 @@ class MsgConnectionOpenAck extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearProofTry() => clearField(6);
 
+  /// proof of client state included in message
   @$pb.TagNumber(7)
   $core.List<$core.int> get proofClient => $_getN(6);
   @$pb.TagNumber(7)
@@ -815,6 +723,7 @@ class MsgConnectionOpenAck extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearProofClient() => clearField(7);
 
+  /// proof of client consensus state
   @$pb.TagNumber(8)
   $core.List<$core.int> get proofConsensus => $_getN(7);
   @$pb.TagNumber(8)
@@ -854,26 +763,24 @@ class MsgConnectionOpenAck extends $pb.GeneratedMessage {
   void clearSigner() => clearField(10);
 }
 
+/// MsgConnectionOpenAckResponse defines the Msg/ConnectionOpenAck response type.
 class MsgConnectionOpenAckResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgConnectionOpenAckResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgConnectionOpenAckResponse._() : super();
   factory MsgConnectionOpenAckResponse() => create();
+  MsgConnectionOpenAckResponse._() : super();
   factory MsgConnectionOpenAckResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgConnectionOpenAckResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgConnectionOpenAckResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -886,8 +793,10 @@ class MsgConnectionOpenAckResponse extends $pb.GeneratedMessage {
           void Function(MsgConnectionOpenAckResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgConnectionOpenAckResponse))
-          as MsgConnectionOpenAckResponse; // ignore: deprecated_member_use
+          as MsgConnectionOpenAckResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgConnectionOpenAckResponse create() =>
       MsgConnectionOpenAckResponse._();
@@ -900,68 +809,51 @@ class MsgConnectionOpenAckResponse extends $pb.GeneratedMessage {
   static MsgConnectionOpenAckResponse? _defaultInstance;
 }
 
+/// MsgConnectionOpenConfirm defines a msg sent by a Relayer to Chain B to
+/// acknowledge the change of connection state to OPEN on Chain A.
 class MsgConnectionOpenConfirm extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgConnectionOpenConfirm',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofAck',
-        $pb.PbFieldType.OY)
-    ..aOM<$3.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $3.Height.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgConnectionOpenConfirm._() : super();
   factory MsgConnectionOpenConfirm({
     $core.String? connectionId,
     $core.List<$core.int>? proofAck,
     $3.Height? proofHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
     if (proofAck != null) {
-      _result.proofAck = proofAck;
+      $result.proofAck = proofAck;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgConnectionOpenConfirm._() : super();
   factory MsgConnectionOpenConfirm.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgConnectionOpenConfirm.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgConnectionOpenConfirm',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'connectionId')
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proofAck', $pb.PbFieldType.OY)
+    ..aOM<$3.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $3.Height.create)
+    ..aOS(4, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -973,8 +865,10 @@ class MsgConnectionOpenConfirm extends $pb.GeneratedMessage {
   MsgConnectionOpenConfirm copyWith(
           void Function(MsgConnectionOpenConfirm) updates) =>
       super.copyWith((message) => updates(message as MsgConnectionOpenConfirm))
-          as MsgConnectionOpenConfirm; // ignore: deprecated_member_use
+          as MsgConnectionOpenConfirm;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgConnectionOpenConfirm create() => MsgConnectionOpenConfirm._();
   MsgConnectionOpenConfirm createEmptyInstance() => create();
@@ -997,6 +891,7 @@ class MsgConnectionOpenConfirm extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearConnectionId() => clearField(1);
 
+  /// proof for the change of the connection state on Chain A: `INIT -> OPEN`
   @$pb.TagNumber(2)
   $core.List<$core.int> get proofAck => $_getN(1);
   @$pb.TagNumber(2)
@@ -1036,26 +931,25 @@ class MsgConnectionOpenConfirm extends $pb.GeneratedMessage {
   void clearSigner() => clearField(4);
 }
 
+/// MsgConnectionOpenConfirmResponse defines the Msg/ConnectionOpenConfirm
+/// response type.
 class MsgConnectionOpenConfirmResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgConnectionOpenConfirmResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgConnectionOpenConfirmResponse._() : super();
   factory MsgConnectionOpenConfirmResponse() => create();
+  MsgConnectionOpenConfirmResponse._() : super();
   factory MsgConnectionOpenConfirmResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgConnectionOpenConfirmResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgConnectionOpenConfirmResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1068,8 +962,10 @@ class MsgConnectionOpenConfirmResponse extends $pb.GeneratedMessage {
           void Function(MsgConnectionOpenConfirmResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgConnectionOpenConfirmResponse))
-          as MsgConnectionOpenConfirmResponse; // ignore: deprecated_member_use
+          as MsgConnectionOpenConfirmResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgConnectionOpenConfirmResponse create() =>
       MsgConnectionOpenConfirmResponse._();
@@ -1082,3 +978,7 @@ class MsgConnectionOpenConfirmResponse extends $pb.GeneratedMessage {
           create);
   static MsgConnectionOpenConfirmResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

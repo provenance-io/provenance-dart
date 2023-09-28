@@ -1,72 +1,26 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/staking/v1beta1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'staking.pb.dart' as $1;
 import '../../../google/protobuf/any.pb.dart' as $2;
-import '../../base/v1beta1/coin.pb.dart' as $3;
 import '../../../google/protobuf/timestamp.pb.dart' as $4;
+import '../../base/v1beta1/coin.pb.dart' as $3;
+import 'staking.pb.dart' as $1;
 
+/// MsgCreateValidator defines a SDK message for creating a new validator.
 class MsgCreateValidator extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateValidator',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Description>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description',
-        subBuilder: $1.Description.create)
-    ..aOM<$1.CommissionRates>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'commission',
-        subBuilder: $1.CommissionRates.create)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minSelfDelegation')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegatorAddress')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorAddress')
-    ..aOM<$2.Any>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pubkey',
-        subBuilder: $2.Any.create)
-    ..aOM<$3.Coin>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        subBuilder: $3.Coin.create)
-    ..hasRequiredFields = false;
-
-  MsgCreateValidator._() : super();
   factory MsgCreateValidator({
     $1.Description? description,
     $1.CommissionRates? commission,
@@ -76,36 +30,55 @@ class MsgCreateValidator extends $pb.GeneratedMessage {
     $2.Any? pubkey,
     $3.Coin? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (commission != null) {
-      _result.commission = commission;
+      $result.commission = commission;
     }
     if (minSelfDelegation != null) {
-      _result.minSelfDelegation = minSelfDelegation;
+      $result.minSelfDelegation = minSelfDelegation;
     }
     if (delegatorAddress != null) {
-      _result.delegatorAddress = delegatorAddress;
+      $result.delegatorAddress = delegatorAddress;
     }
     if (validatorAddress != null) {
-      _result.validatorAddress = validatorAddress;
+      $result.validatorAddress = validatorAddress;
     }
     if (pubkey != null) {
-      _result.pubkey = pubkey;
+      $result.pubkey = pubkey;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateValidator._() : super();
   factory MsgCreateValidator.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateValidator.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateValidator',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Description>(1, _omitFieldNames ? '' : 'description',
+        subBuilder: $1.Description.create)
+    ..aOM<$1.CommissionRates>(2, _omitFieldNames ? '' : 'commission',
+        subBuilder: $1.CommissionRates.create)
+    ..aOS(3, _omitFieldNames ? '' : 'minSelfDelegation')
+    ..aOS(4, _omitFieldNames ? '' : 'delegatorAddress')
+    ..aOS(5, _omitFieldNames ? '' : 'validatorAddress')
+    ..aOM<$2.Any>(6, _omitFieldNames ? '' : 'pubkey', subBuilder: $2.Any.create)
+    ..aOM<$3.Coin>(7, _omitFieldNames ? '' : 'value',
+        subBuilder: $3.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -115,8 +88,10 @@ class MsgCreateValidator extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgCreateValidator copyWith(void Function(MsgCreateValidator) updates) =>
       super.copyWith((message) => updates(message as MsgCreateValidator))
-          as MsgCreateValidator; // ignore: deprecated_member_use
+          as MsgCreateValidator;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateValidator create() => MsgCreateValidator._();
   MsgCreateValidator createEmptyInstance() => create();
@@ -220,26 +195,24 @@ class MsgCreateValidator extends $pb.GeneratedMessage {
   $3.Coin ensureValue() => $_ensure(6);
 }
 
+/// MsgCreateValidatorResponse defines the Msg/CreateValidator response type.
 class MsgCreateValidatorResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateValidatorResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgCreateValidatorResponse._() : super();
   factory MsgCreateValidatorResponse() => create();
+  MsgCreateValidatorResponse._() : super();
   factory MsgCreateValidatorResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateValidatorResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateValidatorResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -252,8 +225,10 @@ class MsgCreateValidatorResponse extends $pb.GeneratedMessage {
           void Function(MsgCreateValidatorResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCreateValidatorResponse))
-          as MsgCreateValidatorResponse; // ignore: deprecated_member_use
+          as MsgCreateValidatorResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateValidatorResponse create() => MsgCreateValidatorResponse._();
   MsgCreateValidatorResponse createEmptyInstance() => create();
@@ -265,67 +240,49 @@ class MsgCreateValidatorResponse extends $pb.GeneratedMessage {
   static MsgCreateValidatorResponse? _defaultInstance;
 }
 
+/// MsgEditValidator defines a SDK message for editing an existing validator.
 class MsgEditValidator extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgEditValidator',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Description>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description',
-        subBuilder: $1.Description.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorAddress')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'commissionRate')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minSelfDelegation')
-    ..hasRequiredFields = false;
-
-  MsgEditValidator._() : super();
   factory MsgEditValidator({
     $1.Description? description,
     $core.String? validatorAddress,
     $core.String? commissionRate,
     $core.String? minSelfDelegation,
   }) {
-    final _result = create();
+    final $result = create();
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (validatorAddress != null) {
-      _result.validatorAddress = validatorAddress;
+      $result.validatorAddress = validatorAddress;
     }
     if (commissionRate != null) {
-      _result.commissionRate = commissionRate;
+      $result.commissionRate = commissionRate;
     }
     if (minSelfDelegation != null) {
-      _result.minSelfDelegation = minSelfDelegation;
+      $result.minSelfDelegation = minSelfDelegation;
     }
-    return _result;
+    return $result;
   }
+  MsgEditValidator._() : super();
   factory MsgEditValidator.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgEditValidator.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgEditValidator',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Description>(1, _omitFieldNames ? '' : 'description',
+        subBuilder: $1.Description.create)
+    ..aOS(2, _omitFieldNames ? '' : 'validatorAddress')
+    ..aOS(3, _omitFieldNames ? '' : 'commissionRate')
+    ..aOS(4, _omitFieldNames ? '' : 'minSelfDelegation')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -335,8 +292,10 @@ class MsgEditValidator extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgEditValidator copyWith(void Function(MsgEditValidator) updates) =>
       super.copyWith((message) => updates(message as MsgEditValidator))
-          as MsgEditValidator; // ignore: deprecated_member_use
+          as MsgEditValidator;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgEditValidator create() => MsgEditValidator._();
   MsgEditValidator createEmptyInstance() => create();
@@ -373,6 +332,10 @@ class MsgEditValidator extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearValidatorAddress() => clearField(2);
 
+  /// We pass a reference to the new commission rate and min self delegation as
+  /// it's not mandatory to update. If not updated, the deserialized rate will be
+  /// zero with no way to distinguish if an update was intended.
+  /// REF: #2373
   @$pb.TagNumber(3)
   $core.String get commissionRate => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -398,26 +361,24 @@ class MsgEditValidator extends $pb.GeneratedMessage {
   void clearMinSelfDelegation() => clearField(4);
 }
 
+/// MsgEditValidatorResponse defines the Msg/EditValidator response type.
 class MsgEditValidatorResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgEditValidatorResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgEditValidatorResponse._() : super();
   factory MsgEditValidatorResponse() => create();
+  MsgEditValidatorResponse._() : super();
   factory MsgEditValidatorResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgEditValidatorResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgEditValidatorResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -429,8 +390,10 @@ class MsgEditValidatorResponse extends $pb.GeneratedMessage {
   MsgEditValidatorResponse copyWith(
           void Function(MsgEditValidatorResponse) updates) =>
       super.copyWith((message) => updates(message as MsgEditValidatorResponse))
-          as MsgEditValidatorResponse; // ignore: deprecated_member_use
+          as MsgEditValidatorResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgEditValidatorResponse create() => MsgEditValidatorResponse._();
   MsgEditValidatorResponse createEmptyInstance() => create();
@@ -442,58 +405,45 @@ class MsgEditValidatorResponse extends $pb.GeneratedMessage {
   static MsgEditValidatorResponse? _defaultInstance;
 }
 
+/// MsgDelegate defines a SDK message for performing a delegation of coins
+/// from a delegator to a validator.
 class MsgDelegate extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDelegate',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegatorAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorAddress')
-    ..aOM<$3.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        subBuilder: $3.Coin.create)
-    ..hasRequiredFields = false;
-
-  MsgDelegate._() : super();
   factory MsgDelegate({
     $core.String? delegatorAddress,
     $core.String? validatorAddress,
     $3.Coin? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (delegatorAddress != null) {
-      _result.delegatorAddress = delegatorAddress;
+      $result.delegatorAddress = delegatorAddress;
     }
     if (validatorAddress != null) {
-      _result.validatorAddress = validatorAddress;
+      $result.validatorAddress = validatorAddress;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
-    return _result;
+    return $result;
   }
+  MsgDelegate._() : super();
   factory MsgDelegate.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDelegate.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDelegate',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'delegatorAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'validatorAddress')
+    ..aOM<$3.Coin>(3, _omitFieldNames ? '' : 'amount',
+        subBuilder: $3.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -503,8 +453,10 @@ class MsgDelegate extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgDelegate copyWith(void Function(MsgDelegate) updates) =>
       super.copyWith((message) => updates(message as MsgDelegate))
-          as MsgDelegate; // ignore: deprecated_member_use
+          as MsgDelegate;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDelegate create() => MsgDelegate._();
   MsgDelegate createEmptyInstance() => create();
@@ -553,26 +505,24 @@ class MsgDelegate extends $pb.GeneratedMessage {
   $3.Coin ensureAmount() => $_ensure(2);
 }
 
+/// MsgDelegateResponse defines the Msg/Delegate response type.
 class MsgDelegateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDelegateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDelegateResponse._() : super();
   factory MsgDelegateResponse() => create();
+  MsgDelegateResponse._() : super();
   factory MsgDelegateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDelegateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDelegateResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -582,8 +532,10 @@ class MsgDelegateResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgDelegateResponse copyWith(void Function(MsgDelegateResponse) updates) =>
       super.copyWith((message) => updates(message as MsgDelegateResponse))
-          as MsgDelegateResponse; // ignore: deprecated_member_use
+          as MsgDelegateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDelegateResponse create() => MsgDelegateResponse._();
   MsgDelegateResponse createEmptyInstance() => create();
@@ -595,67 +547,50 @@ class MsgDelegateResponse extends $pb.GeneratedMessage {
   static MsgDelegateResponse? _defaultInstance;
 }
 
+/// MsgBeginRedelegate defines a SDK message for performing a redelegation
+/// of coins from a delegator and source validator to a destination validator.
 class MsgBeginRedelegate extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgBeginRedelegate',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegatorAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorSrcAddress')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorDstAddress')
-    ..aOM<$3.Coin>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        subBuilder: $3.Coin.create)
-    ..hasRequiredFields = false;
-
-  MsgBeginRedelegate._() : super();
   factory MsgBeginRedelegate({
     $core.String? delegatorAddress,
     $core.String? validatorSrcAddress,
     $core.String? validatorDstAddress,
     $3.Coin? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (delegatorAddress != null) {
-      _result.delegatorAddress = delegatorAddress;
+      $result.delegatorAddress = delegatorAddress;
     }
     if (validatorSrcAddress != null) {
-      _result.validatorSrcAddress = validatorSrcAddress;
+      $result.validatorSrcAddress = validatorSrcAddress;
     }
     if (validatorDstAddress != null) {
-      _result.validatorDstAddress = validatorDstAddress;
+      $result.validatorDstAddress = validatorDstAddress;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
-    return _result;
+    return $result;
   }
+  MsgBeginRedelegate._() : super();
   factory MsgBeginRedelegate.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgBeginRedelegate.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgBeginRedelegate',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'delegatorAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'validatorSrcAddress')
+    ..aOS(3, _omitFieldNames ? '' : 'validatorDstAddress')
+    ..aOM<$3.Coin>(4, _omitFieldNames ? '' : 'amount',
+        subBuilder: $3.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -665,8 +600,10 @@ class MsgBeginRedelegate extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgBeginRedelegate copyWith(void Function(MsgBeginRedelegate) updates) =>
       super.copyWith((message) => updates(message as MsgBeginRedelegate))
-          as MsgBeginRedelegate; // ignore: deprecated_member_use
+          as MsgBeginRedelegate;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgBeginRedelegate create() => MsgBeginRedelegate._();
   MsgBeginRedelegate createEmptyInstance() => create();
@@ -728,40 +665,34 @@ class MsgBeginRedelegate extends $pb.GeneratedMessage {
   $3.Coin ensureAmount() => $_ensure(3);
 }
 
+/// MsgBeginRedelegateResponse defines the Msg/BeginRedelegate response type.
 class MsgBeginRedelegateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgBeginRedelegateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$4.Timestamp>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'completionTime',
-        subBuilder: $4.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  MsgBeginRedelegateResponse._() : super();
   factory MsgBeginRedelegateResponse({
     $4.Timestamp? completionTime,
   }) {
-    final _result = create();
+    final $result = create();
     if (completionTime != null) {
-      _result.completionTime = completionTime;
+      $result.completionTime = completionTime;
     }
-    return _result;
+    return $result;
   }
+  MsgBeginRedelegateResponse._() : super();
   factory MsgBeginRedelegateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgBeginRedelegateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgBeginRedelegateResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$4.Timestamp>(1, _omitFieldNames ? '' : 'completionTime',
+        subBuilder: $4.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -774,8 +705,10 @@ class MsgBeginRedelegateResponse extends $pb.GeneratedMessage {
           void Function(MsgBeginRedelegateResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgBeginRedelegateResponse))
-          as MsgBeginRedelegateResponse; // ignore: deprecated_member_use
+          as MsgBeginRedelegateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgBeginRedelegateResponse create() => MsgBeginRedelegateResponse._();
   MsgBeginRedelegateResponse createEmptyInstance() => create();
@@ -801,58 +734,45 @@ class MsgBeginRedelegateResponse extends $pb.GeneratedMessage {
   $4.Timestamp ensureCompletionTime() => $_ensure(0);
 }
 
+/// MsgUndelegate defines a SDK message for performing an undelegation from a
+/// delegate and a validator.
 class MsgUndelegate extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUndelegate',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegatorAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorAddress')
-    ..aOM<$3.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        subBuilder: $3.Coin.create)
-    ..hasRequiredFields = false;
-
-  MsgUndelegate._() : super();
   factory MsgUndelegate({
     $core.String? delegatorAddress,
     $core.String? validatorAddress,
     $3.Coin? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (delegatorAddress != null) {
-      _result.delegatorAddress = delegatorAddress;
+      $result.delegatorAddress = delegatorAddress;
     }
     if (validatorAddress != null) {
-      _result.validatorAddress = validatorAddress;
+      $result.validatorAddress = validatorAddress;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
-    return _result;
+    return $result;
   }
+  MsgUndelegate._() : super();
   factory MsgUndelegate.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUndelegate.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUndelegate',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'delegatorAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'validatorAddress')
+    ..aOM<$3.Coin>(3, _omitFieldNames ? '' : 'amount',
+        subBuilder: $3.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -862,8 +782,10 @@ class MsgUndelegate extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgUndelegate copyWith(void Function(MsgUndelegate) updates) =>
       super.copyWith((message) => updates(message as MsgUndelegate))
-          as MsgUndelegate; // ignore: deprecated_member_use
+          as MsgUndelegate;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUndelegate create() => MsgUndelegate._();
   MsgUndelegate createEmptyInstance() => create();
@@ -913,40 +835,34 @@ class MsgUndelegate extends $pb.GeneratedMessage {
   $3.Coin ensureAmount() => $_ensure(2);
 }
 
+/// MsgUndelegateResponse defines the Msg/Undelegate response type.
 class MsgUndelegateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUndelegateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$4.Timestamp>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'completionTime',
-        subBuilder: $4.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  MsgUndelegateResponse._() : super();
   factory MsgUndelegateResponse({
     $4.Timestamp? completionTime,
   }) {
-    final _result = create();
+    final $result = create();
     if (completionTime != null) {
-      _result.completionTime = completionTime;
+      $result.completionTime = completionTime;
     }
-    return _result;
+    return $result;
   }
+  MsgUndelegateResponse._() : super();
   factory MsgUndelegateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUndelegateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUndelegateResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$4.Timestamp>(1, _omitFieldNames ? '' : 'completionTime',
+        subBuilder: $4.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -958,8 +874,10 @@ class MsgUndelegateResponse extends $pb.GeneratedMessage {
   MsgUndelegateResponse copyWith(
           void Function(MsgUndelegateResponse) updates) =>
       super.copyWith((message) => updates(message as MsgUndelegateResponse))
-          as MsgUndelegateResponse; // ignore: deprecated_member_use
+          as MsgUndelegateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUndelegateResponse create() => MsgUndelegateResponse._();
   MsgUndelegateResponse createEmptyInstance() => create();
@@ -985,67 +903,51 @@ class MsgUndelegateResponse extends $pb.GeneratedMessage {
   $4.Timestamp ensureCompletionTime() => $_ensure(0);
 }
 
+///  MsgCancelUnbondingDelegation defines the SDK message for performing a cancel unbonding delegation for delegator
+///
+///  Since: cosmos-sdk 0.46
 class MsgCancelUnbondingDelegation extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCancelUnbondingDelegation',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegatorAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorAddress')
-    ..aOM<$3.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        subBuilder: $3.Coin.create)
-    ..aInt64(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'creationHeight')
-    ..hasRequiredFields = false;
-
-  MsgCancelUnbondingDelegation._() : super();
   factory MsgCancelUnbondingDelegation({
     $core.String? delegatorAddress,
     $core.String? validatorAddress,
     $3.Coin? amount,
     $fixnum.Int64? creationHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (delegatorAddress != null) {
-      _result.delegatorAddress = delegatorAddress;
+      $result.delegatorAddress = delegatorAddress;
     }
     if (validatorAddress != null) {
-      _result.validatorAddress = validatorAddress;
+      $result.validatorAddress = validatorAddress;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
     if (creationHeight != null) {
-      _result.creationHeight = creationHeight;
+      $result.creationHeight = creationHeight;
     }
-    return _result;
+    return $result;
   }
+  MsgCancelUnbondingDelegation._() : super();
   factory MsgCancelUnbondingDelegation.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCancelUnbondingDelegation.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCancelUnbondingDelegation',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'delegatorAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'validatorAddress')
+    ..aOM<$3.Coin>(3, _omitFieldNames ? '' : 'amount',
+        subBuilder: $3.Coin.create)
+    ..aInt64(4, _omitFieldNames ? '' : 'creationHeight')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1058,8 +960,10 @@ class MsgCancelUnbondingDelegation extends $pb.GeneratedMessage {
           void Function(MsgCancelUnbondingDelegation) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCancelUnbondingDelegation))
-          as MsgCancelUnbondingDelegation; // ignore: deprecated_member_use
+          as MsgCancelUnbondingDelegation;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCancelUnbondingDelegation create() =>
       MsgCancelUnbondingDelegation._();
@@ -1095,6 +999,7 @@ class MsgCancelUnbondingDelegation extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearValidatorAddress() => clearField(2);
 
+  /// amount is always less than or equal to unbonding delegation entry balance
   @$pb.TagNumber(3)
   $3.Coin get amount => $_getN(2);
   @$pb.TagNumber(3)
@@ -1109,6 +1014,7 @@ class MsgCancelUnbondingDelegation extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $3.Coin ensureAmount() => $_ensure(2);
 
+  /// creation_height is the height which the unbonding took place.
   @$pb.TagNumber(4)
   $fixnum.Int64 get creationHeight => $_getI64(3);
   @$pb.TagNumber(4)
@@ -1122,20 +1028,12 @@ class MsgCancelUnbondingDelegation extends $pb.GeneratedMessage {
   void clearCreationHeight() => clearField(4);
 }
 
+///  MsgCancelUnbondingDelegationResponse
+///
+///  Since: cosmos-sdk 0.46
 class MsgCancelUnbondingDelegationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCancelUnbondingDelegationResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgCancelUnbondingDelegationResponse._() : super();
   factory MsgCancelUnbondingDelegationResponse() => create();
+  MsgCancelUnbondingDelegationResponse._() : super();
   factory MsgCancelUnbondingDelegationResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -1143,6 +1041,14 @@ class MsgCancelUnbondingDelegationResponse extends $pb.GeneratedMessage {
   factory MsgCancelUnbondingDelegationResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCancelUnbondingDelegationResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1155,8 +1061,10 @@ class MsgCancelUnbondingDelegationResponse extends $pb.GeneratedMessage {
           void Function(MsgCancelUnbondingDelegationResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgCancelUnbondingDelegationResponse))
-          as MsgCancelUnbondingDelegationResponse; // ignore: deprecated_member_use
+          as MsgCancelUnbondingDelegationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCancelUnbondingDelegationResponse create() =>
       MsgCancelUnbondingDelegationResponse._();
@@ -1169,3 +1077,7 @@ class MsgCancelUnbondingDelegationResponse extends $pb.GeneratedMessage {
           MsgCancelUnbondingDelegationResponse>(create);
   static MsgCancelUnbondingDelegationResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

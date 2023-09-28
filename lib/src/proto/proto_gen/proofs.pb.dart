@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: proofs.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -13,71 +17,69 @@ import 'proofs.pbenum.dart';
 
 export 'proofs.pbenum.dart';
 
+/// *
+/// ExistenceProof takes a key and a value and a set of steps to perform on it.
+/// The result of peforming all these steps will provide a "root hash", which can
+/// be compared to the value in a header.
+///
+/// Since it is computationally infeasible to produce a hash collission for any of the used
+/// cryptographic hash functions, if someone can provide a series of operations to transform
+/// a given key and value into a root hash that matches some trusted root, these key and values
+/// must be in the referenced merkle tree.
+///
+/// The only possible issue is maliablity in LeafOp, such as providing extra prefix data,
+/// which should be controlled by a spec. Eg. with lengthOp as NONE,
+/// prefix = FOO, key = BAR, value = CHOICE
+/// and
+/// prefix = F, key = OOBAR, value = CHOICE
+/// would produce the same value.
+///
+/// With LengthOp this is tricker but not impossible. Which is why the "leafPrefixEqual" field
+/// in the ProofSpec is valuable to prevent this mutability. And why all trees should
+/// length-prefix the data before hashing it.
 class ExistenceProof extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ExistenceProof',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OY)
-    ..aOM<LeafOp>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'leaf',
-        subBuilder: LeafOp.create)
-    ..pc<InnerOp>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'path',
-        $pb.PbFieldType.PM,
-        subBuilder: InnerOp.create)
-    ..hasRequiredFields = false;
-
-  ExistenceProof._() : super();
   factory ExistenceProof({
     $core.List<$core.int>? key,
     $core.List<$core.int>? value,
     LeafOp? leaf,
     $core.Iterable<InnerOp>? path,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
     if (leaf != null) {
-      _result.leaf = leaf;
+      $result.leaf = leaf;
     }
     if (path != null) {
-      _result.path.addAll(path);
+      $result.path.addAll(path);
     }
-    return _result;
+    return $result;
   }
+  ExistenceProof._() : super();
   factory ExistenceProof.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ExistenceProof.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ExistenceProof',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OY)
+    ..aOM<LeafOp>(3, _omitFieldNames ? '' : 'leaf', subBuilder: LeafOp.create)
+    ..pc<InnerOp>(4, _omitFieldNames ? '' : 'path', $pb.PbFieldType.PM,
+        subBuilder: InnerOp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -87,8 +89,10 @@ class ExistenceProof extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ExistenceProof copyWith(void Function(ExistenceProof) updates) =>
       super.copyWith((message) => updates(message as ExistenceProof))
-          as ExistenceProof; // ignore: deprecated_member_use
+          as ExistenceProof;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ExistenceProof create() => ExistenceProof._();
   ExistenceProof createEmptyInstance() => create();
@@ -141,60 +145,48 @@ class ExistenceProof extends $pb.GeneratedMessage {
   $core.List<InnerOp> get path => $_getList(3);
 }
 
+///
+/// NonExistenceProof takes a proof of two neighbors, one left of the desired key,
+/// one right of the desired key. If both proofs are valid AND they are neighbors,
+/// then there is no valid proof for the given key.
 class NonExistenceProof extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'NonExistenceProof',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..aOM<ExistenceProof>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'left',
-        subBuilder: ExistenceProof.create)
-    ..aOM<ExistenceProof>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'right',
-        subBuilder: ExistenceProof.create)
-    ..hasRequiredFields = false;
-
-  NonExistenceProof._() : super();
   factory NonExistenceProof({
     $core.List<$core.int>? key,
     ExistenceProof? left,
     ExistenceProof? right,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (left != null) {
-      _result.left = left;
+      $result.left = left;
     }
     if (right != null) {
-      _result.right = right;
+      $result.right = right;
     }
-    return _result;
+    return $result;
   }
+  NonExistenceProof._() : super();
   factory NonExistenceProof.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NonExistenceProof.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'NonExistenceProof',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..aOM<ExistenceProof>(2, _omitFieldNames ? '' : 'left',
+        subBuilder: ExistenceProof.create)
+    ..aOM<ExistenceProof>(3, _omitFieldNames ? '' : 'right',
+        subBuilder: ExistenceProof.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -204,8 +196,10 @@ class NonExistenceProof extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   NonExistenceProof copyWith(void Function(NonExistenceProof) updates) =>
       super.copyWith((message) => updates(message as NonExistenceProof))
-          as NonExistenceProof; // ignore: deprecated_member_use
+          as NonExistenceProof;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NonExistenceProof create() => NonExistenceProof._();
   NonExistenceProof createEmptyInstance() => create();
@@ -259,7 +253,38 @@ class NonExistenceProof extends $pb.GeneratedMessage {
 
 enum CommitmentProof_Proof { exist, nonexist, batch, compressed, notSet }
 
+///
+/// CommitmentProof is either an ExistenceProof or a NonExistenceProof, or a Batch of such messages
 class CommitmentProof extends $pb.GeneratedMessage {
+  factory CommitmentProof({
+    ExistenceProof? exist,
+    NonExistenceProof? nonexist,
+    BatchProof? batch,
+    CompressedBatchProof? compressed,
+  }) {
+    final $result = create();
+    if (exist != null) {
+      $result.exist = exist;
+    }
+    if (nonexist != null) {
+      $result.nonexist = nonexist;
+    }
+    if (batch != null) {
+      $result.batch = batch;
+    }
+    if (compressed != null) {
+      $result.compressed = compressed;
+    }
+    return $result;
+  }
+  CommitmentProof._() : super();
+  factory CommitmentProof.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory CommitmentProof.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, CommitmentProof_Proof>
       _CommitmentProof_ProofByTag = {
     1: CommitmentProof_Proof.exist,
@@ -269,69 +294,20 @@ class CommitmentProof extends $pb.GeneratedMessage {
     0: CommitmentProof_Proof.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CommitmentProof',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
+      _omitMessageNames ? '' : 'CommitmentProof',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4])
-    ..aOM<ExistenceProof>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'exist',
+    ..aOM<ExistenceProof>(1, _omitFieldNames ? '' : 'exist',
         subBuilder: ExistenceProof.create)
-    ..aOM<NonExistenceProof>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nonexist',
+    ..aOM<NonExistenceProof>(2, _omitFieldNames ? '' : 'nonexist',
         subBuilder: NonExistenceProof.create)
-    ..aOM<BatchProof>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'batch',
+    ..aOM<BatchProof>(3, _omitFieldNames ? '' : 'batch',
         subBuilder: BatchProof.create)
-    ..aOM<CompressedBatchProof>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'compressed',
+    ..aOM<CompressedBatchProof>(4, _omitFieldNames ? '' : 'compressed',
         subBuilder: CompressedBatchProof.create)
     ..hasRequiredFields = false;
 
-  CommitmentProof._() : super();
-  factory CommitmentProof({
-    ExistenceProof? exist,
-    NonExistenceProof? nonexist,
-    BatchProof? batch,
-    CompressedBatchProof? compressed,
-  }) {
-    final _result = create();
-    if (exist != null) {
-      _result.exist = exist;
-    }
-    if (nonexist != null) {
-      _result.nonexist = nonexist;
-    }
-    if (batch != null) {
-      _result.batch = batch;
-    }
-    if (compressed != null) {
-      _result.compressed = compressed;
-    }
-    return _result;
-  }
-  factory CommitmentProof.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory CommitmentProof.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -341,8 +317,10 @@ class CommitmentProof extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CommitmentProof copyWith(void Function(CommitmentProof) updates) =>
       super.copyWith((message) => updates(message as CommitmentProof))
-          as CommitmentProof; // ignore: deprecated_member_use
+          as CommitmentProof;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CommitmentProof create() => CommitmentProof._();
   CommitmentProof createEmptyInstance() => create();
@@ -414,61 +392,22 @@ class CommitmentProof extends $pb.GeneratedMessage {
   CompressedBatchProof ensureCompressed() => $_ensure(3);
 }
 
+/// *
+/// LeafOp represents the raw key-value data we wish to prove, and
+/// must be flexible to represent the internal transformation from
+/// the original key-value pairs into the basis hash, for many existing
+/// merkle trees.
+///
+/// key and value are passed in. So that the signature of this operation is:
+/// leafOp(key, value) -> output
+///
+/// To process this, first prehash the keys and values if needed (ANY means no hash in this case):
+/// hkey = prehashKey(key)
+/// hvalue = prehashValue(value)
+///
+/// Then combine the bytes, and hash it
+/// output = hash(prefix || length(hkey) || hkey || length(hvalue) || hvalue)
 class LeafOp extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'LeafOp',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..e<HashOp>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: HashOp.NO_HASH,
-        valueOf: HashOp.valueOf,
-        enumValues: HashOp.values)
-    ..e<HashOp>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'prehashKey',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: HashOp.NO_HASH,
-        valueOf: HashOp.valueOf,
-        enumValues: HashOp.values)
-    ..e<HashOp>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'prehashValue',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: HashOp.NO_HASH,
-        valueOf: HashOp.valueOf,
-        enumValues: HashOp.values)
-    ..e<LengthOp>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'length',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: LengthOp.NO_PREFIX,
-        valueOf: LengthOp.valueOf,
-        enumValues: LengthOp.values)
-    ..a<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'prefix',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  LeafOp._() : super();
   factory LeafOp({
     HashOp? hash,
     HashOp? prehashKey,
@@ -476,30 +415,56 @@ class LeafOp extends $pb.GeneratedMessage {
     LengthOp? length,
     $core.List<$core.int>? prefix,
   }) {
-    final _result = create();
+    final $result = create();
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
     if (prehashKey != null) {
-      _result.prehashKey = prehashKey;
+      $result.prehashKey = prehashKey;
     }
     if (prehashValue != null) {
-      _result.prehashValue = prehashValue;
+      $result.prehashValue = prehashValue;
     }
     if (length != null) {
-      _result.length = length;
+      $result.length = length;
     }
     if (prefix != null) {
-      _result.prefix = prefix;
+      $result.prefix = prefix;
     }
-    return _result;
+    return $result;
   }
+  LeafOp._() : super();
   factory LeafOp.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory LeafOp.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'LeafOp',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..e<HashOp>(1, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OE,
+        defaultOrMaker: HashOp.NO_HASH,
+        valueOf: HashOp.valueOf,
+        enumValues: HashOp.values)
+    ..e<HashOp>(2, _omitFieldNames ? '' : 'prehashKey', $pb.PbFieldType.OE,
+        defaultOrMaker: HashOp.NO_HASH,
+        valueOf: HashOp.valueOf,
+        enumValues: HashOp.values)
+    ..e<HashOp>(3, _omitFieldNames ? '' : 'prehashValue', $pb.PbFieldType.OE,
+        defaultOrMaker: HashOp.NO_HASH,
+        valueOf: HashOp.valueOf,
+        enumValues: HashOp.values)
+    ..e<LengthOp>(4, _omitFieldNames ? '' : 'length', $pb.PbFieldType.OE,
+        defaultOrMaker: LengthOp.NO_PREFIX,
+        valueOf: LengthOp.valueOf,
+        enumValues: LengthOp.values)
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'prefix', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -508,9 +473,10 @@ class LeafOp extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   LeafOp copyWith(void Function(LeafOp) updates) =>
-      super.copyWith((message) => updates(message as LeafOp))
-          as LeafOp; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as LeafOp)) as LeafOp;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static LeafOp create() => LeafOp._();
   LeafOp createEmptyInstance() => create();
@@ -568,6 +534,8 @@ class LeafOp extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearLength() => clearField(4);
 
+  /// prefix is a fixed bytes that may optionally be included at the beginning to differentiate
+  /// a leaf node from an inner node.
   @$pb.TagNumber(5)
   $core.List<$core.int> get prefix => $_getN(4);
   @$pb.TagNumber(5)
@@ -581,63 +549,62 @@ class LeafOp extends $pb.GeneratedMessage {
   void clearPrefix() => clearField(5);
 }
 
+/// *
+/// InnerOp represents a merkle-proof step that is not a leaf.
+/// It represents concatenating two children and hashing them to provide the next result.
+///
+/// The result of the previous step is passed in, so the signature of this op is:
+/// innerOp(child) -> output
+///
+/// The result of applying InnerOp should be:
+/// output = op.hash(op.prefix || child || op.suffix)
+///
+/// where the || operator is concatenation of binary data,
+/// and child is the result of hashing all the tree below this step.
+///
+/// Any special data, like prepending child with the length, or prepending the entire operation with
+/// some value to differentiate from leaf nodes, should be included in prefix and suffix.
+/// If either of prefix or suffix is empty, we just treat it as an empty string
 class InnerOp extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'InnerOp',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..e<HashOp>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: HashOp.NO_HASH,
-        valueOf: HashOp.valueOf,
-        enumValues: HashOp.values)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'prefix',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'suffix',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  InnerOp._() : super();
   factory InnerOp({
     HashOp? hash,
     $core.List<$core.int>? prefix,
     $core.List<$core.int>? suffix,
   }) {
-    final _result = create();
+    final $result = create();
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
     if (prefix != null) {
-      _result.prefix = prefix;
+      $result.prefix = prefix;
     }
     if (suffix != null) {
-      _result.suffix = suffix;
+      $result.suffix = suffix;
     }
-    return _result;
+    return $result;
   }
+  InnerOp._() : super();
   factory InnerOp.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory InnerOp.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'InnerOp',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..e<HashOp>(1, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OE,
+        defaultOrMaker: HashOp.NO_HASH,
+        valueOf: HashOp.valueOf,
+        enumValues: HashOp.values)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'prefix', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'suffix', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -646,9 +613,10 @@ class InnerOp extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   InnerOp copyWith(void Function(InnerOp) updates) =>
-      super.copyWith((message) => updates(message as InnerOp))
-          as InnerOp; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as InnerOp)) as InnerOp;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static InnerOp create() => InnerOp._();
   InnerOp createEmptyInstance() => create();
@@ -695,70 +663,59 @@ class InnerOp extends $pb.GeneratedMessage {
   void clearSuffix() => clearField(3);
 }
 
+/// *
+/// ProofSpec defines what the expected parameters are for a given proof type.
+/// This can be stored in the client and used to validate any incoming proofs.
+///
+/// verify(ProofSpec, Proof) -> Proof | Error
+///
+/// As demonstrated in tests, if we don't fix the algorithm used to calculate the
+/// LeafHash for a given tree, there are many possible key-value pairs that can
+/// generate a given hash (by interpretting the preimage differently).
+/// We need this for proper security, requires client knows a priori what
+/// tree format server uses. But not in code, rather a configuration object.
 class ProofSpec extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ProofSpec',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..aOM<LeafOp>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'leafSpec',
-        subBuilder: LeafOp.create)
-    ..aOM<InnerSpec>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'innerSpec',
-        subBuilder: InnerSpec.create)
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxDepth',
-        $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minDepth',
-        $pb.PbFieldType.O3)
-    ..hasRequiredFields = false;
-
-  ProofSpec._() : super();
   factory ProofSpec({
     LeafOp? leafSpec,
     InnerSpec? innerSpec,
     $core.int? maxDepth,
     $core.int? minDepth,
   }) {
-    final _result = create();
+    final $result = create();
     if (leafSpec != null) {
-      _result.leafSpec = leafSpec;
+      $result.leafSpec = leafSpec;
     }
     if (innerSpec != null) {
-      _result.innerSpec = innerSpec;
+      $result.innerSpec = innerSpec;
     }
     if (maxDepth != null) {
-      _result.maxDepth = maxDepth;
+      $result.maxDepth = maxDepth;
     }
     if (minDepth != null) {
-      _result.minDepth = minDepth;
+      $result.minDepth = minDepth;
     }
-    return _result;
+    return $result;
   }
+  ProofSpec._() : super();
   factory ProofSpec.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ProofSpec.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ProofSpec',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..aOM<LeafOp>(1, _omitFieldNames ? '' : 'leafSpec',
+        subBuilder: LeafOp.create)
+    ..aOM<InnerSpec>(2, _omitFieldNames ? '' : 'innerSpec',
+        subBuilder: InnerSpec.create)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'maxDepth', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'minDepth', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -767,9 +724,10 @@ class ProofSpec extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   ProofSpec copyWith(void Function(ProofSpec) updates) =>
-      super.copyWith((message) => updates(message as ProofSpec))
-          as ProofSpec; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as ProofSpec)) as ProofSpec;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ProofSpec create() => ProofSpec._();
   ProofSpec createEmptyInstance() => create();
@@ -779,6 +737,8 @@ class ProofSpec extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ProofSpec>(create);
   static ProofSpec? _defaultInstance;
 
+  /// any field in the ExistenceProof must be the same as in this spec.
+  /// except Prefix, which is just the first bytes of prefix (spec can be longer)
   @$pb.TagNumber(1)
   LeafOp get leafSpec => $_getN(0);
   @$pb.TagNumber(1)
@@ -807,6 +767,7 @@ class ProofSpec extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   InnerSpec ensureInnerSpec() => $_ensure(1);
 
+  /// max_depth (if > 0) is the maximum number of InnerOps allowed (mainly for fixed-depth tries)
   @$pb.TagNumber(3)
   $core.int get maxDepth => $_getIZ(2);
   @$pb.TagNumber(3)
@@ -819,6 +780,7 @@ class ProofSpec extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMaxDepth() => clearField(3);
 
+  /// min_depth (if > 0) is the minimum number of InnerOps allowed (mainly for fixed-depth tries)
   @$pb.TagNumber(4)
   $core.int get minDepth => $_getIZ(3);
   @$pb.TagNumber(4)
@@ -832,58 +794,16 @@ class ProofSpec extends $pb.GeneratedMessage {
   void clearMinDepth() => clearField(4);
 }
 
+///
+/// InnerSpec contains all store-specific structure info to determine if two proofs from a
+/// given store are neighbors.
+///
+/// This enables:
+///
+/// isLeftMost(spec: InnerSpec, op: InnerOp)
+/// isRightMost(spec: InnerSpec, op: InnerOp)
+/// isLeftNeighbor(spec: InnerSpec, left: InnerOp, right: InnerOp)
 class InnerSpec extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'InnerSpec',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..p<$core.int>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'childOrder',
-        $pb.PbFieldType.K3)
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'childSize',
-        $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minPrefixLength',
-        $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxPrefixLength',
-        $pb.PbFieldType.O3)
-    ..a<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'emptyChild',
-        $pb.PbFieldType.OY)
-    ..e<HashOp>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: HashOp.NO_HASH,
-        valueOf: HashOp.valueOf,
-        enumValues: HashOp.values)
-    ..hasRequiredFields = false;
-
-  InnerSpec._() : super();
   factory InnerSpec({
     $core.Iterable<$core.int>? childOrder,
     $core.int? childSize,
@@ -892,33 +812,53 @@ class InnerSpec extends $pb.GeneratedMessage {
     $core.List<$core.int>? emptyChild,
     HashOp? hash,
   }) {
-    final _result = create();
+    final $result = create();
     if (childOrder != null) {
-      _result.childOrder.addAll(childOrder);
+      $result.childOrder.addAll(childOrder);
     }
     if (childSize != null) {
-      _result.childSize = childSize;
+      $result.childSize = childSize;
     }
     if (minPrefixLength != null) {
-      _result.minPrefixLength = minPrefixLength;
+      $result.minPrefixLength = minPrefixLength;
     }
     if (maxPrefixLength != null) {
-      _result.maxPrefixLength = maxPrefixLength;
+      $result.maxPrefixLength = maxPrefixLength;
     }
     if (emptyChild != null) {
-      _result.emptyChild = emptyChild;
+      $result.emptyChild = emptyChild;
     }
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
-    return _result;
+    return $result;
   }
+  InnerSpec._() : super();
   factory InnerSpec.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory InnerSpec.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'InnerSpec',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..p<$core.int>(1, _omitFieldNames ? '' : 'childOrder', $pb.PbFieldType.K3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'childSize', $pb.PbFieldType.O3)
+    ..a<$core.int>(
+        3, _omitFieldNames ? '' : 'minPrefixLength', $pb.PbFieldType.O3)
+    ..a<$core.int>(
+        4, _omitFieldNames ? '' : 'maxPrefixLength', $pb.PbFieldType.O3)
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'emptyChild', $pb.PbFieldType.OY)
+    ..e<HashOp>(6, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OE,
+        defaultOrMaker: HashOp.NO_HASH,
+        valueOf: HashOp.valueOf,
+        enumValues: HashOp.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -927,9 +867,10 @@ class InnerSpec extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   InnerSpec copyWith(void Function(InnerSpec) updates) =>
-      super.copyWith((message) => updates(message as InnerSpec))
-          as InnerSpec; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as InnerSpec)) as InnerSpec;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static InnerSpec create() => InnerSpec._();
   InnerSpec createEmptyInstance() => create();
@@ -939,6 +880,9 @@ class InnerSpec extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InnerSpec>(create);
   static InnerSpec? _defaultInstance;
 
+  /// Child order is the ordering of the children node, must count from 0
+  /// iavl tree is [0, 1] (left then right)
+  /// merk is [0, 2, 1] (left, right, here)
   @$pb.TagNumber(1)
   $core.List<$core.int> get childOrder => $_getList(0);
 
@@ -978,6 +922,7 @@ class InnerSpec extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearMaxPrefixLength() => clearField(4);
 
+  /// empty child is the prehash image that is used when one child is nil (eg. 20 bytes of 0)
   @$pb.TagNumber(5)
   $core.List<$core.int> get emptyChild => $_getN(4);
   @$pb.TagNumber(5)
@@ -990,6 +935,7 @@ class InnerSpec extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearEmptyChild() => clearField(5);
 
+  /// hash is the algorithm that must be used for each InnerOp
   @$pb.TagNumber(6)
   HashOp get hash => $_getN(5);
   @$pb.TagNumber(6)
@@ -1003,41 +949,34 @@ class InnerSpec extends $pb.GeneratedMessage {
   void clearHash() => clearField(6);
 }
 
+///
+/// BatchProof is a group of multiple proof types than can be compressed
 class BatchProof extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BatchProof',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..pc<BatchEntry>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'entries',
-        $pb.PbFieldType.PM,
-        subBuilder: BatchEntry.create)
-    ..hasRequiredFields = false;
-
-  BatchProof._() : super();
   factory BatchProof({
     $core.Iterable<BatchEntry>? entries,
   }) {
-    final _result = create();
+    final $result = create();
     if (entries != null) {
-      _result.entries.addAll(entries);
+      $result.entries.addAll(entries);
     }
-    return _result;
+    return $result;
   }
+  BatchProof._() : super();
   factory BatchProof.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BatchProof.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BatchProof',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..pc<BatchEntry>(1, _omitFieldNames ? '' : 'entries', $pb.PbFieldType.PM,
+        subBuilder: BatchEntry.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1046,9 +985,10 @@ class BatchProof extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   BatchProof copyWith(void Function(BatchProof) updates) =>
-      super.copyWith((message) => updates(message as BatchProof))
-          as BatchProof; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as BatchProof)) as BatchProof;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BatchProof create() => BatchProof._();
   BatchProof createEmptyInstance() => create();
@@ -1064,56 +1004,45 @@ class BatchProof extends $pb.GeneratedMessage {
 
 enum BatchEntry_Proof { exist, nonexist, notSet }
 
+/// Use BatchEntry not CommitmentProof, to avoid recursion
 class BatchEntry extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, BatchEntry_Proof> _BatchEntry_ProofByTag = {
-    1: BatchEntry_Proof.exist,
-    2: BatchEntry_Proof.nonexist,
-    0: BatchEntry_Proof.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BatchEntry',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<ExistenceProof>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'exist',
-        subBuilder: ExistenceProof.create)
-    ..aOM<NonExistenceProof>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nonexist',
-        subBuilder: NonExistenceProof.create)
-    ..hasRequiredFields = false;
-
-  BatchEntry._() : super();
   factory BatchEntry({
     ExistenceProof? exist,
     NonExistenceProof? nonexist,
   }) {
-    final _result = create();
+    final $result = create();
     if (exist != null) {
-      _result.exist = exist;
+      $result.exist = exist;
     }
     if (nonexist != null) {
-      _result.nonexist = nonexist;
+      $result.nonexist = nonexist;
     }
-    return _result;
+    return $result;
   }
+  BatchEntry._() : super();
   factory BatchEntry.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BatchEntry.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, BatchEntry_Proof> _BatchEntry_ProofByTag = {
+    1: BatchEntry_Proof.exist,
+    2: BatchEntry_Proof.nonexist,
+    0: BatchEntry_Proof.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BatchEntry',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<ExistenceProof>(1, _omitFieldNames ? '' : 'exist',
+        subBuilder: ExistenceProof.create)
+    ..aOM<NonExistenceProof>(2, _omitFieldNames ? '' : 'nonexist',
+        subBuilder: NonExistenceProof.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1122,9 +1051,10 @@ class BatchEntry extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   BatchEntry copyWith(void Function(BatchEntry) updates) =>
-      super.copyWith((message) => updates(message as BatchEntry))
-          as BatchEntry; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as BatchEntry)) as BatchEntry;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BatchEntry create() => BatchEntry._();
   BatchEntry createEmptyInstance() => create();
@@ -1167,51 +1097,38 @@ class BatchEntry extends $pb.GeneratedMessage {
 }
 
 class CompressedBatchProof extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CompressedBatchProof',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..pc<CompressedBatchEntry>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'entries',
-        $pb.PbFieldType.PM,
-        subBuilder: CompressedBatchEntry.create)
-    ..pc<InnerOp>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lookupInners',
-        $pb.PbFieldType.PM,
-        subBuilder: InnerOp.create)
-    ..hasRequiredFields = false;
-
-  CompressedBatchProof._() : super();
   factory CompressedBatchProof({
     $core.Iterable<CompressedBatchEntry>? entries,
     $core.Iterable<InnerOp>? lookupInners,
   }) {
-    final _result = create();
+    final $result = create();
     if (entries != null) {
-      _result.entries.addAll(entries);
+      $result.entries.addAll(entries);
     }
     if (lookupInners != null) {
-      _result.lookupInners.addAll(lookupInners);
+      $result.lookupInners.addAll(lookupInners);
     }
-    return _result;
+    return $result;
   }
+  CompressedBatchProof._() : super();
   factory CompressedBatchProof.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CompressedBatchProof.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CompressedBatchProof',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..pc<CompressedBatchEntry>(
+        1, _omitFieldNames ? '' : 'entries', $pb.PbFieldType.PM,
+        subBuilder: CompressedBatchEntry.create)
+    ..pc<InnerOp>(2, _omitFieldNames ? '' : 'lookupInners', $pb.PbFieldType.PM,
+        subBuilder: InnerOp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1222,8 +1139,10 @@ class CompressedBatchProof extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CompressedBatchProof copyWith(void Function(CompressedBatchProof) updates) =>
       super.copyWith((message) => updates(message as CompressedBatchProof))
-          as CompressedBatchProof; // ignore: deprecated_member_use
+          as CompressedBatchProof;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CompressedBatchProof create() => CompressedBatchProof._();
   CompressedBatchProof createEmptyInstance() => create();
@@ -1243,7 +1162,29 @@ class CompressedBatchProof extends $pb.GeneratedMessage {
 
 enum CompressedBatchEntry_Proof { exist, nonexist, notSet }
 
+/// Use BatchEntry not CommitmentProof, to avoid recursion
 class CompressedBatchEntry extends $pb.GeneratedMessage {
+  factory CompressedBatchEntry({
+    CompressedExistenceProof? exist,
+    CompressedNonExistenceProof? nonexist,
+  }) {
+    final $result = create();
+    if (exist != null) {
+      $result.exist = exist;
+    }
+    if (nonexist != null) {
+      $result.nonexist = nonexist;
+    }
+    return $result;
+  }
+  CompressedBatchEntry._() : super();
+  factory CompressedBatchEntry.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory CompressedBatchEntry.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, CompressedBatchEntry_Proof>
       _CompressedBatchEntry_ProofByTag = {
     1: CompressedBatchEntry_Proof.exist,
@@ -1251,49 +1192,16 @@ class CompressedBatchEntry extends $pb.GeneratedMessage {
     0: CompressedBatchEntry_Proof.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CompressedBatchEntry',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
+      _omitMessageNames ? '' : 'CompressedBatchEntry',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<CompressedExistenceProof>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'exist',
+    ..aOM<CompressedExistenceProof>(1, _omitFieldNames ? '' : 'exist',
         subBuilder: CompressedExistenceProof.create)
-    ..aOM<CompressedNonExistenceProof>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nonexist',
+    ..aOM<CompressedNonExistenceProof>(2, _omitFieldNames ? '' : 'nonexist',
         subBuilder: CompressedNonExistenceProof.create)
     ..hasRequiredFields = false;
 
-  CompressedBatchEntry._() : super();
-  factory CompressedBatchEntry({
-    CompressedExistenceProof? exist,
-    CompressedNonExistenceProof? nonexist,
-  }) {
-    final _result = create();
-    if (exist != null) {
-      _result.exist = exist;
-    }
-    if (nonexist != null) {
-      _result.nonexist = nonexist;
-    }
-    return _result;
-  }
-  factory CompressedBatchEntry.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory CompressedBatchEntry.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1304,8 +1212,10 @@ class CompressedBatchEntry extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CompressedBatchEntry copyWith(void Function(CompressedBatchEntry) updates) =>
       super.copyWith((message) => updates(message as CompressedBatchEntry))
-          as CompressedBatchEntry; // ignore: deprecated_member_use
+          as CompressedBatchEntry;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CompressedBatchEntry create() => CompressedBatchEntry._();
   CompressedBatchEntry createEmptyInstance() => create();
@@ -1350,69 +1260,47 @@ class CompressedBatchEntry extends $pb.GeneratedMessage {
 }
 
 class CompressedExistenceProof extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CompressedExistenceProof',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OY)
-    ..aOM<LeafOp>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'leaf',
-        subBuilder: LeafOp.create)
-    ..p<$core.int>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'path',
-        $pb.PbFieldType.K3)
-    ..hasRequiredFields = false;
-
-  CompressedExistenceProof._() : super();
   factory CompressedExistenceProof({
     $core.List<$core.int>? key,
     $core.List<$core.int>? value,
     LeafOp? leaf,
     $core.Iterable<$core.int>? path,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
     if (leaf != null) {
-      _result.leaf = leaf;
+      $result.leaf = leaf;
     }
     if (path != null) {
-      _result.path.addAll(path);
+      $result.path.addAll(path);
     }
-    return _result;
+    return $result;
   }
+  CompressedExistenceProof._() : super();
   factory CompressedExistenceProof.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CompressedExistenceProof.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CompressedExistenceProof',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OY)
+    ..aOM<LeafOp>(3, _omitFieldNames ? '' : 'leaf', subBuilder: LeafOp.create)
+    ..p<$core.int>(4, _omitFieldNames ? '' : 'path', $pb.PbFieldType.K3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1424,8 +1312,10 @@ class CompressedExistenceProof extends $pb.GeneratedMessage {
   CompressedExistenceProof copyWith(
           void Function(CompressedExistenceProof) updates) =>
       super.copyWith((message) => updates(message as CompressedExistenceProof))
-          as CompressedExistenceProof; // ignore: deprecated_member_use
+          as CompressedExistenceProof;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CompressedExistenceProof create() => CompressedExistenceProof._();
   CompressedExistenceProof createEmptyInstance() => create();
@@ -1474,64 +1364,49 @@ class CompressedExistenceProof extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   LeafOp ensureLeaf() => $_ensure(2);
 
+  /// these are indexes into the lookup_inners table in CompressedBatchProof
   @$pb.TagNumber(4)
   $core.List<$core.int> get path => $_getList(3);
 }
 
 class CompressedNonExistenceProof extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CompressedNonExistenceProof',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ics23'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..aOM<CompressedExistenceProof>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'left',
-        subBuilder: CompressedExistenceProof.create)
-    ..aOM<CompressedExistenceProof>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'right',
-        subBuilder: CompressedExistenceProof.create)
-    ..hasRequiredFields = false;
-
-  CompressedNonExistenceProof._() : super();
   factory CompressedNonExistenceProof({
     $core.List<$core.int>? key,
     CompressedExistenceProof? left,
     CompressedExistenceProof? right,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (left != null) {
-      _result.left = left;
+      $result.left = left;
     }
     if (right != null) {
-      _result.right = right;
+      $result.right = right;
     }
-    return _result;
+    return $result;
   }
+  CompressedNonExistenceProof._() : super();
   factory CompressedNonExistenceProof.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CompressedNonExistenceProof.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CompressedNonExistenceProof',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'ics23'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..aOM<CompressedExistenceProof>(2, _omitFieldNames ? '' : 'left',
+        subBuilder: CompressedExistenceProof.create)
+    ..aOM<CompressedExistenceProof>(3, _omitFieldNames ? '' : 'right',
+        subBuilder: CompressedExistenceProof.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1544,8 +1419,10 @@ class CompressedNonExistenceProof extends $pb.GeneratedMessage {
           void Function(CompressedNonExistenceProof) updates) =>
       super.copyWith(
               (message) => updates(message as CompressedNonExistenceProof))
-          as CompressedNonExistenceProof; // ignore: deprecated_member_use
+          as CompressedNonExistenceProof;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CompressedNonExistenceProof create() =>
       CompressedNonExistenceProof._();
@@ -1597,3 +1474,7 @@ class CompressedNonExistenceProof extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   CompressedExistenceProof ensureRight() => $_ensure(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

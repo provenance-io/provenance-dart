@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/metadata/v1/specification.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -13,51 +17,8 @@ import 'specification.pbenum.dart';
 
 export 'specification.pbenum.dart';
 
+/// ScopeSpecification defines the required parties, resources, conditions, and consideration outputs for a contract
 class ScopeSpecification extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ScopeSpecification',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specificationId',
-        $pb.PbFieldType.OY)
-    ..aOM<Description>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description',
-        subBuilder: Description.create)
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ownerAddresses')
-    ..pc<PartyType>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'partiesInvolved',
-        $pb.PbFieldType.KE,
-        valueOf: PartyType.valueOf,
-        enumValues: PartyType.values,
-        defaultEnumValue: PartyType.PARTY_TYPE_UNSPECIFIED)
-    ..p<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecIds',
-        $pb.PbFieldType.PY)
-    ..hasRequiredFields = false;
-
-  ScopeSpecification._() : super();
   factory ScopeSpecification({
     $core.List<$core.int>? specificationId,
     Description? description,
@@ -65,30 +26,51 @@ class ScopeSpecification extends $pb.GeneratedMessage {
     $core.Iterable<PartyType>? partiesInvolved,
     $core.Iterable<$core.List<$core.int>>? contractSpecIds,
   }) {
-    final _result = create();
+    final $result = create();
     if (specificationId != null) {
-      _result.specificationId = specificationId;
+      $result.specificationId = specificationId;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (ownerAddresses != null) {
-      _result.ownerAddresses.addAll(ownerAddresses);
+      $result.ownerAddresses.addAll(ownerAddresses);
     }
     if (partiesInvolved != null) {
-      _result.partiesInvolved.addAll(partiesInvolved);
+      $result.partiesInvolved.addAll(partiesInvolved);
     }
     if (contractSpecIds != null) {
-      _result.contractSpecIds.addAll(contractSpecIds);
+      $result.contractSpecIds.addAll(contractSpecIds);
     }
-    return _result;
+    return $result;
   }
+  ScopeSpecification._() : super();
   factory ScopeSpecification.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ScopeSpecification.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ScopeSpecification',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'specificationId', $pb.PbFieldType.OY)
+    ..aOM<Description>(2, _omitFieldNames ? '' : 'description',
+        subBuilder: Description.create)
+    ..pPS(3, _omitFieldNames ? '' : 'ownerAddresses')
+    ..pc<PartyType>(
+        4, _omitFieldNames ? '' : 'partiesInvolved', $pb.PbFieldType.KE,
+        valueOf: PartyType.valueOf,
+        enumValues: PartyType.values,
+        defaultEnumValue: PartyType.PARTY_TYPE_UNSPECIFIED)
+    ..p<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'contractSpecIds', $pb.PbFieldType.PY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -98,8 +80,10 @@ class ScopeSpecification extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ScopeSpecification copyWith(void Function(ScopeSpecification) updates) =>
       super.copyWith((message) => updates(message as ScopeSpecification))
-          as ScopeSpecification; // ignore: deprecated_member_use
+          as ScopeSpecification;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ScopeSpecification create() => ScopeSpecification._();
   ScopeSpecification createEmptyInstance() => create();
@@ -110,6 +94,7 @@ class ScopeSpecification extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ScopeSpecification>(create);
   static ScopeSpecification? _defaultInstance;
 
+  /// unique identifier for this specification on chain
   @$pb.TagNumber(1)
   $core.List<$core.int> get specificationId => $_getN(0);
   @$pb.TagNumber(1)
@@ -122,6 +107,7 @@ class ScopeSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSpecificationId() => clearField(1);
 
+  /// General information about this scope specification.
   @$pb.TagNumber(2)
   Description get description => $_getN(1);
   @$pb.TagNumber(2)
@@ -136,80 +122,23 @@ class ScopeSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   Description ensureDescription() => $_ensure(1);
 
+  /// Addresses of the owners of this scope specification.
   @$pb.TagNumber(3)
   $core.List<$core.String> get ownerAddresses => $_getList(2);
 
+  /// A list of parties that must be present on a scope (and their associated roles)
   @$pb.TagNumber(4)
   $core.List<PartyType> get partiesInvolved => $_getList(3);
 
+  /// A list of contract specification ids allowed for a scope based on this specification.
   @$pb.TagNumber(5)
   $core.List<$core.List<$core.int>> get contractSpecIds => $_getList(4);
 }
 
 enum ContractSpecification_Source { resourceId, hash, notSet }
 
+/// ContractSpecification defines the required parties, resources, conditions, and consideration outputs for a contract
 class ContractSpecification extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, ContractSpecification_Source>
-      _ContractSpecification_SourceByTag = {
-    5: ContractSpecification_Source.resourceId,
-    6: ContractSpecification_Source.hash,
-    0: ContractSpecification_Source.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ContractSpecification',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..oo(0, [5, 6])
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specificationId',
-        $pb.PbFieldType.OY)
-    ..aOM<Description>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description',
-        subBuilder: Description.create)
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ownerAddresses')
-    ..pc<PartyType>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'partiesInvolved',
-        $pb.PbFieldType.KE,
-        valueOf: PartyType.valueOf,
-        enumValues: PartyType.values,
-        defaultEnumValue: PartyType.PARTY_TYPE_UNSPECIFIED)
-    ..a<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'resourceId',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash')
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'className')
-    ..hasRequiredFields = false;
-
-  ContractSpecification._() : super();
   factory ContractSpecification({
     $core.List<$core.int>? specificationId,
     Description? description,
@@ -219,36 +148,66 @@ class ContractSpecification extends $pb.GeneratedMessage {
     $core.String? hash,
     $core.String? className,
   }) {
-    final _result = create();
+    final $result = create();
     if (specificationId != null) {
-      _result.specificationId = specificationId;
+      $result.specificationId = specificationId;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (ownerAddresses != null) {
-      _result.ownerAddresses.addAll(ownerAddresses);
+      $result.ownerAddresses.addAll(ownerAddresses);
     }
     if (partiesInvolved != null) {
-      _result.partiesInvolved.addAll(partiesInvolved);
+      $result.partiesInvolved.addAll(partiesInvolved);
     }
     if (resourceId != null) {
-      _result.resourceId = resourceId;
+      $result.resourceId = resourceId;
     }
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
     if (className != null) {
-      _result.className = className;
+      $result.className = className;
     }
-    return _result;
+    return $result;
   }
+  ContractSpecification._() : super();
   factory ContractSpecification.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ContractSpecification.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, ContractSpecification_Source>
+      _ContractSpecification_SourceByTag = {
+    5: ContractSpecification_Source.resourceId,
+    6: ContractSpecification_Source.hash,
+    0: ContractSpecification_Source.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ContractSpecification',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [5, 6])
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'specificationId', $pb.PbFieldType.OY)
+    ..aOM<Description>(2, _omitFieldNames ? '' : 'description',
+        subBuilder: Description.create)
+    ..pPS(3, _omitFieldNames ? '' : 'ownerAddresses')
+    ..pc<PartyType>(
+        4, _omitFieldNames ? '' : 'partiesInvolved', $pb.PbFieldType.KE,
+        valueOf: PartyType.valueOf,
+        enumValues: PartyType.values,
+        defaultEnumValue: PartyType.PARTY_TYPE_UNSPECIFIED)
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'resourceId', $pb.PbFieldType.OY)
+    ..aOS(6, _omitFieldNames ? '' : 'hash')
+    ..aOS(7, _omitFieldNames ? '' : 'className')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -260,8 +219,10 @@ class ContractSpecification extends $pb.GeneratedMessage {
   ContractSpecification copyWith(
           void Function(ContractSpecification) updates) =>
       super.copyWith((message) => updates(message as ContractSpecification))
-          as ContractSpecification; // ignore: deprecated_member_use
+          as ContractSpecification;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ContractSpecification create() => ContractSpecification._();
   ContractSpecification createEmptyInstance() => create();
@@ -276,6 +237,7 @@ class ContractSpecification extends $pb.GeneratedMessage {
       _ContractSpecification_SourceByTag[$_whichOneof(0)]!;
   void clearSource() => clearField($_whichOneof(0));
 
+  /// unique identifier for this specification on chain
   @$pb.TagNumber(1)
   $core.List<$core.int> get specificationId => $_getN(0);
   @$pb.TagNumber(1)
@@ -288,6 +250,7 @@ class ContractSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSpecificationId() => clearField(1);
 
+  /// Description information for this contract specification
   @$pb.TagNumber(2)
   Description get description => $_getN(1);
   @$pb.TagNumber(2)
@@ -302,12 +265,15 @@ class ContractSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   Description ensureDescription() => $_ensure(1);
 
+  /// Address of the account that owns this specificaiton
   @$pb.TagNumber(3)
   $core.List<$core.String> get ownerAddresses => $_getList(2);
 
+  /// a list of party roles that must be fullfilled when signing a transaction for this contract specification
   @$pb.TagNumber(4)
   $core.List<PartyType> get partiesInvolved => $_getList(3);
 
+  /// the address of a record on chain that represents this contract
   @$pb.TagNumber(5)
   $core.List<$core.int> get resourceId => $_getN(4);
   @$pb.TagNumber(5)
@@ -320,6 +286,7 @@ class ContractSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearResourceId() => clearField(5);
 
+  /// the hash of contract binary (off-chain instance)
   @$pb.TagNumber(6)
   $core.String get hash => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -332,6 +299,7 @@ class ContractSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearHash() => clearField(6);
 
+  /// name of the class/type of this contract executable
   @$pb.TagNumber(7)
   $core.String get className => $_getSZ(6);
   @$pb.TagNumber(7)
@@ -345,60 +313,8 @@ class ContractSpecification extends $pb.GeneratedMessage {
   void clearClassName() => clearField(7);
 }
 
+/// RecordSpecification defines the specification for a Record including allowed/required inputs/outputs
 class RecordSpecification extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RecordSpecification',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specificationId',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..pc<InputSpecification>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'inputs',
-        $pb.PbFieldType.PM,
-        subBuilder: InputSpecification.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'typeName')
-    ..e<DefinitionType>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'resultType',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: DefinitionType.DEFINITION_TYPE_UNSPECIFIED,
-        valueOf: DefinitionType.valueOf,
-        enumValues: DefinitionType.values)
-    ..pc<PartyType>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'responsibleParties',
-        $pb.PbFieldType.KE,
-        valueOf: PartyType.valueOf,
-        enumValues: PartyType.values,
-        defaultEnumValue: PartyType.PARTY_TYPE_UNSPECIFIED)
-    ..hasRequiredFields = false;
-
-  RecordSpecification._() : super();
   factory RecordSpecification({
     $core.List<$core.int>? specificationId,
     $core.String? name,
@@ -407,33 +323,59 @@ class RecordSpecification extends $pb.GeneratedMessage {
     DefinitionType? resultType,
     $core.Iterable<PartyType>? responsibleParties,
   }) {
-    final _result = create();
+    final $result = create();
     if (specificationId != null) {
-      _result.specificationId = specificationId;
+      $result.specificationId = specificationId;
     }
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (inputs != null) {
-      _result.inputs.addAll(inputs);
+      $result.inputs.addAll(inputs);
     }
     if (typeName != null) {
-      _result.typeName = typeName;
+      $result.typeName = typeName;
     }
     if (resultType != null) {
-      _result.resultType = resultType;
+      $result.resultType = resultType;
     }
     if (responsibleParties != null) {
-      _result.responsibleParties.addAll(responsibleParties);
+      $result.responsibleParties.addAll(responsibleParties);
     }
-    return _result;
+    return $result;
   }
+  RecordSpecification._() : super();
   factory RecordSpecification.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RecordSpecification.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RecordSpecification',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'specificationId', $pb.PbFieldType.OY)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..pc<InputSpecification>(
+        3, _omitFieldNames ? '' : 'inputs', $pb.PbFieldType.PM,
+        subBuilder: InputSpecification.create)
+    ..aOS(4, _omitFieldNames ? '' : 'typeName')
+    ..e<DefinitionType>(
+        5, _omitFieldNames ? '' : 'resultType', $pb.PbFieldType.OE,
+        defaultOrMaker: DefinitionType.DEFINITION_TYPE_UNSPECIFIED,
+        valueOf: DefinitionType.valueOf,
+        enumValues: DefinitionType.values)
+    ..pc<PartyType>(
+        6, _omitFieldNames ? '' : 'responsibleParties', $pb.PbFieldType.KE,
+        valueOf: PartyType.valueOf,
+        enumValues: PartyType.values,
+        defaultEnumValue: PartyType.PARTY_TYPE_UNSPECIFIED)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -443,8 +385,10 @@ class RecordSpecification extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   RecordSpecification copyWith(void Function(RecordSpecification) updates) =>
       super.copyWith((message) => updates(message as RecordSpecification))
-          as RecordSpecification; // ignore: deprecated_member_use
+          as RecordSpecification;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RecordSpecification create() => RecordSpecification._();
   RecordSpecification createEmptyInstance() => create();
@@ -455,6 +399,7 @@ class RecordSpecification extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<RecordSpecification>(create);
   static RecordSpecification? _defaultInstance;
 
+  /// unique identifier for this specification on chain
   @$pb.TagNumber(1)
   $core.List<$core.int> get specificationId => $_getN(0);
   @$pb.TagNumber(1)
@@ -467,6 +412,7 @@ class RecordSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSpecificationId() => clearField(1);
 
+  /// Name of Record that will be created when this specification is used
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -479,9 +425,11 @@ class RecordSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearName() => clearField(2);
 
+  /// A set of inputs that must be satisified to apply this RecordSpecification and create a Record
   @$pb.TagNumber(3)
   $core.List<InputSpecification> get inputs => $_getList(2);
 
+  /// A type name for data associated with this record (typically a class or proto name)
   @$pb.TagNumber(4)
   $core.String get typeName => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -494,6 +442,7 @@ class RecordSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearTypeName() => clearField(4);
 
+  /// Type of result for this record specification (must be RECORD or RECORD_LIST)
   @$pb.TagNumber(5)
   DefinitionType get resultType => $_getN(4);
   @$pb.TagNumber(5)
@@ -506,13 +455,45 @@ class RecordSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearResultType() => clearField(5);
 
+  /// Type of party responsible for this record
   @$pb.TagNumber(6)
   $core.List<PartyType> get responsibleParties => $_getList(5);
 }
 
 enum InputSpecification_Source { recordId, hash, notSet }
 
+/// InputSpecification defines a name, type_name, and source reference (either on or off chain) to define an input
+/// parameter
 class InputSpecification extends $pb.GeneratedMessage {
+  factory InputSpecification({
+    $core.String? name,
+    $core.String? typeName,
+    $core.List<$core.int>? recordId,
+    $core.String? hash,
+  }) {
+    final $result = create();
+    if (name != null) {
+      $result.name = name;
+    }
+    if (typeName != null) {
+      $result.typeName = typeName;
+    }
+    if (recordId != null) {
+      $result.recordId = recordId;
+    }
+    if (hash != null) {
+      $result.hash = hash;
+    }
+    return $result;
+  }
+  InputSpecification._() : super();
+  factory InputSpecification.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory InputSpecification.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, InputSpecification_Source>
       _InputSpecification_SourceByTag = {
     3: InputSpecification_Source.recordId,
@@ -520,66 +501,18 @@ class InputSpecification extends $pb.GeneratedMessage {
     0: InputSpecification_Source.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'InputSpecification',
+      _omitMessageNames ? '' : 'InputSpecification',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
       createEmptyInstance: create)
     ..oo(0, [3, 4])
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'typeName')
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOS(2, _omitFieldNames ? '' : 'typeName')
     ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordId',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash')
+        3, _omitFieldNames ? '' : 'recordId', $pb.PbFieldType.OY)
+    ..aOS(4, _omitFieldNames ? '' : 'hash')
     ..hasRequiredFields = false;
 
-  InputSpecification._() : super();
-  factory InputSpecification({
-    $core.String? name,
-    $core.String? typeName,
-    $core.List<$core.int>? recordId,
-    $core.String? hash,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (typeName != null) {
-      _result.typeName = typeName;
-    }
-    if (recordId != null) {
-      _result.recordId = recordId;
-    }
-    if (hash != null) {
-      _result.hash = hash;
-    }
-    return _result;
-  }
-  factory InputSpecification.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory InputSpecification.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -589,8 +522,10 @@ class InputSpecification extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   InputSpecification copyWith(void Function(InputSpecification) updates) =>
       super.copyWith((message) => updates(message as InputSpecification))
-          as InputSpecification; // ignore: deprecated_member_use
+          as InputSpecification;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static InputSpecification create() => InputSpecification._();
   InputSpecification createEmptyInstance() => create();
@@ -605,6 +540,7 @@ class InputSpecification extends $pb.GeneratedMessage {
       _InputSpecification_SourceByTag[$_whichOneof(0)]!;
   void clearSource() => clearField($_whichOneof(0));
 
+  /// name for this input
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -617,6 +553,7 @@ class InputSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
 
+  /// a type_name (typically a proto name or class_name)
   @$pb.TagNumber(2)
   $core.String get typeName => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -629,6 +566,7 @@ class InputSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearTypeName() => clearField(2);
 
+  /// the address of a record on chain (For Established Records)
   @$pb.TagNumber(3)
   $core.List<$core.int> get recordId => $_getN(2);
   @$pb.TagNumber(3)
@@ -641,6 +579,7 @@ class InputSpecification extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRecordId() => clearField(3);
 
+  /// the hash of an off-chain piece of information (For Proposed Records)
   @$pb.TagNumber(4)
   $core.String get hash => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -654,66 +593,48 @@ class InputSpecification extends $pb.GeneratedMessage {
   void clearHash() => clearField(4);
 }
 
+/// Description holds general information that is handy to associate with a structure.
 class Description extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Description',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'websiteUrl')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'iconUrl')
-    ..hasRequiredFields = false;
-
-  Description._() : super();
   factory Description({
     $core.String? name,
     $core.String? description,
     $core.String? websiteUrl,
     $core.String? iconUrl,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (websiteUrl != null) {
-      _result.websiteUrl = websiteUrl;
+      $result.websiteUrl = websiteUrl;
     }
     if (iconUrl != null) {
-      _result.iconUrl = iconUrl;
+      $result.iconUrl = iconUrl;
     }
-    return _result;
+    return $result;
   }
+  Description._() : super();
   factory Description.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Description.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Description',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOS(3, _omitFieldNames ? '' : 'description')
+    ..aOS(4, _omitFieldNames ? '' : 'websiteUrl')
+    ..aOS(5, _omitFieldNames ? '' : 'iconUrl')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -723,8 +644,10 @@ class Description extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Description copyWith(void Function(Description) updates) =>
       super.copyWith((message) => updates(message as Description))
-          as Description; // ignore: deprecated_member_use
+          as Description;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Description create() => Description._();
   Description createEmptyInstance() => create();
@@ -734,6 +657,7 @@ class Description extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<Description>(create);
   static Description? _defaultInstance;
 
+  /// A Name for this thing.
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -746,6 +670,7 @@ class Description extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
 
+  /// A description of this thing.
   @$pb.TagNumber(3)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(3)
@@ -758,6 +683,7 @@ class Description extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearDescription() => clearField(3);
 
+  /// URL to find even more info.
   @$pb.TagNumber(4)
   $core.String get websiteUrl => $_getSZ(2);
   @$pb.TagNumber(4)
@@ -770,6 +696,7 @@ class Description extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearWebsiteUrl() => clearField(4);
 
+  /// URL of an icon.
   @$pb.TagNumber(5)
   $core.String get iconUrl => $_getSZ(3);
   @$pb.TagNumber(5)
@@ -782,3 +709,7 @@ class Description extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearIconUrl() => clearField(5);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

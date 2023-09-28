@@ -1,44 +1,41 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/abci/v1beta1/abci.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-import 'dart:core' as $core;
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:convert' as $convert;
+import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use txResponseDescriptor instead')
-const TxResponse$json = const {
+const TxResponse$json = {
   '1': 'TxResponse',
-  '2': const [
-    const {'1': 'height', '3': 1, '4': 1, '5': 3, '10': 'height'},
-    const {
-      '1': 'txhash',
-      '3': 2,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'txhash'
-    },
-    const {'1': 'codespace', '3': 3, '4': 1, '5': 9, '10': 'codespace'},
-    const {'1': 'code', '3': 4, '4': 1, '5': 13, '10': 'code'},
-    const {'1': 'data', '3': 5, '4': 1, '5': 9, '10': 'data'},
-    const {'1': 'raw_log', '3': 6, '4': 1, '5': 9, '10': 'rawLog'},
-    const {
+  '2': [
+    {'1': 'height', '3': 1, '4': 1, '5': 3, '10': 'height'},
+    {'1': 'txhash', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'txhash'},
+    {'1': 'codespace', '3': 3, '4': 1, '5': 9, '10': 'codespace'},
+    {'1': 'code', '3': 4, '4': 1, '5': 13, '10': 'code'},
+    {'1': 'data', '3': 5, '4': 1, '5': 9, '10': 'data'},
+    {'1': 'raw_log', '3': 6, '4': 1, '5': 9, '10': 'rawLog'},
+    {
       '1': 'logs',
       '3': 7,
       '4': 3,
       '5': 11,
       '6': '.cosmos.base.abci.v1beta1.ABCIMessageLog',
-      '8': const {},
+      '8': {},
       '10': 'logs'
     },
-    const {'1': 'info', '3': 8, '4': 1, '5': 9, '10': 'info'},
-    const {'1': 'gas_wanted', '3': 9, '4': 1, '5': 3, '10': 'gasWanted'},
-    const {'1': 'gas_used', '3': 10, '4': 1, '5': 3, '10': 'gasUsed'},
-    const {
+    {'1': 'info', '3': 8, '4': 1, '5': 9, '10': 'info'},
+    {'1': 'gas_wanted', '3': 9, '4': 1, '5': 3, '10': 'gasWanted'},
+    {'1': 'gas_used', '3': 10, '4': 1, '5': 3, '10': 'gasUsed'},
+    {
       '1': 'tx',
       '3': 11,
       '4': 1,
@@ -46,120 +43,132 @@ const TxResponse$json = const {
       '6': '.google.protobuf.Any',
       '10': 'tx'
     },
-    const {'1': 'timestamp', '3': 12, '4': 1, '5': 9, '10': 'timestamp'},
-    const {
+    {'1': 'timestamp', '3': 12, '4': 1, '5': 9, '10': 'timestamp'},
+    {
       '1': 'events',
       '3': 13,
       '4': 3,
       '5': 11,
       '6': '.tendermint.abci.Event',
-      '8': const {},
+      '8': {},
       '10': 'events'
     },
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `TxResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List txResponseDescriptor = $convert.base64Decode(
-    'CgpUeFJlc3BvbnNlEhYKBmhlaWdodBgBIAEoA1IGaGVpZ2h0EiIKBnR4aGFzaBgCIAEoCUIK4t4fBlR4SGFzaFIGdHhoYXNoEhwKCWNvZGVzcGFjZRgDIAEoCVIJY29kZXNwYWNlEhIKBGNvZGUYBCABKA1SBGNvZGUSEgoEZGF0YRgFIAEoCVIEZGF0YRIXCgdyYXdfbG9nGAYgASgJUgZyYXdMb2cSVQoEbG9ncxgHIAMoCzIoLmNvc21vcy5iYXNlLmFiY2kudjFiZXRhMS5BQkNJTWVzc2FnZUxvZ0IXqt8fD0FCQ0lNZXNzYWdlTG9nc8jeHwBSBGxvZ3MSEgoEaW5mbxgIIAEoCVIEaW5mbxIdCgpnYXNfd2FudGVkGAkgASgDUglnYXNXYW50ZWQSGQoIZ2FzX3VzZWQYCiABKANSB2dhc1VzZWQSJAoCdHgYCyABKAsyFC5nb29nbGUucHJvdG9idWYuQW55UgJ0eBIcCgl0aW1lc3RhbXAYDCABKAlSCXRpbWVzdGFtcBI0CgZldmVudHMYDSADKAsyFi50ZW5kZXJtaW50LmFiY2kuRXZlbnRCBMjeHwBSBmV2ZW50czoEiKAfAA==');
+    'CgpUeFJlc3BvbnNlEhYKBmhlaWdodBgBIAEoA1IGaGVpZ2h0EiIKBnR4aGFzaBgCIAEoCUIK4t'
+    '4fBlR4SGFzaFIGdHhoYXNoEhwKCWNvZGVzcGFjZRgDIAEoCVIJY29kZXNwYWNlEhIKBGNvZGUY'
+    'BCABKA1SBGNvZGUSEgoEZGF0YRgFIAEoCVIEZGF0YRIXCgdyYXdfbG9nGAYgASgJUgZyYXdMb2'
+    'cSVQoEbG9ncxgHIAMoCzIoLmNvc21vcy5iYXNlLmFiY2kudjFiZXRhMS5BQkNJTWVzc2FnZUxv'
+    'Z0IXyN4fAKrfHw9BQkNJTWVzc2FnZUxvZ3NSBGxvZ3MSEgoEaW5mbxgIIAEoCVIEaW5mbxIdCg'
+    'pnYXNfd2FudGVkGAkgASgDUglnYXNXYW50ZWQSGQoIZ2FzX3VzZWQYCiABKANSB2dhc1VzZWQS'
+    'JAoCdHgYCyABKAsyFC5nb29nbGUucHJvdG9idWYuQW55UgJ0eBIcCgl0aW1lc3RhbXAYDCABKA'
+    'lSCXRpbWVzdGFtcBI0CgZldmVudHMYDSADKAsyFi50ZW5kZXJtaW50LmFiY2kuRXZlbnRCBMje'
+    'HwBSBmV2ZW50czoEiKAfAA==');
+
 @$core.Deprecated('Use aBCIMessageLogDescriptor instead')
-const ABCIMessageLog$json = const {
+const ABCIMessageLog$json = {
   '1': 'ABCIMessageLog',
-  '2': const [
-    const {
-      '1': 'msg_index',
-      '3': 1,
-      '4': 1,
-      '5': 13,
-      '8': const {},
-      '10': 'msgIndex'
-    },
-    const {'1': 'log', '3': 2, '4': 1, '5': 9, '10': 'log'},
-    const {
+  '2': [
+    {'1': 'msg_index', '3': 1, '4': 1, '5': 13, '8': {}, '10': 'msgIndex'},
+    {'1': 'log', '3': 2, '4': 1, '5': 9, '10': 'log'},
+    {
       '1': 'events',
       '3': 3,
       '4': 3,
       '5': 11,
       '6': '.cosmos.base.abci.v1beta1.StringEvent',
-      '8': const {},
+      '8': {},
       '10': 'events'
     },
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `ABCIMessageLog`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List aBCIMessageLogDescriptor = $convert.base64Decode(
-    'Cg5BQkNJTWVzc2FnZUxvZxIqCgltc2dfaW5kZXgYASABKA1CDereHwltc2dfaW5kZXhSCG1zZ0luZGV4EhAKA2xvZxgCIAEoCVIDbG9nElMKBmV2ZW50cxgDIAMoCzIlLmNvc21vcy5iYXNlLmFiY2kudjFiZXRhMS5TdHJpbmdFdmVudEIUqt8fDFN0cmluZ0V2ZW50c8jeHwBSBmV2ZW50czoEgNwgAQ==');
+    'Cg5BQkNJTWVzc2FnZUxvZxIqCgltc2dfaW5kZXgYASABKA1CDereHwltc2dfaW5kZXhSCG1zZ0'
+    'luZGV4EhAKA2xvZxgCIAEoCVIDbG9nElMKBmV2ZW50cxgDIAMoCzIlLmNvc21vcy5iYXNlLmFi'
+    'Y2kudjFiZXRhMS5TdHJpbmdFdmVudEIUyN4fAKrfHwxTdHJpbmdFdmVudHNSBmV2ZW50czoEgN'
+    'wgAQ==');
+
 @$core.Deprecated('Use stringEventDescriptor instead')
-const StringEvent$json = const {
+const StringEvent$json = {
   '1': 'StringEvent',
-  '2': const [
-    const {'1': 'type', '3': 1, '4': 1, '5': 9, '10': 'type'},
-    const {
+  '2': [
+    {'1': 'type', '3': 1, '4': 1, '5': 9, '10': 'type'},
+    {
       '1': 'attributes',
       '3': 2,
       '4': 3,
       '5': 11,
       '6': '.cosmos.base.abci.v1beta1.Attribute',
-      '8': const {},
+      '8': {},
       '10': 'attributes'
     },
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `StringEvent`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List stringEventDescriptor = $convert.base64Decode(
-    'CgtTdHJpbmdFdmVudBISCgR0eXBlGAEgASgJUgR0eXBlEkkKCmF0dHJpYnV0ZXMYAiADKAsyIy5jb3Ntb3MuYmFzZS5hYmNpLnYxYmV0YTEuQXR0cmlidXRlQgTI3h8AUgphdHRyaWJ1dGVzOgSA3CAB');
+    'CgtTdHJpbmdFdmVudBISCgR0eXBlGAEgASgJUgR0eXBlEkkKCmF0dHJpYnV0ZXMYAiADKAsyIy'
+    '5jb3Ntb3MuYmFzZS5hYmNpLnYxYmV0YTEuQXR0cmlidXRlQgTI3h8AUgphdHRyaWJ1dGVzOgSA'
+    '3CAB');
+
 @$core.Deprecated('Use attributeDescriptor instead')
-const Attribute$json = const {
+const Attribute$json = {
   '1': 'Attribute',
-  '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
+  '2': [
+    {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
+    {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
   ],
 };
 
 /// Descriptor for `Attribute`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List attributeDescriptor = $convert.base64Decode(
     'CglBdHRyaWJ1dGUSEAoDa2V5GAEgASgJUgNrZXkSFAoFdmFsdWUYAiABKAlSBXZhbHVl');
+
 @$core.Deprecated('Use gasInfoDescriptor instead')
-const GasInfo$json = const {
+const GasInfo$json = {
   '1': 'GasInfo',
-  '2': const [
-    const {'1': 'gas_wanted', '3': 1, '4': 1, '5': 4, '10': 'gasWanted'},
-    const {'1': 'gas_used', '3': 2, '4': 1, '5': 4, '10': 'gasUsed'},
+  '2': [
+    {'1': 'gas_wanted', '3': 1, '4': 1, '5': 4, '10': 'gasWanted'},
+    {'1': 'gas_used', '3': 2, '4': 1, '5': 4, '10': 'gasUsed'},
   ],
 };
 
 /// Descriptor for `GasInfo`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gasInfoDescriptor = $convert.base64Decode(
-    'CgdHYXNJbmZvEh0KCmdhc193YW50ZWQYASABKARSCWdhc1dhbnRlZBIZCghnYXNfdXNlZBgCIAEoBFIHZ2FzVXNlZA==');
+    'CgdHYXNJbmZvEh0KCmdhc193YW50ZWQYASABKARSCWdhc1dhbnRlZBIZCghnYXNfdXNlZBgCIA'
+    'EoBFIHZ2FzVXNlZA==');
+
 @$core.Deprecated('Use resultDescriptor instead')
-const Result$json = const {
+const Result$json = {
   '1': 'Result',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'data',
       '3': 1,
       '4': 1,
       '5': 12,
-      '8': const {'3': true},
+      '8': {'3': true},
       '10': 'data',
     },
-    const {'1': 'log', '3': 2, '4': 1, '5': 9, '10': 'log'},
-    const {
+    {'1': 'log', '3': 2, '4': 1, '5': 9, '10': 'log'},
+    {
       '1': 'events',
       '3': 3,
       '4': 3,
       '5': 11,
       '6': '.tendermint.abci.Event',
-      '8': const {},
+      '8': {},
       '10': 'events'
     },
-    const {
+    {
       '1': 'msg_responses',
       '3': 4,
       '4': 3,
@@ -168,26 +177,30 @@ const Result$json = const {
       '10': 'msgResponses'
     },
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `Result`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List resultDescriptor = $convert.base64Decode(
-    'CgZSZXN1bHQSFgoEZGF0YRgBIAEoDEICGAFSBGRhdGESEAoDbG9nGAIgASgJUgNsb2cSNAoGZXZlbnRzGAMgAygLMhYudGVuZGVybWludC5hYmNpLkV2ZW50QgTI3h8AUgZldmVudHMSOQoNbXNnX3Jlc3BvbnNlcxgEIAMoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlSDG1zZ1Jlc3BvbnNlczoEiKAfAA==');
+    'CgZSZXN1bHQSFgoEZGF0YRgBIAEoDEICGAFSBGRhdGESEAoDbG9nGAIgASgJUgNsb2cSNAoGZX'
+    'ZlbnRzGAMgAygLMhYudGVuZGVybWludC5hYmNpLkV2ZW50QgTI3h8AUgZldmVudHMSOQoNbXNn'
+    'X3Jlc3BvbnNlcxgEIAMoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlSDG1zZ1Jlc3BvbnNlczoEiK'
+    'AfAA==');
+
 @$core.Deprecated('Use simulationResponseDescriptor instead')
-const SimulationResponse$json = const {
+const SimulationResponse$json = {
   '1': 'SimulationResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'gas_info',
       '3': 1,
       '4': 1,
       '5': 11,
       '6': '.cosmos.base.abci.v1beta1.GasInfo',
-      '8': const {},
+      '8': {},
       '10': 'gasInfo'
     },
-    const {
+    {
       '1': 'result',
       '3': 2,
       '4': 1,
@@ -200,34 +213,39 @@ const SimulationResponse$json = const {
 
 /// Descriptor for `SimulationResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List simulationResponseDescriptor = $convert.base64Decode(
-    'ChJTaW11bGF0aW9uUmVzcG9uc2USRgoIZ2FzX2luZm8YASABKAsyIS5jb3Ntb3MuYmFzZS5hYmNpLnYxYmV0YTEuR2FzSW5mb0II0N4fAcjeHwBSB2dhc0luZm8SOAoGcmVzdWx0GAIgASgLMiAuY29zbW9zLmJhc2UuYWJjaS52MWJldGExLlJlc3VsdFIGcmVzdWx0');
+    'ChJTaW11bGF0aW9uUmVzcG9uc2USRgoIZ2FzX2luZm8YASABKAsyIS5jb3Ntb3MuYmFzZS5hYm'
+    'NpLnYxYmV0YTEuR2FzSW5mb0IIyN4fANDeHwFSB2dhc0luZm8SOAoGcmVzdWx0GAIgASgLMiAu'
+    'Y29zbW9zLmJhc2UuYWJjaS52MWJldGExLlJlc3VsdFIGcmVzdWx0');
+
 @$core.Deprecated('Use msgDataDescriptor instead')
-const MsgData$json = const {
+const MsgData$json = {
   '1': 'MsgData',
-  '2': const [
-    const {'1': 'msg_type', '3': 1, '4': 1, '5': 9, '10': 'msgType'},
-    const {'1': 'data', '3': 2, '4': 1, '5': 12, '10': 'data'},
+  '2': [
+    {'1': 'msg_type', '3': 1, '4': 1, '5': 9, '10': 'msgType'},
+    {'1': 'data', '3': 2, '4': 1, '5': 12, '10': 'data'},
   ],
-  '7': const {'3': true},
+  '7': {'3': true},
 };
 
 /// Descriptor for `MsgData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgDataDescriptor = $convert.base64Decode(
-    'CgdNc2dEYXRhEhkKCG1zZ190eXBlGAEgASgJUgdtc2dUeXBlEhIKBGRhdGEYAiABKAxSBGRhdGE6BhgBgNwgAQ==');
+    'CgdNc2dEYXRhEhkKCG1zZ190eXBlGAEgASgJUgdtc2dUeXBlEhIKBGRhdGEYAiABKAxSBGRhdG'
+    'E6BhgBgNwgAQ==');
+
 @$core.Deprecated('Use txMsgDataDescriptor instead')
-const TxMsgData$json = const {
+const TxMsgData$json = {
   '1': 'TxMsgData',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'data',
       '3': 1,
       '4': 3,
       '5': 11,
       '6': '.cosmos.base.abci.v1beta1.MsgData',
-      '8': const {'3': true},
+      '8': {'3': true},
       '10': 'data',
     },
-    const {
+    {
       '1': 'msg_responses',
       '3': 2,
       '4': 3,
@@ -236,22 +254,25 @@ const TxMsgData$json = const {
       '10': 'msgResponses'
     },
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `TxMsgData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List txMsgDataDescriptor = $convert.base64Decode(
-    'CglUeE1zZ0RhdGESOQoEZGF0YRgBIAMoCzIhLmNvc21vcy5iYXNlLmFiY2kudjFiZXRhMS5Nc2dEYXRhQgIYAVIEZGF0YRI5Cg1tc2dfcmVzcG9uc2VzGAIgAygLMhQuZ29vZ2xlLnByb3RvYnVmLkFueVIMbXNnUmVzcG9uc2VzOgSA3CAB');
+    'CglUeE1zZ0RhdGESOQoEZGF0YRgBIAMoCzIhLmNvc21vcy5iYXNlLmFiY2kudjFiZXRhMS5Nc2'
+    'dEYXRhQgIYAVIEZGF0YRI5Cg1tc2dfcmVzcG9uc2VzGAIgAygLMhQuZ29vZ2xlLnByb3RvYnVm'
+    'LkFueVIMbXNnUmVzcG9uc2VzOgSA3CAB');
+
 @$core.Deprecated('Use searchTxsResultDescriptor instead')
-const SearchTxsResult$json = const {
+const SearchTxsResult$json = {
   '1': 'SearchTxsResult',
-  '2': const [
-    const {'1': 'total_count', '3': 1, '4': 1, '5': 4, '10': 'totalCount'},
-    const {'1': 'count', '3': 2, '4': 1, '5': 4, '10': 'count'},
-    const {'1': 'page_number', '3': 3, '4': 1, '5': 4, '10': 'pageNumber'},
-    const {'1': 'page_total', '3': 4, '4': 1, '5': 4, '10': 'pageTotal'},
-    const {'1': 'limit', '3': 5, '4': 1, '5': 4, '10': 'limit'},
-    const {
+  '2': [
+    {'1': 'total_count', '3': 1, '4': 1, '5': 4, '10': 'totalCount'},
+    {'1': 'count', '3': 2, '4': 1, '5': 4, '10': 'count'},
+    {'1': 'page_number', '3': 3, '4': 1, '5': 4, '10': 'pageNumber'},
+    {'1': 'page_total', '3': 4, '4': 1, '5': 4, '10': 'pageTotal'},
+    {'1': 'limit', '3': 5, '4': 1, '5': 4, '10': 'limit'},
+    {
       '1': 'txs',
       '3': 6,
       '4': 3,
@@ -260,9 +281,12 @@ const SearchTxsResult$json = const {
       '10': 'txs'
     },
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `SearchTxsResult`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List searchTxsResultDescriptor = $convert.base64Decode(
-    'Cg9TZWFyY2hUeHNSZXN1bHQSHwoLdG90YWxfY291bnQYASABKARSCnRvdGFsQ291bnQSFAoFY291bnQYAiABKARSBWNvdW50Eh8KC3BhZ2VfbnVtYmVyGAMgASgEUgpwYWdlTnVtYmVyEh0KCnBhZ2VfdG90YWwYBCABKARSCXBhZ2VUb3RhbBIUCgVsaW1pdBgFIAEoBFIFbGltaXQSNgoDdHhzGAYgAygLMiQuY29zbW9zLmJhc2UuYWJjaS52MWJldGExLlR4UmVzcG9uc2VSA3R4czoEgNwgAQ==');
+    'Cg9TZWFyY2hUeHNSZXN1bHQSHwoLdG90YWxfY291bnQYASABKARSCnRvdGFsQ291bnQSFAoFY2'
+    '91bnQYAiABKARSBWNvdW50Eh8KC3BhZ2VfbnVtYmVyGAMgASgEUgpwYWdlTnVtYmVyEh0KCnBh'
+    'Z2VfdG90YWwYBCABKARSCXBhZ2VUb3RhbBIUCgVsaW1pdBgFIAEoBFIFbGltaXQSNgoDdHhzGA'
+    'YgAygLMiQuY29zbW9zLmJhc2UuYWJjaS52MWJldGExLlR4UmVzcG9uc2VSA3R4czoEgNwgAQ==');

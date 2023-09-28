@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/feegrant/v1beta1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,58 +15,45 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../google/protobuf/any.pb.dart' as $1;
 
+/// MsgGrantAllowance adds permission for Grantee to spend up to Allowance
+/// of fees from the account of Granter.
 class MsgGrantAllowance extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgGrantAllowance',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..aOM<$1.Any>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowance',
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  MsgGrantAllowance._() : super();
   factory MsgGrantAllowance({
     $core.String? granter,
     $core.String? grantee,
     $1.Any? allowance,
   }) {
-    final _result = create();
+    final $result = create();
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
     if (allowance != null) {
-      _result.allowance = allowance;
+      $result.allowance = allowance;
     }
-    return _result;
+    return $result;
   }
+  MsgGrantAllowance._() : super();
   factory MsgGrantAllowance.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgGrantAllowance.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgGrantAllowance',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'granter')
+    ..aOS(2, _omitFieldNames ? '' : 'grantee')
+    ..aOM<$1.Any>(3, _omitFieldNames ? '' : 'allowance',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -72,8 +63,10 @@ class MsgGrantAllowance extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgGrantAllowance copyWith(void Function(MsgGrantAllowance) updates) =>
       super.copyWith((message) => updates(message as MsgGrantAllowance))
-          as MsgGrantAllowance; // ignore: deprecated_member_use
+          as MsgGrantAllowance;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgGrantAllowance create() => MsgGrantAllowance._();
   MsgGrantAllowance createEmptyInstance() => create();
@@ -84,6 +77,7 @@ class MsgGrantAllowance extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgGrantAllowance>(create);
   static MsgGrantAllowance? _defaultInstance;
 
+  /// granter is the address of the user granting an allowance of their funds.
   @$pb.TagNumber(1)
   $core.String get granter => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -96,6 +90,7 @@ class MsgGrantAllowance extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGranter() => clearField(1);
 
+  /// grantee is the address of the user being granted an allowance of another user's funds.
   @$pb.TagNumber(2)
   $core.String get grantee => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -108,6 +103,7 @@ class MsgGrantAllowance extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGrantee() => clearField(2);
 
+  /// allowance can be any of basic, periodic, allowed fee allowance.
   @$pb.TagNumber(3)
   $1.Any get allowance => $_getN(2);
   @$pb.TagNumber(3)
@@ -123,26 +119,24 @@ class MsgGrantAllowance extends $pb.GeneratedMessage {
   $1.Any ensureAllowance() => $_ensure(2);
 }
 
+/// MsgGrantAllowanceResponse defines the Msg/GrantAllowanceResponse response type.
 class MsgGrantAllowanceResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgGrantAllowanceResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgGrantAllowanceResponse._() : super();
   factory MsgGrantAllowanceResponse() => create();
+  MsgGrantAllowanceResponse._() : super();
   factory MsgGrantAllowanceResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgGrantAllowanceResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgGrantAllowanceResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -154,8 +148,10 @@ class MsgGrantAllowanceResponse extends $pb.GeneratedMessage {
   MsgGrantAllowanceResponse copyWith(
           void Function(MsgGrantAllowanceResponse) updates) =>
       super.copyWith((message) => updates(message as MsgGrantAllowanceResponse))
-          as MsgGrantAllowanceResponse; // ignore: deprecated_member_use
+          as MsgGrantAllowanceResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgGrantAllowanceResponse create() => MsgGrantAllowanceResponse._();
   MsgGrantAllowanceResponse createEmptyInstance() => create();
@@ -167,48 +163,38 @@ class MsgGrantAllowanceResponse extends $pb.GeneratedMessage {
   static MsgGrantAllowanceResponse? _defaultInstance;
 }
 
+/// MsgRevokeAllowance removes any existing Allowance from Granter to Grantee.
 class MsgRevokeAllowance extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgRevokeAllowance',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..hasRequiredFields = false;
-
-  MsgRevokeAllowance._() : super();
   factory MsgRevokeAllowance({
     $core.String? granter,
     $core.String? grantee,
   }) {
-    final _result = create();
+    final $result = create();
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
-    return _result;
+    return $result;
   }
+  MsgRevokeAllowance._() : super();
   factory MsgRevokeAllowance.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgRevokeAllowance.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgRevokeAllowance',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'granter')
+    ..aOS(2, _omitFieldNames ? '' : 'grantee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -218,8 +204,10 @@ class MsgRevokeAllowance extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgRevokeAllowance copyWith(void Function(MsgRevokeAllowance) updates) =>
       super.copyWith((message) => updates(message as MsgRevokeAllowance))
-          as MsgRevokeAllowance; // ignore: deprecated_member_use
+          as MsgRevokeAllowance;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgRevokeAllowance create() => MsgRevokeAllowance._();
   MsgRevokeAllowance createEmptyInstance() => create();
@@ -230,6 +218,7 @@ class MsgRevokeAllowance extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgRevokeAllowance>(create);
   static MsgRevokeAllowance? _defaultInstance;
 
+  /// granter is the address of the user granting an allowance of their funds.
   @$pb.TagNumber(1)
   $core.String get granter => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -242,6 +231,7 @@ class MsgRevokeAllowance extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGranter() => clearField(1);
 
+  /// grantee is the address of the user being granted an allowance of another user's funds.
   @$pb.TagNumber(2)
   $core.String get grantee => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -255,26 +245,24 @@ class MsgRevokeAllowance extends $pb.GeneratedMessage {
   void clearGrantee() => clearField(2);
 }
 
+/// MsgRevokeAllowanceResponse defines the Msg/RevokeAllowanceResponse response type.
 class MsgRevokeAllowanceResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgRevokeAllowanceResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgRevokeAllowanceResponse._() : super();
   factory MsgRevokeAllowanceResponse() => create();
+  MsgRevokeAllowanceResponse._() : super();
   factory MsgRevokeAllowanceResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgRevokeAllowanceResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgRevokeAllowanceResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -287,8 +275,10 @@ class MsgRevokeAllowanceResponse extends $pb.GeneratedMessage {
           void Function(MsgRevokeAllowanceResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgRevokeAllowanceResponse))
-          as MsgRevokeAllowanceResponse; // ignore: deprecated_member_use
+          as MsgRevokeAllowanceResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgRevokeAllowanceResponse create() => MsgRevokeAllowanceResponse._();
   MsgRevokeAllowanceResponse createEmptyInstance() => create();
@@ -299,3 +289,7 @@ class MsgRevokeAllowanceResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgRevokeAllowanceResponse>(create);
   static MsgRevokeAllowanceResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -1,18 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/auth/v1beta1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import 'query.pb.dart' as $0;
+
 export 'query.pb.dart';
 
+@$pb.GrpcServiceName('cosmos.auth.v1beta1.Query')
 class QueryClient extends $grpc.Client {
   static final _$accounts =
       $grpc.ClientMethod<$0.QueryAccountsRequest, $0.QueryAccountsResponse>(
@@ -45,6 +52,13 @@ class QueryClient extends $grpc.Client {
       ($0.QueryModuleAccountsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.QueryModuleAccountsResponse.fromBuffer(value));
+  static final _$moduleAccountByName = $grpc.ClientMethod<
+          $0.QueryModuleAccountByNameRequest,
+          $0.QueryModuleAccountByNameResponse>(
+      '/cosmos.auth.v1beta1.Query/ModuleAccountByName',
+      ($0.QueryModuleAccountByNameRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryModuleAccountByNameResponse.fromBuffer(value));
   static final _$bech32Prefix =
       $grpc.ClientMethod<$0.Bech32PrefixRequest, $0.Bech32PrefixResponse>(
           '/cosmos.auth.v1beta1.Query/Bech32Prefix',
@@ -99,6 +113,12 @@ class QueryClient extends $grpc.Client {
     return $createUnaryCall(_$moduleAccounts, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.QueryModuleAccountByNameResponse> moduleAccountByName(
+      $0.QueryModuleAccountByNameRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$moduleAccountByName, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.Bech32PrefixResponse> bech32Prefix(
       $0.Bech32PrefixRequest request,
       {$grpc.CallOptions? options}) {
@@ -118,6 +138,7 @@ class QueryClient extends $grpc.Client {
   }
 }
 
+@$pb.GrpcServiceName('cosmos.auth.v1beta1.Query')
 abstract class QueryServiceBase extends $grpc.Service {
   $core.String get $name => 'cosmos.auth.v1beta1.Query';
 
@@ -167,6 +188,15 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.QueryModuleAccountsRequest.fromBuffer(value),
         ($0.QueryModuleAccountsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryModuleAccountByNameRequest,
+            $0.QueryModuleAccountByNameResponse>(
+        'ModuleAccountByName',
+        moduleAccountByName_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryModuleAccountByNameRequest.fromBuffer(value),
+        ($0.QueryModuleAccountByNameResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.Bech32PrefixRequest, $0.Bech32PrefixResponse>(
             'Bech32Prefix',
@@ -223,6 +253,12 @@ abstract class QueryServiceBase extends $grpc.Service {
     return moduleAccounts(call, await request);
   }
 
+  $async.Future<$0.QueryModuleAccountByNameResponse> moduleAccountByName_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryModuleAccountByNameRequest> request) async {
+    return moduleAccountByName(call, await request);
+  }
+
   $async.Future<$0.Bech32PrefixResponse> bech32Prefix_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.Bech32PrefixRequest> request) async {
@@ -251,6 +287,8 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.QueryParamsRequest request);
   $async.Future<$0.QueryModuleAccountsResponse> moduleAccounts(
       $grpc.ServiceCall call, $0.QueryModuleAccountsRequest request);
+  $async.Future<$0.QueryModuleAccountByNameResponse> moduleAccountByName(
+      $grpc.ServiceCall call, $0.QueryModuleAccountByNameRequest request);
   $async.Future<$0.Bech32PrefixResponse> bech32Prefix(
       $grpc.ServiceCall call, $0.Bech32PrefixRequest request);
   $async.Future<$0.AddressBytesToStringResponse> addressBytesToString(

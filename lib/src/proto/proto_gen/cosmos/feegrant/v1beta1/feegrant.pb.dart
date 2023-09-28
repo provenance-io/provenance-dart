@@ -1,64 +1,58 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/feegrant/v1beta1/feegrant.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../base/v1beta1/coin.pb.dart' as $0;
-import '../../../google/protobuf/timestamp.pb.dart' as $1;
-import '../../../google/protobuf/duration.pb.dart' as $2;
 import '../../../google/protobuf/any.pb.dart' as $3;
+import '../../../google/protobuf/duration.pb.dart' as $2;
+import '../../../google/protobuf/timestamp.pb.dart' as $1;
+import '../../base/v1beta1/coin.pb.dart' as $0;
 
+/// BasicAllowance implements Allowance with a one-time grant of coins
+/// that optionally expires. The grantee can use up to SpendLimit to cover fees.
 class BasicAllowance extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BasicAllowance',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$0.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'spendLimit',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..aOM<$1.Timestamp>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'expiration',
-        subBuilder: $1.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  BasicAllowance._() : super();
   factory BasicAllowance({
     $core.Iterable<$0.Coin>? spendLimit,
     $1.Timestamp? expiration,
   }) {
-    final _result = create();
+    final $result = create();
     if (spendLimit != null) {
-      _result.spendLimit.addAll(spendLimit);
+      $result.spendLimit.addAll(spendLimit);
     }
     if (expiration != null) {
-      _result.expiration = expiration;
+      $result.expiration = expiration;
     }
-    return _result;
+    return $result;
   }
+  BasicAllowance._() : super();
   factory BasicAllowance.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BasicAllowance.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BasicAllowance',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$0.Coin>(1, _omitFieldNames ? '' : 'spendLimit', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..aOM<$1.Timestamp>(2, _omitFieldNames ? '' : 'expiration',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -68,8 +62,10 @@ class BasicAllowance extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   BasicAllowance copyWith(void Function(BasicAllowance) updates) =>
       super.copyWith((message) => updates(message as BasicAllowance))
-          as BasicAllowance; // ignore: deprecated_member_use
+          as BasicAllowance;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BasicAllowance create() => BasicAllowance._();
   BasicAllowance createEmptyInstance() => create();
@@ -80,9 +76,13 @@ class BasicAllowance extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<BasicAllowance>(create);
   static BasicAllowance? _defaultInstance;
 
+  /// spend_limit specifies the maximum amount of coins that can be spent
+  /// by this allowance and will be updated as coins are spent. If it is
+  /// empty, there is no spend limit and any amount of coins can be spent.
   @$pb.TagNumber(1)
   $core.List<$0.Coin> get spendLimit => $_getList(0);
 
+  /// expiration specifies an optional time when this allowance expires
   @$pb.TagNumber(2)
   $1.Timestamp get expiration => $_getN(1);
   @$pb.TagNumber(2)
@@ -98,51 +98,9 @@ class BasicAllowance extends $pb.GeneratedMessage {
   $1.Timestamp ensureExpiration() => $_ensure(1);
 }
 
+/// PeriodicAllowance extends Allowance to allow for both a maximum cap,
+/// as well as a limit per time period.
 class PeriodicAllowance extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PeriodicAllowance',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<BasicAllowance>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'basic',
-        subBuilder: BasicAllowance.create)
-    ..aOM<$2.Duration>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'period',
-        subBuilder: $2.Duration.create)
-    ..pc<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'periodSpendLimit',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..pc<$0.Coin>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'periodCanSpend',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..aOM<$1.Timestamp>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'periodReset',
-        subBuilder: $1.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  PeriodicAllowance._() : super();
   factory PeriodicAllowance({
     BasicAllowance? basic,
     $2.Duration? period,
@@ -150,30 +108,51 @@ class PeriodicAllowance extends $pb.GeneratedMessage {
     $core.Iterable<$0.Coin>? periodCanSpend,
     $1.Timestamp? periodReset,
   }) {
-    final _result = create();
+    final $result = create();
     if (basic != null) {
-      _result.basic = basic;
+      $result.basic = basic;
     }
     if (period != null) {
-      _result.period = period;
+      $result.period = period;
     }
     if (periodSpendLimit != null) {
-      _result.periodSpendLimit.addAll(periodSpendLimit);
+      $result.periodSpendLimit.addAll(periodSpendLimit);
     }
     if (periodCanSpend != null) {
-      _result.periodCanSpend.addAll(periodCanSpend);
+      $result.periodCanSpend.addAll(periodCanSpend);
     }
     if (periodReset != null) {
-      _result.periodReset = periodReset;
+      $result.periodReset = periodReset;
     }
-    return _result;
+    return $result;
   }
+  PeriodicAllowance._() : super();
   factory PeriodicAllowance.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PeriodicAllowance.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PeriodicAllowance',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<BasicAllowance>(1, _omitFieldNames ? '' : 'basic',
+        subBuilder: BasicAllowance.create)
+    ..aOM<$2.Duration>(2, _omitFieldNames ? '' : 'period',
+        subBuilder: $2.Duration.create)
+    ..pc<$0.Coin>(
+        3, _omitFieldNames ? '' : 'periodSpendLimit', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..pc<$0.Coin>(
+        4, _omitFieldNames ? '' : 'periodCanSpend', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..aOM<$1.Timestamp>(5, _omitFieldNames ? '' : 'periodReset',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -183,8 +162,10 @@ class PeriodicAllowance extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PeriodicAllowance copyWith(void Function(PeriodicAllowance) updates) =>
       super.copyWith((message) => updates(message as PeriodicAllowance))
-          as PeriodicAllowance; // ignore: deprecated_member_use
+          as PeriodicAllowance;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PeriodicAllowance create() => PeriodicAllowance._();
   PeriodicAllowance createEmptyInstance() => create();
@@ -195,6 +176,7 @@ class PeriodicAllowance extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<PeriodicAllowance>(create);
   static PeriodicAllowance? _defaultInstance;
 
+  /// basic specifies a struct of `BasicAllowance`
   @$pb.TagNumber(1)
   BasicAllowance get basic => $_getN(0);
   @$pb.TagNumber(1)
@@ -209,6 +191,8 @@ class PeriodicAllowance extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   BasicAllowance ensureBasic() => $_ensure(0);
 
+  /// period specifies the time duration in which period_spend_limit coins can
+  /// be spent before that allowance is reset
   @$pb.TagNumber(2)
   $2.Duration get period => $_getN(1);
   @$pb.TagNumber(2)
@@ -223,12 +207,18 @@ class PeriodicAllowance extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $2.Duration ensurePeriod() => $_ensure(1);
 
+  /// period_spend_limit specifies the maximum number of coins that can be spent
+  /// in the period
   @$pb.TagNumber(3)
   $core.List<$0.Coin> get periodSpendLimit => $_getList(2);
 
+  /// period_can_spend is the number of coins left to be spent before the period_reset time
   @$pb.TagNumber(4)
   $core.List<$0.Coin> get periodCanSpend => $_getList(3);
 
+  /// period_reset is the time at which this period resets and a new one begins,
+  /// it is calculated from the start time of the first transaction after the
+  /// last period ended
   @$pb.TagNumber(5)
   $1.Timestamp get periodReset => $_getN(4);
   @$pb.TagNumber(5)
@@ -244,49 +234,39 @@ class PeriodicAllowance extends $pb.GeneratedMessage {
   $1.Timestamp ensurePeriodReset() => $_ensure(4);
 }
 
+/// AllowedMsgAllowance creates allowance only for specified message types.
 class AllowedMsgAllowance extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'AllowedMsgAllowance',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$3.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowance',
-        subBuilder: $3.Any.create)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowedMessages')
-    ..hasRequiredFields = false;
-
-  AllowedMsgAllowance._() : super();
   factory AllowedMsgAllowance({
     $3.Any? allowance,
     $core.Iterable<$core.String>? allowedMessages,
   }) {
-    final _result = create();
+    final $result = create();
     if (allowance != null) {
-      _result.allowance = allowance;
+      $result.allowance = allowance;
     }
     if (allowedMessages != null) {
-      _result.allowedMessages.addAll(allowedMessages);
+      $result.allowedMessages.addAll(allowedMessages);
     }
-    return _result;
+    return $result;
   }
+  AllowedMsgAllowance._() : super();
   factory AllowedMsgAllowance.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory AllowedMsgAllowance.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AllowedMsgAllowance',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$3.Any>(1, _omitFieldNames ? '' : 'allowance',
+        subBuilder: $3.Any.create)
+    ..pPS(2, _omitFieldNames ? '' : 'allowedMessages')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -296,8 +276,10 @@ class AllowedMsgAllowance extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   AllowedMsgAllowance copyWith(void Function(AllowedMsgAllowance) updates) =>
       super.copyWith((message) => updates(message as AllowedMsgAllowance))
-          as AllowedMsgAllowance; // ignore: deprecated_member_use
+          as AllowedMsgAllowance;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AllowedMsgAllowance create() => AllowedMsgAllowance._();
   AllowedMsgAllowance createEmptyInstance() => create();
@@ -308,6 +290,7 @@ class AllowedMsgAllowance extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<AllowedMsgAllowance>(create);
   static AllowedMsgAllowance? _defaultInstance;
 
+  /// allowance can be any of basic and periodic fee allowance.
   @$pb.TagNumber(1)
   $3.Any get allowance => $_getN(0);
   @$pb.TagNumber(1)
@@ -322,62 +305,49 @@ class AllowedMsgAllowance extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $3.Any ensureAllowance() => $_ensure(0);
 
+  /// allowed_messages are the messages for which the grantee has the access.
   @$pb.TagNumber(2)
   $core.List<$core.String> get allowedMessages => $_getList(1);
 }
 
+/// Grant is stored in the KVStore to record a grant with full context
 class Grant extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Grant',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.feegrant.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..aOM<$3.Any>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowance',
-        subBuilder: $3.Any.create)
-    ..hasRequiredFields = false;
-
-  Grant._() : super();
   factory Grant({
     $core.String? granter,
     $core.String? grantee,
     $3.Any? allowance,
   }) {
-    final _result = create();
+    final $result = create();
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
     if (allowance != null) {
-      _result.allowance = allowance;
+      $result.allowance = allowance;
     }
-    return _result;
+    return $result;
   }
+  Grant._() : super();
   factory Grant.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Grant.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Grant',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.feegrant.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'granter')
+    ..aOS(2, _omitFieldNames ? '' : 'grantee')
+    ..aOM<$3.Any>(3, _omitFieldNames ? '' : 'allowance',
+        subBuilder: $3.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -386,9 +356,10 @@ class Grant extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Grant copyWith(void Function(Grant) updates) =>
-      super.copyWith((message) => updates(message as Grant))
-          as Grant; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Grant)) as Grant;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Grant create() => Grant._();
   Grant createEmptyInstance() => create();
@@ -398,6 +369,7 @@ class Grant extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Grant>(create);
   static Grant? _defaultInstance;
 
+  /// granter is the address of the user granting an allowance of their funds.
   @$pb.TagNumber(1)
   $core.String get granter => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -410,6 +382,7 @@ class Grant extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGranter() => clearField(1);
 
+  /// grantee is the address of the user being granted an allowance of another user's funds.
   @$pb.TagNumber(2)
   $core.String get grantee => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -422,6 +395,7 @@ class Grant extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGrantee() => clearField(2);
 
+  /// allowance can be any of basic, periodic, allowed fee allowance.
   @$pb.TagNumber(3)
   $3.Any get allowance => $_getN(2);
   @$pb.TagNumber(3)
@@ -436,3 +410,7 @@ class Grant extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $3.Any ensureAllowance() => $_ensure(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

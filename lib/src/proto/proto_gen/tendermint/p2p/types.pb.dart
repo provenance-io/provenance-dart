@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/p2p/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,57 +15,40 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class NetAddress extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'NetAddress',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.p2p'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ip')
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'port',
-        $pb.PbFieldType.OU3)
-    ..hasRequiredFields = false;
-
-  NetAddress._() : super();
   factory NetAddress({
     $core.String? id,
     $core.String? ip,
     $core.int? port,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (ip != null) {
-      _result.ip = ip;
+      $result.ip = ip;
     }
     if (port != null) {
-      _result.port = port;
+      $result.port = port;
     }
-    return _result;
+    return $result;
   }
+  NetAddress._() : super();
   factory NetAddress.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NetAddress.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'NetAddress',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.p2p'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'ip')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'port', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -70,9 +57,10 @@ class NetAddress extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   NetAddress copyWith(void Function(NetAddress) updates) =>
-      super.copyWith((message) => updates(message as NetAddress))
-          as NetAddress; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as NetAddress)) as NetAddress;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NetAddress create() => NetAddress._();
   NetAddress createEmptyInstance() => create();
@@ -120,62 +108,43 @@ class NetAddress extends $pb.GeneratedMessage {
 }
 
 class ProtocolVersion extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ProtocolVersion',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.p2p'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'p2p',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'block',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'app',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  ProtocolVersion._() : super();
   factory ProtocolVersion({
     $fixnum.Int64? p2p,
     $fixnum.Int64? block,
     $fixnum.Int64? app,
   }) {
-    final _result = create();
+    final $result = create();
     if (p2p != null) {
-      _result.p2p = p2p;
+      $result.p2p = p2p;
     }
     if (block != null) {
-      _result.block = block;
+      $result.block = block;
     }
     if (app != null) {
-      _result.app = app;
+      $result.app = app;
     }
-    return _result;
+    return $result;
   }
+  ProtocolVersion._() : super();
   factory ProtocolVersion.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ProtocolVersion.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ProtocolVersion',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.p2p'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'p2p', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'block', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'app', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -185,8 +154,10 @@ class ProtocolVersion extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ProtocolVersion copyWith(void Function(ProtocolVersion) updates) =>
       super.copyWith((message) => updates(message as ProtocolVersion))
-          as ProtocolVersion; // ignore: deprecated_member_use
+          as ProtocolVersion;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ProtocolVersion create() => ProtocolVersion._();
   ProtocolVersion createEmptyInstance() => create();
@@ -235,61 +206,6 @@ class ProtocolVersion extends $pb.GeneratedMessage {
 }
 
 class DefaultNodeInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DefaultNodeInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.p2p'),
-      createEmptyInstance: create)
-    ..aOM<ProtocolVersion>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'protocolVersion',
-        subBuilder: ProtocolVersion.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'defaultNodeId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'listenAddr')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'network')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..a<$core.List<$core.int>>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channels',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'moniker')
-    ..aOM<DefaultNodeInfoOther>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'other',
-        subBuilder: DefaultNodeInfoOther.create)
-    ..hasRequiredFields = false;
-
-  DefaultNodeInfo._() : super();
   factory DefaultNodeInfo({
     ProtocolVersion? protocolVersion,
     $core.String? defaultNodeId,
@@ -300,39 +216,58 @@ class DefaultNodeInfo extends $pb.GeneratedMessage {
     $core.String? moniker,
     DefaultNodeInfoOther? other,
   }) {
-    final _result = create();
+    final $result = create();
     if (protocolVersion != null) {
-      _result.protocolVersion = protocolVersion;
+      $result.protocolVersion = protocolVersion;
     }
     if (defaultNodeId != null) {
-      _result.defaultNodeId = defaultNodeId;
+      $result.defaultNodeId = defaultNodeId;
     }
     if (listenAddr != null) {
-      _result.listenAddr = listenAddr;
+      $result.listenAddr = listenAddr;
     }
     if (network != null) {
-      _result.network = network;
+      $result.network = network;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (channels != null) {
-      _result.channels = channels;
+      $result.channels = channels;
     }
     if (moniker != null) {
-      _result.moniker = moniker;
+      $result.moniker = moniker;
     }
     if (other != null) {
-      _result.other = other;
+      $result.other = other;
     }
-    return _result;
+    return $result;
   }
+  DefaultNodeInfo._() : super();
   factory DefaultNodeInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DefaultNodeInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DefaultNodeInfo',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.p2p'),
+      createEmptyInstance: create)
+    ..aOM<ProtocolVersion>(1, _omitFieldNames ? '' : 'protocolVersion',
+        subBuilder: ProtocolVersion.create)
+    ..aOS(2, _omitFieldNames ? '' : 'defaultNodeId')
+    ..aOS(3, _omitFieldNames ? '' : 'listenAddr')
+    ..aOS(4, _omitFieldNames ? '' : 'network')
+    ..aOS(5, _omitFieldNames ? '' : 'version')
+    ..a<$core.List<$core.int>>(
+        6, _omitFieldNames ? '' : 'channels', $pb.PbFieldType.OY)
+    ..aOS(7, _omitFieldNames ? '' : 'moniker')
+    ..aOM<DefaultNodeInfoOther>(8, _omitFieldNames ? '' : 'other',
+        subBuilder: DefaultNodeInfoOther.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -342,8 +277,10 @@ class DefaultNodeInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   DefaultNodeInfo copyWith(void Function(DefaultNodeInfo) updates) =>
       super.copyWith((message) => updates(message as DefaultNodeInfo))
-          as DefaultNodeInfo; // ignore: deprecated_member_use
+          as DefaultNodeInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DefaultNodeInfo create() => DefaultNodeInfo._();
   DefaultNodeInfo createEmptyInstance() => create();
@@ -456,47 +393,35 @@ class DefaultNodeInfo extends $pb.GeneratedMessage {
 }
 
 class DefaultNodeInfoOther extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DefaultNodeInfoOther',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.p2p'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'txIndex')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rpcAddress')
-    ..hasRequiredFields = false;
-
-  DefaultNodeInfoOther._() : super();
   factory DefaultNodeInfoOther({
     $core.String? txIndex,
     $core.String? rpcAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (txIndex != null) {
-      _result.txIndex = txIndex;
+      $result.txIndex = txIndex;
     }
     if (rpcAddress != null) {
-      _result.rpcAddress = rpcAddress;
+      $result.rpcAddress = rpcAddress;
     }
-    return _result;
+    return $result;
   }
+  DefaultNodeInfoOther._() : super();
   factory DefaultNodeInfoOther.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DefaultNodeInfoOther.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DefaultNodeInfoOther',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.p2p'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'txIndex')
+    ..aOS(2, _omitFieldNames ? '' : 'rpcAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -507,8 +432,10 @@ class DefaultNodeInfoOther extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   DefaultNodeInfoOther copyWith(void Function(DefaultNodeInfoOther) updates) =>
       super.copyWith((message) => updates(message as DefaultNodeInfoOther))
-          as DefaultNodeInfoOther; // ignore: deprecated_member_use
+          as DefaultNodeInfoOther;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DefaultNodeInfoOther create() => DefaultNodeInfoOther._();
   DefaultNodeInfoOther createEmptyInstance() => create();
@@ -543,3 +470,7 @@ class DefaultNodeInfoOther extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearRpcAddress() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

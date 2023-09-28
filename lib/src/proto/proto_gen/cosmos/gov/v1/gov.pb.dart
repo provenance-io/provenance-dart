@@ -1,70 +1,61 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/gov/v1/gov.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../base/v1beta1/coin.pb.dart' as $0;
 import '../../../google/protobuf/any.pb.dart' as $1;
-import '../../../google/protobuf/timestamp.pb.dart' as $2;
 import '../../../google/protobuf/duration.pb.dart' as $3;
-
+import '../../../google/protobuf/timestamp.pb.dart' as $2;
+import '../../base/v1beta1/coin.pb.dart' as $0;
 import 'gov.pbenum.dart';
 
 export 'gov.pbenum.dart';
 
+/// WeightedVoteOption defines a unit of vote for vote split.
 class WeightedVoteOption extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'WeightedVoteOption',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..e<VoteOption>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'option',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: VoteOption.VOTE_OPTION_UNSPECIFIED,
-        valueOf: VoteOption.valueOf,
-        enumValues: VoteOption.values)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'weight')
-    ..hasRequiredFields = false;
-
-  WeightedVoteOption._() : super();
   factory WeightedVoteOption({
     VoteOption? option,
     $core.String? weight,
   }) {
-    final _result = create();
+    final $result = create();
     if (option != null) {
-      _result.option = option;
+      $result.option = option;
     }
     if (weight != null) {
-      _result.weight = weight;
+      $result.weight = weight;
     }
-    return _result;
+    return $result;
   }
+  WeightedVoteOption._() : super();
   factory WeightedVoteOption.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory WeightedVoteOption.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WeightedVoteOption',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..e<VoteOption>(1, _omitFieldNames ? '' : 'option', $pb.PbFieldType.OE,
+        defaultOrMaker: VoteOption.VOTE_OPTION_UNSPECIFIED,
+        valueOf: VoteOption.valueOf,
+        enumValues: VoteOption.values)
+    ..aOS(2, _omitFieldNames ? '' : 'weight')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -74,8 +65,10 @@ class WeightedVoteOption extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   WeightedVoteOption copyWith(void Function(WeightedVoteOption) updates) =>
       super.copyWith((message) => updates(message as WeightedVoteOption))
-          as WeightedVoteOption; // ignore: deprecated_member_use
+          as WeightedVoteOption;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WeightedVoteOption create() => WeightedVoteOption._();
   WeightedVoteOption createEmptyInstance() => create();
@@ -111,61 +104,46 @@ class WeightedVoteOption extends $pb.GeneratedMessage {
   void clearWeight() => clearField(2);
 }
 
+/// Deposit defines an amount deposited by an account address to an active
+/// proposal.
 class Deposit extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Deposit',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'depositor')
-    ..pc<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..hasRequiredFields = false;
-
-  Deposit._() : super();
   factory Deposit({
     $fixnum.Int64? proposalId,
     $core.String? depositor,
     $core.Iterable<$0.Coin>? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (depositor != null) {
-      _result.depositor = depositor;
+      $result.depositor = depositor;
     }
     if (amount != null) {
-      _result.amount.addAll(amount);
+      $result.amount.addAll(amount);
     }
-    return _result;
+    return $result;
   }
+  Deposit._() : super();
   factory Deposit.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Deposit.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Deposit',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'depositor')
+    ..pc<$0.Coin>(3, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -174,9 +152,10 @@ class Deposit extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Deposit copyWith(void Function(Deposit) updates) =>
-      super.copyWith((message) => updates(message as Deposit))
-          as Deposit; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Deposit)) as Deposit;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Deposit create() => Deposit._();
   Deposit createEmptyInstance() => create();
@@ -214,84 +193,8 @@ class Deposit extends $pb.GeneratedMessage {
   $core.List<$0.Coin> get amount => $_getList(2);
 }
 
+/// Proposal defines the core field members of a governance proposal.
 class Proposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Proposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..pc<$1.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'messages',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Any.create)
-    ..e<ProposalStatus>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'status',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: ProposalStatus.PROPOSAL_STATUS_UNSPECIFIED,
-        valueOf: ProposalStatus.valueOf,
-        enumValues: ProposalStatus.values)
-    ..aOM<TallyResult>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'finalTallyResult',
-        subBuilder: TallyResult.create)
-    ..aOM<$2.Timestamp>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'submitTime',
-        subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'depositEndTime',
-        subBuilder: $2.Timestamp.create)
-    ..pc<$0.Coin>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalDeposit',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..aOM<$2.Timestamp>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votingStartTime',
-        subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votingEndTime',
-        subBuilder: $2.Timestamp.create)
-    ..aOS(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  Proposal._() : super();
   factory Proposal({
     $fixnum.Int64? id,
     $core.Iterable<$1.Any>? messages,
@@ -304,45 +207,74 @@ class Proposal extends $pb.GeneratedMessage {
     $2.Timestamp? votingEndTime,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (messages != null) {
-      _result.messages.addAll(messages);
+      $result.messages.addAll(messages);
     }
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
     if (finalTallyResult != null) {
-      _result.finalTallyResult = finalTallyResult;
+      $result.finalTallyResult = finalTallyResult;
     }
     if (submitTime != null) {
-      _result.submitTime = submitTime;
+      $result.submitTime = submitTime;
     }
     if (depositEndTime != null) {
-      _result.depositEndTime = depositEndTime;
+      $result.depositEndTime = depositEndTime;
     }
     if (totalDeposit != null) {
-      _result.totalDeposit.addAll(totalDeposit);
+      $result.totalDeposit.addAll(totalDeposit);
     }
     if (votingStartTime != null) {
-      _result.votingStartTime = votingStartTime;
+      $result.votingStartTime = votingStartTime;
     }
     if (votingEndTime != null) {
-      _result.votingEndTime = votingEndTime;
+      $result.votingEndTime = votingEndTime;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  Proposal._() : super();
   factory Proposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Proposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Proposal',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pc<$1.Any>(2, _omitFieldNames ? '' : 'messages', $pb.PbFieldType.PM,
+        subBuilder: $1.Any.create)
+    ..e<ProposalStatus>(3, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE,
+        defaultOrMaker: ProposalStatus.PROPOSAL_STATUS_UNSPECIFIED,
+        valueOf: ProposalStatus.valueOf,
+        enumValues: ProposalStatus.values)
+    ..aOM<TallyResult>(4, _omitFieldNames ? '' : 'finalTallyResult',
+        subBuilder: TallyResult.create)
+    ..aOM<$2.Timestamp>(5, _omitFieldNames ? '' : 'submitTime',
+        subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(6, _omitFieldNames ? '' : 'depositEndTime',
+        subBuilder: $2.Timestamp.create)
+    ..pc<$0.Coin>(7, _omitFieldNames ? '' : 'totalDeposit', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..aOM<$2.Timestamp>(8, _omitFieldNames ? '' : 'votingStartTime',
+        subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(9, _omitFieldNames ? '' : 'votingEndTime',
+        subBuilder: $2.Timestamp.create)
+    ..aOS(10, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -351,9 +283,10 @@ class Proposal extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Proposal copyWith(void Function(Proposal) updates) =>
-      super.copyWith((message) => updates(message as Proposal))
-          as Proposal; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Proposal)) as Proposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Proposal create() => Proposal._();
   Proposal createEmptyInstance() => create();
@@ -390,6 +323,9 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearStatus() => clearField(3);
 
+  /// final_tally_result is the final tally result of the proposal. When
+  /// querying a proposal via gRPC, this field is not populated until the
+  /// proposal's voting period has ended.
   @$pb.TagNumber(4)
   TallyResult get finalTallyResult => $_getN(3);
   @$pb.TagNumber(4)
@@ -463,6 +399,7 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $2.Timestamp ensureVotingEndTime() => $_ensure(8);
 
+  /// metadata is any arbitrary metadata attached to the proposal.
   @$pb.TagNumber(10)
   $core.String get metadata => $_getSZ(9);
   @$pb.TagNumber(10)
@@ -476,66 +413,47 @@ class Proposal extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(10);
 }
 
+/// TallyResult defines a standard tally for a governance proposal.
 class TallyResult extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'TallyResult',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'yesCount')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'abstainCount')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'noCount')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'noWithVetoCount')
-    ..hasRequiredFields = false;
-
-  TallyResult._() : super();
   factory TallyResult({
     $core.String? yesCount,
     $core.String? abstainCount,
     $core.String? noCount,
     $core.String? noWithVetoCount,
   }) {
-    final _result = create();
+    final $result = create();
     if (yesCount != null) {
-      _result.yesCount = yesCount;
+      $result.yesCount = yesCount;
     }
     if (abstainCount != null) {
-      _result.abstainCount = abstainCount;
+      $result.abstainCount = abstainCount;
     }
     if (noCount != null) {
-      _result.noCount = noCount;
+      $result.noCount = noCount;
     }
     if (noWithVetoCount != null) {
-      _result.noWithVetoCount = noWithVetoCount;
+      $result.noWithVetoCount = noWithVetoCount;
     }
-    return _result;
+    return $result;
   }
+  TallyResult._() : super();
   factory TallyResult.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory TallyResult.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TallyResult',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'yesCount')
+    ..aOS(2, _omitFieldNames ? '' : 'abstainCount')
+    ..aOS(3, _omitFieldNames ? '' : 'noCount')
+    ..aOS(4, _omitFieldNames ? '' : 'noWithVetoCount')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -545,8 +463,10 @@ class TallyResult extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   TallyResult copyWith(void Function(TallyResult) updates) =>
       super.copyWith((message) => updates(message as TallyResult))
-          as TallyResult; // ignore: deprecated_member_use
+          as TallyResult;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TallyResult create() => TallyResult._();
   TallyResult createEmptyInstance() => create();
@@ -605,70 +525,52 @@ class TallyResult extends $pb.GeneratedMessage {
   void clearNoWithVetoCount() => clearField(4);
 }
 
+/// Vote defines a vote on a governance proposal.
+/// A Vote consists of a proposal ID, the voter, and the vote option.
 class Vote extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Vote',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voter')
-    ..pc<WeightedVoteOption>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'options',
-        $pb.PbFieldType.PM,
-        subBuilder: WeightedVoteOption.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  Vote._() : super();
   factory Vote({
     $fixnum.Int64? proposalId,
     $core.String? voter,
     $core.Iterable<WeightedVoteOption>? options,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (voter != null) {
-      _result.voter = voter;
+      $result.voter = voter;
     }
     if (options != null) {
-      _result.options.addAll(options);
+      $result.options.addAll(options);
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  Vote._() : super();
   factory Vote.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Vote.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Vote',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'voter')
+    ..pc<WeightedVoteOption>(
+        4, _omitFieldNames ? '' : 'options', $pb.PbFieldType.PM,
+        subBuilder: WeightedVoteOption.create)
+    ..aOS(5, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -677,9 +579,10 @@ class Vote extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Vote copyWith(void Function(Vote) updates) =>
-      super.copyWith((message) => updates(message as Vote))
-          as Vote; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Vote)) as Vote;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Vote create() => Vote._();
   Vote createEmptyInstance() => create();
@@ -716,6 +619,7 @@ class Vote extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.List<WeightedVoteOption> get options => $_getList(2);
 
+  /// metadata is any  arbitrary metadata to attached to the vote.
   @$pb.TagNumber(5)
   $core.String get metadata => $_getSZ(3);
   @$pb.TagNumber(5)
@@ -729,51 +633,39 @@ class Vote extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(5);
 }
 
+/// DepositParams defines the params for deposits on governance proposals.
 class DepositParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DepositParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..pc<$0.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minDeposit',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..aOM<$3.Duration>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxDepositPeriod',
-        subBuilder: $3.Duration.create)
-    ..hasRequiredFields = false;
-
-  DepositParams._() : super();
   factory DepositParams({
     $core.Iterable<$0.Coin>? minDeposit,
     $3.Duration? maxDepositPeriod,
   }) {
-    final _result = create();
+    final $result = create();
     if (minDeposit != null) {
-      _result.minDeposit.addAll(minDeposit);
+      $result.minDeposit.addAll(minDeposit);
     }
     if (maxDepositPeriod != null) {
-      _result.maxDepositPeriod = maxDepositPeriod;
+      $result.maxDepositPeriod = maxDepositPeriod;
     }
-    return _result;
+    return $result;
   }
+  DepositParams._() : super();
   factory DepositParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DepositParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DepositParams',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..pc<$0.Coin>(1, _omitFieldNames ? '' : 'minDeposit', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..aOM<$3.Duration>(2, _omitFieldNames ? '' : 'maxDepositPeriod',
+        subBuilder: $3.Duration.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -783,8 +675,10 @@ class DepositParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   DepositParams copyWith(void Function(DepositParams) updates) =>
       super.copyWith((message) => updates(message as DepositParams))
-          as DepositParams; // ignore: deprecated_member_use
+          as DepositParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DepositParams create() => DepositParams._();
   DepositParams createEmptyInstance() => create();
@@ -795,9 +689,12 @@ class DepositParams extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DepositParams>(create);
   static DepositParams? _defaultInstance;
 
+  /// Minimum deposit for a proposal to enter voting period.
   @$pb.TagNumber(1)
   $core.List<$0.Coin> get minDeposit => $_getList(0);
 
+  /// Maximum period for Atom holders to deposit on a proposal. Initial value: 2
+  /// months.
   @$pb.TagNumber(2)
   $3.Duration get maxDepositPeriod => $_getN(1);
   @$pb.TagNumber(2)
@@ -813,40 +710,33 @@ class DepositParams extends $pb.GeneratedMessage {
   $3.Duration ensureMaxDepositPeriod() => $_ensure(1);
 }
 
+/// VotingParams defines the params for voting on governance proposals.
 class VotingParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'VotingParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.Duration>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votingPeriod',
-        subBuilder: $3.Duration.create)
-    ..hasRequiredFields = false;
-
-  VotingParams._() : super();
   factory VotingParams({
     $3.Duration? votingPeriod,
   }) {
-    final _result = create();
+    final $result = create();
     if (votingPeriod != null) {
-      _result.votingPeriod = votingPeriod;
+      $result.votingPeriod = votingPeriod;
     }
-    return _result;
+    return $result;
   }
+  VotingParams._() : super();
   factory VotingParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory VotingParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VotingParams',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.Duration>(1, _omitFieldNames ? '' : 'votingPeriod',
+        subBuilder: $3.Duration.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -856,8 +746,10 @@ class VotingParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   VotingParams copyWith(void Function(VotingParams) updates) =>
       super.copyWith((message) => updates(message as VotingParams))
-          as VotingParams; // ignore: deprecated_member_use
+          as VotingParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static VotingParams create() => VotingParams._();
   VotingParams createEmptyInstance() => create();
@@ -868,6 +760,7 @@ class VotingParams extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<VotingParams>(create);
   static VotingParams? _defaultInstance;
 
+  /// Length of the voting period.
   @$pb.TagNumber(1)
   $3.Duration get votingPeriod => $_getN(0);
   @$pb.TagNumber(1)
@@ -883,57 +776,42 @@ class VotingParams extends $pb.GeneratedMessage {
   $3.Duration ensureVotingPeriod() => $_ensure(0);
 }
 
+/// TallyParams defines the params for tallying votes on governance proposals.
 class TallyParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'TallyParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'quorum')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'threshold')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vetoThreshold')
-    ..hasRequiredFields = false;
-
-  TallyParams._() : super();
   factory TallyParams({
     $core.String? quorum,
     $core.String? threshold,
     $core.String? vetoThreshold,
   }) {
-    final _result = create();
+    final $result = create();
     if (quorum != null) {
-      _result.quorum = quorum;
+      $result.quorum = quorum;
     }
     if (threshold != null) {
-      _result.threshold = threshold;
+      $result.threshold = threshold;
     }
     if (vetoThreshold != null) {
-      _result.vetoThreshold = vetoThreshold;
+      $result.vetoThreshold = vetoThreshold;
     }
-    return _result;
+    return $result;
   }
+  TallyParams._() : super();
   factory TallyParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory TallyParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TallyParams',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'quorum')
+    ..aOS(2, _omitFieldNames ? '' : 'threshold')
+    ..aOS(3, _omitFieldNames ? '' : 'vetoThreshold')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -943,8 +821,10 @@ class TallyParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   TallyParams copyWith(void Function(TallyParams) updates) =>
       super.copyWith((message) => updates(message as TallyParams))
-          as TallyParams; // ignore: deprecated_member_use
+          as TallyParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TallyParams create() => TallyParams._();
   TallyParams createEmptyInstance() => create();
@@ -954,6 +834,8 @@ class TallyParams extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<TallyParams>(create);
   static TallyParams? _defaultInstance;
 
+  /// Minimum percentage of total stake needed to vote for a result to be
+  /// considered valid.
   @$pb.TagNumber(1)
   $core.String get quorum => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -966,6 +848,7 @@ class TallyParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearQuorum() => clearField(1);
 
+  /// Minimum proportion of Yes votes for proposal to pass. Default value: 0.5.
   @$pb.TagNumber(2)
   $core.String get threshold => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -978,6 +861,8 @@ class TallyParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearThreshold() => clearField(2);
 
+  /// Minimum value of Veto votes to Total votes ratio for proposal to be
+  /// vetoed. Default value: 1/3.
   @$pb.TagNumber(3)
   $core.String get vetoThreshold => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -990,3 +875,7 @@ class TallyParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearVetoThreshold() => clearField(3);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

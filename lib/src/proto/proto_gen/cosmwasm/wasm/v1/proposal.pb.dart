@@ -1,63 +1,24 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmwasm/wasm/v1/proposal.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'types.pb.dart' as $0;
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $1;
+import 'types.pb.dart' as $0;
 
+/// StoreCodeProposal gov proposal content type to submit WASM code to the system
 class StoreCodeProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'StoreCodeProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'runAs')
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'wasmByteCode',
-        $pb.PbFieldType.OY)
-    ..aOM<$0.AccessConfig>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'instantiatePermission',
-        subBuilder: $0.AccessConfig.create)
-    ..aOB(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'unpinCode')
-    ..hasRequiredFields = false;
-
-  StoreCodeProposal._() : super();
   factory StoreCodeProposal({
     $core.String? title,
     $core.String? description,
@@ -65,34 +26,67 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
     $core.List<$core.int>? wasmByteCode,
     $0.AccessConfig? instantiatePermission,
     $core.bool? unpinCode,
+    $core.String? source,
+    $core.String? builder,
+    $core.List<$core.int>? codeHash,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (runAs != null) {
-      _result.runAs = runAs;
+      $result.runAs = runAs;
     }
     if (wasmByteCode != null) {
-      _result.wasmByteCode = wasmByteCode;
+      $result.wasmByteCode = wasmByteCode;
     }
     if (instantiatePermission != null) {
-      _result.instantiatePermission = instantiatePermission;
+      $result.instantiatePermission = instantiatePermission;
     }
     if (unpinCode != null) {
-      _result.unpinCode = unpinCode;
+      $result.unpinCode = unpinCode;
     }
-    return _result;
+    if (source != null) {
+      $result.source = source;
+    }
+    if (builder != null) {
+      $result.builder = builder;
+    }
+    if (codeHash != null) {
+      $result.codeHash = codeHash;
+    }
+    return $result;
   }
+  StoreCodeProposal._() : super();
   factory StoreCodeProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory StoreCodeProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StoreCodeProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'runAs')
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'wasmByteCode', $pb.PbFieldType.OY)
+    ..aOM<$0.AccessConfig>(7, _omitFieldNames ? '' : 'instantiatePermission',
+        subBuilder: $0.AccessConfig.create)
+    ..aOB(8, _omitFieldNames ? '' : 'unpinCode')
+    ..aOS(9, _omitFieldNames ? '' : 'source')
+    ..aOS(10, _omitFieldNames ? '' : 'builder')
+    ..a<$core.List<$core.int>>(
+        11, _omitFieldNames ? '' : 'codeHash', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -102,8 +96,10 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   StoreCodeProposal copyWith(void Function(StoreCodeProposal) updates) =>
       super.copyWith((message) => updates(message as StoreCodeProposal))
-          as StoreCodeProposal; // ignore: deprecated_member_use
+          as StoreCodeProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static StoreCodeProposal create() => StoreCodeProposal._();
   StoreCodeProposal createEmptyInstance() => create();
@@ -114,6 +110,7 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<StoreCodeProposal>(create);
   static StoreCodeProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -126,6 +123,7 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -138,6 +136,7 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// RunAs is the address that is passed to the contract's environment as sender
   @$pb.TagNumber(3)
   $core.String get runAs => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -150,6 +149,7 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRunAs() => clearField(3);
 
+  /// WASMByteCode can be raw or gzip compressed
   @$pb.TagNumber(4)
   $core.List<$core.int> get wasmByteCode => $_getN(3);
   @$pb.TagNumber(4)
@@ -162,6 +162,7 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearWasmByteCode() => clearField(4);
 
+  /// InstantiatePermission to apply on contract creation, optional
   @$pb.TagNumber(7)
   $0.AccessConfig get instantiatePermission => $_getN(4);
   @$pb.TagNumber(7)
@@ -176,6 +177,7 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $0.AccessConfig ensureInstantiatePermission() => $_ensure(4);
 
+  /// UnpinCode code on upload, optional
   @$pb.TagNumber(8)
   $core.bool get unpinCode => $_getBF(5);
   @$pb.TagNumber(8)
@@ -187,66 +189,52 @@ class StoreCodeProposal extends $pb.GeneratedMessage {
   $core.bool hasUnpinCode() => $_has(5);
   @$pb.TagNumber(8)
   void clearUnpinCode() => clearField(8);
+
+  /// Source is the URL where the code is hosted
+  @$pb.TagNumber(9)
+  $core.String get source => $_getSZ(6);
+  @$pb.TagNumber(9)
+  set source($core.String v) {
+    $_setString(6, v);
+  }
+
+  @$pb.TagNumber(9)
+  $core.bool hasSource() => $_has(6);
+  @$pb.TagNumber(9)
+  void clearSource() => clearField(9);
+
+  /// Builder is the docker image used to build the code deterministically, used
+  /// for smart contract verification
+  @$pb.TagNumber(10)
+  $core.String get builder => $_getSZ(7);
+  @$pb.TagNumber(10)
+  set builder($core.String v) {
+    $_setString(7, v);
+  }
+
+  @$pb.TagNumber(10)
+  $core.bool hasBuilder() => $_has(7);
+  @$pb.TagNumber(10)
+  void clearBuilder() => clearField(10);
+
+  /// CodeHash is the SHA256 sum of the code outputted by builder, used for smart
+  /// contract verification
+  @$pb.TagNumber(11)
+  $core.List<$core.int> get codeHash => $_getN(8);
+  @$pb.TagNumber(11)
+  set codeHash($core.List<$core.int> v) {
+    $_setBytes(8, v);
+  }
+
+  @$pb.TagNumber(11)
+  $core.bool hasCodeHash() => $_has(8);
+  @$pb.TagNumber(11)
+  void clearCodeHash() => clearField(11);
 }
 
+/// InstantiateContractProposal gov proposal content type to instantiate a
+/// contract.
 class InstantiateContractProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'InstantiateContractProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'runAs')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'label')
-    ..a<$core.List<$core.int>>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg',
-        $pb.PbFieldType.OY)
-    ..pc<$1.Coin>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'funds',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
-    ..hasRequiredFields = false;
-
-  InstantiateContractProposal._() : super();
   factory InstantiateContractProposal({
     $core.String? title,
     $core.String? description,
@@ -257,39 +245,59 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
     $core.List<$core.int>? msg,
     $core.Iterable<$1.Coin>? funds,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (runAs != null) {
-      _result.runAs = runAs;
+      $result.runAs = runAs;
     }
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
     if (label != null) {
-      _result.label = label;
+      $result.label = label;
     }
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
     if (funds != null) {
-      _result.funds.addAll(funds);
+      $result.funds.addAll(funds);
     }
-    return _result;
+    return $result;
   }
+  InstantiateContractProposal._() : super();
   factory InstantiateContractProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory InstantiateContractProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'InstantiateContractProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'runAs')
+    ..aOS(4, _omitFieldNames ? '' : 'admin')
+    ..a<$fixnum.Int64>(5, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(6, _omitFieldNames ? '' : 'label')
+    ..a<$core.List<$core.int>>(
+        7, _omitFieldNames ? '' : 'msg', $pb.PbFieldType.OY)
+    ..pc<$1.Coin>(8, _omitFieldNames ? '' : 'funds', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -302,8 +310,10 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
           void Function(InstantiateContractProposal) updates) =>
       super.copyWith(
               (message) => updates(message as InstantiateContractProposal))
-          as InstantiateContractProposal; // ignore: deprecated_member_use
+          as InstantiateContractProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static InstantiateContractProposal create() =>
       InstantiateContractProposal._();
@@ -315,6 +325,7 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<InstantiateContractProposal>(create);
   static InstantiateContractProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -327,6 +338,7 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -339,6 +351,7 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// RunAs is the address that is passed to the contract's environment as sender
   @$pb.TagNumber(3)
   $core.String get runAs => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -351,6 +364,7 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRunAs() => clearField(3);
 
+  /// Admin is an optional address that can execute migrations
   @$pb.TagNumber(4)
   $core.String get admin => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -363,6 +377,7 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearAdmin() => clearField(4);
 
+  /// CodeID is the reference to the stored WASM code
   @$pb.TagNumber(5)
   $fixnum.Int64 get codeId => $_getI64(4);
   @$pb.TagNumber(5)
@@ -375,6 +390,7 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearCodeId() => clearField(5);
 
+  /// Label is optional metadata to be stored with a constract instance.
   @$pb.TagNumber(6)
   $core.String get label => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -387,6 +403,7 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearLabel() => clearField(6);
 
+  /// Msg json encoded message to be passed to the contract on instantiation
   @$pb.TagNumber(7)
   $core.List<$core.int> get msg => $_getN(6);
   @$pb.TagNumber(7)
@@ -399,51 +416,13 @@ class InstantiateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearMsg() => clearField(7);
 
+  /// Funds coins that are transferred to the contract on instantiation
   @$pb.TagNumber(8)
   $core.List<$1.Coin> get funds => $_getList(7);
 }
 
+/// MigrateContractProposal gov proposal content type to migrate a contract.
 class MigrateContractProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MigrateContractProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contract')
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.List<$core.int>>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  MigrateContractProposal._() : super();
   factory MigrateContractProposal({
     $core.String? title,
     $core.String? description,
@@ -451,30 +430,46 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
     $fixnum.Int64? codeId,
     $core.List<$core.int>? msg,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (contract != null) {
-      _result.contract = contract;
+      $result.contract = contract;
     }
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
-    return _result;
+    return $result;
   }
+  MigrateContractProposal._() : super();
   factory MigrateContractProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MigrateContractProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MigrateContractProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(4, _omitFieldNames ? '' : 'contract')
+    ..a<$fixnum.Int64>(5, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$core.List<$core.int>>(
+        6, _omitFieldNames ? '' : 'msg', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -486,8 +481,10 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   MigrateContractProposal copyWith(
           void Function(MigrateContractProposal) updates) =>
       super.copyWith((message) => updates(message as MigrateContractProposal))
-          as MigrateContractProposal; // ignore: deprecated_member_use
+          as MigrateContractProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MigrateContractProposal create() => MigrateContractProposal._();
   MigrateContractProposal createEmptyInstance() => create();
@@ -498,6 +495,7 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MigrateContractProposal>(create);
   static MigrateContractProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -510,6 +508,7 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -522,6 +521,7 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// Contract is the address of the smart contract
   @$pb.TagNumber(4)
   $core.String get contract => $_getSZ(2);
   @$pb.TagNumber(4)
@@ -534,6 +534,7 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearContract() => clearField(4);
 
+  /// CodeID references the new WASM code
   @$pb.TagNumber(5)
   $fixnum.Int64 get codeId => $_getI64(3);
   @$pb.TagNumber(5)
@@ -546,6 +547,7 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearCodeId() => clearField(5);
 
+  /// Msg json encoded message to be passed to the contract on migration
   @$pb.TagNumber(6)
   $core.List<$core.int> get msg => $_getN(4);
   @$pb.TagNumber(6)
@@ -559,67 +561,49 @@ class MigrateContractProposal extends $pb.GeneratedMessage {
   void clearMsg() => clearField(6);
 }
 
+/// SudoContractProposal gov proposal content type to call sudo on a contract.
 class SudoContractProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SudoContractProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contract')
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  SudoContractProposal._() : super();
   factory SudoContractProposal({
     $core.String? title,
     $core.String? description,
     $core.String? contract,
     $core.List<$core.int>? msg,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (contract != null) {
-      _result.contract = contract;
+      $result.contract = contract;
     }
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
-    return _result;
+    return $result;
   }
+  SudoContractProposal._() : super();
   factory SudoContractProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SudoContractProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SudoContractProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'contract')
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'msg', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -630,8 +614,10 @@ class SudoContractProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SudoContractProposal copyWith(void Function(SudoContractProposal) updates) =>
       super.copyWith((message) => updates(message as SudoContractProposal))
-          as SudoContractProposal; // ignore: deprecated_member_use
+          as SudoContractProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SudoContractProposal create() => SudoContractProposal._();
   SudoContractProposal createEmptyInstance() => create();
@@ -642,6 +628,7 @@ class SudoContractProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SudoContractProposal>(create);
   static SudoContractProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -654,6 +641,7 @@ class SudoContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -666,6 +654,7 @@ class SudoContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// Contract is the address of the smart contract
   @$pb.TagNumber(3)
   $core.String get contract => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -678,6 +667,7 @@ class SudoContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearContract() => clearField(3);
 
+  /// Msg json encoded message to be passed to the contract as sudo
   @$pb.TagNumber(4)
   $core.List<$core.int> get msg => $_getN(3);
   @$pb.TagNumber(4)
@@ -691,52 +681,9 @@ class SudoContractProposal extends $pb.GeneratedMessage {
   void clearMsg() => clearField(4);
 }
 
+/// ExecuteContractProposal gov proposal content type to call execute on a
+/// contract.
 class ExecuteContractProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ExecuteContractProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'runAs')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contract')
-    ..a<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg',
-        $pb.PbFieldType.OY)
-    ..pc<$1.Coin>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'funds',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
-    ..hasRequiredFields = false;
-
-  ExecuteContractProposal._() : super();
   factory ExecuteContractProposal({
     $core.String? title,
     $core.String? description,
@@ -745,33 +692,50 @@ class ExecuteContractProposal extends $pb.GeneratedMessage {
     $core.List<$core.int>? msg,
     $core.Iterable<$1.Coin>? funds,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (runAs != null) {
-      _result.runAs = runAs;
+      $result.runAs = runAs;
     }
     if (contract != null) {
-      _result.contract = contract;
+      $result.contract = contract;
     }
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
     if (funds != null) {
-      _result.funds.addAll(funds);
+      $result.funds.addAll(funds);
     }
-    return _result;
+    return $result;
   }
+  ExecuteContractProposal._() : super();
   factory ExecuteContractProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ExecuteContractProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ExecuteContractProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'runAs')
+    ..aOS(4, _omitFieldNames ? '' : 'contract')
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'msg', $pb.PbFieldType.OY)
+    ..pc<$1.Coin>(6, _omitFieldNames ? '' : 'funds', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -783,8 +747,10 @@ class ExecuteContractProposal extends $pb.GeneratedMessage {
   ExecuteContractProposal copyWith(
           void Function(ExecuteContractProposal) updates) =>
       super.copyWith((message) => updates(message as ExecuteContractProposal))
-          as ExecuteContractProposal; // ignore: deprecated_member_use
+          as ExecuteContractProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ExecuteContractProposal create() => ExecuteContractProposal._();
   ExecuteContractProposal createEmptyInstance() => create();
@@ -795,6 +761,7 @@ class ExecuteContractProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ExecuteContractProposal>(create);
   static ExecuteContractProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -807,6 +774,7 @@ class ExecuteContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -819,6 +787,7 @@ class ExecuteContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// RunAs is the address that is passed to the contract's environment as sender
   @$pb.TagNumber(3)
   $core.String get runAs => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -831,6 +800,7 @@ class ExecuteContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRunAs() => clearField(3);
 
+  /// Contract is the address of the smart contract
   @$pb.TagNumber(4)
   $core.String get contract => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -843,6 +813,7 @@ class ExecuteContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearContract() => clearField(4);
 
+  /// Msg json encoded message to be passed to the contract as execute
   @$pb.TagNumber(5)
   $core.List<$core.int> get msg => $_getN(4);
   @$pb.TagNumber(5)
@@ -855,70 +826,53 @@ class ExecuteContractProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearMsg() => clearField(5);
 
+  /// Funds coins that are transferred to the contract on instantiation
   @$pb.TagNumber(6)
   $core.List<$1.Coin> get funds => $_getList(5);
 }
 
+/// UpdateAdminProposal gov proposal content type to set an admin for a contract.
 class UpdateAdminProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'UpdateAdminProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'newAdmin')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contract')
-    ..hasRequiredFields = false;
-
-  UpdateAdminProposal._() : super();
   factory UpdateAdminProposal({
     $core.String? title,
     $core.String? description,
     $core.String? newAdmin,
     $core.String? contract,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (newAdmin != null) {
-      _result.newAdmin = newAdmin;
+      $result.newAdmin = newAdmin;
     }
     if (contract != null) {
-      _result.contract = contract;
+      $result.contract = contract;
     }
-    return _result;
+    return $result;
   }
+  UpdateAdminProposal._() : super();
   factory UpdateAdminProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory UpdateAdminProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateAdminProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'newAdmin')
+    ..aOS(4, _omitFieldNames ? '' : 'contract')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -928,8 +882,10 @@ class UpdateAdminProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   UpdateAdminProposal copyWith(void Function(UpdateAdminProposal) updates) =>
       super.copyWith((message) => updates(message as UpdateAdminProposal))
-          as UpdateAdminProposal; // ignore: deprecated_member_use
+          as UpdateAdminProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateAdminProposal create() => UpdateAdminProposal._();
   UpdateAdminProposal createEmptyInstance() => create();
@@ -940,6 +896,7 @@ class UpdateAdminProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UpdateAdminProposal>(create);
   static UpdateAdminProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -952,6 +909,7 @@ class UpdateAdminProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -964,6 +922,7 @@ class UpdateAdminProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// NewAdmin address to be set
   @$pb.TagNumber(3)
   $core.String get newAdmin => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -976,6 +935,7 @@ class UpdateAdminProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearNewAdmin() => clearField(3);
 
+  /// Contract is the address of the smart contract
   @$pb.TagNumber(4)
   $core.String get contract => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -989,57 +949,44 @@ class UpdateAdminProposal extends $pb.GeneratedMessage {
   void clearContract() => clearField(4);
 }
 
+/// ClearAdminProposal gov proposal content type to clear the admin of a
+/// contract.
 class ClearAdminProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ClearAdminProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contract')
-    ..hasRequiredFields = false;
-
-  ClearAdminProposal._() : super();
   factory ClearAdminProposal({
     $core.String? title,
     $core.String? description,
     $core.String? contract,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (contract != null) {
-      _result.contract = contract;
+      $result.contract = contract;
     }
-    return _result;
+    return $result;
   }
+  ClearAdminProposal._() : super();
   factory ClearAdminProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClearAdminProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ClearAdminProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'contract')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1049,8 +996,10 @@ class ClearAdminProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ClearAdminProposal copyWith(void Function(ClearAdminProposal) updates) =>
       super.copyWith((message) => updates(message as ClearAdminProposal))
-          as ClearAdminProposal; // ignore: deprecated_member_use
+          as ClearAdminProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClearAdminProposal create() => ClearAdminProposal._();
   ClearAdminProposal createEmptyInstance() => create();
@@ -1061,6 +1010,7 @@ class ClearAdminProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ClearAdminProposal>(create);
   static ClearAdminProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1073,6 +1023,7 @@ class ClearAdminProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1085,6 +1036,7 @@ class ClearAdminProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// Contract is the address of the smart contract
   @$pb.TagNumber(3)
   $core.String get contract => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1098,58 +1050,44 @@ class ClearAdminProposal extends $pb.GeneratedMessage {
   void clearContract() => clearField(3);
 }
 
+/// PinCodesProposal gov proposal content type to pin a set of code ids in the
+/// wasmvm cache.
 class PinCodesProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PinCodesProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..p<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeIds',
-        $pb.PbFieldType.KU6)
-    ..hasRequiredFields = false;
-
-  PinCodesProposal._() : super();
   factory PinCodesProposal({
     $core.String? title,
     $core.String? description,
     $core.Iterable<$fixnum.Int64>? codeIds,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (codeIds != null) {
-      _result.codeIds.addAll(codeIds);
+      $result.codeIds.addAll(codeIds);
     }
-    return _result;
+    return $result;
   }
+  PinCodesProposal._() : super();
   factory PinCodesProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PinCodesProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PinCodesProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..p<$fixnum.Int64>(3, _omitFieldNames ? '' : 'codeIds', $pb.PbFieldType.KU6)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1159,8 +1097,10 @@ class PinCodesProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PinCodesProposal copyWith(void Function(PinCodesProposal) updates) =>
       super.copyWith((message) => updates(message as PinCodesProposal))
-          as PinCodesProposal; // ignore: deprecated_member_use
+          as PinCodesProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PinCodesProposal create() => PinCodesProposal._();
   PinCodesProposal createEmptyInstance() => create();
@@ -1171,6 +1111,7 @@ class PinCodesProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<PinCodesProposal>(create);
   static PinCodesProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1183,6 +1124,7 @@ class PinCodesProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1195,62 +1137,49 @@ class PinCodesProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// CodeIDs references the new WASM codes
   @$pb.TagNumber(3)
   $core.List<$fixnum.Int64> get codeIds => $_getList(2);
 }
 
+/// UnpinCodesProposal gov proposal content type to unpin a set of code ids in
+/// the wasmvm cache.
 class UnpinCodesProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'UnpinCodesProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..p<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeIds',
-        $pb.PbFieldType.KU6)
-    ..hasRequiredFields = false;
-
-  UnpinCodesProposal._() : super();
   factory UnpinCodesProposal({
     $core.String? title,
     $core.String? description,
     $core.Iterable<$fixnum.Int64>? codeIds,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (codeIds != null) {
-      _result.codeIds.addAll(codeIds);
+      $result.codeIds.addAll(codeIds);
     }
-    return _result;
+    return $result;
   }
+  UnpinCodesProposal._() : super();
   factory UnpinCodesProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory UnpinCodesProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UnpinCodesProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..p<$fixnum.Int64>(3, _omitFieldNames ? '' : 'codeIds', $pb.PbFieldType.KU6)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1260,8 +1189,10 @@ class UnpinCodesProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   UnpinCodesProposal copyWith(void Function(UnpinCodesProposal) updates) =>
       super.copyWith((message) => updates(message as UnpinCodesProposal))
-          as UnpinCodesProposal; // ignore: deprecated_member_use
+          as UnpinCodesProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UnpinCodesProposal create() => UnpinCodesProposal._();
   UnpinCodesProposal createEmptyInstance() => create();
@@ -1272,6 +1203,7 @@ class UnpinCodesProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UnpinCodesProposal>(create);
   static UnpinCodesProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1284,6 +1216,7 @@ class UnpinCodesProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1296,55 +1229,46 @@ class UnpinCodesProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// CodeIDs references the WASM codes
   @$pb.TagNumber(3)
   $core.List<$fixnum.Int64> get codeIds => $_getList(2);
 }
 
+/// AccessConfigUpdate contains the code id and the access config to be
+/// applied.
 class AccessConfigUpdate extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'AccessConfigUpdate',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$0.AccessConfig>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'instantiatePermission',
-        subBuilder: $0.AccessConfig.create)
-    ..hasRequiredFields = false;
-
-  AccessConfigUpdate._() : super();
   factory AccessConfigUpdate({
     $fixnum.Int64? codeId,
     $0.AccessConfig? instantiatePermission,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
     if (instantiatePermission != null) {
-      _result.instantiatePermission = instantiatePermission;
+      $result.instantiatePermission = instantiatePermission;
     }
-    return _result;
+    return $result;
   }
+  AccessConfigUpdate._() : super();
   factory AccessConfigUpdate.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory AccessConfigUpdate.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AccessConfigUpdate',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$0.AccessConfig>(2, _omitFieldNames ? '' : 'instantiatePermission',
+        subBuilder: $0.AccessConfig.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1354,8 +1278,10 @@ class AccessConfigUpdate extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   AccessConfigUpdate copyWith(void Function(AccessConfigUpdate) updates) =>
       super.copyWith((message) => updates(message as AccessConfigUpdate))
-          as AccessConfigUpdate; // ignore: deprecated_member_use
+          as AccessConfigUpdate;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AccessConfigUpdate create() => AccessConfigUpdate._();
   AccessConfigUpdate createEmptyInstance() => create();
@@ -1366,6 +1292,7 @@ class AccessConfigUpdate extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<AccessConfigUpdate>(create);
   static AccessConfigUpdate? _defaultInstance;
 
+  /// CodeID is the reference to the stored WASM code to be updated
   @$pb.TagNumber(1)
   $fixnum.Int64 get codeId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1378,6 +1305,7 @@ class AccessConfigUpdate extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearCodeId() => clearField(1);
 
+  /// InstantiatePermission to apply to the set of code ids
   @$pb.TagNumber(2)
   $0.AccessConfig get instantiatePermission => $_getN(1);
   @$pb.TagNumber(2)
@@ -1393,59 +1321,46 @@ class AccessConfigUpdate extends $pb.GeneratedMessage {
   $0.AccessConfig ensureInstantiatePermission() => $_ensure(1);
 }
 
+/// UpdateInstantiateConfigProposal gov proposal content type to update
+/// instantiate config to a  set of code ids.
 class UpdateInstantiateConfigProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'UpdateInstantiateConfigProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..pc<AccessConfigUpdate>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'accessConfigUpdates',
-        $pb.PbFieldType.PM,
-        subBuilder: AccessConfigUpdate.create)
-    ..hasRequiredFields = false;
-
-  UpdateInstantiateConfigProposal._() : super();
   factory UpdateInstantiateConfigProposal({
     $core.String? title,
     $core.String? description,
     $core.Iterable<AccessConfigUpdate>? accessConfigUpdates,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (accessConfigUpdates != null) {
-      _result.accessConfigUpdates.addAll(accessConfigUpdates);
+      $result.accessConfigUpdates.addAll(accessConfigUpdates);
     }
-    return _result;
+    return $result;
   }
+  UpdateInstantiateConfigProposal._() : super();
   factory UpdateInstantiateConfigProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory UpdateInstantiateConfigProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateInstantiateConfigProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..pc<AccessConfigUpdate>(
+        3, _omitFieldNames ? '' : 'accessConfigUpdates', $pb.PbFieldType.PM,
+        subBuilder: AccessConfigUpdate.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1458,8 +1373,10 @@ class UpdateInstantiateConfigProposal extends $pb.GeneratedMessage {
           void Function(UpdateInstantiateConfigProposal) updates) =>
       super.copyWith(
               (message) => updates(message as UpdateInstantiateConfigProposal))
-          as UpdateInstantiateConfigProposal; // ignore: deprecated_member_use
+          as UpdateInstantiateConfigProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateInstantiateConfigProposal create() =>
       UpdateInstantiateConfigProposal._();
@@ -1472,6 +1389,7 @@ class UpdateInstantiateConfigProposal extends $pb.GeneratedMessage {
           create);
   static UpdateInstantiateConfigProposal? _defaultInstance;
 
+  /// Title is a short summary
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1484,6 +1402,7 @@ class UpdateInstantiateConfigProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// Description is a human readable text
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1496,6 +1415,299 @@ class UpdateInstantiateConfigProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// AccessConfigUpdate contains the list of code ids and the access config
+  /// to be applied.
   @$pb.TagNumber(3)
   $core.List<AccessConfigUpdate> get accessConfigUpdates => $_getList(2);
 }
+
+/// StoreAndInstantiateContractProposal gov proposal content type to store
+/// and instantiate the contract.
+class StoreAndInstantiateContractProposal extends $pb.GeneratedMessage {
+  factory StoreAndInstantiateContractProposal({
+    $core.String? title,
+    $core.String? description,
+    $core.String? runAs,
+    $core.List<$core.int>? wasmByteCode,
+    $0.AccessConfig? instantiatePermission,
+    $core.bool? unpinCode,
+    $core.String? admin,
+    $core.String? label,
+    $core.List<$core.int>? msg,
+    $core.Iterable<$1.Coin>? funds,
+    $core.String? source,
+    $core.String? builder,
+    $core.List<$core.int>? codeHash,
+  }) {
+    final $result = create();
+    if (title != null) {
+      $result.title = title;
+    }
+    if (description != null) {
+      $result.description = description;
+    }
+    if (runAs != null) {
+      $result.runAs = runAs;
+    }
+    if (wasmByteCode != null) {
+      $result.wasmByteCode = wasmByteCode;
+    }
+    if (instantiatePermission != null) {
+      $result.instantiatePermission = instantiatePermission;
+    }
+    if (unpinCode != null) {
+      $result.unpinCode = unpinCode;
+    }
+    if (admin != null) {
+      $result.admin = admin;
+    }
+    if (label != null) {
+      $result.label = label;
+    }
+    if (msg != null) {
+      $result.msg = msg;
+    }
+    if (funds != null) {
+      $result.funds.addAll(funds);
+    }
+    if (source != null) {
+      $result.source = source;
+    }
+    if (builder != null) {
+      $result.builder = builder;
+    }
+    if (codeHash != null) {
+      $result.codeHash = codeHash;
+    }
+    return $result;
+  }
+  StoreAndInstantiateContractProposal._() : super();
+  factory StoreAndInstantiateContractProposal.fromBuffer(
+          $core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory StoreAndInstantiateContractProposal.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StoreAndInstantiateContractProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'runAs')
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'wasmByteCode', $pb.PbFieldType.OY)
+    ..aOM<$0.AccessConfig>(5, _omitFieldNames ? '' : 'instantiatePermission',
+        subBuilder: $0.AccessConfig.create)
+    ..aOB(6, _omitFieldNames ? '' : 'unpinCode')
+    ..aOS(7, _omitFieldNames ? '' : 'admin')
+    ..aOS(8, _omitFieldNames ? '' : 'label')
+    ..a<$core.List<$core.int>>(
+        9, _omitFieldNames ? '' : 'msg', $pb.PbFieldType.OY)
+    ..pc<$1.Coin>(10, _omitFieldNames ? '' : 'funds', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..aOS(11, _omitFieldNames ? '' : 'source')
+    ..aOS(12, _omitFieldNames ? '' : 'builder')
+    ..a<$core.List<$core.int>>(
+        13, _omitFieldNames ? '' : 'codeHash', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  StoreAndInstantiateContractProposal clone() =>
+      StoreAndInstantiateContractProposal()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  StoreAndInstantiateContractProposal copyWith(
+          void Function(StoreAndInstantiateContractProposal) updates) =>
+      super.copyWith((message) =>
+              updates(message as StoreAndInstantiateContractProposal))
+          as StoreAndInstantiateContractProposal;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static StoreAndInstantiateContractProposal create() =>
+      StoreAndInstantiateContractProposal._();
+  StoreAndInstantiateContractProposal createEmptyInstance() => create();
+  static $pb.PbList<StoreAndInstantiateContractProposal> createRepeated() =>
+      $pb.PbList<StoreAndInstantiateContractProposal>();
+  @$core.pragma('dart2js:noInline')
+  static StoreAndInstantiateContractProposal getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          StoreAndInstantiateContractProposal>(create);
+  static StoreAndInstantiateContractProposal? _defaultInstance;
+
+  /// Title is a short summary
+  @$pb.TagNumber(1)
+  $core.String get title => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set title($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasTitle() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTitle() => clearField(1);
+
+  /// Description is a human readable text
+  @$pb.TagNumber(2)
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set description($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDescription() => clearField(2);
+
+  /// RunAs is the address that is passed to the contract's environment as sender
+  @$pb.TagNumber(3)
+  $core.String get runAs => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set runAs($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasRunAs() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRunAs() => clearField(3);
+
+  /// WASMByteCode can be raw or gzip compressed
+  @$pb.TagNumber(4)
+  $core.List<$core.int> get wasmByteCode => $_getN(3);
+  @$pb.TagNumber(4)
+  set wasmByteCode($core.List<$core.int> v) {
+    $_setBytes(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasWasmByteCode() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearWasmByteCode() => clearField(4);
+
+  /// InstantiatePermission to apply on contract creation, optional
+  @$pb.TagNumber(5)
+  $0.AccessConfig get instantiatePermission => $_getN(4);
+  @$pb.TagNumber(5)
+  set instantiatePermission($0.AccessConfig v) {
+    setField(5, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasInstantiatePermission() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearInstantiatePermission() => clearField(5);
+  @$pb.TagNumber(5)
+  $0.AccessConfig ensureInstantiatePermission() => $_ensure(4);
+
+  /// UnpinCode code on upload, optional
+  @$pb.TagNumber(6)
+  $core.bool get unpinCode => $_getBF(5);
+  @$pb.TagNumber(6)
+  set unpinCode($core.bool v) {
+    $_setBool(5, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasUnpinCode() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearUnpinCode() => clearField(6);
+
+  /// Admin is an optional address that can execute migrations
+  @$pb.TagNumber(7)
+  $core.String get admin => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set admin($core.String v) {
+    $_setString(6, v);
+  }
+
+  @$pb.TagNumber(7)
+  $core.bool hasAdmin() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearAdmin() => clearField(7);
+
+  /// Label is optional metadata to be stored with a constract instance.
+  @$pb.TagNumber(8)
+  $core.String get label => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set label($core.String v) {
+    $_setString(7, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasLabel() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearLabel() => clearField(8);
+
+  /// Msg json encoded message to be passed to the contract on instantiation
+  @$pb.TagNumber(9)
+  $core.List<$core.int> get msg => $_getN(8);
+  @$pb.TagNumber(9)
+  set msg($core.List<$core.int> v) {
+    $_setBytes(8, v);
+  }
+
+  @$pb.TagNumber(9)
+  $core.bool hasMsg() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearMsg() => clearField(9);
+
+  /// Funds coins that are transferred to the contract on instantiation
+  @$pb.TagNumber(10)
+  $core.List<$1.Coin> get funds => $_getList(9);
+
+  /// Source is the URL where the code is hosted
+  @$pb.TagNumber(11)
+  $core.String get source => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set source($core.String v) {
+    $_setString(10, v);
+  }
+
+  @$pb.TagNumber(11)
+  $core.bool hasSource() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearSource() => clearField(11);
+
+  /// Builder is the docker image used to build the code deterministically, used
+  /// for smart contract verification
+  @$pb.TagNumber(12)
+  $core.String get builder => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set builder($core.String v) {
+    $_setString(11, v);
+  }
+
+  @$pb.TagNumber(12)
+  $core.bool hasBuilder() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearBuilder() => clearField(12);
+
+  /// CodeHash is the SHA256 sum of the code outputted by builder, used for smart
+  /// contract verification
+  @$pb.TagNumber(13)
+  $core.List<$core.int> get codeHash => $_getN(12);
+  @$pb.TagNumber(13)
+  set codeHash($core.List<$core.int> v) {
+    $_setBytes(12, v);
+  }
+
+  @$pb.TagNumber(13)
+  $core.bool hasCodeHash() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearCodeHash() => clearField(13);
+}
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -1,63 +1,57 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/consensus/wal.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'types.pb.dart' as $0;
 import '../../google/protobuf/duration.pb.dart' as $1;
-import '../types/events.pb.dart' as $2;
 import '../../google/protobuf/timestamp.pb.dart' as $3;
+import '../types/events.pb.dart' as $2;
+import 'types.pb.dart' as $0;
 
+/// MsgInfo are msgs from the reactor which may update the state
 class MsgInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aOM<$0.Message>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg',
-        subBuilder: $0.Message.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'peerId')
-    ..hasRequiredFields = false;
-
-  MsgInfo._() : super();
   factory MsgInfo({
     $0.Message? msg,
     $core.String? peerId,
   }) {
-    final _result = create();
+    final $result = create();
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
     if (peerId != null) {
-      _result.peerId = peerId;
+      $result.peerId = peerId;
     }
-    return _result;
+    return $result;
   }
+  MsgInfo._() : super();
   factory MsgInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgInfo',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aOM<$0.Message>(1, _omitFieldNames ? '' : 'msg',
+        subBuilder: $0.Message.create)
+    ..aOS(2, _omitFieldNames ? '' : 'peerId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -66,9 +60,10 @@ class MsgInfo extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgInfo copyWith(void Function(MsgInfo) updates) =>
-      super.copyWith((message) => updates(message as MsgInfo))
-          as MsgInfo; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgInfo)) as MsgInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgInfo create() => MsgInfo._();
   MsgInfo createEmptyInstance() => create();
@@ -105,69 +100,49 @@ class MsgInfo extends $pb.GeneratedMessage {
   void clearPeerId() => clearField(2);
 }
 
+/// TimeoutInfo internally generated messages which may update the state
 class TimeoutInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'TimeoutInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aOM<$1.Duration>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'duration',
-        subBuilder: $1.Duration.create)
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'step',
-        $pb.PbFieldType.OU3)
-    ..hasRequiredFields = false;
-
-  TimeoutInfo._() : super();
   factory TimeoutInfo({
     $1.Duration? duration,
     $fixnum.Int64? height,
     $core.int? round,
     $core.int? step,
   }) {
-    final _result = create();
+    final $result = create();
     if (duration != null) {
-      _result.duration = duration;
+      $result.duration = duration;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (step != null) {
-      _result.step = step;
+      $result.step = step;
     }
-    return _result;
+    return $result;
   }
+  TimeoutInfo._() : super();
   factory TimeoutInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory TimeoutInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TimeoutInfo',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aOM<$1.Duration>(1, _omitFieldNames ? '' : 'duration',
+        subBuilder: $1.Duration.create)
+    ..aInt64(2, _omitFieldNames ? '' : 'height')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'round', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'step', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -177,8 +152,10 @@ class TimeoutInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   TimeoutInfo copyWith(void Function(TimeoutInfo) updates) =>
       super.copyWith((message) => updates(message as TimeoutInfo))
-          as TimeoutInfo; // ignore: deprecated_member_use
+          as TimeoutInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TimeoutInfo create() => TimeoutInfo._();
   TimeoutInfo createEmptyInstance() => create();
@@ -239,39 +216,34 @@ class TimeoutInfo extends $pb.GeneratedMessage {
   void clearStep() => clearField(4);
 }
 
+/// EndHeight marks the end of the given height inside WAL.
+/// @internal used by scripts/wal2json util.
 class EndHeight extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EndHeight',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..hasRequiredFields = false;
-
-  EndHeight._() : super();
   factory EndHeight({
     $fixnum.Int64? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  EndHeight._() : super();
   factory EndHeight.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EndHeight.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EndHeight',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -280,9 +252,10 @@ class EndHeight extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   EndHeight copyWith(void Function(EndHeight) updates) =>
-      super.copyWith((message) => updates(message as EndHeight))
-          as EndHeight; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as EndHeight)) as EndHeight;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EndHeight create() => EndHeight._();
   EndHeight createEmptyInstance() => create();
@@ -314,6 +287,35 @@ enum WALMessage_Sum {
 }
 
 class WALMessage extends $pb.GeneratedMessage {
+  factory WALMessage({
+    $2.EventDataRoundState? eventDataRoundState,
+    MsgInfo? msgInfo,
+    TimeoutInfo? timeoutInfo,
+    EndHeight? endHeight,
+  }) {
+    final $result = create();
+    if (eventDataRoundState != null) {
+      $result.eventDataRoundState = eventDataRoundState;
+    }
+    if (msgInfo != null) {
+      $result.msgInfo = msgInfo;
+    }
+    if (timeoutInfo != null) {
+      $result.timeoutInfo = timeoutInfo;
+    }
+    if (endHeight != null) {
+      $result.endHeight = endHeight;
+    }
+    return $result;
+  }
+  WALMessage._() : super();
+  factory WALMessage.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory WALMessage.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, WALMessage_Sum> _WALMessage_SumByTag = {
     1: WALMessage_Sum.eventDataRoundState,
     2: WALMessage_Sum.msgInfo,
@@ -322,69 +324,22 @@ class WALMessage extends $pb.GeneratedMessage {
     0: WALMessage_Sum.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'WALMessage',
+      _omitMessageNames ? '' : 'WALMessage',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
+          _omitMessageNames ? '' : 'tendermint.consensus'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4])
     ..aOM<$2.EventDataRoundState>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'eventDataRoundState',
+        1, _omitFieldNames ? '' : 'eventDataRoundState',
         subBuilder: $2.EventDataRoundState.create)
-    ..aOM<MsgInfo>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgInfo',
+    ..aOM<MsgInfo>(2, _omitFieldNames ? '' : 'msgInfo',
         subBuilder: MsgInfo.create)
-    ..aOM<TimeoutInfo>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timeoutInfo',
+    ..aOM<TimeoutInfo>(3, _omitFieldNames ? '' : 'timeoutInfo',
         subBuilder: TimeoutInfo.create)
-    ..aOM<EndHeight>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'endHeight',
+    ..aOM<EndHeight>(4, _omitFieldNames ? '' : 'endHeight',
         subBuilder: EndHeight.create)
     ..hasRequiredFields = false;
 
-  WALMessage._() : super();
-  factory WALMessage({
-    $2.EventDataRoundState? eventDataRoundState,
-    MsgInfo? msgInfo,
-    TimeoutInfo? timeoutInfo,
-    EndHeight? endHeight,
-  }) {
-    final _result = create();
-    if (eventDataRoundState != null) {
-      _result.eventDataRoundState = eventDataRoundState;
-    }
-    if (msgInfo != null) {
-      _result.msgInfo = msgInfo;
-    }
-    if (timeoutInfo != null) {
-      _result.timeoutInfo = timeoutInfo;
-    }
-    if (endHeight != null) {
-      _result.endHeight = endHeight;
-    }
-    return _result;
-  }
-  factory WALMessage.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory WALMessage.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -393,9 +348,10 @@ class WALMessage extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   WALMessage copyWith(void Function(WALMessage) updates) =>
-      super.copyWith((message) => updates(message as WALMessage))
-          as WALMessage; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as WALMessage)) as WALMessage;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WALMessage create() => WALMessage._();
   WALMessage createEmptyInstance() => create();
@@ -465,50 +421,40 @@ class WALMessage extends $pb.GeneratedMessage {
   EndHeight ensureEndHeight() => $_ensure(3);
 }
 
+/// TimedWALMessage wraps WALMessage and adds Time for debugging purposes.
 class TimedWALMessage extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'TimedWALMessage',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.consensus'),
-      createEmptyInstance: create)
-    ..aOM<$3.Timestamp>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'time',
-        subBuilder: $3.Timestamp.create)
-    ..aOM<WALMessage>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg',
-        subBuilder: WALMessage.create)
-    ..hasRequiredFields = false;
-
-  TimedWALMessage._() : super();
   factory TimedWALMessage({
     $3.Timestamp? time,
     WALMessage? msg,
   }) {
-    final _result = create();
+    final $result = create();
     if (time != null) {
-      _result.time = time;
+      $result.time = time;
     }
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
-    return _result;
+    return $result;
   }
+  TimedWALMessage._() : super();
   factory TimedWALMessage.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory TimedWALMessage.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TimedWALMessage',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.consensus'),
+      createEmptyInstance: create)
+    ..aOM<$3.Timestamp>(1, _omitFieldNames ? '' : 'time',
+        subBuilder: $3.Timestamp.create)
+    ..aOM<WALMessage>(2, _omitFieldNames ? '' : 'msg',
+        subBuilder: WALMessage.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -518,8 +464,10 @@ class TimedWALMessage extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   TimedWALMessage copyWith(void Function(TimedWALMessage) updates) =>
       super.copyWith((message) => updates(message as TimedWALMessage))
-          as TimedWALMessage; // ignore: deprecated_member_use
+          as TimedWALMessage;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TimedWALMessage create() => TimedWALMessage._();
   TimedWALMessage createEmptyInstance() => create();
@@ -558,3 +506,7 @@ class TimedWALMessage extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   WALMessage ensureMsg() => $_ensure(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

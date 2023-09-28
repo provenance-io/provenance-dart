@@ -1,74 +1,64 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/channel/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'channel.pb.dart' as $1;
 import '../../client/v1/client.pb.dart' as $2;
-
+import 'channel.pb.dart' as $1;
 import 'tx.pbenum.dart';
 
 export 'tx.pbenum.dart';
 
+/// MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It
+/// is called by a relayer on Chain A.
 class MsgChannelOpenInit extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelOpenInit',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOM<$1.Channel>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channel',
-        subBuilder: $1.Channel.create)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgChannelOpenInit._() : super();
   factory MsgChannelOpenInit({
     $core.String? portId,
     $1.Channel? channel,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channel != null) {
-      _result.channel = channel;
+      $result.channel = channel;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgChannelOpenInit._() : super();
   factory MsgChannelOpenInit.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelOpenInit.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelOpenInit',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOM<$1.Channel>(2, _omitFieldNames ? '' : 'channel',
+        subBuilder: $1.Channel.create)
+    ..aOS(3, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -78,8 +68,10 @@ class MsgChannelOpenInit extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgChannelOpenInit copyWith(void Function(MsgChannelOpenInit) updates) =>
       super.copyWith((message) => updates(message as MsgChannelOpenInit))
-          as MsgChannelOpenInit; // ignore: deprecated_member_use
+          as MsgChannelOpenInit;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelOpenInit create() => MsgChannelOpenInit._();
   MsgChannelOpenInit createEmptyInstance() => create();
@@ -129,48 +121,38 @@ class MsgChannelOpenInit extends $pb.GeneratedMessage {
   void clearSigner() => clearField(3);
 }
 
+/// MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type.
 class MsgChannelOpenInitResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelOpenInitResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..hasRequiredFields = false;
-
-  MsgChannelOpenInitResponse._() : super();
   factory MsgChannelOpenInitResponse({
     $core.String? channelId,
     $core.String? version,
   }) {
-    final _result = create();
+    final $result = create();
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
-    return _result;
+    return $result;
   }
+  MsgChannelOpenInitResponse._() : super();
   factory MsgChannelOpenInitResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelOpenInitResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelOpenInitResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'version')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -183,8 +165,10 @@ class MsgChannelOpenInitResponse extends $pb.GeneratedMessage {
           void Function(MsgChannelOpenInitResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgChannelOpenInitResponse))
-          as MsgChannelOpenInitResponse; // ignore: deprecated_member_use
+          as MsgChannelOpenInitResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelOpenInitResponse create() => MsgChannelOpenInitResponse._();
   MsgChannelOpenInitResponse createEmptyInstance() => create();
@@ -220,57 +204,10 @@ class MsgChannelOpenInitResponse extends $pb.GeneratedMessage {
   void clearVersion() => clearField(2);
 }
 
+/// MsgChannelOpenInit defines a msg sent by a Relayer to try to open a channel
+/// on Chain B. The version field within the Channel field has been deprecated. Its
+/// value will be ignored by core IBC.
 class MsgChannelOpenTry extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelOpenTry',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'previousChannelId')
-    ..aOM<$1.Channel>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channel',
-        subBuilder: $1.Channel.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterpartyVersion')
-    ..a<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofInit',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgChannelOpenTry._() : super();
   factory MsgChannelOpenTry({
     $core.String? portId,
     @$core.Deprecated('This field is deprecated.')
@@ -281,37 +218,56 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
     $2.Height? proofHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (previousChannelId != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.previousChannelId = previousChannelId;
+      $result.previousChannelId = previousChannelId;
     }
     if (channel != null) {
-      _result.channel = channel;
+      $result.channel = channel;
     }
     if (counterpartyVersion != null) {
-      _result.counterpartyVersion = counterpartyVersion;
+      $result.counterpartyVersion = counterpartyVersion;
     }
     if (proofInit != null) {
-      _result.proofInit = proofInit;
+      $result.proofInit = proofInit;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgChannelOpenTry._() : super();
   factory MsgChannelOpenTry.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelOpenTry.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelOpenTry',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'previousChannelId')
+    ..aOM<$1.Channel>(3, _omitFieldNames ? '' : 'channel',
+        subBuilder: $1.Channel.create)
+    ..aOS(4, _omitFieldNames ? '' : 'counterpartyVersion')
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'proofInit', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(6, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..aOS(7, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -321,8 +277,10 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgChannelOpenTry copyWith(void Function(MsgChannelOpenTry) updates) =>
       super.copyWith((message) => updates(message as MsgChannelOpenTry))
-          as MsgChannelOpenTry; // ignore: deprecated_member_use
+          as MsgChannelOpenTry;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelOpenTry create() => MsgChannelOpenTry._();
   MsgChannelOpenTry createEmptyInstance() => create();
@@ -345,6 +303,7 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// Deprecated: this field is unused. Crossing hello's are no longer supported in core IBC.
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $core.String get previousChannelId => $_getSZ(1);
@@ -361,6 +320,7 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearPreviousChannelId() => clearField(2);
 
+  /// NOTE: the version field within the channel has been deprecated. Its value will be ignored by core IBC.
   @$pb.TagNumber(3)
   $1.Channel get channel => $_getN(2);
   @$pb.TagNumber(3)
@@ -426,39 +386,33 @@ class MsgChannelOpenTry extends $pb.GeneratedMessage {
   void clearSigner() => clearField(7);
 }
 
+/// MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type.
 class MsgChannelOpenTryResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelOpenTryResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..hasRequiredFields = false;
-
-  MsgChannelOpenTryResponse._() : super();
   factory MsgChannelOpenTryResponse({
     $core.String? version,
   }) {
-    final _result = create();
+    final $result = create();
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
-    return _result;
+    return $result;
   }
+  MsgChannelOpenTryResponse._() : super();
   factory MsgChannelOpenTryResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelOpenTryResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelOpenTryResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'version')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -470,8 +424,10 @@ class MsgChannelOpenTryResponse extends $pb.GeneratedMessage {
   MsgChannelOpenTryResponse copyWith(
           void Function(MsgChannelOpenTryResponse) updates) =>
       super.copyWith((message) => updates(message as MsgChannelOpenTryResponse))
-          as MsgChannelOpenTryResponse; // ignore: deprecated_member_use
+          as MsgChannelOpenTryResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelOpenTryResponse create() => MsgChannelOpenTryResponse._();
   MsgChannelOpenTryResponse createEmptyInstance() => create();
@@ -495,56 +451,9 @@ class MsgChannelOpenTryResponse extends $pb.GeneratedMessage {
   void clearVersion() => clearField(1);
 }
 
+/// MsgChannelOpenAck defines a msg sent by a Relayer to Chain A to acknowledge
+/// the change of channel state to TRYOPEN on Chain B.
 class MsgChannelOpenAck extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelOpenAck',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterpartyChannelId')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterpartyVersion')
-    ..a<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofTry',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgChannelOpenAck._() : super();
   factory MsgChannelOpenAck({
     $core.String? portId,
     $core.String? channelId,
@@ -554,36 +463,54 @@ class MsgChannelOpenAck extends $pb.GeneratedMessage {
     $2.Height? proofHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (counterpartyChannelId != null) {
-      _result.counterpartyChannelId = counterpartyChannelId;
+      $result.counterpartyChannelId = counterpartyChannelId;
     }
     if (counterpartyVersion != null) {
-      _result.counterpartyVersion = counterpartyVersion;
+      $result.counterpartyVersion = counterpartyVersion;
     }
     if (proofTry != null) {
-      _result.proofTry = proofTry;
+      $result.proofTry = proofTry;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgChannelOpenAck._() : super();
   factory MsgChannelOpenAck.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelOpenAck.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelOpenAck',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..aOS(3, _omitFieldNames ? '' : 'counterpartyChannelId')
+    ..aOS(4, _omitFieldNames ? '' : 'counterpartyVersion')
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'proofTry', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(6, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..aOS(7, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -593,8 +520,10 @@ class MsgChannelOpenAck extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgChannelOpenAck copyWith(void Function(MsgChannelOpenAck) updates) =>
       super.copyWith((message) => updates(message as MsgChannelOpenAck))
-          as MsgChannelOpenAck; // ignore: deprecated_member_use
+          as MsgChannelOpenAck;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelOpenAck create() => MsgChannelOpenAck._();
   MsgChannelOpenAck createEmptyInstance() => create();
@@ -692,26 +621,24 @@ class MsgChannelOpenAck extends $pb.GeneratedMessage {
   void clearSigner() => clearField(7);
 }
 
+/// MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type.
 class MsgChannelOpenAckResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelOpenAckResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgChannelOpenAckResponse._() : super();
   factory MsgChannelOpenAckResponse() => create();
+  MsgChannelOpenAckResponse._() : super();
   factory MsgChannelOpenAckResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelOpenAckResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelOpenAckResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -723,8 +650,10 @@ class MsgChannelOpenAckResponse extends $pb.GeneratedMessage {
   MsgChannelOpenAckResponse copyWith(
           void Function(MsgChannelOpenAckResponse) updates) =>
       super.copyWith((message) => updates(message as MsgChannelOpenAckResponse))
-          as MsgChannelOpenAckResponse; // ignore: deprecated_member_use
+          as MsgChannelOpenAckResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelOpenAckResponse create() => MsgChannelOpenAckResponse._();
   MsgChannelOpenAckResponse createEmptyInstance() => create();
@@ -736,46 +665,9 @@ class MsgChannelOpenAckResponse extends $pb.GeneratedMessage {
   static MsgChannelOpenAckResponse? _defaultInstance;
 }
 
+/// MsgChannelOpenConfirm defines a msg sent by a Relayer to Chain B to
+/// acknowledge the change of channel state to OPEN on Chain A.
 class MsgChannelOpenConfirm extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelOpenConfirm',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofAck',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgChannelOpenConfirm._() : super();
   factory MsgChannelOpenConfirm({
     $core.String? portId,
     $core.String? channelId,
@@ -783,30 +675,46 @@ class MsgChannelOpenConfirm extends $pb.GeneratedMessage {
     $2.Height? proofHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (proofAck != null) {
-      _result.proofAck = proofAck;
+      $result.proofAck = proofAck;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgChannelOpenConfirm._() : super();
   factory MsgChannelOpenConfirm.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelOpenConfirm.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelOpenConfirm',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'proofAck', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(4, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..aOS(5, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -818,8 +726,10 @@ class MsgChannelOpenConfirm extends $pb.GeneratedMessage {
   MsgChannelOpenConfirm copyWith(
           void Function(MsgChannelOpenConfirm) updates) =>
       super.copyWith((message) => updates(message as MsgChannelOpenConfirm))
-          as MsgChannelOpenConfirm; // ignore: deprecated_member_use
+          as MsgChannelOpenConfirm;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelOpenConfirm create() => MsgChannelOpenConfirm._();
   MsgChannelOpenConfirm createEmptyInstance() => create();
@@ -893,26 +803,25 @@ class MsgChannelOpenConfirm extends $pb.GeneratedMessage {
   void clearSigner() => clearField(5);
 }
 
+/// MsgChannelOpenConfirmResponse defines the Msg/ChannelOpenConfirm response
+/// type.
 class MsgChannelOpenConfirmResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelOpenConfirmResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgChannelOpenConfirmResponse._() : super();
   factory MsgChannelOpenConfirmResponse() => create();
+  MsgChannelOpenConfirmResponse._() : super();
   factory MsgChannelOpenConfirmResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelOpenConfirmResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelOpenConfirmResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -925,8 +834,10 @@ class MsgChannelOpenConfirmResponse extends $pb.GeneratedMessage {
           void Function(MsgChannelOpenConfirmResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgChannelOpenConfirmResponse))
-          as MsgChannelOpenConfirmResponse; // ignore: deprecated_member_use
+          as MsgChannelOpenConfirmResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelOpenConfirmResponse create() =>
       MsgChannelOpenConfirmResponse._();
@@ -939,57 +850,44 @@ class MsgChannelOpenConfirmResponse extends $pb.GeneratedMessage {
   static MsgChannelOpenConfirmResponse? _defaultInstance;
 }
 
+/// MsgChannelCloseInit defines a msg sent by a Relayer to Chain A
+/// to close a channel with Chain B.
 class MsgChannelCloseInit extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelCloseInit',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgChannelCloseInit._() : super();
   factory MsgChannelCloseInit({
     $core.String? portId,
     $core.String? channelId,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgChannelCloseInit._() : super();
   factory MsgChannelCloseInit.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelCloseInit.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelCloseInit',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..aOS(3, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -999,8 +897,10 @@ class MsgChannelCloseInit extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgChannelCloseInit copyWith(void Function(MsgChannelCloseInit) updates) =>
       super.copyWith((message) => updates(message as MsgChannelCloseInit))
-          as MsgChannelCloseInit; // ignore: deprecated_member_use
+          as MsgChannelCloseInit;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelCloseInit create() => MsgChannelCloseInit._();
   MsgChannelCloseInit createEmptyInstance() => create();
@@ -1048,26 +948,24 @@ class MsgChannelCloseInit extends $pb.GeneratedMessage {
   void clearSigner() => clearField(3);
 }
 
+/// MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type.
 class MsgChannelCloseInitResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelCloseInitResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgChannelCloseInitResponse._() : super();
   factory MsgChannelCloseInitResponse() => create();
+  MsgChannelCloseInitResponse._() : super();
   factory MsgChannelCloseInitResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelCloseInitResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelCloseInitResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1080,8 +978,10 @@ class MsgChannelCloseInitResponse extends $pb.GeneratedMessage {
           void Function(MsgChannelCloseInitResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgChannelCloseInitResponse))
-          as MsgChannelCloseInitResponse; // ignore: deprecated_member_use
+          as MsgChannelCloseInitResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelCloseInitResponse create() =>
       MsgChannelCloseInitResponse._();
@@ -1094,46 +994,9 @@ class MsgChannelCloseInitResponse extends $pb.GeneratedMessage {
   static MsgChannelCloseInitResponse? _defaultInstance;
 }
 
+/// MsgChannelCloseConfirm defines a msg sent by a Relayer to Chain B
+/// to acknowledge the change of channel state to CLOSED on Chain A.
 class MsgChannelCloseConfirm extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelCloseConfirm',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofInit',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgChannelCloseConfirm._() : super();
   factory MsgChannelCloseConfirm({
     $core.String? portId,
     $core.String? channelId,
@@ -1141,30 +1004,46 @@ class MsgChannelCloseConfirm extends $pb.GeneratedMessage {
     $2.Height? proofHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (proofInit != null) {
-      _result.proofInit = proofInit;
+      $result.proofInit = proofInit;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgChannelCloseConfirm._() : super();
   factory MsgChannelCloseConfirm.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelCloseConfirm.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelCloseConfirm',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'proofInit', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(4, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..aOS(5, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1176,8 +1055,10 @@ class MsgChannelCloseConfirm extends $pb.GeneratedMessage {
   MsgChannelCloseConfirm copyWith(
           void Function(MsgChannelCloseConfirm) updates) =>
       super.copyWith((message) => updates(message as MsgChannelCloseConfirm))
-          as MsgChannelCloseConfirm; // ignore: deprecated_member_use
+          as MsgChannelCloseConfirm;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelCloseConfirm create() => MsgChannelCloseConfirm._();
   MsgChannelCloseConfirm createEmptyInstance() => create();
@@ -1251,26 +1132,25 @@ class MsgChannelCloseConfirm extends $pb.GeneratedMessage {
   void clearSigner() => clearField(5);
 }
 
+/// MsgChannelCloseConfirmResponse defines the Msg/ChannelCloseConfirm response
+/// type.
 class MsgChannelCloseConfirmResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgChannelCloseConfirmResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgChannelCloseConfirmResponse._() : super();
   factory MsgChannelCloseConfirmResponse() => create();
+  MsgChannelCloseConfirmResponse._() : super();
   factory MsgChannelCloseConfirmResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgChannelCloseConfirmResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgChannelCloseConfirmResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1283,8 +1163,10 @@ class MsgChannelCloseConfirmResponse extends $pb.GeneratedMessage {
           void Function(MsgChannelCloseConfirmResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgChannelCloseConfirmResponse))
-          as MsgChannelCloseConfirmResponse; // ignore: deprecated_member_use
+          as MsgChannelCloseConfirmResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgChannelCloseConfirmResponse create() =>
       MsgChannelCloseConfirmResponse._();
@@ -1297,69 +1179,51 @@ class MsgChannelCloseConfirmResponse extends $pb.GeneratedMessage {
   static MsgChannelCloseConfirmResponse? _defaultInstance;
 }
 
+/// MsgRecvPacket receives incoming IBC packet
 class MsgRecvPacket extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgRecvPacket',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Packet>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packet',
-        subBuilder: $1.Packet.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofCommitment',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgRecvPacket._() : super();
   factory MsgRecvPacket({
     $1.Packet? packet,
     $core.List<$core.int>? proofCommitment,
     $2.Height? proofHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (packet != null) {
-      _result.packet = packet;
+      $result.packet = packet;
     }
     if (proofCommitment != null) {
-      _result.proofCommitment = proofCommitment;
+      $result.proofCommitment = proofCommitment;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgRecvPacket._() : super();
   factory MsgRecvPacket.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgRecvPacket.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgRecvPacket',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Packet>(1, _omitFieldNames ? '' : 'packet',
+        subBuilder: $1.Packet.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proofCommitment', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..aOS(4, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1369,8 +1233,10 @@ class MsgRecvPacket extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgRecvPacket copyWith(void Function(MsgRecvPacket) updates) =>
       super.copyWith((message) => updates(message as MsgRecvPacket))
-          as MsgRecvPacket; // ignore: deprecated_member_use
+          as MsgRecvPacket;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgRecvPacket create() => MsgRecvPacket._();
   MsgRecvPacket createEmptyInstance() => create();
@@ -1434,43 +1300,37 @@ class MsgRecvPacket extends $pb.GeneratedMessage {
   void clearSigner() => clearField(4);
 }
 
+/// MsgRecvPacketResponse defines the Msg/RecvPacket response type.
 class MsgRecvPacketResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgRecvPacketResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..e<ResponseResultType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'result',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
-        valueOf: ResponseResultType.valueOf,
-        enumValues: ResponseResultType.values)
-    ..hasRequiredFields = false;
-
-  MsgRecvPacketResponse._() : super();
   factory MsgRecvPacketResponse({
     ResponseResultType? result,
   }) {
-    final _result = create();
+    final $result = create();
     if (result != null) {
-      _result.result = result;
+      $result.result = result;
     }
-    return _result;
+    return $result;
   }
+  MsgRecvPacketResponse._() : super();
   factory MsgRecvPacketResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgRecvPacketResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgRecvPacketResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..e<ResponseResultType>(
+        1, _omitFieldNames ? '' : 'result', $pb.PbFieldType.OE,
+        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
+        valueOf: ResponseResultType.valueOf,
+        enumValues: ResponseResultType.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1482,8 +1342,10 @@ class MsgRecvPacketResponse extends $pb.GeneratedMessage {
   MsgRecvPacketResponse copyWith(
           void Function(MsgRecvPacketResponse) updates) =>
       super.copyWith((message) => updates(message as MsgRecvPacketResponse))
-          as MsgRecvPacketResponse; // ignore: deprecated_member_use
+          as MsgRecvPacketResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgRecvPacketResponse create() => MsgRecvPacketResponse._();
   MsgRecvPacketResponse createEmptyInstance() => create();
@@ -1507,49 +1369,8 @@ class MsgRecvPacketResponse extends $pb.GeneratedMessage {
   void clearResult() => clearField(1);
 }
 
+/// MsgTimeout receives timed-out packet
 class MsgTimeout extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgTimeout',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Packet>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packet',
-        subBuilder: $1.Packet.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofUnreceived',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextSequenceRecv',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgTimeout._() : super();
   factory MsgTimeout({
     $1.Packet? packet,
     $core.List<$core.int>? proofUnreceived,
@@ -1557,30 +1378,49 @@ class MsgTimeout extends $pb.GeneratedMessage {
     $fixnum.Int64? nextSequenceRecv,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (packet != null) {
-      _result.packet = packet;
+      $result.packet = packet;
     }
     if (proofUnreceived != null) {
-      _result.proofUnreceived = proofUnreceived;
+      $result.proofUnreceived = proofUnreceived;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (nextSequenceRecv != null) {
-      _result.nextSequenceRecv = nextSequenceRecv;
+      $result.nextSequenceRecv = nextSequenceRecv;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgTimeout._() : super();
   factory MsgTimeout.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgTimeout.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgTimeout',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Packet>(1, _omitFieldNames ? '' : 'packet',
+        subBuilder: $1.Packet.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proofUnreceived', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'nextSequenceRecv', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(5, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1589,9 +1429,10 @@ class MsgTimeout extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgTimeout copyWith(void Function(MsgTimeout) updates) =>
-      super.copyWith((message) => updates(message as MsgTimeout))
-          as MsgTimeout; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgTimeout)) as MsgTimeout;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgTimeout create() => MsgTimeout._();
   MsgTimeout createEmptyInstance() => create();
@@ -1666,43 +1507,37 @@ class MsgTimeout extends $pb.GeneratedMessage {
   void clearSigner() => clearField(5);
 }
 
+/// MsgTimeoutResponse defines the Msg/Timeout response type.
 class MsgTimeoutResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgTimeoutResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..e<ResponseResultType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'result',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
-        valueOf: ResponseResultType.valueOf,
-        enumValues: ResponseResultType.values)
-    ..hasRequiredFields = false;
-
-  MsgTimeoutResponse._() : super();
   factory MsgTimeoutResponse({
     ResponseResultType? result,
   }) {
-    final _result = create();
+    final $result = create();
     if (result != null) {
-      _result.result = result;
+      $result.result = result;
     }
-    return _result;
+    return $result;
   }
+  MsgTimeoutResponse._() : super();
   factory MsgTimeoutResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgTimeoutResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgTimeoutResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..e<ResponseResultType>(
+        1, _omitFieldNames ? '' : 'result', $pb.PbFieldType.OE,
+        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
+        valueOf: ResponseResultType.valueOf,
+        enumValues: ResponseResultType.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1712,8 +1547,10 @@ class MsgTimeoutResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgTimeoutResponse copyWith(void Function(MsgTimeoutResponse) updates) =>
       super.copyWith((message) => updates(message as MsgTimeoutResponse))
-          as MsgTimeoutResponse; // ignore: deprecated_member_use
+          as MsgTimeoutResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgTimeoutResponse create() => MsgTimeoutResponse._();
   MsgTimeoutResponse createEmptyInstance() => create();
@@ -1737,55 +1574,8 @@ class MsgTimeoutResponse extends $pb.GeneratedMessage {
   void clearResult() => clearField(1);
 }
 
+/// MsgTimeoutOnClose timed-out packet upon counterparty channel closure.
 class MsgTimeoutOnClose extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgTimeoutOnClose',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Packet>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packet',
-        subBuilder: $1.Packet.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofUnreceived',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofClose',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextSequenceRecv',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgTimeoutOnClose._() : super();
   factory MsgTimeoutOnClose({
     $1.Packet? packet,
     $core.List<$core.int>? proofUnreceived,
@@ -1794,33 +1584,54 @@ class MsgTimeoutOnClose extends $pb.GeneratedMessage {
     $fixnum.Int64? nextSequenceRecv,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (packet != null) {
-      _result.packet = packet;
+      $result.packet = packet;
     }
     if (proofUnreceived != null) {
-      _result.proofUnreceived = proofUnreceived;
+      $result.proofUnreceived = proofUnreceived;
     }
     if (proofClose != null) {
-      _result.proofClose = proofClose;
+      $result.proofClose = proofClose;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (nextSequenceRecv != null) {
-      _result.nextSequenceRecv = nextSequenceRecv;
+      $result.nextSequenceRecv = nextSequenceRecv;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgTimeoutOnClose._() : super();
   factory MsgTimeoutOnClose.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgTimeoutOnClose.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgTimeoutOnClose',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Packet>(1, _omitFieldNames ? '' : 'packet',
+        subBuilder: $1.Packet.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proofUnreceived', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'proofClose', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(4, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..a<$fixnum.Int64>(
+        5, _omitFieldNames ? '' : 'nextSequenceRecv', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(6, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1830,8 +1641,10 @@ class MsgTimeoutOnClose extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgTimeoutOnClose copyWith(void Function(MsgTimeoutOnClose) updates) =>
       super.copyWith((message) => updates(message as MsgTimeoutOnClose))
-          as MsgTimeoutOnClose; // ignore: deprecated_member_use
+          as MsgTimeoutOnClose;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgTimeoutOnClose create() => MsgTimeoutOnClose._();
   MsgTimeoutOnClose createEmptyInstance() => create();
@@ -1919,43 +1732,37 @@ class MsgTimeoutOnClose extends $pb.GeneratedMessage {
   void clearSigner() => clearField(6);
 }
 
+/// MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type.
 class MsgTimeoutOnCloseResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgTimeoutOnCloseResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..e<ResponseResultType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'result',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
-        valueOf: ResponseResultType.valueOf,
-        enumValues: ResponseResultType.values)
-    ..hasRequiredFields = false;
-
-  MsgTimeoutOnCloseResponse._() : super();
   factory MsgTimeoutOnCloseResponse({
     ResponseResultType? result,
   }) {
-    final _result = create();
+    final $result = create();
     if (result != null) {
-      _result.result = result;
+      $result.result = result;
     }
-    return _result;
+    return $result;
   }
+  MsgTimeoutOnCloseResponse._() : super();
   factory MsgTimeoutOnCloseResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgTimeoutOnCloseResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgTimeoutOnCloseResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..e<ResponseResultType>(
+        1, _omitFieldNames ? '' : 'result', $pb.PbFieldType.OE,
+        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
+        valueOf: ResponseResultType.valueOf,
+        enumValues: ResponseResultType.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1967,8 +1774,10 @@ class MsgTimeoutOnCloseResponse extends $pb.GeneratedMessage {
   MsgTimeoutOnCloseResponse copyWith(
           void Function(MsgTimeoutOnCloseResponse) updates) =>
       super.copyWith((message) => updates(message as MsgTimeoutOnCloseResponse))
-          as MsgTimeoutOnCloseResponse; // ignore: deprecated_member_use
+          as MsgTimeoutOnCloseResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgTimeoutOnCloseResponse create() => MsgTimeoutOnCloseResponse._();
   MsgTimeoutOnCloseResponse createEmptyInstance() => create();
@@ -1992,48 +1801,8 @@ class MsgTimeoutOnCloseResponse extends $pb.GeneratedMessage {
   void clearResult() => clearField(1);
 }
 
+/// MsgAcknowledgement receives incoming IBC acknowledgement
 class MsgAcknowledgement extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgAcknowledgement',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Packet>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packet',
-        subBuilder: $1.Packet.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'acknowledgement',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofAcked',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..hasRequiredFields = false;
-
-  MsgAcknowledgement._() : super();
   factory MsgAcknowledgement({
     $1.Packet? packet,
     $core.List<$core.int>? acknowledgement,
@@ -2041,30 +1810,48 @@ class MsgAcknowledgement extends $pb.GeneratedMessage {
     $2.Height? proofHeight,
     $core.String? signer,
   }) {
-    final _result = create();
+    final $result = create();
     if (packet != null) {
-      _result.packet = packet;
+      $result.packet = packet;
     }
     if (acknowledgement != null) {
-      _result.acknowledgement = acknowledgement;
+      $result.acknowledgement = acknowledgement;
     }
     if (proofAcked != null) {
-      _result.proofAcked = proofAcked;
+      $result.proofAcked = proofAcked;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
-    return _result;
+    return $result;
   }
+  MsgAcknowledgement._() : super();
   factory MsgAcknowledgement.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgAcknowledgement.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAcknowledgement',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Packet>(1, _omitFieldNames ? '' : 'packet',
+        subBuilder: $1.Packet.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'acknowledgement', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'proofAcked', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(4, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..aOS(5, _omitFieldNames ? '' : 'signer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2074,8 +1861,10 @@ class MsgAcknowledgement extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgAcknowledgement copyWith(void Function(MsgAcknowledgement) updates) =>
       super.copyWith((message) => updates(message as MsgAcknowledgement))
-          as MsgAcknowledgement; // ignore: deprecated_member_use
+          as MsgAcknowledgement;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgAcknowledgement create() => MsgAcknowledgement._();
   MsgAcknowledgement createEmptyInstance() => create();
@@ -2151,43 +1940,37 @@ class MsgAcknowledgement extends $pb.GeneratedMessage {
   void clearSigner() => clearField(5);
 }
 
+/// MsgAcknowledgementResponse defines the Msg/Acknowledgement response type.
 class MsgAcknowledgementResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgAcknowledgementResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..e<ResponseResultType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'result',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
-        valueOf: ResponseResultType.valueOf,
-        enumValues: ResponseResultType.values)
-    ..hasRequiredFields = false;
-
-  MsgAcknowledgementResponse._() : super();
   factory MsgAcknowledgementResponse({
     ResponseResultType? result,
   }) {
-    final _result = create();
+    final $result = create();
     if (result != null) {
-      _result.result = result;
+      $result.result = result;
     }
-    return _result;
+    return $result;
   }
+  MsgAcknowledgementResponse._() : super();
   factory MsgAcknowledgementResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgAcknowledgementResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAcknowledgementResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..e<ResponseResultType>(
+        1, _omitFieldNames ? '' : 'result', $pb.PbFieldType.OE,
+        defaultOrMaker: ResponseResultType.RESPONSE_RESULT_TYPE_UNSPECIFIED,
+        valueOf: ResponseResultType.valueOf,
+        enumValues: ResponseResultType.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2200,8 +1983,10 @@ class MsgAcknowledgementResponse extends $pb.GeneratedMessage {
           void Function(MsgAcknowledgementResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgAcknowledgementResponse))
-          as MsgAcknowledgementResponse; // ignore: deprecated_member_use
+          as MsgAcknowledgementResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgAcknowledgementResponse create() => MsgAcknowledgementResponse._();
   MsgAcknowledgementResponse createEmptyInstance() => create();
@@ -2224,3 +2009,7 @@ class MsgAcknowledgementResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearResult() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

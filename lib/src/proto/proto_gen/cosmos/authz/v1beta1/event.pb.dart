@@ -1,65 +1,55 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/authz/v1beta1/event.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// EventGrant is emitted on Msg/Grant
 class EventGrant extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventGrant',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgTypeUrl')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..hasRequiredFields = false;
-
-  EventGrant._() : super();
   factory EventGrant({
     $core.String? msgTypeUrl,
     $core.String? granter,
     $core.String? grantee,
   }) {
-    final _result = create();
+    final $result = create();
     if (msgTypeUrl != null) {
-      _result.msgTypeUrl = msgTypeUrl;
+      $result.msgTypeUrl = msgTypeUrl;
     }
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
-    return _result;
+    return $result;
   }
+  EventGrant._() : super();
   factory EventGrant.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventGrant.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventGrant',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'msgTypeUrl')
+    ..aOS(3, _omitFieldNames ? '' : 'granter')
+    ..aOS(4, _omitFieldNames ? '' : 'grantee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -68,9 +58,10 @@ class EventGrant extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   EventGrant copyWith(void Function(EventGrant) updates) =>
-      super.copyWith((message) => updates(message as EventGrant))
-          as EventGrant; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as EventGrant)) as EventGrant;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventGrant create() => EventGrant._();
   EventGrant createEmptyInstance() => create();
@@ -80,6 +71,7 @@ class EventGrant extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventGrant>(create);
   static EventGrant? _defaultInstance;
 
+  /// Msg type URL for which an autorization is granted
   @$pb.TagNumber(2)
   $core.String get msgTypeUrl => $_getSZ(0);
   @$pb.TagNumber(2)
@@ -92,6 +84,7 @@ class EventGrant extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMsgTypeUrl() => clearField(2);
 
+  /// Granter account address
   @$pb.TagNumber(3)
   $core.String get granter => $_getSZ(1);
   @$pb.TagNumber(3)
@@ -104,6 +97,7 @@ class EventGrant extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearGranter() => clearField(3);
 
+  /// Grantee account address
   @$pb.TagNumber(4)
   $core.String get grantee => $_getSZ(2);
   @$pb.TagNumber(4)
@@ -117,57 +111,43 @@ class EventGrant extends $pb.GeneratedMessage {
   void clearGrantee() => clearField(4);
 }
 
+/// EventRevoke is emitted on Msg/Revoke
 class EventRevoke extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventRevoke',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgTypeUrl')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..hasRequiredFields = false;
-
-  EventRevoke._() : super();
   factory EventRevoke({
     $core.String? msgTypeUrl,
     $core.String? granter,
     $core.String? grantee,
   }) {
-    final _result = create();
+    final $result = create();
     if (msgTypeUrl != null) {
-      _result.msgTypeUrl = msgTypeUrl;
+      $result.msgTypeUrl = msgTypeUrl;
     }
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
-    return _result;
+    return $result;
   }
+  EventRevoke._() : super();
   factory EventRevoke.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventRevoke.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventRevoke',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'msgTypeUrl')
+    ..aOS(3, _omitFieldNames ? '' : 'granter')
+    ..aOS(4, _omitFieldNames ? '' : 'grantee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -177,8 +157,10 @@ class EventRevoke extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventRevoke copyWith(void Function(EventRevoke) updates) =>
       super.copyWith((message) => updates(message as EventRevoke))
-          as EventRevoke; // ignore: deprecated_member_use
+          as EventRevoke;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventRevoke create() => EventRevoke._();
   EventRevoke createEmptyInstance() => create();
@@ -188,6 +170,7 @@ class EventRevoke extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventRevoke>(create);
   static EventRevoke? _defaultInstance;
 
+  /// Msg type URL for which an autorization is revoked
   @$pb.TagNumber(2)
   $core.String get msgTypeUrl => $_getSZ(0);
   @$pb.TagNumber(2)
@@ -200,6 +183,7 @@ class EventRevoke extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMsgTypeUrl() => clearField(2);
 
+  /// Granter account address
   @$pb.TagNumber(3)
   $core.String get granter => $_getSZ(1);
   @$pb.TagNumber(3)
@@ -212,6 +196,7 @@ class EventRevoke extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearGranter() => clearField(3);
 
+  /// Grantee account address
   @$pb.TagNumber(4)
   $core.String get grantee => $_getSZ(2);
   @$pb.TagNumber(4)
@@ -224,3 +209,7 @@ class EventRevoke extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearGrantee() => clearField(4);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

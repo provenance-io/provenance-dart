@@ -1,77 +1,63 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/applications/fee/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'fee.pb.dart' as $1;
 import '../../../core/channel/v1/channel.pb.dart' as $2;
+import 'fee.pb.dart' as $1;
 
+/// MsgRegisterPayee defines the request type for the RegisterPayee rpc
 class MsgRegisterPayee extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgRegisterPayee',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'relayer')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'payee')
-    ..hasRequiredFields = false;
-
-  MsgRegisterPayee._() : super();
   factory MsgRegisterPayee({
     $core.String? portId,
     $core.String? channelId,
     $core.String? relayer,
     $core.String? payee,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (relayer != null) {
-      _result.relayer = relayer;
+      $result.relayer = relayer;
     }
     if (payee != null) {
-      _result.payee = payee;
+      $result.payee = payee;
     }
-    return _result;
+    return $result;
   }
+  MsgRegisterPayee._() : super();
   factory MsgRegisterPayee.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgRegisterPayee.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgRegisterPayee',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..aOS(3, _omitFieldNames ? '' : 'relayer')
+    ..aOS(4, _omitFieldNames ? '' : 'payee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -81,8 +67,10 @@ class MsgRegisterPayee extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgRegisterPayee copyWith(void Function(MsgRegisterPayee) updates) =>
       super.copyWith((message) => updates(message as MsgRegisterPayee))
-          as MsgRegisterPayee; // ignore: deprecated_member_use
+          as MsgRegisterPayee;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgRegisterPayee create() => MsgRegisterPayee._();
   MsgRegisterPayee createEmptyInstance() => create();
@@ -93,6 +81,7 @@ class MsgRegisterPayee extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgRegisterPayee>(create);
   static MsgRegisterPayee? _defaultInstance;
 
+  /// unique port identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -105,6 +94,7 @@ class MsgRegisterPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// unique channel identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -117,6 +107,7 @@ class MsgRegisterPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// the relayer address
   @$pb.TagNumber(3)
   $core.String get relayer => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -129,6 +120,7 @@ class MsgRegisterPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRelayer() => clearField(3);
 
+  /// the payee address
   @$pb.TagNumber(4)
   $core.String get payee => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -142,26 +134,24 @@ class MsgRegisterPayee extends $pb.GeneratedMessage {
   void clearPayee() => clearField(4);
 }
 
+/// MsgRegisterPayeeResponse defines the response type for the RegisterPayee rpc
 class MsgRegisterPayeeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgRegisterPayeeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgRegisterPayeeResponse._() : super();
   factory MsgRegisterPayeeResponse() => create();
+  MsgRegisterPayeeResponse._() : super();
   factory MsgRegisterPayeeResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgRegisterPayeeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgRegisterPayeeResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -173,8 +163,10 @@ class MsgRegisterPayeeResponse extends $pb.GeneratedMessage {
   MsgRegisterPayeeResponse copyWith(
           void Function(MsgRegisterPayeeResponse) updates) =>
       super.copyWith((message) => updates(message as MsgRegisterPayeeResponse))
-          as MsgRegisterPayeeResponse; // ignore: deprecated_member_use
+          as MsgRegisterPayeeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgRegisterPayeeResponse create() => MsgRegisterPayeeResponse._();
   MsgRegisterPayeeResponse createEmptyInstance() => create();
@@ -186,66 +178,48 @@ class MsgRegisterPayeeResponse extends $pb.GeneratedMessage {
   static MsgRegisterPayeeResponse? _defaultInstance;
 }
 
+/// MsgRegisterCounterpartyPayee defines the request type for the RegisterCounterpartyPayee rpc
 class MsgRegisterCounterpartyPayee extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgRegisterCounterpartyPayee',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'relayer')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterpartyPayee')
-    ..hasRequiredFields = false;
-
-  MsgRegisterCounterpartyPayee._() : super();
   factory MsgRegisterCounterpartyPayee({
     $core.String? portId,
     $core.String? channelId,
     $core.String? relayer,
     $core.String? counterpartyPayee,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (relayer != null) {
-      _result.relayer = relayer;
+      $result.relayer = relayer;
     }
     if (counterpartyPayee != null) {
-      _result.counterpartyPayee = counterpartyPayee;
+      $result.counterpartyPayee = counterpartyPayee;
     }
-    return _result;
+    return $result;
   }
+  MsgRegisterCounterpartyPayee._() : super();
   factory MsgRegisterCounterpartyPayee.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgRegisterCounterpartyPayee.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgRegisterCounterpartyPayee',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..aOS(3, _omitFieldNames ? '' : 'relayer')
+    ..aOS(4, _omitFieldNames ? '' : 'counterpartyPayee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -258,8 +232,10 @@ class MsgRegisterCounterpartyPayee extends $pb.GeneratedMessage {
           void Function(MsgRegisterCounterpartyPayee) updates) =>
       super.copyWith(
               (message) => updates(message as MsgRegisterCounterpartyPayee))
-          as MsgRegisterCounterpartyPayee; // ignore: deprecated_member_use
+          as MsgRegisterCounterpartyPayee;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgRegisterCounterpartyPayee create() =>
       MsgRegisterCounterpartyPayee._();
@@ -271,6 +247,7 @@ class MsgRegisterCounterpartyPayee extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgRegisterCounterpartyPayee>(create);
   static MsgRegisterCounterpartyPayee? _defaultInstance;
 
+  /// unique port identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -283,6 +260,7 @@ class MsgRegisterCounterpartyPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// unique channel identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -295,6 +273,7 @@ class MsgRegisterCounterpartyPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// the relayer address
   @$pb.TagNumber(3)
   $core.String get relayer => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -307,6 +286,7 @@ class MsgRegisterCounterpartyPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRelayer() => clearField(3);
 
+  /// the counterparty payee address
   @$pb.TagNumber(4)
   $core.String get counterpartyPayee => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -320,20 +300,10 @@ class MsgRegisterCounterpartyPayee extends $pb.GeneratedMessage {
   void clearCounterpartyPayee() => clearField(4);
 }
 
+/// MsgRegisterCounterpartyPayeeResponse defines the response type for the RegisterCounterpartyPayee rpc
 class MsgRegisterCounterpartyPayeeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgRegisterCounterpartyPayeeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgRegisterCounterpartyPayeeResponse._() : super();
   factory MsgRegisterCounterpartyPayeeResponse() => create();
+  MsgRegisterCounterpartyPayeeResponse._() : super();
   factory MsgRegisterCounterpartyPayeeResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -341,6 +311,14 @@ class MsgRegisterCounterpartyPayeeResponse extends $pb.GeneratedMessage {
   factory MsgRegisterCounterpartyPayeeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgRegisterCounterpartyPayeeResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -353,8 +331,10 @@ class MsgRegisterCounterpartyPayeeResponse extends $pb.GeneratedMessage {
           void Function(MsgRegisterCounterpartyPayeeResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgRegisterCounterpartyPayeeResponse))
-          as MsgRegisterCounterpartyPayeeResponse; // ignore: deprecated_member_use
+          as MsgRegisterCounterpartyPayeeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgRegisterCounterpartyPayeeResponse create() =>
       MsgRegisterCounterpartyPayeeResponse._();
@@ -368,45 +348,10 @@ class MsgRegisterCounterpartyPayeeResponse extends $pb.GeneratedMessage {
   static MsgRegisterCounterpartyPayeeResponse? _defaultInstance;
 }
 
+/// MsgPayPacketFee defines the request type for the PayPacketFee rpc
+/// This Msg can be used to pay for a packet at the next sequence send & should be combined with the Msg that will be
+/// paid for
 class MsgPayPacketFee extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgPayPacketFee',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Fee>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'fee',
-        subBuilder: $1.Fee.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sourcePortId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sourceChannelId')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signer')
-    ..pPS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'relayers')
-    ..hasRequiredFields = false;
-
-  MsgPayPacketFee._() : super();
   factory MsgPayPacketFee({
     $1.Fee? fee,
     $core.String? sourcePortId,
@@ -414,30 +359,44 @@ class MsgPayPacketFee extends $pb.GeneratedMessage {
     $core.String? signer,
     $core.Iterable<$core.String>? relayers,
   }) {
-    final _result = create();
+    final $result = create();
     if (fee != null) {
-      _result.fee = fee;
+      $result.fee = fee;
     }
     if (sourcePortId != null) {
-      _result.sourcePortId = sourcePortId;
+      $result.sourcePortId = sourcePortId;
     }
     if (sourceChannelId != null) {
-      _result.sourceChannelId = sourceChannelId;
+      $result.sourceChannelId = sourceChannelId;
     }
     if (signer != null) {
-      _result.signer = signer;
+      $result.signer = signer;
     }
     if (relayers != null) {
-      _result.relayers.addAll(relayers);
+      $result.relayers.addAll(relayers);
     }
-    return _result;
+    return $result;
   }
+  MsgPayPacketFee._() : super();
   factory MsgPayPacketFee.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgPayPacketFee.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgPayPacketFee',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Fee>(1, _omitFieldNames ? '' : 'fee', subBuilder: $1.Fee.create)
+    ..aOS(2, _omitFieldNames ? '' : 'sourcePortId')
+    ..aOS(3, _omitFieldNames ? '' : 'sourceChannelId')
+    ..aOS(4, _omitFieldNames ? '' : 'signer')
+    ..pPS(5, _omitFieldNames ? '' : 'relayers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -447,8 +406,10 @@ class MsgPayPacketFee extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgPayPacketFee copyWith(void Function(MsgPayPacketFee) updates) =>
       super.copyWith((message) => updates(message as MsgPayPacketFee))
-          as MsgPayPacketFee; // ignore: deprecated_member_use
+          as MsgPayPacketFee;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgPayPacketFee create() => MsgPayPacketFee._();
   MsgPayPacketFee createEmptyInstance() => create();
@@ -459,6 +420,7 @@ class MsgPayPacketFee extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgPayPacketFee>(create);
   static MsgPayPacketFee? _defaultInstance;
 
+  /// fee encapsulates the recv, ack and timeout fees associated with an IBC packet
   @$pb.TagNumber(1)
   $1.Fee get fee => $_getN(0);
   @$pb.TagNumber(1)
@@ -473,6 +435,7 @@ class MsgPayPacketFee extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Fee ensureFee() => $_ensure(0);
 
+  /// the source port unique identifier
   @$pb.TagNumber(2)
   $core.String get sourcePortId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -485,6 +448,7 @@ class MsgPayPacketFee extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearSourcePortId() => clearField(2);
 
+  /// the source channel unique identifer
   @$pb.TagNumber(3)
   $core.String get sourceChannelId => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -497,6 +461,7 @@ class MsgPayPacketFee extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearSourceChannelId() => clearField(3);
 
+  /// account address to refund fee if necessary
   @$pb.TagNumber(4)
   $core.String get signer => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -509,30 +474,29 @@ class MsgPayPacketFee extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearSigner() => clearField(4);
 
+  /// optional list of relayers permitted to the receive packet fees
   @$pb.TagNumber(5)
   $core.List<$core.String> get relayers => $_getList(4);
 }
 
+/// MsgPayPacketFeeResponse defines the response type for the PayPacketFee rpc
 class MsgPayPacketFeeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgPayPacketFeeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgPayPacketFeeResponse._() : super();
   factory MsgPayPacketFeeResponse() => create();
+  MsgPayPacketFeeResponse._() : super();
   factory MsgPayPacketFeeResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgPayPacketFeeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgPayPacketFeeResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -544,8 +508,10 @@ class MsgPayPacketFeeResponse extends $pb.GeneratedMessage {
   MsgPayPacketFeeResponse copyWith(
           void Function(MsgPayPacketFeeResponse) updates) =>
       super.copyWith((message) => updates(message as MsgPayPacketFeeResponse))
-          as MsgPayPacketFeeResponse; // ignore: deprecated_member_use
+          as MsgPayPacketFeeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgPayPacketFeeResponse create() => MsgPayPacketFeeResponse._();
   MsgPayPacketFeeResponse createEmptyInstance() => create();
@@ -557,50 +523,41 @@ class MsgPayPacketFeeResponse extends $pb.GeneratedMessage {
   static MsgPayPacketFeeResponse? _defaultInstance;
 }
 
+/// MsgPayPacketFeeAsync defines the request type for the PayPacketFeeAsync rpc
+/// This Msg can be used to pay for a packet at a specified sequence (instead of the next sequence send)
 class MsgPayPacketFeeAsync extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgPayPacketFeeAsync',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.PacketId>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetId',
-        subBuilder: $2.PacketId.create)
-    ..aOM<$1.PacketFee>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetFee',
-        subBuilder: $1.PacketFee.create)
-    ..hasRequiredFields = false;
-
-  MsgPayPacketFeeAsync._() : super();
   factory MsgPayPacketFeeAsync({
     $2.PacketId? packetId,
     $1.PacketFee? packetFee,
   }) {
-    final _result = create();
+    final $result = create();
     if (packetId != null) {
-      _result.packetId = packetId;
+      $result.packetId = packetId;
     }
     if (packetFee != null) {
-      _result.packetFee = packetFee;
+      $result.packetFee = packetFee;
     }
-    return _result;
+    return $result;
   }
+  MsgPayPacketFeeAsync._() : super();
   factory MsgPayPacketFeeAsync.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgPayPacketFeeAsync.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgPayPacketFeeAsync',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.PacketId>(1, _omitFieldNames ? '' : 'packetId',
+        subBuilder: $2.PacketId.create)
+    ..aOM<$1.PacketFee>(2, _omitFieldNames ? '' : 'packetFee',
+        subBuilder: $1.PacketFee.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -611,8 +568,10 @@ class MsgPayPacketFeeAsync extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgPayPacketFeeAsync copyWith(void Function(MsgPayPacketFeeAsync) updates) =>
       super.copyWith((message) => updates(message as MsgPayPacketFeeAsync))
-          as MsgPayPacketFeeAsync; // ignore: deprecated_member_use
+          as MsgPayPacketFeeAsync;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgPayPacketFeeAsync create() => MsgPayPacketFeeAsync._();
   MsgPayPacketFeeAsync createEmptyInstance() => create();
@@ -623,6 +582,7 @@ class MsgPayPacketFeeAsync extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgPayPacketFeeAsync>(create);
   static MsgPayPacketFeeAsync? _defaultInstance;
 
+  /// unique packet identifier comprised of the channel ID, port ID and sequence
   @$pb.TagNumber(1)
   $2.PacketId get packetId => $_getN(0);
   @$pb.TagNumber(1)
@@ -637,6 +597,7 @@ class MsgPayPacketFeeAsync extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $2.PacketId ensurePacketId() => $_ensure(0);
 
+  /// the packet fee associated with a particular IBC packet
   @$pb.TagNumber(2)
   $1.PacketFee get packetFee => $_getN(1);
   @$pb.TagNumber(2)
@@ -652,26 +613,24 @@ class MsgPayPacketFeeAsync extends $pb.GeneratedMessage {
   $1.PacketFee ensurePacketFee() => $_ensure(1);
 }
 
+/// MsgPayPacketFeeAsyncResponse defines the response type for the PayPacketFeeAsync rpc
 class MsgPayPacketFeeAsyncResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgPayPacketFeeAsyncResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgPayPacketFeeAsyncResponse._() : super();
   factory MsgPayPacketFeeAsyncResponse() => create();
+  MsgPayPacketFeeAsyncResponse._() : super();
   factory MsgPayPacketFeeAsyncResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgPayPacketFeeAsyncResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgPayPacketFeeAsyncResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -684,8 +643,10 @@ class MsgPayPacketFeeAsyncResponse extends $pb.GeneratedMessage {
           void Function(MsgPayPacketFeeAsyncResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgPayPacketFeeAsyncResponse))
-          as MsgPayPacketFeeAsyncResponse; // ignore: deprecated_member_use
+          as MsgPayPacketFeeAsyncResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgPayPacketFeeAsyncResponse create() =>
       MsgPayPacketFeeAsyncResponse._();
@@ -697,3 +658,7 @@ class MsgPayPacketFeeAsyncResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgPayPacketFeeAsyncResponse>(create);
   static MsgPayPacketFeeAsyncResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

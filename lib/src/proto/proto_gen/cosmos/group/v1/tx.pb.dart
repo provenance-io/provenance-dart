@@ -1,76 +1,65 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/group/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'types.pb.dart' as $1;
 import '../../../google/protobuf/any.pb.dart' as $2;
-
 import 'tx.pbenum.dart';
+import 'types.pb.dart' as $1;
 import 'types.pbenum.dart' as $1;
 
 export 'tx.pbenum.dart';
 
+/// MsgCreateGroup is the Msg/CreateGroup request type.
 class MsgCreateGroup extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateGroup',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..pc<$1.MemberRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'members',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.MemberRequest.create)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  MsgCreateGroup._() : super();
   factory MsgCreateGroup({
     $core.String? admin,
     $core.Iterable<$1.MemberRequest>? members,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (members != null) {
-      _result.members.addAll(members);
+      $result.members.addAll(members);
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateGroup._() : super();
   factory MsgCreateGroup.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateGroup.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateGroup',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..pc<$1.MemberRequest>(
+        2, _omitFieldNames ? '' : 'members', $pb.PbFieldType.PM,
+        subBuilder: $1.MemberRequest.create)
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -80,8 +69,10 @@ class MsgCreateGroup extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgCreateGroup copyWith(void Function(MsgCreateGroup) updates) =>
       super.copyWith((message) => updates(message as MsgCreateGroup))
-          as MsgCreateGroup; // ignore: deprecated_member_use
+          as MsgCreateGroup;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateGroup create() => MsgCreateGroup._();
   MsgCreateGroup createEmptyInstance() => create();
@@ -92,6 +83,7 @@ class MsgCreateGroup extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgCreateGroup>(create);
   static MsgCreateGroup? _defaultInstance;
 
+  /// admin is the account address of the group admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -104,9 +96,11 @@ class MsgCreateGroup extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// members defines the group members.
   @$pb.TagNumber(2)
   $core.List<$1.MemberRequest> get members => $_getList(1);
 
+  /// metadata is any arbitrary metadata to attached to the group.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -120,41 +114,34 @@ class MsgCreateGroup extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(3);
 }
 
+/// MsgCreateGroupResponse is the Msg/CreateGroup response type.
 class MsgCreateGroupResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateGroupResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  MsgCreateGroupResponse._() : super();
   factory MsgCreateGroupResponse({
     $fixnum.Int64? groupId,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateGroupResponse._() : super();
   factory MsgCreateGroupResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateGroupResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateGroupResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -166,8 +153,10 @@ class MsgCreateGroupResponse extends $pb.GeneratedMessage {
   MsgCreateGroupResponse copyWith(
           void Function(MsgCreateGroupResponse) updates) =>
       super.copyWith((message) => updates(message as MsgCreateGroupResponse))
-          as MsgCreateGroupResponse; // ignore: deprecated_member_use
+          as MsgCreateGroupResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateGroupResponse create() => MsgCreateGroupResponse._();
   MsgCreateGroupResponse createEmptyInstance() => create();
@@ -178,6 +167,7 @@ class MsgCreateGroupResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgCreateGroupResponse>(create);
   static MsgCreateGroupResponse? _defaultInstance;
 
+  /// group_id is the unique ID of the newly created group.
   @$pb.TagNumber(1)
   $fixnum.Int64 get groupId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -191,61 +181,46 @@ class MsgCreateGroupResponse extends $pb.GeneratedMessage {
   void clearGroupId() => clearField(1);
 }
 
+/// MsgUpdateGroupMembers is the Msg/UpdateGroupMembers request type.
 class MsgUpdateGroupMembers extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupMembers',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..pc<$1.MemberRequest>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'memberUpdates',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.MemberRequest.create)
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupMembers._() : super();
   factory MsgUpdateGroupMembers({
     $core.String? admin,
     $fixnum.Int64? groupId,
     $core.Iterable<$1.MemberRequest>? memberUpdates,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (memberUpdates != null) {
-      _result.memberUpdates.addAll(memberUpdates);
+      $result.memberUpdates.addAll(memberUpdates);
     }
-    return _result;
+    return $result;
   }
+  MsgUpdateGroupMembers._() : super();
   factory MsgUpdateGroupMembers.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupMembers.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupMembers',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pc<$1.MemberRequest>(
+        3, _omitFieldNames ? '' : 'memberUpdates', $pb.PbFieldType.PM,
+        subBuilder: $1.MemberRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -257,8 +232,10 @@ class MsgUpdateGroupMembers extends $pb.GeneratedMessage {
   MsgUpdateGroupMembers copyWith(
           void Function(MsgUpdateGroupMembers) updates) =>
       super.copyWith((message) => updates(message as MsgUpdateGroupMembers))
-          as MsgUpdateGroupMembers; // ignore: deprecated_member_use
+          as MsgUpdateGroupMembers;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupMembers create() => MsgUpdateGroupMembers._();
   MsgUpdateGroupMembers createEmptyInstance() => create();
@@ -269,6 +246,7 @@ class MsgUpdateGroupMembers extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgUpdateGroupMembers>(create);
   static MsgUpdateGroupMembers? _defaultInstance;
 
+  /// admin is the account address of the group admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -281,6 +259,7 @@ class MsgUpdateGroupMembers extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(2)
   $fixnum.Int64 get groupId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -293,30 +272,30 @@ class MsgUpdateGroupMembers extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupId() => clearField(2);
 
+  /// member_updates is the list of members to update,
+  /// set weight to 0 to remove a member.
   @$pb.TagNumber(3)
   $core.List<$1.MemberRequest> get memberUpdates => $_getList(2);
 }
 
+/// MsgUpdateGroupMembersResponse is the Msg/UpdateGroupMembers response type.
 class MsgUpdateGroupMembersResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupMembersResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupMembersResponse._() : super();
   factory MsgUpdateGroupMembersResponse() => create();
+  MsgUpdateGroupMembersResponse._() : super();
   factory MsgUpdateGroupMembersResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupMembersResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupMembersResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -329,8 +308,10 @@ class MsgUpdateGroupMembersResponse extends $pb.GeneratedMessage {
           void Function(MsgUpdateGroupMembersResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgUpdateGroupMembersResponse))
-          as MsgUpdateGroupMembersResponse; // ignore: deprecated_member_use
+          as MsgUpdateGroupMembersResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupMembersResponse create() =>
       MsgUpdateGroupMembersResponse._();
@@ -343,59 +324,44 @@ class MsgUpdateGroupMembersResponse extends $pb.GeneratedMessage {
   static MsgUpdateGroupMembersResponse? _defaultInstance;
 }
 
+/// MsgUpdateGroupAdmin is the Msg/UpdateGroupAdmin request type.
 class MsgUpdateGroupAdmin extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupAdmin',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'newAdmin')
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupAdmin._() : super();
   factory MsgUpdateGroupAdmin({
     $core.String? admin,
     $fixnum.Int64? groupId,
     $core.String? newAdmin,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (newAdmin != null) {
-      _result.newAdmin = newAdmin;
+      $result.newAdmin = newAdmin;
     }
-    return _result;
+    return $result;
   }
+  MsgUpdateGroupAdmin._() : super();
   factory MsgUpdateGroupAdmin.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupAdmin.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupAdmin',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'newAdmin')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -405,8 +371,10 @@ class MsgUpdateGroupAdmin extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgUpdateGroupAdmin copyWith(void Function(MsgUpdateGroupAdmin) updates) =>
       super.copyWith((message) => updates(message as MsgUpdateGroupAdmin))
-          as MsgUpdateGroupAdmin; // ignore: deprecated_member_use
+          as MsgUpdateGroupAdmin;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupAdmin create() => MsgUpdateGroupAdmin._();
   MsgUpdateGroupAdmin createEmptyInstance() => create();
@@ -417,6 +385,7 @@ class MsgUpdateGroupAdmin extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgUpdateGroupAdmin>(create);
   static MsgUpdateGroupAdmin? _defaultInstance;
 
+  /// admin is the current account address of the group admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -429,6 +398,7 @@ class MsgUpdateGroupAdmin extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(2)
   $fixnum.Int64 get groupId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -441,6 +411,7 @@ class MsgUpdateGroupAdmin extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupId() => clearField(2);
 
+  /// new_admin is the group new admin account address.
   @$pb.TagNumber(3)
   $core.String get newAdmin => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -454,26 +425,24 @@ class MsgUpdateGroupAdmin extends $pb.GeneratedMessage {
   void clearNewAdmin() => clearField(3);
 }
 
+/// MsgUpdateGroupAdminResponse is the Msg/UpdateGroupAdmin response type.
 class MsgUpdateGroupAdminResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupAdminResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupAdminResponse._() : super();
   factory MsgUpdateGroupAdminResponse() => create();
+  MsgUpdateGroupAdminResponse._() : super();
   factory MsgUpdateGroupAdminResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupAdminResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupAdminResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -486,8 +455,10 @@ class MsgUpdateGroupAdminResponse extends $pb.GeneratedMessage {
           void Function(MsgUpdateGroupAdminResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgUpdateGroupAdminResponse))
-          as MsgUpdateGroupAdminResponse; // ignore: deprecated_member_use
+          as MsgUpdateGroupAdminResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupAdminResponse create() =>
       MsgUpdateGroupAdminResponse._();
@@ -500,59 +471,44 @@ class MsgUpdateGroupAdminResponse extends $pb.GeneratedMessage {
   static MsgUpdateGroupAdminResponse? _defaultInstance;
 }
 
+/// MsgUpdateGroupMetadata is the Msg/UpdateGroupMetadata request type.
 class MsgUpdateGroupMetadata extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupMetadata',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupMetadata._() : super();
   factory MsgUpdateGroupMetadata({
     $core.String? admin,
     $fixnum.Int64? groupId,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  MsgUpdateGroupMetadata._() : super();
   factory MsgUpdateGroupMetadata.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupMetadata.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupMetadata',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -564,8 +520,10 @@ class MsgUpdateGroupMetadata extends $pb.GeneratedMessage {
   MsgUpdateGroupMetadata copyWith(
           void Function(MsgUpdateGroupMetadata) updates) =>
       super.copyWith((message) => updates(message as MsgUpdateGroupMetadata))
-          as MsgUpdateGroupMetadata; // ignore: deprecated_member_use
+          as MsgUpdateGroupMetadata;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupMetadata create() => MsgUpdateGroupMetadata._();
   MsgUpdateGroupMetadata createEmptyInstance() => create();
@@ -576,6 +534,7 @@ class MsgUpdateGroupMetadata extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgUpdateGroupMetadata>(create);
   static MsgUpdateGroupMetadata? _defaultInstance;
 
+  /// admin is the account address of the group admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -588,6 +547,7 @@ class MsgUpdateGroupMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(2)
   $fixnum.Int64 get groupId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -600,6 +560,7 @@ class MsgUpdateGroupMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupId() => clearField(2);
 
+  /// metadata is the updated group's metadata.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -613,26 +574,24 @@ class MsgUpdateGroupMetadata extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(3);
 }
 
+/// MsgUpdateGroupMetadataResponse is the Msg/UpdateGroupMetadata response type.
 class MsgUpdateGroupMetadataResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupMetadataResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupMetadataResponse._() : super();
   factory MsgUpdateGroupMetadataResponse() => create();
+  MsgUpdateGroupMetadataResponse._() : super();
   factory MsgUpdateGroupMetadataResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupMetadataResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupMetadataResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -645,8 +604,10 @@ class MsgUpdateGroupMetadataResponse extends $pb.GeneratedMessage {
           void Function(MsgUpdateGroupMetadataResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgUpdateGroupMetadataResponse))
-          as MsgUpdateGroupMetadataResponse; // ignore: deprecated_member_use
+          as MsgUpdateGroupMetadataResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupMetadataResponse create() =>
       MsgUpdateGroupMetadataResponse._();
@@ -659,69 +620,50 @@ class MsgUpdateGroupMetadataResponse extends $pb.GeneratedMessage {
   static MsgUpdateGroupMetadataResponse? _defaultInstance;
 }
 
+/// MsgCreateGroupPolicy is the Msg/CreateGroupPolicy request type.
 class MsgCreateGroupPolicy extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateGroupPolicy',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..aOM<$2.Any>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'decisionPolicy',
-        subBuilder: $2.Any.create)
-    ..hasRequiredFields = false;
-
-  MsgCreateGroupPolicy._() : super();
   factory MsgCreateGroupPolicy({
     $core.String? admin,
     $fixnum.Int64? groupId,
     $core.String? metadata,
     $2.Any? decisionPolicy,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
     if (decisionPolicy != null) {
-      _result.decisionPolicy = decisionPolicy;
+      $result.decisionPolicy = decisionPolicy;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateGroupPolicy._() : super();
   factory MsgCreateGroupPolicy.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateGroupPolicy.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateGroupPolicy',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..aOM<$2.Any>(4, _omitFieldNames ? '' : 'decisionPolicy',
+        subBuilder: $2.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -732,8 +674,10 @@ class MsgCreateGroupPolicy extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgCreateGroupPolicy copyWith(void Function(MsgCreateGroupPolicy) updates) =>
       super.copyWith((message) => updates(message as MsgCreateGroupPolicy))
-          as MsgCreateGroupPolicy; // ignore: deprecated_member_use
+          as MsgCreateGroupPolicy;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateGroupPolicy create() => MsgCreateGroupPolicy._();
   MsgCreateGroupPolicy createEmptyInstance() => create();
@@ -744,6 +688,7 @@ class MsgCreateGroupPolicy extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgCreateGroupPolicy>(create);
   static MsgCreateGroupPolicy? _defaultInstance;
 
+  /// admin is the account address of the group admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -756,6 +701,7 @@ class MsgCreateGroupPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(2)
   $fixnum.Int64 get groupId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -768,6 +714,7 @@ class MsgCreateGroupPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupId() => clearField(2);
 
+  /// metadata is any arbitrary metadata attached to the group policy.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -780,6 +727,7 @@ class MsgCreateGroupPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMetadata() => clearField(3);
 
+  /// decision_policy specifies the group policy's decision policy.
   @$pb.TagNumber(4)
   $2.Any get decisionPolicy => $_getN(3);
   @$pb.TagNumber(4)
@@ -795,39 +743,33 @@ class MsgCreateGroupPolicy extends $pb.GeneratedMessage {
   $2.Any ensureDecisionPolicy() => $_ensure(3);
 }
 
+/// MsgCreateGroupPolicyResponse is the Msg/CreateGroupPolicy response type.
 class MsgCreateGroupPolicyResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateGroupPolicyResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..hasRequiredFields = false;
-
-  MsgCreateGroupPolicyResponse._() : super();
   factory MsgCreateGroupPolicyResponse({
     $core.String? address,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateGroupPolicyResponse._() : super();
   factory MsgCreateGroupPolicyResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateGroupPolicyResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateGroupPolicyResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -840,8 +782,10 @@ class MsgCreateGroupPolicyResponse extends $pb.GeneratedMessage {
           void Function(MsgCreateGroupPolicyResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCreateGroupPolicyResponse))
-          as MsgCreateGroupPolicyResponse; // ignore: deprecated_member_use
+          as MsgCreateGroupPolicyResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateGroupPolicyResponse create() =>
       MsgCreateGroupPolicyResponse._();
@@ -853,6 +797,7 @@ class MsgCreateGroupPolicyResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgCreateGroupPolicyResponse>(create);
   static MsgCreateGroupPolicyResponse? _defaultInstance;
 
+  /// address is the account address of the newly created group policy.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -866,57 +811,43 @@ class MsgCreateGroupPolicyResponse extends $pb.GeneratedMessage {
   void clearAddress() => clearField(1);
 }
 
+/// MsgUpdateGroupPolicyAdmin is the Msg/UpdateGroupPolicyAdmin request type.
 class MsgUpdateGroupPolicyAdmin extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupPolicyAdmin',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyAddress')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'newAdmin')
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupPolicyAdmin._() : super();
   factory MsgUpdateGroupPolicyAdmin({
     $core.String? admin,
     $core.String? groupPolicyAddress,
     $core.String? newAdmin,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (groupPolicyAddress != null) {
-      _result.groupPolicyAddress = groupPolicyAddress;
+      $result.groupPolicyAddress = groupPolicyAddress;
     }
     if (newAdmin != null) {
-      _result.newAdmin = newAdmin;
+      $result.newAdmin = newAdmin;
     }
-    return _result;
+    return $result;
   }
+  MsgUpdateGroupPolicyAdmin._() : super();
   factory MsgUpdateGroupPolicyAdmin.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupPolicyAdmin.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupPolicyAdmin',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..aOS(2, _omitFieldNames ? '' : 'groupPolicyAddress')
+    ..aOS(3, _omitFieldNames ? '' : 'newAdmin')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -928,8 +859,10 @@ class MsgUpdateGroupPolicyAdmin extends $pb.GeneratedMessage {
   MsgUpdateGroupPolicyAdmin copyWith(
           void Function(MsgUpdateGroupPolicyAdmin) updates) =>
       super.copyWith((message) => updates(message as MsgUpdateGroupPolicyAdmin))
-          as MsgUpdateGroupPolicyAdmin; // ignore: deprecated_member_use
+          as MsgUpdateGroupPolicyAdmin;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupPolicyAdmin create() => MsgUpdateGroupPolicyAdmin._();
   MsgUpdateGroupPolicyAdmin createEmptyInstance() => create();
@@ -940,6 +873,7 @@ class MsgUpdateGroupPolicyAdmin extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgUpdateGroupPolicyAdmin>(create);
   static MsgUpdateGroupPolicyAdmin? _defaultInstance;
 
+  /// admin is the account address of the group admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -952,6 +886,7 @@ class MsgUpdateGroupPolicyAdmin extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// group_policy_address is the account address of the group policy.
   @$pb.TagNumber(2)
   $core.String get groupPolicyAddress => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -964,6 +899,7 @@ class MsgUpdateGroupPolicyAdmin extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupPolicyAddress() => clearField(2);
 
+  /// new_admin is the new group policy admin.
   @$pb.TagNumber(3)
   $core.String get newAdmin => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -977,52 +913,8 @@ class MsgUpdateGroupPolicyAdmin extends $pb.GeneratedMessage {
   void clearNewAdmin() => clearField(3);
 }
 
+/// MsgCreateGroupWithPolicy is the Msg/CreateGroupWithPolicy request type.
 class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateGroupWithPolicy',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..pc<$1.MemberRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'members',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.MemberRequest.create)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupMetadata')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyMetadata')
-    ..aOB(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyAsAdmin')
-    ..aOM<$2.Any>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'decisionPolicy',
-        subBuilder: $2.Any.create)
-    ..hasRequiredFields = false;
-
-  MsgCreateGroupWithPolicy._() : super();
   factory MsgCreateGroupWithPolicy({
     $core.String? admin,
     $core.Iterable<$1.MemberRequest>? members,
@@ -1031,33 +923,51 @@ class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
     $core.bool? groupPolicyAsAdmin,
     $2.Any? decisionPolicy,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (members != null) {
-      _result.members.addAll(members);
+      $result.members.addAll(members);
     }
     if (groupMetadata != null) {
-      _result.groupMetadata = groupMetadata;
+      $result.groupMetadata = groupMetadata;
     }
     if (groupPolicyMetadata != null) {
-      _result.groupPolicyMetadata = groupPolicyMetadata;
+      $result.groupPolicyMetadata = groupPolicyMetadata;
     }
     if (groupPolicyAsAdmin != null) {
-      _result.groupPolicyAsAdmin = groupPolicyAsAdmin;
+      $result.groupPolicyAsAdmin = groupPolicyAsAdmin;
     }
     if (decisionPolicy != null) {
-      _result.decisionPolicy = decisionPolicy;
+      $result.decisionPolicy = decisionPolicy;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateGroupWithPolicy._() : super();
   factory MsgCreateGroupWithPolicy.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateGroupWithPolicy.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateGroupWithPolicy',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..pc<$1.MemberRequest>(
+        2, _omitFieldNames ? '' : 'members', $pb.PbFieldType.PM,
+        subBuilder: $1.MemberRequest.create)
+    ..aOS(3, _omitFieldNames ? '' : 'groupMetadata')
+    ..aOS(4, _omitFieldNames ? '' : 'groupPolicyMetadata')
+    ..aOB(5, _omitFieldNames ? '' : 'groupPolicyAsAdmin')
+    ..aOM<$2.Any>(6, _omitFieldNames ? '' : 'decisionPolicy',
+        subBuilder: $2.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1069,8 +979,10 @@ class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
   MsgCreateGroupWithPolicy copyWith(
           void Function(MsgCreateGroupWithPolicy) updates) =>
       super.copyWith((message) => updates(message as MsgCreateGroupWithPolicy))
-          as MsgCreateGroupWithPolicy; // ignore: deprecated_member_use
+          as MsgCreateGroupWithPolicy;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateGroupWithPolicy create() => MsgCreateGroupWithPolicy._();
   MsgCreateGroupWithPolicy createEmptyInstance() => create();
@@ -1081,6 +993,7 @@ class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgCreateGroupWithPolicy>(create);
   static MsgCreateGroupWithPolicy? _defaultInstance;
 
+  /// admin is the account address of the group and group policy admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1093,9 +1006,11 @@ class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// members defines the group members.
   @$pb.TagNumber(2)
   $core.List<$1.MemberRequest> get members => $_getList(1);
 
+  /// group_metadata is any arbitrary metadata attached to the group.
   @$pb.TagNumber(3)
   $core.String get groupMetadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1108,6 +1023,7 @@ class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearGroupMetadata() => clearField(3);
 
+  /// group_policy_metadata is any arbitrary metadata attached to the group policy.
   @$pb.TagNumber(4)
   $core.String get groupPolicyMetadata => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -1120,6 +1036,8 @@ class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearGroupPolicyMetadata() => clearField(4);
 
+  /// group_policy_as_admin is a boolean field, if set to true, the group policy account address will be used as group
+  /// and group policy admin.
   @$pb.TagNumber(5)
   $core.bool get groupPolicyAsAdmin => $_getBF(4);
   @$pb.TagNumber(5)
@@ -1132,6 +1050,7 @@ class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearGroupPolicyAsAdmin() => clearField(5);
 
+  /// decision_policy specifies the group policy's decision policy.
   @$pb.TagNumber(6)
   $2.Any get decisionPolicy => $_getN(5);
   @$pb.TagNumber(6)
@@ -1147,50 +1066,39 @@ class MsgCreateGroupWithPolicy extends $pb.GeneratedMessage {
   $2.Any ensureDecisionPolicy() => $_ensure(5);
 }
 
+/// MsgCreateGroupWithPolicyResponse is the Msg/CreateGroupWithPolicy response type.
 class MsgCreateGroupWithPolicyResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateGroupWithPolicyResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyAddress')
-    ..hasRequiredFields = false;
-
-  MsgCreateGroupWithPolicyResponse._() : super();
   factory MsgCreateGroupWithPolicyResponse({
     $fixnum.Int64? groupId,
     $core.String? groupPolicyAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (groupPolicyAddress != null) {
-      _result.groupPolicyAddress = groupPolicyAddress;
+      $result.groupPolicyAddress = groupPolicyAddress;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateGroupWithPolicyResponse._() : super();
   factory MsgCreateGroupWithPolicyResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateGroupWithPolicyResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateGroupWithPolicyResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'groupPolicyAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1203,8 +1111,10 @@ class MsgCreateGroupWithPolicyResponse extends $pb.GeneratedMessage {
           void Function(MsgCreateGroupWithPolicyResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCreateGroupWithPolicyResponse))
-          as MsgCreateGroupWithPolicyResponse; // ignore: deprecated_member_use
+          as MsgCreateGroupWithPolicyResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateGroupWithPolicyResponse create() =>
       MsgCreateGroupWithPolicyResponse._();
@@ -1217,6 +1127,7 @@ class MsgCreateGroupWithPolicyResponse extends $pb.GeneratedMessage {
           create);
   static MsgCreateGroupWithPolicyResponse? _defaultInstance;
 
+  /// group_id is the unique ID of the newly created group with policy.
   @$pb.TagNumber(1)
   $fixnum.Int64 get groupId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1229,6 +1140,7 @@ class MsgCreateGroupWithPolicyResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGroupId() => clearField(1);
 
+  /// group_policy_address is the account address of the newly created group policy.
   @$pb.TagNumber(2)
   $core.String get groupPolicyAddress => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1242,26 +1154,24 @@ class MsgCreateGroupWithPolicyResponse extends $pb.GeneratedMessage {
   void clearGroupPolicyAddress() => clearField(2);
 }
 
+/// MsgUpdateGroupPolicyAdminResponse is the Msg/UpdateGroupPolicyAdmin response type.
 class MsgUpdateGroupPolicyAdminResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupPolicyAdminResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupPolicyAdminResponse._() : super();
   factory MsgUpdateGroupPolicyAdminResponse() => create();
+  MsgUpdateGroupPolicyAdminResponse._() : super();
   factory MsgUpdateGroupPolicyAdminResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupPolicyAdminResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupPolicyAdminResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1274,8 +1184,10 @@ class MsgUpdateGroupPolicyAdminResponse extends $pb.GeneratedMessage {
           void Function(MsgUpdateGroupPolicyAdminResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgUpdateGroupPolicyAdminResponse))
-          as MsgUpdateGroupPolicyAdminResponse; // ignore: deprecated_member_use
+          as MsgUpdateGroupPolicyAdminResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupPolicyAdminResponse create() =>
       MsgUpdateGroupPolicyAdminResponse._();
@@ -1289,58 +1201,44 @@ class MsgUpdateGroupPolicyAdminResponse extends $pb.GeneratedMessage {
   static MsgUpdateGroupPolicyAdminResponse? _defaultInstance;
 }
 
+/// MsgUpdateGroupPolicyDecisionPolicy is the Msg/UpdateGroupPolicyDecisionPolicy request type.
 class MsgUpdateGroupPolicyDecisionPolicy extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupPolicyDecisionPolicy',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyAddress')
-    ..aOM<$2.Any>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'decisionPolicy',
-        subBuilder: $2.Any.create)
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupPolicyDecisionPolicy._() : super();
   factory MsgUpdateGroupPolicyDecisionPolicy({
     $core.String? admin,
     $core.String? groupPolicyAddress,
     $2.Any? decisionPolicy,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (groupPolicyAddress != null) {
-      _result.groupPolicyAddress = groupPolicyAddress;
+      $result.groupPolicyAddress = groupPolicyAddress;
     }
     if (decisionPolicy != null) {
-      _result.decisionPolicy = decisionPolicy;
+      $result.decisionPolicy = decisionPolicy;
     }
-    return _result;
+    return $result;
   }
+  MsgUpdateGroupPolicyDecisionPolicy._() : super();
   factory MsgUpdateGroupPolicyDecisionPolicy.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupPolicyDecisionPolicy.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupPolicyDecisionPolicy',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..aOS(2, _omitFieldNames ? '' : 'groupPolicyAddress')
+    ..aOM<$2.Any>(3, _omitFieldNames ? '' : 'decisionPolicy',
+        subBuilder: $2.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1353,8 +1251,10 @@ class MsgUpdateGroupPolicyDecisionPolicy extends $pb.GeneratedMessage {
           void Function(MsgUpdateGroupPolicyDecisionPolicy) updates) =>
       super.copyWith((message) =>
               updates(message as MsgUpdateGroupPolicyDecisionPolicy))
-          as MsgUpdateGroupPolicyDecisionPolicy; // ignore: deprecated_member_use
+          as MsgUpdateGroupPolicyDecisionPolicy;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupPolicyDecisionPolicy create() =>
       MsgUpdateGroupPolicyDecisionPolicy._();
@@ -1367,6 +1267,7 @@ class MsgUpdateGroupPolicyDecisionPolicy extends $pb.GeneratedMessage {
           create);
   static MsgUpdateGroupPolicyDecisionPolicy? _defaultInstance;
 
+  /// admin is the account address of the group admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1379,6 +1280,7 @@ class MsgUpdateGroupPolicyDecisionPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// group_policy_address is the account address of group policy.
   @$pb.TagNumber(2)
   $core.String get groupPolicyAddress => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1391,6 +1293,7 @@ class MsgUpdateGroupPolicyDecisionPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupPolicyAddress() => clearField(2);
 
+  /// decision_policy is the updated group policy's decision policy.
   @$pb.TagNumber(3)
   $2.Any get decisionPolicy => $_getN(2);
   @$pb.TagNumber(3)
@@ -1406,20 +1309,10 @@ class MsgUpdateGroupPolicyDecisionPolicy extends $pb.GeneratedMessage {
   $2.Any ensureDecisionPolicy() => $_ensure(2);
 }
 
+/// MsgUpdateGroupPolicyDecisionPolicyResponse is the Msg/UpdateGroupPolicyDecisionPolicy response type.
 class MsgUpdateGroupPolicyDecisionPolicyResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupPolicyDecisionPolicyResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupPolicyDecisionPolicyResponse._() : super();
   factory MsgUpdateGroupPolicyDecisionPolicyResponse() => create();
+  MsgUpdateGroupPolicyDecisionPolicyResponse._() : super();
   factory MsgUpdateGroupPolicyDecisionPolicyResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -1427,6 +1320,14 @@ class MsgUpdateGroupPolicyDecisionPolicyResponse extends $pb.GeneratedMessage {
   factory MsgUpdateGroupPolicyDecisionPolicyResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupPolicyDecisionPolicyResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1439,8 +1340,10 @@ class MsgUpdateGroupPolicyDecisionPolicyResponse extends $pb.GeneratedMessage {
           void Function(MsgUpdateGroupPolicyDecisionPolicyResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgUpdateGroupPolicyDecisionPolicyResponse))
-          as MsgUpdateGroupPolicyDecisionPolicyResponse; // ignore: deprecated_member_use
+          as MsgUpdateGroupPolicyDecisionPolicyResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupPolicyDecisionPolicyResponse create() =>
       MsgUpdateGroupPolicyDecisionPolicyResponse._();
@@ -1455,57 +1358,43 @@ class MsgUpdateGroupPolicyDecisionPolicyResponse extends $pb.GeneratedMessage {
   static MsgUpdateGroupPolicyDecisionPolicyResponse? _defaultInstance;
 }
 
+/// MsgUpdateGroupPolicyMetadata is the Msg/UpdateGroupPolicyMetadata request type.
 class MsgUpdateGroupPolicyMetadata extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupPolicyMetadata',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyAddress')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupPolicyMetadata._() : super();
   factory MsgUpdateGroupPolicyMetadata({
     $core.String? admin,
     $core.String? groupPolicyAddress,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (groupPolicyAddress != null) {
-      _result.groupPolicyAddress = groupPolicyAddress;
+      $result.groupPolicyAddress = groupPolicyAddress;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  MsgUpdateGroupPolicyMetadata._() : super();
   factory MsgUpdateGroupPolicyMetadata.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUpdateGroupPolicyMetadata.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupPolicyMetadata',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..aOS(2, _omitFieldNames ? '' : 'groupPolicyAddress')
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1518,8 +1407,10 @@ class MsgUpdateGroupPolicyMetadata extends $pb.GeneratedMessage {
           void Function(MsgUpdateGroupPolicyMetadata) updates) =>
       super.copyWith(
               (message) => updates(message as MsgUpdateGroupPolicyMetadata))
-          as MsgUpdateGroupPolicyMetadata; // ignore: deprecated_member_use
+          as MsgUpdateGroupPolicyMetadata;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupPolicyMetadata create() =>
       MsgUpdateGroupPolicyMetadata._();
@@ -1531,6 +1422,7 @@ class MsgUpdateGroupPolicyMetadata extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgUpdateGroupPolicyMetadata>(create);
   static MsgUpdateGroupPolicyMetadata? _defaultInstance;
 
+  /// admin is the account address of the group admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1543,6 +1435,7 @@ class MsgUpdateGroupPolicyMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// group_policy_address is the account address of group policy.
   @$pb.TagNumber(2)
   $core.String get groupPolicyAddress => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1555,6 +1448,7 @@ class MsgUpdateGroupPolicyMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupPolicyAddress() => clearField(2);
 
+  /// metadata is the updated group policy metadata.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1568,20 +1462,10 @@ class MsgUpdateGroupPolicyMetadata extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(3);
 }
 
+/// MsgUpdateGroupPolicyMetadataResponse is the Msg/UpdateGroupPolicyMetadata response type.
 class MsgUpdateGroupPolicyMetadataResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUpdateGroupPolicyMetadataResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgUpdateGroupPolicyMetadataResponse._() : super();
   factory MsgUpdateGroupPolicyMetadataResponse() => create();
+  MsgUpdateGroupPolicyMetadataResponse._() : super();
   factory MsgUpdateGroupPolicyMetadataResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -1589,6 +1473,14 @@ class MsgUpdateGroupPolicyMetadataResponse extends $pb.GeneratedMessage {
   factory MsgUpdateGroupPolicyMetadataResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateGroupPolicyMetadataResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1601,8 +1493,10 @@ class MsgUpdateGroupPolicyMetadataResponse extends $pb.GeneratedMessage {
           void Function(MsgUpdateGroupPolicyMetadataResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgUpdateGroupPolicyMetadataResponse))
-          as MsgUpdateGroupPolicyMetadataResponse; // ignore: deprecated_member_use
+          as MsgUpdateGroupPolicyMetadataResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUpdateGroupPolicyMetadataResponse create() =>
       MsgUpdateGroupPolicyMetadataResponse._();
@@ -1616,50 +1510,8 @@ class MsgUpdateGroupPolicyMetadataResponse extends $pb.GeneratedMessage {
   static MsgUpdateGroupPolicyMetadataResponse? _defaultInstance;
 }
 
+/// MsgSubmitProposal is the Msg/SubmitProposal request type.
 class MsgSubmitProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgSubmitProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyAddress')
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposers')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..pc<$2.Any>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'messages',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.Any.create)
-    ..e<Exec>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'exec',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: Exec.EXEC_UNSPECIFIED,
-        valueOf: Exec.valueOf,
-        enumValues: Exec.values)
-    ..hasRequiredFields = false;
-
-  MsgSubmitProposal._() : super();
   factory MsgSubmitProposal({
     $core.String? groupPolicyAddress,
     $core.Iterable<$core.String>? proposers,
@@ -1667,30 +1519,48 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
     $core.Iterable<$2.Any>? messages,
     Exec? exec,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupPolicyAddress != null) {
-      _result.groupPolicyAddress = groupPolicyAddress;
+      $result.groupPolicyAddress = groupPolicyAddress;
     }
     if (proposers != null) {
-      _result.proposers.addAll(proposers);
+      $result.proposers.addAll(proposers);
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
     if (messages != null) {
-      _result.messages.addAll(messages);
+      $result.messages.addAll(messages);
     }
     if (exec != null) {
-      _result.exec = exec;
+      $result.exec = exec;
     }
-    return _result;
+    return $result;
   }
+  MsgSubmitProposal._() : super();
   factory MsgSubmitProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgSubmitProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSubmitProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'groupPolicyAddress')
+    ..pPS(2, _omitFieldNames ? '' : 'proposers')
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..pc<$2.Any>(4, _omitFieldNames ? '' : 'messages', $pb.PbFieldType.PM,
+        subBuilder: $2.Any.create)
+    ..e<Exec>(5, _omitFieldNames ? '' : 'exec', $pb.PbFieldType.OE,
+        defaultOrMaker: Exec.EXEC_UNSPECIFIED,
+        valueOf: Exec.valueOf,
+        enumValues: Exec.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1700,8 +1570,10 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgSubmitProposal copyWith(void Function(MsgSubmitProposal) updates) =>
       super.copyWith((message) => updates(message as MsgSubmitProposal))
-          as MsgSubmitProposal; // ignore: deprecated_member_use
+          as MsgSubmitProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgSubmitProposal create() => MsgSubmitProposal._();
   MsgSubmitProposal createEmptyInstance() => create();
@@ -1712,6 +1584,7 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgSubmitProposal>(create);
   static MsgSubmitProposal? _defaultInstance;
 
+  /// group_policy_address is the account address of group policy.
   @$pb.TagNumber(1)
   $core.String get groupPolicyAddress => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1724,9 +1597,12 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGroupPolicyAddress() => clearField(1);
 
+  /// proposers are the account addresses of the proposers.
+  /// Proposers signatures will be counted as yes votes.
   @$pb.TagNumber(2)
   $core.List<$core.String> get proposers => $_getList(1);
 
+  /// metadata is any arbitrary metadata to attached to the proposal.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1739,9 +1615,13 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMetadata() => clearField(3);
 
+  /// messages is a list of `sdk.Msg`s that will be executed if the proposal passes.
   @$pb.TagNumber(4)
   $core.List<$2.Any> get messages => $_getList(3);
 
+  /// exec defines the mode of execution of the proposal,
+  /// whether it should be executed immediately on creation or not.
+  /// If so, proposers signatures are considered as Yes votes.
   @$pb.TagNumber(5)
   Exec get exec => $_getN(4);
   @$pb.TagNumber(5)
@@ -1755,41 +1635,35 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
   void clearExec() => clearField(5);
 }
 
+/// MsgSubmitProposalResponse is the Msg/SubmitProposal response type.
 class MsgSubmitProposalResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgSubmitProposalResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  MsgSubmitProposalResponse._() : super();
   factory MsgSubmitProposalResponse({
     $fixnum.Int64? proposalId,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
-    return _result;
+    return $result;
   }
+  MsgSubmitProposalResponse._() : super();
   factory MsgSubmitProposalResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgSubmitProposalResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSubmitProposalResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1801,8 +1675,10 @@ class MsgSubmitProposalResponse extends $pb.GeneratedMessage {
   MsgSubmitProposalResponse copyWith(
           void Function(MsgSubmitProposalResponse) updates) =>
       super.copyWith((message) => updates(message as MsgSubmitProposalResponse))
-          as MsgSubmitProposalResponse; // ignore: deprecated_member_use
+          as MsgSubmitProposalResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgSubmitProposalResponse create() => MsgSubmitProposalResponse._();
   MsgSubmitProposalResponse createEmptyInstance() => create();
@@ -1813,6 +1689,7 @@ class MsgSubmitProposalResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgSubmitProposalResponse>(create);
   static MsgSubmitProposalResponse? _defaultInstance;
 
+  /// proposal is the unique ID of the proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1826,50 +1703,40 @@ class MsgSubmitProposalResponse extends $pb.GeneratedMessage {
   void clearProposalId() => clearField(1);
 }
 
+/// MsgWithdrawProposal is the Msg/WithdrawProposal request type.
 class MsgWithdrawProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWithdrawProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..hasRequiredFields = false;
-
-  MsgWithdrawProposal._() : super();
   factory MsgWithdrawProposal({
     $fixnum.Int64? proposalId,
     $core.String? address,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
-    return _result;
+    return $result;
   }
+  MsgWithdrawProposal._() : super();
   factory MsgWithdrawProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWithdrawProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWithdrawProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'address')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1879,8 +1746,10 @@ class MsgWithdrawProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgWithdrawProposal copyWith(void Function(MsgWithdrawProposal) updates) =>
       super.copyWith((message) => updates(message as MsgWithdrawProposal))
-          as MsgWithdrawProposal; // ignore: deprecated_member_use
+          as MsgWithdrawProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWithdrawProposal create() => MsgWithdrawProposal._();
   MsgWithdrawProposal createEmptyInstance() => create();
@@ -1891,6 +1760,7 @@ class MsgWithdrawProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgWithdrawProposal>(create);
   static MsgWithdrawProposal? _defaultInstance;
 
+  /// proposal is the unique ID of the proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1903,6 +1773,7 @@ class MsgWithdrawProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearProposalId() => clearField(1);
 
+  /// address is the admin of the group policy or one of the proposer of the proposal.
   @$pb.TagNumber(2)
   $core.String get address => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1916,26 +1787,24 @@ class MsgWithdrawProposal extends $pb.GeneratedMessage {
   void clearAddress() => clearField(2);
 }
 
+/// MsgWithdrawProposalResponse is the Msg/WithdrawProposal response type.
 class MsgWithdrawProposalResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWithdrawProposalResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgWithdrawProposalResponse._() : super();
   factory MsgWithdrawProposalResponse() => create();
+  MsgWithdrawProposalResponse._() : super();
   factory MsgWithdrawProposalResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWithdrawProposalResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWithdrawProposalResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1948,8 +1817,10 @@ class MsgWithdrawProposalResponse extends $pb.GeneratedMessage {
           void Function(MsgWithdrawProposalResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgWithdrawProposalResponse))
-          as MsgWithdrawProposalResponse; // ignore: deprecated_member_use
+          as MsgWithdrawProposalResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWithdrawProposalResponse create() =>
       MsgWithdrawProposalResponse._();
@@ -1962,54 +1833,8 @@ class MsgWithdrawProposalResponse extends $pb.GeneratedMessage {
   static MsgWithdrawProposalResponse? _defaultInstance;
 }
 
+/// MsgVote is the Msg/Vote request type.
 class MsgVote extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgVote',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voter')
-    ..e<$1.VoteOption>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'option',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $1.VoteOption.VOTE_OPTION_UNSPECIFIED,
-        valueOf: $1.VoteOption.valueOf,
-        enumValues: $1.VoteOption.values)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..e<Exec>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'exec',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: Exec.EXEC_UNSPECIFIED,
-        valueOf: Exec.valueOf,
-        enumValues: Exec.values)
-    ..hasRequiredFields = false;
-
-  MsgVote._() : super();
   factory MsgVote({
     $fixnum.Int64? proposalId,
     $core.String? voter,
@@ -2017,30 +1842,52 @@ class MsgVote extends $pb.GeneratedMessage {
     $core.String? metadata,
     Exec? exec,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (voter != null) {
-      _result.voter = voter;
+      $result.voter = voter;
     }
     if (option != null) {
-      _result.option = option;
+      $result.option = option;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
     if (exec != null) {
-      _result.exec = exec;
+      $result.exec = exec;
     }
-    return _result;
+    return $result;
   }
+  MsgVote._() : super();
   factory MsgVote.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgVote.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgVote',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'voter')
+    ..e<$1.VoteOption>(3, _omitFieldNames ? '' : 'option', $pb.PbFieldType.OE,
+        defaultOrMaker: $1.VoteOption.VOTE_OPTION_UNSPECIFIED,
+        valueOf: $1.VoteOption.valueOf,
+        enumValues: $1.VoteOption.values)
+    ..aOS(4, _omitFieldNames ? '' : 'metadata')
+    ..e<Exec>(5, _omitFieldNames ? '' : 'exec', $pb.PbFieldType.OE,
+        defaultOrMaker: Exec.EXEC_UNSPECIFIED,
+        valueOf: Exec.valueOf,
+        enumValues: Exec.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2049,9 +1896,10 @@ class MsgVote extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgVote copyWith(void Function(MsgVote) updates) =>
-      super.copyWith((message) => updates(message as MsgVote))
-          as MsgVote; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgVote)) as MsgVote;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgVote create() => MsgVote._();
   MsgVote createEmptyInstance() => create();
@@ -2061,6 +1909,7 @@ class MsgVote extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MsgVote>(create);
   static MsgVote? _defaultInstance;
 
+  /// proposal is the unique ID of the proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -2073,6 +1922,7 @@ class MsgVote extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearProposalId() => clearField(1);
 
+  /// voter is the voter account address.
   @$pb.TagNumber(2)
   $core.String get voter => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -2085,6 +1935,7 @@ class MsgVote extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearVoter() => clearField(2);
 
+  /// option is the voter's choice on the proposal.
   @$pb.TagNumber(3)
   $1.VoteOption get option => $_getN(2);
   @$pb.TagNumber(3)
@@ -2097,6 +1948,7 @@ class MsgVote extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearOption() => clearField(3);
 
+  /// metadata is any arbitrary metadata to attached to the vote.
   @$pb.TagNumber(4)
   $core.String get metadata => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -2109,6 +1961,8 @@ class MsgVote extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearMetadata() => clearField(4);
 
+  /// exec defines whether the proposal should be executed
+  /// immediately after voting or not.
   @$pb.TagNumber(5)
   Exec get exec => $_getN(4);
   @$pb.TagNumber(5)
@@ -2122,26 +1976,24 @@ class MsgVote extends $pb.GeneratedMessage {
   void clearExec() => clearField(5);
 }
 
+/// MsgVoteResponse is the Msg/Vote response type.
 class MsgVoteResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgVoteResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgVoteResponse._() : super();
   factory MsgVoteResponse() => create();
+  MsgVoteResponse._() : super();
   factory MsgVoteResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgVoteResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgVoteResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2151,8 +2003,10 @@ class MsgVoteResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgVoteResponse copyWith(void Function(MsgVoteResponse) updates) =>
       super.copyWith((message) => updates(message as MsgVoteResponse))
-          as MsgVoteResponse; // ignore: deprecated_member_use
+          as MsgVoteResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgVoteResponse create() => MsgVoteResponse._();
   MsgVoteResponse createEmptyInstance() => create();
@@ -2164,50 +2018,40 @@ class MsgVoteResponse extends $pb.GeneratedMessage {
   static MsgVoteResponse? _defaultInstance;
 }
 
+/// MsgExec is the Msg/Exec request type.
 class MsgExec extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgExec',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'executor')
-    ..hasRequiredFields = false;
-
-  MsgExec._() : super();
   factory MsgExec({
     $fixnum.Int64? proposalId,
     $core.String? executor,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (executor != null) {
-      _result.executor = executor;
+      $result.executor = executor;
     }
-    return _result;
+    return $result;
   }
+  MsgExec._() : super();
   factory MsgExec.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgExec.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgExec',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'executor')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2216,9 +2060,10 @@ class MsgExec extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgExec copyWith(void Function(MsgExec) updates) =>
-      super.copyWith((message) => updates(message as MsgExec))
-          as MsgExec; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgExec)) as MsgExec;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgExec create() => MsgExec._();
   MsgExec createEmptyInstance() => create();
@@ -2228,6 +2073,7 @@ class MsgExec extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MsgExec>(create);
   static MsgExec? _defaultInstance;
 
+  /// proposal is the unique ID of the proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -2240,6 +2086,7 @@ class MsgExec extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearProposalId() => clearField(1);
 
+  /// executor is the account address used to execute the proposal.
   @$pb.TagNumber(2)
   $core.String get executor => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -2253,44 +2100,38 @@ class MsgExec extends $pb.GeneratedMessage {
   void clearExecutor() => clearField(2);
 }
 
+/// MsgExecResponse is the Msg/Exec request type.
 class MsgExecResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgExecResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..e<$1.ProposalExecutorResult>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'result',
-        $pb.PbFieldType.OE,
-        defaultOrMaker:
-            $1.ProposalExecutorResult.PROPOSAL_EXECUTOR_RESULT_UNSPECIFIED,
-        valueOf: $1.ProposalExecutorResult.valueOf,
-        enumValues: $1.ProposalExecutorResult.values)
-    ..hasRequiredFields = false;
-
-  MsgExecResponse._() : super();
   factory MsgExecResponse({
     $1.ProposalExecutorResult? result,
   }) {
-    final _result = create();
+    final $result = create();
     if (result != null) {
-      _result.result = result;
+      $result.result = result;
     }
-    return _result;
+    return $result;
   }
+  MsgExecResponse._() : super();
   factory MsgExecResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgExecResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgExecResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..e<$1.ProposalExecutorResult>(
+        2, _omitFieldNames ? '' : 'result', $pb.PbFieldType.OE,
+        defaultOrMaker:
+            $1.ProposalExecutorResult.PROPOSAL_EXECUTOR_RESULT_UNSPECIFIED,
+        valueOf: $1.ProposalExecutorResult.valueOf,
+        enumValues: $1.ProposalExecutorResult.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2300,8 +2141,10 @@ class MsgExecResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgExecResponse copyWith(void Function(MsgExecResponse) updates) =>
       super.copyWith((message) => updates(message as MsgExecResponse))
-          as MsgExecResponse; // ignore: deprecated_member_use
+          as MsgExecResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgExecResponse create() => MsgExecResponse._();
   MsgExecResponse createEmptyInstance() => create();
@@ -2312,6 +2155,7 @@ class MsgExecResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgExecResponse>(create);
   static MsgExecResponse? _defaultInstance;
 
+  /// result is the final result of the proposal execution.
   @$pb.TagNumber(2)
   $1.ProposalExecutorResult get result => $_getN(0);
   @$pb.TagNumber(2)
@@ -2325,50 +2169,39 @@ class MsgExecResponse extends $pb.GeneratedMessage {
   void clearResult() => clearField(2);
 }
 
+/// MsgLeaveGroup is the Msg/LeaveGroup request type.
 class MsgLeaveGroup extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgLeaveGroup',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  MsgLeaveGroup._() : super();
   factory MsgLeaveGroup({
     $core.String? address,
     $fixnum.Int64? groupId,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
-    return _result;
+    return $result;
   }
+  MsgLeaveGroup._() : super();
   factory MsgLeaveGroup.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgLeaveGroup.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgLeaveGroup',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2378,8 +2211,10 @@ class MsgLeaveGroup extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgLeaveGroup copyWith(void Function(MsgLeaveGroup) updates) =>
       super.copyWith((message) => updates(message as MsgLeaveGroup))
-          as MsgLeaveGroup; // ignore: deprecated_member_use
+          as MsgLeaveGroup;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgLeaveGroup create() => MsgLeaveGroup._();
   MsgLeaveGroup createEmptyInstance() => create();
@@ -2390,6 +2225,7 @@ class MsgLeaveGroup extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgLeaveGroup>(create);
   static MsgLeaveGroup? _defaultInstance;
 
+  /// address is the account address of the group member.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -2402,6 +2238,7 @@ class MsgLeaveGroup extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(2)
   $fixnum.Int64 get groupId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -2415,26 +2252,24 @@ class MsgLeaveGroup extends $pb.GeneratedMessage {
   void clearGroupId() => clearField(2);
 }
 
+/// MsgLeaveGroupResponse is the Msg/LeaveGroup response type.
 class MsgLeaveGroupResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgLeaveGroupResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgLeaveGroupResponse._() : super();
   factory MsgLeaveGroupResponse() => create();
+  MsgLeaveGroupResponse._() : super();
   factory MsgLeaveGroupResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgLeaveGroupResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgLeaveGroupResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2446,8 +2281,10 @@ class MsgLeaveGroupResponse extends $pb.GeneratedMessage {
   MsgLeaveGroupResponse copyWith(
           void Function(MsgLeaveGroupResponse) updates) =>
       super.copyWith((message) => updates(message as MsgLeaveGroupResponse))
-          as MsgLeaveGroupResponse; // ignore: deprecated_member_use
+          as MsgLeaveGroupResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgLeaveGroupResponse create() => MsgLeaveGroupResponse._();
   MsgLeaveGroupResponse createEmptyInstance() => create();
@@ -2458,3 +2295,7 @@ class MsgLeaveGroupResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgLeaveGroupResponse>(create);
   static MsgLeaveGroupResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

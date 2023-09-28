@@ -1,81 +1,67 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/metadata/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'scope.pb.dart' as $1;
 import 'metadata.pb.dart' as $2;
+import 'objectstore.pb.dart' as $4;
+import 'p8e/p8e.pb.dart' as $5;
+import 'scope.pb.dart' as $1;
 import 'specification.pb.dart' as $3;
-import 'p8e/p8e.pb.dart' as $4;
-import 'objectstore.pb.dart' as $5;
 
+/// MsgWriteScopeRequest is the request type for the Msg/WriteScope RPC method.
 class MsgWriteScopeRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteScopeRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Scope>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scope',
-        subBuilder: $1.Scope.create)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeUuid')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specUuid')
-    ..hasRequiredFields = false;
-
-  MsgWriteScopeRequest._() : super();
   factory MsgWriteScopeRequest({
     $1.Scope? scope,
     $core.Iterable<$core.String>? signers,
     $core.String? scopeUuid,
     $core.String? specUuid,
   }) {
-    final _result = create();
+    final $result = create();
     if (scope != null) {
-      _result.scope = scope;
+      $result.scope = scope;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
     if (scopeUuid != null) {
-      _result.scopeUuid = scopeUuid;
+      $result.scopeUuid = scopeUuid;
     }
     if (specUuid != null) {
-      _result.specUuid = specUuid;
+      $result.specUuid = specUuid;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteScopeRequest._() : super();
   factory MsgWriteScopeRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteScopeRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteScopeRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Scope>(1, _omitFieldNames ? '' : 'scope',
+        subBuilder: $1.Scope.create)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..aOS(3, _omitFieldNames ? '' : 'scopeUuid')
+    ..aOS(4, _omitFieldNames ? '' : 'specUuid')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -86,8 +72,10 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgWriteScopeRequest copyWith(void Function(MsgWriteScopeRequest) updates) =>
       super.copyWith((message) => updates(message as MsgWriteScopeRequest))
-          as MsgWriteScopeRequest; // ignore: deprecated_member_use
+          as MsgWriteScopeRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteScopeRequest create() => MsgWriteScopeRequest._();
   MsgWriteScopeRequest createEmptyInstance() => create();
@@ -98,6 +86,7 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgWriteScopeRequest>(create);
   static MsgWriteScopeRequest? _defaultInstance;
 
+  /// scope is the Scope you want added or updated.
   @$pb.TagNumber(1)
   $1.Scope get scope => $_getN(0);
   @$pb.TagNumber(1)
@@ -112,9 +101,14 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Scope ensureScope() => $_ensure(0);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(2)
   $core.List<$core.String> get signers => $_getList(1);
 
+  /// scope_uuid is an optional uuid string, e.g. "91978ba2-5f35-459a-86a7-feca1b0512e0"
+  /// If provided, it will be used to generate the MetadataAddress for the scope which will override the scope_id in the
+  /// provided scope. If not provided (or it is an empty string), nothing special happens.
+  /// If there is a value in scope.scope_id that is different from the one created from this uuid, an error is returned.
   @$pb.TagNumber(3)
   $core.String get scopeUuid => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -127,6 +121,11 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearScopeUuid() => clearField(3);
 
+  /// spec_uuid is an optional scope specification uuid string, e.g. "dc83ea70-eacd-40fe-9adf-1cf6148bf8a2"
+  /// If provided, it will be used to generate the MetadataAddress for the scope specification which will override the
+  /// specification_id in the provided scope. If not provided (or it is an empty string), nothing special happens.
+  /// If there is a value in scope.specification_id that is different from the one created from this uuid, an error is
+  /// returned.
   @$pb.TagNumber(4)
   $core.String get specUuid => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -140,40 +139,34 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
   void clearSpecUuid() => clearField(4);
 }
 
+/// MsgWriteScopeResponse is the response type for the Msg/WriteScope RPC method.
 class MsgWriteScopeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteScopeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.ScopeIdInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeIdInfo',
-        subBuilder: $2.ScopeIdInfo.create)
-    ..hasRequiredFields = false;
-
-  MsgWriteScopeResponse._() : super();
   factory MsgWriteScopeResponse({
     $2.ScopeIdInfo? scopeIdInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeIdInfo != null) {
-      _result.scopeIdInfo = scopeIdInfo;
+      $result.scopeIdInfo = scopeIdInfo;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteScopeResponse._() : super();
   factory MsgWriteScopeResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteScopeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteScopeResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.ScopeIdInfo>(1, _omitFieldNames ? '' : 'scopeIdInfo',
+        subBuilder: $2.ScopeIdInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -185,8 +178,10 @@ class MsgWriteScopeResponse extends $pb.GeneratedMessage {
   MsgWriteScopeResponse copyWith(
           void Function(MsgWriteScopeResponse) updates) =>
       super.copyWith((message) => updates(message as MsgWriteScopeResponse))
-          as MsgWriteScopeResponse; // ignore: deprecated_member_use
+          as MsgWriteScopeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteScopeResponse create() => MsgWriteScopeResponse._();
   MsgWriteScopeResponse createEmptyInstance() => create();
@@ -197,6 +192,7 @@ class MsgWriteScopeResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgWriteScopeResponse>(create);
   static MsgWriteScopeResponse? _defaultInstance;
 
+  /// scope_id_info contains information about the id/address of the scope that was added or updated.
   @$pb.TagNumber(1)
   $2.ScopeIdInfo get scopeIdInfo => $_getN(0);
   @$pb.TagNumber(1)
@@ -212,49 +208,39 @@ class MsgWriteScopeResponse extends $pb.GeneratedMessage {
   $2.ScopeIdInfo ensureScopeIdInfo() => $_ensure(0);
 }
 
+/// MsgDeleteScopeRequest is the request type for the Msg/DeleteScope RPC method.
 class MsgDeleteScopeRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteScopeRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgDeleteScopeRequest._() : super();
   factory MsgDeleteScopeRequest({
     $core.List<$core.int>? scopeId,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeId != null) {
-      _result.scopeId = scopeId;
+      $result.scopeId = scopeId;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgDeleteScopeRequest._() : super();
   factory MsgDeleteScopeRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteScopeRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteScopeRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'scopeId', $pb.PbFieldType.OY)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -266,8 +252,10 @@ class MsgDeleteScopeRequest extends $pb.GeneratedMessage {
   MsgDeleteScopeRequest copyWith(
           void Function(MsgDeleteScopeRequest) updates) =>
       super.copyWith((message) => updates(message as MsgDeleteScopeRequest))
-          as MsgDeleteScopeRequest; // ignore: deprecated_member_use
+          as MsgDeleteScopeRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteScopeRequest create() => MsgDeleteScopeRequest._();
   MsgDeleteScopeRequest createEmptyInstance() => create();
@@ -278,6 +266,7 @@ class MsgDeleteScopeRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgDeleteScopeRequest>(create);
   static MsgDeleteScopeRequest? _defaultInstance;
 
+  /// Unique ID for the scope to delete
   @$pb.TagNumber(1)
   $core.List<$core.int> get scopeId => $_getN(0);
   @$pb.TagNumber(1)
@@ -294,26 +283,24 @@ class MsgDeleteScopeRequest extends $pb.GeneratedMessage {
   $core.List<$core.String> get signers => $_getList(1);
 }
 
+/// MsgDeleteScopeResponse is the response type for the Msg/DeleteScope RPC method.
 class MsgDeleteScopeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteScopeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteScopeResponse._() : super();
   factory MsgDeleteScopeResponse() => create();
+  MsgDeleteScopeResponse._() : super();
   factory MsgDeleteScopeResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteScopeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteScopeResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -325,8 +312,10 @@ class MsgDeleteScopeResponse extends $pb.GeneratedMessage {
   MsgDeleteScopeResponse copyWith(
           void Function(MsgDeleteScopeResponse) updates) =>
       super.copyWith((message) => updates(message as MsgDeleteScopeResponse))
-          as MsgDeleteScopeResponse; // ignore: deprecated_member_use
+          as MsgDeleteScopeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteScopeResponse create() => MsgDeleteScopeResponse._();
   MsgDeleteScopeResponse createEmptyInstance() => create();
@@ -338,58 +327,44 @@ class MsgDeleteScopeResponse extends $pb.GeneratedMessage {
   static MsgDeleteScopeResponse? _defaultInstance;
 }
 
+/// MsgAddScopeDataAccessRequest is the request to add data access AccAddress to scope
 class MsgAddScopeDataAccessRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgAddScopeDataAccessRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'dataAccess')
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgAddScopeDataAccessRequest._() : super();
   factory MsgAddScopeDataAccessRequest({
     $core.List<$core.int>? scopeId,
     $core.Iterable<$core.String>? dataAccess,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeId != null) {
-      _result.scopeId = scopeId;
+      $result.scopeId = scopeId;
     }
     if (dataAccess != null) {
-      _result.dataAccess.addAll(dataAccess);
+      $result.dataAccess.addAll(dataAccess);
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgAddScopeDataAccessRequest._() : super();
   factory MsgAddScopeDataAccessRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgAddScopeDataAccessRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAddScopeDataAccessRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'scopeId', $pb.PbFieldType.OY)
+    ..pPS(2, _omitFieldNames ? '' : 'dataAccess')
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -402,8 +377,10 @@ class MsgAddScopeDataAccessRequest extends $pb.GeneratedMessage {
           void Function(MsgAddScopeDataAccessRequest) updates) =>
       super.copyWith(
               (message) => updates(message as MsgAddScopeDataAccessRequest))
-          as MsgAddScopeDataAccessRequest; // ignore: deprecated_member_use
+          as MsgAddScopeDataAccessRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgAddScopeDataAccessRequest create() =>
       MsgAddScopeDataAccessRequest._();
@@ -415,6 +392,7 @@ class MsgAddScopeDataAccessRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgAddScopeDataAccessRequest>(create);
   static MsgAddScopeDataAccessRequest? _defaultInstance;
 
+  /// scope MetadataAddress for updating data access
   @$pb.TagNumber(1)
   $core.List<$core.int> get scopeId => $_getN(0);
   @$pb.TagNumber(1)
@@ -427,33 +405,33 @@ class MsgAddScopeDataAccessRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearScopeId() => clearField(1);
 
+  /// AccAddress addresses to be added to scope
   @$pb.TagNumber(2)
   $core.List<$core.String> get dataAccess => $_getList(1);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(3)
   $core.List<$core.String> get signers => $_getList(2);
 }
 
+/// MsgAddScopeDataAccessResponse is the response for adding data access AccAddress to scope
 class MsgAddScopeDataAccessResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgAddScopeDataAccessResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgAddScopeDataAccessResponse._() : super();
   factory MsgAddScopeDataAccessResponse() => create();
+  MsgAddScopeDataAccessResponse._() : super();
   factory MsgAddScopeDataAccessResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgAddScopeDataAccessResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAddScopeDataAccessResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -466,8 +444,10 @@ class MsgAddScopeDataAccessResponse extends $pb.GeneratedMessage {
           void Function(MsgAddScopeDataAccessResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgAddScopeDataAccessResponse))
-          as MsgAddScopeDataAccessResponse; // ignore: deprecated_member_use
+          as MsgAddScopeDataAccessResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgAddScopeDataAccessResponse create() =>
       MsgAddScopeDataAccessResponse._();
@@ -480,58 +460,44 @@ class MsgAddScopeDataAccessResponse extends $pb.GeneratedMessage {
   static MsgAddScopeDataAccessResponse? _defaultInstance;
 }
 
+/// MsgDeleteScopeDataAccessRequest is the request to remove data access AccAddress to scope
 class MsgDeleteScopeDataAccessRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteScopeDataAccessRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'dataAccess')
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgDeleteScopeDataAccessRequest._() : super();
   factory MsgDeleteScopeDataAccessRequest({
     $core.List<$core.int>? scopeId,
     $core.Iterable<$core.String>? dataAccess,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeId != null) {
-      _result.scopeId = scopeId;
+      $result.scopeId = scopeId;
     }
     if (dataAccess != null) {
-      _result.dataAccess.addAll(dataAccess);
+      $result.dataAccess.addAll(dataAccess);
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgDeleteScopeDataAccessRequest._() : super();
   factory MsgDeleteScopeDataAccessRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteScopeDataAccessRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteScopeDataAccessRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'scopeId', $pb.PbFieldType.OY)
+    ..pPS(2, _omitFieldNames ? '' : 'dataAccess')
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -544,8 +510,10 @@ class MsgDeleteScopeDataAccessRequest extends $pb.GeneratedMessage {
           void Function(MsgDeleteScopeDataAccessRequest) updates) =>
       super.copyWith(
               (message) => updates(message as MsgDeleteScopeDataAccessRequest))
-          as MsgDeleteScopeDataAccessRequest; // ignore: deprecated_member_use
+          as MsgDeleteScopeDataAccessRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteScopeDataAccessRequest create() =>
       MsgDeleteScopeDataAccessRequest._();
@@ -558,6 +526,7 @@ class MsgDeleteScopeDataAccessRequest extends $pb.GeneratedMessage {
           create);
   static MsgDeleteScopeDataAccessRequest? _defaultInstance;
 
+  /// scope MetadataAddress for removing data access
   @$pb.TagNumber(1)
   $core.List<$core.int> get scopeId => $_getN(0);
   @$pb.TagNumber(1)
@@ -570,33 +539,33 @@ class MsgDeleteScopeDataAccessRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearScopeId() => clearField(1);
 
+  /// AccAddress address to be removed from scope
   @$pb.TagNumber(2)
   $core.List<$core.String> get dataAccess => $_getList(1);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(3)
   $core.List<$core.String> get signers => $_getList(2);
 }
 
+/// MsgDeleteScopeDataAccessResponse is the response from removing data access AccAddress to scope
 class MsgDeleteScopeDataAccessResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteScopeDataAccessResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteScopeDataAccessResponse._() : super();
   factory MsgDeleteScopeDataAccessResponse() => create();
+  MsgDeleteScopeDataAccessResponse._() : super();
   factory MsgDeleteScopeDataAccessResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteScopeDataAccessResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteScopeDataAccessResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -609,8 +578,10 @@ class MsgDeleteScopeDataAccessResponse extends $pb.GeneratedMessage {
           void Function(MsgDeleteScopeDataAccessResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgDeleteScopeDataAccessResponse))
-          as MsgDeleteScopeDataAccessResponse; // ignore: deprecated_member_use
+          as MsgDeleteScopeDataAccessResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteScopeDataAccessResponse create() =>
       MsgDeleteScopeDataAccessResponse._();
@@ -624,60 +595,45 @@ class MsgDeleteScopeDataAccessResponse extends $pb.GeneratedMessage {
   static MsgDeleteScopeDataAccessResponse? _defaultInstance;
 }
 
+/// MsgAddScopeOwnerRequest is the request to add owner AccAddress to scope
 class MsgAddScopeOwnerRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgAddScopeOwnerRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeId',
-        $pb.PbFieldType.OY)
-    ..pc<$1.Party>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'owners',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Party.create)
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgAddScopeOwnerRequest._() : super();
   factory MsgAddScopeOwnerRequest({
     $core.List<$core.int>? scopeId,
     $core.Iterable<$1.Party>? owners,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeId != null) {
-      _result.scopeId = scopeId;
+      $result.scopeId = scopeId;
     }
     if (owners != null) {
-      _result.owners.addAll(owners);
+      $result.owners.addAll(owners);
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgAddScopeOwnerRequest._() : super();
   factory MsgAddScopeOwnerRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgAddScopeOwnerRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAddScopeOwnerRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'scopeId', $pb.PbFieldType.OY)
+    ..pc<$1.Party>(2, _omitFieldNames ? '' : 'owners', $pb.PbFieldType.PM,
+        subBuilder: $1.Party.create)
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -689,8 +645,10 @@ class MsgAddScopeOwnerRequest extends $pb.GeneratedMessage {
   MsgAddScopeOwnerRequest copyWith(
           void Function(MsgAddScopeOwnerRequest) updates) =>
       super.copyWith((message) => updates(message as MsgAddScopeOwnerRequest))
-          as MsgAddScopeOwnerRequest; // ignore: deprecated_member_use
+          as MsgAddScopeOwnerRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgAddScopeOwnerRequest create() => MsgAddScopeOwnerRequest._();
   MsgAddScopeOwnerRequest createEmptyInstance() => create();
@@ -701,6 +659,7 @@ class MsgAddScopeOwnerRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgAddScopeOwnerRequest>(create);
   static MsgAddScopeOwnerRequest? _defaultInstance;
 
+  /// scope MetadataAddress for updating data access
   @$pb.TagNumber(1)
   $core.List<$core.int> get scopeId => $_getN(0);
   @$pb.TagNumber(1)
@@ -713,33 +672,33 @@ class MsgAddScopeOwnerRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearScopeId() => clearField(1);
 
+  /// owner parties to add to the scope
   @$pb.TagNumber(2)
   $core.List<$1.Party> get owners => $_getList(1);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(3)
   $core.List<$core.String> get signers => $_getList(2);
 }
 
+/// MsgAddScopeOwnerResponse is the response for adding owner AccAddresses to scope
 class MsgAddScopeOwnerResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgAddScopeOwnerResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgAddScopeOwnerResponse._() : super();
   factory MsgAddScopeOwnerResponse() => create();
+  MsgAddScopeOwnerResponse._() : super();
   factory MsgAddScopeOwnerResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgAddScopeOwnerResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAddScopeOwnerResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -751,8 +710,10 @@ class MsgAddScopeOwnerResponse extends $pb.GeneratedMessage {
   MsgAddScopeOwnerResponse copyWith(
           void Function(MsgAddScopeOwnerResponse) updates) =>
       super.copyWith((message) => updates(message as MsgAddScopeOwnerResponse))
-          as MsgAddScopeOwnerResponse; // ignore: deprecated_member_use
+          as MsgAddScopeOwnerResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgAddScopeOwnerResponse create() => MsgAddScopeOwnerResponse._();
   MsgAddScopeOwnerResponse createEmptyInstance() => create();
@@ -764,58 +725,44 @@ class MsgAddScopeOwnerResponse extends $pb.GeneratedMessage {
   static MsgAddScopeOwnerResponse? _defaultInstance;
 }
 
+/// MsgDeleteScopeOwnerRequest is the request to remove owner AccAddresses to scope
 class MsgDeleteScopeOwnerRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteScopeOwnerRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'owners')
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgDeleteScopeOwnerRequest._() : super();
   factory MsgDeleteScopeOwnerRequest({
     $core.List<$core.int>? scopeId,
     $core.Iterable<$core.String>? owners,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeId != null) {
-      _result.scopeId = scopeId;
+      $result.scopeId = scopeId;
     }
     if (owners != null) {
-      _result.owners.addAll(owners);
+      $result.owners.addAll(owners);
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgDeleteScopeOwnerRequest._() : super();
   factory MsgDeleteScopeOwnerRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteScopeOwnerRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteScopeOwnerRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'scopeId', $pb.PbFieldType.OY)
+    ..pPS(2, _omitFieldNames ? '' : 'owners')
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -828,8 +775,10 @@ class MsgDeleteScopeOwnerRequest extends $pb.GeneratedMessage {
           void Function(MsgDeleteScopeOwnerRequest) updates) =>
       super.copyWith(
               (message) => updates(message as MsgDeleteScopeOwnerRequest))
-          as MsgDeleteScopeOwnerRequest; // ignore: deprecated_member_use
+          as MsgDeleteScopeOwnerRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteScopeOwnerRequest create() => MsgDeleteScopeOwnerRequest._();
   MsgDeleteScopeOwnerRequest createEmptyInstance() => create();
@@ -840,6 +789,7 @@ class MsgDeleteScopeOwnerRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgDeleteScopeOwnerRequest>(create);
   static MsgDeleteScopeOwnerRequest? _defaultInstance;
 
+  /// scope MetadataAddress for removing data access
   @$pb.TagNumber(1)
   $core.List<$core.int> get scopeId => $_getN(0);
   @$pb.TagNumber(1)
@@ -852,33 +802,33 @@ class MsgDeleteScopeOwnerRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearScopeId() => clearField(1);
 
+  /// AccAddress owner addresses to be removed from scope
   @$pb.TagNumber(2)
   $core.List<$core.String> get owners => $_getList(1);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(3)
   $core.List<$core.String> get signers => $_getList(2);
 }
 
+/// MsgDeleteScopeOwnerResponse is the response from removing owner AccAddress to scope
 class MsgDeleteScopeOwnerResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteScopeOwnerResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteScopeOwnerResponse._() : super();
   factory MsgDeleteScopeOwnerResponse() => create();
+  MsgDeleteScopeOwnerResponse._() : super();
   factory MsgDeleteScopeOwnerResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteScopeOwnerResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteScopeOwnerResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -891,8 +841,10 @@ class MsgDeleteScopeOwnerResponse extends $pb.GeneratedMessage {
           void Function(MsgDeleteScopeOwnerResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgDeleteScopeOwnerResponse))
-          as MsgDeleteScopeOwnerResponse; // ignore: deprecated_member_use
+          as MsgDeleteScopeOwnerResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteScopeOwnerResponse create() =>
       MsgDeleteScopeOwnerResponse._();
@@ -905,68 +857,324 @@ class MsgDeleteScopeOwnerResponse extends $pb.GeneratedMessage {
   static MsgDeleteScopeOwnerResponse? _defaultInstance;
 }
 
-class MsgWriteSessionRequest extends $pb.GeneratedMessage {
+/// MsgUpdateValueOwnersRequest is the request to update the value owner addresses in one or more scopes.
+class MsgUpdateValueOwnersRequest extends $pb.GeneratedMessage {
+  factory MsgUpdateValueOwnersRequest({
+    $core.Iterable<$core.List<$core.int>>? scopeIds,
+    $core.String? valueOwnerAddress,
+    $core.Iterable<$core.String>? signers,
+  }) {
+    final $result = create();
+    if (scopeIds != null) {
+      $result.scopeIds.addAll(scopeIds);
+    }
+    if (valueOwnerAddress != null) {
+      $result.valueOwnerAddress = valueOwnerAddress;
+    }
+    if (signers != null) {
+      $result.signers.addAll(signers);
+    }
+    return $result;
+  }
+  MsgUpdateValueOwnersRequest._() : super();
+  factory MsgUpdateValueOwnersRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgUpdateValueOwnersRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteSessionRequest',
+      _omitMessageNames ? '' : 'MsgUpdateValueOwnersRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
       createEmptyInstance: create)
-    ..aOM<$1.Session>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'session',
-        subBuilder: $1.Session.create)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..aOM<SessionIdComponents>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionIdComponents',
-        subBuilder: SessionIdComponents.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specUuid')
+    ..p<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'scopeIds', $pb.PbFieldType.PY)
+    ..aOS(2, _omitFieldNames ? '' : 'valueOwnerAddress')
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
     ..hasRequiredFields = false;
 
-  MsgWriteSessionRequest._() : super();
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgUpdateValueOwnersRequest clone() =>
+      MsgUpdateValueOwnersRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgUpdateValueOwnersRequest copyWith(
+          void Function(MsgUpdateValueOwnersRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgUpdateValueOwnersRequest))
+          as MsgUpdateValueOwnersRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgUpdateValueOwnersRequest create() =>
+      MsgUpdateValueOwnersRequest._();
+  MsgUpdateValueOwnersRequest createEmptyInstance() => create();
+  static $pb.PbList<MsgUpdateValueOwnersRequest> createRepeated() =>
+      $pb.PbList<MsgUpdateValueOwnersRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MsgUpdateValueOwnersRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgUpdateValueOwnersRequest>(create);
+  static MsgUpdateValueOwnersRequest? _defaultInstance;
+
+  /// scope_ids are the scope metadata addresses of all scopes to be updated.
+  @$pb.TagNumber(1)
+  $core.List<$core.List<$core.int>> get scopeIds => $_getList(0);
+
+  /// value_owner_address is the address of the new value owner for the provided scopes.
+  @$pb.TagNumber(2)
+  $core.String get valueOwnerAddress => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set valueOwnerAddress($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasValueOwnerAddress() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearValueOwnerAddress() => clearField(2);
+
+  /// signers is the list of addresses of those signing this request.
+  @$pb.TagNumber(3)
+  $core.List<$core.String> get signers => $_getList(2);
+}
+
+/// MsgUpdateValueOwnersResponse is the response from updating value owner addresses in one or more scopes.
+class MsgUpdateValueOwnersResponse extends $pb.GeneratedMessage {
+  factory MsgUpdateValueOwnersResponse() => create();
+  MsgUpdateValueOwnersResponse._() : super();
+  factory MsgUpdateValueOwnersResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgUpdateValueOwnersResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUpdateValueOwnersResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgUpdateValueOwnersResponse clone() =>
+      MsgUpdateValueOwnersResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgUpdateValueOwnersResponse copyWith(
+          void Function(MsgUpdateValueOwnersResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgUpdateValueOwnersResponse))
+          as MsgUpdateValueOwnersResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgUpdateValueOwnersResponse create() =>
+      MsgUpdateValueOwnersResponse._();
+  MsgUpdateValueOwnersResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgUpdateValueOwnersResponse> createRepeated() =>
+      $pb.PbList<MsgUpdateValueOwnersResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgUpdateValueOwnersResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgUpdateValueOwnersResponse>(create);
+  static MsgUpdateValueOwnersResponse? _defaultInstance;
+}
+
+/// MsgMigrateValueOwnerRequest is the request to migrate all scopes with one value owner to another value owner.
+class MsgMigrateValueOwnerRequest extends $pb.GeneratedMessage {
+  factory MsgMigrateValueOwnerRequest({
+    $core.String? existing,
+    $core.String? proposed,
+    $core.Iterable<$core.String>? signers,
+  }) {
+    final $result = create();
+    if (existing != null) {
+      $result.existing = existing;
+    }
+    if (proposed != null) {
+      $result.proposed = proposed;
+    }
+    if (signers != null) {
+      $result.signers.addAll(signers);
+    }
+    return $result;
+  }
+  MsgMigrateValueOwnerRequest._() : super();
+  factory MsgMigrateValueOwnerRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgMigrateValueOwnerRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgMigrateValueOwnerRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'existing')
+    ..aOS(2, _omitFieldNames ? '' : 'proposed')
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgMigrateValueOwnerRequest clone() =>
+      MsgMigrateValueOwnerRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgMigrateValueOwnerRequest copyWith(
+          void Function(MsgMigrateValueOwnerRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgMigrateValueOwnerRequest))
+          as MsgMigrateValueOwnerRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgMigrateValueOwnerRequest create() =>
+      MsgMigrateValueOwnerRequest._();
+  MsgMigrateValueOwnerRequest createEmptyInstance() => create();
+  static $pb.PbList<MsgMigrateValueOwnerRequest> createRepeated() =>
+      $pb.PbList<MsgMigrateValueOwnerRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MsgMigrateValueOwnerRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgMigrateValueOwnerRequest>(create);
+  static MsgMigrateValueOwnerRequest? _defaultInstance;
+
+  /// existing is the value owner address that is being migrated.
+  @$pb.TagNumber(1)
+  $core.String get existing => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set existing($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasExisting() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearExisting() => clearField(1);
+
+  /// proposed is the new value owner address for all of existing's scopes.
+  @$pb.TagNumber(2)
+  $core.String get proposed => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set proposed($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasProposed() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProposed() => clearField(2);
+
+  /// signers is the list of addresses of those signing this request.
+  @$pb.TagNumber(3)
+  $core.List<$core.String> get signers => $_getList(2);
+}
+
+/// MsgMigrateValueOwnerResponse is the response from migrating a value owner address.
+class MsgMigrateValueOwnerResponse extends $pb.GeneratedMessage {
+  factory MsgMigrateValueOwnerResponse() => create();
+  MsgMigrateValueOwnerResponse._() : super();
+  factory MsgMigrateValueOwnerResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgMigrateValueOwnerResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgMigrateValueOwnerResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgMigrateValueOwnerResponse clone() =>
+      MsgMigrateValueOwnerResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgMigrateValueOwnerResponse copyWith(
+          void Function(MsgMigrateValueOwnerResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgMigrateValueOwnerResponse))
+          as MsgMigrateValueOwnerResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgMigrateValueOwnerResponse create() =>
+      MsgMigrateValueOwnerResponse._();
+  MsgMigrateValueOwnerResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgMigrateValueOwnerResponse> createRepeated() =>
+      $pb.PbList<MsgMigrateValueOwnerResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgMigrateValueOwnerResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgMigrateValueOwnerResponse>(create);
+  static MsgMigrateValueOwnerResponse? _defaultInstance;
+}
+
+/// MsgWriteSessionRequest is the request type for the Msg/WriteSession RPC method.
+class MsgWriteSessionRequest extends $pb.GeneratedMessage {
   factory MsgWriteSessionRequest({
     $1.Session? session,
     $core.Iterable<$core.String>? signers,
     SessionIdComponents? sessionIdComponents,
     $core.String? specUuid,
   }) {
-    final _result = create();
+    final $result = create();
     if (session != null) {
-      _result.session = session;
+      $result.session = session;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
     if (sessionIdComponents != null) {
-      _result.sessionIdComponents = sessionIdComponents;
+      $result.sessionIdComponents = sessionIdComponents;
     }
     if (specUuid != null) {
-      _result.specUuid = specUuid;
+      $result.specUuid = specUuid;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteSessionRequest._() : super();
   factory MsgWriteSessionRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteSessionRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteSessionRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Session>(1, _omitFieldNames ? '' : 'session',
+        subBuilder: $1.Session.create)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..aOM<SessionIdComponents>(3, _omitFieldNames ? '' : 'sessionIdComponents',
+        subBuilder: SessionIdComponents.create)
+    ..aOS(4, _omitFieldNames ? '' : 'specUuid')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -978,8 +1186,10 @@ class MsgWriteSessionRequest extends $pb.GeneratedMessage {
   MsgWriteSessionRequest copyWith(
           void Function(MsgWriteSessionRequest) updates) =>
       super.copyWith((message) => updates(message as MsgWriteSessionRequest))
-          as MsgWriteSessionRequest; // ignore: deprecated_member_use
+          as MsgWriteSessionRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteSessionRequest create() => MsgWriteSessionRequest._();
   MsgWriteSessionRequest createEmptyInstance() => create();
@@ -990,6 +1200,7 @@ class MsgWriteSessionRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgWriteSessionRequest>(create);
   static MsgWriteSessionRequest? _defaultInstance;
 
+  /// session is the Session you want added or updated.
   @$pb.TagNumber(1)
   $1.Session get session => $_getN(0);
   @$pb.TagNumber(1)
@@ -1004,9 +1215,16 @@ class MsgWriteSessionRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Session ensureSession() => $_ensure(0);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(2)
   $core.List<$core.String> get signers => $_getList(1);
 
+  /// SessionIDComponents is an optional (alternate) way of defining what the session_id should be in the provided
+  /// session. If provided, it must have both a scope and session_uuid. Those components will be used to create the
+  /// MetadataAddress for the session which will override the session_id in the provided session. If not provided (or
+  /// all empty), nothing special happens.
+  /// If there is a value in session.session_id that is different from the one created from these components, an error is
+  /// returned.
   @$pb.TagNumber(3)
   SessionIdComponents get sessionIdComponents => $_getN(2);
   @$pb.TagNumber(3)
@@ -1021,6 +1239,11 @@ class MsgWriteSessionRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   SessionIdComponents ensureSessionIdComponents() => $_ensure(2);
 
+  /// spec_uuid is an optional contract specification uuid string, e.g. "def6bc0a-c9dd-4874-948f-5206e6060a84"
+  /// If provided, it will be used to generate the MetadataAddress for the contract specification which will override the
+  /// specification_id in the provided session. If not provided (or it is an empty string), nothing special happens.
+  /// If there is a value in session.specification_id that is different from the one created from this uuid, an error is
+  /// returned.
   @$pb.TagNumber(4)
   $core.String get specUuid => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -1036,7 +1259,33 @@ class MsgWriteSessionRequest extends $pb.GeneratedMessage {
 
 enum SessionIdComponents_ScopeIdentifier { scopeUuid, scopeAddr, notSet }
 
+/// SessionIDComponents contains fields for the components that make up a session id.
 class SessionIdComponents extends $pb.GeneratedMessage {
+  factory SessionIdComponents({
+    $core.String? scopeUuid,
+    $core.String? scopeAddr,
+    $core.String? sessionUuid,
+  }) {
+    final $result = create();
+    if (scopeUuid != null) {
+      $result.scopeUuid = scopeUuid;
+    }
+    if (scopeAddr != null) {
+      $result.scopeAddr = scopeAddr;
+    }
+    if (sessionUuid != null) {
+      $result.sessionUuid = sessionUuid;
+    }
+    return $result;
+  }
+  SessionIdComponents._() : super();
+  factory SessionIdComponents.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SessionIdComponents.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, SessionIdComponents_ScopeIdentifier>
       _SessionIdComponents_ScopeIdentifierByTag = {
     1: SessionIdComponents_ScopeIdentifier.scopeUuid,
@@ -1044,56 +1293,16 @@ class SessionIdComponents extends $pb.GeneratedMessage {
     0: SessionIdComponents_ScopeIdentifier.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SessionIdComponents',
+      _omitMessageNames ? '' : 'SessionIdComponents',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeUuid')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionUuid')
+    ..aOS(1, _omitFieldNames ? '' : 'scopeUuid')
+    ..aOS(2, _omitFieldNames ? '' : 'scopeAddr')
+    ..aOS(3, _omitFieldNames ? '' : 'sessionUuid')
     ..hasRequiredFields = false;
 
-  SessionIdComponents._() : super();
-  factory SessionIdComponents({
-    $core.String? scopeUuid,
-    $core.String? scopeAddr,
-    $core.String? sessionUuid,
-  }) {
-    final _result = create();
-    if (scopeUuid != null) {
-      _result.scopeUuid = scopeUuid;
-    }
-    if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
-    }
-    if (sessionUuid != null) {
-      _result.sessionUuid = sessionUuid;
-    }
-    return _result;
-  }
-  factory SessionIdComponents.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory SessionIdComponents.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1103,8 +1312,10 @@ class SessionIdComponents extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SessionIdComponents copyWith(void Function(SessionIdComponents) updates) =>
       super.copyWith((message) => updates(message as SessionIdComponents))
-          as SessionIdComponents; // ignore: deprecated_member_use
+          as SessionIdComponents;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SessionIdComponents create() => SessionIdComponents._();
   SessionIdComponents createEmptyInstance() => create();
@@ -1119,6 +1330,7 @@ class SessionIdComponents extends $pb.GeneratedMessage {
       _SessionIdComponents_ScopeIdentifierByTag[$_whichOneof(0)]!;
   void clearScopeIdentifier() => clearField($_whichOneof(0));
 
+  /// scope_uuid is the uuid string for the scope, e.g. "91978ba2-5f35-459a-86a7-feca1b0512e0"
   @$pb.TagNumber(1)
   $core.String get scopeUuid => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1131,6 +1343,7 @@ class SessionIdComponents extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearScopeUuid() => clearField(1);
 
+  /// scope_addr is the bech32 address string for the scope, g.g. "scope1qzge0zaztu65tx5x5llv5xc9ztsqxlkwel"
   @$pb.TagNumber(2)
   $core.String get scopeAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1143,6 +1356,7 @@ class SessionIdComponents extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearScopeAddr() => clearField(2);
 
+  /// session_uuid is a uuid string for identifying this session, e.g. "5803f8bc-6067-4eb5-951f-2121671c2ec0"
   @$pb.TagNumber(3)
   $core.String get sessionUuid => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1156,40 +1370,34 @@ class SessionIdComponents extends $pb.GeneratedMessage {
   void clearSessionUuid() => clearField(3);
 }
 
+/// MsgWriteSessionResponse is the response type for the Msg/WriteSession RPC method.
 class MsgWriteSessionResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteSessionResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.SessionIdInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionIdInfo',
-        subBuilder: $2.SessionIdInfo.create)
-    ..hasRequiredFields = false;
-
-  MsgWriteSessionResponse._() : super();
   factory MsgWriteSessionResponse({
     $2.SessionIdInfo? sessionIdInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (sessionIdInfo != null) {
-      _result.sessionIdInfo = sessionIdInfo;
+      $result.sessionIdInfo = sessionIdInfo;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteSessionResponse._() : super();
   factory MsgWriteSessionResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteSessionResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteSessionResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.SessionIdInfo>(1, _omitFieldNames ? '' : 'sessionIdInfo',
+        subBuilder: $2.SessionIdInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1201,8 +1409,10 @@ class MsgWriteSessionResponse extends $pb.GeneratedMessage {
   MsgWriteSessionResponse copyWith(
           void Function(MsgWriteSessionResponse) updates) =>
       super.copyWith((message) => updates(message as MsgWriteSessionResponse))
-          as MsgWriteSessionResponse; // ignore: deprecated_member_use
+          as MsgWriteSessionResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteSessionResponse create() => MsgWriteSessionResponse._();
   MsgWriteSessionResponse createEmptyInstance() => create();
@@ -1213,6 +1423,7 @@ class MsgWriteSessionResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgWriteSessionResponse>(create);
   static MsgWriteSessionResponse? _defaultInstance;
 
+  /// session_id_info contains information about the id/address of the session that was added or updated.
   @$pb.TagNumber(1)
   $2.SessionIdInfo get sessionIdInfo => $_getN(0);
   @$pb.TagNumber(1)
@@ -1228,48 +1439,8 @@ class MsgWriteSessionResponse extends $pb.GeneratedMessage {
   $2.SessionIdInfo ensureSessionIdInfo() => $_ensure(0);
 }
 
+/// MsgWriteRecordRequest is the request type for the Msg/WriteRecord RPC method.
 class MsgWriteRecordRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteRecordRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Record>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'record',
-        subBuilder: $1.Record.create)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..aOM<SessionIdComponents>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionIdComponents',
-        subBuilder: SessionIdComponents.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecUuid')
-    ..pc<$1.Party>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'parties',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Party.create)
-    ..hasRequiredFields = false;
-
-  MsgWriteRecordRequest._() : super();
   factory MsgWriteRecordRequest({
     $1.Record? record,
     $core.Iterable<$core.String>? signers,
@@ -1277,30 +1448,47 @@ class MsgWriteRecordRequest extends $pb.GeneratedMessage {
     $core.String? contractSpecUuid,
     $core.Iterable<$1.Party>? parties,
   }) {
-    final _result = create();
+    final $result = create();
     if (record != null) {
-      _result.record = record;
+      $result.record = record;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
     if (sessionIdComponents != null) {
-      _result.sessionIdComponents = sessionIdComponents;
+      $result.sessionIdComponents = sessionIdComponents;
     }
     if (contractSpecUuid != null) {
-      _result.contractSpecUuid = contractSpecUuid;
+      $result.contractSpecUuid = contractSpecUuid;
     }
     if (parties != null) {
-      _result.parties.addAll(parties);
+      $result.parties.addAll(parties);
     }
-    return _result;
+    return $result;
   }
+  MsgWriteRecordRequest._() : super();
   factory MsgWriteRecordRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteRecordRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteRecordRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Record>(1, _omitFieldNames ? '' : 'record',
+        subBuilder: $1.Record.create)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..aOM<SessionIdComponents>(3, _omitFieldNames ? '' : 'sessionIdComponents',
+        subBuilder: SessionIdComponents.create)
+    ..aOS(4, _omitFieldNames ? '' : 'contractSpecUuid')
+    ..pc<$1.Party>(5, _omitFieldNames ? '' : 'parties', $pb.PbFieldType.PM,
+        subBuilder: $1.Party.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1312,8 +1500,10 @@ class MsgWriteRecordRequest extends $pb.GeneratedMessage {
   MsgWriteRecordRequest copyWith(
           void Function(MsgWriteRecordRequest) updates) =>
       super.copyWith((message) => updates(message as MsgWriteRecordRequest))
-          as MsgWriteRecordRequest; // ignore: deprecated_member_use
+          as MsgWriteRecordRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteRecordRequest create() => MsgWriteRecordRequest._();
   MsgWriteRecordRequest createEmptyInstance() => create();
@@ -1324,6 +1514,7 @@ class MsgWriteRecordRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgWriteRecordRequest>(create);
   static MsgWriteRecordRequest? _defaultInstance;
 
+  /// record is the Record you want added or updated.
   @$pb.TagNumber(1)
   $1.Record get record => $_getN(0);
   @$pb.TagNumber(1)
@@ -1338,9 +1529,16 @@ class MsgWriteRecordRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Record ensureRecord() => $_ensure(0);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(2)
   $core.List<$core.String> get signers => $_getList(1);
 
+  /// SessionIDComponents is an optional (alternate) way of defining what the session_id should be in the provided
+  /// record. If provided, it must have both a scope and session_uuid. Those components will be used to create the
+  /// MetadataAddress for the session which will override the session_id in the provided record. If not provided (or
+  /// all empty), nothing special happens.
+  /// If there is a value in record.session_id that is different from the one created from these components, an error is
+  /// returned.
   @$pb.TagNumber(3)
   SessionIdComponents get sessionIdComponents => $_getN(2);
   @$pb.TagNumber(3)
@@ -1355,6 +1553,12 @@ class MsgWriteRecordRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   SessionIdComponents ensureSessionIdComponents() => $_ensure(2);
 
+  /// contract_spec_uuid is an optional contract specification uuid string, e.g. "def6bc0a-c9dd-4874-948f-5206e6060a84"
+  /// If provided, it will be combined with the record name to generate the MetadataAddress for the record specification
+  /// which will override the specification_id in the provided record. If not provided (or it is an empty string),
+  /// nothing special happens.
+  /// If there is a value in record.specification_id that is different from the one created from this uuid and
+  /// record.name, an error is returned.
   @$pb.TagNumber(4)
   $core.String get contractSpecUuid => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -1367,44 +1571,40 @@ class MsgWriteRecordRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearContractSpecUuid() => clearField(4);
 
+  /// parties is the list of parties involved with this record.
+  /// Deprecated: This field is ignored. The parties are identified in the session and as signers.
   @$pb.TagNumber(5)
   $core.List<$1.Party> get parties => $_getList(4);
 }
 
+/// MsgWriteRecordResponse is the response type for the Msg/WriteRecord RPC method.
 class MsgWriteRecordResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteRecordResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.RecordIdInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordIdInfo',
-        subBuilder: $2.RecordIdInfo.create)
-    ..hasRequiredFields = false;
-
-  MsgWriteRecordResponse._() : super();
   factory MsgWriteRecordResponse({
     $2.RecordIdInfo? recordIdInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordIdInfo != null) {
-      _result.recordIdInfo = recordIdInfo;
+      $result.recordIdInfo = recordIdInfo;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteRecordResponse._() : super();
   factory MsgWriteRecordResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteRecordResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteRecordResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.RecordIdInfo>(1, _omitFieldNames ? '' : 'recordIdInfo',
+        subBuilder: $2.RecordIdInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1416,8 +1616,10 @@ class MsgWriteRecordResponse extends $pb.GeneratedMessage {
   MsgWriteRecordResponse copyWith(
           void Function(MsgWriteRecordResponse) updates) =>
       super.copyWith((message) => updates(message as MsgWriteRecordResponse))
-          as MsgWriteRecordResponse; // ignore: deprecated_member_use
+          as MsgWriteRecordResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteRecordResponse create() => MsgWriteRecordResponse._();
   MsgWriteRecordResponse createEmptyInstance() => create();
@@ -1428,6 +1630,7 @@ class MsgWriteRecordResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgWriteRecordResponse>(create);
   static MsgWriteRecordResponse? _defaultInstance;
 
+  /// record_id_info contains information about the id/address of the record that was added or updated.
   @$pb.TagNumber(1)
   $2.RecordIdInfo get recordIdInfo => $_getN(0);
   @$pb.TagNumber(1)
@@ -1443,49 +1646,39 @@ class MsgWriteRecordResponse extends $pb.GeneratedMessage {
   $2.RecordIdInfo ensureRecordIdInfo() => $_ensure(0);
 }
 
+/// MsgDeleteRecordRequest is the request type for the Msg/DeleteRecord RPC method.
 class MsgDeleteRecordRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteRecordRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgDeleteRecordRequest._() : super();
   factory MsgDeleteRecordRequest({
     $core.List<$core.int>? recordId,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordId != null) {
-      _result.recordId = recordId;
+      $result.recordId = recordId;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgDeleteRecordRequest._() : super();
   factory MsgDeleteRecordRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteRecordRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteRecordRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'recordId', $pb.PbFieldType.OY)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1497,8 +1690,10 @@ class MsgDeleteRecordRequest extends $pb.GeneratedMessage {
   MsgDeleteRecordRequest copyWith(
           void Function(MsgDeleteRecordRequest) updates) =>
       super.copyWith((message) => updates(message as MsgDeleteRecordRequest))
-          as MsgDeleteRecordRequest; // ignore: deprecated_member_use
+          as MsgDeleteRecordRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteRecordRequest create() => MsgDeleteRecordRequest._();
   MsgDeleteRecordRequest createEmptyInstance() => create();
@@ -1525,26 +1720,24 @@ class MsgDeleteRecordRequest extends $pb.GeneratedMessage {
   $core.List<$core.String> get signers => $_getList(1);
 }
 
+/// MsgDeleteRecordResponse is the response type for the Msg/DeleteRecord RPC method.
 class MsgDeleteRecordResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteRecordResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteRecordResponse._() : super();
   factory MsgDeleteRecordResponse() => create();
+  MsgDeleteRecordResponse._() : super();
   factory MsgDeleteRecordResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteRecordResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteRecordResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1556,8 +1749,10 @@ class MsgDeleteRecordResponse extends $pb.GeneratedMessage {
   MsgDeleteRecordResponse copyWith(
           void Function(MsgDeleteRecordResponse) updates) =>
       super.copyWith((message) => updates(message as MsgDeleteRecordResponse))
-          as MsgDeleteRecordResponse; // ignore: deprecated_member_use
+          as MsgDeleteRecordResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteRecordResponse create() => MsgDeleteRecordResponse._();
   MsgDeleteRecordResponse createEmptyInstance() => create();
@@ -1569,58 +1764,44 @@ class MsgDeleteRecordResponse extends $pb.GeneratedMessage {
   static MsgDeleteRecordResponse? _defaultInstance;
 }
 
+/// MsgWriteScopeSpecificationRequest is the request type for the Msg/WriteScopeSpecification RPC method.
 class MsgWriteScopeSpecificationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteScopeSpecificationRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.ScopeSpecification>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specification',
-        subBuilder: $3.ScopeSpecification.create)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specUuid')
-    ..hasRequiredFields = false;
-
-  MsgWriteScopeSpecificationRequest._() : super();
   factory MsgWriteScopeSpecificationRequest({
     $3.ScopeSpecification? specification,
     $core.Iterable<$core.String>? signers,
     $core.String? specUuid,
   }) {
-    final _result = create();
+    final $result = create();
     if (specification != null) {
-      _result.specification = specification;
+      $result.specification = specification;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
     if (specUuid != null) {
-      _result.specUuid = specUuid;
+      $result.specUuid = specUuid;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteScopeSpecificationRequest._() : super();
   factory MsgWriteScopeSpecificationRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteScopeSpecificationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteScopeSpecificationRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.ScopeSpecification>(1, _omitFieldNames ? '' : 'specification',
+        subBuilder: $3.ScopeSpecification.create)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..aOS(3, _omitFieldNames ? '' : 'specUuid')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1633,8 +1814,10 @@ class MsgWriteScopeSpecificationRequest extends $pb.GeneratedMessage {
           void Function(MsgWriteScopeSpecificationRequest) updates) =>
       super.copyWith((message) =>
               updates(message as MsgWriteScopeSpecificationRequest))
-          as MsgWriteScopeSpecificationRequest; // ignore: deprecated_member_use
+          as MsgWriteScopeSpecificationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteScopeSpecificationRequest create() =>
       MsgWriteScopeSpecificationRequest._();
@@ -1647,6 +1830,7 @@ class MsgWriteScopeSpecificationRequest extends $pb.GeneratedMessage {
           create);
   static MsgWriteScopeSpecificationRequest? _defaultInstance;
 
+  /// specification is the ScopeSpecification you want added or updated.
   @$pb.TagNumber(1)
   $3.ScopeSpecification get specification => $_getN(0);
   @$pb.TagNumber(1)
@@ -1661,9 +1845,16 @@ class MsgWriteScopeSpecificationRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $3.ScopeSpecification ensureSpecification() => $_ensure(0);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(2)
   $core.List<$core.String> get signers => $_getList(1);
 
+  /// spec_uuid is an optional scope specification uuid string, e.g. "dc83ea70-eacd-40fe-9adf-1cf6148bf8a2"
+  /// If provided, it will be used to generate the MetadataAddress for the scope specification which will override the
+  /// specification_id in the provided specification. If not provided (or it is an empty string), nothing special
+  /// happens.
+  /// If there is a value in specification.specification_id that is different from the one created from this uuid, an
+  /// error is returned.
   @$pb.TagNumber(3)
   $core.String get specUuid => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1677,40 +1868,34 @@ class MsgWriteScopeSpecificationRequest extends $pb.GeneratedMessage {
   void clearSpecUuid() => clearField(3);
 }
 
+/// MsgWriteScopeSpecificationResponse is the response type for the Msg/WriteScopeSpecification RPC method.
 class MsgWriteScopeSpecificationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteScopeSpecificationResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.ScopeSpecIdInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeSpecIdInfo',
-        subBuilder: $2.ScopeSpecIdInfo.create)
-    ..hasRequiredFields = false;
-
-  MsgWriteScopeSpecificationResponse._() : super();
   factory MsgWriteScopeSpecificationResponse({
     $2.ScopeSpecIdInfo? scopeSpecIdInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeSpecIdInfo != null) {
-      _result.scopeSpecIdInfo = scopeSpecIdInfo;
+      $result.scopeSpecIdInfo = scopeSpecIdInfo;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteScopeSpecificationResponse._() : super();
   factory MsgWriteScopeSpecificationResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteScopeSpecificationResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteScopeSpecificationResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.ScopeSpecIdInfo>(1, _omitFieldNames ? '' : 'scopeSpecIdInfo',
+        subBuilder: $2.ScopeSpecIdInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1723,8 +1908,10 @@ class MsgWriteScopeSpecificationResponse extends $pb.GeneratedMessage {
           void Function(MsgWriteScopeSpecificationResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgWriteScopeSpecificationResponse))
-          as MsgWriteScopeSpecificationResponse; // ignore: deprecated_member_use
+          as MsgWriteScopeSpecificationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteScopeSpecificationResponse create() =>
       MsgWriteScopeSpecificationResponse._();
@@ -1737,6 +1924,7 @@ class MsgWriteScopeSpecificationResponse extends $pb.GeneratedMessage {
           create);
   static MsgWriteScopeSpecificationResponse? _defaultInstance;
 
+  /// scope_spec_id_info contains information about the id/address of the scope specification that was added or updated.
   @$pb.TagNumber(1)
   $2.ScopeSpecIdInfo get scopeSpecIdInfo => $_getN(0);
   @$pb.TagNumber(1)
@@ -1752,49 +1940,39 @@ class MsgWriteScopeSpecificationResponse extends $pb.GeneratedMessage {
   $2.ScopeSpecIdInfo ensureScopeSpecIdInfo() => $_ensure(0);
 }
 
+/// MsgDeleteScopeSpecificationRequest is the request type for the Msg/DeleteScopeSpecification RPC method.
 class MsgDeleteScopeSpecificationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteScopeSpecificationRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specificationId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgDeleteScopeSpecificationRequest._() : super();
   factory MsgDeleteScopeSpecificationRequest({
     $core.List<$core.int>? specificationId,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (specificationId != null) {
-      _result.specificationId = specificationId;
+      $result.specificationId = specificationId;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgDeleteScopeSpecificationRequest._() : super();
   factory MsgDeleteScopeSpecificationRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeleteScopeSpecificationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteScopeSpecificationRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'specificationId', $pb.PbFieldType.OY)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1807,8 +1985,10 @@ class MsgDeleteScopeSpecificationRequest extends $pb.GeneratedMessage {
           void Function(MsgDeleteScopeSpecificationRequest) updates) =>
       super.copyWith((message) =>
               updates(message as MsgDeleteScopeSpecificationRequest))
-          as MsgDeleteScopeSpecificationRequest; // ignore: deprecated_member_use
+          as MsgDeleteScopeSpecificationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteScopeSpecificationRequest create() =>
       MsgDeleteScopeSpecificationRequest._();
@@ -1821,6 +2001,7 @@ class MsgDeleteScopeSpecificationRequest extends $pb.GeneratedMessage {
           create);
   static MsgDeleteScopeSpecificationRequest? _defaultInstance;
 
+  /// MetadataAddress for the scope specification to delete.
   @$pb.TagNumber(1)
   $core.List<$core.int> get specificationId => $_getN(0);
   @$pb.TagNumber(1)
@@ -1837,20 +2018,10 @@ class MsgDeleteScopeSpecificationRequest extends $pb.GeneratedMessage {
   $core.List<$core.String> get signers => $_getList(1);
 }
 
+/// MsgDeleteScopeSpecificationResponse is the response type for the Msg/DeleteScopeSpecification RPC method.
 class MsgDeleteScopeSpecificationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteScopeSpecificationResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteScopeSpecificationResponse._() : super();
   factory MsgDeleteScopeSpecificationResponse() => create();
+  MsgDeleteScopeSpecificationResponse._() : super();
   factory MsgDeleteScopeSpecificationResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -1858,6 +2029,14 @@ class MsgDeleteScopeSpecificationResponse extends $pb.GeneratedMessage {
   factory MsgDeleteScopeSpecificationResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteScopeSpecificationResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1870,8 +2049,10 @@ class MsgDeleteScopeSpecificationResponse extends $pb.GeneratedMessage {
           void Function(MsgDeleteScopeSpecificationResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgDeleteScopeSpecificationResponse))
-          as MsgDeleteScopeSpecificationResponse; // ignore: deprecated_member_use
+          as MsgDeleteScopeSpecificationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteScopeSpecificationResponse create() =>
       MsgDeleteScopeSpecificationResponse._();
@@ -1885,52 +2066,26 @@ class MsgDeleteScopeSpecificationResponse extends $pb.GeneratedMessage {
   static MsgDeleteScopeSpecificationResponse? _defaultInstance;
 }
 
+/// MsgWriteContractSpecificationRequest is the request type for the Msg/WriteContractSpecification RPC method.
 class MsgWriteContractSpecificationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteContractSpecificationRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.ContractSpecification>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specification',
-        subBuilder: $3.ContractSpecification.create)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specUuid')
-    ..hasRequiredFields = false;
-
-  MsgWriteContractSpecificationRequest._() : super();
   factory MsgWriteContractSpecificationRequest({
     $3.ContractSpecification? specification,
     $core.Iterable<$core.String>? signers,
     $core.String? specUuid,
   }) {
-    final _result = create();
+    final $result = create();
     if (specification != null) {
-      _result.specification = specification;
+      $result.specification = specification;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
     if (specUuid != null) {
-      _result.specUuid = specUuid;
+      $result.specUuid = specUuid;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteContractSpecificationRequest._() : super();
   factory MsgWriteContractSpecificationRequest.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -1938,6 +2093,18 @@ class MsgWriteContractSpecificationRequest extends $pb.GeneratedMessage {
   factory MsgWriteContractSpecificationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteContractSpecificationRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.ContractSpecification>(1, _omitFieldNames ? '' : 'specification',
+        subBuilder: $3.ContractSpecification.create)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..aOS(3, _omitFieldNames ? '' : 'specUuid')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1950,8 +2117,10 @@ class MsgWriteContractSpecificationRequest extends $pb.GeneratedMessage {
           void Function(MsgWriteContractSpecificationRequest) updates) =>
       super.copyWith((message) =>
               updates(message as MsgWriteContractSpecificationRequest))
-          as MsgWriteContractSpecificationRequest; // ignore: deprecated_member_use
+          as MsgWriteContractSpecificationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteContractSpecificationRequest create() =>
       MsgWriteContractSpecificationRequest._();
@@ -1964,6 +2133,7 @@ class MsgWriteContractSpecificationRequest extends $pb.GeneratedMessage {
           MsgWriteContractSpecificationRequest>(create);
   static MsgWriteContractSpecificationRequest? _defaultInstance;
 
+  /// specification is the ContractSpecification you want added or updated.
   @$pb.TagNumber(1)
   $3.ContractSpecification get specification => $_getN(0);
   @$pb.TagNumber(1)
@@ -1978,9 +2148,16 @@ class MsgWriteContractSpecificationRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $3.ContractSpecification ensureSpecification() => $_ensure(0);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(2)
   $core.List<$core.String> get signers => $_getList(1);
 
+  /// spec_uuid is an optional contract specification uuid string, e.g. "def6bc0a-c9dd-4874-948f-5206e6060a84"
+  /// If provided, it will be used to generate the MetadataAddress for the contract specification which will override the
+  /// specification_id in the provided specification. If not provided (or it is an empty string), nothing special
+  /// happens.
+  /// If there is a value in specification.specification_id that is different from the one created from this uuid, an
+  /// error is returned.
   @$pb.TagNumber(3)
   $core.String get specUuid => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1994,34 +2171,18 @@ class MsgWriteContractSpecificationRequest extends $pb.GeneratedMessage {
   void clearSpecUuid() => clearField(3);
 }
 
+/// MsgWriteContractSpecificationResponse is the response type for the Msg/WriteContractSpecification RPC method.
 class MsgWriteContractSpecificationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteContractSpecificationResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.ContractSpecIdInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecIdInfo',
-        subBuilder: $2.ContractSpecIdInfo.create)
-    ..hasRequiredFields = false;
-
-  MsgWriteContractSpecificationResponse._() : super();
   factory MsgWriteContractSpecificationResponse({
     $2.ContractSpecIdInfo? contractSpecIdInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (contractSpecIdInfo != null) {
-      _result.contractSpecIdInfo = contractSpecIdInfo;
+      $result.contractSpecIdInfo = contractSpecIdInfo;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteContractSpecificationResponse._() : super();
   factory MsgWriteContractSpecificationResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2029,6 +2190,16 @@ class MsgWriteContractSpecificationResponse extends $pb.GeneratedMessage {
   factory MsgWriteContractSpecificationResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteContractSpecificationResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.ContractSpecIdInfo>(1, _omitFieldNames ? '' : 'contractSpecIdInfo',
+        subBuilder: $2.ContractSpecIdInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2041,8 +2212,10 @@ class MsgWriteContractSpecificationResponse extends $pb.GeneratedMessage {
           void Function(MsgWriteContractSpecificationResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgWriteContractSpecificationResponse))
-          as MsgWriteContractSpecificationResponse; // ignore: deprecated_member_use
+          as MsgWriteContractSpecificationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteContractSpecificationResponse create() =>
       MsgWriteContractSpecificationResponse._();
@@ -2055,6 +2228,8 @@ class MsgWriteContractSpecificationResponse extends $pb.GeneratedMessage {
           MsgWriteContractSpecificationResponse>(create);
   static MsgWriteContractSpecificationResponse? _defaultInstance;
 
+  /// contract_spec_id_info contains information about the id/address of the contract specification that was added or
+  /// updated.
   @$pb.TagNumber(1)
   $2.ContractSpecIdInfo get contractSpecIdInfo => $_getN(0);
   @$pb.TagNumber(1)
@@ -2070,53 +2245,26 @@ class MsgWriteContractSpecificationResponse extends $pb.GeneratedMessage {
   $2.ContractSpecIdInfo ensureContractSpecIdInfo() => $_ensure(0);
 }
 
+/// MsgAddContractSpecToScopeSpecRequest is the request type for the Msg/AddContractSpecToScopeSpec RPC method.
 class MsgAddContractSpecToScopeSpecRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgAddContractSpecToScopeSpecRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecificationId',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeSpecificationId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgAddContractSpecToScopeSpecRequest._() : super();
   factory MsgAddContractSpecToScopeSpecRequest({
     $core.List<$core.int>? contractSpecificationId,
     $core.List<$core.int>? scopeSpecificationId,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (contractSpecificationId != null) {
-      _result.contractSpecificationId = contractSpecificationId;
+      $result.contractSpecificationId = contractSpecificationId;
     }
     if (scopeSpecificationId != null) {
-      _result.scopeSpecificationId = scopeSpecificationId;
+      $result.scopeSpecificationId = scopeSpecificationId;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgAddContractSpecToScopeSpecRequest._() : super();
   factory MsgAddContractSpecToScopeSpecRequest.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2124,6 +2272,19 @@ class MsgAddContractSpecToScopeSpecRequest extends $pb.GeneratedMessage {
   factory MsgAddContractSpecToScopeSpecRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAddContractSpecToScopeSpecRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'contractSpecificationId', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'scopeSpecificationId', $pb.PbFieldType.OY)
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2136,8 +2297,10 @@ class MsgAddContractSpecToScopeSpecRequest extends $pb.GeneratedMessage {
           void Function(MsgAddContractSpecToScopeSpecRequest) updates) =>
       super.copyWith((message) =>
               updates(message as MsgAddContractSpecToScopeSpecRequest))
-          as MsgAddContractSpecToScopeSpecRequest; // ignore: deprecated_member_use
+          as MsgAddContractSpecToScopeSpecRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgAddContractSpecToScopeSpecRequest create() =>
       MsgAddContractSpecToScopeSpecRequest._();
@@ -2150,6 +2313,7 @@ class MsgAddContractSpecToScopeSpecRequest extends $pb.GeneratedMessage {
           MsgAddContractSpecToScopeSpecRequest>(create);
   static MsgAddContractSpecToScopeSpecRequest? _defaultInstance;
 
+  /// MetadataAddress for the contract specification to add.
   @$pb.TagNumber(1)
   $core.List<$core.int> get contractSpecificationId => $_getN(0);
   @$pb.TagNumber(1)
@@ -2162,6 +2326,7 @@ class MsgAddContractSpecToScopeSpecRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearContractSpecificationId() => clearField(1);
 
+  /// MetadataAddress for the scope specification to add contract specification to.
   @$pb.TagNumber(2)
   $core.List<$core.int> get scopeSpecificationId => $_getN(1);
   @$pb.TagNumber(2)
@@ -2178,20 +2343,10 @@ class MsgAddContractSpecToScopeSpecRequest extends $pb.GeneratedMessage {
   $core.List<$core.String> get signers => $_getList(2);
 }
 
+/// MsgAddContractSpecToScopeSpecResponse is the response type for the Msg/AddContractSpecToScopeSpec RPC method.
 class MsgAddContractSpecToScopeSpecResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgAddContractSpecToScopeSpecResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgAddContractSpecToScopeSpecResponse._() : super();
   factory MsgAddContractSpecToScopeSpecResponse() => create();
+  MsgAddContractSpecToScopeSpecResponse._() : super();
   factory MsgAddContractSpecToScopeSpecResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2199,6 +2354,14 @@ class MsgAddContractSpecToScopeSpecResponse extends $pb.GeneratedMessage {
   factory MsgAddContractSpecToScopeSpecResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAddContractSpecToScopeSpecResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2211,8 +2374,10 @@ class MsgAddContractSpecToScopeSpecResponse extends $pb.GeneratedMessage {
           void Function(MsgAddContractSpecToScopeSpecResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgAddContractSpecToScopeSpecResponse))
-          as MsgAddContractSpecToScopeSpecResponse; // ignore: deprecated_member_use
+          as MsgAddContractSpecToScopeSpecResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgAddContractSpecToScopeSpecResponse create() =>
       MsgAddContractSpecToScopeSpecResponse._();
@@ -2226,53 +2391,26 @@ class MsgAddContractSpecToScopeSpecResponse extends $pb.GeneratedMessage {
   static MsgAddContractSpecToScopeSpecResponse? _defaultInstance;
 }
 
+/// MsgDeleteContractSpecFromScopeSpecRequest is the request type for the Msg/DeleteContractSpecFromScopeSpec RPC method.
 class MsgDeleteContractSpecFromScopeSpecRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteContractSpecFromScopeSpecRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecificationId',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeSpecificationId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgDeleteContractSpecFromScopeSpecRequest._() : super();
   factory MsgDeleteContractSpecFromScopeSpecRequest({
     $core.List<$core.int>? contractSpecificationId,
     $core.List<$core.int>? scopeSpecificationId,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (contractSpecificationId != null) {
-      _result.contractSpecificationId = contractSpecificationId;
+      $result.contractSpecificationId = contractSpecificationId;
     }
     if (scopeSpecificationId != null) {
-      _result.scopeSpecificationId = scopeSpecificationId;
+      $result.scopeSpecificationId = scopeSpecificationId;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgDeleteContractSpecFromScopeSpecRequest._() : super();
   factory MsgDeleteContractSpecFromScopeSpecRequest.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2280,6 +2418,19 @@ class MsgDeleteContractSpecFromScopeSpecRequest extends $pb.GeneratedMessage {
   factory MsgDeleteContractSpecFromScopeSpecRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteContractSpecFromScopeSpecRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'contractSpecificationId', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'scopeSpecificationId', $pb.PbFieldType.OY)
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2292,8 +2443,10 @@ class MsgDeleteContractSpecFromScopeSpecRequest extends $pb.GeneratedMessage {
           void Function(MsgDeleteContractSpecFromScopeSpecRequest) updates) =>
       super.copyWith((message) =>
               updates(message as MsgDeleteContractSpecFromScopeSpecRequest))
-          as MsgDeleteContractSpecFromScopeSpecRequest; // ignore: deprecated_member_use
+          as MsgDeleteContractSpecFromScopeSpecRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteContractSpecFromScopeSpecRequest create() =>
       MsgDeleteContractSpecFromScopeSpecRequest._();
@@ -2307,6 +2460,7 @@ class MsgDeleteContractSpecFromScopeSpecRequest extends $pb.GeneratedMessage {
           MsgDeleteContractSpecFromScopeSpecRequest>(create);
   static MsgDeleteContractSpecFromScopeSpecRequest? _defaultInstance;
 
+  /// MetadataAddress for the contract specification to add.
   @$pb.TagNumber(1)
   $core.List<$core.int> get contractSpecificationId => $_getN(0);
   @$pb.TagNumber(1)
@@ -2319,6 +2473,7 @@ class MsgDeleteContractSpecFromScopeSpecRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearContractSpecificationId() => clearField(1);
 
+  /// MetadataAddress for the scope specification to add contract specification to.
   @$pb.TagNumber(2)
   $core.List<$core.int> get scopeSpecificationId => $_getN(1);
   @$pb.TagNumber(2)
@@ -2335,20 +2490,11 @@ class MsgDeleteContractSpecFromScopeSpecRequest extends $pb.GeneratedMessage {
   $core.List<$core.String> get signers => $_getList(2);
 }
 
+/// MsgDeleteContractSpecFromScopeSpecResponse is the response type for the Msg/DeleteContractSpecFromScopeSpec RPC
+/// method.
 class MsgDeleteContractSpecFromScopeSpecResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteContractSpecFromScopeSpecResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteContractSpecFromScopeSpecResponse._() : super();
   factory MsgDeleteContractSpecFromScopeSpecResponse() => create();
+  MsgDeleteContractSpecFromScopeSpecResponse._() : super();
   factory MsgDeleteContractSpecFromScopeSpecResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2356,6 +2502,14 @@ class MsgDeleteContractSpecFromScopeSpecResponse extends $pb.GeneratedMessage {
   factory MsgDeleteContractSpecFromScopeSpecResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteContractSpecFromScopeSpecResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2368,8 +2522,10 @@ class MsgDeleteContractSpecFromScopeSpecResponse extends $pb.GeneratedMessage {
           void Function(MsgDeleteContractSpecFromScopeSpecResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgDeleteContractSpecFromScopeSpecResponse))
-          as MsgDeleteContractSpecFromScopeSpecResponse; // ignore: deprecated_member_use
+          as MsgDeleteContractSpecFromScopeSpecResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteContractSpecFromScopeSpecResponse create() =>
       MsgDeleteContractSpecFromScopeSpecResponse._();
@@ -2384,43 +2540,22 @@ class MsgDeleteContractSpecFromScopeSpecResponse extends $pb.GeneratedMessage {
   static MsgDeleteContractSpecFromScopeSpecResponse? _defaultInstance;
 }
 
+/// MsgDeleteContractSpecificationRequest is the request type for the Msg/DeleteContractSpecification RPC method.
 class MsgDeleteContractSpecificationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteContractSpecificationRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specificationId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgDeleteContractSpecificationRequest._() : super();
   factory MsgDeleteContractSpecificationRequest({
     $core.List<$core.int>? specificationId,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (specificationId != null) {
-      _result.specificationId = specificationId;
+      $result.specificationId = specificationId;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgDeleteContractSpecificationRequest._() : super();
   factory MsgDeleteContractSpecificationRequest.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2428,6 +2563,17 @@ class MsgDeleteContractSpecificationRequest extends $pb.GeneratedMessage {
   factory MsgDeleteContractSpecificationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteContractSpecificationRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'specificationId', $pb.PbFieldType.OY)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2440,8 +2586,10 @@ class MsgDeleteContractSpecificationRequest extends $pb.GeneratedMessage {
           void Function(MsgDeleteContractSpecificationRequest) updates) =>
       super.copyWith((message) =>
               updates(message as MsgDeleteContractSpecificationRequest))
-          as MsgDeleteContractSpecificationRequest; // ignore: deprecated_member_use
+          as MsgDeleteContractSpecificationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteContractSpecificationRequest create() =>
       MsgDeleteContractSpecificationRequest._();
@@ -2454,6 +2602,7 @@ class MsgDeleteContractSpecificationRequest extends $pb.GeneratedMessage {
           MsgDeleteContractSpecificationRequest>(create);
   static MsgDeleteContractSpecificationRequest? _defaultInstance;
 
+  /// MetadataAddress for the contract specification to delete.
   @$pb.TagNumber(1)
   $core.List<$core.int> get specificationId => $_getN(0);
   @$pb.TagNumber(1)
@@ -2470,20 +2619,10 @@ class MsgDeleteContractSpecificationRequest extends $pb.GeneratedMessage {
   $core.List<$core.String> get signers => $_getList(1);
 }
 
+/// MsgDeleteContractSpecificationResponse is the response type for the Msg/DeleteContractSpecification RPC method.
 class MsgDeleteContractSpecificationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteContractSpecificationResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteContractSpecificationResponse._() : super();
   factory MsgDeleteContractSpecificationResponse() => create();
+  MsgDeleteContractSpecificationResponse._() : super();
   factory MsgDeleteContractSpecificationResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2491,6 +2630,14 @@ class MsgDeleteContractSpecificationResponse extends $pb.GeneratedMessage {
   factory MsgDeleteContractSpecificationResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteContractSpecificationResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2503,8 +2650,10 @@ class MsgDeleteContractSpecificationResponse extends $pb.GeneratedMessage {
           void Function(MsgDeleteContractSpecificationResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgDeleteContractSpecificationResponse))
-          as MsgDeleteContractSpecificationResponse; // ignore: deprecated_member_use
+          as MsgDeleteContractSpecificationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteContractSpecificationResponse create() =>
       MsgDeleteContractSpecificationResponse._();
@@ -2518,58 +2667,44 @@ class MsgDeleteContractSpecificationResponse extends $pb.GeneratedMessage {
   static MsgDeleteContractSpecificationResponse? _defaultInstance;
 }
 
+/// MsgWriteRecordSpecificationRequest is the request type for the Msg/WriteRecordSpecification RPC method.
 class MsgWriteRecordSpecificationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteRecordSpecificationRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.RecordSpecification>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specification',
-        subBuilder: $3.RecordSpecification.create)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecUuid')
-    ..hasRequiredFields = false;
-
-  MsgWriteRecordSpecificationRequest._() : super();
   factory MsgWriteRecordSpecificationRequest({
     $3.RecordSpecification? specification,
     $core.Iterable<$core.String>? signers,
     $core.String? contractSpecUuid,
   }) {
-    final _result = create();
+    final $result = create();
     if (specification != null) {
-      _result.specification = specification;
+      $result.specification = specification;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
     if (contractSpecUuid != null) {
-      _result.contractSpecUuid = contractSpecUuid;
+      $result.contractSpecUuid = contractSpecUuid;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteRecordSpecificationRequest._() : super();
   factory MsgWriteRecordSpecificationRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteRecordSpecificationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteRecordSpecificationRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.RecordSpecification>(1, _omitFieldNames ? '' : 'specification',
+        subBuilder: $3.RecordSpecification.create)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..aOS(3, _omitFieldNames ? '' : 'contractSpecUuid')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2582,8 +2717,10 @@ class MsgWriteRecordSpecificationRequest extends $pb.GeneratedMessage {
           void Function(MsgWriteRecordSpecificationRequest) updates) =>
       super.copyWith((message) =>
               updates(message as MsgWriteRecordSpecificationRequest))
-          as MsgWriteRecordSpecificationRequest; // ignore: deprecated_member_use
+          as MsgWriteRecordSpecificationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteRecordSpecificationRequest create() =>
       MsgWriteRecordSpecificationRequest._();
@@ -2596,6 +2733,7 @@ class MsgWriteRecordSpecificationRequest extends $pb.GeneratedMessage {
           create);
   static MsgWriteRecordSpecificationRequest? _defaultInstance;
 
+  /// specification is the RecordSpecification you want added or updated.
   @$pb.TagNumber(1)
   $3.RecordSpecification get specification => $_getN(0);
   @$pb.TagNumber(1)
@@ -2610,9 +2748,16 @@ class MsgWriteRecordSpecificationRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $3.RecordSpecification ensureSpecification() => $_ensure(0);
 
+  /// signers is the list of address of those signing this request.
   @$pb.TagNumber(2)
   $core.List<$core.String> get signers => $_getList(1);
 
+  /// contract_spec_uuid is an optional contract specification uuid string, e.g. "def6bc0a-c9dd-4874-948f-5206e6060a84"
+  /// If provided, it will be combined with the record specification name to generate the MetadataAddress for the record
+  /// specification which will override the specification_id in the provided specification. If not provided (or it is an
+  /// empty string), nothing special happens.
+  /// If there is a value in specification.specification_id that is different from the one created from this uuid and
+  /// specification.name, an error is returned.
   @$pb.TagNumber(3)
   $core.String get contractSpecUuid => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -2626,34 +2771,18 @@ class MsgWriteRecordSpecificationRequest extends $pb.GeneratedMessage {
   void clearContractSpecUuid() => clearField(3);
 }
 
+/// MsgWriteRecordSpecificationResponse is the response type for the Msg/WriteRecordSpecification RPC method.
 class MsgWriteRecordSpecificationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteRecordSpecificationResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.RecordSpecIdInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordSpecIdInfo',
-        subBuilder: $2.RecordSpecIdInfo.create)
-    ..hasRequiredFields = false;
-
-  MsgWriteRecordSpecificationResponse._() : super();
   factory MsgWriteRecordSpecificationResponse({
     $2.RecordSpecIdInfo? recordSpecIdInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordSpecIdInfo != null) {
-      _result.recordSpecIdInfo = recordSpecIdInfo;
+      $result.recordSpecIdInfo = recordSpecIdInfo;
     }
-    return _result;
+    return $result;
   }
+  MsgWriteRecordSpecificationResponse._() : super();
   factory MsgWriteRecordSpecificationResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2661,6 +2790,16 @@ class MsgWriteRecordSpecificationResponse extends $pb.GeneratedMessage {
   factory MsgWriteRecordSpecificationResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteRecordSpecificationResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.RecordSpecIdInfo>(1, _omitFieldNames ? '' : 'recordSpecIdInfo',
+        subBuilder: $2.RecordSpecIdInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2673,8 +2812,10 @@ class MsgWriteRecordSpecificationResponse extends $pb.GeneratedMessage {
           void Function(MsgWriteRecordSpecificationResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgWriteRecordSpecificationResponse))
-          as MsgWriteRecordSpecificationResponse; // ignore: deprecated_member_use
+          as MsgWriteRecordSpecificationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteRecordSpecificationResponse create() =>
       MsgWriteRecordSpecificationResponse._();
@@ -2687,6 +2828,8 @@ class MsgWriteRecordSpecificationResponse extends $pb.GeneratedMessage {
           MsgWriteRecordSpecificationResponse>(create);
   static MsgWriteRecordSpecificationResponse? _defaultInstance;
 
+  /// record_spec_id_info contains information about the id/address of the record specification that was added or
+  /// updated.
   @$pb.TagNumber(1)
   $2.RecordSpecIdInfo get recordSpecIdInfo => $_getN(0);
   @$pb.TagNumber(1)
@@ -2702,43 +2845,22 @@ class MsgWriteRecordSpecificationResponse extends $pb.GeneratedMessage {
   $2.RecordSpecIdInfo ensureRecordSpecIdInfo() => $_ensure(0);
 }
 
+/// MsgDeleteRecordSpecificationRequest is the request type for the Msg/DeleteRecordSpecification RPC method.
 class MsgDeleteRecordSpecificationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteRecordSpecificationRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'specificationId',
-        $pb.PbFieldType.OY)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  MsgDeleteRecordSpecificationRequest._() : super();
   factory MsgDeleteRecordSpecificationRequest({
     $core.List<$core.int>? specificationId,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (specificationId != null) {
-      _result.specificationId = specificationId;
+      $result.specificationId = specificationId;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgDeleteRecordSpecificationRequest._() : super();
   factory MsgDeleteRecordSpecificationRequest.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2746,6 +2868,17 @@ class MsgDeleteRecordSpecificationRequest extends $pb.GeneratedMessage {
   factory MsgDeleteRecordSpecificationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteRecordSpecificationRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'specificationId', $pb.PbFieldType.OY)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2758,8 +2891,10 @@ class MsgDeleteRecordSpecificationRequest extends $pb.GeneratedMessage {
           void Function(MsgDeleteRecordSpecificationRequest) updates) =>
       super.copyWith((message) =>
               updates(message as MsgDeleteRecordSpecificationRequest))
-          as MsgDeleteRecordSpecificationRequest; // ignore: deprecated_member_use
+          as MsgDeleteRecordSpecificationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteRecordSpecificationRequest create() =>
       MsgDeleteRecordSpecificationRequest._();
@@ -2772,6 +2907,7 @@ class MsgDeleteRecordSpecificationRequest extends $pb.GeneratedMessage {
           MsgDeleteRecordSpecificationRequest>(create);
   static MsgDeleteRecordSpecificationRequest? _defaultInstance;
 
+  /// MetadataAddress for the record specification to delete.
   @$pb.TagNumber(1)
   $core.List<$core.int> get specificationId => $_getN(0);
   @$pb.TagNumber(1)
@@ -2788,20 +2924,10 @@ class MsgDeleteRecordSpecificationRequest extends $pb.GeneratedMessage {
   $core.List<$core.String> get signers => $_getList(1);
 }
 
+/// MsgDeleteRecordSpecificationResponse is the response type for the Msg/DeleteRecordSpecification RPC method.
 class MsgDeleteRecordSpecificationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteRecordSpecificationResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteRecordSpecificationResponse._() : super();
   factory MsgDeleteRecordSpecificationResponse() => create();
+  MsgDeleteRecordSpecificationResponse._() : super();
   factory MsgDeleteRecordSpecificationResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2809,6 +2935,14 @@ class MsgDeleteRecordSpecificationResponse extends $pb.GeneratedMessage {
   factory MsgDeleteRecordSpecificationResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteRecordSpecificationResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2821,8 +2955,10 @@ class MsgDeleteRecordSpecificationResponse extends $pb.GeneratedMessage {
           void Function(MsgDeleteRecordSpecificationResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgDeleteRecordSpecificationResponse))
-          as MsgDeleteRecordSpecificationResponse; // ignore: deprecated_member_use
+          as MsgDeleteRecordSpecificationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeleteRecordSpecificationResponse create() =>
       MsgDeleteRecordSpecificationResponse._();
@@ -2836,49 +2972,592 @@ class MsgDeleteRecordSpecificationResponse extends $pb.GeneratedMessage {
   static MsgDeleteRecordSpecificationResponse? _defaultInstance;
 }
 
-class MsgWriteP8eContractSpecRequest extends $pb.GeneratedMessage {
+/// MsgBindOSLocatorRequest is the request type for the Msg/BindOSLocator RPC method.
+class MsgBindOSLocatorRequest extends $pb.GeneratedMessage {
+  factory MsgBindOSLocatorRequest({
+    $4.ObjectStoreLocator? locator,
+  }) {
+    final $result = create();
+    if (locator != null) {
+      $result.locator = locator;
+    }
+    return $result;
+  }
+  MsgBindOSLocatorRequest._() : super();
+  factory MsgBindOSLocatorRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgBindOSLocatorRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteP8eContractSpecRequest',
+      _omitMessageNames ? '' : 'MsgBindOSLocatorRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
       createEmptyInstance: create)
-    ..aOM<$4.ContractSpec>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractspec',
-        subBuilder: $4.ContractSpec.create)
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
+    ..aOM<$4.ObjectStoreLocator>(1, _omitFieldNames ? '' : 'locator',
+        subBuilder: $4.ObjectStoreLocator.create)
     ..hasRequiredFields = false;
 
-  MsgWriteP8eContractSpecRequest._() : super();
-  factory MsgWriteP8eContractSpecRequest({
-    $4.ContractSpec? contractspec,
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgBindOSLocatorRequest clone() =>
+      MsgBindOSLocatorRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgBindOSLocatorRequest copyWith(
+          void Function(MsgBindOSLocatorRequest) updates) =>
+      super.copyWith((message) => updates(message as MsgBindOSLocatorRequest))
+          as MsgBindOSLocatorRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgBindOSLocatorRequest create() => MsgBindOSLocatorRequest._();
+  MsgBindOSLocatorRequest createEmptyInstance() => create();
+  static $pb.PbList<MsgBindOSLocatorRequest> createRepeated() =>
+      $pb.PbList<MsgBindOSLocatorRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MsgBindOSLocatorRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgBindOSLocatorRequest>(create);
+  static MsgBindOSLocatorRequest? _defaultInstance;
+
+  /// The object locator to bind the address to bind to the URI.
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator get locator => $_getN(0);
+  @$pb.TagNumber(1)
+  set locator($4.ObjectStoreLocator v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasLocator() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLocator() => clearField(1);
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator ensureLocator() => $_ensure(0);
+}
+
+/// MsgBindOSLocatorResponse is the response type for the Msg/BindOSLocator RPC method.
+class MsgBindOSLocatorResponse extends $pb.GeneratedMessage {
+  factory MsgBindOSLocatorResponse({
+    $4.ObjectStoreLocator? locator,
+  }) {
+    final $result = create();
+    if (locator != null) {
+      $result.locator = locator;
+    }
+    return $result;
+  }
+  MsgBindOSLocatorResponse._() : super();
+  factory MsgBindOSLocatorResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgBindOSLocatorResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgBindOSLocatorResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$4.ObjectStoreLocator>(1, _omitFieldNames ? '' : 'locator',
+        subBuilder: $4.ObjectStoreLocator.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgBindOSLocatorResponse clone() =>
+      MsgBindOSLocatorResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgBindOSLocatorResponse copyWith(
+          void Function(MsgBindOSLocatorResponse) updates) =>
+      super.copyWith((message) => updates(message as MsgBindOSLocatorResponse))
+          as MsgBindOSLocatorResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgBindOSLocatorResponse create() => MsgBindOSLocatorResponse._();
+  MsgBindOSLocatorResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgBindOSLocatorResponse> createRepeated() =>
+      $pb.PbList<MsgBindOSLocatorResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgBindOSLocatorResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgBindOSLocatorResponse>(create);
+  static MsgBindOSLocatorResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator get locator => $_getN(0);
+  @$pb.TagNumber(1)
+  set locator($4.ObjectStoreLocator v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasLocator() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLocator() => clearField(1);
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator ensureLocator() => $_ensure(0);
+}
+
+/// MsgDeleteOSLocatorRequest is the request type for the Msg/DeleteOSLocator RPC method.
+class MsgDeleteOSLocatorRequest extends $pb.GeneratedMessage {
+  factory MsgDeleteOSLocatorRequest({
+    $4.ObjectStoreLocator? locator,
+  }) {
+    final $result = create();
+    if (locator != null) {
+      $result.locator = locator;
+    }
+    return $result;
+  }
+  MsgDeleteOSLocatorRequest._() : super();
+  factory MsgDeleteOSLocatorRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgDeleteOSLocatorRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteOSLocatorRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$4.ObjectStoreLocator>(1, _omitFieldNames ? '' : 'locator',
+        subBuilder: $4.ObjectStoreLocator.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgDeleteOSLocatorRequest clone() =>
+      MsgDeleteOSLocatorRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgDeleteOSLocatorRequest copyWith(
+          void Function(MsgDeleteOSLocatorRequest) updates) =>
+      super.copyWith((message) => updates(message as MsgDeleteOSLocatorRequest))
+          as MsgDeleteOSLocatorRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgDeleteOSLocatorRequest create() => MsgDeleteOSLocatorRequest._();
+  MsgDeleteOSLocatorRequest createEmptyInstance() => create();
+  static $pb.PbList<MsgDeleteOSLocatorRequest> createRepeated() =>
+      $pb.PbList<MsgDeleteOSLocatorRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MsgDeleteOSLocatorRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgDeleteOSLocatorRequest>(create);
+  static MsgDeleteOSLocatorRequest? _defaultInstance;
+
+  /// The record being removed
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator get locator => $_getN(0);
+  @$pb.TagNumber(1)
+  set locator($4.ObjectStoreLocator v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasLocator() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLocator() => clearField(1);
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator ensureLocator() => $_ensure(0);
+}
+
+/// MsgDeleteOSLocatorResponse is the response type for the Msg/DeleteOSLocator RPC method.
+class MsgDeleteOSLocatorResponse extends $pb.GeneratedMessage {
+  factory MsgDeleteOSLocatorResponse({
+    $4.ObjectStoreLocator? locator,
+  }) {
+    final $result = create();
+    if (locator != null) {
+      $result.locator = locator;
+    }
+    return $result;
+  }
+  MsgDeleteOSLocatorResponse._() : super();
+  factory MsgDeleteOSLocatorResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgDeleteOSLocatorResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeleteOSLocatorResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$4.ObjectStoreLocator>(1, _omitFieldNames ? '' : 'locator',
+        subBuilder: $4.ObjectStoreLocator.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgDeleteOSLocatorResponse clone() =>
+      MsgDeleteOSLocatorResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgDeleteOSLocatorResponse copyWith(
+          void Function(MsgDeleteOSLocatorResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgDeleteOSLocatorResponse))
+          as MsgDeleteOSLocatorResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgDeleteOSLocatorResponse create() => MsgDeleteOSLocatorResponse._();
+  MsgDeleteOSLocatorResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgDeleteOSLocatorResponse> createRepeated() =>
+      $pb.PbList<MsgDeleteOSLocatorResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgDeleteOSLocatorResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgDeleteOSLocatorResponse>(create);
+  static MsgDeleteOSLocatorResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator get locator => $_getN(0);
+  @$pb.TagNumber(1)
+  set locator($4.ObjectStoreLocator v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasLocator() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLocator() => clearField(1);
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator ensureLocator() => $_ensure(0);
+}
+
+/// MsgModifyOSLocatorRequest is the request type for the Msg/ModifyOSLocator RPC method.
+class MsgModifyOSLocatorRequest extends $pb.GeneratedMessage {
+  factory MsgModifyOSLocatorRequest({
+    $4.ObjectStoreLocator? locator,
+  }) {
+    final $result = create();
+    if (locator != null) {
+      $result.locator = locator;
+    }
+    return $result;
+  }
+  MsgModifyOSLocatorRequest._() : super();
+  factory MsgModifyOSLocatorRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgModifyOSLocatorRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgModifyOSLocatorRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$4.ObjectStoreLocator>(1, _omitFieldNames ? '' : 'locator',
+        subBuilder: $4.ObjectStoreLocator.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgModifyOSLocatorRequest clone() =>
+      MsgModifyOSLocatorRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgModifyOSLocatorRequest copyWith(
+          void Function(MsgModifyOSLocatorRequest) updates) =>
+      super.copyWith((message) => updates(message as MsgModifyOSLocatorRequest))
+          as MsgModifyOSLocatorRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgModifyOSLocatorRequest create() => MsgModifyOSLocatorRequest._();
+  MsgModifyOSLocatorRequest createEmptyInstance() => create();
+  static $pb.PbList<MsgModifyOSLocatorRequest> createRepeated() =>
+      $pb.PbList<MsgModifyOSLocatorRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MsgModifyOSLocatorRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgModifyOSLocatorRequest>(create);
+  static MsgModifyOSLocatorRequest? _defaultInstance;
+
+  /// The object locator to bind the address to bind to the URI.
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator get locator => $_getN(0);
+  @$pb.TagNumber(1)
+  set locator($4.ObjectStoreLocator v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasLocator() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLocator() => clearField(1);
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator ensureLocator() => $_ensure(0);
+}
+
+/// MsgModifyOSLocatorResponse is the response type for the Msg/ModifyOSLocator RPC method.
+class MsgModifyOSLocatorResponse extends $pb.GeneratedMessage {
+  factory MsgModifyOSLocatorResponse({
+    $4.ObjectStoreLocator? locator,
+  }) {
+    final $result = create();
+    if (locator != null) {
+      $result.locator = locator;
+    }
+    return $result;
+  }
+  MsgModifyOSLocatorResponse._() : super();
+  factory MsgModifyOSLocatorResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgModifyOSLocatorResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgModifyOSLocatorResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$4.ObjectStoreLocator>(1, _omitFieldNames ? '' : 'locator',
+        subBuilder: $4.ObjectStoreLocator.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgModifyOSLocatorResponse clone() =>
+      MsgModifyOSLocatorResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgModifyOSLocatorResponse copyWith(
+          void Function(MsgModifyOSLocatorResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgModifyOSLocatorResponse))
+          as MsgModifyOSLocatorResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgModifyOSLocatorResponse create() => MsgModifyOSLocatorResponse._();
+  MsgModifyOSLocatorResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgModifyOSLocatorResponse> createRepeated() =>
+      $pb.PbList<MsgModifyOSLocatorResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgModifyOSLocatorResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgModifyOSLocatorResponse>(create);
+  static MsgModifyOSLocatorResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator get locator => $_getN(0);
+  @$pb.TagNumber(1)
+  set locator($4.ObjectStoreLocator v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasLocator() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLocator() => clearField(1);
+  @$pb.TagNumber(1)
+  $4.ObjectStoreLocator ensureLocator() => $_ensure(0);
+}
+
+/// MsgSetAccountDataRequest is the request to set/update/delete a scope's account data.
+class MsgSetAccountDataRequest extends $pb.GeneratedMessage {
+  factory MsgSetAccountDataRequest({
+    $core.List<$core.int>? metadataAddr,
+    $core.String? value,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
-    if (contractspec != null) {
-      _result.contractspec = contractspec;
+    final $result = create();
+    if (metadataAddr != null) {
+      $result.metadataAddr = metadataAddr;
+    }
+    if (value != null) {
+      $result.value = value;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  MsgSetAccountDataRequest._() : super();
+  factory MsgSetAccountDataRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgSetAccountDataRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSetAccountDataRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'metadataAddr', $pb.PbFieldType.OY)
+    ..aOS(2, _omitFieldNames ? '' : 'value')
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgSetAccountDataRequest clone() =>
+      MsgSetAccountDataRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgSetAccountDataRequest copyWith(
+          void Function(MsgSetAccountDataRequest) updates) =>
+      super.copyWith((message) => updates(message as MsgSetAccountDataRequest))
+          as MsgSetAccountDataRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgSetAccountDataRequest create() => MsgSetAccountDataRequest._();
+  MsgSetAccountDataRequest createEmptyInstance() => create();
+  static $pb.PbList<MsgSetAccountDataRequest> createRepeated() =>
+      $pb.PbList<MsgSetAccountDataRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MsgSetAccountDataRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgSetAccountDataRequest>(create);
+  static MsgSetAccountDataRequest? _defaultInstance;
+
+  /// The identifier to associate the data with.
+  /// Currently, only scope ids are supported.
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get metadataAddr => $_getN(0);
+  @$pb.TagNumber(1)
+  set metadataAddr($core.List<$core.int> v) {
+    $_setBytes(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasMetadataAddr() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMetadataAddr() => clearField(1);
+
+  /// The desired accountdata value.
+  @$pb.TagNumber(2)
+  $core.String get value => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set value($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasValue() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearValue() => clearField(2);
+
+  /// The signers of this message. Must fulfill owner requirements of the scope.
+  @$pb.TagNumber(3)
+  $core.List<$core.String> get signers => $_getList(2);
+}
+
+/// MsgSetAccountDataResponse is the response from setting/updating/deleting a scope's account data.
+class MsgSetAccountDataResponse extends $pb.GeneratedMessage {
+  factory MsgSetAccountDataResponse() => create();
+  MsgSetAccountDataResponse._() : super();
+  factory MsgSetAccountDataResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgSetAccountDataResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSetAccountDataResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgSetAccountDataResponse clone() =>
+      MsgSetAccountDataResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgSetAccountDataResponse copyWith(
+          void Function(MsgSetAccountDataResponse) updates) =>
+      super.copyWith((message) => updates(message as MsgSetAccountDataResponse))
+          as MsgSetAccountDataResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgSetAccountDataResponse create() => MsgSetAccountDataResponse._();
+  MsgSetAccountDataResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgSetAccountDataResponse> createRepeated() =>
+      $pb.PbList<MsgSetAccountDataResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgSetAccountDataResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgSetAccountDataResponse>(create);
+  static MsgSetAccountDataResponse? _defaultInstance;
+}
+
+/// MsgWriteP8eContractSpecRequest has been deprecated and is no longer usable.
+/// Deprecated: This message is no longer part of any endpoint and cannot be used for anything.
+class MsgWriteP8eContractSpecRequest extends $pb.GeneratedMessage {
+  factory MsgWriteP8eContractSpecRequest({
+    $5.ContractSpec? contractspec,
+    $core.Iterable<$core.String>? signers,
+  }) {
+    final $result = create();
+    if (contractspec != null) {
+      $result.contractspec = contractspec;
+    }
+    if (signers != null) {
+      $result.signers.addAll(signers);
+    }
+    return $result;
+  }
+  MsgWriteP8eContractSpecRequest._() : super();
   factory MsgWriteP8eContractSpecRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteP8eContractSpecRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteP8eContractSpecRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$5.ContractSpec>(1, _omitFieldNames ? '' : 'contractspec',
+        subBuilder: $5.ContractSpec.create)
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2891,8 +3570,10 @@ class MsgWriteP8eContractSpecRequest extends $pb.GeneratedMessage {
           void Function(MsgWriteP8eContractSpecRequest) updates) =>
       super.copyWith(
               (message) => updates(message as MsgWriteP8eContractSpecRequest))
-          as MsgWriteP8eContractSpecRequest; // ignore: deprecated_member_use
+          as MsgWriteP8eContractSpecRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteP8eContractSpecRequest create() =>
       MsgWriteP8eContractSpecRequest._();
@@ -2905,9 +3586,9 @@ class MsgWriteP8eContractSpecRequest extends $pb.GeneratedMessage {
   static MsgWriteP8eContractSpecRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $4.ContractSpec get contractspec => $_getN(0);
+  $5.ContractSpec get contractspec => $_getN(0);
   @$pb.TagNumber(1)
-  set contractspec($4.ContractSpec v) {
+  set contractspec($5.ContractSpec v) {
     setField(1, v);
   }
 
@@ -2916,57 +3597,48 @@ class MsgWriteP8eContractSpecRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearContractspec() => clearField(1);
   @$pb.TagNumber(1)
-  $4.ContractSpec ensureContractspec() => $_ensure(0);
+  $5.ContractSpec ensureContractspec() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<$core.String> get signers => $_getList(1);
 }
 
+/// MsgWriteP8eContractSpecResponse  has been deprecated and is no longer usable.
+/// Deprecated: This message is no longer part of any endpoint and cannot be used for anything.
 class MsgWriteP8eContractSpecResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWriteP8eContractSpecResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.ContractSpecIdInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecIdInfo',
-        subBuilder: $2.ContractSpecIdInfo.create)
-    ..pc<$2.RecordSpecIdInfo>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordSpecIdInfos',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.RecordSpecIdInfo.create)
-    ..hasRequiredFields = false;
-
-  MsgWriteP8eContractSpecResponse._() : super();
   factory MsgWriteP8eContractSpecResponse({
     $2.ContractSpecIdInfo? contractSpecIdInfo,
     $core.Iterable<$2.RecordSpecIdInfo>? recordSpecIdInfos,
   }) {
-    final _result = create();
+    final $result = create();
     if (contractSpecIdInfo != null) {
-      _result.contractSpecIdInfo = contractSpecIdInfo;
+      $result.contractSpecIdInfo = contractSpecIdInfo;
     }
     if (recordSpecIdInfos != null) {
-      _result.recordSpecIdInfos.addAll(recordSpecIdInfos);
+      $result.recordSpecIdInfos.addAll(recordSpecIdInfos);
     }
-    return _result;
+    return $result;
   }
+  MsgWriteP8eContractSpecResponse._() : super();
   factory MsgWriteP8eContractSpecResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWriteP8eContractSpecResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWriteP8eContractSpecResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.ContractSpecIdInfo>(1, _omitFieldNames ? '' : 'contractSpecIdInfo',
+        subBuilder: $2.ContractSpecIdInfo.create)
+    ..pc<$2.RecordSpecIdInfo>(
+        2, _omitFieldNames ? '' : 'recordSpecIdInfos', $pb.PbFieldType.PM,
+        subBuilder: $2.RecordSpecIdInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2979,8 +3651,10 @@ class MsgWriteP8eContractSpecResponse extends $pb.GeneratedMessage {
           void Function(MsgWriteP8eContractSpecResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgWriteP8eContractSpecResponse))
-          as MsgWriteP8eContractSpecResponse; // ignore: deprecated_member_use
+          as MsgWriteP8eContractSpecResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWriteP8eContractSpecResponse create() =>
       MsgWriteP8eContractSpecResponse._();
@@ -3011,96 +3685,67 @@ class MsgWriteP8eContractSpecResponse extends $pb.GeneratedMessage {
   $core.List<$2.RecordSpecIdInfo> get recordSpecIdInfos => $_getList(1);
 }
 
+/// MsgP8eMemorializeContractRequest  has been deprecated and is no longer usable.
+/// Deprecated: This message is no longer part of any endpoint and cannot be used for anything.
 class MsgP8eMemorializeContractRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgP8eMemorializeContractRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeSpecificationId')
-    ..aOM<$4.Recitals>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recitals',
-        subBuilder: $4.Recitals.create)
-    ..aOM<$4.Contract>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contract',
-        subBuilder: $4.Contract.create)
-    ..aOM<$4.SignatureSet>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signatures',
-        subBuilder: $4.SignatureSet.create)
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'invoker')
-    ..hasRequiredFields = false;
-
-  MsgP8eMemorializeContractRequest._() : super();
   factory MsgP8eMemorializeContractRequest({
     $core.String? scopeId,
     $core.String? groupId,
     $core.String? scopeSpecificationId,
-    $4.Recitals? recitals,
-    $4.Contract? contract,
-    $4.SignatureSet? signatures,
+    $5.Recitals? recitals,
+    $5.Contract? contract,
+    $5.SignatureSet? signatures,
     $core.String? invoker,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeId != null) {
-      _result.scopeId = scopeId;
+      $result.scopeId = scopeId;
     }
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (scopeSpecificationId != null) {
-      _result.scopeSpecificationId = scopeSpecificationId;
+      $result.scopeSpecificationId = scopeSpecificationId;
     }
     if (recitals != null) {
-      _result.recitals = recitals;
+      $result.recitals = recitals;
     }
     if (contract != null) {
-      _result.contract = contract;
+      $result.contract = contract;
     }
     if (signatures != null) {
-      _result.signatures = signatures;
+      $result.signatures = signatures;
     }
     if (invoker != null) {
-      _result.invoker = invoker;
+      $result.invoker = invoker;
     }
-    return _result;
+    return $result;
   }
+  MsgP8eMemorializeContractRequest._() : super();
   factory MsgP8eMemorializeContractRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgP8eMemorializeContractRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgP8eMemorializeContractRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeId')
+    ..aOS(2, _omitFieldNames ? '' : 'groupId')
+    ..aOS(3, _omitFieldNames ? '' : 'scopeSpecificationId')
+    ..aOM<$5.Recitals>(4, _omitFieldNames ? '' : 'recitals',
+        subBuilder: $5.Recitals.create)
+    ..aOM<$5.Contract>(5, _omitFieldNames ? '' : 'contract',
+        subBuilder: $5.Contract.create)
+    ..aOM<$5.SignatureSet>(6, _omitFieldNames ? '' : 'signatures',
+        subBuilder: $5.SignatureSet.create)
+    ..aOS(7, _omitFieldNames ? '' : 'invoker')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -3113,8 +3758,10 @@ class MsgP8eMemorializeContractRequest extends $pb.GeneratedMessage {
           void Function(MsgP8eMemorializeContractRequest) updates) =>
       super.copyWith(
               (message) => updates(message as MsgP8eMemorializeContractRequest))
-          as MsgP8eMemorializeContractRequest; // ignore: deprecated_member_use
+          as MsgP8eMemorializeContractRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgP8eMemorializeContractRequest create() =>
       MsgP8eMemorializeContractRequest._();
@@ -3164,9 +3811,9 @@ class MsgP8eMemorializeContractRequest extends $pb.GeneratedMessage {
   void clearScopeSpecificationId() => clearField(3);
 
   @$pb.TagNumber(4)
-  $4.Recitals get recitals => $_getN(3);
+  $5.Recitals get recitals => $_getN(3);
   @$pb.TagNumber(4)
-  set recitals($4.Recitals v) {
+  set recitals($5.Recitals v) {
     setField(4, v);
   }
 
@@ -3175,12 +3822,12 @@ class MsgP8eMemorializeContractRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearRecitals() => clearField(4);
   @$pb.TagNumber(4)
-  $4.Recitals ensureRecitals() => $_ensure(3);
+  $5.Recitals ensureRecitals() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $4.Contract get contract => $_getN(4);
+  $5.Contract get contract => $_getN(4);
   @$pb.TagNumber(5)
-  set contract($4.Contract v) {
+  set contract($5.Contract v) {
     setField(5, v);
   }
 
@@ -3189,12 +3836,12 @@ class MsgP8eMemorializeContractRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearContract() => clearField(5);
   @$pb.TagNumber(5)
-  $4.Contract ensureContract() => $_ensure(4);
+  $5.Contract ensureContract() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $4.SignatureSet get signatures => $_getN(5);
+  $5.SignatureSet get signatures => $_getN(5);
   @$pb.TagNumber(6)
-  set signatures($4.SignatureSet v) {
+  set signatures($5.SignatureSet v) {
     setField(6, v);
   }
 
@@ -3203,7 +3850,7 @@ class MsgP8eMemorializeContractRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearSignatures() => clearField(6);
   @$pb.TagNumber(6)
-  $4.SignatureSet ensureSignatures() => $_ensure(5);
+  $5.SignatureSet ensureSignatures() => $_ensure(5);
 
   @$pb.TagNumber(7)
   $core.String get invoker => $_getSZ(6);
@@ -3218,61 +3865,48 @@ class MsgP8eMemorializeContractRequest extends $pb.GeneratedMessage {
   void clearInvoker() => clearField(7);
 }
 
+/// MsgP8eMemorializeContractResponse  has been deprecated and is no longer usable.
+/// Deprecated: This message is no longer part of any endpoint and cannot be used for anything.
 class MsgP8eMemorializeContractResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgP8eMemorializeContractResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.ScopeIdInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeIdInfo',
-        subBuilder: $2.ScopeIdInfo.create)
-    ..aOM<$2.SessionIdInfo>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionIdInfo',
-        subBuilder: $2.SessionIdInfo.create)
-    ..pc<$2.RecordIdInfo>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordIdInfos',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.RecordIdInfo.create)
-    ..hasRequiredFields = false;
-
-  MsgP8eMemorializeContractResponse._() : super();
   factory MsgP8eMemorializeContractResponse({
     $2.ScopeIdInfo? scopeIdInfo,
     $2.SessionIdInfo? sessionIdInfo,
     $core.Iterable<$2.RecordIdInfo>? recordIdInfos,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeIdInfo != null) {
-      _result.scopeIdInfo = scopeIdInfo;
+      $result.scopeIdInfo = scopeIdInfo;
     }
     if (sessionIdInfo != null) {
-      _result.sessionIdInfo = sessionIdInfo;
+      $result.sessionIdInfo = sessionIdInfo;
     }
     if (recordIdInfos != null) {
-      _result.recordIdInfos.addAll(recordIdInfos);
+      $result.recordIdInfos.addAll(recordIdInfos);
     }
-    return _result;
+    return $result;
   }
+  MsgP8eMemorializeContractResponse._() : super();
   factory MsgP8eMemorializeContractResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgP8eMemorializeContractResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgP8eMemorializeContractResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.ScopeIdInfo>(1, _omitFieldNames ? '' : 'scopeIdInfo',
+        subBuilder: $2.ScopeIdInfo.create)
+    ..aOM<$2.SessionIdInfo>(2, _omitFieldNames ? '' : 'sessionIdInfo',
+        subBuilder: $2.SessionIdInfo.create)
+    ..pc<$2.RecordIdInfo>(
+        3, _omitFieldNames ? '' : 'recordIdInfos', $pb.PbFieldType.PM,
+        subBuilder: $2.RecordIdInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -3285,8 +3919,10 @@ class MsgP8eMemorializeContractResponse extends $pb.GeneratedMessage {
           void Function(MsgP8eMemorializeContractResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgP8eMemorializeContractResponse))
-          as MsgP8eMemorializeContractResponse; // ignore: deprecated_member_use
+          as MsgP8eMemorializeContractResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgP8eMemorializeContractResponse create() =>
       MsgP8eMemorializeContractResponse._();
@@ -3331,436 +3967,6 @@ class MsgP8eMemorializeContractResponse extends $pb.GeneratedMessage {
   $core.List<$2.RecordIdInfo> get recordIdInfos => $_getList(2);
 }
 
-class MsgBindOSLocatorRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgBindOSLocatorRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$5.ObjectStoreLocator>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'locator',
-        subBuilder: $5.ObjectStoreLocator.create)
-    ..hasRequiredFields = false;
-
-  MsgBindOSLocatorRequest._() : super();
-  factory MsgBindOSLocatorRequest({
-    $5.ObjectStoreLocator? locator,
-  }) {
-    final _result = create();
-    if (locator != null) {
-      _result.locator = locator;
-    }
-    return _result;
-  }
-  factory MsgBindOSLocatorRequest.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory MsgBindOSLocatorRequest.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  MsgBindOSLocatorRequest clone() =>
-      MsgBindOSLocatorRequest()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  MsgBindOSLocatorRequest copyWith(
-          void Function(MsgBindOSLocatorRequest) updates) =>
-      super.copyWith((message) => updates(message as MsgBindOSLocatorRequest))
-          as MsgBindOSLocatorRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MsgBindOSLocatorRequest create() => MsgBindOSLocatorRequest._();
-  MsgBindOSLocatorRequest createEmptyInstance() => create();
-  static $pb.PbList<MsgBindOSLocatorRequest> createRepeated() =>
-      $pb.PbList<MsgBindOSLocatorRequest>();
-  @$core.pragma('dart2js:noInline')
-  static MsgBindOSLocatorRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<MsgBindOSLocatorRequest>(create);
-  static MsgBindOSLocatorRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator get locator => $_getN(0);
-  @$pb.TagNumber(1)
-  set locator($5.ObjectStoreLocator v) {
-    setField(1, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasLocator() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLocator() => clearField(1);
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator ensureLocator() => $_ensure(0);
-}
-
-class MsgBindOSLocatorResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgBindOSLocatorResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$5.ObjectStoreLocator>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'locator',
-        subBuilder: $5.ObjectStoreLocator.create)
-    ..hasRequiredFields = false;
-
-  MsgBindOSLocatorResponse._() : super();
-  factory MsgBindOSLocatorResponse({
-    $5.ObjectStoreLocator? locator,
-  }) {
-    final _result = create();
-    if (locator != null) {
-      _result.locator = locator;
-    }
-    return _result;
-  }
-  factory MsgBindOSLocatorResponse.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory MsgBindOSLocatorResponse.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  MsgBindOSLocatorResponse clone() =>
-      MsgBindOSLocatorResponse()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  MsgBindOSLocatorResponse copyWith(
-          void Function(MsgBindOSLocatorResponse) updates) =>
-      super.copyWith((message) => updates(message as MsgBindOSLocatorResponse))
-          as MsgBindOSLocatorResponse; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MsgBindOSLocatorResponse create() => MsgBindOSLocatorResponse._();
-  MsgBindOSLocatorResponse createEmptyInstance() => create();
-  static $pb.PbList<MsgBindOSLocatorResponse> createRepeated() =>
-      $pb.PbList<MsgBindOSLocatorResponse>();
-  @$core.pragma('dart2js:noInline')
-  static MsgBindOSLocatorResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<MsgBindOSLocatorResponse>(create);
-  static MsgBindOSLocatorResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator get locator => $_getN(0);
-  @$pb.TagNumber(1)
-  set locator($5.ObjectStoreLocator v) {
-    setField(1, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasLocator() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLocator() => clearField(1);
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator ensureLocator() => $_ensure(0);
-}
-
-class MsgDeleteOSLocatorRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteOSLocatorRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$5.ObjectStoreLocator>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'locator',
-        subBuilder: $5.ObjectStoreLocator.create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteOSLocatorRequest._() : super();
-  factory MsgDeleteOSLocatorRequest({
-    $5.ObjectStoreLocator? locator,
-  }) {
-    final _result = create();
-    if (locator != null) {
-      _result.locator = locator;
-    }
-    return _result;
-  }
-  factory MsgDeleteOSLocatorRequest.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory MsgDeleteOSLocatorRequest.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  MsgDeleteOSLocatorRequest clone() =>
-      MsgDeleteOSLocatorRequest()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  MsgDeleteOSLocatorRequest copyWith(
-          void Function(MsgDeleteOSLocatorRequest) updates) =>
-      super.copyWith((message) => updates(message as MsgDeleteOSLocatorRequest))
-          as MsgDeleteOSLocatorRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MsgDeleteOSLocatorRequest create() => MsgDeleteOSLocatorRequest._();
-  MsgDeleteOSLocatorRequest createEmptyInstance() => create();
-  static $pb.PbList<MsgDeleteOSLocatorRequest> createRepeated() =>
-      $pb.PbList<MsgDeleteOSLocatorRequest>();
-  @$core.pragma('dart2js:noInline')
-  static MsgDeleteOSLocatorRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<MsgDeleteOSLocatorRequest>(create);
-  static MsgDeleteOSLocatorRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator get locator => $_getN(0);
-  @$pb.TagNumber(1)
-  set locator($5.ObjectStoreLocator v) {
-    setField(1, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasLocator() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLocator() => clearField(1);
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator ensureLocator() => $_ensure(0);
-}
-
-class MsgDeleteOSLocatorResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeleteOSLocatorResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$5.ObjectStoreLocator>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'locator',
-        subBuilder: $5.ObjectStoreLocator.create)
-    ..hasRequiredFields = false;
-
-  MsgDeleteOSLocatorResponse._() : super();
-  factory MsgDeleteOSLocatorResponse({
-    $5.ObjectStoreLocator? locator,
-  }) {
-    final _result = create();
-    if (locator != null) {
-      _result.locator = locator;
-    }
-    return _result;
-  }
-  factory MsgDeleteOSLocatorResponse.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory MsgDeleteOSLocatorResponse.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  MsgDeleteOSLocatorResponse clone() =>
-      MsgDeleteOSLocatorResponse()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  MsgDeleteOSLocatorResponse copyWith(
-          void Function(MsgDeleteOSLocatorResponse) updates) =>
-      super.copyWith(
-              (message) => updates(message as MsgDeleteOSLocatorResponse))
-          as MsgDeleteOSLocatorResponse; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MsgDeleteOSLocatorResponse create() => MsgDeleteOSLocatorResponse._();
-  MsgDeleteOSLocatorResponse createEmptyInstance() => create();
-  static $pb.PbList<MsgDeleteOSLocatorResponse> createRepeated() =>
-      $pb.PbList<MsgDeleteOSLocatorResponse>();
-  @$core.pragma('dart2js:noInline')
-  static MsgDeleteOSLocatorResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<MsgDeleteOSLocatorResponse>(create);
-  static MsgDeleteOSLocatorResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator get locator => $_getN(0);
-  @$pb.TagNumber(1)
-  set locator($5.ObjectStoreLocator v) {
-    setField(1, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasLocator() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLocator() => clearField(1);
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator ensureLocator() => $_ensure(0);
-}
-
-class MsgModifyOSLocatorRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgModifyOSLocatorRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$5.ObjectStoreLocator>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'locator',
-        subBuilder: $5.ObjectStoreLocator.create)
-    ..hasRequiredFields = false;
-
-  MsgModifyOSLocatorRequest._() : super();
-  factory MsgModifyOSLocatorRequest({
-    $5.ObjectStoreLocator? locator,
-  }) {
-    final _result = create();
-    if (locator != null) {
-      _result.locator = locator;
-    }
-    return _result;
-  }
-  factory MsgModifyOSLocatorRequest.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory MsgModifyOSLocatorRequest.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  MsgModifyOSLocatorRequest clone() =>
-      MsgModifyOSLocatorRequest()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  MsgModifyOSLocatorRequest copyWith(
-          void Function(MsgModifyOSLocatorRequest) updates) =>
-      super.copyWith((message) => updates(message as MsgModifyOSLocatorRequest))
-          as MsgModifyOSLocatorRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MsgModifyOSLocatorRequest create() => MsgModifyOSLocatorRequest._();
-  MsgModifyOSLocatorRequest createEmptyInstance() => create();
-  static $pb.PbList<MsgModifyOSLocatorRequest> createRepeated() =>
-      $pb.PbList<MsgModifyOSLocatorRequest>();
-  @$core.pragma('dart2js:noInline')
-  static MsgModifyOSLocatorRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<MsgModifyOSLocatorRequest>(create);
-  static MsgModifyOSLocatorRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator get locator => $_getN(0);
-  @$pb.TagNumber(1)
-  set locator($5.ObjectStoreLocator v) {
-    setField(1, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasLocator() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLocator() => clearField(1);
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator ensureLocator() => $_ensure(0);
-}
-
-class MsgModifyOSLocatorResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgModifyOSLocatorResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOM<$5.ObjectStoreLocator>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'locator',
-        subBuilder: $5.ObjectStoreLocator.create)
-    ..hasRequiredFields = false;
-
-  MsgModifyOSLocatorResponse._() : super();
-  factory MsgModifyOSLocatorResponse({
-    $5.ObjectStoreLocator? locator,
-  }) {
-    final _result = create();
-    if (locator != null) {
-      _result.locator = locator;
-    }
-    return _result;
-  }
-  factory MsgModifyOSLocatorResponse.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory MsgModifyOSLocatorResponse.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  MsgModifyOSLocatorResponse clone() =>
-      MsgModifyOSLocatorResponse()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  MsgModifyOSLocatorResponse copyWith(
-          void Function(MsgModifyOSLocatorResponse) updates) =>
-      super.copyWith(
-              (message) => updates(message as MsgModifyOSLocatorResponse))
-          as MsgModifyOSLocatorResponse; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MsgModifyOSLocatorResponse create() => MsgModifyOSLocatorResponse._();
-  MsgModifyOSLocatorResponse createEmptyInstance() => create();
-  static $pb.PbList<MsgModifyOSLocatorResponse> createRepeated() =>
-      $pb.PbList<MsgModifyOSLocatorResponse>();
-  @$core.pragma('dart2js:noInline')
-  static MsgModifyOSLocatorResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<MsgModifyOSLocatorResponse>(create);
-  static MsgModifyOSLocatorResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator get locator => $_getN(0);
-  @$pb.TagNumber(1)
-  set locator($5.ObjectStoreLocator v) {
-    setField(1, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasLocator() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLocator() => clearField(1);
-  @$pb.TagNumber(1)
-  $5.ObjectStoreLocator ensureLocator() => $_ensure(0);
-}
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

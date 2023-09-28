@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/connection/v1/connection.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,58 +15,15 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../commitment/v1/commitment.pb.dart' as $0;
-
 import 'connection.pbenum.dart';
 
 export 'connection.pbenum.dart';
 
+/// ConnectionEnd defines a stateful object on a chain connected to another
+/// separate one.
+/// NOTE: there must only be 2 defined ConnectionEnds to establish
+/// a connection between two chains.
 class ConnectionEnd extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ConnectionEnd',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..pc<Version>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'versions',
-        $pb.PbFieldType.PM,
-        subBuilder: Version.create)
-    ..e<State>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'state',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: State.STATE_UNINITIALIZED_UNSPECIFIED,
-        valueOf: State.valueOf,
-        enumValues: State.values)
-    ..aOM<Counterparty>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterparty',
-        subBuilder: Counterparty.create)
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delayPeriod',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  ConnectionEnd._() : super();
   factory ConnectionEnd({
     $core.String? clientId,
     $core.Iterable<Version>? versions,
@@ -70,30 +31,51 @@ class ConnectionEnd extends $pb.GeneratedMessage {
     Counterparty? counterparty,
     $fixnum.Int64? delayPeriod,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (versions != null) {
-      _result.versions.addAll(versions);
+      $result.versions.addAll(versions);
     }
     if (state != null) {
-      _result.state = state;
+      $result.state = state;
     }
     if (counterparty != null) {
-      _result.counterparty = counterparty;
+      $result.counterparty = counterparty;
     }
     if (delayPeriod != null) {
-      _result.delayPeriod = delayPeriod;
+      $result.delayPeriod = delayPeriod;
     }
-    return _result;
+    return $result;
   }
+  ConnectionEnd._() : super();
   factory ConnectionEnd.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ConnectionEnd.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ConnectionEnd',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..pc<Version>(2, _omitFieldNames ? '' : 'versions', $pb.PbFieldType.PM,
+        subBuilder: Version.create)
+    ..e<State>(3, _omitFieldNames ? '' : 'state', $pb.PbFieldType.OE,
+        defaultOrMaker: State.STATE_UNINITIALIZED_UNSPECIFIED,
+        valueOf: State.valueOf,
+        enumValues: State.values)
+    ..aOM<Counterparty>(4, _omitFieldNames ? '' : 'counterparty',
+        subBuilder: Counterparty.create)
+    ..a<$fixnum.Int64>(
+        5, _omitFieldNames ? '' : 'delayPeriod', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -103,8 +85,10 @@ class ConnectionEnd extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ConnectionEnd copyWith(void Function(ConnectionEnd) updates) =>
       super.copyWith((message) => updates(message as ConnectionEnd))
-          as ConnectionEnd; // ignore: deprecated_member_use
+          as ConnectionEnd;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ConnectionEnd create() => ConnectionEnd._();
   ConnectionEnd createEmptyInstance() => create();
@@ -115,6 +99,7 @@ class ConnectionEnd extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ConnectionEnd>(create);
   static ConnectionEnd? _defaultInstance;
 
+  /// client associated with this connection.
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -127,9 +112,12 @@ class ConnectionEnd extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// IBC version which can be utilised to determine encodings or protocols for
+  /// channels or packets utilising this connection.
   @$pb.TagNumber(2)
   $core.List<Version> get versions => $_getList(1);
 
+  /// current state of the connection end.
   @$pb.TagNumber(3)
   State get state => $_getN(2);
   @$pb.TagNumber(3)
@@ -142,6 +130,7 @@ class ConnectionEnd extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearState() => clearField(3);
 
+  /// counterparty chain associated with this connection.
   @$pb.TagNumber(4)
   Counterparty get counterparty => $_getN(3);
   @$pb.TagNumber(4)
@@ -156,6 +145,9 @@ class ConnectionEnd extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   Counterparty ensureCounterparty() => $_ensure(3);
 
+  /// delay period that must pass before a consensus state can be used for
+  /// packet-verification NOTE: delay period logic is only implemented by some
+  /// clients.
   @$pb.TagNumber(5)
   $fixnum.Int64 get delayPeriod => $_getI64(4);
   @$pb.TagNumber(5)
@@ -169,58 +161,9 @@ class ConnectionEnd extends $pb.GeneratedMessage {
   void clearDelayPeriod() => clearField(5);
 }
 
+/// IdentifiedConnection defines a connection with additional connection
+/// identifier field.
 class IdentifiedConnection extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'IdentifiedConnection',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..pc<Version>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'versions',
-        $pb.PbFieldType.PM,
-        subBuilder: Version.create)
-    ..e<State>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'state',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: State.STATE_UNINITIALIZED_UNSPECIFIED,
-        valueOf: State.valueOf,
-        enumValues: State.values)
-    ..aOM<Counterparty>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterparty',
-        subBuilder: Counterparty.create)
-    ..a<$fixnum.Int64>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delayPeriod',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  IdentifiedConnection._() : super();
   factory IdentifiedConnection({
     $core.String? id,
     $core.String? clientId,
@@ -229,33 +172,55 @@ class IdentifiedConnection extends $pb.GeneratedMessage {
     Counterparty? counterparty,
     $fixnum.Int64? delayPeriod,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (versions != null) {
-      _result.versions.addAll(versions);
+      $result.versions.addAll(versions);
     }
     if (state != null) {
-      _result.state = state;
+      $result.state = state;
     }
     if (counterparty != null) {
-      _result.counterparty = counterparty;
+      $result.counterparty = counterparty;
     }
     if (delayPeriod != null) {
-      _result.delayPeriod = delayPeriod;
+      $result.delayPeriod = delayPeriod;
     }
-    return _result;
+    return $result;
   }
+  IdentifiedConnection._() : super();
   factory IdentifiedConnection.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory IdentifiedConnection.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'IdentifiedConnection',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'clientId')
+    ..pc<Version>(3, _omitFieldNames ? '' : 'versions', $pb.PbFieldType.PM,
+        subBuilder: Version.create)
+    ..e<State>(4, _omitFieldNames ? '' : 'state', $pb.PbFieldType.OE,
+        defaultOrMaker: State.STATE_UNINITIALIZED_UNSPECIFIED,
+        valueOf: State.valueOf,
+        enumValues: State.values)
+    ..aOM<Counterparty>(5, _omitFieldNames ? '' : 'counterparty',
+        subBuilder: Counterparty.create)
+    ..a<$fixnum.Int64>(
+        6, _omitFieldNames ? '' : 'delayPeriod', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -266,8 +231,10 @@ class IdentifiedConnection extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   IdentifiedConnection copyWith(void Function(IdentifiedConnection) updates) =>
       super.copyWith((message) => updates(message as IdentifiedConnection))
-          as IdentifiedConnection; // ignore: deprecated_member_use
+          as IdentifiedConnection;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static IdentifiedConnection create() => IdentifiedConnection._();
   IdentifiedConnection createEmptyInstance() => create();
@@ -278,6 +245,7 @@ class IdentifiedConnection extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<IdentifiedConnection>(create);
   static IdentifiedConnection? _defaultInstance;
 
+  /// connection identifier.
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -290,6 +258,7 @@ class IdentifiedConnection extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
 
+  /// client associated with this connection.
   @$pb.TagNumber(2)
   $core.String get clientId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -302,9 +271,12 @@ class IdentifiedConnection extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearClientId() => clearField(2);
 
+  /// IBC version which can be utilised to determine encodings or protocols for
+  /// channels or packets utilising this connection
   @$pb.TagNumber(3)
   $core.List<Version> get versions => $_getList(2);
 
+  /// current state of the connection end.
   @$pb.TagNumber(4)
   State get state => $_getN(3);
   @$pb.TagNumber(4)
@@ -317,6 +289,7 @@ class IdentifiedConnection extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearState() => clearField(4);
 
+  /// counterparty chain associated with this connection.
   @$pb.TagNumber(5)
   Counterparty get counterparty => $_getN(4);
   @$pb.TagNumber(5)
@@ -331,6 +304,7 @@ class IdentifiedConnection extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   Counterparty ensureCounterparty() => $_ensure(4);
 
+  /// delay period associated with this connection.
   @$pb.TagNumber(6)
   $fixnum.Int64 get delayPeriod => $_getI64(5);
   @$pb.TagNumber(6)
@@ -344,58 +318,44 @@ class IdentifiedConnection extends $pb.GeneratedMessage {
   void clearDelayPeriod() => clearField(6);
 }
 
+/// Counterparty defines the counterparty chain associated with a connection end.
 class Counterparty extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Counterparty',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..aOM<$0.MerklePrefix>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'prefix',
-        subBuilder: $0.MerklePrefix.create)
-    ..hasRequiredFields = false;
-
-  Counterparty._() : super();
   factory Counterparty({
     $core.String? clientId,
     $core.String? connectionId,
     $0.MerklePrefix? prefix,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
     if (prefix != null) {
-      _result.prefix = prefix;
+      $result.prefix = prefix;
     }
-    return _result;
+    return $result;
   }
+  Counterparty._() : super();
   factory Counterparty.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Counterparty.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Counterparty',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..aOS(2, _omitFieldNames ? '' : 'connectionId')
+    ..aOM<$0.MerklePrefix>(3, _omitFieldNames ? '' : 'prefix',
+        subBuilder: $0.MerklePrefix.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -405,8 +365,10 @@ class Counterparty extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Counterparty copyWith(void Function(Counterparty) updates) =>
       super.copyWith((message) => updates(message as Counterparty))
-          as Counterparty; // ignore: deprecated_member_use
+          as Counterparty;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Counterparty create() => Counterparty._();
   Counterparty createEmptyInstance() => create();
@@ -417,6 +379,8 @@ class Counterparty extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<Counterparty>(create);
   static Counterparty? _defaultInstance;
 
+  /// identifies the client on the counterparty chain associated with a given
+  /// connection.
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -429,6 +393,8 @@ class Counterparty extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// identifies the connection end on the counterparty chain associated with a
+  /// given connection.
   @$pb.TagNumber(2)
   $core.String get connectionId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -441,6 +407,7 @@ class Counterparty extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearConnectionId() => clearField(2);
 
+  /// commitment merkle prefix of the counterparty chain.
   @$pb.TagNumber(3)
   $0.MerklePrefix get prefix => $_getN(2);
   @$pb.TagNumber(3)
@@ -456,39 +423,33 @@ class Counterparty extends $pb.GeneratedMessage {
   $0.MerklePrefix ensurePrefix() => $_ensure(2);
 }
 
+/// ClientPaths define all the connection paths for a client state.
 class ClientPaths extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ClientPaths',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'paths')
-    ..hasRequiredFields = false;
-
-  ClientPaths._() : super();
   factory ClientPaths({
     $core.Iterable<$core.String>? paths,
   }) {
-    final _result = create();
+    final $result = create();
     if (paths != null) {
-      _result.paths.addAll(paths);
+      $result.paths.addAll(paths);
     }
-    return _result;
+    return $result;
   }
+  ClientPaths._() : super();
   factory ClientPaths.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClientPaths.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ClientPaths',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'paths')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -498,8 +459,10 @@ class ClientPaths extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ClientPaths copyWith(void Function(ClientPaths) updates) =>
       super.copyWith((message) => updates(message as ClientPaths))
-          as ClientPaths; // ignore: deprecated_member_use
+          as ClientPaths;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClientPaths create() => ClientPaths._();
   ClientPaths createEmptyInstance() => create();
@@ -509,52 +472,43 @@ class ClientPaths extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ClientPaths>(create);
   static ClientPaths? _defaultInstance;
 
+  /// list of connection paths
   @$pb.TagNumber(1)
   $core.List<$core.String> get paths => $_getList(0);
 }
 
+/// ConnectionPaths define all the connection paths for a given client state.
 class ConnectionPaths extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ConnectionPaths',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'paths')
-    ..hasRequiredFields = false;
-
-  ConnectionPaths._() : super();
   factory ConnectionPaths({
     $core.String? clientId,
     $core.Iterable<$core.String>? paths,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (paths != null) {
-      _result.paths.addAll(paths);
+      $result.paths.addAll(paths);
     }
-    return _result;
+    return $result;
   }
+  ConnectionPaths._() : super();
   factory ConnectionPaths.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ConnectionPaths.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ConnectionPaths',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..pPS(2, _omitFieldNames ? '' : 'paths')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -564,8 +518,10 @@ class ConnectionPaths extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ConnectionPaths copyWith(void Function(ConnectionPaths) updates) =>
       super.copyWith((message) => updates(message as ConnectionPaths))
-          as ConnectionPaths; // ignore: deprecated_member_use
+          as ConnectionPaths;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ConnectionPaths create() => ConnectionPaths._();
   ConnectionPaths createEmptyInstance() => create();
@@ -576,6 +532,7 @@ class ConnectionPaths extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ConnectionPaths>(create);
   static ConnectionPaths? _defaultInstance;
 
+  /// client state unique identifier
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -588,52 +545,44 @@ class ConnectionPaths extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// list of connection paths
   @$pb.TagNumber(2)
   $core.List<$core.String> get paths => $_getList(1);
 }
 
+/// Version defines the versioning scheme used to negotiate the IBC verison in
+/// the connection handshake.
 class Version extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Version',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'identifier')
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'features')
-    ..hasRequiredFields = false;
-
-  Version._() : super();
   factory Version({
     $core.String? identifier,
     $core.Iterable<$core.String>? features,
   }) {
-    final _result = create();
+    final $result = create();
     if (identifier != null) {
-      _result.identifier = identifier;
+      $result.identifier = identifier;
     }
     if (features != null) {
-      _result.features.addAll(features);
+      $result.features.addAll(features);
     }
-    return _result;
+    return $result;
   }
+  Version._() : super();
   factory Version.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Version.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Version',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'identifier')
+    ..pPS(2, _omitFieldNames ? '' : 'features')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -642,9 +591,10 @@ class Version extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Version copyWith(void Function(Version) updates) =>
-      super.copyWith((message) => updates(message as Version))
-          as Version; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Version)) as Version;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Version create() => Version._();
   Version createEmptyInstance() => create();
@@ -654,6 +604,7 @@ class Version extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Version>(create);
   static Version? _defaultInstance;
 
+  /// unique version identifier
   @$pb.TagNumber(1)
   $core.String get identifier => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -666,45 +617,40 @@ class Version extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearIdentifier() => clearField(1);
 
+  /// list of features compatible with the specified identifier
   @$pb.TagNumber(2)
   $core.List<$core.String> get features => $_getList(1);
 }
 
+/// Params defines the set of Connection parameters.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxExpectedTimePerBlock',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
     $fixnum.Int64? maxExpectedTimePerBlock,
   }) {
-    final _result = create();
+    final $result = create();
     if (maxExpectedTimePerBlock != null) {
-      _result.maxExpectedTimePerBlock = maxExpectedTimePerBlock;
+      $result.maxExpectedTimePerBlock = maxExpectedTimePerBlock;
     }
-    return _result;
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'maxExpectedTimePerBlock',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -713,9 +659,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -725,6 +672,9 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
+  /// maximum expected time per block (in nanoseconds), used to enforce block delay. This parameter should reflect the
+  /// largest amount of time that the chain might reasonably take to produce the next block under normal operating
+  /// conditions. A safe choice is 3-5x the expected time per block.
   @$pb.TagNumber(1)
   $fixnum.Int64 get maxExpectedTimePerBlock => $_getI64(0);
   @$pb.TagNumber(1)
@@ -737,3 +687,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMaxExpectedTimePerBlock() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

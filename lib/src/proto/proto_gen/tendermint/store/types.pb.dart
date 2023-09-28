@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/store/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,47 +15,36 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class BlockStoreState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BlockStoreState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.store'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'base')
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..hasRequiredFields = false;
-
-  BlockStoreState._() : super();
   factory BlockStoreState({
     $fixnum.Int64? base,
     $fixnum.Int64? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (base != null) {
-      _result.base = base;
+      $result.base = base;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  BlockStoreState._() : super();
   factory BlockStoreState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BlockStoreState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BlockStoreState',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.store'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'base')
+    ..aInt64(2, _omitFieldNames ? '' : 'height')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -61,8 +54,10 @@ class BlockStoreState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   BlockStoreState copyWith(void Function(BlockStoreState) updates) =>
       super.copyWith((message) => updates(message as BlockStoreState))
-          as BlockStoreState; // ignore: deprecated_member_use
+          as BlockStoreState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BlockStoreState create() => BlockStoreState._();
   BlockStoreState createEmptyInstance() => create();
@@ -97,3 +92,7 @@ class BlockStoreState extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearHeight() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

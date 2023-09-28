@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/evidence/v1beta1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,49 +15,40 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../google/protobuf/any.pb.dart' as $1;
 
+/// MsgSubmitEvidence represents a message that supports submitting arbitrary
+/// Evidence of misbehavior such as equivocation or counterfactual signing.
 class MsgSubmitEvidence extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgSubmitEvidence',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.evidence.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'submitter')
-    ..aOM<$1.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'evidence',
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  MsgSubmitEvidence._() : super();
   factory MsgSubmitEvidence({
     $core.String? submitter,
     $1.Any? evidence,
   }) {
-    final _result = create();
+    final $result = create();
     if (submitter != null) {
-      _result.submitter = submitter;
+      $result.submitter = submitter;
     }
     if (evidence != null) {
-      _result.evidence = evidence;
+      $result.evidence = evidence;
     }
-    return _result;
+    return $result;
   }
+  MsgSubmitEvidence._() : super();
   factory MsgSubmitEvidence.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgSubmitEvidence.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSubmitEvidence',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.evidence.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'submitter')
+    ..aOM<$1.Any>(2, _omitFieldNames ? '' : 'evidence',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -63,8 +58,10 @@ class MsgSubmitEvidence extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgSubmitEvidence copyWith(void Function(MsgSubmitEvidence) updates) =>
       super.copyWith((message) => updates(message as MsgSubmitEvidence))
-          as MsgSubmitEvidence; // ignore: deprecated_member_use
+          as MsgSubmitEvidence;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgSubmitEvidence create() => MsgSubmitEvidence._();
   MsgSubmitEvidence createEmptyInstance() => create();
@@ -102,40 +99,34 @@ class MsgSubmitEvidence extends $pb.GeneratedMessage {
   $1.Any ensureEvidence() => $_ensure(1);
 }
 
+/// MsgSubmitEvidenceResponse defines the Msg/SubmitEvidence response type.
 class MsgSubmitEvidenceResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgSubmitEvidenceResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.evidence.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  MsgSubmitEvidenceResponse._() : super();
   factory MsgSubmitEvidenceResponse({
     $core.List<$core.int>? hash,
   }) {
-    final _result = create();
+    final $result = create();
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
-    return _result;
+    return $result;
   }
+  MsgSubmitEvidenceResponse._() : super();
   factory MsgSubmitEvidenceResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgSubmitEvidenceResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSubmitEvidenceResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.evidence.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -147,8 +138,10 @@ class MsgSubmitEvidenceResponse extends $pb.GeneratedMessage {
   MsgSubmitEvidenceResponse copyWith(
           void Function(MsgSubmitEvidenceResponse) updates) =>
       super.copyWith((message) => updates(message as MsgSubmitEvidenceResponse))
-          as MsgSubmitEvidenceResponse; // ignore: deprecated_member_use
+          as MsgSubmitEvidenceResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgSubmitEvidenceResponse create() => MsgSubmitEvidenceResponse._();
   MsgSubmitEvidenceResponse createEmptyInstance() => create();
@@ -159,6 +152,7 @@ class MsgSubmitEvidenceResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgSubmitEvidenceResponse>(create);
   static MsgSubmitEvidenceResponse? _defaultInstance;
 
+  /// hash defines the hash of the evidence.
   @$pb.TagNumber(4)
   $core.List<$core.int> get hash => $_getN(0);
   @$pb.TagNumber(4)
@@ -171,3 +165,7 @@ class MsgSubmitEvidenceResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearHash() => clearField(4);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

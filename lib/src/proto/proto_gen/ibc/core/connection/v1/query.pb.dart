@@ -1,53 +1,52 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/connection/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'connection.pb.dart' as $1;
-import '../../client/v1/client.pb.dart' as $2;
 import '../../../../cosmos/base/query/v1beta1/pagination.pb.dart' as $3;
 import '../../../../google/protobuf/any.pb.dart' as $4;
+import '../../client/v1/client.pb.dart' as $2;
+import 'connection.pb.dart' as $1;
 
+/// QueryConnectionRequest is the request type for the Query/Connection RPC
+/// method
 class QueryConnectionRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..hasRequiredFields = false;
-
-  QueryConnectionRequest._() : super();
   factory QueryConnectionRequest({
     $core.String? connectionId,
   }) {
-    final _result = create();
+    final $result = create();
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionRequest._() : super();
   factory QueryConnectionRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConnectionRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'connectionId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -59,8 +58,10 @@ class QueryConnectionRequest extends $pb.GeneratedMessage {
   QueryConnectionRequest copyWith(
           void Function(QueryConnectionRequest) updates) =>
       super.copyWith((message) => updates(message as QueryConnectionRequest))
-          as QueryConnectionRequest; // ignore: deprecated_member_use
+          as QueryConnectionRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionRequest create() => QueryConnectionRequest._();
   QueryConnectionRequest createEmptyInstance() => create();
@@ -71,6 +72,7 @@ class QueryConnectionRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryConnectionRequest>(create);
   static QueryConnectionRequest? _defaultInstance;
 
+  /// connection unique identifier
   @$pb.TagNumber(1)
   $core.String get connectionId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -84,60 +86,48 @@ class QueryConnectionRequest extends $pb.GeneratedMessage {
   void clearConnectionId() => clearField(1);
 }
 
+/// QueryConnectionResponse is the response type for the Query/Connection RPC
+/// method. Besides the connection end, it includes a proof and the height from
+/// which the proof was retrieved.
 class QueryConnectionResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.ConnectionEnd>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connection',
-        subBuilder: $1.ConnectionEnd.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryConnectionResponse._() : super();
   factory QueryConnectionResponse({
     $1.ConnectionEnd? connection,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (connection != null) {
-      _result.connection = connection;
+      $result.connection = connection;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionResponse._() : super();
   factory QueryConnectionResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConnectionResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.ConnectionEnd>(1, _omitFieldNames ? '' : 'connection',
+        subBuilder: $1.ConnectionEnd.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -149,8 +139,10 @@ class QueryConnectionResponse extends $pb.GeneratedMessage {
   QueryConnectionResponse copyWith(
           void Function(QueryConnectionResponse) updates) =>
       super.copyWith((message) => updates(message as QueryConnectionResponse))
-          as QueryConnectionResponse; // ignore: deprecated_member_use
+          as QueryConnectionResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionResponse create() => QueryConnectionResponse._();
   QueryConnectionResponse createEmptyInstance() => create();
@@ -161,6 +153,7 @@ class QueryConnectionResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryConnectionResponse>(create);
   static QueryConnectionResponse? _defaultInstance;
 
+  /// connection associated with the request identifier
   @$pb.TagNumber(1)
   $1.ConnectionEnd get connection => $_getN(0);
   @$pb.TagNumber(1)
@@ -175,6 +168,7 @@ class QueryConnectionResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.ConnectionEnd ensureConnection() => $_ensure(0);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -187,6 +181,7 @@ class QueryConnectionResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -202,40 +197,35 @@ class QueryConnectionResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryConnectionsRequest is the request type for the Query/Connections RPC
+/// method
 class QueryConnectionsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryConnectionsRequest._() : super();
   factory QueryConnectionsRequest({
     $3.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionsRequest._() : super();
   factory QueryConnectionsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConnectionsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -247,8 +237,10 @@ class QueryConnectionsRequest extends $pb.GeneratedMessage {
   QueryConnectionsRequest copyWith(
           void Function(QueryConnectionsRequest) updates) =>
       super.copyWith((message) => updates(message as QueryConnectionsRequest))
-          as QueryConnectionsRequest; // ignore: deprecated_member_use
+          as QueryConnectionsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionsRequest create() => QueryConnectionsRequest._();
   QueryConnectionsRequest createEmptyInstance() => create();
@@ -274,61 +266,48 @@ class QueryConnectionsRequest extends $pb.GeneratedMessage {
   $3.PageRequest ensurePagination() => $_ensure(0);
 }
 
+/// QueryConnectionsResponse is the response type for the Query/Connections RPC
+/// method.
 class QueryConnectionsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.IdentifiedConnection>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connections',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.IdentifiedConnection.create)
-    ..aOM<$3.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageResponse.create)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryConnectionsResponse._() : super();
   factory QueryConnectionsResponse({
     $core.Iterable<$1.IdentifiedConnection>? connections,
     $3.PageResponse? pagination,
     $2.Height? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (connections != null) {
-      _result.connections.addAll(connections);
+      $result.connections.addAll(connections);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionsResponse._() : super();
   factory QueryConnectionsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConnectionsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.IdentifiedConnection>(
+        1, _omitFieldNames ? '' : 'connections', $pb.PbFieldType.PM,
+        subBuilder: $1.IdentifiedConnection.create)
+    ..aOM<$3.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'height',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -340,8 +319,10 @@ class QueryConnectionsResponse extends $pb.GeneratedMessage {
   QueryConnectionsResponse copyWith(
           void Function(QueryConnectionsResponse) updates) =>
       super.copyWith((message) => updates(message as QueryConnectionsResponse))
-          as QueryConnectionsResponse; // ignore: deprecated_member_use
+          as QueryConnectionsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionsResponse create() => QueryConnectionsResponse._();
   QueryConnectionsResponse createEmptyInstance() => create();
@@ -352,9 +333,11 @@ class QueryConnectionsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryConnectionsResponse>(create);
   static QueryConnectionsResponse? _defaultInstance;
 
+  /// list of stored connections of the chain.
   @$pb.TagNumber(1)
   $core.List<$1.IdentifiedConnection> get connections => $_getList(0);
 
+  /// pagination response
   @$pb.TagNumber(2)
   $3.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -369,6 +352,7 @@ class QueryConnectionsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $3.PageResponse ensurePagination() => $_ensure(1);
 
+  /// query block height
   @$pb.TagNumber(3)
   $2.Height get height => $_getN(2);
   @$pb.TagNumber(3)
@@ -384,39 +368,34 @@ class QueryConnectionsResponse extends $pb.GeneratedMessage {
   $2.Height ensureHeight() => $_ensure(2);
 }
 
+/// QueryClientConnectionsRequest is the request type for the
+/// Query/ClientConnections RPC method
 class QueryClientConnectionsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientConnectionsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..hasRequiredFields = false;
-
-  QueryClientConnectionsRequest._() : super();
   factory QueryClientConnectionsRequest({
     $core.String? clientId,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
-    return _result;
+    return $result;
   }
+  QueryClientConnectionsRequest._() : super();
   factory QueryClientConnectionsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientConnectionsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientConnectionsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -429,8 +408,10 @@ class QueryClientConnectionsRequest extends $pb.GeneratedMessage {
           void Function(QueryClientConnectionsRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryClientConnectionsRequest))
-          as QueryClientConnectionsRequest; // ignore: deprecated_member_use
+          as QueryClientConnectionsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientConnectionsRequest create() =>
       QueryClientConnectionsRequest._();
@@ -442,6 +423,7 @@ class QueryClientConnectionsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryClientConnectionsRequest>(create);
   static QueryClientConnectionsRequest? _defaultInstance;
 
+  /// client identifier associated with a connection
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -455,59 +437,46 @@ class QueryClientConnectionsRequest extends $pb.GeneratedMessage {
   void clearClientId() => clearField(1);
 }
 
+/// QueryClientConnectionsResponse is the response type for the
+/// Query/ClientConnections RPC method
 class QueryClientConnectionsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientConnectionsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionPaths')
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryClientConnectionsResponse._() : super();
   factory QueryClientConnectionsResponse({
     $core.Iterable<$core.String>? connectionPaths,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (connectionPaths != null) {
-      _result.connectionPaths.addAll(connectionPaths);
+      $result.connectionPaths.addAll(connectionPaths);
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryClientConnectionsResponse._() : super();
   factory QueryClientConnectionsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientConnectionsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientConnectionsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'connectionPaths')
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -520,8 +489,10 @@ class QueryClientConnectionsResponse extends $pb.GeneratedMessage {
           void Function(QueryClientConnectionsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryClientConnectionsResponse))
-          as QueryClientConnectionsResponse; // ignore: deprecated_member_use
+          as QueryClientConnectionsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientConnectionsResponse create() =>
       QueryClientConnectionsResponse._();
@@ -533,9 +504,11 @@ class QueryClientConnectionsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryClientConnectionsResponse>(create);
   static QueryClientConnectionsResponse? _defaultInstance;
 
+  /// slice of all the connection paths associated with a client.
   @$pb.TagNumber(1)
   $core.List<$core.String> get connectionPaths => $_getList(0);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -548,6 +521,7 @@ class QueryClientConnectionsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was generated
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -563,39 +537,34 @@ class QueryClientConnectionsResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryConnectionClientStateRequest is the request type for the
+/// Query/ConnectionClientState RPC method
 class QueryConnectionClientStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionClientStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..hasRequiredFields = false;
-
-  QueryConnectionClientStateRequest._() : super();
   factory QueryConnectionClientStateRequest({
     $core.String? connectionId,
   }) {
-    final _result = create();
+    final $result = create();
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionClientStateRequest._() : super();
   factory QueryConnectionClientStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConnectionClientStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionClientStateRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'connectionId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -608,8 +577,10 @@ class QueryConnectionClientStateRequest extends $pb.GeneratedMessage {
           void Function(QueryConnectionClientStateRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryConnectionClientStateRequest))
-          as QueryConnectionClientStateRequest; // ignore: deprecated_member_use
+          as QueryConnectionClientStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionClientStateRequest create() =>
       QueryConnectionClientStateRequest._();
@@ -622,6 +593,7 @@ class QueryConnectionClientStateRequest extends $pb.GeneratedMessage {
           create);
   static QueryConnectionClientStateRequest? _defaultInstance;
 
+  /// connection identifier
   @$pb.TagNumber(1)
   $core.String get connectionId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -635,60 +607,48 @@ class QueryConnectionClientStateRequest extends $pb.GeneratedMessage {
   void clearConnectionId() => clearField(1);
 }
 
+/// QueryConnectionClientStateResponse is the response type for the
+/// Query/ConnectionClientState RPC method
 class QueryConnectionClientStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionClientStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.IdentifiedClientState>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'identifiedClientState',
-        subBuilder: $2.IdentifiedClientState.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryConnectionClientStateResponse._() : super();
   factory QueryConnectionClientStateResponse({
     $2.IdentifiedClientState? identifiedClientState,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (identifiedClientState != null) {
-      _result.identifiedClientState = identifiedClientState;
+      $result.identifiedClientState = identifiedClientState;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionClientStateResponse._() : super();
   factory QueryConnectionClientStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConnectionClientStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionClientStateResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.IdentifiedClientState>(
+        1, _omitFieldNames ? '' : 'identifiedClientState',
+        subBuilder: $2.IdentifiedClientState.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -701,8 +661,10 @@ class QueryConnectionClientStateResponse extends $pb.GeneratedMessage {
           void Function(QueryConnectionClientStateResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryConnectionClientStateResponse))
-          as QueryConnectionClientStateResponse; // ignore: deprecated_member_use
+          as QueryConnectionClientStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionClientStateResponse create() =>
       QueryConnectionClientStateResponse._();
@@ -715,6 +677,7 @@ class QueryConnectionClientStateResponse extends $pb.GeneratedMessage {
           create);
   static QueryConnectionClientStateResponse? _defaultInstance;
 
+  /// client state associated with the channel
   @$pb.TagNumber(1)
   $2.IdentifiedClientState get identifiedClientState => $_getN(0);
   @$pb.TagNumber(1)
@@ -729,6 +692,7 @@ class QueryConnectionClientStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $2.IdentifiedClientState ensureIdentifiedClientState() => $_ensure(0);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -741,6 +705,7 @@ class QueryConnectionClientStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -756,55 +721,27 @@ class QueryConnectionClientStateResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryConnectionConsensusStateRequest is the request type for the
+/// Query/ConnectionConsensusState RPC method
 class QueryConnectionConsensusStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionConsensusStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'revisionNumber',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'revisionHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryConnectionConsensusStateRequest._() : super();
   factory QueryConnectionConsensusStateRequest({
     $core.String? connectionId,
     $fixnum.Int64? revisionNumber,
     $fixnum.Int64? revisionHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
     if (revisionNumber != null) {
-      _result.revisionNumber = revisionNumber;
+      $result.revisionNumber = revisionNumber;
     }
     if (revisionHeight != null) {
-      _result.revisionHeight = revisionHeight;
+      $result.revisionHeight = revisionHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionConsensusStateRequest._() : super();
   factory QueryConnectionConsensusStateRequest.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -812,6 +749,21 @@ class QueryConnectionConsensusStateRequest extends $pb.GeneratedMessage {
   factory QueryConnectionConsensusStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionConsensusStateRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'connectionId')
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'revisionNumber', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'revisionHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -824,8 +776,10 @@ class QueryConnectionConsensusStateRequest extends $pb.GeneratedMessage {
           void Function(QueryConnectionConsensusStateRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryConnectionConsensusStateRequest))
-          as QueryConnectionConsensusStateRequest; // ignore: deprecated_member_use
+          as QueryConnectionConsensusStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionConsensusStateRequest create() =>
       QueryConnectionConsensusStateRequest._();
@@ -838,6 +792,7 @@ class QueryConnectionConsensusStateRequest extends $pb.GeneratedMessage {
           QueryConnectionConsensusStateRequest>(create);
   static QueryConnectionConsensusStateRequest? _defaultInstance;
 
+  /// connection identifier
   @$pb.TagNumber(1)
   $core.String get connectionId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -875,63 +830,31 @@ class QueryConnectionConsensusStateRequest extends $pb.GeneratedMessage {
   void clearRevisionHeight() => clearField(3);
 }
 
+/// QueryConnectionConsensusStateResponse is the response type for the
+/// Query/ConnectionConsensusState RPC method
 class QueryConnectionConsensusStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionConsensusStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.connection.v1'),
-      createEmptyInstance: create)
-    ..aOM<$4.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusState',
-        subBuilder: $4.Any.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryConnectionConsensusStateResponse._() : super();
   factory QueryConnectionConsensusStateResponse({
     $4.Any? consensusState,
     $core.String? clientId,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (consensusState != null) {
-      _result.consensusState = consensusState;
+      $result.consensusState = consensusState;
     }
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionConsensusStateResponse._() : super();
   factory QueryConnectionConsensusStateResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -939,6 +862,21 @@ class QueryConnectionConsensusStateResponse extends $pb.GeneratedMessage {
   factory QueryConnectionConsensusStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionConsensusStateResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOM<$4.Any>(1, _omitFieldNames ? '' : 'consensusState',
+        subBuilder: $4.Any.create)
+    ..aOS(2, _omitFieldNames ? '' : 'clientId')
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(4, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -951,8 +889,10 @@ class QueryConnectionConsensusStateResponse extends $pb.GeneratedMessage {
           void Function(QueryConnectionConsensusStateResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryConnectionConsensusStateResponse))
-          as QueryConnectionConsensusStateResponse; // ignore: deprecated_member_use
+          as QueryConnectionConsensusStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionConsensusStateResponse create() =>
       QueryConnectionConsensusStateResponse._();
@@ -965,6 +905,7 @@ class QueryConnectionConsensusStateResponse extends $pb.GeneratedMessage {
           QueryConnectionConsensusStateResponse>(create);
   static QueryConnectionConsensusStateResponse? _defaultInstance;
 
+  /// consensus state associated with the channel
   @$pb.TagNumber(1)
   $4.Any get consensusState => $_getN(0);
   @$pb.TagNumber(1)
@@ -979,6 +920,7 @@ class QueryConnectionConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $4.Any ensureConsensusState() => $_ensure(0);
 
+  /// client ID associated with the consensus state
   @$pb.TagNumber(2)
   $core.String get clientId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -991,6 +933,7 @@ class QueryConnectionConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearClientId() => clearField(2);
 
+  /// merkle proof of existence
   @$pb.TagNumber(3)
   $core.List<$core.int> get proof => $_getN(2);
   @$pb.TagNumber(3)
@@ -1003,6 +946,7 @@ class QueryConnectionConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearProof() => clearField(3);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(4)
   $2.Height get proofHeight => $_getN(3);
   @$pb.TagNumber(4)
@@ -1017,3 +961,124 @@ class QueryConnectionConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $2.Height ensureProofHeight() => $_ensure(3);
 }
+
+/// QueryConnectionParamsRequest is the request type for the Query/ConnectionParams RPC method.
+class QueryConnectionParamsRequest extends $pb.GeneratedMessage {
+  factory QueryConnectionParamsRequest() => create();
+  QueryConnectionParamsRequest._() : super();
+  factory QueryConnectionParamsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryConnectionParamsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionParamsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryConnectionParamsRequest clone() =>
+      QueryConnectionParamsRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryConnectionParamsRequest copyWith(
+          void Function(QueryConnectionParamsRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryConnectionParamsRequest))
+          as QueryConnectionParamsRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryConnectionParamsRequest create() =>
+      QueryConnectionParamsRequest._();
+  QueryConnectionParamsRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryConnectionParamsRequest> createRepeated() =>
+      $pb.PbList<QueryConnectionParamsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryConnectionParamsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryConnectionParamsRequest>(create);
+  static QueryConnectionParamsRequest? _defaultInstance;
+}
+
+/// QueryConnectionParamsResponse is the response type for the Query/ConnectionParams RPC method.
+class QueryConnectionParamsResponse extends $pb.GeneratedMessage {
+  factory QueryConnectionParamsResponse({
+    $1.Params? params,
+  }) {
+    final $result = create();
+    if (params != null) {
+      $result.params = params;
+    }
+    return $result;
+  }
+  QueryConnectionParamsResponse._() : super();
+  factory QueryConnectionParamsResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryConnectionParamsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionParamsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.connection.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Params>(1, _omitFieldNames ? '' : 'params',
+        subBuilder: $1.Params.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryConnectionParamsResponse clone() =>
+      QueryConnectionParamsResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryConnectionParamsResponse copyWith(
+          void Function(QueryConnectionParamsResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryConnectionParamsResponse))
+          as QueryConnectionParamsResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryConnectionParamsResponse create() =>
+      QueryConnectionParamsResponse._();
+  QueryConnectionParamsResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryConnectionParamsResponse> createRepeated() =>
+      $pb.PbList<QueryConnectionParamsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryConnectionParamsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryConnectionParamsResponse>(create);
+  static QueryConnectionParamsResponse? _defaultInstance;
+
+  /// params defines the parameters of the module.
+  @$pb.TagNumber(1)
+  $1.Params get params => $_getN(0);
+  @$pb.TagNumber(1)
+  set params($1.Params v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasParams() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearParams() => clearField(1);
+  @$pb.TagNumber(1)
+  $1.Params ensureParams() => $_ensure(0);
+}
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

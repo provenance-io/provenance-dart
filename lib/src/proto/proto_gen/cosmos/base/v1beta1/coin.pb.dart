@@ -1,56 +1,53 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/v1beta1/coin.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+///  Coin defines a token with a denomination and an amount.
+///
+///  NOTE: The amount field is an Int which implements the custom method
+///  signatures required by gogoproto.
 class Coin extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Coin',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount')
-    ..hasRequiredFields = false;
-
-  Coin._() : super();
   factory Coin({
     $core.String? denom,
     $core.String? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
-    return _result;
+    return $result;
   }
+  Coin._() : super();
   factory Coin.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Coin.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Coin',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.base.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'amount')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -59,9 +56,10 @@ class Coin extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Coin copyWith(void Function(Coin) updates) =>
-      super.copyWith((message) => updates(message as Coin))
-          as Coin; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Coin)) as Coin;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Coin create() => Coin._();
   Coin createEmptyInstance() => create();
@@ -96,48 +94,41 @@ class Coin extends $pb.GeneratedMessage {
   void clearAmount() => clearField(2);
 }
 
+///  DecCoin defines a token with a denomination and a decimal amount.
+///
+///  NOTE: The amount field is an Dec which implements the custom method
+///  signatures required by gogoproto.
 class DecCoin extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DecCoin',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount')
-    ..hasRequiredFields = false;
-
-  DecCoin._() : super();
   factory DecCoin({
     $core.String? denom,
     $core.String? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
-    return _result;
+    return $result;
   }
+  DecCoin._() : super();
   factory DecCoin.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DecCoin.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DecCoin',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.base.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'amount')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -146,9 +137,10 @@ class DecCoin extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   DecCoin copyWith(void Function(DecCoin) updates) =>
-      super.copyWith((message) => updates(message as DecCoin))
-          as DecCoin; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as DecCoin)) as DecCoin;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DecCoin create() => DecCoin._();
   DecCoin createEmptyInstance() => create();
@@ -183,39 +175,33 @@ class DecCoin extends $pb.GeneratedMessage {
   void clearAmount() => clearField(2);
 }
 
+/// IntProto defines a Protobuf wrapper around an Int object.
 class IntProto extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'IntProto',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'int')
-    ..hasRequiredFields = false;
-
-  IntProto._() : super();
   factory IntProto({
     $core.String? int_1,
   }) {
-    final _result = create();
+    final $result = create();
     if (int_1 != null) {
-      _result.int_1 = int_1;
+      $result.int_1 = int_1;
     }
-    return _result;
+    return $result;
   }
+  IntProto._() : super();
   factory IntProto.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory IntProto.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'IntProto',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.base.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'int')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -224,9 +210,10 @@ class IntProto extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   IntProto copyWith(void Function(IntProto) updates) =>
-      super.copyWith((message) => updates(message as IntProto))
-          as IntProto; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as IntProto)) as IntProto;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static IntProto create() => IntProto._();
   IntProto createEmptyInstance() => create();
@@ -249,39 +236,33 @@ class IntProto extends $pb.GeneratedMessage {
   void clearInt_1() => clearField(1);
 }
 
+/// DecProto defines a Protobuf wrapper around a Dec object.
 class DecProto extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DecProto',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'dec')
-    ..hasRequiredFields = false;
-
-  DecProto._() : super();
   factory DecProto({
     $core.String? dec,
   }) {
-    final _result = create();
+    final $result = create();
     if (dec != null) {
-      _result.dec = dec;
+      $result.dec = dec;
     }
-    return _result;
+    return $result;
   }
+  DecProto._() : super();
   factory DecProto.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DecProto.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DecProto',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.base.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'dec')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -290,9 +271,10 @@ class DecProto extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   DecProto copyWith(void Function(DecProto) updates) =>
-      super.copyWith((message) => updates(message as DecProto))
-          as DecProto; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as DecProto)) as DecProto;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DecProto create() => DecProto._();
   DecProto createEmptyInstance() => create();
@@ -314,3 +296,7 @@ class DecProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearDec() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

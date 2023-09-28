@@ -1,49 +1,46 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/kv/v1beta1/kv.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// Pairs defines a repeated slice of Pair objects.
 class Pairs extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Pairs',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.kv.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<Pair>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pairs',
-        $pb.PbFieldType.PM,
-        subBuilder: Pair.create)
-    ..hasRequiredFields = false;
-
-  Pairs._() : super();
   factory Pairs({
     $core.Iterable<Pair>? pairs,
   }) {
-    final _result = create();
+    final $result = create();
     if (pairs != null) {
-      _result.pairs.addAll(pairs);
+      $result.pairs.addAll(pairs);
     }
-    return _result;
+    return $result;
   }
+  Pairs._() : super();
   factory Pairs.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Pairs.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Pairs',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.kv.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<Pair>(1, _omitFieldNames ? '' : 'pairs', $pb.PbFieldType.PM,
+        subBuilder: Pair.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -52,9 +49,10 @@ class Pairs extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Pairs copyWith(void Function(Pairs) updates) =>
-      super.copyWith((message) => updates(message as Pairs))
-          as Pairs; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Pairs)) as Pairs;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Pairs create() => Pairs._();
   Pairs createEmptyInstance() => create();
@@ -68,50 +66,40 @@ class Pairs extends $pb.GeneratedMessage {
   $core.List<Pair> get pairs => $_getList(0);
 }
 
+/// Pair defines a key/value bytes tuple.
 class Pair extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Pair',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.kv.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  Pair._() : super();
   factory Pair({
     $core.List<$core.int>? key,
     $core.List<$core.int>? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  Pair._() : super();
   factory Pair.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Pair.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Pair',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.kv.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -120,9 +108,10 @@ class Pair extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Pair copyWith(void Function(Pair) updates) =>
-      super.copyWith((message) => updates(message as Pair))
-          as Pair; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Pair)) as Pair;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Pair create() => Pair._();
   Pair createEmptyInstance() => create();
@@ -156,3 +145,7 @@ class Pair extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearValue() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

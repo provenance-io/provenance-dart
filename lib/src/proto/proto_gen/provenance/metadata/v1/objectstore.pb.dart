@@ -1,65 +1,56 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/metadata/v1/objectstore.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// Defines an Locator object stored on chain, which represents a owner( blockchain address) associated with a endpoint
+/// uri for it's associated object store.
 class ObjectStoreLocator extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ObjectStoreLocator',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'owner')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'locatorUri')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'encryptionKey')
-    ..hasRequiredFields = false;
-
-  ObjectStoreLocator._() : super();
   factory ObjectStoreLocator({
     $core.String? owner,
     $core.String? locatorUri,
     $core.String? encryptionKey,
   }) {
-    final _result = create();
+    final $result = create();
     if (owner != null) {
-      _result.owner = owner;
+      $result.owner = owner;
     }
     if (locatorUri != null) {
-      _result.locatorUri = locatorUri;
+      $result.locatorUri = locatorUri;
     }
     if (encryptionKey != null) {
-      _result.encryptionKey = encryptionKey;
+      $result.encryptionKey = encryptionKey;
     }
-    return _result;
+    return $result;
   }
+  ObjectStoreLocator._() : super();
   factory ObjectStoreLocator.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ObjectStoreLocator.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ObjectStoreLocator',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'owner')
+    ..aOS(2, _omitFieldNames ? '' : 'locatorUri')
+    ..aOS(3, _omitFieldNames ? '' : 'encryptionKey')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -69,8 +60,10 @@ class ObjectStoreLocator extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ObjectStoreLocator copyWith(void Function(ObjectStoreLocator) updates) =>
       super.copyWith((message) => updates(message as ObjectStoreLocator))
-          as ObjectStoreLocator; // ignore: deprecated_member_use
+          as ObjectStoreLocator;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ObjectStoreLocator create() => ObjectStoreLocator._();
   ObjectStoreLocator createEmptyInstance() => create();
@@ -81,6 +74,7 @@ class ObjectStoreLocator extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ObjectStoreLocator>(create);
   static ObjectStoreLocator? _defaultInstance;
 
+  /// account address the endpoint is owned by
   @$pb.TagNumber(1)
   $core.String get owner => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -93,6 +87,7 @@ class ObjectStoreLocator extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearOwner() => clearField(1);
 
+  /// locator endpoint uri
   @$pb.TagNumber(2)
   $core.String get locatorUri => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -105,6 +100,7 @@ class ObjectStoreLocator extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearLocatorUri() => clearField(2);
 
+  /// owners encryption key address
   @$pb.TagNumber(3)
   $core.String get encryptionKey => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -118,40 +114,34 @@ class ObjectStoreLocator extends $pb.GeneratedMessage {
   void clearEncryptionKey() => clearField(3);
 }
 
+/// Params defines the parameters for the metadata-locator module methods.
 class OSLocatorParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'OSLocatorParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..a<$core.int>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxUriLength',
-        $pb.PbFieldType.OU3)
-    ..hasRequiredFields = false;
-
-  OSLocatorParams._() : super();
   factory OSLocatorParams({
     $core.int? maxUriLength,
   }) {
-    final _result = create();
+    final $result = create();
     if (maxUriLength != null) {
-      _result.maxUriLength = maxUriLength;
+      $result.maxUriLength = maxUriLength;
     }
-    return _result;
+    return $result;
   }
+  OSLocatorParams._() : super();
   factory OSLocatorParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory OSLocatorParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'OSLocatorParams',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(
+        1, _omitFieldNames ? '' : 'maxUriLength', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -161,8 +151,10 @@ class OSLocatorParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   OSLocatorParams copyWith(void Function(OSLocatorParams) updates) =>
       super.copyWith((message) => updates(message as OSLocatorParams))
-          as OSLocatorParams; // ignore: deprecated_member_use
+          as OSLocatorParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static OSLocatorParams create() => OSLocatorParams._();
   OSLocatorParams createEmptyInstance() => create();
@@ -185,3 +177,7 @@ class OSLocatorParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMaxUriLength() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

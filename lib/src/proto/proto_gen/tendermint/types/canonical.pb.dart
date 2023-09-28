@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/types/canonical.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,53 +15,41 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/timestamp.pb.dart' as $0;
-
 import 'types.pbenum.dart' as $1;
 
 class CanonicalBlockID extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CanonicalBlockID',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OY)
-    ..aOM<CanonicalPartSetHeader>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'partSetHeader',
-        subBuilder: CanonicalPartSetHeader.create)
-    ..hasRequiredFields = false;
-
-  CanonicalBlockID._() : super();
   factory CanonicalBlockID({
     $core.List<$core.int>? hash,
     CanonicalPartSetHeader? partSetHeader,
   }) {
-    final _result = create();
+    final $result = create();
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
     if (partSetHeader != null) {
-      _result.partSetHeader = partSetHeader;
+      $result.partSetHeader = partSetHeader;
     }
-    return _result;
+    return $result;
   }
+  CanonicalBlockID._() : super();
   factory CanonicalBlockID.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CanonicalBlockID.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CanonicalBlockID',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OY)
+    ..aOM<CanonicalPartSetHeader>(2, _omitFieldNames ? '' : 'partSetHeader',
+        subBuilder: CanonicalPartSetHeader.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -67,8 +59,10 @@ class CanonicalBlockID extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CanonicalBlockID copyWith(void Function(CanonicalBlockID) updates) =>
       super.copyWith((message) => updates(message as CanonicalBlockID))
-          as CanonicalBlockID; // ignore: deprecated_member_use
+          as CanonicalBlockID;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CanonicalBlockID create() => CanonicalBlockID._();
   CanonicalBlockID createEmptyInstance() => create();
@@ -107,49 +101,37 @@ class CanonicalBlockID extends $pb.GeneratedMessage {
 }
 
 class CanonicalPartSetHeader extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CanonicalPartSetHeader',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..a<$core.int>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'total',
-        $pb.PbFieldType.OU3)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  CanonicalPartSetHeader._() : super();
   factory CanonicalPartSetHeader({
     $core.int? total,
     $core.List<$core.int>? hash,
   }) {
-    final _result = create();
+    final $result = create();
     if (total != null) {
-      _result.total = total;
+      $result.total = total;
     }
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
-    return _result;
+    return $result;
   }
+  CanonicalPartSetHeader._() : super();
   factory CanonicalPartSetHeader.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CanonicalPartSetHeader.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CanonicalPartSetHeader',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'total', $pb.PbFieldType.OU3)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -161,8 +143,10 @@ class CanonicalPartSetHeader extends $pb.GeneratedMessage {
   CanonicalPartSetHeader copyWith(
           void Function(CanonicalPartSetHeader) updates) =>
       super.copyWith((message) => updates(message as CanonicalPartSetHeader))
-          as CanonicalPartSetHeader; // ignore: deprecated_member_use
+          as CanonicalPartSetHeader;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CanonicalPartSetHeader create() => CanonicalPartSetHeader._();
   CanonicalPartSetHeader createEmptyInstance() => create();
@@ -199,63 +183,6 @@ class CanonicalPartSetHeader extends $pb.GeneratedMessage {
 }
 
 class CanonicalProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CanonicalProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..e<$1.SignedMsgType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'type',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $1.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
-        valueOf: $1.SignedMsgType.valueOf,
-        enumValues: $1.SignedMsgType.values)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        $pb.PbFieldType.OSF6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.OSF6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aInt64(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'polRound')
-    ..aOM<CanonicalBlockID>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockId',
-        subBuilder: CanonicalBlockID.create)
-    ..aOM<$0.Timestamp>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timestamp',
-        subBuilder: $0.Timestamp.create)
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chainId')
-    ..hasRequiredFields = false;
-
-  CanonicalProposal._() : super();
   factory CanonicalProposal({
     $1.SignedMsgType? type,
     $fixnum.Int64? height,
@@ -265,36 +192,59 @@ class CanonicalProposal extends $pb.GeneratedMessage {
     $0.Timestamp? timestamp,
     $core.String? chainId,
   }) {
-    final _result = create();
+    final $result = create();
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (polRound != null) {
-      _result.polRound = polRound;
+      $result.polRound = polRound;
     }
     if (blockId != null) {
-      _result.blockId = blockId;
+      $result.blockId = blockId;
     }
     if (timestamp != null) {
-      _result.timestamp = timestamp;
+      $result.timestamp = timestamp;
     }
     if (chainId != null) {
-      _result.chainId = chainId;
+      $result.chainId = chainId;
     }
-    return _result;
+    return $result;
   }
+  CanonicalProposal._() : super();
   factory CanonicalProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CanonicalProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CanonicalProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..e<$1.SignedMsgType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE,
+        defaultOrMaker: $1.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
+        valueOf: $1.SignedMsgType.valueOf,
+        enumValues: $1.SignedMsgType.values)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'height', $pb.PbFieldType.OSF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'round', $pb.PbFieldType.OSF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aInt64(4, _omitFieldNames ? '' : 'polRound')
+    ..aOM<CanonicalBlockID>(5, _omitFieldNames ? '' : 'blockId',
+        subBuilder: CanonicalBlockID.create)
+    ..aOM<$0.Timestamp>(6, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $0.Timestamp.create)
+    ..aOS(7, _omitFieldNames ? '' : 'chainId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -304,8 +254,10 @@ class CanonicalProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CanonicalProposal copyWith(void Function(CanonicalProposal) updates) =>
       super.copyWith((message) => updates(message as CanonicalProposal))
-          as CanonicalProposal; // ignore: deprecated_member_use
+          as CanonicalProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CanonicalProposal create() => CanonicalProposal._();
   CanonicalProposal createEmptyInstance() => create();
@@ -406,58 +358,6 @@ class CanonicalProposal extends $pb.GeneratedMessage {
 }
 
 class CanonicalVote extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CanonicalVote',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..e<$1.SignedMsgType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'type',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $1.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
-        valueOf: $1.SignedMsgType.valueOf,
-        enumValues: $1.SignedMsgType.values)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        $pb.PbFieldType.OSF6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'round',
-        $pb.PbFieldType.OSF6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<CanonicalBlockID>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockId',
-        subBuilder: CanonicalBlockID.create)
-    ..aOM<$0.Timestamp>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timestamp',
-        subBuilder: $0.Timestamp.create)
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chainId')
-    ..hasRequiredFields = false;
-
-  CanonicalVote._() : super();
   factory CanonicalVote({
     $1.SignedMsgType? type,
     $fixnum.Int64? height,
@@ -466,33 +366,55 @@ class CanonicalVote extends $pb.GeneratedMessage {
     $0.Timestamp? timestamp,
     $core.String? chainId,
   }) {
-    final _result = create();
+    final $result = create();
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (round != null) {
-      _result.round = round;
+      $result.round = round;
     }
     if (blockId != null) {
-      _result.blockId = blockId;
+      $result.blockId = blockId;
     }
     if (timestamp != null) {
-      _result.timestamp = timestamp;
+      $result.timestamp = timestamp;
     }
     if (chainId != null) {
-      _result.chainId = chainId;
+      $result.chainId = chainId;
     }
-    return _result;
+    return $result;
   }
+  CanonicalVote._() : super();
   factory CanonicalVote.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CanonicalVote.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CanonicalVote',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..e<$1.SignedMsgType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE,
+        defaultOrMaker: $1.SignedMsgType.SIGNED_MSG_TYPE_UNKNOWN,
+        valueOf: $1.SignedMsgType.valueOf,
+        enumValues: $1.SignedMsgType.values)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'height', $pb.PbFieldType.OSF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'round', $pb.PbFieldType.OSF6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<CanonicalBlockID>(4, _omitFieldNames ? '' : 'blockId',
+        subBuilder: CanonicalBlockID.create)
+    ..aOM<$0.Timestamp>(5, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $0.Timestamp.create)
+    ..aOS(6, _omitFieldNames ? '' : 'chainId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -502,8 +424,10 @@ class CanonicalVote extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CanonicalVote copyWith(void Function(CanonicalVote) updates) =>
       super.copyWith((message) => updates(message as CanonicalVote))
-          as CanonicalVote; // ignore: deprecated_member_use
+          as CanonicalVote;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CanonicalVote create() => CanonicalVote._();
   CanonicalVote createEmptyInstance() => create();
@@ -590,3 +514,7 @@ class CanonicalVote extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearChainId() => clearField(6);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

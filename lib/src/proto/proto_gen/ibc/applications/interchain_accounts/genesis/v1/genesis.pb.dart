@@ -1,61 +1,57 @@
-///
+//
 //  Generated code. Do not modify.
-//  source: ibc/applications/interchain_accounts/v1/genesis.proto
+//  source: ibc/applications/interchain_accounts/genesis/v1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../controller/v1/controller.pb.dart' as $0;
-import '../host/v1/host.pb.dart' as $1;
+import '../../controller/v1/controller.pb.dart' as $0;
+import '../../host/v1/host.pb.dart' as $1;
 
+/// GenesisState defines the interchain accounts genesis state
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.interchain_accounts.v1'),
-      createEmptyInstance: create)
-    ..aOM<ControllerGenesisState>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'controllerGenesisState',
-        subBuilder: ControllerGenesisState.create)
-    ..aOM<HostGenesisState>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hostGenesisState',
-        subBuilder: HostGenesisState.create)
-    ..hasRequiredFields = false;
-
-  GenesisState._() : super();
   factory GenesisState({
     ControllerGenesisState? controllerGenesisState,
     HostGenesisState? hostGenesisState,
   }) {
-    final _result = create();
+    final $result = create();
     if (controllerGenesisState != null) {
-      _result.controllerGenesisState = controllerGenesisState;
+      $result.controllerGenesisState = controllerGenesisState;
     }
     if (hostGenesisState != null) {
-      _result.hostGenesisState = hostGenesisState;
+      $result.hostGenesisState = hostGenesisState;
     }
-    return _result;
+    return $result;
   }
+  GenesisState._() : super();
   factory GenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisState',
+      package: const $pb.PackageName(_omitMessageNames
+          ? ''
+          : 'ibc.applications.interchain_accounts.genesis.v1'),
+      createEmptyInstance: create)
+    ..aOM<ControllerGenesisState>(
+        1, _omitFieldNames ? '' : 'controllerGenesisState',
+        subBuilder: ControllerGenesisState.create)
+    ..aOM<HostGenesisState>(2, _omitFieldNames ? '' : 'hostGenesisState',
+        subBuilder: HostGenesisState.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -65,8 +61,10 @@ class GenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState copyWith(void Function(GenesisState) updates) =>
       super.copyWith((message) => updates(message as GenesisState))
-          as GenesisState; // ignore: deprecated_member_use
+          as GenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
@@ -106,71 +104,54 @@ class GenesisState extends $pb.GeneratedMessage {
   HostGenesisState ensureHostGenesisState() => $_ensure(1);
 }
 
+/// ControllerGenesisState defines the interchain accounts controller genesis state
 class ControllerGenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ControllerGenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.interchain_accounts.v1'),
-      createEmptyInstance: create)
-    ..pc<ActiveChannel>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'activeChannels',
-        $pb.PbFieldType.PM,
-        subBuilder: ActiveChannel.create)
-    ..pc<RegisteredInterchainAccount>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'interchainAccounts',
-        $pb.PbFieldType.PM,
-        subBuilder: RegisteredInterchainAccount.create)
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ports')
-    ..aOM<$0.Params>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $0.Params.create)
-    ..hasRequiredFields = false;
-
-  ControllerGenesisState._() : super();
   factory ControllerGenesisState({
     $core.Iterable<ActiveChannel>? activeChannels,
     $core.Iterable<RegisteredInterchainAccount>? interchainAccounts,
     $core.Iterable<$core.String>? ports,
     $0.Params? params,
   }) {
-    final _result = create();
+    final $result = create();
     if (activeChannels != null) {
-      _result.activeChannels.addAll(activeChannels);
+      $result.activeChannels.addAll(activeChannels);
     }
     if (interchainAccounts != null) {
-      _result.interchainAccounts.addAll(interchainAccounts);
+      $result.interchainAccounts.addAll(interchainAccounts);
     }
     if (ports != null) {
-      _result.ports.addAll(ports);
+      $result.ports.addAll(ports);
     }
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
-    return _result;
+    return $result;
   }
+  ControllerGenesisState._() : super();
   factory ControllerGenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ControllerGenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ControllerGenesisState',
+      package: const $pb.PackageName(_omitMessageNames
+          ? ''
+          : 'ibc.applications.interchain_accounts.genesis.v1'),
+      createEmptyInstance: create)
+    ..pc<ActiveChannel>(
+        1, _omitFieldNames ? '' : 'activeChannels', $pb.PbFieldType.PM,
+        subBuilder: ActiveChannel.create)
+    ..pc<RegisteredInterchainAccount>(
+        2, _omitFieldNames ? '' : 'interchainAccounts', $pb.PbFieldType.PM,
+        subBuilder: RegisteredInterchainAccount.create)
+    ..pPS(3, _omitFieldNames ? '' : 'ports')
+    ..aOM<$0.Params>(4, _omitFieldNames ? '' : 'params',
+        subBuilder: $0.Params.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -182,8 +163,10 @@ class ControllerGenesisState extends $pb.GeneratedMessage {
   ControllerGenesisState copyWith(
           void Function(ControllerGenesisState) updates) =>
       super.copyWith((message) => updates(message as ControllerGenesisState))
-          as ControllerGenesisState; // ignore: deprecated_member_use
+          as ControllerGenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ControllerGenesisState create() => ControllerGenesisState._();
   ControllerGenesisState createEmptyInstance() => create();
@@ -219,71 +202,54 @@ class ControllerGenesisState extends $pb.GeneratedMessage {
   $0.Params ensureParams() => $_ensure(3);
 }
 
+/// HostGenesisState defines the interchain accounts host genesis state
 class HostGenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'HostGenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.interchain_accounts.v1'),
-      createEmptyInstance: create)
-    ..pc<ActiveChannel>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'activeChannels',
-        $pb.PbFieldType.PM,
-        subBuilder: ActiveChannel.create)
-    ..pc<RegisteredInterchainAccount>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'interchainAccounts',
-        $pb.PbFieldType.PM,
-        subBuilder: RegisteredInterchainAccount.create)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'port')
-    ..aOM<$1.Params>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $1.Params.create)
-    ..hasRequiredFields = false;
-
-  HostGenesisState._() : super();
   factory HostGenesisState({
     $core.Iterable<ActiveChannel>? activeChannels,
     $core.Iterable<RegisteredInterchainAccount>? interchainAccounts,
     $core.String? port,
     $1.Params? params,
   }) {
-    final _result = create();
+    final $result = create();
     if (activeChannels != null) {
-      _result.activeChannels.addAll(activeChannels);
+      $result.activeChannels.addAll(activeChannels);
     }
     if (interchainAccounts != null) {
-      _result.interchainAccounts.addAll(interchainAccounts);
+      $result.interchainAccounts.addAll(interchainAccounts);
     }
     if (port != null) {
-      _result.port = port;
+      $result.port = port;
     }
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
-    return _result;
+    return $result;
   }
+  HostGenesisState._() : super();
   factory HostGenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory HostGenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HostGenesisState',
+      package: const $pb.PackageName(_omitMessageNames
+          ? ''
+          : 'ibc.applications.interchain_accounts.genesis.v1'),
+      createEmptyInstance: create)
+    ..pc<ActiveChannel>(
+        1, _omitFieldNames ? '' : 'activeChannels', $pb.PbFieldType.PM,
+        subBuilder: ActiveChannel.create)
+    ..pc<RegisteredInterchainAccount>(
+        2, _omitFieldNames ? '' : 'interchainAccounts', $pb.PbFieldType.PM,
+        subBuilder: RegisteredInterchainAccount.create)
+    ..aOS(3, _omitFieldNames ? '' : 'port')
+    ..aOM<$1.Params>(4, _omitFieldNames ? '' : 'params',
+        subBuilder: $1.Params.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -293,8 +259,10 @@ class HostGenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   HostGenesisState copyWith(void Function(HostGenesisState) updates) =>
       super.copyWith((message) => updates(message as HostGenesisState))
-          as HostGenesisState; // ignore: deprecated_member_use
+          as HostGenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static HostGenesisState create() => HostGenesisState._();
   HostGenesisState createEmptyInstance() => create();
@@ -339,57 +307,50 @@ class HostGenesisState extends $pb.GeneratedMessage {
   $1.Params ensureParams() => $_ensure(3);
 }
 
+/// ActiveChannel contains a connection ID, port ID and associated active channel ID, as well as a boolean flag to
+/// indicate if the channel is middleware enabled
 class ActiveChannel extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ActiveChannel',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.interchain_accounts.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..hasRequiredFields = false;
-
-  ActiveChannel._() : super();
   factory ActiveChannel({
     $core.String? connectionId,
     $core.String? portId,
     $core.String? channelId,
+    $core.bool? isMiddlewareEnabled,
   }) {
-    final _result = create();
+    final $result = create();
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
-    return _result;
+    if (isMiddlewareEnabled != null) {
+      $result.isMiddlewareEnabled = isMiddlewareEnabled;
+    }
+    return $result;
   }
+  ActiveChannel._() : super();
   factory ActiveChannel.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ActiveChannel.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActiveChannel',
+      package: const $pb.PackageName(_omitMessageNames
+          ? ''
+          : 'ibc.applications.interchain_accounts.genesis.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'connectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'portId')
+    ..aOS(3, _omitFieldNames ? '' : 'channelId')
+    ..aOB(4, _omitFieldNames ? '' : 'isMiddlewareEnabled')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -399,8 +360,10 @@ class ActiveChannel extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ActiveChannel copyWith(void Function(ActiveChannel) updates) =>
       super.copyWith((message) => updates(message as ActiveChannel))
-          as ActiveChannel; // ignore: deprecated_member_use
+          as ActiveChannel;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ActiveChannel create() => ActiveChannel._();
   ActiveChannel createEmptyInstance() => create();
@@ -446,59 +409,58 @@ class ActiveChannel extends $pb.GeneratedMessage {
   $core.bool hasChannelId() => $_has(2);
   @$pb.TagNumber(3)
   void clearChannelId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get isMiddlewareEnabled => $_getBF(3);
+  @$pb.TagNumber(4)
+  set isMiddlewareEnabled($core.bool v) {
+    $_setBool(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasIsMiddlewareEnabled() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearIsMiddlewareEnabled() => clearField(4);
 }
 
+/// RegisteredInterchainAccount contains a connection ID, port ID and associated interchain account address
 class RegisteredInterchainAccount extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RegisteredInterchainAccount',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.interchain_accounts.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'accountAddress')
-    ..hasRequiredFields = false;
-
-  RegisteredInterchainAccount._() : super();
   factory RegisteredInterchainAccount({
     $core.String? connectionId,
     $core.String? portId,
     $core.String? accountAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (accountAddress != null) {
-      _result.accountAddress = accountAddress;
+      $result.accountAddress = accountAddress;
     }
-    return _result;
+    return $result;
   }
+  RegisteredInterchainAccount._() : super();
   factory RegisteredInterchainAccount.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RegisteredInterchainAccount.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RegisteredInterchainAccount',
+      package: const $pb.PackageName(_omitMessageNames
+          ? ''
+          : 'ibc.applications.interchain_accounts.genesis.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'connectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'portId')
+    ..aOS(3, _omitFieldNames ? '' : 'accountAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -511,8 +473,10 @@ class RegisteredInterchainAccount extends $pb.GeneratedMessage {
           void Function(RegisteredInterchainAccount) updates) =>
       super.copyWith(
               (message) => updates(message as RegisteredInterchainAccount))
-          as RegisteredInterchainAccount; // ignore: deprecated_member_use
+          as RegisteredInterchainAccount;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RegisteredInterchainAccount create() =>
       RegisteredInterchainAccount._();
@@ -560,3 +524,7 @@ class RegisteredInterchainAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearAccountAddress() => clearField(3);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

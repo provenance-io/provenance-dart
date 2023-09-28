@@ -1,58 +1,27 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/query/v1beta1/pagination.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+///  PageRequest is to be embedded in gRPC request messages for efficient
+///  pagination. Ex:
+///
+///   message SomeRequest {
+///           Foo some_parameter = 1;
+///           PageRequest pagination = 2;
+///   }
 class PageRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PageRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.query.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'offset',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'limit',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOB(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'countTotal')
-    ..aOB(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'reverse')
-    ..hasRequiredFields = false;
-
-  PageRequest._() : super();
   factory PageRequest({
     $core.List<$core.int>? key,
     $fixnum.Int64? offset,
@@ -60,30 +29,47 @@ class PageRequest extends $pb.GeneratedMessage {
     $core.bool? countTotal,
     $core.bool? reverse,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (offset != null) {
-      _result.offset = offset;
+      $result.offset = offset;
     }
     if (limit != null) {
-      _result.limit = limit;
+      $result.limit = limit;
     }
     if (countTotal != null) {
-      _result.countTotal = countTotal;
+      $result.countTotal = countTotal;
     }
     if (reverse != null) {
-      _result.reverse = reverse;
+      $result.reverse = reverse;
     }
-    return _result;
+    return $result;
   }
+  PageRequest._() : super();
   factory PageRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PageRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PageRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.query.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'offset', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'limit', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOB(4, _omitFieldNames ? '' : 'countTotal')
+    ..aOB(5, _omitFieldNames ? '' : 'reverse')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -93,8 +79,10 @@ class PageRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PageRequest copyWith(void Function(PageRequest) updates) =>
       super.copyWith((message) => updates(message as PageRequest))
-          as PageRequest; // ignore: deprecated_member_use
+          as PageRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PageRequest create() => PageRequest._();
   PageRequest createEmptyInstance() => create();
@@ -104,6 +92,9 @@ class PageRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<PageRequest>(create);
   static PageRequest? _defaultInstance;
 
+  /// key is a value returned in PageResponse.next_key to begin
+  /// querying the next page most efficiently. Only one of offset or key
+  /// should be set.
   @$pb.TagNumber(1)
   $core.List<$core.int> get key => $_getN(0);
   @$pb.TagNumber(1)
@@ -116,6 +107,9 @@ class PageRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearKey() => clearField(1);
 
+  /// offset is a numeric offset that can be used when key is unavailable.
+  /// It is less efficient than using key. Only one of offset or key should
+  /// be set.
   @$pb.TagNumber(2)
   $fixnum.Int64 get offset => $_getI64(1);
   @$pb.TagNumber(2)
@@ -128,6 +122,8 @@ class PageRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearOffset() => clearField(2);
 
+  /// limit is the total number of results to be returned in the result page.
+  /// If left empty it will default to a value to be set by each app.
   @$pb.TagNumber(3)
   $fixnum.Int64 get limit => $_getI64(2);
   @$pb.TagNumber(3)
@@ -140,6 +136,10 @@ class PageRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearLimit() => clearField(3);
 
+  /// count_total is set to true  to indicate that the result set should include
+  /// a count of the total number of items available for pagination in UIs.
+  /// count_total is only respected when offset is used. It is ignored when key
+  /// is set.
   @$pb.TagNumber(4)
   $core.bool get countTotal => $_getBF(3);
   @$pb.TagNumber(4)
@@ -152,6 +152,9 @@ class PageRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearCountTotal() => clearField(4);
 
+  ///  reverse is set to true if results are to be returned in the descending order.
+  ///
+  ///  Since: cosmos-sdk 0.43
   @$pb.TagNumber(5)
   $core.bool get reverse => $_getBF(4);
   @$pb.TagNumber(5)
@@ -165,51 +168,46 @@ class PageRequest extends $pb.GeneratedMessage {
   void clearReverse() => clearField(5);
 }
 
+///  PageResponse is to be embedded in gRPC response messages where the
+///  corresponding request message has used PageRequest.
+///
+///   message SomeResponse {
+///           repeated Bar results = 1;
+///           PageResponse page = 2;
+///   }
 class PageResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PageResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.query.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextKey',
-        $pb.PbFieldType.OY)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'total',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  PageResponse._() : super();
   factory PageResponse({
     $core.List<$core.int>? nextKey,
     $fixnum.Int64? total,
   }) {
-    final _result = create();
+    final $result = create();
     if (nextKey != null) {
-      _result.nextKey = nextKey;
+      $result.nextKey = nextKey;
     }
     if (total != null) {
-      _result.total = total;
+      $result.total = total;
     }
-    return _result;
+    return $result;
   }
+  PageResponse._() : super();
   factory PageResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PageResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PageResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.query.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'nextKey', $pb.PbFieldType.OY)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'total', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -219,8 +217,10 @@ class PageResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PageResponse copyWith(void Function(PageResponse) updates) =>
       super.copyWith((message) => updates(message as PageResponse))
-          as PageResponse; // ignore: deprecated_member_use
+          as PageResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PageResponse create() => PageResponse._();
   PageResponse createEmptyInstance() => create();
@@ -231,6 +231,9 @@ class PageResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<PageResponse>(create);
   static PageResponse? _defaultInstance;
 
+  /// next_key is the key to be passed to PageRequest.key to
+  /// query the next page most efficiently. It will be empty if
+  /// there are no more results.
   @$pb.TagNumber(1)
   $core.List<$core.int> get nextKey => $_getN(0);
   @$pb.TagNumber(1)
@@ -243,6 +246,8 @@ class PageResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearNextKey() => clearField(1);
 
+  /// total is total number of results available if PageRequest.count_total
+  /// was set, its value is undefined otherwise
   @$pb.TagNumber(2)
   $fixnum.Int64 get total => $_getI64(1);
   @$pb.TagNumber(2)
@@ -255,3 +260,7 @@ class PageResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearTotal() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

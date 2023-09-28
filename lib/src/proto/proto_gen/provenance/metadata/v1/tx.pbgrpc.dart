@@ -1,18 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/metadata/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import 'tx.pb.dart' as $0;
+
 export 'tx.pb.dart';
 
+@$pb.GrpcServiceName('provenance.metadata.v1.Msg')
 class MsgClient extends $grpc.Client {
   static final _$writeScope =
       $grpc.ClientMethod<$0.MsgWriteScopeRequest, $0.MsgWriteScopeResponse>(
@@ -51,6 +58,18 @@ class MsgClient extends $grpc.Client {
       ($0.MsgDeleteScopeOwnerRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgDeleteScopeOwnerResponse.fromBuffer(value));
+  static final _$updateValueOwners = $grpc.ClientMethod<
+          $0.MsgUpdateValueOwnersRequest, $0.MsgUpdateValueOwnersResponse>(
+      '/provenance.metadata.v1.Msg/UpdateValueOwners',
+      ($0.MsgUpdateValueOwnersRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgUpdateValueOwnersResponse.fromBuffer(value));
+  static final _$migrateValueOwner = $grpc.ClientMethod<
+          $0.MsgMigrateValueOwnerRequest, $0.MsgMigrateValueOwnerResponse>(
+      '/provenance.metadata.v1.Msg/MigrateValueOwner',
+      ($0.MsgMigrateValueOwnerRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgMigrateValueOwnerResponse.fromBuffer(value));
   static final _$writeSession =
       $grpc.ClientMethod<$0.MsgWriteSessionRequest, $0.MsgWriteSessionResponse>(
           '/provenance.metadata.v1.Msg/WriteSession',
@@ -126,20 +145,6 @@ class MsgClient extends $grpc.Client {
       ($0.MsgDeleteRecordSpecificationRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgDeleteRecordSpecificationResponse.fromBuffer(value));
-  static final _$writeP8eContractSpec = $grpc.ClientMethod<
-          $0.MsgWriteP8eContractSpecRequest,
-          $0.MsgWriteP8eContractSpecResponse>(
-      '/provenance.metadata.v1.Msg/WriteP8eContractSpec',
-      ($0.MsgWriteP8eContractSpecRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $0.MsgWriteP8eContractSpecResponse.fromBuffer(value));
-  static final _$p8eMemorializeContract = $grpc.ClientMethod<
-          $0.MsgP8eMemorializeContractRequest,
-          $0.MsgP8eMemorializeContractResponse>(
-      '/provenance.metadata.v1.Msg/P8eMemorializeContract',
-      ($0.MsgP8eMemorializeContractRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $0.MsgP8eMemorializeContractResponse.fromBuffer(value));
   static final _$bindOSLocator = $grpc.ClientMethod<$0.MsgBindOSLocatorRequest,
           $0.MsgBindOSLocatorResponse>(
       '/provenance.metadata.v1.Msg/BindOSLocator',
@@ -158,6 +163,12 @@ class MsgClient extends $grpc.Client {
       ($0.MsgModifyOSLocatorRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgModifyOSLocatorResponse.fromBuffer(value));
+  static final _$setAccountData = $grpc.ClientMethod<
+          $0.MsgSetAccountDataRequest, $0.MsgSetAccountDataResponse>(
+      '/provenance.metadata.v1.Msg/SetAccountData',
+      ($0.MsgSetAccountDataRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgSetAccountDataResponse.fromBuffer(value));
 
   MsgClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -198,6 +209,18 @@ class MsgClient extends $grpc.Client {
       $0.MsgDeleteScopeOwnerRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteScopeOwner, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgUpdateValueOwnersResponse> updateValueOwners(
+      $0.MsgUpdateValueOwnersRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateValueOwners, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgMigrateValueOwnerResponse> migrateValueOwner(
+      $0.MsgMigrateValueOwnerRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$migrateValueOwner, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.MsgWriteSessionResponse> writeSession(
@@ -278,19 +301,6 @@ class MsgClient extends $grpc.Client {
         options: options);
   }
 
-  $grpc.ResponseFuture<$0.MsgWriteP8eContractSpecResponse> writeP8eContractSpec(
-      $0.MsgWriteP8eContractSpecRequest request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$writeP8eContractSpec, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$0.MsgP8eMemorializeContractResponse>
-      p8eMemorializeContract($0.MsgP8eMemorializeContractRequest request,
-          {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$p8eMemorializeContract, request,
-        options: options);
-  }
-
   $grpc.ResponseFuture<$0.MsgBindOSLocatorResponse> bindOSLocator(
       $0.MsgBindOSLocatorRequest request,
       {$grpc.CallOptions? options}) {
@@ -308,8 +318,15 @@ class MsgClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$modifyOSLocator, request, options: options);
   }
+
+  $grpc.ResponseFuture<$0.MsgSetAccountDataResponse> setAccountData(
+      $0.MsgSetAccountDataRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$setAccountData, request, options: options);
+  }
 }
 
+@$pb.GrpcServiceName('provenance.metadata.v1.Msg')
 abstract class MsgServiceBase extends $grpc.Service {
   $core.String get $name => 'provenance.metadata.v1.Msg';
 
@@ -368,6 +385,24 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgDeleteScopeOwnerRequest.fromBuffer(value),
         ($0.MsgDeleteScopeOwnerResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgUpdateValueOwnersRequest,
+            $0.MsgUpdateValueOwnersResponse>(
+        'UpdateValueOwners',
+        updateValueOwners_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgUpdateValueOwnersRequest.fromBuffer(value),
+        ($0.MsgUpdateValueOwnersResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgMigrateValueOwnerRequest,
+            $0.MsgMigrateValueOwnerResponse>(
+        'MigrateValueOwner',
+        migrateValueOwner_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgMigrateValueOwnerRequest.fromBuffer(value),
+        ($0.MsgMigrateValueOwnerResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgWriteSessionRequest,
             $0.MsgWriteSessionResponse>(
         'WriteSession',
@@ -475,24 +510,6 @@ abstract class MsgServiceBase extends $grpc.Service {
             $0.MsgDeleteRecordSpecificationRequest.fromBuffer(value),
         ($0.MsgDeleteRecordSpecificationResponse value) =>
             value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.MsgWriteP8eContractSpecRequest,
-            $0.MsgWriteP8eContractSpecResponse>(
-        'WriteP8eContractSpec',
-        writeP8eContractSpec_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) =>
-            $0.MsgWriteP8eContractSpecRequest.fromBuffer(value),
-        ($0.MsgWriteP8eContractSpecResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.MsgP8eMemorializeContractRequest,
-            $0.MsgP8eMemorializeContractResponse>(
-        'P8eMemorializeContract',
-        p8eMemorializeContract_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) =>
-            $0.MsgP8eMemorializeContractRequest.fromBuffer(value),
-        ($0.MsgP8eMemorializeContractResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgBindOSLocatorRequest,
             $0.MsgBindOSLocatorResponse>(
         'BindOSLocator',
@@ -520,6 +537,15 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgModifyOSLocatorRequest.fromBuffer(value),
         ($0.MsgModifyOSLocatorResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgSetAccountDataRequest,
+            $0.MsgSetAccountDataResponse>(
+        'SetAccountData',
+        setAccountData_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgSetAccountDataRequest.fromBuffer(value),
+        ($0.MsgSetAccountDataResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.MsgWriteScopeResponse> writeScope_Pre($grpc.ServiceCall call,
@@ -555,6 +581,18 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call,
       $async.Future<$0.MsgDeleteScopeOwnerRequest> request) async {
     return deleteScopeOwner(call, await request);
+  }
+
+  $async.Future<$0.MsgUpdateValueOwnersResponse> updateValueOwners_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgUpdateValueOwnersRequest> request) async {
+    return updateValueOwners(call, await request);
+  }
+
+  $async.Future<$0.MsgMigrateValueOwnerResponse> migrateValueOwner_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgMigrateValueOwnerRequest> request) async {
+    return migrateValueOwner(call, await request);
   }
 
   $async.Future<$0.MsgWriteSessionResponse> writeSession_Pre(
@@ -631,18 +669,6 @@ abstract class MsgServiceBase extends $grpc.Service {
     return deleteRecordSpecification(call, await request);
   }
 
-  $async.Future<$0.MsgWriteP8eContractSpecResponse> writeP8eContractSpec_Pre(
-      $grpc.ServiceCall call,
-      $async.Future<$0.MsgWriteP8eContractSpecRequest> request) async {
-    return writeP8eContractSpec(call, await request);
-  }
-
-  $async.Future<$0.MsgP8eMemorializeContractResponse>
-      p8eMemorializeContract_Pre($grpc.ServiceCall call,
-          $async.Future<$0.MsgP8eMemorializeContractRequest> request) async {
-    return p8eMemorializeContract(call, await request);
-  }
-
   $async.Future<$0.MsgBindOSLocatorResponse> bindOSLocator_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.MsgBindOSLocatorRequest> request) async {
@@ -661,6 +687,12 @@ abstract class MsgServiceBase extends $grpc.Service {
     return modifyOSLocator(call, await request);
   }
 
+  $async.Future<$0.MsgSetAccountDataResponse> setAccountData_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgSetAccountDataRequest> request) async {
+    return setAccountData(call, await request);
+  }
+
   $async.Future<$0.MsgWriteScopeResponse> writeScope(
       $grpc.ServiceCall call, $0.MsgWriteScopeRequest request);
   $async.Future<$0.MsgDeleteScopeResponse> deleteScope(
@@ -673,6 +705,10 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgAddScopeOwnerRequest request);
   $async.Future<$0.MsgDeleteScopeOwnerResponse> deleteScopeOwner(
       $grpc.ServiceCall call, $0.MsgDeleteScopeOwnerRequest request);
+  $async.Future<$0.MsgUpdateValueOwnersResponse> updateValueOwners(
+      $grpc.ServiceCall call, $0.MsgUpdateValueOwnersRequest request);
+  $async.Future<$0.MsgMigrateValueOwnerResponse> migrateValueOwner(
+      $grpc.ServiceCall call, $0.MsgMigrateValueOwnerRequest request);
   $async.Future<$0.MsgWriteSessionResponse> writeSession(
       $grpc.ServiceCall call, $0.MsgWriteSessionRequest request);
   $async.Future<$0.MsgWriteRecordResponse> writeRecord(
@@ -702,14 +738,12 @@ abstract class MsgServiceBase extends $grpc.Service {
   $async.Future<$0.MsgDeleteRecordSpecificationResponse>
       deleteRecordSpecification($grpc.ServiceCall call,
           $0.MsgDeleteRecordSpecificationRequest request);
-  $async.Future<$0.MsgWriteP8eContractSpecResponse> writeP8eContractSpec(
-      $grpc.ServiceCall call, $0.MsgWriteP8eContractSpecRequest request);
-  $async.Future<$0.MsgP8eMemorializeContractResponse> p8eMemorializeContract(
-      $grpc.ServiceCall call, $0.MsgP8eMemorializeContractRequest request);
   $async.Future<$0.MsgBindOSLocatorResponse> bindOSLocator(
       $grpc.ServiceCall call, $0.MsgBindOSLocatorRequest request);
   $async.Future<$0.MsgDeleteOSLocatorResponse> deleteOSLocator(
       $grpc.ServiceCall call, $0.MsgDeleteOSLocatorRequest request);
   $async.Future<$0.MsgModifyOSLocatorResponse> modifyOSLocator(
       $grpc.ServiceCall call, $0.MsgModifyOSLocatorRequest request);
+  $async.Future<$0.MsgSetAccountDataResponse> setAccountData(
+      $grpc.ServiceCall call, $0.MsgSetAccountDataRequest request);
 }

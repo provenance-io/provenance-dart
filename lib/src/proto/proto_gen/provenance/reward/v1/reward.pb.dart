@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/reward/v1/reward.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,157 +16,12 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $0;
 import '../../../google/protobuf/timestamp.pb.dart' as $1;
-
 import 'reward.pbenum.dart';
 
 export 'reward.pbenum.dart';
 
+/// RewardProgram
 class RewardProgram extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RewardProgram',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'distributeFromAddress')
-    ..aOM<$0.Coin>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalRewardPool',
-        subBuilder: $0.Coin.create)
-    ..aOM<$0.Coin>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'remainingPoolBalance',
-        subBuilder: $0.Coin.create)
-    ..aOM<$0.Coin>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimedAmount',
-        subBuilder: $0.Coin.create)
-    ..aOM<$0.Coin>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxRewardByAddress',
-        subBuilder: $0.Coin.create)
-    ..aOM<$0.Coin>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minimumRolloverAmount',
-        subBuilder: $0.Coin.create)
-    ..a<$fixnum.Int64>(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriodSeconds',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$1.Timestamp>(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'programStartTime',
-        subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(
-        12,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'expectedProgramEndTime',
-        subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(
-        13,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'programEndTimeMax',
-        subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(
-        14,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriodEndTime',
-        subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(
-        15,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'actualProgramEndTime',
-        subBuilder: $1.Timestamp.create)
-    ..a<$fixnum.Int64>(
-        16,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriods',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        17,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'currentClaimPeriod',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        18,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxRolloverClaimPeriods',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..e<RewardProgram_State>(
-        19,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'state',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: RewardProgram_State.STATE_UNSPECIFIED,
-        valueOf: RewardProgram_State.valueOf,
-        enumValues: RewardProgram_State.values)
-    ..a<$fixnum.Int64>(
-        20,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'expirationOffset',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..pc<QualifyingAction>(
-        21,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'qualifyingActions',
-        $pb.PbFieldType.PM,
-        subBuilder: QualifyingAction.create)
-    ..hasRequiredFields = false;
-
-  RewardProgram._() : super();
   factory RewardProgram({
     $fixnum.Int64? id,
     $core.String? title,
@@ -186,78 +45,135 @@ class RewardProgram extends $pb.GeneratedMessage {
     $fixnum.Int64? expirationOffset,
     $core.Iterable<QualifyingAction>? qualifyingActions,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (distributeFromAddress != null) {
-      _result.distributeFromAddress = distributeFromAddress;
+      $result.distributeFromAddress = distributeFromAddress;
     }
     if (totalRewardPool != null) {
-      _result.totalRewardPool = totalRewardPool;
+      $result.totalRewardPool = totalRewardPool;
     }
     if (remainingPoolBalance != null) {
-      _result.remainingPoolBalance = remainingPoolBalance;
+      $result.remainingPoolBalance = remainingPoolBalance;
     }
     if (claimedAmount != null) {
-      _result.claimedAmount = claimedAmount;
+      $result.claimedAmount = claimedAmount;
     }
     if (maxRewardByAddress != null) {
-      _result.maxRewardByAddress = maxRewardByAddress;
+      $result.maxRewardByAddress = maxRewardByAddress;
     }
     if (minimumRolloverAmount != null) {
-      _result.minimumRolloverAmount = minimumRolloverAmount;
+      $result.minimumRolloverAmount = minimumRolloverAmount;
     }
     if (claimPeriodSeconds != null) {
-      _result.claimPeriodSeconds = claimPeriodSeconds;
+      $result.claimPeriodSeconds = claimPeriodSeconds;
     }
     if (programStartTime != null) {
-      _result.programStartTime = programStartTime;
+      $result.programStartTime = programStartTime;
     }
     if (expectedProgramEndTime != null) {
-      _result.expectedProgramEndTime = expectedProgramEndTime;
+      $result.expectedProgramEndTime = expectedProgramEndTime;
     }
     if (programEndTimeMax != null) {
-      _result.programEndTimeMax = programEndTimeMax;
+      $result.programEndTimeMax = programEndTimeMax;
     }
     if (claimPeriodEndTime != null) {
-      _result.claimPeriodEndTime = claimPeriodEndTime;
+      $result.claimPeriodEndTime = claimPeriodEndTime;
     }
     if (actualProgramEndTime != null) {
-      _result.actualProgramEndTime = actualProgramEndTime;
+      $result.actualProgramEndTime = actualProgramEndTime;
     }
     if (claimPeriods != null) {
-      _result.claimPeriods = claimPeriods;
+      $result.claimPeriods = claimPeriods;
     }
     if (currentClaimPeriod != null) {
-      _result.currentClaimPeriod = currentClaimPeriod;
+      $result.currentClaimPeriod = currentClaimPeriod;
     }
     if (maxRolloverClaimPeriods != null) {
-      _result.maxRolloverClaimPeriods = maxRolloverClaimPeriods;
+      $result.maxRolloverClaimPeriods = maxRolloverClaimPeriods;
     }
     if (state != null) {
-      _result.state = state;
+      $result.state = state;
     }
     if (expirationOffset != null) {
-      _result.expirationOffset = expirationOffset;
+      $result.expirationOffset = expirationOffset;
     }
     if (qualifyingActions != null) {
-      _result.qualifyingActions.addAll(qualifyingActions);
+      $result.qualifyingActions.addAll(qualifyingActions);
     }
-    return _result;
+    return $result;
   }
+  RewardProgram._() : super();
   factory RewardProgram.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RewardProgram.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RewardProgram',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'title')
+    ..aOS(3, _omitFieldNames ? '' : 'description')
+    ..aOS(4, _omitFieldNames ? '' : 'distributeFromAddress')
+    ..aOM<$0.Coin>(5, _omitFieldNames ? '' : 'totalRewardPool',
+        subBuilder: $0.Coin.create)
+    ..aOM<$0.Coin>(6, _omitFieldNames ? '' : 'remainingPoolBalance',
+        subBuilder: $0.Coin.create)
+    ..aOM<$0.Coin>(7, _omitFieldNames ? '' : 'claimedAmount',
+        subBuilder: $0.Coin.create)
+    ..aOM<$0.Coin>(8, _omitFieldNames ? '' : 'maxRewardByAddress',
+        subBuilder: $0.Coin.create)
+    ..aOM<$0.Coin>(9, _omitFieldNames ? '' : 'minimumRolloverAmount',
+        subBuilder: $0.Coin.create)
+    ..a<$fixnum.Int64>(
+        10, _omitFieldNames ? '' : 'claimPeriodSeconds', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$1.Timestamp>(11, _omitFieldNames ? '' : 'programStartTime',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(12, _omitFieldNames ? '' : 'expectedProgramEndTime',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(13, _omitFieldNames ? '' : 'programEndTimeMax',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(14, _omitFieldNames ? '' : 'claimPeriodEndTime',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(15, _omitFieldNames ? '' : 'actualProgramEndTime',
+        subBuilder: $1.Timestamp.create)
+    ..a<$fixnum.Int64>(
+        16, _omitFieldNames ? '' : 'claimPeriods', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        17, _omitFieldNames ? '' : 'currentClaimPeriod', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(18, _omitFieldNames ? '' : 'maxRolloverClaimPeriods',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..e<RewardProgram_State>(
+        19, _omitFieldNames ? '' : 'state', $pb.PbFieldType.OE,
+        defaultOrMaker: RewardProgram_State.STATE_UNSPECIFIED,
+        valueOf: RewardProgram_State.valueOf,
+        enumValues: RewardProgram_State.values)
+    ..a<$fixnum.Int64>(
+        20, _omitFieldNames ? '' : 'expirationOffset', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pc<QualifyingAction>(
+        21, _omitFieldNames ? '' : 'qualifyingActions', $pb.PbFieldType.PM,
+        subBuilder: QualifyingAction.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -267,8 +183,10 @@ class RewardProgram extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   RewardProgram copyWith(void Function(RewardProgram) updates) =>
       super.copyWith((message) => updates(message as RewardProgram))
-          as RewardProgram; // ignore: deprecated_member_use
+          as RewardProgram;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RewardProgram create() => RewardProgram._();
   RewardProgram createEmptyInstance() => create();
@@ -279,6 +197,7 @@ class RewardProgram extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<RewardProgram>(create);
   static RewardProgram? _defaultInstance;
 
+  /// An integer to uniquely identify the reward program.
   @$pb.TagNumber(1)
   $fixnum.Int64 get id => $_getI64(0);
   @$pb.TagNumber(1)
@@ -291,6 +210,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
 
+  /// Name to help identify the Reward Program.(MaxTitleLength=140)
   @$pb.TagNumber(2)
   $core.String get title => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -303,6 +223,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearTitle() => clearField(2);
 
+  /// Short summary describing the Reward Program.(MaxDescriptionLength=10000)
   @$pb.TagNumber(3)
   $core.String get description => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -315,6 +236,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearDescription() => clearField(3);
 
+  /// address that provides funds for the total reward pool.
   @$pb.TagNumber(4)
   $core.String get distributeFromAddress => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -327,6 +249,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearDistributeFromAddress() => clearField(4);
 
+  /// The total amount of funding given to the RewardProgram.
   @$pb.TagNumber(5)
   $0.Coin get totalRewardPool => $_getN(4);
   @$pb.TagNumber(5)
@@ -341,6 +264,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $0.Coin ensureTotalRewardPool() => $_ensure(4);
 
+  /// The remaining funds available to distribute after n claim periods have passed.
   @$pb.TagNumber(6)
   $0.Coin get remainingPoolBalance => $_getN(5);
   @$pb.TagNumber(6)
@@ -355,6 +279,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $0.Coin ensureRemainingPoolBalance() => $_ensure(5);
 
+  /// The total amount of all funds claimed by participants for all past claim periods.
   @$pb.TagNumber(7)
   $0.Coin get claimedAmount => $_getN(6);
   @$pb.TagNumber(7)
@@ -369,6 +294,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $0.Coin ensureClaimedAmount() => $_ensure(6);
 
+  /// Maximum reward per claim period per address.
   @$pb.TagNumber(8)
   $0.Coin get maxRewardByAddress => $_getN(7);
   @$pb.TagNumber(8)
@@ -383,6 +309,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $0.Coin ensureMaxRewardByAddress() => $_ensure(7);
 
+  /// Minimum amount of coins for a program to rollover.
   @$pb.TagNumber(9)
   $0.Coin get minimumRolloverAmount => $_getN(8);
   @$pb.TagNumber(9)
@@ -397,6 +324,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $0.Coin ensureMinimumRolloverAmount() => $_ensure(8);
 
+  /// Number of seconds that a claim period lasts.
   @$pb.TagNumber(10)
   $fixnum.Int64 get claimPeriodSeconds => $_getI64(9);
   @$pb.TagNumber(10)
@@ -409,6 +337,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   void clearClaimPeriodSeconds() => clearField(10);
 
+  /// Time that a RewardProgram should start and switch to STARTED state.
   @$pb.TagNumber(11)
   $1.Timestamp get programStartTime => $_getN(10);
   @$pb.TagNumber(11)
@@ -423,6 +352,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $1.Timestamp ensureProgramStartTime() => $_ensure(10);
 
+  /// Time that a RewardProgram is expected to end, based on data when it was setup.
   @$pb.TagNumber(12)
   $1.Timestamp get expectedProgramEndTime => $_getN(11);
   @$pb.TagNumber(12)
@@ -437,6 +367,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   $1.Timestamp ensureExpectedProgramEndTime() => $_ensure(11);
 
+  /// Time that a RewardProgram MUST end.
   @$pb.TagNumber(13)
   $1.Timestamp get programEndTimeMax => $_getN(12);
   @$pb.TagNumber(13)
@@ -451,6 +382,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(13)
   $1.Timestamp ensureProgramEndTimeMax() => $_ensure(12);
 
+  /// Used internally to calculate and track the current claim period's ending time.
   @$pb.TagNumber(14)
   $1.Timestamp get claimPeriodEndTime => $_getN(13);
   @$pb.TagNumber(14)
@@ -465,6 +397,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   $1.Timestamp ensureClaimPeriodEndTime() => $_ensure(13);
 
+  /// Time the RewardProgram switched to FINISHED state. Initially set as empty.
   @$pb.TagNumber(15)
   $1.Timestamp get actualProgramEndTime => $_getN(14);
   @$pb.TagNumber(15)
@@ -479,6 +412,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   $1.Timestamp ensureActualProgramEndTime() => $_ensure(14);
 
+  /// Number of claim periods this program will run for.
   @$pb.TagNumber(16)
   $fixnum.Int64 get claimPeriods => $_getI64(15);
   @$pb.TagNumber(16)
@@ -491,6 +425,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(16)
   void clearClaimPeriods() => clearField(16);
 
+  /// Current claim period of the RewardProgram. Uses 1-based indexing.
   @$pb.TagNumber(17)
   $fixnum.Int64 get currentClaimPeriod => $_getI64(16);
   @$pb.TagNumber(17)
@@ -503,6 +438,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(17)
   void clearCurrentClaimPeriod() => clearField(17);
 
+  /// maximum number of claim periods a reward program can rollover.
   @$pb.TagNumber(18)
   $fixnum.Int64 get maxRolloverClaimPeriods => $_getI64(17);
   @$pb.TagNumber(18)
@@ -515,6 +451,7 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(18)
   void clearMaxRolloverClaimPeriods() => clearField(18);
 
+  /// Current state of the RewardProgram.
   @$pb.TagNumber(19)
   RewardProgram_State get state => $_getN(18);
   @$pb.TagNumber(19)
@@ -527,6 +464,8 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(19)
   void clearState() => clearField(19);
 
+  /// Grace period after a RewardProgram FINISHED. It is the number of seconds until a RewardProgram enters the EXPIRED
+  /// state.
   @$pb.TagNumber(20)
   $fixnum.Int64 get expirationOffset => $_getI64(19);
   @$pb.TagNumber(20)
@@ -539,59 +478,13 @@ class RewardProgram extends $pb.GeneratedMessage {
   @$pb.TagNumber(20)
   void clearExpirationOffset() => clearField(20);
 
+  /// Actions that count towards the reward.
   @$pb.TagNumber(21)
   $core.List<QualifyingAction> get qualifyingActions => $_getList(20);
 }
 
+/// ClaimPeriodRewardDistribution, this is updated at the end of every claim period.
 class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ClaimPeriodRewardDistribution',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriodId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rewardProgramId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalRewardsPoolForClaimPeriod',
-        subBuilder: $0.Coin.create)
-    ..aOM<$0.Coin>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rewardsPool',
-        subBuilder: $0.Coin.create)
-    ..aInt64(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalShares')
-    ..aOB(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriodEnded')
-    ..hasRequiredFields = false;
-
-  ClaimPeriodRewardDistribution._() : super();
   factory ClaimPeriodRewardDistribution({
     $fixnum.Int64? claimPeriodId,
     $fixnum.Int64? rewardProgramId,
@@ -600,33 +493,54 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
     $fixnum.Int64? totalShares,
     $core.bool? claimPeriodEnded,
   }) {
-    final _result = create();
+    final $result = create();
     if (claimPeriodId != null) {
-      _result.claimPeriodId = claimPeriodId;
+      $result.claimPeriodId = claimPeriodId;
     }
     if (rewardProgramId != null) {
-      _result.rewardProgramId = rewardProgramId;
+      $result.rewardProgramId = rewardProgramId;
     }
     if (totalRewardsPoolForClaimPeriod != null) {
-      _result.totalRewardsPoolForClaimPeriod = totalRewardsPoolForClaimPeriod;
+      $result.totalRewardsPoolForClaimPeriod = totalRewardsPoolForClaimPeriod;
     }
     if (rewardsPool != null) {
-      _result.rewardsPool = rewardsPool;
+      $result.rewardsPool = rewardsPool;
     }
     if (totalShares != null) {
-      _result.totalShares = totalShares;
+      $result.totalShares = totalShares;
     }
     if (claimPeriodEnded != null) {
-      _result.claimPeriodEnded = claimPeriodEnded;
+      $result.claimPeriodEnded = claimPeriodEnded;
     }
-    return _result;
+    return $result;
   }
+  ClaimPeriodRewardDistribution._() : super();
   factory ClaimPeriodRewardDistribution.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClaimPeriodRewardDistribution.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ClaimPeriodRewardDistribution',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'claimPeriodId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'rewardProgramId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$0.Coin>(3, _omitFieldNames ? '' : 'totalRewardsPoolForClaimPeriod',
+        subBuilder: $0.Coin.create)
+    ..aOM<$0.Coin>(4, _omitFieldNames ? '' : 'rewardsPool',
+        subBuilder: $0.Coin.create)
+    ..aInt64(5, _omitFieldNames ? '' : 'totalShares')
+    ..aOB(6, _omitFieldNames ? '' : 'claimPeriodEnded')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -639,8 +553,10 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
           void Function(ClaimPeriodRewardDistribution) updates) =>
       super.copyWith(
               (message) => updates(message as ClaimPeriodRewardDistribution))
-          as ClaimPeriodRewardDistribution; // ignore: deprecated_member_use
+          as ClaimPeriodRewardDistribution;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClaimPeriodRewardDistribution create() =>
       ClaimPeriodRewardDistribution._();
@@ -652,6 +568,7 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ClaimPeriodRewardDistribution>(create);
   static ClaimPeriodRewardDistribution? _defaultInstance;
 
+  /// The claim period id.
   @$pb.TagNumber(1)
   $fixnum.Int64 get claimPeriodId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -664,6 +581,7 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClaimPeriodId() => clearField(1);
 
+  /// The id of the reward program that this reward belongs to.
   @$pb.TagNumber(2)
   $fixnum.Int64 get rewardProgramId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -676,6 +594,7 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearRewardProgramId() => clearField(2);
 
+  /// The sum of all the granted rewards for this claim period.
   @$pb.TagNumber(3)
   $0.Coin get totalRewardsPoolForClaimPeriod => $_getN(2);
   @$pb.TagNumber(3)
@@ -690,6 +609,7 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $0.Coin ensureTotalRewardsPoolForClaimPeriod() => $_ensure(2);
 
+  /// The final allocated rewards for this claim period.
   @$pb.TagNumber(4)
   $0.Coin get rewardsPool => $_getN(3);
   @$pb.TagNumber(4)
@@ -704,6 +624,7 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $0.Coin ensureRewardsPool() => $_ensure(3);
 
+  /// The total number of granted shares for this claim period.
   @$pb.TagNumber(5)
   $fixnum.Int64 get totalShares => $_getI64(4);
   @$pb.TagNumber(5)
@@ -716,6 +637,7 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearTotalShares() => clearField(5);
 
+  /// A flag representing if the claim period for this reward has ended.
   @$pb.TagNumber(6)
   $core.bool get claimPeriodEnded => $_getBF(5);
   @$pb.TagNumber(6)
@@ -729,61 +651,8 @@ class ClaimPeriodRewardDistribution extends $pb.GeneratedMessage {
   void clearClaimPeriodEnded() => clearField(6);
 }
 
+/// RewardAccountState contains state at the claim period level for a specific address.
 class RewardAccountState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RewardAccountState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rewardProgramId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriodId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..pc<ActionCounter>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'actionCounter',
-        $pb.PbFieldType.PM,
-        subBuilder: ActionCounter.create)
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sharesEarned',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..e<RewardAccountState_ClaimStatus>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimStatus',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: RewardAccountState_ClaimStatus.CLAIM_STATUS_UNSPECIFIED,
-        valueOf: RewardAccountState_ClaimStatus.valueOf,
-        enumValues: RewardAccountState_ClaimStatus.values)
-    ..hasRequiredFields = false;
-
-  RewardAccountState._() : super();
   factory RewardAccountState({
     $fixnum.Int64? rewardProgramId,
     $fixnum.Int64? claimPeriodId,
@@ -792,33 +661,60 @@ class RewardAccountState extends $pb.GeneratedMessage {
     $fixnum.Int64? sharesEarned,
     RewardAccountState_ClaimStatus? claimStatus,
   }) {
-    final _result = create();
+    final $result = create();
     if (rewardProgramId != null) {
-      _result.rewardProgramId = rewardProgramId;
+      $result.rewardProgramId = rewardProgramId;
     }
     if (claimPeriodId != null) {
-      _result.claimPeriodId = claimPeriodId;
+      $result.claimPeriodId = claimPeriodId;
     }
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (actionCounter != null) {
-      _result.actionCounter.addAll(actionCounter);
+      $result.actionCounter.addAll(actionCounter);
     }
     if (sharesEarned != null) {
-      _result.sharesEarned = sharesEarned;
+      $result.sharesEarned = sharesEarned;
     }
     if (claimStatus != null) {
-      _result.claimStatus = claimStatus;
+      $result.claimStatus = claimStatus;
     }
-    return _result;
+    return $result;
   }
+  RewardAccountState._() : super();
   factory RewardAccountState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RewardAccountState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RewardAccountState',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'rewardProgramId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'claimPeriodId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'address')
+    ..pc<ActionCounter>(
+        4, _omitFieldNames ? '' : 'actionCounter', $pb.PbFieldType.PM,
+        subBuilder: ActionCounter.create)
+    ..a<$fixnum.Int64>(
+        5, _omitFieldNames ? '' : 'sharesEarned', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..e<RewardAccountState_ClaimStatus>(
+        6, _omitFieldNames ? '' : 'claimStatus', $pb.PbFieldType.OE,
+        defaultOrMaker: RewardAccountState_ClaimStatus.CLAIM_STATUS_UNSPECIFIED,
+        valueOf: RewardAccountState_ClaimStatus.valueOf,
+        enumValues: RewardAccountState_ClaimStatus.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -828,8 +724,10 @@ class RewardAccountState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   RewardAccountState copyWith(void Function(RewardAccountState) updates) =>
       super.copyWith((message) => updates(message as RewardAccountState))
-          as RewardAccountState; // ignore: deprecated_member_use
+          as RewardAccountState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RewardAccountState create() => RewardAccountState._();
   RewardAccountState createEmptyInstance() => create();
@@ -840,6 +738,7 @@ class RewardAccountState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<RewardAccountState>(create);
   static RewardAccountState? _defaultInstance;
 
+  /// The id of the reward program that this share belongs to.
   @$pb.TagNumber(1)
   $fixnum.Int64 get rewardProgramId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -852,6 +751,7 @@ class RewardAccountState extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRewardProgramId() => clearField(1);
 
+  /// The id of the claim period that the share belongs to.
   @$pb.TagNumber(2)
   $fixnum.Int64 get claimPeriodId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -864,6 +764,7 @@ class RewardAccountState extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearClaimPeriodId() => clearField(2);
 
+  /// Owner of the reward account state.
   @$pb.TagNumber(3)
   $core.String get address => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -876,9 +777,11 @@ class RewardAccountState extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearAddress() => clearField(3);
 
+  /// The number of actions performed by this account, mapped by action type.
   @$pb.TagNumber(4)
   $core.List<ActionCounter> get actionCounter => $_getList(3);
 
+  /// The amount of granted shares for the address in the reward program's claim period.
   @$pb.TagNumber(5)
   $fixnum.Int64 get sharesEarned => $_getI64(4);
   @$pb.TagNumber(5)
@@ -891,6 +794,7 @@ class RewardAccountState extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearSharesEarned() => clearField(5);
 
+  /// The status of the claim.
   @$pb.TagNumber(6)
   RewardAccountState_ClaimStatus get claimStatus => $_getN(5);
   @$pb.TagNumber(6)
@@ -906,7 +810,33 @@ class RewardAccountState extends $pb.GeneratedMessage {
 
 enum QualifyingAction_Type { delegate, transfer, vote, notSet }
 
+/// QualifyingAction can be one of many action types.
 class QualifyingAction extends $pb.GeneratedMessage {
+  factory QualifyingAction({
+    ActionDelegate? delegate,
+    ActionTransfer? transfer,
+    ActionVote? vote,
+  }) {
+    final $result = create();
+    if (delegate != null) {
+      $result.delegate = delegate;
+    }
+    if (transfer != null) {
+      $result.transfer = transfer;
+    }
+    if (vote != null) {
+      $result.vote = vote;
+    }
+    return $result;
+  }
+  QualifyingAction._() : super();
+  factory QualifyingAction.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QualifyingAction.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, QualifyingAction_Type>
       _QualifyingAction_TypeByTag = {
     1: QualifyingAction_Type.delegate,
@@ -915,59 +845,19 @@ class QualifyingAction extends $pb.GeneratedMessage {
     0: QualifyingAction_Type.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QualifyingAction',
+      _omitMessageNames ? '' : 'QualifyingAction',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3])
-    ..aOM<ActionDelegate>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegate',
+    ..aOM<ActionDelegate>(1, _omitFieldNames ? '' : 'delegate',
         subBuilder: ActionDelegate.create)
-    ..aOM<ActionTransfer>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'transfer',
+    ..aOM<ActionTransfer>(2, _omitFieldNames ? '' : 'transfer',
         subBuilder: ActionTransfer.create)
-    ..aOM<ActionVote>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vote',
+    ..aOM<ActionVote>(3, _omitFieldNames ? '' : 'vote',
         subBuilder: ActionVote.create)
     ..hasRequiredFields = false;
 
-  QualifyingAction._() : super();
-  factory QualifyingAction({
-    ActionDelegate? delegate,
-    ActionTransfer? transfer,
-    ActionVote? vote,
-  }) {
-    final _result = create();
-    if (delegate != null) {
-      _result.delegate = delegate;
-    }
-    if (transfer != null) {
-      _result.transfer = transfer;
-    }
-    if (vote != null) {
-      _result.vote = vote;
-    }
-    return _result;
-  }
-  factory QualifyingAction.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory QualifyingAction.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -977,8 +867,10 @@ class QualifyingAction extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QualifyingAction copyWith(void Function(QualifyingAction) updates) =>
       super.copyWith((message) => updates(message as QualifyingAction))
-          as QualifyingAction; // ignore: deprecated_member_use
+          as QualifyingAction;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QualifyingAction create() => QualifyingAction._();
   QualifyingAction createEmptyInstance() => create();
@@ -1036,41 +928,35 @@ class QualifyingAction extends $pb.GeneratedMessage {
   ActionVote ensureVote() => $_ensure(2);
 }
 
+/// QualifyingActions contains a list of QualifyingActions.
 class QualifyingActions extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QualifyingActions',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..pc<QualifyingAction>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'qualifyingActions',
-        $pb.PbFieldType.PM,
-        subBuilder: QualifyingAction.create)
-    ..hasRequiredFields = false;
-
-  QualifyingActions._() : super();
   factory QualifyingActions({
     $core.Iterable<QualifyingAction>? qualifyingActions,
   }) {
-    final _result = create();
+    final $result = create();
     if (qualifyingActions != null) {
-      _result.qualifyingActions.addAll(qualifyingActions);
+      $result.qualifyingActions.addAll(qualifyingActions);
     }
-    return _result;
+    return $result;
   }
+  QualifyingActions._() : super();
   factory QualifyingActions.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QualifyingActions.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QualifyingActions',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..pc<QualifyingAction>(
+        1, _omitFieldNames ? '' : 'qualifyingActions', $pb.PbFieldType.PM,
+        subBuilder: QualifyingAction.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1080,8 +966,10 @@ class QualifyingActions extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QualifyingActions copyWith(void Function(QualifyingActions) updates) =>
       super.copyWith((message) => updates(message as QualifyingActions))
-          as QualifyingActions; // ignore: deprecated_member_use
+          as QualifyingActions;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QualifyingActions create() => QualifyingActions._();
   QualifyingActions createEmptyInstance() => create();
@@ -1092,59 +980,13 @@ class QualifyingActions extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QualifyingActions>(create);
   static QualifyingActions? _defaultInstance;
 
+  /// The actions that count towards the reward.
   @$pb.TagNumber(1)
   $core.List<QualifyingAction> get qualifyingActions => $_getList(0);
 }
 
+/// ActionDelegate represents the delegate action and its required eligibility criteria.
 class ActionDelegate extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ActionDelegate',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minimumActions',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maximumActions',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minimumDelegationAmount',
-        subBuilder: $0.Coin.create)
-    ..aOM<$0.Coin>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maximumDelegationAmount',
-        subBuilder: $0.Coin.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minimumActiveStakePercentile')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maximumActiveStakePercentile')
-    ..hasRequiredFields = false;
-
-  ActionDelegate._() : super();
   factory ActionDelegate({
     $fixnum.Int64? minimumActions,
     $fixnum.Int64? maximumActions,
@@ -1153,33 +995,54 @@ class ActionDelegate extends $pb.GeneratedMessage {
     $core.String? minimumActiveStakePercentile,
     $core.String? maximumActiveStakePercentile,
   }) {
-    final _result = create();
+    final $result = create();
     if (minimumActions != null) {
-      _result.minimumActions = minimumActions;
+      $result.minimumActions = minimumActions;
     }
     if (maximumActions != null) {
-      _result.maximumActions = maximumActions;
+      $result.maximumActions = maximumActions;
     }
     if (minimumDelegationAmount != null) {
-      _result.minimumDelegationAmount = minimumDelegationAmount;
+      $result.minimumDelegationAmount = minimumDelegationAmount;
     }
     if (maximumDelegationAmount != null) {
-      _result.maximumDelegationAmount = maximumDelegationAmount;
+      $result.maximumDelegationAmount = maximumDelegationAmount;
     }
     if (minimumActiveStakePercentile != null) {
-      _result.minimumActiveStakePercentile = minimumActiveStakePercentile;
+      $result.minimumActiveStakePercentile = minimumActiveStakePercentile;
     }
     if (maximumActiveStakePercentile != null) {
-      _result.maximumActiveStakePercentile = maximumActiveStakePercentile;
+      $result.maximumActiveStakePercentile = maximumActiveStakePercentile;
     }
-    return _result;
+    return $result;
   }
+  ActionDelegate._() : super();
   factory ActionDelegate.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ActionDelegate.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActionDelegate',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'minimumActions', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'maximumActions', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$0.Coin>(3, _omitFieldNames ? '' : 'minimumDelegationAmount',
+        subBuilder: $0.Coin.create)
+    ..aOM<$0.Coin>(4, _omitFieldNames ? '' : 'maximumDelegationAmount',
+        subBuilder: $0.Coin.create)
+    ..aOS(5, _omitFieldNames ? '' : 'minimumActiveStakePercentile')
+    ..aOS(6, _omitFieldNames ? '' : 'maximumActiveStakePercentile')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1189,8 +1052,10 @@ class ActionDelegate extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ActionDelegate copyWith(void Function(ActionDelegate) updates) =>
       super.copyWith((message) => updates(message as ActionDelegate))
-          as ActionDelegate; // ignore: deprecated_member_use
+          as ActionDelegate;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ActionDelegate create() => ActionDelegate._();
   ActionDelegate createEmptyInstance() => create();
@@ -1201,6 +1066,7 @@ class ActionDelegate extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ActionDelegate>(create);
   static ActionDelegate? _defaultInstance;
 
+  /// Minimum number of successful delegates.
   @$pb.TagNumber(1)
   $fixnum.Int64 get minimumActions => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1213,6 +1079,7 @@ class ActionDelegate extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMinimumActions() => clearField(1);
 
+  /// Maximum number of successful delegates.
   @$pb.TagNumber(2)
   $fixnum.Int64 get maximumActions => $_getI64(1);
   @$pb.TagNumber(2)
@@ -1225,6 +1092,7 @@ class ActionDelegate extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMaximumActions() => clearField(2);
 
+  /// Minimum amount that the user must have currently delegated on the validator.
   @$pb.TagNumber(3)
   $0.Coin get minimumDelegationAmount => $_getN(2);
   @$pb.TagNumber(3)
@@ -1239,6 +1107,7 @@ class ActionDelegate extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $0.Coin ensureMinimumDelegationAmount() => $_ensure(2);
 
+  /// Maximum amount that the user must have currently delegated on the validator.
   @$pb.TagNumber(4)
   $0.Coin get maximumDelegationAmount => $_getN(3);
   @$pb.TagNumber(4)
@@ -1253,6 +1122,7 @@ class ActionDelegate extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $0.Coin ensureMaximumDelegationAmount() => $_ensure(3);
 
+  /// Minimum percentile that can be below the validator's power ranking.
   @$pb.TagNumber(5)
   $core.String get minimumActiveStakePercentile => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -1265,6 +1135,7 @@ class ActionDelegate extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearMinimumActiveStakePercentile() => clearField(5);
 
+  /// Maximum percentile that can be below the validator's power ranking.
   @$pb.TagNumber(6)
   $core.String get maximumActiveStakePercentile => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -1278,62 +1149,48 @@ class ActionDelegate extends $pb.GeneratedMessage {
   void clearMaximumActiveStakePercentile() => clearField(6);
 }
 
+/// ActionTransfer represents the transfer action and its required eligibility criteria.
 class ActionTransfer extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ActionTransfer',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minimumActions',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maximumActions',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minimumDelegationAmount',
-        subBuilder: $0.Coin.create)
-    ..hasRequiredFields = false;
-
-  ActionTransfer._() : super();
   factory ActionTransfer({
     $fixnum.Int64? minimumActions,
     $fixnum.Int64? maximumActions,
     $0.Coin? minimumDelegationAmount,
   }) {
-    final _result = create();
+    final $result = create();
     if (minimumActions != null) {
-      _result.minimumActions = minimumActions;
+      $result.minimumActions = minimumActions;
     }
     if (maximumActions != null) {
-      _result.maximumActions = maximumActions;
+      $result.maximumActions = maximumActions;
     }
     if (minimumDelegationAmount != null) {
-      _result.minimumDelegationAmount = minimumDelegationAmount;
+      $result.minimumDelegationAmount = minimumDelegationAmount;
     }
-    return _result;
+    return $result;
   }
+  ActionTransfer._() : super();
   factory ActionTransfer.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ActionTransfer.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActionTransfer',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'minimumActions', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'maximumActions', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$0.Coin>(3, _omitFieldNames ? '' : 'minimumDelegationAmount',
+        subBuilder: $0.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1343,8 +1200,10 @@ class ActionTransfer extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ActionTransfer copyWith(void Function(ActionTransfer) updates) =>
       super.copyWith((message) => updates(message as ActionTransfer))
-          as ActionTransfer; // ignore: deprecated_member_use
+          as ActionTransfer;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ActionTransfer create() => ActionTransfer._();
   ActionTransfer createEmptyInstance() => create();
@@ -1355,6 +1214,7 @@ class ActionTransfer extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ActionTransfer>(create);
   static ActionTransfer? _defaultInstance;
 
+  /// Minimum number of successful transfers.
   @$pb.TagNumber(1)
   $fixnum.Int64 get minimumActions => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1367,6 +1227,7 @@ class ActionTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMinimumActions() => clearField(1);
 
+  /// Maximum number of successful transfers.
   @$pb.TagNumber(2)
   $fixnum.Int64 get maximumActions => $_getI64(1);
   @$pb.TagNumber(2)
@@ -1379,6 +1240,7 @@ class ActionTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMaximumActions() => clearField(2);
 
+  /// Minimum delegation amount the account must have across all validators, for the transfer action to be counted.
   @$pb.TagNumber(3)
   $0.Coin get minimumDelegationAmount => $_getN(2);
   @$pb.TagNumber(3)
@@ -1394,73 +1256,55 @@ class ActionTransfer extends $pb.GeneratedMessage {
   $0.Coin ensureMinimumDelegationAmount() => $_ensure(2);
 }
 
+/// ActionVote represents the voting action and its required eligibility criteria.
 class ActionVote extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ActionVote',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minimumActions',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maximumActions',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minimumDelegationAmount',
-        subBuilder: $0.Coin.create)
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorMultiplier',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  ActionVote._() : super();
   factory ActionVote({
     $fixnum.Int64? minimumActions,
     $fixnum.Int64? maximumActions,
     $0.Coin? minimumDelegationAmount,
     $fixnum.Int64? validatorMultiplier,
   }) {
-    final _result = create();
+    final $result = create();
     if (minimumActions != null) {
-      _result.minimumActions = minimumActions;
+      $result.minimumActions = minimumActions;
     }
     if (maximumActions != null) {
-      _result.maximumActions = maximumActions;
+      $result.maximumActions = maximumActions;
     }
     if (minimumDelegationAmount != null) {
-      _result.minimumDelegationAmount = minimumDelegationAmount;
+      $result.minimumDelegationAmount = minimumDelegationAmount;
     }
     if (validatorMultiplier != null) {
-      _result.validatorMultiplier = validatorMultiplier;
+      $result.validatorMultiplier = validatorMultiplier;
     }
-    return _result;
+    return $result;
   }
+  ActionVote._() : super();
   factory ActionVote.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ActionVote.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActionVote',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'minimumActions', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'maximumActions', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$0.Coin>(3, _omitFieldNames ? '' : 'minimumDelegationAmount',
+        subBuilder: $0.Coin.create)
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'validatorMultiplier', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1469,9 +1313,10 @@ class ActionVote extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   ActionVote copyWith(void Function(ActionVote) updates) =>
-      super.copyWith((message) => updates(message as ActionVote))
-          as ActionVote; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as ActionVote)) as ActionVote;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ActionVote create() => ActionVote._();
   ActionVote createEmptyInstance() => create();
@@ -1481,6 +1326,7 @@ class ActionVote extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ActionVote>(create);
   static ActionVote? _defaultInstance;
 
+  /// Minimum number of successful votes.
   @$pb.TagNumber(1)
   $fixnum.Int64 get minimumActions => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1493,6 +1339,7 @@ class ActionVote extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMinimumActions() => clearField(1);
 
+  /// Maximum number of successful votes.
   @$pb.TagNumber(2)
   $fixnum.Int64 get maximumActions => $_getI64(1);
   @$pb.TagNumber(2)
@@ -1505,6 +1352,7 @@ class ActionVote extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMaximumActions() => clearField(2);
 
+  /// Minimum delegation amount the account must have across all validators, for the vote action to be counted.
   @$pb.TagNumber(3)
   $0.Coin get minimumDelegationAmount => $_getN(2);
   @$pb.TagNumber(3)
@@ -1519,6 +1367,9 @@ class ActionVote extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $0.Coin ensureMinimumDelegationAmount() => $_ensure(2);
 
+  /// Positive multiplier that is applied to the shares awarded by the vote action when conditions
+  /// are met(for now the only condition is the current vote is a validator vote). A value of zero will behave the same
+  /// as one
   @$pb.TagNumber(4)
   $fixnum.Int64 get validatorMultiplier => $_getI64(3);
   @$pb.TagNumber(4)
@@ -1532,50 +1383,40 @@ class ActionVote extends $pb.GeneratedMessage {
   void clearValidatorMultiplier() => clearField(4);
 }
 
+/// ActionCounter is a key-value pair that maps action type to the number of times it was performed.
 class ActionCounter extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ActionCounter',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'actionType')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'numberOfActions',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  ActionCounter._() : super();
   factory ActionCounter({
     $core.String? actionType,
     $fixnum.Int64? numberOfActions,
   }) {
-    final _result = create();
+    final $result = create();
     if (actionType != null) {
-      _result.actionType = actionType;
+      $result.actionType = actionType;
     }
     if (numberOfActions != null) {
-      _result.numberOfActions = numberOfActions;
+      $result.numberOfActions = numberOfActions;
     }
-    return _result;
+    return $result;
   }
+  ActionCounter._() : super();
   factory ActionCounter.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ActionCounter.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActionCounter',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'actionType')
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'numberOfActions', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1585,8 +1426,10 @@ class ActionCounter extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ActionCounter copyWith(void Function(ActionCounter) updates) =>
       super.copyWith((message) => updates(message as ActionCounter))
-          as ActionCounter; // ignore: deprecated_member_use
+          as ActionCounter;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ActionCounter create() => ActionCounter._();
   ActionCounter createEmptyInstance() => create();
@@ -1597,6 +1440,7 @@ class ActionCounter extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ActionCounter>(create);
   static ActionCounter? _defaultInstance;
 
+  /// The type of action performed.
   @$pb.TagNumber(1)
   $core.String get actionType => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1609,6 +1453,7 @@ class ActionCounter extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearActionType() => clearField(1);
 
+  /// The number of times this action has been performed
   @$pb.TagNumber(2)
   $fixnum.Int64 get numberOfActions => $_getI64(1);
   @$pb.TagNumber(2)
@@ -1621,3 +1466,7 @@ class ActionCounter extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearNumberOfActions() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

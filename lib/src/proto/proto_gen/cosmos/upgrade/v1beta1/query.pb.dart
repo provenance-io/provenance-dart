@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/upgrade/v1beta1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,26 +16,25 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'upgrade.pb.dart' as $1;
 
+/// QueryCurrentPlanRequest is the request type for the Query/CurrentPlan RPC
+/// method.
 class QueryCurrentPlanRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryCurrentPlanRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  QueryCurrentPlanRequest._() : super();
   factory QueryCurrentPlanRequest() => create();
+  QueryCurrentPlanRequest._() : super();
   factory QueryCurrentPlanRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryCurrentPlanRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCurrentPlanRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -43,8 +46,10 @@ class QueryCurrentPlanRequest extends $pb.GeneratedMessage {
   QueryCurrentPlanRequest copyWith(
           void Function(QueryCurrentPlanRequest) updates) =>
       super.copyWith((message) => updates(message as QueryCurrentPlanRequest))
-          as QueryCurrentPlanRequest; // ignore: deprecated_member_use
+          as QueryCurrentPlanRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryCurrentPlanRequest create() => QueryCurrentPlanRequest._();
   QueryCurrentPlanRequest createEmptyInstance() => create();
@@ -56,40 +61,34 @@ class QueryCurrentPlanRequest extends $pb.GeneratedMessage {
   static QueryCurrentPlanRequest? _defaultInstance;
 }
 
+/// QueryCurrentPlanResponse is the response type for the Query/CurrentPlan RPC
+/// method.
 class QueryCurrentPlanResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryCurrentPlanResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Plan>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'plan',
-        subBuilder: $1.Plan.create)
-    ..hasRequiredFields = false;
-
-  QueryCurrentPlanResponse._() : super();
   factory QueryCurrentPlanResponse({
     $1.Plan? plan,
   }) {
-    final _result = create();
+    final $result = create();
     if (plan != null) {
-      _result.plan = plan;
+      $result.plan = plan;
     }
-    return _result;
+    return $result;
   }
+  QueryCurrentPlanResponse._() : super();
   factory QueryCurrentPlanResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryCurrentPlanResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCurrentPlanResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Plan>(1, _omitFieldNames ? '' : 'plan', subBuilder: $1.Plan.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -101,8 +100,10 @@ class QueryCurrentPlanResponse extends $pb.GeneratedMessage {
   QueryCurrentPlanResponse copyWith(
           void Function(QueryCurrentPlanResponse) updates) =>
       super.copyWith((message) => updates(message as QueryCurrentPlanResponse))
-          as QueryCurrentPlanResponse; // ignore: deprecated_member_use
+          as QueryCurrentPlanResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryCurrentPlanResponse create() => QueryCurrentPlanResponse._();
   QueryCurrentPlanResponse createEmptyInstance() => create();
@@ -113,6 +114,7 @@ class QueryCurrentPlanResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryCurrentPlanResponse>(create);
   static QueryCurrentPlanResponse? _defaultInstance;
 
+  /// plan is the current upgrade plan.
   @$pb.TagNumber(1)
   $1.Plan get plan => $_getN(0);
   @$pb.TagNumber(1)
@@ -128,39 +130,34 @@ class QueryCurrentPlanResponse extends $pb.GeneratedMessage {
   $1.Plan ensurePlan() => $_ensure(0);
 }
 
+/// QueryCurrentPlanRequest is the request type for the Query/AppliedPlan RPC
+/// method.
 class QueryAppliedPlanRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAppliedPlanRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..hasRequiredFields = false;
-
-  QueryAppliedPlanRequest._() : super();
   factory QueryAppliedPlanRequest({
     $core.String? name,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
-    return _result;
+    return $result;
   }
+  QueryAppliedPlanRequest._() : super();
   factory QueryAppliedPlanRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAppliedPlanRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAppliedPlanRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -172,8 +169,10 @@ class QueryAppliedPlanRequest extends $pb.GeneratedMessage {
   QueryAppliedPlanRequest copyWith(
           void Function(QueryAppliedPlanRequest) updates) =>
       super.copyWith((message) => updates(message as QueryAppliedPlanRequest))
-          as QueryAppliedPlanRequest; // ignore: deprecated_member_use
+          as QueryAppliedPlanRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAppliedPlanRequest create() => QueryAppliedPlanRequest._();
   QueryAppliedPlanRequest createEmptyInstance() => create();
@@ -184,6 +183,7 @@ class QueryAppliedPlanRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAppliedPlanRequest>(create);
   static QueryAppliedPlanRequest? _defaultInstance;
 
+  /// name is the name of the applied plan to query for.
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -197,39 +197,34 @@ class QueryAppliedPlanRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(1);
 }
 
+/// QueryAppliedPlanResponse is the response type for the Query/AppliedPlan RPC
+/// method.
 class QueryAppliedPlanResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAppliedPlanResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..hasRequiredFields = false;
-
-  QueryAppliedPlanResponse._() : super();
   factory QueryAppliedPlanResponse({
     $fixnum.Int64? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  QueryAppliedPlanResponse._() : super();
   factory QueryAppliedPlanResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAppliedPlanResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAppliedPlanResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -241,8 +236,10 @@ class QueryAppliedPlanResponse extends $pb.GeneratedMessage {
   QueryAppliedPlanResponse copyWith(
           void Function(QueryAppliedPlanResponse) updates) =>
       super.copyWith((message) => updates(message as QueryAppliedPlanResponse))
-          as QueryAppliedPlanResponse; // ignore: deprecated_member_use
+          as QueryAppliedPlanResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAppliedPlanResponse create() => QueryAppliedPlanResponse._();
   QueryAppliedPlanResponse createEmptyInstance() => create();
@@ -253,6 +250,7 @@ class QueryAppliedPlanResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAppliedPlanResponse>(create);
   static QueryAppliedPlanResponse? _defaultInstance;
 
+  /// height is the block height at which the plan was applied.
   @$pb.TagNumber(1)
   $fixnum.Int64 get height => $_getI64(0);
   @$pb.TagNumber(1)
@@ -266,39 +264,34 @@ class QueryAppliedPlanResponse extends $pb.GeneratedMessage {
   void clearHeight() => clearField(1);
 }
 
+/// QueryUpgradedConsensusStateRequest is the request type for the Query/UpgradedConsensusState
+/// RPC method.
 class QueryUpgradedConsensusStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUpgradedConsensusStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastHeight')
-    ..hasRequiredFields = false;
-
-  QueryUpgradedConsensusStateRequest._() : super();
   factory QueryUpgradedConsensusStateRequest({
     $fixnum.Int64? lastHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (lastHeight != null) {
-      _result.lastHeight = lastHeight;
+      $result.lastHeight = lastHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryUpgradedConsensusStateRequest._() : super();
   factory QueryUpgradedConsensusStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryUpgradedConsensusStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUpgradedConsensusStateRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'lastHeight')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -311,8 +304,10 @@ class QueryUpgradedConsensusStateRequest extends $pb.GeneratedMessage {
           void Function(QueryUpgradedConsensusStateRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryUpgradedConsensusStateRequest))
-          as QueryUpgradedConsensusStateRequest; // ignore: deprecated_member_use
+          as QueryUpgradedConsensusStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUpgradedConsensusStateRequest create() =>
       QueryUpgradedConsensusStateRequest._();
@@ -325,6 +320,8 @@ class QueryUpgradedConsensusStateRequest extends $pb.GeneratedMessage {
           create);
   static QueryUpgradedConsensusStateRequest? _defaultInstance;
 
+  /// last height of the current chain must be sent in request
+  /// as this is the height under which next consensus state is stored
   @$pb.TagNumber(1)
   $fixnum.Int64 get lastHeight => $_getI64(0);
   @$pb.TagNumber(1)
@@ -338,34 +335,19 @@ class QueryUpgradedConsensusStateRequest extends $pb.GeneratedMessage {
   void clearLastHeight() => clearField(1);
 }
 
+/// QueryUpgradedConsensusStateResponse is the response type for the Query/UpgradedConsensusState
+/// RPC method.
 class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUpgradedConsensusStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'upgradedConsensusState',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  QueryUpgradedConsensusStateResponse._() : super();
   factory QueryUpgradedConsensusStateResponse({
     $core.List<$core.int>? upgradedConsensusState,
   }) {
-    final _result = create();
+    final $result = create();
     if (upgradedConsensusState != null) {
-      _result.upgradedConsensusState = upgradedConsensusState;
+      $result.upgradedConsensusState = upgradedConsensusState;
     }
-    return _result;
+    return $result;
   }
+  QueryUpgradedConsensusStateResponse._() : super();
   factory QueryUpgradedConsensusStateResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -373,6 +355,16 @@ class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
   factory QueryUpgradedConsensusStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUpgradedConsensusStateResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'upgradedConsensusState', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -385,8 +377,10 @@ class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
           void Function(QueryUpgradedConsensusStateResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryUpgradedConsensusStateResponse))
-          as QueryUpgradedConsensusStateResponse; // ignore: deprecated_member_use
+          as QueryUpgradedConsensusStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUpgradedConsensusStateResponse create() =>
       QueryUpgradedConsensusStateResponse._();
@@ -399,6 +393,7 @@ class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
           QueryUpgradedConsensusStateResponse>(create);
   static QueryUpgradedConsensusStateResponse? _defaultInstance;
 
+  /// Since: cosmos-sdk 0.43
   @$pb.TagNumber(2)
   $core.List<$core.int> get upgradedConsensusState => $_getN(0);
   @$pb.TagNumber(2)
@@ -412,39 +407,36 @@ class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
   void clearUpgradedConsensusState() => clearField(2);
 }
 
+///  QueryModuleVersionsRequest is the request type for the Query/ModuleVersions
+///  RPC method.
+///
+///  Since: cosmos-sdk 0.43
 class QueryModuleVersionsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryModuleVersionsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'moduleName')
-    ..hasRequiredFields = false;
-
-  QueryModuleVersionsRequest._() : super();
   factory QueryModuleVersionsRequest({
     $core.String? moduleName,
   }) {
-    final _result = create();
+    final $result = create();
     if (moduleName != null) {
-      _result.moduleName = moduleName;
+      $result.moduleName = moduleName;
     }
-    return _result;
+    return $result;
   }
+  QueryModuleVersionsRequest._() : super();
   factory QueryModuleVersionsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryModuleVersionsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryModuleVersionsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'moduleName')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -457,8 +449,10 @@ class QueryModuleVersionsRequest extends $pb.GeneratedMessage {
           void Function(QueryModuleVersionsRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryModuleVersionsRequest))
-          as QueryModuleVersionsRequest; // ignore: deprecated_member_use
+          as QueryModuleVersionsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryModuleVersionsRequest create() => QueryModuleVersionsRequest._();
   QueryModuleVersionsRequest createEmptyInstance() => create();
@@ -469,6 +463,9 @@ class QueryModuleVersionsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryModuleVersionsRequest>(create);
   static QueryModuleVersionsRequest? _defaultInstance;
 
+  /// module_name is a field to query a specific module
+  /// consensus version from state. Leaving this empty will
+  /// fetch the full list of module versions from state
   @$pb.TagNumber(1)
   $core.String get moduleName => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -482,41 +479,38 @@ class QueryModuleVersionsRequest extends $pb.GeneratedMessage {
   void clearModuleName() => clearField(1);
 }
 
+///  QueryModuleVersionsResponse is the response type for the Query/ModuleVersions
+///  RPC method.
+///
+///  Since: cosmos-sdk 0.43
 class QueryModuleVersionsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryModuleVersionsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$1.ModuleVersion>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'moduleVersions',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.ModuleVersion.create)
-    ..hasRequiredFields = false;
-
-  QueryModuleVersionsResponse._() : super();
   factory QueryModuleVersionsResponse({
     $core.Iterable<$1.ModuleVersion>? moduleVersions,
   }) {
-    final _result = create();
+    final $result = create();
     if (moduleVersions != null) {
-      _result.moduleVersions.addAll(moduleVersions);
+      $result.moduleVersions.addAll(moduleVersions);
     }
-    return _result;
+    return $result;
   }
+  QueryModuleVersionsResponse._() : super();
   factory QueryModuleVersionsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryModuleVersionsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryModuleVersionsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.ModuleVersion>(
+        1, _omitFieldNames ? '' : 'moduleVersions', $pb.PbFieldType.PM,
+        subBuilder: $1.ModuleVersion.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -529,8 +523,10 @@ class QueryModuleVersionsResponse extends $pb.GeneratedMessage {
           void Function(QueryModuleVersionsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryModuleVersionsResponse))
-          as QueryModuleVersionsResponse; // ignore: deprecated_member_use
+          as QueryModuleVersionsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryModuleVersionsResponse create() =>
       QueryModuleVersionsResponse._();
@@ -542,30 +538,31 @@ class QueryModuleVersionsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryModuleVersionsResponse>(create);
   static QueryModuleVersionsResponse? _defaultInstance;
 
+  /// module_versions is a list of module names with their consensus versions.
   @$pb.TagNumber(1)
   $core.List<$1.ModuleVersion> get moduleVersions => $_getList(0);
 }
 
+///  QueryAuthorityRequest is the request type for Query/Authority
+///
+///  Since: cosmos-sdk 0.46
 class QueryAuthorityRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAuthorityRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  QueryAuthorityRequest._() : super();
   factory QueryAuthorityRequest() => create();
+  QueryAuthorityRequest._() : super();
   factory QueryAuthorityRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAuthorityRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAuthorityRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -577,8 +574,10 @@ class QueryAuthorityRequest extends $pb.GeneratedMessage {
   QueryAuthorityRequest copyWith(
           void Function(QueryAuthorityRequest) updates) =>
       super.copyWith((message) => updates(message as QueryAuthorityRequest))
-          as QueryAuthorityRequest; // ignore: deprecated_member_use
+          as QueryAuthorityRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAuthorityRequest create() => QueryAuthorityRequest._();
   QueryAuthorityRequest createEmptyInstance() => create();
@@ -590,39 +589,35 @@ class QueryAuthorityRequest extends $pb.GeneratedMessage {
   static QueryAuthorityRequest? _defaultInstance;
 }
 
+///  QueryAuthorityResponse is the response type for Query/Authority
+///
+///  Since: cosmos-sdk 0.46
 class QueryAuthorityResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAuthorityResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..hasRequiredFields = false;
-
-  QueryAuthorityResponse._() : super();
   factory QueryAuthorityResponse({
     $core.String? address,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
-    return _result;
+    return $result;
   }
+  QueryAuthorityResponse._() : super();
   factory QueryAuthorityResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAuthorityResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAuthorityResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -634,8 +629,10 @@ class QueryAuthorityResponse extends $pb.GeneratedMessage {
   QueryAuthorityResponse copyWith(
           void Function(QueryAuthorityResponse) updates) =>
       super.copyWith((message) => updates(message as QueryAuthorityResponse))
-          as QueryAuthorityResponse; // ignore: deprecated_member_use
+          as QueryAuthorityResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAuthorityResponse create() => QueryAuthorityResponse._();
   QueryAuthorityResponse createEmptyInstance() => create();
@@ -658,3 +655,7 @@ class QueryAuthorityResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

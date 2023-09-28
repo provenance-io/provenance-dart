@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/commitment/v1/commitment.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,40 +15,35 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../../proofs.pb.dart' as $0;
 
+/// MerkleRoot defines a merkle root hash.
+/// In the Cosmos SDK, the AppHash of a block header becomes the root.
 class MerkleRoot extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MerkleRoot',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.commitment.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  MerkleRoot._() : super();
   factory MerkleRoot({
     $core.List<$core.int>? hash,
   }) {
-    final _result = create();
+    final $result = create();
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
-    return _result;
+    return $result;
   }
+  MerkleRoot._() : super();
   factory MerkleRoot.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MerkleRoot.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MerkleRoot',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.commitment.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -53,9 +52,10 @@ class MerkleRoot extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MerkleRoot copyWith(void Function(MerkleRoot) updates) =>
-      super.copyWith((message) => updates(message as MerkleRoot))
-          as MerkleRoot; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MerkleRoot)) as MerkleRoot;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MerkleRoot create() => MerkleRoot._();
   MerkleRoot createEmptyInstance() => create();
@@ -78,40 +78,36 @@ class MerkleRoot extends $pb.GeneratedMessage {
   void clearHash() => clearField(1);
 }
 
+/// MerklePrefix is merkle path prefixed to the key.
+/// The constructed key from the Path and the key will be append(Path.KeyPath,
+/// append(Path.KeyPrefix, key...))
 class MerklePrefix extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MerklePrefix',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.commitment.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'keyPrefix',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  MerklePrefix._() : super();
   factory MerklePrefix({
     $core.List<$core.int>? keyPrefix,
   }) {
-    final _result = create();
+    final $result = create();
     if (keyPrefix != null) {
-      _result.keyPrefix = keyPrefix;
+      $result.keyPrefix = keyPrefix;
     }
-    return _result;
+    return $result;
   }
+  MerklePrefix._() : super();
   factory MerklePrefix.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MerklePrefix.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MerklePrefix',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.commitment.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'keyPrefix', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -121,8 +117,10 @@ class MerklePrefix extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MerklePrefix copyWith(void Function(MerklePrefix) updates) =>
       super.copyWith((message) => updates(message as MerklePrefix))
-          as MerklePrefix; // ignore: deprecated_member_use
+          as MerklePrefix;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MerklePrefix create() => MerklePrefix._();
   MerklePrefix createEmptyInstance() => create();
@@ -146,39 +144,35 @@ class MerklePrefix extends $pb.GeneratedMessage {
   void clearKeyPrefix() => clearField(1);
 }
 
+/// MerklePath is the path used to verify commitment proofs, which can be an
+/// arbitrary structured object (defined by a commitment type).
+/// MerklePath is represented from root-to-leaf
 class MerklePath extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MerklePath',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.commitment.v1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'keyPath')
-    ..hasRequiredFields = false;
-
-  MerklePath._() : super();
   factory MerklePath({
     $core.Iterable<$core.String>? keyPath,
   }) {
-    final _result = create();
+    final $result = create();
     if (keyPath != null) {
-      _result.keyPath.addAll(keyPath);
+      $result.keyPath.addAll(keyPath);
     }
-    return _result;
+    return $result;
   }
+  MerklePath._() : super();
   factory MerklePath.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MerklePath.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MerklePath',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.commitment.v1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'keyPath')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -187,9 +181,10 @@ class MerklePath extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MerklePath copyWith(void Function(MerklePath) updates) =>
-      super.copyWith((message) => updates(message as MerklePath))
-          as MerklePath; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MerklePath)) as MerklePath;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MerklePath create() => MerklePath._();
   MerklePath createEmptyInstance() => create();
@@ -203,41 +198,39 @@ class MerklePath extends $pb.GeneratedMessage {
   $core.List<$core.String> get keyPath => $_getList(0);
 }
 
+/// MerkleProof is a wrapper type over a chain of CommitmentProofs.
+/// It demonstrates membership or non-membership for an element or set of
+/// elements, verifiable in conjunction with a known commitment root. Proofs
+/// should be succinct.
+/// MerkleProofs are ordered from leaf-to-root
 class MerkleProof extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MerkleProof',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.commitment.v1'),
-      createEmptyInstance: create)
-    ..pc<$0.CommitmentProof>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofs',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.CommitmentProof.create)
-    ..hasRequiredFields = false;
-
-  MerkleProof._() : super();
   factory MerkleProof({
     $core.Iterable<$0.CommitmentProof>? proofs,
   }) {
-    final _result = create();
+    final $result = create();
     if (proofs != null) {
-      _result.proofs.addAll(proofs);
+      $result.proofs.addAll(proofs);
     }
-    return _result;
+    return $result;
   }
+  MerkleProof._() : super();
   factory MerkleProof.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MerkleProof.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MerkleProof',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.core.commitment.v1'),
+      createEmptyInstance: create)
+    ..pc<$0.CommitmentProof>(
+        1, _omitFieldNames ? '' : 'proofs', $pb.PbFieldType.PM,
+        subBuilder: $0.CommitmentProof.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -247,8 +240,10 @@ class MerkleProof extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MerkleProof copyWith(void Function(MerkleProof) updates) =>
       super.copyWith((message) => updates(message as MerkleProof))
-          as MerkleProof; // ignore: deprecated_member_use
+          as MerkleProof;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MerkleProof create() => MerkleProof._();
   MerkleProof createEmptyInstance() => create();
@@ -261,3 +256,7 @@ class MerkleProof extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$0.CommitmentProof> get proofs => $_getList(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

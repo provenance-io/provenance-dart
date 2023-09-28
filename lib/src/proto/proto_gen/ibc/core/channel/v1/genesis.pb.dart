@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/channel/v1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,75 +16,8 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'channel.pb.dart' as $0;
 
+/// GenesisState defines the ibc channel submodule's genesis state.
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..pc<$0.IdentifiedChannel>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channels',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.IdentifiedChannel.create)
-    ..pc<$0.PacketState>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'acknowledgements',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.PacketState.create)
-    ..pc<$0.PacketState>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'commitments',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.PacketState.create)
-    ..pc<$0.PacketState>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'receipts',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.PacketState.create)
-    ..pc<PacketSequence>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sendSequences',
-        $pb.PbFieldType.PM,
-        subBuilder: PacketSequence.create)
-    ..pc<PacketSequence>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recvSequences',
-        $pb.PbFieldType.PM,
-        subBuilder: PacketSequence.create)
-    ..pc<PacketSequence>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ackSequences',
-        $pb.PbFieldType.PM,
-        subBuilder: PacketSequence.create)
-    ..a<$fixnum.Int64>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextChannelSequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  GenesisState._() : super();
   factory GenesisState({
     $core.Iterable<$0.IdentifiedChannel>? channels,
     $core.Iterable<$0.PacketState>? acknowledgements,
@@ -91,39 +28,72 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.Iterable<PacketSequence>? ackSequences,
     $fixnum.Int64? nextChannelSequence,
   }) {
-    final _result = create();
+    final $result = create();
     if (channels != null) {
-      _result.channels.addAll(channels);
+      $result.channels.addAll(channels);
     }
     if (acknowledgements != null) {
-      _result.acknowledgements.addAll(acknowledgements);
+      $result.acknowledgements.addAll(acknowledgements);
     }
     if (commitments != null) {
-      _result.commitments.addAll(commitments);
+      $result.commitments.addAll(commitments);
     }
     if (receipts != null) {
-      _result.receipts.addAll(receipts);
+      $result.receipts.addAll(receipts);
     }
     if (sendSequences != null) {
-      _result.sendSequences.addAll(sendSequences);
+      $result.sendSequences.addAll(sendSequences);
     }
     if (recvSequences != null) {
-      _result.recvSequences.addAll(recvSequences);
+      $result.recvSequences.addAll(recvSequences);
     }
     if (ackSequences != null) {
-      _result.ackSequences.addAll(ackSequences);
+      $result.ackSequences.addAll(ackSequences);
     }
     if (nextChannelSequence != null) {
-      _result.nextChannelSequence = nextChannelSequence;
+      $result.nextChannelSequence = nextChannelSequence;
     }
-    return _result;
+    return $result;
   }
+  GenesisState._() : super();
   factory GenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisState',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..pc<$0.IdentifiedChannel>(
+        1, _omitFieldNames ? '' : 'channels', $pb.PbFieldType.PM,
+        subBuilder: $0.IdentifiedChannel.create)
+    ..pc<$0.PacketState>(
+        2, _omitFieldNames ? '' : 'acknowledgements', $pb.PbFieldType.PM,
+        subBuilder: $0.PacketState.create)
+    ..pc<$0.PacketState>(
+        3, _omitFieldNames ? '' : 'commitments', $pb.PbFieldType.PM,
+        subBuilder: $0.PacketState.create)
+    ..pc<$0.PacketState>(
+        4, _omitFieldNames ? '' : 'receipts', $pb.PbFieldType.PM,
+        subBuilder: $0.PacketState.create)
+    ..pc<PacketSequence>(
+        5, _omitFieldNames ? '' : 'sendSequences', $pb.PbFieldType.PM,
+        subBuilder: PacketSequence.create)
+    ..pc<PacketSequence>(
+        6, _omitFieldNames ? '' : 'recvSequences', $pb.PbFieldType.PM,
+        subBuilder: PacketSequence.create)
+    ..pc<PacketSequence>(
+        7, _omitFieldNames ? '' : 'ackSequences', $pb.PbFieldType.PM,
+        subBuilder: PacketSequence.create)
+    ..a<$fixnum.Int64>(
+        8, _omitFieldNames ? '' : 'nextChannelSequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -133,8 +103,10 @@ class GenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState copyWith(void Function(GenesisState) updates) =>
       super.copyWith((message) => updates(message as GenesisState))
-          as GenesisState; // ignore: deprecated_member_use
+          as GenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
@@ -166,6 +138,7 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.List<PacketSequence> get ackSequences => $_getList(6);
 
+  /// the sequence for the next generated channel identifier
   @$pb.TagNumber(8)
   $fixnum.Int64 get nextChannelSequence => $_getI64(7);
   @$pb.TagNumber(8)
@@ -179,59 +152,46 @@ class GenesisState extends $pb.GeneratedMessage {
   void clearNextChannelSequence() => clearField(8);
 }
 
+/// PacketSequence defines the genesis type necessary to retrieve and store
+/// next send and receive sequences.
 class PacketSequence extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PacketSequence',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  PacketSequence._() : super();
   factory PacketSequence({
     $core.String? portId,
     $core.String? channelId,
     $fixnum.Int64? sequence,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (sequence != null) {
-      _result.sequence = sequence;
+      $result.sequence = sequence;
     }
-    return _result;
+    return $result;
   }
+  PacketSequence._() : super();
   factory PacketSequence.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PacketSequence.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PacketSequence',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -241,8 +201,10 @@ class PacketSequence extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PacketSequence copyWith(void Function(PacketSequence) updates) =>
       super.copyWith((message) => updates(message as PacketSequence))
-          as PacketSequence; // ignore: deprecated_member_use
+          as PacketSequence;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PacketSequence create() => PacketSequence._();
   PacketSequence createEmptyInstance() => create();
@@ -289,3 +251,7 @@ class PacketSequence extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearSequence() => clearField(3);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

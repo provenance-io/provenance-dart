@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/applications/transfer/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -13,58 +17,10 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../../cosmos/base/v1beta1/coin.pb.dart' as $1;
 import '../../../core/client/v1/client.pb.dart' as $2;
 
+/// MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
+/// ICS20 enabled chains. See ICS Spec here:
+/// https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-transfer#data-structures
 class MsgTransfer extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgTransfer',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.transfer.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sourcePort')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sourceChannel')
-    ..aOM<$1.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'token',
-        subBuilder: $1.Coin.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sender')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'receiver')
-    ..aOM<$2.Height>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timeoutHeight',
-        subBuilder: $2.Height.create)
-    ..a<$fixnum.Int64>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timeoutTimestamp',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  MsgTransfer._() : super();
   factory MsgTransfer({
     $core.String? sourcePort,
     $core.String? sourceChannel,
@@ -73,37 +29,62 @@ class MsgTransfer extends $pb.GeneratedMessage {
     $core.String? receiver,
     $2.Height? timeoutHeight,
     $fixnum.Int64? timeoutTimestamp,
+    $core.String? memo,
   }) {
-    final _result = create();
+    final $result = create();
     if (sourcePort != null) {
-      _result.sourcePort = sourcePort;
+      $result.sourcePort = sourcePort;
     }
     if (sourceChannel != null) {
-      _result.sourceChannel = sourceChannel;
+      $result.sourceChannel = sourceChannel;
     }
     if (token != null) {
-      _result.token = token;
+      $result.token = token;
     }
     if (sender != null) {
-      _result.sender = sender;
+      $result.sender = sender;
     }
     if (receiver != null) {
-      _result.receiver = receiver;
+      $result.receiver = receiver;
     }
     if (timeoutHeight != null) {
-      _result.timeoutHeight = timeoutHeight;
+      $result.timeoutHeight = timeoutHeight;
     }
     if (timeoutTimestamp != null) {
-      _result.timeoutTimestamp = timeoutTimestamp;
+      $result.timeoutTimestamp = timeoutTimestamp;
     }
-    return _result;
+    if (memo != null) {
+      $result.memo = memo;
+    }
+    return $result;
   }
+  MsgTransfer._() : super();
   factory MsgTransfer.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgTransfer.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgTransfer',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.transfer.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'sourcePort')
+    ..aOS(2, _omitFieldNames ? '' : 'sourceChannel')
+    ..aOM<$1.Coin>(3, _omitFieldNames ? '' : 'token',
+        subBuilder: $1.Coin.create)
+    ..aOS(4, _omitFieldNames ? '' : 'sender')
+    ..aOS(5, _omitFieldNames ? '' : 'receiver')
+    ..aOM<$2.Height>(6, _omitFieldNames ? '' : 'timeoutHeight',
+        subBuilder: $2.Height.create)
+    ..a<$fixnum.Int64>(
+        7, _omitFieldNames ? '' : 'timeoutTimestamp', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(8, _omitFieldNames ? '' : 'memo')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -113,8 +94,10 @@ class MsgTransfer extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgTransfer copyWith(void Function(MsgTransfer) updates) =>
       super.copyWith((message) => updates(message as MsgTransfer))
-          as MsgTransfer; // ignore: deprecated_member_use
+          as MsgTransfer;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgTransfer create() => MsgTransfer._();
   MsgTransfer createEmptyInstance() => create();
@@ -124,6 +107,7 @@ class MsgTransfer extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgTransfer>(create);
   static MsgTransfer? _defaultInstance;
 
+  /// the port on which the packet will be sent
   @$pb.TagNumber(1)
   $core.String get sourcePort => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -136,6 +120,7 @@ class MsgTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSourcePort() => clearField(1);
 
+  /// the channel by which the packet will be sent
   @$pb.TagNumber(2)
   $core.String get sourceChannel => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -148,6 +133,7 @@ class MsgTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearSourceChannel() => clearField(2);
 
+  /// the tokens to be transferred
   @$pb.TagNumber(3)
   $1.Coin get token => $_getN(2);
   @$pb.TagNumber(3)
@@ -162,6 +148,7 @@ class MsgTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $1.Coin ensureToken() => $_ensure(2);
 
+  /// the sender address
   @$pb.TagNumber(4)
   $core.String get sender => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -174,6 +161,7 @@ class MsgTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearSender() => clearField(4);
 
+  /// the recipient address on the destination chain
   @$pb.TagNumber(5)
   $core.String get receiver => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -186,6 +174,8 @@ class MsgTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearReceiver() => clearField(5);
 
+  /// Timeout height relative to the current block height.
+  /// The timeout is disabled when set to 0.
   @$pb.TagNumber(6)
   $2.Height get timeoutHeight => $_getN(5);
   @$pb.TagNumber(6)
@@ -200,6 +190,8 @@ class MsgTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $2.Height ensureTimeoutHeight() => $_ensure(5);
 
+  /// Timeout timestamp in absolute nanoseconds since unix epoch.
+  /// The timeout is disabled when set to 0.
   @$pb.TagNumber(7)
   $fixnum.Int64 get timeoutTimestamp => $_getI64(6);
   @$pb.TagNumber(7)
@@ -211,28 +203,50 @@ class MsgTransfer extends $pb.GeneratedMessage {
   $core.bool hasTimeoutTimestamp() => $_has(6);
   @$pb.TagNumber(7)
   void clearTimeoutTimestamp() => clearField(7);
+
+  /// optional memo
+  @$pb.TagNumber(8)
+  $core.String get memo => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set memo($core.String v) {
+    $_setString(7, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasMemo() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearMemo() => clearField(8);
 }
 
+/// MsgTransferResponse defines the Msg/Transfer response type.
 class MsgTransferResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgTransferResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.transfer.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
+  factory MsgTransferResponse({
+    $fixnum.Int64? sequence,
+  }) {
+    final $result = create();
+    if (sequence != null) {
+      $result.sequence = sequence;
+    }
+    return $result;
+  }
   MsgTransferResponse._() : super();
-  factory MsgTransferResponse() => create();
   factory MsgTransferResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgTransferResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgTransferResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.transfer.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -242,8 +256,10 @@ class MsgTransferResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgTransferResponse copyWith(void Function(MsgTransferResponse) updates) =>
       super.copyWith((message) => updates(message as MsgTransferResponse))
-          as MsgTransferResponse; // ignore: deprecated_member_use
+          as MsgTransferResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgTransferResponse create() => MsgTransferResponse._();
   MsgTransferResponse createEmptyInstance() => create();
@@ -253,4 +269,21 @@ class MsgTransferResponse extends $pb.GeneratedMessage {
   static MsgTransferResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MsgTransferResponse>(create);
   static MsgTransferResponse? _defaultInstance;
+
+  /// sequence number of the transfer packet sent
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get sequence => $_getI64(0);
+  @$pb.TagNumber(1)
+  set sequence($fixnum.Int64 v) {
+    $_setInt64(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSequence() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSequence() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

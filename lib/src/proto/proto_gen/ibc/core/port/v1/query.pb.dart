@@ -1,61 +1,23 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/port/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../channel/v1/channel.pb.dart' as $1;
-
 import '../../channel/v1/channel.pbenum.dart' as $1;
 
+/// QueryAppVersionRequest is the request type for the Query/AppVersion RPC method
 class QueryAppVersionRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAppVersionRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.port.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionId')
-    ..e<$1.Order>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ordering',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $1.Order.ORDER_NONE_UNSPECIFIED,
-        valueOf: $1.Order.valueOf,
-        enumValues: $1.Order.values)
-    ..aOM<$1.Counterparty>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterparty',
-        subBuilder: $1.Counterparty.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposedVersion')
-    ..hasRequiredFields = false;
-
-  QueryAppVersionRequest._() : super();
   factory QueryAppVersionRequest({
     $core.String? portId,
     $core.String? connectionId,
@@ -63,30 +25,48 @@ class QueryAppVersionRequest extends $pb.GeneratedMessage {
     $1.Counterparty? counterparty,
     $core.String? proposedVersion,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (connectionId != null) {
-      _result.connectionId = connectionId;
+      $result.connectionId = connectionId;
     }
     if (ordering != null) {
-      _result.ordering = ordering;
+      $result.ordering = ordering;
     }
     if (counterparty != null) {
-      _result.counterparty = counterparty;
+      $result.counterparty = counterparty;
     }
     if (proposedVersion != null) {
-      _result.proposedVersion = proposedVersion;
+      $result.proposedVersion = proposedVersion;
     }
-    return _result;
+    return $result;
   }
+  QueryAppVersionRequest._() : super();
   factory QueryAppVersionRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAppVersionRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAppVersionRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.port.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'connectionId')
+    ..e<$1.Order>(3, _omitFieldNames ? '' : 'ordering', $pb.PbFieldType.OE,
+        defaultOrMaker: $1.Order.ORDER_NONE_UNSPECIFIED,
+        valueOf: $1.Order.valueOf,
+        enumValues: $1.Order.values)
+    ..aOM<$1.Counterparty>(4, _omitFieldNames ? '' : 'counterparty',
+        subBuilder: $1.Counterparty.create)
+    ..aOS(5, _omitFieldNames ? '' : 'proposedVersion')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -98,8 +78,10 @@ class QueryAppVersionRequest extends $pb.GeneratedMessage {
   QueryAppVersionRequest copyWith(
           void Function(QueryAppVersionRequest) updates) =>
       super.copyWith((message) => updates(message as QueryAppVersionRequest))
-          as QueryAppVersionRequest; // ignore: deprecated_member_use
+          as QueryAppVersionRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAppVersionRequest create() => QueryAppVersionRequest._();
   QueryAppVersionRequest createEmptyInstance() => create();
@@ -110,6 +92,7 @@ class QueryAppVersionRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAppVersionRequest>(create);
   static QueryAppVersionRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -122,6 +105,7 @@ class QueryAppVersionRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// connection unique identifier
   @$pb.TagNumber(2)
   $core.String get connectionId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -134,6 +118,7 @@ class QueryAppVersionRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearConnectionId() => clearField(2);
 
+  /// whether the channel is ordered or unordered
   @$pb.TagNumber(3)
   $1.Order get ordering => $_getN(2);
   @$pb.TagNumber(3)
@@ -146,6 +131,7 @@ class QueryAppVersionRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearOrdering() => clearField(3);
 
+  /// counterparty channel end
   @$pb.TagNumber(4)
   $1.Counterparty get counterparty => $_getN(3);
   @$pb.TagNumber(4)
@@ -160,6 +146,7 @@ class QueryAppVersionRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $1.Counterparty ensureCounterparty() => $_ensure(3);
 
+  /// proposed version
   @$pb.TagNumber(5)
   $core.String get proposedVersion => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -173,48 +160,38 @@ class QueryAppVersionRequest extends $pb.GeneratedMessage {
   void clearProposedVersion() => clearField(5);
 }
 
+/// QueryAppVersionResponse is the response type for the Query/AppVersion RPC method.
 class QueryAppVersionResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAppVersionResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.port.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..hasRequiredFields = false;
-
-  QueryAppVersionResponse._() : super();
   factory QueryAppVersionResponse({
     $core.String? portId,
     $core.String? version,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
-    return _result;
+    return $result;
   }
+  QueryAppVersionResponse._() : super();
   factory QueryAppVersionResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAppVersionResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAppVersionResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.port.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'version')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -226,8 +203,10 @@ class QueryAppVersionResponse extends $pb.GeneratedMessage {
   QueryAppVersionResponse copyWith(
           void Function(QueryAppVersionResponse) updates) =>
       super.copyWith((message) => updates(message as QueryAppVersionResponse))
-          as QueryAppVersionResponse; // ignore: deprecated_member_use
+          as QueryAppVersionResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAppVersionResponse create() => QueryAppVersionResponse._();
   QueryAppVersionResponse createEmptyInstance() => create();
@@ -238,6 +217,7 @@ class QueryAppVersionResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAppVersionResponse>(create);
   static QueryAppVersionResponse? _defaultInstance;
 
+  /// port id associated with the request identifiers
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -250,6 +230,7 @@ class QueryAppVersionResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// supported app version
   @$pb.TagNumber(2)
   $core.String get version => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -262,3 +243,7 @@ class QueryAppVersionResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearVersion() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

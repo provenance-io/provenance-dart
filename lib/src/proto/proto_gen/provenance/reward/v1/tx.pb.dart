@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/reward/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -14,87 +18,8 @@ import '../../../cosmos/base/v1beta1/coin.pb.dart' as $1;
 import '../../../google/protobuf/timestamp.pb.dart' as $2;
 import 'reward.pb.dart' as $3;
 
+/// MsgCreateRewardProgramRequest is the request type for creating a reward program RPC
 class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateRewardProgramRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'distributeFromAddress')
-    ..aOM<$1.Coin>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalRewardPool',
-        subBuilder: $1.Coin.create)
-    ..aOM<$1.Coin>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxRewardPerClaimAddress',
-        subBuilder: $1.Coin.create)
-    ..aOM<$2.Timestamp>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'programStartTime',
-        subBuilder: $2.Timestamp.create)
-    ..a<$fixnum.Int64>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriods',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriodDays',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxRolloverClaimPeriods',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'expireDays',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..pc<$3.QualifyingAction>(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'qualifyingActions',
-        $pb.PbFieldType.PM,
-        subBuilder: $3.QualifyingAction.create)
-    ..hasRequiredFields = false;
-
-  MsgCreateRewardProgramRequest._() : super();
   factory MsgCreateRewardProgramRequest({
     $core.String? title,
     $core.String? description,
@@ -108,48 +33,81 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
     $fixnum.Int64? expireDays,
     $core.Iterable<$3.QualifyingAction>? qualifyingActions,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (distributeFromAddress != null) {
-      _result.distributeFromAddress = distributeFromAddress;
+      $result.distributeFromAddress = distributeFromAddress;
     }
     if (totalRewardPool != null) {
-      _result.totalRewardPool = totalRewardPool;
+      $result.totalRewardPool = totalRewardPool;
     }
     if (maxRewardPerClaimAddress != null) {
-      _result.maxRewardPerClaimAddress = maxRewardPerClaimAddress;
+      $result.maxRewardPerClaimAddress = maxRewardPerClaimAddress;
     }
     if (programStartTime != null) {
-      _result.programStartTime = programStartTime;
+      $result.programStartTime = programStartTime;
     }
     if (claimPeriods != null) {
-      _result.claimPeriods = claimPeriods;
+      $result.claimPeriods = claimPeriods;
     }
     if (claimPeriodDays != null) {
-      _result.claimPeriodDays = claimPeriodDays;
+      $result.claimPeriodDays = claimPeriodDays;
     }
     if (maxRolloverClaimPeriods != null) {
-      _result.maxRolloverClaimPeriods = maxRolloverClaimPeriods;
+      $result.maxRolloverClaimPeriods = maxRolloverClaimPeriods;
     }
     if (expireDays != null) {
-      _result.expireDays = expireDays;
+      $result.expireDays = expireDays;
     }
     if (qualifyingActions != null) {
-      _result.qualifyingActions.addAll(qualifyingActions);
+      $result.qualifyingActions.addAll(qualifyingActions);
     }
-    return _result;
+    return $result;
   }
+  MsgCreateRewardProgramRequest._() : super();
   factory MsgCreateRewardProgramRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateRewardProgramRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateRewardProgramRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'distributeFromAddress')
+    ..aOM<$1.Coin>(4, _omitFieldNames ? '' : 'totalRewardPool',
+        subBuilder: $1.Coin.create)
+    ..aOM<$1.Coin>(5, _omitFieldNames ? '' : 'maxRewardPerClaimAddress',
+        subBuilder: $1.Coin.create)
+    ..aOM<$2.Timestamp>(6, _omitFieldNames ? '' : 'programStartTime',
+        subBuilder: $2.Timestamp.create)
+    ..a<$fixnum.Int64>(
+        7, _omitFieldNames ? '' : 'claimPeriods', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        8, _omitFieldNames ? '' : 'claimPeriodDays', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(9, _omitFieldNames ? '' : 'maxRolloverClaimPeriods',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        10, _omitFieldNames ? '' : 'expireDays', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pc<$3.QualifyingAction>(
+        11, _omitFieldNames ? '' : 'qualifyingActions', $pb.PbFieldType.PM,
+        subBuilder: $3.QualifyingAction.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -162,8 +120,10 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
           void Function(MsgCreateRewardProgramRequest) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCreateRewardProgramRequest))
-          as MsgCreateRewardProgramRequest; // ignore: deprecated_member_use
+          as MsgCreateRewardProgramRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateRewardProgramRequest create() =>
       MsgCreateRewardProgramRequest._();
@@ -175,6 +135,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgCreateRewardProgramRequest>(create);
   static MsgCreateRewardProgramRequest? _defaultInstance;
 
+  /// title for the reward program.
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -187,6 +148,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// description for the reward program.
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -199,6 +161,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// provider address for the reward program funds and signer of message.
   @$pb.TagNumber(3)
   $core.String get distributeFromAddress => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -211,6 +174,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearDistributeFromAddress() => clearField(3);
 
+  /// total reward pool for the reward program.
   @$pb.TagNumber(4)
   $1.Coin get totalRewardPool => $_getN(3);
   @$pb.TagNumber(4)
@@ -225,6 +189,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $1.Coin ensureTotalRewardPool() => $_ensure(3);
 
+  /// maximum amount of funds an address can be rewarded per claim period.
   @$pb.TagNumber(5)
   $1.Coin get maxRewardPerClaimAddress => $_getN(4);
   @$pb.TagNumber(5)
@@ -239,6 +204,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $1.Coin ensureMaxRewardPerClaimAddress() => $_ensure(4);
 
+  /// start time of the reward program.
   @$pb.TagNumber(6)
   $2.Timestamp get programStartTime => $_getN(5);
   @$pb.TagNumber(6)
@@ -253,6 +219,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $2.Timestamp ensureProgramStartTime() => $_ensure(5);
 
+  /// number of claim periods the reward program runs for.
   @$pb.TagNumber(7)
   $fixnum.Int64 get claimPeriods => $_getI64(6);
   @$pb.TagNumber(7)
@@ -265,6 +232,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearClaimPeriods() => clearField(7);
 
+  /// number of days a claim period will exist.
   @$pb.TagNumber(8)
   $fixnum.Int64 get claimPeriodDays => $_getI64(7);
   @$pb.TagNumber(8)
@@ -277,6 +245,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearClaimPeriodDays() => clearField(8);
 
+  /// maximum number of claim periods a reward program can rollover.
   @$pb.TagNumber(9)
   $fixnum.Int64 get maxRolloverClaimPeriods => $_getI64(8);
   @$pb.TagNumber(9)
@@ -289,6 +258,7 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   void clearMaxRolloverClaimPeriods() => clearField(9);
 
+  /// number of days before a reward program will expire after it has ended.
   @$pb.TagNumber(10)
   $fixnum.Int64 get expireDays => $_getI64(9);
   @$pb.TagNumber(10)
@@ -301,45 +271,39 @@ class MsgCreateRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   void clearExpireDays() => clearField(10);
 
+  /// actions that count towards the reward.
   @$pb.TagNumber(11)
   $core.List<$3.QualifyingAction> get qualifyingActions => $_getList(10);
 }
 
+/// MsgCreateRewardProgramResponse is the response type for creating a reward program RPC
 class MsgCreateRewardProgramResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateRewardProgramResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  MsgCreateRewardProgramResponse._() : super();
   factory MsgCreateRewardProgramResponse({
     $fixnum.Int64? id,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateRewardProgramResponse._() : super();
   factory MsgCreateRewardProgramResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateRewardProgramResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateRewardProgramResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -352,8 +316,10 @@ class MsgCreateRewardProgramResponse extends $pb.GeneratedMessage {
           void Function(MsgCreateRewardProgramResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCreateRewardProgramResponse))
-          as MsgCreateRewardProgramResponse; // ignore: deprecated_member_use
+          as MsgCreateRewardProgramResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateRewardProgramResponse create() =>
       MsgCreateRewardProgramResponse._();
@@ -365,6 +331,7 @@ class MsgCreateRewardProgramResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgCreateRewardProgramResponse>(create);
   static MsgCreateRewardProgramResponse? _defaultInstance;
 
+  /// reward program id that is generated on creation.
   @$pb.TagNumber(1)
   $fixnum.Int64 get id => $_getI64(0);
   @$pb.TagNumber(1)
@@ -378,50 +345,40 @@ class MsgCreateRewardProgramResponse extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 }
 
+/// MsgEndRewardProgramRequest is the request type for ending a reward program RPC
 class MsgEndRewardProgramRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgEndRewardProgramRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rewardProgramId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'programOwnerAddress')
-    ..hasRequiredFields = false;
-
-  MsgEndRewardProgramRequest._() : super();
   factory MsgEndRewardProgramRequest({
     $fixnum.Int64? rewardProgramId,
     $core.String? programOwnerAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (rewardProgramId != null) {
-      _result.rewardProgramId = rewardProgramId;
+      $result.rewardProgramId = rewardProgramId;
     }
     if (programOwnerAddress != null) {
-      _result.programOwnerAddress = programOwnerAddress;
+      $result.programOwnerAddress = programOwnerAddress;
     }
-    return _result;
+    return $result;
   }
+  MsgEndRewardProgramRequest._() : super();
   factory MsgEndRewardProgramRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgEndRewardProgramRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgEndRewardProgramRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'rewardProgramId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'programOwnerAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -434,8 +391,10 @@ class MsgEndRewardProgramRequest extends $pb.GeneratedMessage {
           void Function(MsgEndRewardProgramRequest) updates) =>
       super.copyWith(
               (message) => updates(message as MsgEndRewardProgramRequest))
-          as MsgEndRewardProgramRequest; // ignore: deprecated_member_use
+          as MsgEndRewardProgramRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgEndRewardProgramRequest create() => MsgEndRewardProgramRequest._();
   MsgEndRewardProgramRequest createEmptyInstance() => create();
@@ -446,6 +405,7 @@ class MsgEndRewardProgramRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgEndRewardProgramRequest>(create);
   static MsgEndRewardProgramRequest? _defaultInstance;
 
+  /// reward program id to end.
   @$pb.TagNumber(1)
   $fixnum.Int64 get rewardProgramId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -458,6 +418,7 @@ class MsgEndRewardProgramRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRewardProgramId() => clearField(1);
 
+  /// owner of the reward program that funds were distributed from.
   @$pb.TagNumber(2)
   $core.String get programOwnerAddress => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -471,26 +432,24 @@ class MsgEndRewardProgramRequest extends $pb.GeneratedMessage {
   void clearProgramOwnerAddress() => clearField(2);
 }
 
+/// MsgEndRewardProgramResponse is the response type for ending a reward program RPC
 class MsgEndRewardProgramResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgEndRewardProgramResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgEndRewardProgramResponse._() : super();
   factory MsgEndRewardProgramResponse() => create();
+  MsgEndRewardProgramResponse._() : super();
   factory MsgEndRewardProgramResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgEndRewardProgramResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgEndRewardProgramResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -503,8 +462,10 @@ class MsgEndRewardProgramResponse extends $pb.GeneratedMessage {
           void Function(MsgEndRewardProgramResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgEndRewardProgramResponse))
-          as MsgEndRewardProgramResponse; // ignore: deprecated_member_use
+          as MsgEndRewardProgramResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgEndRewardProgramResponse create() =>
       MsgEndRewardProgramResponse._();
@@ -517,50 +478,40 @@ class MsgEndRewardProgramResponse extends $pb.GeneratedMessage {
   static MsgEndRewardProgramResponse? _defaultInstance;
 }
 
+/// MsgClaimRewardsRequest is the request type for claiming reward from reward program RPC
 class MsgClaimRewardsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgClaimRewardsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rewardProgramId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rewardAddress')
-    ..hasRequiredFields = false;
-
-  MsgClaimRewardsRequest._() : super();
   factory MsgClaimRewardsRequest({
     $fixnum.Int64? rewardProgramId,
     $core.String? rewardAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (rewardProgramId != null) {
-      _result.rewardProgramId = rewardProgramId;
+      $result.rewardProgramId = rewardProgramId;
     }
     if (rewardAddress != null) {
-      _result.rewardAddress = rewardAddress;
+      $result.rewardAddress = rewardAddress;
     }
-    return _result;
+    return $result;
   }
+  MsgClaimRewardsRequest._() : super();
   factory MsgClaimRewardsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgClaimRewardsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgClaimRewardsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'rewardProgramId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'rewardAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -572,8 +523,10 @@ class MsgClaimRewardsRequest extends $pb.GeneratedMessage {
   MsgClaimRewardsRequest copyWith(
           void Function(MsgClaimRewardsRequest) updates) =>
       super.copyWith((message) => updates(message as MsgClaimRewardsRequest))
-          as MsgClaimRewardsRequest; // ignore: deprecated_member_use
+          as MsgClaimRewardsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgClaimRewardsRequest create() => MsgClaimRewardsRequest._();
   MsgClaimRewardsRequest createEmptyInstance() => create();
@@ -584,6 +537,7 @@ class MsgClaimRewardsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgClaimRewardsRequest>(create);
   static MsgClaimRewardsRequest? _defaultInstance;
 
+  /// reward program id to claim rewards.
   @$pb.TagNumber(1)
   $fixnum.Int64 get rewardProgramId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -596,6 +550,7 @@ class MsgClaimRewardsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRewardProgramId() => clearField(1);
 
+  /// reward address and signer of msg to send claimed rewards to.
   @$pb.TagNumber(2)
   $core.String get rewardAddress => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -609,40 +564,34 @@ class MsgClaimRewardsRequest extends $pb.GeneratedMessage {
   void clearRewardAddress() => clearField(2);
 }
 
+/// MsgClaimRewardsResponse is the response type for claiming reward from reward program RPC
 class MsgClaimRewardsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgClaimRewardsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..aOM<RewardProgramClaimDetail>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimDetails',
-        subBuilder: RewardProgramClaimDetail.create)
-    ..hasRequiredFields = false;
-
-  MsgClaimRewardsResponse._() : super();
   factory MsgClaimRewardsResponse({
     RewardProgramClaimDetail? claimDetails,
   }) {
-    final _result = create();
+    final $result = create();
     if (claimDetails != null) {
-      _result.claimDetails = claimDetails;
+      $result.claimDetails = claimDetails;
     }
-    return _result;
+    return $result;
   }
+  MsgClaimRewardsResponse._() : super();
   factory MsgClaimRewardsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgClaimRewardsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgClaimRewardsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..aOM<RewardProgramClaimDetail>(1, _omitFieldNames ? '' : 'claimDetails',
+        subBuilder: RewardProgramClaimDetail.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -654,8 +603,10 @@ class MsgClaimRewardsResponse extends $pb.GeneratedMessage {
   MsgClaimRewardsResponse copyWith(
           void Function(MsgClaimRewardsResponse) updates) =>
       super.copyWith((message) => updates(message as MsgClaimRewardsResponse))
-          as MsgClaimRewardsResponse; // ignore: deprecated_member_use
+          as MsgClaimRewardsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgClaimRewardsResponse create() => MsgClaimRewardsResponse._();
   MsgClaimRewardsResponse createEmptyInstance() => create();
@@ -666,6 +617,7 @@ class MsgClaimRewardsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgClaimRewardsResponse>(create);
   static MsgClaimRewardsResponse? _defaultInstance;
 
+  /// details about acquired rewards from reward program.
   @$pb.TagNumber(1)
   RewardProgramClaimDetail get claimDetails => $_getN(0);
   @$pb.TagNumber(1)
@@ -681,39 +633,33 @@ class MsgClaimRewardsResponse extends $pb.GeneratedMessage {
   RewardProgramClaimDetail ensureClaimDetails() => $_ensure(0);
 }
 
+/// MsgClaimRewardsResponse is the request type for claiming rewards from all reward programs RPC
 class MsgClaimAllRewardsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgClaimAllRewardsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rewardAddress')
-    ..hasRequiredFields = false;
-
-  MsgClaimAllRewardsRequest._() : super();
   factory MsgClaimAllRewardsRequest({
     $core.String? rewardAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (rewardAddress != null) {
-      _result.rewardAddress = rewardAddress;
+      $result.rewardAddress = rewardAddress;
     }
-    return _result;
+    return $result;
   }
+  MsgClaimAllRewardsRequest._() : super();
   factory MsgClaimAllRewardsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgClaimAllRewardsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgClaimAllRewardsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'rewardAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -725,8 +671,10 @@ class MsgClaimAllRewardsRequest extends $pb.GeneratedMessage {
   MsgClaimAllRewardsRequest copyWith(
           void Function(MsgClaimAllRewardsRequest) updates) =>
       super.copyWith((message) => updates(message as MsgClaimAllRewardsRequest))
-          as MsgClaimAllRewardsRequest; // ignore: deprecated_member_use
+          as MsgClaimAllRewardsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgClaimAllRewardsRequest create() => MsgClaimAllRewardsRequest._();
   MsgClaimAllRewardsRequest createEmptyInstance() => create();
@@ -737,6 +685,7 @@ class MsgClaimAllRewardsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgClaimAllRewardsRequest>(create);
   static MsgClaimAllRewardsRequest? _defaultInstance;
 
+  /// reward address and signer of msg to send claimed rewards to.
   @$pb.TagNumber(1)
   $core.String get rewardAddress => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -750,52 +699,42 @@ class MsgClaimAllRewardsRequest extends $pb.GeneratedMessage {
   void clearRewardAddress() => clearField(1);
 }
 
+/// MsgClaimRewardsResponse is the response type for claiming rewards from all reward programs RPC
 class MsgClaimAllRewardsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgClaimAllRewardsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalRewardClaim',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
-    ..pc<RewardProgramClaimDetail>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimDetails',
-        $pb.PbFieldType.PM,
-        subBuilder: RewardProgramClaimDetail.create)
-    ..hasRequiredFields = false;
-
-  MsgClaimAllRewardsResponse._() : super();
   factory MsgClaimAllRewardsResponse({
     $core.Iterable<$1.Coin>? totalRewardClaim,
     $core.Iterable<RewardProgramClaimDetail>? claimDetails,
   }) {
-    final _result = create();
+    final $result = create();
     if (totalRewardClaim != null) {
-      _result.totalRewardClaim.addAll(totalRewardClaim);
+      $result.totalRewardClaim.addAll(totalRewardClaim);
     }
     if (claimDetails != null) {
-      _result.claimDetails.addAll(claimDetails);
+      $result.claimDetails.addAll(claimDetails);
     }
-    return _result;
+    return $result;
   }
+  MsgClaimAllRewardsResponse._() : super();
   factory MsgClaimAllRewardsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgClaimAllRewardsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgClaimAllRewardsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.Coin>(
+        1, _omitFieldNames ? '' : 'totalRewardClaim', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..pc<RewardProgramClaimDetail>(
+        2, _omitFieldNames ? '' : 'claimDetails', $pb.PbFieldType.PM,
+        subBuilder: RewardProgramClaimDetail.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -808,8 +747,10 @@ class MsgClaimAllRewardsResponse extends $pb.GeneratedMessage {
           void Function(MsgClaimAllRewardsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgClaimAllRewardsResponse))
-          as MsgClaimAllRewardsResponse; // ignore: deprecated_member_use
+          as MsgClaimAllRewardsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgClaimAllRewardsResponse create() => MsgClaimAllRewardsResponse._();
   MsgClaimAllRewardsResponse createEmptyInstance() => create();
@@ -820,69 +761,57 @@ class MsgClaimAllRewardsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgClaimAllRewardsResponse>(create);
   static MsgClaimAllRewardsResponse? _defaultInstance;
 
+  /// total rewards claimed for all eligible claim periods in all programs.
   @$pb.TagNumber(1)
   $core.List<$1.Coin> get totalRewardClaim => $_getList(0);
 
+  /// details about acquired rewards from a reward program.
   @$pb.TagNumber(2)
   $core.List<RewardProgramClaimDetail> get claimDetails => $_getList(1);
 }
 
+/// ClaimedRewardPeriodDetail is information regarding an addresses' shares and reward for a claim period.
 class ClaimedRewardPeriodDetail extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ClaimedRewardPeriodDetail',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriodId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalShares',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$1.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimPeriodReward',
-        subBuilder: $1.Coin.create)
-    ..hasRequiredFields = false;
-
-  ClaimedRewardPeriodDetail._() : super();
   factory ClaimedRewardPeriodDetail({
     $fixnum.Int64? claimPeriodId,
     $fixnum.Int64? totalShares,
     $1.Coin? claimPeriodReward,
   }) {
-    final _result = create();
+    final $result = create();
     if (claimPeriodId != null) {
-      _result.claimPeriodId = claimPeriodId;
+      $result.claimPeriodId = claimPeriodId;
     }
     if (totalShares != null) {
-      _result.totalShares = totalShares;
+      $result.totalShares = totalShares;
     }
     if (claimPeriodReward != null) {
-      _result.claimPeriodReward = claimPeriodReward;
+      $result.claimPeriodReward = claimPeriodReward;
     }
-    return _result;
+    return $result;
   }
+  ClaimedRewardPeriodDetail._() : super();
   factory ClaimedRewardPeriodDetail.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClaimedRewardPeriodDetail.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ClaimedRewardPeriodDetail',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'claimPeriodId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'totalShares', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$1.Coin>(3, _omitFieldNames ? '' : 'claimPeriodReward',
+        subBuilder: $1.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -894,8 +823,10 @@ class ClaimedRewardPeriodDetail extends $pb.GeneratedMessage {
   ClaimedRewardPeriodDetail copyWith(
           void Function(ClaimedRewardPeriodDetail) updates) =>
       super.copyWith((message) => updates(message as ClaimedRewardPeriodDetail))
-          as ClaimedRewardPeriodDetail; // ignore: deprecated_member_use
+          as ClaimedRewardPeriodDetail;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClaimedRewardPeriodDetail create() => ClaimedRewardPeriodDetail._();
   ClaimedRewardPeriodDetail createEmptyInstance() => create();
@@ -906,6 +837,7 @@ class ClaimedRewardPeriodDetail extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ClaimedRewardPeriodDetail>(create);
   static ClaimedRewardPeriodDetail? _defaultInstance;
 
+  /// claim period id
   @$pb.TagNumber(1)
   $fixnum.Int64 get claimPeriodId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -918,6 +850,7 @@ class ClaimedRewardPeriodDetail extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClaimPeriodId() => clearField(1);
 
+  /// total shares accumulated for claim period
   @$pb.TagNumber(2)
   $fixnum.Int64 get totalShares => $_getI64(1);
   @$pb.TagNumber(2)
@@ -930,6 +863,7 @@ class ClaimedRewardPeriodDetail extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearTotalShares() => clearField(2);
 
+  /// total rewards for claim period
   @$pb.TagNumber(3)
   $1.Coin get claimPeriodReward => $_getN(2);
   @$pb.TagNumber(3)
@@ -945,62 +879,48 @@ class ClaimedRewardPeriodDetail extends $pb.GeneratedMessage {
   $1.Coin ensureClaimPeriodReward() => $_ensure(2);
 }
 
+/// RewardProgramClaimDetail is the response object regarding an address's shares and reward for a reward program.
 class RewardProgramClaimDetail extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RewardProgramClaimDetail',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.reward.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rewardProgramId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$1.Coin>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalRewardClaim',
-        subBuilder: $1.Coin.create)
-    ..pc<ClaimedRewardPeriodDetail>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'claimedRewardPeriodDetails',
-        $pb.PbFieldType.PM,
-        subBuilder: ClaimedRewardPeriodDetail.create)
-    ..hasRequiredFields = false;
-
-  RewardProgramClaimDetail._() : super();
   factory RewardProgramClaimDetail({
     $fixnum.Int64? rewardProgramId,
     $1.Coin? totalRewardClaim,
     $core.Iterable<ClaimedRewardPeriodDetail>? claimedRewardPeriodDetails,
   }) {
-    final _result = create();
+    final $result = create();
     if (rewardProgramId != null) {
-      _result.rewardProgramId = rewardProgramId;
+      $result.rewardProgramId = rewardProgramId;
     }
     if (totalRewardClaim != null) {
-      _result.totalRewardClaim = totalRewardClaim;
+      $result.totalRewardClaim = totalRewardClaim;
     }
     if (claimedRewardPeriodDetails != null) {
-      _result.claimedRewardPeriodDetails.addAll(claimedRewardPeriodDetails);
+      $result.claimedRewardPeriodDetails.addAll(claimedRewardPeriodDetails);
     }
-    return _result;
+    return $result;
   }
+  RewardProgramClaimDetail._() : super();
   factory RewardProgramClaimDetail.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RewardProgramClaimDetail.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RewardProgramClaimDetail',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.reward.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'rewardProgramId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$1.Coin>(2, _omitFieldNames ? '' : 'totalRewardClaim',
+        subBuilder: $1.Coin.create)
+    ..pc<ClaimedRewardPeriodDetail>(3,
+        _omitFieldNames ? '' : 'claimedRewardPeriodDetails', $pb.PbFieldType.PM,
+        subBuilder: ClaimedRewardPeriodDetail.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1012,8 +932,10 @@ class RewardProgramClaimDetail extends $pb.GeneratedMessage {
   RewardProgramClaimDetail copyWith(
           void Function(RewardProgramClaimDetail) updates) =>
       super.copyWith((message) => updates(message as RewardProgramClaimDetail))
-          as RewardProgramClaimDetail; // ignore: deprecated_member_use
+          as RewardProgramClaimDetail;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RewardProgramClaimDetail create() => RewardProgramClaimDetail._();
   RewardProgramClaimDetail createEmptyInstance() => create();
@@ -1024,6 +946,7 @@ class RewardProgramClaimDetail extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<RewardProgramClaimDetail>(create);
   static RewardProgramClaimDetail? _defaultInstance;
 
+  /// reward program id.
   @$pb.TagNumber(1)
   $fixnum.Int64 get rewardProgramId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1036,6 +959,7 @@ class RewardProgramClaimDetail extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRewardProgramId() => clearField(1);
 
+  /// total rewards claimed for all eligible claim periods in program.
   @$pb.TagNumber(2)
   $1.Coin get totalRewardClaim => $_getN(1);
   @$pb.TagNumber(2)
@@ -1050,7 +974,12 @@ class RewardProgramClaimDetail extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $1.Coin ensureTotalRewardClaim() => $_ensure(1);
 
+  /// claim period details.
   @$pb.TagNumber(3)
   $core.List<ClaimedRewardPeriodDetail> get claimedRewardPeriodDetails =>
       $_getList(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

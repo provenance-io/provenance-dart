@@ -1,33 +1,29 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/channel/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-// ignore_for_file: UNDEFINED_SHOWN_NAME
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:core' as $core;
+
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// ResponseResultType defines the possible outcomes of the execution of a message
 class ResponseResultType extends $pb.ProtobufEnum {
   static const ResponseResultType RESPONSE_RESULT_TYPE_UNSPECIFIED =
       ResponseResultType._(
-          0,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-              ? ''
-              : 'RESPONSE_RESULT_TYPE_UNSPECIFIED');
+          0, _omitEnumNames ? '' : 'RESPONSE_RESULT_TYPE_UNSPECIFIED');
   static const ResponseResultType RESPONSE_RESULT_TYPE_NOOP =
       ResponseResultType._(
-          1,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-              ? ''
-              : 'RESPONSE_RESULT_TYPE_NOOP');
+          1, _omitEnumNames ? '' : 'RESPONSE_RESULT_TYPE_NOOP');
   static const ResponseResultType RESPONSE_RESULT_TYPE_SUCCESS =
       ResponseResultType._(
-          2,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-              ? ''
-              : 'RESPONSE_RESULT_TYPE_SUCCESS');
+          2, _omitEnumNames ? '' : 'RESPONSE_RESULT_TYPE_SUCCESS');
 
   static const $core.List<ResponseResultType> values = <ResponseResultType>[
     RESPONSE_RESULT_TYPE_UNSPECIFIED,
@@ -41,3 +37,5 @@ class ResponseResultType extends $pb.ProtobufEnum {
 
   const ResponseResultType._($core.int v, $core.String n) : super(v, n);
 }
+
+const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/authz/v1beta1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,67 +16,49 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../base/query/v1beta1/pagination.pb.dart' as $1;
 import 'authz.pb.dart' as $2;
 
+/// QueryGrantsRequest is the request type for the Query/Grants RPC method.
 class QueryGrantsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGrantsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgTypeUrl')
-    ..aOM<$1.PageRequest>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryGrantsRequest._() : super();
   factory QueryGrantsRequest({
     $core.String? granter,
     $core.String? grantee,
     $core.String? msgTypeUrl,
     $1.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
     if (msgTypeUrl != null) {
-      _result.msgTypeUrl = msgTypeUrl;
+      $result.msgTypeUrl = msgTypeUrl;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGrantsRequest._() : super();
   factory QueryGrantsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGrantsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGrantsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'granter')
+    ..aOS(2, _omitFieldNames ? '' : 'grantee')
+    ..aOS(3, _omitFieldNames ? '' : 'msgTypeUrl')
+    ..aOM<$1.PageRequest>(4, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -82,8 +68,10 @@ class QueryGrantsRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryGrantsRequest copyWith(void Function(QueryGrantsRequest) updates) =>
       super.copyWith((message) => updates(message as QueryGrantsRequest))
-          as QueryGrantsRequest; // ignore: deprecated_member_use
+          as QueryGrantsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGrantsRequest create() => QueryGrantsRequest._();
   QueryGrantsRequest createEmptyInstance() => create();
@@ -118,6 +106,7 @@ class QueryGrantsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGrantee() => clearField(2);
 
+  /// Optional, msg_type_url, when set, will query only grants matching given msg type.
   @$pb.TagNumber(3)
   $core.String get msgTypeUrl => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -130,6 +119,7 @@ class QueryGrantsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMsgTypeUrl() => clearField(3);
 
+  /// pagination defines an pagination for the request.
   @$pb.TagNumber(4)
   $1.PageRequest get pagination => $_getN(3);
   @$pb.TagNumber(4)
@@ -145,51 +135,40 @@ class QueryGrantsRequest extends $pb.GeneratedMessage {
   $1.PageRequest ensurePagination() => $_ensure(3);
 }
 
+/// QueryGrantsResponse is the response type for the Query/Authorizations RPC method.
 class QueryGrantsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGrantsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$2.Grant>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grants',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.Grant.create)
-    ..aOM<$1.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryGrantsResponse._() : super();
   factory QueryGrantsResponse({
     $core.Iterable<$2.Grant>? grants,
     $1.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (grants != null) {
-      _result.grants.addAll(grants);
+      $result.grants.addAll(grants);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGrantsResponse._() : super();
   factory QueryGrantsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGrantsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGrantsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$2.Grant>(1, _omitFieldNames ? '' : 'grants', $pb.PbFieldType.PM,
+        subBuilder: $2.Grant.create)
+    ..aOM<$1.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -199,8 +178,10 @@ class QueryGrantsResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryGrantsResponse copyWith(void Function(QueryGrantsResponse) updates) =>
       super.copyWith((message) => updates(message as QueryGrantsResponse))
-          as QueryGrantsResponse; // ignore: deprecated_member_use
+          as QueryGrantsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGrantsResponse create() => QueryGrantsResponse._();
   QueryGrantsResponse createEmptyInstance() => create();
@@ -211,9 +192,11 @@ class QueryGrantsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGrantsResponse>(create);
   static QueryGrantsResponse? _defaultInstance;
 
+  /// authorizations is a list of grants granted for grantee by granter.
   @$pb.TagNumber(1)
   $core.List<$2.Grant> get grants => $_getList(0);
 
+  /// pagination defines an pagination for the response.
   @$pb.TagNumber(2)
   $1.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -229,49 +212,39 @@ class QueryGrantsResponse extends $pb.GeneratedMessage {
   $1.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryGranterGrantsRequest is the request type for the Query/GranterGrants RPC method.
 class QueryGranterGrantsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGranterGrantsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOM<$1.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryGranterGrantsRequest._() : super();
   factory QueryGranterGrantsRequest({
     $core.String? granter,
     $1.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGranterGrantsRequest._() : super();
   factory QueryGranterGrantsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGranterGrantsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGranterGrantsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'granter')
+    ..aOM<$1.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -283,8 +256,10 @@ class QueryGranterGrantsRequest extends $pb.GeneratedMessage {
   QueryGranterGrantsRequest copyWith(
           void Function(QueryGranterGrantsRequest) updates) =>
       super.copyWith((message) => updates(message as QueryGranterGrantsRequest))
-          as QueryGranterGrantsRequest; // ignore: deprecated_member_use
+          as QueryGranterGrantsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGranterGrantsRequest create() => QueryGranterGrantsRequest._();
   QueryGranterGrantsRequest createEmptyInstance() => create();
@@ -307,6 +282,7 @@ class QueryGranterGrantsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGranter() => clearField(1);
 
+  /// pagination defines an pagination for the request.
   @$pb.TagNumber(2)
   $1.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -322,51 +298,41 @@ class QueryGranterGrantsRequest extends $pb.GeneratedMessage {
   $1.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryGranterGrantsResponse is the response type for the Query/GranterGrants RPC method.
 class QueryGranterGrantsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGranterGrantsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$2.GrantAuthorization>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grants',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.GrantAuthorization.create)
-    ..aOM<$1.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryGranterGrantsResponse._() : super();
   factory QueryGranterGrantsResponse({
     $core.Iterable<$2.GrantAuthorization>? grants,
     $1.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (grants != null) {
-      _result.grants.addAll(grants);
+      $result.grants.addAll(grants);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGranterGrantsResponse._() : super();
   factory QueryGranterGrantsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGranterGrantsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGranterGrantsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$2.GrantAuthorization>(
+        1, _omitFieldNames ? '' : 'grants', $pb.PbFieldType.PM,
+        subBuilder: $2.GrantAuthorization.create)
+    ..aOM<$1.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -379,8 +345,10 @@ class QueryGranterGrantsResponse extends $pb.GeneratedMessage {
           void Function(QueryGranterGrantsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGranterGrantsResponse))
-          as QueryGranterGrantsResponse; // ignore: deprecated_member_use
+          as QueryGranterGrantsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGranterGrantsResponse create() => QueryGranterGrantsResponse._();
   QueryGranterGrantsResponse createEmptyInstance() => create();
@@ -391,9 +359,11 @@ class QueryGranterGrantsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGranterGrantsResponse>(create);
   static QueryGranterGrantsResponse? _defaultInstance;
 
+  /// grants is a list of grants granted by the granter.
   @$pb.TagNumber(1)
   $core.List<$2.GrantAuthorization> get grants => $_getList(0);
 
+  /// pagination defines an pagination for the response.
   @$pb.TagNumber(2)
   $1.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -409,49 +379,39 @@ class QueryGranterGrantsResponse extends $pb.GeneratedMessage {
   $1.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryGranteeGrantsRequest is the request type for the Query/IssuedGrants RPC method.
 class QueryGranteeGrantsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGranteeGrantsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..aOM<$1.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryGranteeGrantsRequest._() : super();
   factory QueryGranteeGrantsRequest({
     $core.String? grantee,
     $1.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGranteeGrantsRequest._() : super();
   factory QueryGranteeGrantsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGranteeGrantsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGranteeGrantsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'grantee')
+    ..aOM<$1.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -463,8 +423,10 @@ class QueryGranteeGrantsRequest extends $pb.GeneratedMessage {
   QueryGranteeGrantsRequest copyWith(
           void Function(QueryGranteeGrantsRequest) updates) =>
       super.copyWith((message) => updates(message as QueryGranteeGrantsRequest))
-          as QueryGranteeGrantsRequest; // ignore: deprecated_member_use
+          as QueryGranteeGrantsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGranteeGrantsRequest create() => QueryGranteeGrantsRequest._();
   QueryGranteeGrantsRequest createEmptyInstance() => create();
@@ -487,6 +449,7 @@ class QueryGranteeGrantsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGrantee() => clearField(1);
 
+  /// pagination defines an pagination for the request.
   @$pb.TagNumber(2)
   $1.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -502,51 +465,41 @@ class QueryGranteeGrantsRequest extends $pb.GeneratedMessage {
   $1.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryGranteeGrantsResponse is the response type for the Query/GranteeGrants RPC method.
 class QueryGranteeGrantsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGranteeGrantsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$2.GrantAuthorization>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grants',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.GrantAuthorization.create)
-    ..aOM<$1.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryGranteeGrantsResponse._() : super();
   factory QueryGranteeGrantsResponse({
     $core.Iterable<$2.GrantAuthorization>? grants,
     $1.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (grants != null) {
-      _result.grants.addAll(grants);
+      $result.grants.addAll(grants);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGranteeGrantsResponse._() : super();
   factory QueryGranteeGrantsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGranteeGrantsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGranteeGrantsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$2.GrantAuthorization>(
+        1, _omitFieldNames ? '' : 'grants', $pb.PbFieldType.PM,
+        subBuilder: $2.GrantAuthorization.create)
+    ..aOM<$1.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -559,8 +512,10 @@ class QueryGranteeGrantsResponse extends $pb.GeneratedMessage {
           void Function(QueryGranteeGrantsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGranteeGrantsResponse))
-          as QueryGranteeGrantsResponse; // ignore: deprecated_member_use
+          as QueryGranteeGrantsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGranteeGrantsResponse create() => QueryGranteeGrantsResponse._();
   QueryGranteeGrantsResponse createEmptyInstance() => create();
@@ -571,9 +526,11 @@ class QueryGranteeGrantsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGranteeGrantsResponse>(create);
   static QueryGranteeGrantsResponse? _defaultInstance;
 
+  /// grants is a list of grants granted to the grantee.
   @$pb.TagNumber(1)
   $core.List<$2.GrantAuthorization> get grants => $_getList(0);
 
+  /// pagination defines an pagination for the response.
   @$pb.TagNumber(2)
   $1.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -588,3 +545,7 @@ class QueryGranteeGrantsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $1.PageResponse ensurePagination() => $_ensure(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

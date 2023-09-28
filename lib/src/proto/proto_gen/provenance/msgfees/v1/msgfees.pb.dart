@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/msgfees/v1/msgfees.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,60 +16,46 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $0;
 
+/// Params defines the set of params for the msgfees module.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..aOM<$0.Coin>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'floorGasPrice',
-        subBuilder: $0.Coin.create)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nhashPerUsdMil',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'conversionFeeDenom')
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
     $0.Coin? floorGasPrice,
     $fixnum.Int64? nhashPerUsdMil,
     $core.String? conversionFeeDenom,
   }) {
-    final _result = create();
+    final $result = create();
     if (floorGasPrice != null) {
-      _result.floorGasPrice = floorGasPrice;
+      $result.floorGasPrice = floorGasPrice;
     }
     if (nhashPerUsdMil != null) {
-      _result.nhashPerUsdMil = nhashPerUsdMil;
+      $result.nhashPerUsdMil = nhashPerUsdMil;
     }
     if (conversionFeeDenom != null) {
-      _result.conversionFeeDenom = conversionFeeDenom;
+      $result.conversionFeeDenom = conversionFeeDenom;
     }
-    return _result;
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOM<$0.Coin>(2, _omitFieldNames ? '' : 'floorGasPrice',
+        subBuilder: $0.Coin.create)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'nhashPerUsdMil', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(4, _omitFieldNames ? '' : 'conversionFeeDenom')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -74,9 +64,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -86,6 +77,7 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
+  /// constant used to calculate fees when gas fees shares denom with msg fee
   @$pb.TagNumber(2)
   $0.Coin get floorGasPrice => $_getN(0);
   @$pb.TagNumber(2)
@@ -100,6 +92,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $0.Coin ensureFloorGasPrice() => $_ensure(0);
 
+  /// total nhash per usd mil for converting usd to nhash
   @$pb.TagNumber(3)
   $fixnum.Int64 get nhashPerUsdMil => $_getI64(1);
   @$pb.TagNumber(3)
@@ -112,6 +105,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearNhashPerUsdMil() => clearField(3);
 
+  /// conversion fee denom is the denom usd is converted to
   @$pb.TagNumber(4)
   $core.String get conversionFeeDenom => $_getSZ(2);
   @$pb.TagNumber(4)
@@ -125,68 +119,55 @@ class Params extends $pb.GeneratedMessage {
   void clearConversionFeeDenom() => clearField(4);
 }
 
+/// MsgFee is the core of what gets stored on the blockchain
+/// it consists of four parts
+/// 1. the msg type url, i.e. /cosmos.bank.v1beta1.MsgSend
+/// 2. minimum additional fees(can be of any denom)
+/// 3. optional recipient of fee based on `recipient_basis_points`
+/// 4. if recipient is declared they will recieve the basis points of the fee (0-10,000)
 class MsgFee extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgFee',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgTypeUrl')
-    ..aOM<$0.Coin>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'additionalFee',
-        subBuilder: $0.Coin.create)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recipient')
-    ..a<$core.int>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recipientBasisPoints',
-        $pb.PbFieldType.OU3)
-    ..hasRequiredFields = false;
-
-  MsgFee._() : super();
   factory MsgFee({
     $core.String? msgTypeUrl,
     $0.Coin? additionalFee,
     $core.String? recipient,
     $core.int? recipientBasisPoints,
   }) {
-    final _result = create();
+    final $result = create();
     if (msgTypeUrl != null) {
-      _result.msgTypeUrl = msgTypeUrl;
+      $result.msgTypeUrl = msgTypeUrl;
     }
     if (additionalFee != null) {
-      _result.additionalFee = additionalFee;
+      $result.additionalFee = additionalFee;
     }
     if (recipient != null) {
-      _result.recipient = recipient;
+      $result.recipient = recipient;
     }
     if (recipientBasisPoints != null) {
-      _result.recipientBasisPoints = recipientBasisPoints;
+      $result.recipientBasisPoints = recipientBasisPoints;
     }
-    return _result;
+    return $result;
   }
+  MsgFee._() : super();
   factory MsgFee.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgFee.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgFee',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'msgTypeUrl')
+    ..aOM<$0.Coin>(2, _omitFieldNames ? '' : 'additionalFee',
+        subBuilder: $0.Coin.create)
+    ..aOS(3, _omitFieldNames ? '' : 'recipient')
+    ..a<$core.int>(
+        4, _omitFieldNames ? '' : 'recipientBasisPoints', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -195,9 +176,10 @@ class MsgFee extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgFee copyWith(void Function(MsgFee) updates) =>
-      super.copyWith((message) => updates(message as MsgFee))
-          as MsgFee; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgFee)) as MsgFee;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgFee create() => MsgFee._();
   MsgFee createEmptyInstance() => create();
@@ -219,6 +201,7 @@ class MsgFee extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMsgTypeUrl() => clearField(1);
 
+  /// additional_fee can pay in any Coin( basically a Denom and Amount, Amount can be zero)
   @$pb.TagNumber(2)
   $0.Coin get additionalFee => $_getN(1);
   @$pb.TagNumber(2)
@@ -258,66 +241,48 @@ class MsgFee extends $pb.GeneratedMessage {
   void clearRecipientBasisPoints() => clearField(4);
 }
 
+/// EventMsgFee final event property for msg fee on type
 class EventMsgFee extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMsgFee',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgType')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'count')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'total')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recipient')
-    ..hasRequiredFields = false;
-
-  EventMsgFee._() : super();
   factory EventMsgFee({
     $core.String? msgType,
     $core.String? count,
     $core.String? total,
     $core.String? recipient,
   }) {
-    final _result = create();
+    final $result = create();
     if (msgType != null) {
-      _result.msgType = msgType;
+      $result.msgType = msgType;
     }
     if (count != null) {
-      _result.count = count;
+      $result.count = count;
     }
     if (total != null) {
-      _result.total = total;
+      $result.total = total;
     }
     if (recipient != null) {
-      _result.recipient = recipient;
+      $result.recipient = recipient;
     }
-    return _result;
+    return $result;
   }
+  EventMsgFee._() : super();
   factory EventMsgFee.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMsgFee.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMsgFee',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'msgType')
+    ..aOS(2, _omitFieldNames ? '' : 'count')
+    ..aOS(3, _omitFieldNames ? '' : 'total')
+    ..aOS(4, _omitFieldNames ? '' : 'recipient')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -327,8 +292,10 @@ class EventMsgFee extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMsgFee copyWith(void Function(EventMsgFee) updates) =>
       super.copyWith((message) => updates(message as EventMsgFee))
-          as EventMsgFee; // ignore: deprecated_member_use
+          as EventMsgFee;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMsgFee create() => EventMsgFee._();
   EventMsgFee createEmptyInstance() => create();
@@ -387,41 +354,34 @@ class EventMsgFee extends $pb.GeneratedMessage {
   void clearRecipient() => clearField(4);
 }
 
+/// EventMsgFees event emitted with summary of msg fees
 class EventMsgFees extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMsgFees',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.msgfees.v1'),
-      createEmptyInstance: create)
-    ..pc<EventMsgFee>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgFees',
-        $pb.PbFieldType.PM,
-        subBuilder: EventMsgFee.create)
-    ..hasRequiredFields = false;
-
-  EventMsgFees._() : super();
   factory EventMsgFees({
     $core.Iterable<EventMsgFee>? msgFees,
   }) {
-    final _result = create();
+    final $result = create();
     if (msgFees != null) {
-      _result.msgFees.addAll(msgFees);
+      $result.msgFees.addAll(msgFees);
     }
-    return _result;
+    return $result;
   }
+  EventMsgFees._() : super();
   factory EventMsgFees.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMsgFees.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMsgFees',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.msgfees.v1'),
+      createEmptyInstance: create)
+    ..pc<EventMsgFee>(1, _omitFieldNames ? '' : 'msgFees', $pb.PbFieldType.PM,
+        subBuilder: EventMsgFee.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -431,8 +391,10 @@ class EventMsgFees extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMsgFees copyWith(void Function(EventMsgFees) updates) =>
       super.copyWith((message) => updates(message as EventMsgFees))
-          as EventMsgFees; // ignore: deprecated_member_use
+          as EventMsgFees;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMsgFees create() => EventMsgFees._();
   EventMsgFees createEmptyInstance() => create();
@@ -446,3 +408,7 @@ class EventMsgFees extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<EventMsgFee> get msgFees => $_getList(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

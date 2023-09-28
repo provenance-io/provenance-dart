@@ -1,77 +1,69 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/state/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../abci/types.pb.dart' as $0;
-import '../types/validator.pb.dart' as $1;
-import '../types/params.pb.dart' as $2;
-import '../version/types.pb.dart' as $3;
-import '../types/types.pb.dart' as $4;
 import '../../google/protobuf/timestamp.pb.dart' as $5;
+import '../abci/types.pb.dart' as $0;
+import '../types/params.pb.dart' as $2;
+import '../types/types.pb.dart' as $4;
+import '../types/validator.pb.dart' as $1;
+import '../version/types.pb.dart' as $3;
 
+/// ABCIResponses retains the responses
+/// of the various ABCI calls during block processing.
+/// It is persisted to disk for each height before calling Commit.
 class ABCIResponses extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ABCIResponses',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.state'),
-      createEmptyInstance: create)
-    ..pc<$0.ResponseDeliverTx>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'deliverTxs',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.ResponseDeliverTx.create)
-    ..aOM<$0.ResponseEndBlock>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'endBlock',
-        subBuilder: $0.ResponseEndBlock.create)
-    ..aOM<$0.ResponseBeginBlock>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'beginBlock',
-        subBuilder: $0.ResponseBeginBlock.create)
-    ..hasRequiredFields = false;
-
-  ABCIResponses._() : super();
   factory ABCIResponses({
     $core.Iterable<$0.ResponseDeliverTx>? deliverTxs,
     $0.ResponseEndBlock? endBlock,
     $0.ResponseBeginBlock? beginBlock,
   }) {
-    final _result = create();
+    final $result = create();
     if (deliverTxs != null) {
-      _result.deliverTxs.addAll(deliverTxs);
+      $result.deliverTxs.addAll(deliverTxs);
     }
     if (endBlock != null) {
-      _result.endBlock = endBlock;
+      $result.endBlock = endBlock;
     }
     if (beginBlock != null) {
-      _result.beginBlock = beginBlock;
+      $result.beginBlock = beginBlock;
     }
-    return _result;
+    return $result;
   }
+  ABCIResponses._() : super();
   factory ABCIResponses.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ABCIResponses.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ABCIResponses',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.state'),
+      createEmptyInstance: create)
+    ..pc<$0.ResponseDeliverTx>(
+        1, _omitFieldNames ? '' : 'deliverTxs', $pb.PbFieldType.PM,
+        subBuilder: $0.ResponseDeliverTx.create)
+    ..aOM<$0.ResponseEndBlock>(2, _omitFieldNames ? '' : 'endBlock',
+        subBuilder: $0.ResponseEndBlock.create)
+    ..aOM<$0.ResponseBeginBlock>(3, _omitFieldNames ? '' : 'beginBlock',
+        subBuilder: $0.ResponseBeginBlock.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -81,8 +73,10 @@ class ABCIResponses extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ABCIResponses copyWith(void Function(ABCIResponses) updates) =>
       super.copyWith((message) => updates(message as ABCIResponses))
-          as ABCIResponses; // ignore: deprecated_member_use
+          as ABCIResponses;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ABCIResponses create() => ABCIResponses._();
   ABCIResponses createEmptyInstance() => create();
@@ -125,49 +119,39 @@ class ABCIResponses extends $pb.GeneratedMessage {
   $0.ResponseBeginBlock ensureBeginBlock() => $_ensure(2);
 }
 
+/// ValidatorsInfo represents the latest validator set, or the last height it changed
 class ValidatorsInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ValidatorsInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.state'),
-      createEmptyInstance: create)
-    ..aOM<$1.ValidatorSet>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorSet',
-        subBuilder: $1.ValidatorSet.create)
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastHeightChanged')
-    ..hasRequiredFields = false;
-
-  ValidatorsInfo._() : super();
   factory ValidatorsInfo({
     $1.ValidatorSet? validatorSet,
     $fixnum.Int64? lastHeightChanged,
   }) {
-    final _result = create();
+    final $result = create();
     if (validatorSet != null) {
-      _result.validatorSet = validatorSet;
+      $result.validatorSet = validatorSet;
     }
     if (lastHeightChanged != null) {
-      _result.lastHeightChanged = lastHeightChanged;
+      $result.lastHeightChanged = lastHeightChanged;
     }
-    return _result;
+    return $result;
   }
+  ValidatorsInfo._() : super();
   factory ValidatorsInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ValidatorsInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ValidatorsInfo',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.state'),
+      createEmptyInstance: create)
+    ..aOM<$1.ValidatorSet>(1, _omitFieldNames ? '' : 'validatorSet',
+        subBuilder: $1.ValidatorSet.create)
+    ..aInt64(2, _omitFieldNames ? '' : 'lastHeightChanged')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -177,8 +161,10 @@ class ValidatorsInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ValidatorsInfo copyWith(void Function(ValidatorsInfo) updates) =>
       super.copyWith((message) => updates(message as ValidatorsInfo))
-          as ValidatorsInfo; // ignore: deprecated_member_use
+          as ValidatorsInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ValidatorsInfo create() => ValidatorsInfo._();
   ValidatorsInfo createEmptyInstance() => create();
@@ -216,49 +202,39 @@ class ValidatorsInfo extends $pb.GeneratedMessage {
   void clearLastHeightChanged() => clearField(2);
 }
 
+/// ConsensusParamsInfo represents the latest consensus params, or the last height it changed
 class ConsensusParamsInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ConsensusParamsInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.state'),
-      createEmptyInstance: create)
-    ..aOM<$2.ConsensusParams>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusParams',
-        subBuilder: $2.ConsensusParams.create)
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastHeightChanged')
-    ..hasRequiredFields = false;
-
-  ConsensusParamsInfo._() : super();
   factory ConsensusParamsInfo({
     $2.ConsensusParams? consensusParams,
     $fixnum.Int64? lastHeightChanged,
   }) {
-    final _result = create();
+    final $result = create();
     if (consensusParams != null) {
-      _result.consensusParams = consensusParams;
+      $result.consensusParams = consensusParams;
     }
     if (lastHeightChanged != null) {
-      _result.lastHeightChanged = lastHeightChanged;
+      $result.lastHeightChanged = lastHeightChanged;
     }
-    return _result;
+    return $result;
   }
+  ConsensusParamsInfo._() : super();
   factory ConsensusParamsInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ConsensusParamsInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ConsensusParamsInfo',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.state'),
+      createEmptyInstance: create)
+    ..aOM<$2.ConsensusParams>(1, _omitFieldNames ? '' : 'consensusParams',
+        subBuilder: $2.ConsensusParams.create)
+    ..aInt64(2, _omitFieldNames ? '' : 'lastHeightChanged')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -268,8 +244,10 @@ class ConsensusParamsInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ConsensusParamsInfo copyWith(void Function(ConsensusParamsInfo) updates) =>
       super.copyWith((message) => updates(message as ConsensusParamsInfo))
-          as ConsensusParamsInfo; // ignore: deprecated_member_use
+          as ConsensusParamsInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ConsensusParamsInfo create() => ConsensusParamsInfo._();
   ConsensusParamsInfo createEmptyInstance() => create();
@@ -308,48 +286,37 @@ class ConsensusParamsInfo extends $pb.GeneratedMessage {
 }
 
 class ABCIResponsesInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ABCIResponsesInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.state'),
-      createEmptyInstance: create)
-    ..aOM<ABCIResponses>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'abciResponses',
-        subBuilder: ABCIResponses.create)
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..hasRequiredFields = false;
-
-  ABCIResponsesInfo._() : super();
   factory ABCIResponsesInfo({
     ABCIResponses? abciResponses,
     $fixnum.Int64? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (abciResponses != null) {
-      _result.abciResponses = abciResponses;
+      $result.abciResponses = abciResponses;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  ABCIResponsesInfo._() : super();
   factory ABCIResponsesInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ABCIResponsesInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ABCIResponsesInfo',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.state'),
+      createEmptyInstance: create)
+    ..aOM<ABCIResponses>(1, _omitFieldNames ? '' : 'abciResponses',
+        subBuilder: ABCIResponses.create)
+    ..aInt64(2, _omitFieldNames ? '' : 'height')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -359,8 +326,10 @@ class ABCIResponsesInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ABCIResponsesInfo copyWith(void Function(ABCIResponsesInfo) updates) =>
       super.copyWith((message) => updates(message as ABCIResponsesInfo))
-          as ABCIResponsesInfo; // ignore: deprecated_member_use
+          as ABCIResponsesInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ABCIResponsesInfo create() => ABCIResponsesInfo._();
   ABCIResponsesInfo createEmptyInstance() => create();
@@ -399,48 +368,37 @@ class ABCIResponsesInfo extends $pb.GeneratedMessage {
 }
 
 class Version extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Version',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.state'),
-      createEmptyInstance: create)
-    ..aOM<$3.Consensus>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensus',
-        subBuilder: $3.Consensus.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'software')
-    ..hasRequiredFields = false;
-
-  Version._() : super();
   factory Version({
     $3.Consensus? consensus,
     $core.String? software,
   }) {
-    final _result = create();
+    final $result = create();
     if (consensus != null) {
-      _result.consensus = consensus;
+      $result.consensus = consensus;
     }
     if (software != null) {
-      _result.software = software;
+      $result.software = software;
     }
-    return _result;
+    return $result;
   }
+  Version._() : super();
   factory Version.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Version.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Version',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.state'),
+      createEmptyInstance: create)
+    ..aOM<$3.Consensus>(1, _omitFieldNames ? '' : 'consensus',
+        subBuilder: $3.Consensus.create)
+    ..aOS(2, _omitFieldNames ? '' : 'software')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -449,9 +407,10 @@ class Version extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Version copyWith(void Function(Version) updates) =>
-      super.copyWith((message) => updates(message as Version))
-          as Version; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Version)) as Version;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Version create() => Version._();
   Version createEmptyInstance() => create();
@@ -489,97 +448,6 @@ class Version extends $pb.GeneratedMessage {
 }
 
 class State extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'State',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.state'),
-      createEmptyInstance: create)
-    ..aOM<Version>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version',
-        subBuilder: Version.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chainId')
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastBlockHeight')
-    ..aOM<$4.BlockID>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastBlockId',
-        subBuilder: $4.BlockID.create)
-    ..aOM<$5.Timestamp>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastBlockTime',
-        subBuilder: $5.Timestamp.create)
-    ..aOM<$1.ValidatorSet>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextValidators',
-        subBuilder: $1.ValidatorSet.create)
-    ..aOM<$1.ValidatorSet>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validators',
-        subBuilder: $1.ValidatorSet.create)
-    ..aOM<$1.ValidatorSet>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastValidators',
-        subBuilder: $1.ValidatorSet.create)
-    ..aInt64(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastHeightValidatorsChanged')
-    ..aOM<$2.ConsensusParams>(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusParams',
-        subBuilder: $2.ConsensusParams.create)
-    ..aInt64(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastHeightConsensusParamsChanged')
-    ..a<$core.List<$core.int>>(
-        12,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastResultsHash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        13,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'appHash',
-        $pb.PbFieldType.OY)
-    ..aInt64(
-        14,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'initialHeight')
-    ..hasRequiredFields = false;
-
-  State._() : super();
   factory State({
     Version? version,
     $core.String? chainId,
@@ -596,58 +464,90 @@ class State extends $pb.GeneratedMessage {
     $core.List<$core.int>? appHash,
     $fixnum.Int64? initialHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (chainId != null) {
-      _result.chainId = chainId;
+      $result.chainId = chainId;
     }
     if (lastBlockHeight != null) {
-      _result.lastBlockHeight = lastBlockHeight;
+      $result.lastBlockHeight = lastBlockHeight;
     }
     if (lastBlockId != null) {
-      _result.lastBlockId = lastBlockId;
+      $result.lastBlockId = lastBlockId;
     }
     if (lastBlockTime != null) {
-      _result.lastBlockTime = lastBlockTime;
+      $result.lastBlockTime = lastBlockTime;
     }
     if (nextValidators != null) {
-      _result.nextValidators = nextValidators;
+      $result.nextValidators = nextValidators;
     }
     if (validators != null) {
-      _result.validators = validators;
+      $result.validators = validators;
     }
     if (lastValidators != null) {
-      _result.lastValidators = lastValidators;
+      $result.lastValidators = lastValidators;
     }
     if (lastHeightValidatorsChanged != null) {
-      _result.lastHeightValidatorsChanged = lastHeightValidatorsChanged;
+      $result.lastHeightValidatorsChanged = lastHeightValidatorsChanged;
     }
     if (consensusParams != null) {
-      _result.consensusParams = consensusParams;
+      $result.consensusParams = consensusParams;
     }
     if (lastHeightConsensusParamsChanged != null) {
-      _result.lastHeightConsensusParamsChanged =
+      $result.lastHeightConsensusParamsChanged =
           lastHeightConsensusParamsChanged;
     }
     if (lastResultsHash != null) {
-      _result.lastResultsHash = lastResultsHash;
+      $result.lastResultsHash = lastResultsHash;
     }
     if (appHash != null) {
-      _result.appHash = appHash;
+      $result.appHash = appHash;
     }
     if (initialHeight != null) {
-      _result.initialHeight = initialHeight;
+      $result.initialHeight = initialHeight;
     }
-    return _result;
+    return $result;
   }
+  State._() : super();
   factory State.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory State.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'State',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.state'),
+      createEmptyInstance: create)
+    ..aOM<Version>(1, _omitFieldNames ? '' : 'version',
+        subBuilder: Version.create)
+    ..aOS(2, _omitFieldNames ? '' : 'chainId')
+    ..aInt64(3, _omitFieldNames ? '' : 'lastBlockHeight')
+    ..aOM<$4.BlockID>(4, _omitFieldNames ? '' : 'lastBlockId',
+        subBuilder: $4.BlockID.create)
+    ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'lastBlockTime',
+        subBuilder: $5.Timestamp.create)
+    ..aOM<$1.ValidatorSet>(6, _omitFieldNames ? '' : 'nextValidators',
+        subBuilder: $1.ValidatorSet.create)
+    ..aOM<$1.ValidatorSet>(7, _omitFieldNames ? '' : 'validators',
+        subBuilder: $1.ValidatorSet.create)
+    ..aOM<$1.ValidatorSet>(8, _omitFieldNames ? '' : 'lastValidators',
+        subBuilder: $1.ValidatorSet.create)
+    ..aInt64(9, _omitFieldNames ? '' : 'lastHeightValidatorsChanged')
+    ..aOM<$2.ConsensusParams>(10, _omitFieldNames ? '' : 'consensusParams',
+        subBuilder: $2.ConsensusParams.create)
+    ..aInt64(11, _omitFieldNames ? '' : 'lastHeightConsensusParamsChanged')
+    ..a<$core.List<$core.int>>(
+        12, _omitFieldNames ? '' : 'lastResultsHash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        13, _omitFieldNames ? '' : 'appHash', $pb.PbFieldType.OY)
+    ..aInt64(14, _omitFieldNames ? '' : 'initialHeight')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -656,9 +556,10 @@ class State extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   State copyWith(void Function(State) updates) =>
-      super.copyWith((message) => updates(message as State))
-          as State; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as State)) as State;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static State create() => State._();
   State createEmptyInstance() => create();
@@ -682,6 +583,7 @@ class State extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   Version ensureVersion() => $_ensure(0);
 
+  /// immutable
   @$pb.TagNumber(2)
   $core.String get chainId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -694,6 +596,7 @@ class State extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChainId() => clearField(2);
 
+  /// LastBlockHeight=0 at genesis (ie. block(H=0) does not exist)
   @$pb.TagNumber(3)
   $fixnum.Int64 get lastBlockHeight => $_getI64(2);
   @$pb.TagNumber(3)
@@ -734,6 +637,12 @@ class State extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $5.Timestamp ensureLastBlockTime() => $_ensure(4);
 
+  /// LastValidators is used to validate block.LastCommit.
+  /// Validators are persisted to the database separately every time they change,
+  /// so we can query for historical validator sets.
+  /// Note that if s.LastBlockHeight causes a valset change,
+  /// we set s.LastHeightValidatorsChanged = s.LastBlockHeight + 1 + 1
+  /// Extra +1 due to nextValSet delay.
   @$pb.TagNumber(6)
   $1.ValidatorSet get nextValidators => $_getN(5);
   @$pb.TagNumber(6)
@@ -788,6 +697,8 @@ class State extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   void clearLastHeightValidatorsChanged() => clearField(9);
 
+  /// Consensus parameters used for validating blocks.
+  /// Changes returned by EndBlock and updated after Commit.
   @$pb.TagNumber(10)
   $2.ConsensusParams get consensusParams => $_getN(9);
   @$pb.TagNumber(10)
@@ -814,6 +725,7 @@ class State extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   void clearLastHeightConsensusParamsChanged() => clearField(11);
 
+  /// Merkle root of the results from executing prev block
   @$pb.TagNumber(12)
   $core.List<$core.int> get lastResultsHash => $_getN(11);
   @$pb.TagNumber(12)
@@ -826,6 +738,7 @@ class State extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   void clearLastResultsHash() => clearField(12);
 
+  /// the latest AppHash we've received from calling abci.Commit()
   @$pb.TagNumber(13)
   $core.List<$core.int> get appHash => $_getN(12);
   @$pb.TagNumber(13)
@@ -850,3 +763,7 @@ class State extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   void clearInitialHeight() => clearField(14);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

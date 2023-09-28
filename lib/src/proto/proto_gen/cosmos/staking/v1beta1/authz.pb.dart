@@ -1,53 +1,50 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/staking/v1beta1/authz.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../base/v1beta1/coin.pb.dart' as $0;
-
 import 'authz.pbenum.dart';
 
 export 'authz.pbenum.dart';
 
+/// Validators defines list of validator addresses.
 class StakeAuthorization_Validators extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'StakeAuthorization.Validators',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..hasRequiredFields = false;
-
-  StakeAuthorization_Validators._() : super();
   factory StakeAuthorization_Validators({
     $core.Iterable<$core.String>? address,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address.addAll(address);
+      $result.address.addAll(address);
     }
-    return _result;
+    return $result;
   }
+  StakeAuthorization_Validators._() : super();
   factory StakeAuthorization_Validators.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory StakeAuthorization_Validators.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StakeAuthorization.Validators',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'address')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -60,8 +57,10 @@ class StakeAuthorization_Validators extends $pb.GeneratedMessage {
           void Function(StakeAuthorization_Validators) updates) =>
       super.copyWith(
               (message) => updates(message as StakeAuthorization_Validators))
-          as StakeAuthorization_Validators; // ignore: deprecated_member_use
+          as StakeAuthorization_Validators;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static StakeAuthorization_Validators create() =>
       StakeAuthorization_Validators._();
@@ -79,7 +78,39 @@ class StakeAuthorization_Validators extends $pb.GeneratedMessage {
 
 enum StakeAuthorization_Validators_ { allowList, denyList, notSet }
 
+///  StakeAuthorization defines authorization for delegate/undelegate/redelegate.
+///
+///  Since: cosmos-sdk 0.43
 class StakeAuthorization extends $pb.GeneratedMessage {
+  factory StakeAuthorization({
+    $0.Coin? maxTokens,
+    StakeAuthorization_Validators? allowList,
+    StakeAuthorization_Validators? denyList,
+    AuthorizationType? authorizationType,
+  }) {
+    final $result = create();
+    if (maxTokens != null) {
+      $result.maxTokens = maxTokens;
+    }
+    if (allowList != null) {
+      $result.allowList = allowList;
+    }
+    if (denyList != null) {
+      $result.denyList = denyList;
+    }
+    if (authorizationType != null) {
+      $result.authorizationType = authorizationType;
+    }
+    return $result;
+  }
+  StakeAuthorization._() : super();
+  factory StakeAuthorization.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory StakeAuthorization.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, StakeAuthorization_Validators_>
       _StakeAuthorization_Validators_ByTag = {
     2: StakeAuthorization_Validators_.allowList,
@@ -87,72 +118,24 @@ class StakeAuthorization extends $pb.GeneratedMessage {
     0: StakeAuthorization_Validators_.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'StakeAuthorization',
+      _omitMessageNames ? '' : 'StakeAuthorization',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
       createEmptyInstance: create)
     ..oo(0, [2, 3])
-    ..aOM<$0.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxTokens',
+    ..aOM<$0.Coin>(1, _omitFieldNames ? '' : 'maxTokens',
         subBuilder: $0.Coin.create)
-    ..aOM<StakeAuthorization_Validators>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowList',
+    ..aOM<StakeAuthorization_Validators>(2, _omitFieldNames ? '' : 'allowList',
         subBuilder: StakeAuthorization_Validators.create)
-    ..aOM<StakeAuthorization_Validators>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denyList',
+    ..aOM<StakeAuthorization_Validators>(3, _omitFieldNames ? '' : 'denyList',
         subBuilder: StakeAuthorization_Validators.create)
     ..e<AuthorizationType>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'authorizationType',
-        $pb.PbFieldType.OE,
+        4, _omitFieldNames ? '' : 'authorizationType', $pb.PbFieldType.OE,
         defaultOrMaker: AuthorizationType.AUTHORIZATION_TYPE_UNSPECIFIED,
         valueOf: AuthorizationType.valueOf,
         enumValues: AuthorizationType.values)
     ..hasRequiredFields = false;
 
-  StakeAuthorization._() : super();
-  factory StakeAuthorization({
-    $0.Coin? maxTokens,
-    StakeAuthorization_Validators? allowList,
-    StakeAuthorization_Validators? denyList,
-    AuthorizationType? authorizationType,
-  }) {
-    final _result = create();
-    if (maxTokens != null) {
-      _result.maxTokens = maxTokens;
-    }
-    if (allowList != null) {
-      _result.allowList = allowList;
-    }
-    if (denyList != null) {
-      _result.denyList = denyList;
-    }
-    if (authorizationType != null) {
-      _result.authorizationType = authorizationType;
-    }
-    return _result;
-  }
-  factory StakeAuthorization.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory StakeAuthorization.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -162,8 +145,10 @@ class StakeAuthorization extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   StakeAuthorization copyWith(void Function(StakeAuthorization) updates) =>
       super.copyWith((message) => updates(message as StakeAuthorization))
-          as StakeAuthorization; // ignore: deprecated_member_use
+          as StakeAuthorization;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static StakeAuthorization create() => StakeAuthorization._();
   StakeAuthorization createEmptyInstance() => create();
@@ -178,6 +163,8 @@ class StakeAuthorization extends $pb.GeneratedMessage {
       _StakeAuthorization_Validators_ByTag[$_whichOneof(0)]!;
   void clearValidators() => clearField($_whichOneof(0));
 
+  /// max_tokens specifies the maximum amount of tokens can be delegate to a validator. If it is
+  /// empty, there is no spend limit and any amount of coins can be delegated.
   @$pb.TagNumber(1)
   $0.Coin get maxTokens => $_getN(0);
   @$pb.TagNumber(1)
@@ -192,6 +179,8 @@ class StakeAuthorization extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $0.Coin ensureMaxTokens() => $_ensure(0);
 
+  /// allow_list specifies list of validator addresses to whom grantee can delegate tokens on behalf of granter's
+  /// account.
   @$pb.TagNumber(2)
   StakeAuthorization_Validators get allowList => $_getN(1);
   @$pb.TagNumber(2)
@@ -206,6 +195,7 @@ class StakeAuthorization extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   StakeAuthorization_Validators ensureAllowList() => $_ensure(1);
 
+  /// deny_list specifies list of validator addresses to whom grantee can not delegate tokens.
   @$pb.TagNumber(3)
   StakeAuthorization_Validators get denyList => $_getN(2);
   @$pb.TagNumber(3)
@@ -220,6 +210,7 @@ class StakeAuthorization extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   StakeAuthorization_Validators ensureDenyList() => $_ensure(2);
 
+  /// authorization_type defines one of AuthorizationType.
   @$pb.TagNumber(4)
   AuthorizationType get authorizationType => $_getN(3);
   @$pb.TagNumber(4)
@@ -232,3 +223,7 @@ class StakeAuthorization extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearAuthorizationType() => clearField(4);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

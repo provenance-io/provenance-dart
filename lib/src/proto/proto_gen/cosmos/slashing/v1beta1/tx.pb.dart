@@ -1,47 +1,45 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/slashing/v1beta1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// MsgUnjail defines the Msg/Unjail request type
 class MsgUnjail extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUnjail',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.slashing.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorAddr')
-    ..hasRequiredFields = false;
-
-  MsgUnjail._() : super();
   factory MsgUnjail({
     $core.String? validatorAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (validatorAddr != null) {
-      _result.validatorAddr = validatorAddr;
+      $result.validatorAddr = validatorAddr;
     }
-    return _result;
+    return $result;
   }
+  MsgUnjail._() : super();
   factory MsgUnjail.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUnjail.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUnjail',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.slashing.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'validatorAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -50,9 +48,10 @@ class MsgUnjail extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgUnjail copyWith(void Function(MsgUnjail) updates) =>
-      super.copyWith((message) => updates(message as MsgUnjail))
-          as MsgUnjail; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgUnjail)) as MsgUnjail;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUnjail create() => MsgUnjail._();
   MsgUnjail createEmptyInstance() => create();
@@ -75,26 +74,24 @@ class MsgUnjail extends $pb.GeneratedMessage {
   void clearValidatorAddr() => clearField(1);
 }
 
+/// MsgUnjailResponse defines the Msg/Unjail response type
 class MsgUnjailResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgUnjailResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.slashing.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgUnjailResponse._() : super();
   factory MsgUnjailResponse() => create();
+  MsgUnjailResponse._() : super();
   factory MsgUnjailResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgUnjailResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgUnjailResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.slashing.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -104,8 +101,10 @@ class MsgUnjailResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgUnjailResponse copyWith(void Function(MsgUnjailResponse) updates) =>
       super.copyWith((message) => updates(message as MsgUnjailResponse))
-          as MsgUnjailResponse; // ignore: deprecated_member_use
+          as MsgUnjailResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgUnjailResponse create() => MsgUnjailResponse._();
   MsgUnjailResponse createEmptyInstance() => create();
@@ -116,3 +115,7 @@ class MsgUnjailResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgUnjailResponse>(create);
   static MsgUnjailResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

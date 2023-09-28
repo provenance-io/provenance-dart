@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/bank/v1beta1/bank.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,52 +15,42 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../base/v1beta1/coin.pb.dart' as $0;
 
+/// Params defines the parameters for the bank module.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.bank.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<SendEnabled>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sendEnabled',
-        $pb.PbFieldType.PM,
-        subBuilder: SendEnabled.create)
-    ..aOB(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'defaultSendEnabled')
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
     @$core.Deprecated('This field is deprecated.')
     $core.Iterable<SendEnabled>? sendEnabled,
     $core.bool? defaultSendEnabled,
   }) {
-    final _result = create();
+    final $result = create();
     if (sendEnabled != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.sendEnabled.addAll(sendEnabled);
+      $result.sendEnabled.addAll(sendEnabled);
     }
     if (defaultSendEnabled != null) {
-      _result.defaultSendEnabled = defaultSendEnabled;
+      $result.defaultSendEnabled = defaultSendEnabled;
     }
-    return _result;
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<SendEnabled>(
+        1, _omitFieldNames ? '' : 'sendEnabled', $pb.PbFieldType.PM,
+        subBuilder: SendEnabled.create)
+    ..aOB(2, _omitFieldNames ? '' : 'defaultSendEnabled')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -65,9 +59,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -77,6 +72,11 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
+  ///  Deprecated: Use of SendEnabled in params is deprecated.
+  ///  For genesis, use the newly added send_enabled field in the genesis object.
+  ///  Storage, lookup, and manipulation of this information is now in the keeper.
+  ///
+  ///  As of cosmos-sdk 0.47, this only exists for backwards compatibility of genesis files.
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.List<SendEnabled> get sendEnabled => $_getList(0);
@@ -94,48 +94,39 @@ class Params extends $pb.GeneratedMessage {
   void clearDefaultSendEnabled() => clearField(2);
 }
 
+/// SendEnabled maps coin denom to a send_enabled status (whether a denom is
+/// sendable).
 class SendEnabled extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SendEnabled',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.bank.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOB(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'enabled')
-    ..hasRequiredFields = false;
-
-  SendEnabled._() : super();
   factory SendEnabled({
     $core.String? denom,
     $core.bool? enabled,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (enabled != null) {
-      _result.enabled = enabled;
+      $result.enabled = enabled;
     }
-    return _result;
+    return $result;
   }
+  SendEnabled._() : super();
   factory SendEnabled.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SendEnabled.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SendEnabled',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOB(2, _omitFieldNames ? '' : 'enabled')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -145,8 +136,10 @@ class SendEnabled extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SendEnabled copyWith(void Function(SendEnabled) updates) =>
       super.copyWith((message) => updates(message as SendEnabled))
-          as SendEnabled; // ignore: deprecated_member_use
+          as SendEnabled;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SendEnabled create() => SendEnabled._();
   SendEnabled createEmptyInstance() => create();
@@ -181,50 +174,39 @@ class SendEnabled extends $pb.GeneratedMessage {
   void clearEnabled() => clearField(2);
 }
 
+/// Input models transaction input.
 class Input extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Input',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.bank.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..pc<$0.Coin>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'coins',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..hasRequiredFields = false;
-
-  Input._() : super();
   factory Input({
     $core.String? address,
     $core.Iterable<$0.Coin>? coins,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (coins != null) {
-      _result.coins.addAll(coins);
+      $result.coins.addAll(coins);
     }
-    return _result;
+    return $result;
   }
+  Input._() : super();
   factory Input.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Input.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Input',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..pc<$0.Coin>(2, _omitFieldNames ? '' : 'coins', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -233,9 +215,10 @@ class Input extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Input copyWith(void Function(Input) updates) =>
-      super.copyWith((message) => updates(message as Input))
-          as Input; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Input)) as Input;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Input create() => Input._();
   Input createEmptyInstance() => create();
@@ -261,50 +244,39 @@ class Input extends $pb.GeneratedMessage {
   $core.List<$0.Coin> get coins => $_getList(1);
 }
 
+/// Output models transaction outputs.
 class Output extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Output',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.bank.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..pc<$0.Coin>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'coins',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..hasRequiredFields = false;
-
-  Output._() : super();
   factory Output({
     $core.String? address,
     $core.Iterable<$0.Coin>? coins,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (coins != null) {
-      _result.coins.addAll(coins);
+      $result.coins.addAll(coins);
     }
-    return _result;
+    return $result;
   }
+  Output._() : super();
   factory Output.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Output.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Output',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..pc<$0.Coin>(2, _omitFieldNames ? '' : 'coins', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -313,9 +285,10 @@ class Output extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Output copyWith(void Function(Output) updates) =>
-      super.copyWith((message) => updates(message as Output))
-          as Output; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Output)) as Output;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Output create() => Output._();
   Output createEmptyInstance() => create();
@@ -341,41 +314,36 @@ class Output extends $pb.GeneratedMessage {
   $core.List<$0.Coin> get coins => $_getList(1);
 }
 
+/// Supply represents a struct that passively keeps track of the total supply
+/// amounts in the network.
+/// This message is deprecated now that supply is indexed by denom.
 class Supply extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Supply',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.bank.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$0.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'total',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..hasRequiredFields = false;
-
-  Supply._() : super();
   factory Supply({
     $core.Iterable<$0.Coin>? total,
   }) {
-    final _result = create();
+    final $result = create();
     if (total != null) {
-      _result.total.addAll(total);
+      $result.total.addAll(total);
     }
-    return _result;
+    return $result;
   }
+  Supply._() : super();
   factory Supply.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Supply.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Supply',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$0.Coin>(1, _omitFieldNames ? '' : 'total', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -384,9 +352,10 @@ class Supply extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Supply copyWith(void Function(Supply) updates) =>
-      super.copyWith((message) => updates(message as Supply))
-          as Supply; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Supply)) as Supply;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Supply create() => Supply._();
   Supply createEmptyInstance() => create();
@@ -400,58 +369,44 @@ class Supply extends $pb.GeneratedMessage {
   $core.List<$0.Coin> get total => $_getList(0);
 }
 
+/// DenomUnit represents a struct that describes a given
+/// denomination unit of the basic token.
 class DenomUnit extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DenomUnit',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.bank.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'exponent',
-        $pb.PbFieldType.OU3)
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'aliases')
-    ..hasRequiredFields = false;
-
-  DenomUnit._() : super();
   factory DenomUnit({
     $core.String? denom,
     $core.int? exponent,
     $core.Iterable<$core.String>? aliases,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (exponent != null) {
-      _result.exponent = exponent;
+      $result.exponent = exponent;
     }
     if (aliases != null) {
-      _result.aliases.addAll(aliases);
+      $result.aliases.addAll(aliases);
     }
-    return _result;
+    return $result;
   }
+  DenomUnit._() : super();
   factory DenomUnit.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DenomUnit.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DenomUnit',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'exponent', $pb.PbFieldType.OU3)
+    ..pPS(3, _omitFieldNames ? '' : 'aliases')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -460,9 +415,10 @@ class DenomUnit extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   DenomUnit copyWith(void Function(DenomUnit) updates) =>
-      super.copyWith((message) => updates(message as DenomUnit))
-          as DenomUnit; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as DenomUnit)) as DenomUnit;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DenomUnit create() => DenomUnit._();
   DenomUnit createEmptyInstance() => create();
@@ -472,6 +428,7 @@ class DenomUnit extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DenomUnit>(create);
   static DenomUnit? _defaultInstance;
 
+  /// denom represents the string name of the given denom unit (e.g uatom).
   @$pb.TagNumber(1)
   $core.String get denom => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -484,6 +441,11 @@ class DenomUnit extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearDenom() => clearField(1);
 
+  /// exponent represents power of 10 exponent that one must
+  /// raise the base_denom to in order to equal the given DenomUnit's denom
+  /// 1 denom = 10^exponent base_denom
+  /// (e.g. with a base_denom of uatom, one can create a DenomUnit of 'atom' with
+  /// exponent = 6, thus: 1 atom = 10^6 uatom).
   @$pb.TagNumber(2)
   $core.int get exponent => $_getIZ(1);
   @$pb.TagNumber(2)
@@ -496,65 +458,14 @@ class DenomUnit extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearExponent() => clearField(2);
 
+  /// aliases is a list of string aliases for the given denom
   @$pb.TagNumber(3)
   $core.List<$core.String> get aliases => $_getList(2);
 }
 
+/// Metadata represents a struct that describes
+/// a basic token.
 class Metadata extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Metadata',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.bank.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..pc<DenomUnit>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denomUnits',
-        $pb.PbFieldType.PM,
-        subBuilder: DenomUnit.create)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'base')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'display')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'symbol')
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'uri')
-    ..aOS(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'uriHash')
-    ..hasRequiredFields = false;
-
-  Metadata._() : super();
   factory Metadata({
     $core.String? description,
     $core.Iterable<DenomUnit>? denomUnits,
@@ -565,39 +476,57 @@ class Metadata extends $pb.GeneratedMessage {
     $core.String? uri,
     $core.String? uriHash,
   }) {
-    final _result = create();
+    final $result = create();
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (denomUnits != null) {
-      _result.denomUnits.addAll(denomUnits);
+      $result.denomUnits.addAll(denomUnits);
     }
     if (base != null) {
-      _result.base = base;
+      $result.base = base;
     }
     if (display != null) {
-      _result.display = display;
+      $result.display = display;
     }
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (symbol != null) {
-      _result.symbol = symbol;
+      $result.symbol = symbol;
     }
     if (uri != null) {
-      _result.uri = uri;
+      $result.uri = uri;
     }
     if (uriHash != null) {
-      _result.uriHash = uriHash;
+      $result.uriHash = uriHash;
     }
-    return _result;
+    return $result;
   }
+  Metadata._() : super();
   factory Metadata.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Metadata.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Metadata',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.bank.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'description')
+    ..pc<DenomUnit>(2, _omitFieldNames ? '' : 'denomUnits', $pb.PbFieldType.PM,
+        subBuilder: DenomUnit.create)
+    ..aOS(3, _omitFieldNames ? '' : 'base')
+    ..aOS(4, _omitFieldNames ? '' : 'display')
+    ..aOS(5, _omitFieldNames ? '' : 'name')
+    ..aOS(6, _omitFieldNames ? '' : 'symbol')
+    ..aOS(7, _omitFieldNames ? '' : 'uri')
+    ..aOS(8, _omitFieldNames ? '' : 'uriHash')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -606,9 +535,10 @@ class Metadata extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Metadata copyWith(void Function(Metadata) updates) =>
-      super.copyWith((message) => updates(message as Metadata))
-          as Metadata; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Metadata)) as Metadata;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Metadata create() => Metadata._();
   Metadata createEmptyInstance() => create();
@@ -630,9 +560,11 @@ class Metadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearDescription() => clearField(1);
 
+  /// denom_units represents the list of DenomUnit's for a given coin
   @$pb.TagNumber(2)
   $core.List<DenomUnit> get denomUnits => $_getList(1);
 
+  /// base represents the base denom (should be the DenomUnit with exponent = 0).
   @$pb.TagNumber(3)
   $core.String get base => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -645,6 +577,8 @@ class Metadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearBase() => clearField(3);
 
+  /// display indicates the suggested denom that should be
+  /// displayed in clients.
   @$pb.TagNumber(4)
   $core.String get display => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -657,6 +591,9 @@ class Metadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearDisplay() => clearField(4);
 
+  ///  name defines the name of the token (eg: Cosmos Atom)
+  ///
+  ///  Since: cosmos-sdk 0.43
   @$pb.TagNumber(5)
   $core.String get name => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -669,6 +606,10 @@ class Metadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearName() => clearField(5);
 
+  ///  symbol is the token symbol usually shown on exchanges (eg: ATOM). This can
+  ///  be the same as the display.
+  ///
+  ///  Since: cosmos-sdk 0.43
   @$pb.TagNumber(6)
   $core.String get symbol => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -681,6 +622,9 @@ class Metadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearSymbol() => clearField(6);
 
+  ///  URI to a document (on or off-chain) that contains additional information. Optional.
+  ///
+  ///  Since: cosmos-sdk 0.46
   @$pb.TagNumber(7)
   $core.String get uri => $_getSZ(6);
   @$pb.TagNumber(7)
@@ -693,6 +637,10 @@ class Metadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearUri() => clearField(7);
 
+  ///  URIHash is a sha256 hash of a document pointed by URI. It's used to verify that
+  ///  the document didn't change. Optional.
+  ///
+  ///  Since: cosmos-sdk 0.46
   @$pb.TagNumber(8)
   $core.String get uriHash => $_getSZ(7);
   @$pb.TagNumber(8)
@@ -705,3 +653,7 @@ class Metadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearUriHash() => clearField(8);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

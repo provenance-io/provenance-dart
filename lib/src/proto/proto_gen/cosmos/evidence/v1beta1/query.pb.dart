@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/evidence/v1beta1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,40 +16,34 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../google/protobuf/any.pb.dart' as $1;
 import '../../base/query/v1beta1/pagination.pb.dart' as $2;
 
+/// QueryEvidenceRequest is the request type for the Query/Evidence RPC method.
 class QueryEvidenceRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryEvidenceRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.evidence.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'evidenceHash',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  QueryEvidenceRequest._() : super();
   factory QueryEvidenceRequest({
     $core.List<$core.int>? evidenceHash,
   }) {
-    final _result = create();
+    final $result = create();
     if (evidenceHash != null) {
-      _result.evidenceHash = evidenceHash;
+      $result.evidenceHash = evidenceHash;
     }
-    return _result;
+    return $result;
   }
+  QueryEvidenceRequest._() : super();
   factory QueryEvidenceRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryEvidenceRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryEvidenceRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.evidence.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'evidenceHash', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -56,8 +54,10 @@ class QueryEvidenceRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryEvidenceRequest copyWith(void Function(QueryEvidenceRequest) updates) =>
       super.copyWith((message) => updates(message as QueryEvidenceRequest))
-          as QueryEvidenceRequest; // ignore: deprecated_member_use
+          as QueryEvidenceRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryEvidenceRequest create() => QueryEvidenceRequest._();
   QueryEvidenceRequest createEmptyInstance() => create();
@@ -68,6 +68,7 @@ class QueryEvidenceRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryEvidenceRequest>(create);
   static QueryEvidenceRequest? _defaultInstance;
 
+  /// evidence_hash defines the hash of the requested evidence.
   @$pb.TagNumber(1)
   $core.List<$core.int> get evidenceHash => $_getN(0);
   @$pb.TagNumber(1)
@@ -81,40 +82,34 @@ class QueryEvidenceRequest extends $pb.GeneratedMessage {
   void clearEvidenceHash() => clearField(1);
 }
 
+/// QueryEvidenceResponse is the response type for the Query/Evidence RPC method.
 class QueryEvidenceResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryEvidenceResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.evidence.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'evidence',
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  QueryEvidenceResponse._() : super();
   factory QueryEvidenceResponse({
     $1.Any? evidence,
   }) {
-    final _result = create();
+    final $result = create();
     if (evidence != null) {
-      _result.evidence = evidence;
+      $result.evidence = evidence;
     }
-    return _result;
+    return $result;
   }
+  QueryEvidenceResponse._() : super();
   factory QueryEvidenceResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryEvidenceResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryEvidenceResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.evidence.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Any>(1, _omitFieldNames ? '' : 'evidence',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -126,8 +121,10 @@ class QueryEvidenceResponse extends $pb.GeneratedMessage {
   QueryEvidenceResponse copyWith(
           void Function(QueryEvidenceResponse) updates) =>
       super.copyWith((message) => updates(message as QueryEvidenceResponse))
-          as QueryEvidenceResponse; // ignore: deprecated_member_use
+          as QueryEvidenceResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryEvidenceResponse create() => QueryEvidenceResponse._();
   QueryEvidenceResponse createEmptyInstance() => create();
@@ -138,6 +135,7 @@ class QueryEvidenceResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryEvidenceResponse>(create);
   static QueryEvidenceResponse? _defaultInstance;
 
+  /// evidence returns the requested evidence.
   @$pb.TagNumber(1)
   $1.Any get evidence => $_getN(0);
   @$pb.TagNumber(1)
@@ -153,40 +151,35 @@ class QueryEvidenceResponse extends $pb.GeneratedMessage {
   $1.Any ensureEvidence() => $_ensure(0);
 }
 
+/// QueryEvidenceRequest is the request type for the Query/AllEvidence RPC
+/// method.
 class QueryAllEvidenceRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllEvidenceRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.evidence.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$2.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryAllEvidenceRequest._() : super();
   factory QueryAllEvidenceRequest({
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryAllEvidenceRequest._() : super();
   factory QueryAllEvidenceRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllEvidenceRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllEvidenceRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.evidence.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$2.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -198,8 +191,10 @@ class QueryAllEvidenceRequest extends $pb.GeneratedMessage {
   QueryAllEvidenceRequest copyWith(
           void Function(QueryAllEvidenceRequest) updates) =>
       super.copyWith((message) => updates(message as QueryAllEvidenceRequest))
-          as QueryAllEvidenceRequest; // ignore: deprecated_member_use
+          as QueryAllEvidenceRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllEvidenceRequest create() => QueryAllEvidenceRequest._();
   QueryAllEvidenceRequest createEmptyInstance() => create();
@@ -210,6 +205,7 @@ class QueryAllEvidenceRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAllEvidenceRequest>(create);
   static QueryAllEvidenceRequest? _defaultInstance;
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(1)
   $2.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(1)
@@ -225,51 +221,41 @@ class QueryAllEvidenceRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(0);
 }
 
+/// QueryAllEvidenceResponse is the response type for the Query/AllEvidence RPC
+/// method.
 class QueryAllEvidenceResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllEvidenceResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.evidence.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$1.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'evidence',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Any.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryAllEvidenceResponse._() : super();
   factory QueryAllEvidenceResponse({
     $core.Iterable<$1.Any>? evidence,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (evidence != null) {
-      _result.evidence.addAll(evidence);
+      $result.evidence.addAll(evidence);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryAllEvidenceResponse._() : super();
   factory QueryAllEvidenceResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllEvidenceResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllEvidenceResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.evidence.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.Any>(1, _omitFieldNames ? '' : 'evidence', $pb.PbFieldType.PM,
+        subBuilder: $1.Any.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -281,8 +267,10 @@ class QueryAllEvidenceResponse extends $pb.GeneratedMessage {
   QueryAllEvidenceResponse copyWith(
           void Function(QueryAllEvidenceResponse) updates) =>
       super.copyWith((message) => updates(message as QueryAllEvidenceResponse))
-          as QueryAllEvidenceResponse; // ignore: deprecated_member_use
+          as QueryAllEvidenceResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllEvidenceResponse create() => QueryAllEvidenceResponse._();
   QueryAllEvidenceResponse createEmptyInstance() => create();
@@ -293,9 +281,11 @@ class QueryAllEvidenceResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAllEvidenceResponse>(create);
   static QueryAllEvidenceResponse? _defaultInstance;
 
+  /// evidence returns all evidences.
   @$pb.TagNumber(1)
   $core.List<$1.Any> get evidence => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -310,3 +300,7 @@ class QueryAllEvidenceResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

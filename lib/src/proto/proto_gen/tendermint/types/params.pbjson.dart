@@ -1,52 +1,56 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/types/params.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-import 'dart:core' as $core;
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:convert' as $convert;
+import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use consensusParamsDescriptor instead')
-const ConsensusParams$json = const {
+const ConsensusParams$json = {
   '1': 'ConsensusParams',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'block',
       '3': 1,
       '4': 1,
       '5': 11,
       '6': '.tendermint.types.BlockParams',
-      '8': const {},
+      '8': {},
       '10': 'block'
     },
-    const {
+    {
       '1': 'evidence',
       '3': 2,
       '4': 1,
       '5': 11,
       '6': '.tendermint.types.EvidenceParams',
-      '8': const {},
+      '8': {},
       '10': 'evidence'
     },
-    const {
+    {
       '1': 'validator',
       '3': 3,
       '4': 1,
       '5': 11,
       '6': '.tendermint.types.ValidatorParams',
-      '8': const {},
+      '8': {},
       '10': 'validator'
     },
-    const {
+    {
       '1': 'version',
       '3': 4,
       '4': 1,
       '5': 11,
       '6': '.tendermint.types.VersionParams',
-      '8': const {},
+      '8': {},
       '10': 'version'
     },
   ],
@@ -54,86 +58,97 @@ const ConsensusParams$json = const {
 
 /// Descriptor for `ConsensusParams`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List consensusParamsDescriptor = $convert.base64Decode(
-    'Cg9Db25zZW5zdXNQYXJhbXMSOQoFYmxvY2sYASABKAsyHS50ZW5kZXJtaW50LnR5cGVzLkJsb2NrUGFyYW1zQgTI3h8AUgVibG9jaxJCCghldmlkZW5jZRgCIAEoCzIgLnRlbmRlcm1pbnQudHlwZXMuRXZpZGVuY2VQYXJhbXNCBMjeHwBSCGV2aWRlbmNlEkUKCXZhbGlkYXRvchgDIAEoCzIhLnRlbmRlcm1pbnQudHlwZXMuVmFsaWRhdG9yUGFyYW1zQgTI3h8AUgl2YWxpZGF0b3ISPwoHdmVyc2lvbhgEIAEoCzIfLnRlbmRlcm1pbnQudHlwZXMuVmVyc2lvblBhcmFtc0IEyN4fAFIHdmVyc2lvbg==');
+    'Cg9Db25zZW5zdXNQYXJhbXMSOQoFYmxvY2sYASABKAsyHS50ZW5kZXJtaW50LnR5cGVzLkJsb2'
+    'NrUGFyYW1zQgTI3h8AUgVibG9jaxJCCghldmlkZW5jZRgCIAEoCzIgLnRlbmRlcm1pbnQudHlw'
+    'ZXMuRXZpZGVuY2VQYXJhbXNCBMjeHwBSCGV2aWRlbmNlEkUKCXZhbGlkYXRvchgDIAEoCzIhLn'
+    'RlbmRlcm1pbnQudHlwZXMuVmFsaWRhdG9yUGFyYW1zQgTI3h8AUgl2YWxpZGF0b3ISPwoHdmVy'
+    'c2lvbhgEIAEoCzIfLnRlbmRlcm1pbnQudHlwZXMuVmVyc2lvblBhcmFtc0IEyN4fAFIHdmVyc2'
+    'lvbg==');
+
 @$core.Deprecated('Use blockParamsDescriptor instead')
-const BlockParams$json = const {
+const BlockParams$json = {
   '1': 'BlockParams',
-  '2': const [
-    const {'1': 'max_bytes', '3': 1, '4': 1, '5': 3, '10': 'maxBytes'},
-    const {'1': 'max_gas', '3': 2, '4': 1, '5': 3, '10': 'maxGas'},
-    const {'1': 'time_iota_ms', '3': 3, '4': 1, '5': 3, '10': 'timeIotaMs'},
+  '2': [
+    {'1': 'max_bytes', '3': 1, '4': 1, '5': 3, '10': 'maxBytes'},
+    {'1': 'max_gas', '3': 2, '4': 1, '5': 3, '10': 'maxGas'},
+    {'1': 'time_iota_ms', '3': 3, '4': 1, '5': 3, '10': 'timeIotaMs'},
   ],
 };
 
 /// Descriptor for `BlockParams`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List blockParamsDescriptor = $convert.base64Decode(
-    'CgtCbG9ja1BhcmFtcxIbCgltYXhfYnl0ZXMYASABKANSCG1heEJ5dGVzEhcKB21heF9nYXMYAiABKANSBm1heEdhcxIgCgx0aW1lX2lvdGFfbXMYAyABKANSCnRpbWVJb3RhTXM=');
+    'CgtCbG9ja1BhcmFtcxIbCgltYXhfYnl0ZXMYASABKANSCG1heEJ5dGVzEhcKB21heF9nYXMYAi'
+    'ABKANSBm1heEdhcxIgCgx0aW1lX2lvdGFfbXMYAyABKANSCnRpbWVJb3RhTXM=');
+
 @$core.Deprecated('Use evidenceParamsDescriptor instead')
-const EvidenceParams$json = const {
+const EvidenceParams$json = {
   '1': 'EvidenceParams',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'max_age_num_blocks',
       '3': 1,
       '4': 1,
       '5': 3,
       '10': 'maxAgeNumBlocks'
     },
-    const {
+    {
       '1': 'max_age_duration',
       '3': 2,
       '4': 1,
       '5': 11,
       '6': '.google.protobuf.Duration',
-      '8': const {},
+      '8': {},
       '10': 'maxAgeDuration'
     },
-    const {'1': 'max_bytes', '3': 3, '4': 1, '5': 3, '10': 'maxBytes'},
+    {'1': 'max_bytes', '3': 3, '4': 1, '5': 3, '10': 'maxBytes'},
   ],
 };
 
 /// Descriptor for `EvidenceParams`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List evidenceParamsDescriptor = $convert.base64Decode(
-    'Cg5FdmlkZW5jZVBhcmFtcxIrChJtYXhfYWdlX251bV9ibG9ja3MYASABKANSD21heEFnZU51bUJsb2NrcxJNChBtYXhfYWdlX2R1cmF0aW9uGAIgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uQgjI3h8AmN8fAVIObWF4QWdlRHVyYXRpb24SGwoJbWF4X2J5dGVzGAMgASgDUghtYXhCeXRlcw==');
+    'Cg5FdmlkZW5jZVBhcmFtcxIrChJtYXhfYWdlX251bV9ibG9ja3MYASABKANSD21heEFnZU51bU'
+    'Jsb2NrcxJNChBtYXhfYWdlX2R1cmF0aW9uGAIgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0'
+    'aW9uQgjI3h8AmN8fAVIObWF4QWdlRHVyYXRpb24SGwoJbWF4X2J5dGVzGAMgASgDUghtYXhCeX'
+    'Rlcw==');
+
 @$core.Deprecated('Use validatorParamsDescriptor instead')
-const ValidatorParams$json = const {
+const ValidatorParams$json = {
   '1': 'ValidatorParams',
-  '2': const [
-    const {'1': 'pub_key_types', '3': 1, '4': 3, '5': 9, '10': 'pubKeyTypes'},
+  '2': [
+    {'1': 'pub_key_types', '3': 1, '4': 3, '5': 9, '10': 'pubKeyTypes'},
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `ValidatorParams`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validatorParamsDescriptor = $convert.base64Decode(
-    'Cg9WYWxpZGF0b3JQYXJhbXMSIgoNcHViX2tleV90eXBlcxgBIAMoCVILcHViS2V5VHlwZXM6CLigHwHooB8B');
+    'Cg9WYWxpZGF0b3JQYXJhbXMSIgoNcHViX2tleV90eXBlcxgBIAMoCVILcHViS2V5VHlwZXM6CL'
+    'igHwHooB8B');
+
 @$core.Deprecated('Use versionParamsDescriptor instead')
-const VersionParams$json = const {
+const VersionParams$json = {
   '1': 'VersionParams',
-  '2': const [
-    const {'1': 'app_version', '3': 1, '4': 1, '5': 4, '10': 'appVersion'},
+  '2': [
+    {'1': 'app_version', '3': 1, '4': 1, '5': 4, '10': 'appVersion'},
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `VersionParams`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List versionParamsDescriptor = $convert.base64Decode(
-    'Cg1WZXJzaW9uUGFyYW1zEh8KC2FwcF92ZXJzaW9uGAEgASgEUgphcHBWZXJzaW9uOgi4oB8B6KAfAQ==');
+    'Cg1WZXJzaW9uUGFyYW1zEh8KC2FwcF92ZXJzaW9uGAEgASgEUgphcHBWZXJzaW9uOgi4oB8B6K'
+    'AfAQ==');
+
 @$core.Deprecated('Use hashedParamsDescriptor instead')
-const HashedParams$json = const {
+const HashedParams$json = {
   '1': 'HashedParams',
-  '2': const [
-    const {
-      '1': 'block_max_bytes',
-      '3': 1,
-      '4': 1,
-      '5': 3,
-      '10': 'blockMaxBytes'
-    },
-    const {'1': 'block_max_gas', '3': 2, '4': 1, '5': 3, '10': 'blockMaxGas'},
+  '2': [
+    {'1': 'block_max_bytes', '3': 1, '4': 1, '5': 3, '10': 'blockMaxBytes'},
+    {'1': 'block_max_gas', '3': 2, '4': 1, '5': 3, '10': 'blockMaxGas'},
   ],
 };
 
 /// Descriptor for `HashedParams`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List hashedParamsDescriptor = $convert.base64Decode(
-    'CgxIYXNoZWRQYXJhbXMSJgoPYmxvY2tfbWF4X2J5dGVzGAEgASgDUg1ibG9ja01heEJ5dGVzEiIKDWJsb2NrX21heF9nYXMYAiABKANSC2Jsb2NrTWF4R2Fz');
+    'CgxIYXNoZWRQYXJhbXMSJgoPYmxvY2tfbWF4X2J5dGVzGAEgASgDUg1ibG9ja01heEJ5dGVzEi'
+    'IKDWJsb2NrX21heF9nYXMYAiABKANSC2Jsb2NrTWF4R2Fz');

@@ -1,58 +1,24 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/upgrade/v1beta1/upgrade.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../google/protobuf/timestamp.pb.dart' as $0;
 import '../../../google/protobuf/any.pb.dart' as $1;
+import '../../../google/protobuf/timestamp.pb.dart' as $0;
 
+/// Plan specifies information about a planned upgrade and when it should occur.
 class Plan extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Plan',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..aOM<$0.Timestamp>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'time',
-        subBuilder: $0.Timestamp.create)
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'info')
-    ..aOM<$1.Any>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'upgradedClientState',
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  Plan._() : super();
   factory Plan({
     $core.String? name,
     @$core.Deprecated('This field is deprecated.') $0.Timestamp? time,
@@ -60,32 +26,48 @@ class Plan extends $pb.GeneratedMessage {
     $core.String? info,
     @$core.Deprecated('This field is deprecated.') $1.Any? upgradedClientState,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (time != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.time = time;
+      $result.time = time;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (info != null) {
-      _result.info = info;
+      $result.info = info;
     }
     if (upgradedClientState != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.upgradedClientState = upgradedClientState;
+      $result.upgradedClientState = upgradedClientState;
     }
-    return _result;
+    return $result;
   }
+  Plan._() : super();
   factory Plan.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Plan.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Plan',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOM<$0.Timestamp>(2, _omitFieldNames ? '' : 'time',
+        subBuilder: $0.Timestamp.create)
+    ..aInt64(3, _omitFieldNames ? '' : 'height')
+    ..aOS(4, _omitFieldNames ? '' : 'info')
+    ..aOM<$1.Any>(5, _omitFieldNames ? '' : 'upgradedClientState',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -94,9 +76,10 @@ class Plan extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Plan copyWith(void Function(Plan) updates) =>
-      super.copyWith((message) => updates(message as Plan))
-          as Plan; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Plan)) as Plan;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Plan create() => Plan._();
   Plan createEmptyInstance() => create();
@@ -106,6 +89,13 @@ class Plan extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Plan>(create);
   static Plan? _defaultInstance;
 
+  /// Sets the name for the upgrade. This name will be used by the upgraded
+  /// version of the software to apply any special "on-upgrade" commands during
+  /// the first BeginBlock method after the upgrade is applied. It is also used
+  /// to detect whether a software version can handle a given upgrade. If no
+  /// upgrade handler with this name has been set in the software, it will be
+  /// assumed that the software is out-of-date when the upgrade Time or Height is
+  /// reached and the software will exit.
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -118,6 +108,9 @@ class Plan extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
 
+  /// Deprecated: Time based upgrades have been deprecated. Time based upgrade logic
+  /// has been removed from the SDK.
+  /// If this field is not empty, an error will be thrown.
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(2)
   $0.Timestamp get time => $_getN(1);
@@ -137,6 +130,8 @@ class Plan extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $0.Timestamp ensureTime() => $_ensure(1);
 
+  /// The height at which the upgrade must be performed.
+  /// Only used if Time is not set.
   @$pb.TagNumber(3)
   $fixnum.Int64 get height => $_getI64(2);
   @$pb.TagNumber(3)
@@ -149,6 +144,8 @@ class Plan extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearHeight() => clearField(3);
 
+  /// Any application specific upgrade info to be included on-chain
+  /// such as a git commit that validators could automatically upgrade to
   @$pb.TagNumber(4)
   $core.String get info => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -161,6 +158,9 @@ class Plan extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearInfo() => clearField(4);
 
+  /// Deprecated: UpgradedClientState field has been deprecated. IBC upgrade logic has been
+  /// moved to the IBC module in the sub module 02-client.
+  /// If this field is not empty, an error will be thrown.
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(5)
   $1.Any get upgradedClientState => $_getN(4);
@@ -181,58 +181,46 @@ class Plan extends $pb.GeneratedMessage {
   $1.Any ensureUpgradedClientState() => $_ensure(4);
 }
 
+/// SoftwareUpgradeProposal is a gov Content type for initiating a software
+/// upgrade.
+/// Deprecated: This legacy proposal is deprecated in favor of Msg-based gov
+/// proposals, see MsgSoftwareUpgrade.
 class SoftwareUpgradeProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SoftwareUpgradeProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOM<Plan>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'plan',
-        subBuilder: Plan.create)
-    ..hasRequiredFields = false;
-
-  SoftwareUpgradeProposal._() : super();
   factory SoftwareUpgradeProposal({
     $core.String? title,
     $core.String? description,
     Plan? plan,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (plan != null) {
-      _result.plan = plan;
+      $result.plan = plan;
     }
-    return _result;
+    return $result;
   }
+  SoftwareUpgradeProposal._() : super();
   factory SoftwareUpgradeProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SoftwareUpgradeProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SoftwareUpgradeProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOM<Plan>(3, _omitFieldNames ? '' : 'plan', subBuilder: Plan.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -244,8 +232,10 @@ class SoftwareUpgradeProposal extends $pb.GeneratedMessage {
   SoftwareUpgradeProposal copyWith(
           void Function(SoftwareUpgradeProposal) updates) =>
       super.copyWith((message) => updates(message as SoftwareUpgradeProposal))
-          as SoftwareUpgradeProposal; // ignore: deprecated_member_use
+          as SoftwareUpgradeProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SoftwareUpgradeProposal create() => SoftwareUpgradeProposal._();
   SoftwareUpgradeProposal createEmptyInstance() => create();
@@ -295,48 +285,41 @@ class SoftwareUpgradeProposal extends $pb.GeneratedMessage {
   Plan ensurePlan() => $_ensure(2);
 }
 
+/// CancelSoftwareUpgradeProposal is a gov Content type for cancelling a software
+/// upgrade.
+/// Deprecated: This legacy proposal is deprecated in favor of Msg-based gov
+/// proposals, see MsgCancelUpgrade.
 class CancelSoftwareUpgradeProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CancelSoftwareUpgradeProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..hasRequiredFields = false;
-
-  CancelSoftwareUpgradeProposal._() : super();
   factory CancelSoftwareUpgradeProposal({
     $core.String? title,
     $core.String? description,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
-    return _result;
+    return $result;
   }
+  CancelSoftwareUpgradeProposal._() : super();
   factory CancelSoftwareUpgradeProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CancelSoftwareUpgradeProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CancelSoftwareUpgradeProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -349,8 +332,10 @@ class CancelSoftwareUpgradeProposal extends $pb.GeneratedMessage {
           void Function(CancelSoftwareUpgradeProposal) updates) =>
       super.copyWith(
               (message) => updates(message as CancelSoftwareUpgradeProposal))
-          as CancelSoftwareUpgradeProposal; // ignore: deprecated_member_use
+          as CancelSoftwareUpgradeProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CancelSoftwareUpgradeProposal create() =>
       CancelSoftwareUpgradeProposal._();
@@ -387,50 +372,41 @@ class CancelSoftwareUpgradeProposal extends $pb.GeneratedMessage {
   void clearDescription() => clearField(2);
 }
 
+///  ModuleVersion specifies a module and its consensus version.
+///
+///  Since: cosmos-sdk 0.43
 class ModuleVersion extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ModuleVersion',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.upgrade.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  ModuleVersion._() : super();
   factory ModuleVersion({
     $core.String? name,
     $fixnum.Int64? version,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
-    return _result;
+    return $result;
   }
+  ModuleVersion._() : super();
   factory ModuleVersion.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ModuleVersion.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ModuleVersion',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.upgrade.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'version', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -440,8 +416,10 @@ class ModuleVersion extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ModuleVersion copyWith(void Function(ModuleVersion) updates) =>
       super.copyWith((message) => updates(message as ModuleVersion))
-          as ModuleVersion; // ignore: deprecated_member_use
+          as ModuleVersion;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ModuleVersion create() => ModuleVersion._();
   ModuleVersion createEmptyInstance() => create();
@@ -452,6 +430,7 @@ class ModuleVersion extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ModuleVersion>(create);
   static ModuleVersion? _defaultInstance;
 
+  /// name of the app module
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -464,6 +443,7 @@ class ModuleVersion extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
 
+  /// consensus version of the app module
   @$pb.TagNumber(2)
   $fixnum.Int64 get version => $_getI64(1);
   @$pb.TagNumber(2)
@@ -476,3 +456,7 @@ class ModuleVersion extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearVersion() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/blockchain/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,39 +16,33 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../types/block.pb.dart' as $0;
 
+/// BlockRequest requests a block for a specific height
 class BlockRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BlockRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.blockchain'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..hasRequiredFields = false;
-
-  BlockRequest._() : super();
   factory BlockRequest({
     $fixnum.Int64? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  BlockRequest._() : super();
   factory BlockRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BlockRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BlockRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.blockchain'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -54,8 +52,10 @@ class BlockRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   BlockRequest copyWith(void Function(BlockRequest) updates) =>
       super.copyWith((message) => updates(message as BlockRequest))
-          as BlockRequest; // ignore: deprecated_member_use
+          as BlockRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BlockRequest create() => BlockRequest._();
   BlockRequest createEmptyInstance() => create();
@@ -79,39 +79,33 @@ class BlockRequest extends $pb.GeneratedMessage {
   void clearHeight() => clearField(1);
 }
 
+/// NoBlockResponse informs the node that the peer does not have block at the requested height
 class NoBlockResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'NoBlockResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.blockchain'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..hasRequiredFields = false;
-
-  NoBlockResponse._() : super();
   factory NoBlockResponse({
     $fixnum.Int64? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  NoBlockResponse._() : super();
   factory NoBlockResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NoBlockResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'NoBlockResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.blockchain'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -121,8 +115,10 @@ class NoBlockResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   NoBlockResponse copyWith(void Function(NoBlockResponse) updates) =>
       super.copyWith((message) => updates(message as NoBlockResponse))
-          as NoBlockResponse; // ignore: deprecated_member_use
+          as NoBlockResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NoBlockResponse create() => NoBlockResponse._();
   NoBlockResponse createEmptyInstance() => create();
@@ -146,40 +142,34 @@ class NoBlockResponse extends $pb.GeneratedMessage {
   void clearHeight() => clearField(1);
 }
 
+/// BlockResponse returns block to the requested
 class BlockResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BlockResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.blockchain'),
-      createEmptyInstance: create)
-    ..aOM<$0.Block>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'block',
-        subBuilder: $0.Block.create)
-    ..hasRequiredFields = false;
-
-  BlockResponse._() : super();
   factory BlockResponse({
     $0.Block? block,
   }) {
-    final _result = create();
+    final $result = create();
     if (block != null) {
-      _result.block = block;
+      $result.block = block;
     }
-    return _result;
+    return $result;
   }
+  BlockResponse._() : super();
   factory BlockResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BlockResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BlockResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.blockchain'),
+      createEmptyInstance: create)
+    ..aOM<$0.Block>(1, _omitFieldNames ? '' : 'block',
+        subBuilder: $0.Block.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -189,8 +179,10 @@ class BlockResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   BlockResponse copyWith(void Function(BlockResponse) updates) =>
       super.copyWith((message) => updates(message as BlockResponse))
-          as BlockResponse; // ignore: deprecated_member_use
+          as BlockResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BlockResponse create() => BlockResponse._();
   BlockResponse createEmptyInstance() => create();
@@ -216,26 +208,24 @@ class BlockResponse extends $pb.GeneratedMessage {
   $0.Block ensureBlock() => $_ensure(0);
 }
 
+/// StatusRequest requests the status of a peer.
 class StatusRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'StatusRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.blockchain'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  StatusRequest._() : super();
   factory StatusRequest() => create();
+  StatusRequest._() : super();
   factory StatusRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory StatusRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StatusRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.blockchain'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -245,8 +235,10 @@ class StatusRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   StatusRequest copyWith(void Function(StatusRequest) updates) =>
       super.copyWith((message) => updates(message as StatusRequest))
-          as StatusRequest; // ignore: deprecated_member_use
+          as StatusRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static StatusRequest create() => StatusRequest._();
   StatusRequest createEmptyInstance() => create();
@@ -258,48 +250,38 @@ class StatusRequest extends $pb.GeneratedMessage {
   static StatusRequest? _defaultInstance;
 }
 
+/// StatusResponse is a peer response to inform their status.
 class StatusResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'StatusResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.blockchain'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'base')
-    ..hasRequiredFields = false;
-
-  StatusResponse._() : super();
   factory StatusResponse({
     $fixnum.Int64? height,
     $fixnum.Int64? base,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (base != null) {
-      _result.base = base;
+      $result.base = base;
     }
-    return _result;
+    return $result;
   }
+  StatusResponse._() : super();
   factory StatusResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory StatusResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StatusResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.blockchain'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..aInt64(2, _omitFieldNames ? '' : 'base')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -309,8 +291,10 @@ class StatusResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   StatusResponse copyWith(void Function(StatusResponse) updates) =>
       super.copyWith((message) => updates(message as StatusResponse))
-          as StatusResponse; // ignore: deprecated_member_use
+          as StatusResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static StatusResponse create() => StatusResponse._();
   StatusResponse createEmptyInstance() => create();
@@ -356,6 +340,39 @@ enum Message_Sum {
 }
 
 class Message extends $pb.GeneratedMessage {
+  factory Message({
+    BlockRequest? blockRequest,
+    NoBlockResponse? noBlockResponse,
+    BlockResponse? blockResponse,
+    StatusRequest? statusRequest,
+    StatusResponse? statusResponse,
+  }) {
+    final $result = create();
+    if (blockRequest != null) {
+      $result.blockRequest = blockRequest;
+    }
+    if (noBlockResponse != null) {
+      $result.noBlockResponse = noBlockResponse;
+    }
+    if (blockResponse != null) {
+      $result.blockResponse = blockResponse;
+    }
+    if (statusRequest != null) {
+      $result.statusRequest = statusRequest;
+    }
+    if (statusResponse != null) {
+      $result.statusResponse = statusResponse;
+    }
+    return $result;
+  }
+  Message._() : super();
+  factory Message.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Message.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, Message_Sum> _Message_SumByTag = {
     1: Message_Sum.blockRequest,
     2: Message_Sum.noBlockResponse,
@@ -365,79 +382,23 @@ class Message extends $pb.GeneratedMessage {
     0: Message_Sum.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Message',
+      _omitMessageNames ? '' : 'Message',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.blockchain'),
+          _omitMessageNames ? '' : 'tendermint.blockchain'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4, 5])
-    ..aOM<BlockRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockRequest',
+    ..aOM<BlockRequest>(1, _omitFieldNames ? '' : 'blockRequest',
         subBuilder: BlockRequest.create)
-    ..aOM<NoBlockResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'noBlockResponse',
+    ..aOM<NoBlockResponse>(2, _omitFieldNames ? '' : 'noBlockResponse',
         subBuilder: NoBlockResponse.create)
-    ..aOM<BlockResponse>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockResponse',
+    ..aOM<BlockResponse>(3, _omitFieldNames ? '' : 'blockResponse',
         subBuilder: BlockResponse.create)
-    ..aOM<StatusRequest>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'statusRequest',
+    ..aOM<StatusRequest>(4, _omitFieldNames ? '' : 'statusRequest',
         subBuilder: StatusRequest.create)
-    ..aOM<StatusResponse>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'statusResponse',
+    ..aOM<StatusResponse>(5, _omitFieldNames ? '' : 'statusResponse',
         subBuilder: StatusResponse.create)
     ..hasRequiredFields = false;
 
-  Message._() : super();
-  factory Message({
-    BlockRequest? blockRequest,
-    NoBlockResponse? noBlockResponse,
-    BlockResponse? blockResponse,
-    StatusRequest? statusRequest,
-    StatusResponse? statusResponse,
-  }) {
-    final _result = create();
-    if (blockRequest != null) {
-      _result.blockRequest = blockRequest;
-    }
-    if (noBlockResponse != null) {
-      _result.noBlockResponse = noBlockResponse;
-    }
-    if (blockResponse != null) {
-      _result.blockResponse = blockResponse;
-    }
-    if (statusRequest != null) {
-      _result.statusRequest = statusRequest;
-    }
-    if (statusResponse != null) {
-      _result.statusResponse = statusResponse;
-    }
-    return _result;
-  }
-  factory Message.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Message.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -446,9 +407,10 @@ class Message extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Message copyWith(void Function(Message) updates) =>
-      super.copyWith((message) => updates(message as Message))
-          as Message; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Message)) as Message;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Message create() => Message._();
   Message createEmptyInstance() => create();
@@ -531,3 +493,7 @@ class Message extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   StatusResponse ensureStatusResponse() => $_ensure(4);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

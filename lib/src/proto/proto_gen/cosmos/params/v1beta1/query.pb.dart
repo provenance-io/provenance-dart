@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/params/v1beta1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,48 +15,38 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'params.pb.dart' as $1;
 
+/// QueryParamsRequest is request type for the Query/Params RPC method.
 class QueryParamsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryParamsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.params.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'subspace')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key')
-    ..hasRequiredFields = false;
-
-  QueryParamsRequest._() : super();
   factory QueryParamsRequest({
     $core.String? subspace,
     $core.String? key,
   }) {
-    final _result = create();
+    final $result = create();
     if (subspace != null) {
-      _result.subspace = subspace;
+      $result.subspace = subspace;
     }
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
-    return _result;
+    return $result;
   }
+  QueryParamsRequest._() : super();
   factory QueryParamsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryParamsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryParamsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'subspace')
+    ..aOS(2, _omitFieldNames ? '' : 'key')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -62,8 +56,10 @@ class QueryParamsRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryParamsRequest copyWith(void Function(QueryParamsRequest) updates) =>
       super.copyWith((message) => updates(message as QueryParamsRequest))
-          as QueryParamsRequest; // ignore: deprecated_member_use
+          as QueryParamsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryParamsRequest create() => QueryParamsRequest._();
   QueryParamsRequest createEmptyInstance() => create();
@@ -74,6 +70,7 @@ class QueryParamsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryParamsRequest>(create);
   static QueryParamsRequest? _defaultInstance;
 
+  /// subspace defines the module to query the parameter for.
   @$pb.TagNumber(1)
   $core.String get subspace => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -86,6 +83,7 @@ class QueryParamsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSubspace() => clearField(1);
 
+  /// key defines the key of the parameter in the subspace.
   @$pb.TagNumber(2)
   $core.String get key => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -99,40 +97,34 @@ class QueryParamsRequest extends $pb.GeneratedMessage {
   void clearKey() => clearField(2);
 }
 
+/// QueryParamsResponse is response type for the Query/Params RPC method.
 class QueryParamsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryParamsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.params.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$1.ParamChange>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'param',
-        subBuilder: $1.ParamChange.create)
-    ..hasRequiredFields = false;
-
-  QueryParamsResponse._() : super();
   factory QueryParamsResponse({
     $1.ParamChange? param,
   }) {
-    final _result = create();
+    final $result = create();
     if (param != null) {
-      _result.param = param;
+      $result.param = param;
     }
-    return _result;
+    return $result;
   }
+  QueryParamsResponse._() : super();
   factory QueryParamsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryParamsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryParamsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$1.ParamChange>(1, _omitFieldNames ? '' : 'param',
+        subBuilder: $1.ParamChange.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -142,8 +134,10 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryParamsResponse copyWith(void Function(QueryParamsResponse) updates) =>
       super.copyWith((message) => updates(message as QueryParamsResponse))
-          as QueryParamsResponse; // ignore: deprecated_member_use
+          as QueryParamsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryParamsResponse create() => QueryParamsResponse._();
   QueryParamsResponse createEmptyInstance() => create();
@@ -154,6 +148,7 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryParamsResponse>(create);
   static QueryParamsResponse? _defaultInstance;
 
+  /// param defines the queried parameter.
   @$pb.TagNumber(1)
   $1.ParamChange get param => $_getN(0);
   @$pb.TagNumber(1)
@@ -169,26 +164,27 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
   $1.ParamChange ensureParam() => $_ensure(0);
 }
 
+///  QuerySubspacesRequest defines a request type for querying for all registered
+///  subspaces and all keys for a subspace.
+///
+///  Since: cosmos-sdk 0.46
 class QuerySubspacesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QuerySubspacesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.params.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  QuerySubspacesRequest._() : super();
   factory QuerySubspacesRequest() => create();
+  QuerySubspacesRequest._() : super();
   factory QuerySubspacesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QuerySubspacesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QuerySubspacesRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -200,8 +196,10 @@ class QuerySubspacesRequest extends $pb.GeneratedMessage {
   QuerySubspacesRequest copyWith(
           void Function(QuerySubspacesRequest) updates) =>
       super.copyWith((message) => updates(message as QuerySubspacesRequest))
-          as QuerySubspacesRequest; // ignore: deprecated_member_use
+          as QuerySubspacesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QuerySubspacesRequest create() => QuerySubspacesRequest._();
   QuerySubspacesRequest createEmptyInstance() => create();
@@ -213,41 +211,37 @@ class QuerySubspacesRequest extends $pb.GeneratedMessage {
   static QuerySubspacesRequest? _defaultInstance;
 }
 
+///  QuerySubspacesResponse defines the response types for querying for all
+///  registered subspaces and all keys for a subspace.
+///
+///  Since: cosmos-sdk 0.46
 class QuerySubspacesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QuerySubspacesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.params.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<Subspace>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'subspaces',
-        $pb.PbFieldType.PM,
-        subBuilder: Subspace.create)
-    ..hasRequiredFields = false;
-
-  QuerySubspacesResponse._() : super();
   factory QuerySubspacesResponse({
     $core.Iterable<Subspace>? subspaces,
   }) {
-    final _result = create();
+    final $result = create();
     if (subspaces != null) {
-      _result.subspaces.addAll(subspaces);
+      $result.subspaces.addAll(subspaces);
     }
-    return _result;
+    return $result;
   }
+  QuerySubspacesResponse._() : super();
   factory QuerySubspacesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QuerySubspacesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QuerySubspacesResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<Subspace>(1, _omitFieldNames ? '' : 'subspaces', $pb.PbFieldType.PM,
+        subBuilder: Subspace.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -259,8 +253,10 @@ class QuerySubspacesResponse extends $pb.GeneratedMessage {
   QuerySubspacesResponse copyWith(
           void Function(QuerySubspacesResponse) updates) =>
       super.copyWith((message) => updates(message as QuerySubspacesResponse))
-          as QuerySubspacesResponse; // ignore: deprecated_member_use
+          as QuerySubspacesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QuerySubspacesResponse create() => QuerySubspacesResponse._();
   QuerySubspacesResponse createEmptyInstance() => create();
@@ -275,48 +271,41 @@ class QuerySubspacesResponse extends $pb.GeneratedMessage {
   $core.List<Subspace> get subspaces => $_getList(0);
 }
 
+///  Subspace defines a parameter subspace name and all the keys that exist for
+///  the subspace.
+///
+///  Since: cosmos-sdk 0.46
 class Subspace extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Subspace',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.params.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'subspace')
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'keys')
-    ..hasRequiredFields = false;
-
-  Subspace._() : super();
   factory Subspace({
     $core.String? subspace,
     $core.Iterable<$core.String>? keys,
   }) {
-    final _result = create();
+    final $result = create();
     if (subspace != null) {
-      _result.subspace = subspace;
+      $result.subspace = subspace;
     }
     if (keys != null) {
-      _result.keys.addAll(keys);
+      $result.keys.addAll(keys);
     }
-    return _result;
+    return $result;
   }
+  Subspace._() : super();
   factory Subspace.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Subspace.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Subspace',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'subspace')
+    ..pPS(2, _omitFieldNames ? '' : 'keys')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -325,9 +314,10 @@ class Subspace extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Subspace copyWith(void Function(Subspace) updates) =>
-      super.copyWith((message) => updates(message as Subspace))
-          as Subspace; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Subspace)) as Subspace;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Subspace create() => Subspace._();
   Subspace createEmptyInstance() => create();
@@ -352,3 +342,7 @@ class Subspace extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.List<$core.String> get keys => $_getList(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

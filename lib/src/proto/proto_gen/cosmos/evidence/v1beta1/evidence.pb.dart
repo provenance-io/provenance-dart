@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/evidence/v1beta1/evidence.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,67 +16,50 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../google/protobuf/timestamp.pb.dart' as $0;
 
+/// Equivocation implements the Evidence interface and defines evidence of double
+/// signing misbehavior.
 class Equivocation extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Equivocation',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.evidence.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..aOM<$0.Timestamp>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'time',
-        subBuilder: $0.Timestamp.create)
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'power')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusAddress')
-    ..hasRequiredFields = false;
-
-  Equivocation._() : super();
   factory Equivocation({
     $fixnum.Int64? height,
     $0.Timestamp? time,
     $fixnum.Int64? power,
     $core.String? consensusAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (time != null) {
-      _result.time = time;
+      $result.time = time;
     }
     if (power != null) {
-      _result.power = power;
+      $result.power = power;
     }
     if (consensusAddress != null) {
-      _result.consensusAddress = consensusAddress;
+      $result.consensusAddress = consensusAddress;
     }
-    return _result;
+    return $result;
   }
+  Equivocation._() : super();
   factory Equivocation.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Equivocation.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Equivocation',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.evidence.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..aOM<$0.Timestamp>(2, _omitFieldNames ? '' : 'time',
+        subBuilder: $0.Timestamp.create)
+    ..aInt64(3, _omitFieldNames ? '' : 'power')
+    ..aOS(4, _omitFieldNames ? '' : 'consensusAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -82,8 +69,10 @@ class Equivocation extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Equivocation copyWith(void Function(Equivocation) updates) =>
       super.copyWith((message) => updates(message as Equivocation))
-          as Equivocation; // ignore: deprecated_member_use
+          as Equivocation;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Equivocation create() => Equivocation._();
   Equivocation createEmptyInstance() => create();
@@ -144,3 +133,7 @@ class Equivocation extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearConsensusAddress() => clearField(4);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

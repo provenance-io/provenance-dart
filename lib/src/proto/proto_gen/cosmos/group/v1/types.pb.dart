@@ -1,84 +1,70 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/group/v1/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../google/protobuf/timestamp.pb.dart' as $0;
-import '../../../google/protobuf/duration.pb.dart' as $1;
 import '../../../google/protobuf/any.pb.dart' as $2;
-
+import '../../../google/protobuf/duration.pb.dart' as $1;
+import '../../../google/protobuf/timestamp.pb.dart' as $0;
 import 'types.pbenum.dart';
 
 export 'types.pbenum.dart';
 
+/// Member represents a group member with an account address,
+/// non-zero weight, metadata and added_at timestamp.
 class Member extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Member',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'weight')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..aOM<$0.Timestamp>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'addedAt',
-        subBuilder: $0.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  Member._() : super();
   factory Member({
     $core.String? address,
     $core.String? weight,
     $core.String? metadata,
     $0.Timestamp? addedAt,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (weight != null) {
-      _result.weight = weight;
+      $result.weight = weight;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
     if (addedAt != null) {
-      _result.addedAt = addedAt;
+      $result.addedAt = addedAt;
     }
-    return _result;
+    return $result;
   }
+  Member._() : super();
   factory Member.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Member.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Member',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOS(2, _omitFieldNames ? '' : 'weight')
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..aOM<$0.Timestamp>(4, _omitFieldNames ? '' : 'addedAt',
+        subBuilder: $0.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -87,9 +73,10 @@ class Member extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Member copyWith(void Function(Member) updates) =>
-      super.copyWith((message) => updates(message as Member))
-          as Member; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Member)) as Member;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Member create() => Member._();
   Member createEmptyInstance() => create();
@@ -99,6 +86,7 @@ class Member extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Member>(create);
   static Member? _defaultInstance;
 
+  /// address is the member's account address.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -111,6 +99,7 @@ class Member extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// weight is the member's voting weight that should be greater than 0.
   @$pb.TagNumber(2)
   $core.String get weight => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -123,6 +112,7 @@ class Member extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearWeight() => clearField(2);
 
+  /// metadata is any arbitrary metadata attached to the member.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -135,6 +125,7 @@ class Member extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMetadata() => clearField(3);
 
+  /// added_at is a timestamp specifying when a member was added.
   @$pb.TagNumber(4)
   $0.Timestamp get addedAt => $_getN(3);
   @$pb.TagNumber(4)
@@ -150,57 +141,45 @@ class Member extends $pb.GeneratedMessage {
   $0.Timestamp ensureAddedAt() => $_ensure(3);
 }
 
+/// MemberRequest represents a group member to be used in Msg server requests.
+/// Contrary to `Member`, it doesn't have any `added_at` field
+/// since this field cannot be set as part of requests.
 class MemberRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MemberRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'weight')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  MemberRequest._() : super();
   factory MemberRequest({
     $core.String? address,
     $core.String? weight,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (weight != null) {
-      _result.weight = weight;
+      $result.weight = weight;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  MemberRequest._() : super();
   factory MemberRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MemberRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MemberRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOS(2, _omitFieldNames ? '' : 'weight')
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -210,8 +189,10 @@ class MemberRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MemberRequest copyWith(void Function(MemberRequest) updates) =>
       super.copyWith((message) => updates(message as MemberRequest))
-          as MemberRequest; // ignore: deprecated_member_use
+          as MemberRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MemberRequest create() => MemberRequest._();
   MemberRequest createEmptyInstance() => create();
@@ -222,6 +203,7 @@ class MemberRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MemberRequest>(create);
   static MemberRequest? _defaultInstance;
 
+  /// address is the member's account address.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -234,6 +216,7 @@ class MemberRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// weight is the member's voting weight that should be greater than 0.
   @$pb.TagNumber(2)
   $core.String get weight => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -246,6 +229,7 @@ class MemberRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearWeight() => clearField(2);
 
+  /// metadata is any arbitrary metadata attached to the member.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -259,49 +243,44 @@ class MemberRequest extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(3);
 }
 
+/// ThresholdDecisionPolicy is a decision policy where a proposal passes when it
+/// satisfies the two following conditions:
+/// 1. The sum of all `YES` voters' weights is greater or equal than the defined
+///    `threshold`.
+/// 2. The voting and execution periods of the proposal respect the parameters
+///    given by `windows`.
 class ThresholdDecisionPolicy extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ThresholdDecisionPolicy',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'threshold')
-    ..aOM<DecisionPolicyWindows>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'windows',
-        subBuilder: DecisionPolicyWindows.create)
-    ..hasRequiredFields = false;
-
-  ThresholdDecisionPolicy._() : super();
   factory ThresholdDecisionPolicy({
     $core.String? threshold,
     DecisionPolicyWindows? windows,
   }) {
-    final _result = create();
+    final $result = create();
     if (threshold != null) {
-      _result.threshold = threshold;
+      $result.threshold = threshold;
     }
     if (windows != null) {
-      _result.windows = windows;
+      $result.windows = windows;
     }
-    return _result;
+    return $result;
   }
+  ThresholdDecisionPolicy._() : super();
   factory ThresholdDecisionPolicy.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ThresholdDecisionPolicy.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ThresholdDecisionPolicy',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'threshold')
+    ..aOM<DecisionPolicyWindows>(2, _omitFieldNames ? '' : 'windows',
+        subBuilder: DecisionPolicyWindows.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -313,8 +292,10 @@ class ThresholdDecisionPolicy extends $pb.GeneratedMessage {
   ThresholdDecisionPolicy copyWith(
           void Function(ThresholdDecisionPolicy) updates) =>
       super.copyWith((message) => updates(message as ThresholdDecisionPolicy))
-          as ThresholdDecisionPolicy; // ignore: deprecated_member_use
+          as ThresholdDecisionPolicy;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ThresholdDecisionPolicy create() => ThresholdDecisionPolicy._();
   ThresholdDecisionPolicy createEmptyInstance() => create();
@@ -325,6 +306,8 @@ class ThresholdDecisionPolicy extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ThresholdDecisionPolicy>(create);
   static ThresholdDecisionPolicy? _defaultInstance;
 
+  /// threshold is the minimum weighted sum of `YES` votes that must be met or
+  /// exceeded for a proposal to succeed.
   @$pb.TagNumber(1)
   $core.String get threshold => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -337,6 +320,7 @@ class ThresholdDecisionPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearThreshold() => clearField(1);
 
+  /// windows defines the different windows for voting and execution.
   @$pb.TagNumber(2)
   DecisionPolicyWindows get windows => $_getN(1);
   @$pb.TagNumber(2)
@@ -352,49 +336,44 @@ class ThresholdDecisionPolicy extends $pb.GeneratedMessage {
   DecisionPolicyWindows ensureWindows() => $_ensure(1);
 }
 
+/// PercentageDecisionPolicy is a decision policy where a proposal passes when
+/// it satisfies the two following conditions:
+/// 1. The percentage of all `YES` voters' weights out of the total group weight
+///    is greater or equal than the given `percentage`.
+/// 2. The voting and execution periods of the proposal respect the parameters
+///    given by `windows`.
 class PercentageDecisionPolicy extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PercentageDecisionPolicy',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'percentage')
-    ..aOM<DecisionPolicyWindows>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'windows',
-        subBuilder: DecisionPolicyWindows.create)
-    ..hasRequiredFields = false;
-
-  PercentageDecisionPolicy._() : super();
   factory PercentageDecisionPolicy({
     $core.String? percentage,
     DecisionPolicyWindows? windows,
   }) {
-    final _result = create();
+    final $result = create();
     if (percentage != null) {
-      _result.percentage = percentage;
+      $result.percentage = percentage;
     }
     if (windows != null) {
-      _result.windows = windows;
+      $result.windows = windows;
     }
-    return _result;
+    return $result;
   }
+  PercentageDecisionPolicy._() : super();
   factory PercentageDecisionPolicy.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PercentageDecisionPolicy.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PercentageDecisionPolicy',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'percentage')
+    ..aOM<DecisionPolicyWindows>(2, _omitFieldNames ? '' : 'windows',
+        subBuilder: DecisionPolicyWindows.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -406,8 +385,10 @@ class PercentageDecisionPolicy extends $pb.GeneratedMessage {
   PercentageDecisionPolicy copyWith(
           void Function(PercentageDecisionPolicy) updates) =>
       super.copyWith((message) => updates(message as PercentageDecisionPolicy))
-          as PercentageDecisionPolicy; // ignore: deprecated_member_use
+          as PercentageDecisionPolicy;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PercentageDecisionPolicy create() => PercentageDecisionPolicy._();
   PercentageDecisionPolicy createEmptyInstance() => create();
@@ -418,6 +399,8 @@ class PercentageDecisionPolicy extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<PercentageDecisionPolicy>(create);
   static PercentageDecisionPolicy? _defaultInstance;
 
+  /// percentage is the minimum percentage the weighted sum of `YES` votes must
+  /// meet for a proposal to succeed.
   @$pb.TagNumber(1)
   $core.String get percentage => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -430,6 +413,7 @@ class PercentageDecisionPolicy extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPercentage() => clearField(1);
 
+  /// windows defines the different windows for voting and execution.
   @$pb.TagNumber(2)
   DecisionPolicyWindows get windows => $_getN(1);
   @$pb.TagNumber(2)
@@ -445,50 +429,40 @@ class PercentageDecisionPolicy extends $pb.GeneratedMessage {
   DecisionPolicyWindows ensureWindows() => $_ensure(1);
 }
 
+/// DecisionPolicyWindows defines the different windows for voting and execution.
 class DecisionPolicyWindows extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DecisionPolicyWindows',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Duration>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votingPeriod',
-        subBuilder: $1.Duration.create)
-    ..aOM<$1.Duration>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minExecutionPeriod',
-        subBuilder: $1.Duration.create)
-    ..hasRequiredFields = false;
-
-  DecisionPolicyWindows._() : super();
   factory DecisionPolicyWindows({
     $1.Duration? votingPeriod,
     $1.Duration? minExecutionPeriod,
   }) {
-    final _result = create();
+    final $result = create();
     if (votingPeriod != null) {
-      _result.votingPeriod = votingPeriod;
+      $result.votingPeriod = votingPeriod;
     }
     if (minExecutionPeriod != null) {
-      _result.minExecutionPeriod = minExecutionPeriod;
+      $result.minExecutionPeriod = minExecutionPeriod;
     }
-    return _result;
+    return $result;
   }
+  DecisionPolicyWindows._() : super();
   factory DecisionPolicyWindows.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DecisionPolicyWindows.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DecisionPolicyWindows',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Duration>(1, _omitFieldNames ? '' : 'votingPeriod',
+        subBuilder: $1.Duration.create)
+    ..aOM<$1.Duration>(2, _omitFieldNames ? '' : 'minExecutionPeriod',
+        subBuilder: $1.Duration.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -500,8 +474,10 @@ class DecisionPolicyWindows extends $pb.GeneratedMessage {
   DecisionPolicyWindows copyWith(
           void Function(DecisionPolicyWindows) updates) =>
       super.copyWith((message) => updates(message as DecisionPolicyWindows))
-          as DecisionPolicyWindows; // ignore: deprecated_member_use
+          as DecisionPolicyWindows;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DecisionPolicyWindows create() => DecisionPolicyWindows._();
   DecisionPolicyWindows createEmptyInstance() => create();
@@ -512,6 +488,8 @@ class DecisionPolicyWindows extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DecisionPolicyWindows>(create);
   static DecisionPolicyWindows? _defaultInstance;
 
+  /// voting_period is the duration from submission of a proposal to the end of voting period
+  /// Within this times votes can be submitted with MsgVote.
   @$pb.TagNumber(1)
   $1.Duration get votingPeriod => $_getN(0);
   @$pb.TagNumber(1)
@@ -526,6 +504,17 @@ class DecisionPolicyWindows extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Duration ensureVotingPeriod() => $_ensure(0);
 
+  ///  min_execution_period is the minimum duration after the proposal submission
+  ///  where members can start sending MsgExec. This means that the window for
+  ///  sending a MsgExec transaction is:
+  ///  `[ submission + min_execution_period ; submission + voting_period + max_execution_period]`
+  ///  where max_execution_period is a app-specific config, defined in the keeper.
+  ///  If not set, min_execution_period will default to 0.
+  ///
+  ///  Please make sure to set a `min_execution_period` that is smaller than
+  ///  `voting_period + max_execution_period`, or else the above execution window
+  ///  is empty, meaning that all proposals created with this decision policy
+  ///  won't be able to be executed.
   @$pb.TagNumber(2)
   $1.Duration get minExecutionPeriod => $_getN(1);
   @$pb.TagNumber(2)
@@ -541,54 +530,8 @@ class DecisionPolicyWindows extends $pb.GeneratedMessage {
   $1.Duration ensureMinExecutionPeriod() => $_ensure(1);
 }
 
+/// GroupInfo represents the high-level on-chain information for a group.
 class GroupInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GroupInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalWeight')
-    ..aOM<$0.Timestamp>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'createdAt',
-        subBuilder: $0.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  GroupInfo._() : super();
   factory GroupInfo({
     $fixnum.Int64? id,
     $core.String? admin,
@@ -597,33 +540,51 @@ class GroupInfo extends $pb.GeneratedMessage {
     $core.String? totalWeight,
     $0.Timestamp? createdAt,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (totalWeight != null) {
-      _result.totalWeight = totalWeight;
+      $result.totalWeight = totalWeight;
     }
     if (createdAt != null) {
-      _result.createdAt = createdAt;
+      $result.createdAt = createdAt;
     }
-    return _result;
+    return $result;
   }
+  GroupInfo._() : super();
   factory GroupInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GroupInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GroupInfo',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'admin')
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..a<$fixnum.Int64>(4, _omitFieldNames ? '' : 'version', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(5, _omitFieldNames ? '' : 'totalWeight')
+    ..aOM<$0.Timestamp>(6, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $0.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -632,9 +593,10 @@ class GroupInfo extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   GroupInfo copyWith(void Function(GroupInfo) updates) =>
-      super.copyWith((message) => updates(message as GroupInfo))
-          as GroupInfo; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as GroupInfo)) as GroupInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GroupInfo create() => GroupInfo._();
   GroupInfo createEmptyInstance() => create();
@@ -644,6 +606,7 @@ class GroupInfo extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GroupInfo>(create);
   static GroupInfo? _defaultInstance;
 
+  /// id is the unique ID of the group.
   @$pb.TagNumber(1)
   $fixnum.Int64 get id => $_getI64(0);
   @$pb.TagNumber(1)
@@ -656,6 +619,7 @@ class GroupInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
 
+  /// admin is the account address of the group's admin.
   @$pb.TagNumber(2)
   $core.String get admin => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -668,6 +632,7 @@ class GroupInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearAdmin() => clearField(2);
 
+  /// metadata is any arbitrary metadata to attached to the group.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -680,6 +645,10 @@ class GroupInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMetadata() => clearField(3);
 
+  /// version is used to track changes to a group's membership structure that
+  /// would break existing proposals. Whenever any members weight is changed,
+  /// or any member is added or removed this version is incremented and will
+  /// cause proposals based on older versions of this group to fail
   @$pb.TagNumber(4)
   $fixnum.Int64 get version => $_getI64(3);
   @$pb.TagNumber(4)
@@ -692,6 +661,7 @@ class GroupInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearVersion() => clearField(4);
 
+  /// total_weight is the sum of the group members' weights.
   @$pb.TagNumber(5)
   $core.String get totalWeight => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -704,6 +674,7 @@ class GroupInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearTotalWeight() => clearField(5);
 
+  /// created_at is a timestamp specifying when a group was created.
   @$pb.TagNumber(6)
   $0.Timestamp get createdAt => $_getN(5);
   @$pb.TagNumber(6)
@@ -719,51 +690,39 @@ class GroupInfo extends $pb.GeneratedMessage {
   $0.Timestamp ensureCreatedAt() => $_ensure(5);
 }
 
+/// GroupMember represents the relationship between a group and a member.
 class GroupMember extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GroupMember',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<Member>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'member',
-        subBuilder: Member.create)
-    ..hasRequiredFields = false;
-
-  GroupMember._() : super();
   factory GroupMember({
     $fixnum.Int64? groupId,
     Member? member,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (member != null) {
-      _result.member = member;
+      $result.member = member;
     }
-    return _result;
+    return $result;
   }
+  GroupMember._() : super();
   factory GroupMember.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GroupMember.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GroupMember',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<Member>(2, _omitFieldNames ? '' : 'member', subBuilder: Member.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -773,8 +732,10 @@ class GroupMember extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GroupMember copyWith(void Function(GroupMember) updates) =>
       super.copyWith((message) => updates(message as GroupMember))
-          as GroupMember; // ignore: deprecated_member_use
+          as GroupMember;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GroupMember create() => GroupMember._();
   GroupMember createEmptyInstance() => create();
@@ -784,6 +745,7 @@ class GroupMember extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GroupMember>(create);
   static GroupMember? _defaultInstance;
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(1)
   $fixnum.Int64 get groupId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -796,6 +758,7 @@ class GroupMember extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGroupId() => clearField(1);
 
+  /// member is the member data.
   @$pb.TagNumber(2)
   Member get member => $_getN(1);
   @$pb.TagNumber(2)
@@ -811,60 +774,8 @@ class GroupMember extends $pb.GeneratedMessage {
   Member ensureMember() => $_ensure(1);
 }
 
+/// GroupPolicyInfo represents the high-level on-chain information for a group policy.
 class GroupPolicyInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GroupPolicyInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$2.Any>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'decisionPolicy',
-        subBuilder: $2.Any.create)
-    ..aOM<$0.Timestamp>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'createdAt',
-        subBuilder: $0.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  GroupPolicyInfo._() : super();
   factory GroupPolicyInfo({
     $core.String? address,
     $fixnum.Int64? groupId,
@@ -874,36 +785,56 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
     $2.Any? decisionPolicy,
     $0.Timestamp? createdAt,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (decisionPolicy != null) {
-      _result.decisionPolicy = decisionPolicy;
+      $result.decisionPolicy = decisionPolicy;
     }
     if (createdAt != null) {
-      _result.createdAt = createdAt;
+      $result.createdAt = createdAt;
     }
-    return _result;
+    return $result;
   }
+  GroupPolicyInfo._() : super();
   factory GroupPolicyInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GroupPolicyInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GroupPolicyInfo',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'admin')
+    ..aOS(4, _omitFieldNames ? '' : 'metadata')
+    ..a<$fixnum.Int64>(5, _omitFieldNames ? '' : 'version', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$2.Any>(6, _omitFieldNames ? '' : 'decisionPolicy',
+        subBuilder: $2.Any.create)
+    ..aOM<$0.Timestamp>(7, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $0.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -913,8 +844,10 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GroupPolicyInfo copyWith(void Function(GroupPolicyInfo) updates) =>
       super.copyWith((message) => updates(message as GroupPolicyInfo))
-          as GroupPolicyInfo; // ignore: deprecated_member_use
+          as GroupPolicyInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GroupPolicyInfo create() => GroupPolicyInfo._();
   GroupPolicyInfo createEmptyInstance() => create();
@@ -925,6 +858,7 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GroupPolicyInfo>(create);
   static GroupPolicyInfo? _defaultInstance;
 
+  /// address is the account address of group policy.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -937,6 +871,7 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(2)
   $fixnum.Int64 get groupId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -949,6 +884,7 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupId() => clearField(2);
 
+  /// admin is the account address of the group admin.
   @$pb.TagNumber(3)
   $core.String get admin => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -961,6 +897,7 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearAdmin() => clearField(3);
 
+  /// metadata is any arbitrary metadata to attached to the group policy.
   @$pb.TagNumber(4)
   $core.String get metadata => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -973,6 +910,8 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearMetadata() => clearField(4);
 
+  /// version is used to track changes to a group's GroupPolicyInfo structure that
+  /// would create a different result on a running proposal.
   @$pb.TagNumber(5)
   $fixnum.Int64 get version => $_getI64(4);
   @$pb.TagNumber(5)
@@ -985,6 +924,7 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearVersion() => clearField(5);
 
+  /// decision_policy specifies the group policy's decision policy.
   @$pb.TagNumber(6)
   $2.Any get decisionPolicy => $_getN(5);
   @$pb.TagNumber(6)
@@ -999,6 +939,7 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $2.Any ensureDecisionPolicy() => $_ensure(5);
 
+  /// created_at is a timestamp specifying when a group policy was created.
   @$pb.TagNumber(7)
   $0.Timestamp get createdAt => $_getN(6);
   @$pb.TagNumber(7)
@@ -1014,99 +955,11 @@ class GroupPolicyInfo extends $pb.GeneratedMessage {
   $0.Timestamp ensureCreatedAt() => $_ensure(6);
 }
 
+/// Proposal defines a group proposal. Any member of a group can submit a proposal
+/// for a group policy to decide upon.
+/// A proposal consists of a set of `sdk.Msg`s that will be executed if the proposal
+/// passes as well as some optional metadata associated with the proposal.
 class Proposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Proposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyAddress')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..pPS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposers')
-    ..aOM<$0.Timestamp>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'submitTime',
-        subBuilder: $0.Timestamp.create)
-    ..a<$fixnum.Int64>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupVersion',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicyVersion',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..e<ProposalStatus>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'status',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: ProposalStatus.PROPOSAL_STATUS_UNSPECIFIED,
-        valueOf: ProposalStatus.valueOf,
-        enumValues: ProposalStatus.values)
-    ..aOM<TallyResult>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'finalTallyResult',
-        subBuilder: TallyResult.create)
-    ..aOM<$0.Timestamp>(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votingPeriodEnd',
-        subBuilder: $0.Timestamp.create)
-    ..e<ProposalExecutorResult>(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'executorResult',
-        $pb.PbFieldType.OE,
-        defaultOrMaker:
-            ProposalExecutorResult.PROPOSAL_EXECUTOR_RESULT_UNSPECIFIED,
-        valueOf: ProposalExecutorResult.valueOf,
-        enumValues: ProposalExecutorResult.values)
-    ..pc<$2.Any>(
-        12,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'messages',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.Any.create)
-    ..hasRequiredFields = false;
-
-  Proposal._() : super();
   factory Proposal({
     $fixnum.Int64? id,
     $core.String? groupPolicyAddress,
@@ -1121,51 +974,89 @@ class Proposal extends $pb.GeneratedMessage {
     ProposalExecutorResult? executorResult,
     $core.Iterable<$2.Any>? messages,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (groupPolicyAddress != null) {
-      _result.groupPolicyAddress = groupPolicyAddress;
+      $result.groupPolicyAddress = groupPolicyAddress;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
     if (proposers != null) {
-      _result.proposers.addAll(proposers);
+      $result.proposers.addAll(proposers);
     }
     if (submitTime != null) {
-      _result.submitTime = submitTime;
+      $result.submitTime = submitTime;
     }
     if (groupVersion != null) {
-      _result.groupVersion = groupVersion;
+      $result.groupVersion = groupVersion;
     }
     if (groupPolicyVersion != null) {
-      _result.groupPolicyVersion = groupPolicyVersion;
+      $result.groupPolicyVersion = groupPolicyVersion;
     }
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
     if (finalTallyResult != null) {
-      _result.finalTallyResult = finalTallyResult;
+      $result.finalTallyResult = finalTallyResult;
     }
     if (votingPeriodEnd != null) {
-      _result.votingPeriodEnd = votingPeriodEnd;
+      $result.votingPeriodEnd = votingPeriodEnd;
     }
     if (executorResult != null) {
-      _result.executorResult = executorResult;
+      $result.executorResult = executorResult;
     }
     if (messages != null) {
-      _result.messages.addAll(messages);
+      $result.messages.addAll(messages);
     }
-    return _result;
+    return $result;
   }
+  Proposal._() : super();
   factory Proposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Proposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Proposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'groupPolicyAddress')
+    ..aOS(3, _omitFieldNames ? '' : 'metadata')
+    ..pPS(4, _omitFieldNames ? '' : 'proposers')
+    ..aOM<$0.Timestamp>(5, _omitFieldNames ? '' : 'submitTime',
+        subBuilder: $0.Timestamp.create)
+    ..a<$fixnum.Int64>(
+        6, _omitFieldNames ? '' : 'groupVersion', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        7, _omitFieldNames ? '' : 'groupPolicyVersion', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..e<ProposalStatus>(8, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE,
+        defaultOrMaker: ProposalStatus.PROPOSAL_STATUS_UNSPECIFIED,
+        valueOf: ProposalStatus.valueOf,
+        enumValues: ProposalStatus.values)
+    ..aOM<TallyResult>(9, _omitFieldNames ? '' : 'finalTallyResult',
+        subBuilder: TallyResult.create)
+    ..aOM<$0.Timestamp>(10, _omitFieldNames ? '' : 'votingPeriodEnd',
+        subBuilder: $0.Timestamp.create)
+    ..e<ProposalExecutorResult>(
+        11, _omitFieldNames ? '' : 'executorResult', $pb.PbFieldType.OE,
+        defaultOrMaker:
+            ProposalExecutorResult.PROPOSAL_EXECUTOR_RESULT_UNSPECIFIED,
+        valueOf: ProposalExecutorResult.valueOf,
+        enumValues: ProposalExecutorResult.values)
+    ..pc<$2.Any>(12, _omitFieldNames ? '' : 'messages', $pb.PbFieldType.PM,
+        subBuilder: $2.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1174,9 +1065,10 @@ class Proposal extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Proposal copyWith(void Function(Proposal) updates) =>
-      super.copyWith((message) => updates(message as Proposal))
-          as Proposal; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Proposal)) as Proposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Proposal create() => Proposal._();
   Proposal createEmptyInstance() => create();
@@ -1186,6 +1078,7 @@ class Proposal extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Proposal>(create);
   static Proposal? _defaultInstance;
 
+  /// id is the unique id of the proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get id => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1198,6 +1091,7 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
 
+  /// group_policy_address is the account address of group policy.
   @$pb.TagNumber(2)
   $core.String get groupPolicyAddress => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1210,6 +1104,7 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearGroupPolicyAddress() => clearField(2);
 
+  /// metadata is any arbitrary metadata to attached to the proposal.
   @$pb.TagNumber(3)
   $core.String get metadata => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1222,9 +1117,11 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMetadata() => clearField(3);
 
+  /// proposers are the account addresses of the proposers.
   @$pb.TagNumber(4)
   $core.List<$core.String> get proposers => $_getList(3);
 
+  /// submit_time is a timestamp specifying when a proposal was submitted.
   @$pb.TagNumber(5)
   $0.Timestamp get submitTime => $_getN(4);
   @$pb.TagNumber(5)
@@ -1239,6 +1136,8 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $0.Timestamp ensureSubmitTime() => $_ensure(4);
 
+  /// group_version tracks the version of the group at proposal submission.
+  /// This field is here for informational purposes only.
   @$pb.TagNumber(6)
   $fixnum.Int64 get groupVersion => $_getI64(5);
   @$pb.TagNumber(6)
@@ -1251,6 +1150,10 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearGroupVersion() => clearField(6);
 
+  /// group_policy_version tracks the version of the group policy at proposal submission.
+  /// When a decision policy is changed, existing proposals from previous policy
+  /// versions will become invalid with the `ABORTED` status.
+  /// This field is here for informational purposes only.
   @$pb.TagNumber(7)
   $fixnum.Int64 get groupPolicyVersion => $_getI64(6);
   @$pb.TagNumber(7)
@@ -1263,6 +1166,7 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearGroupPolicyVersion() => clearField(7);
 
+  /// status represents the high level position in the life cycle of the proposal. Initial value is Submitted.
   @$pb.TagNumber(8)
   ProposalStatus get status => $_getN(7);
   @$pb.TagNumber(8)
@@ -1275,6 +1179,10 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearStatus() => clearField(8);
 
+  /// final_tally_result contains the sums of all weighted votes for this
+  /// proposal for each vote option. It is empty at submission, and only
+  /// populated after tallying, at voting period end or at proposal execution,
+  /// whichever happens first.
   @$pb.TagNumber(9)
   TallyResult get finalTallyResult => $_getN(8);
   @$pb.TagNumber(9)
@@ -1289,6 +1197,11 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   TallyResult ensureFinalTallyResult() => $_ensure(8);
 
+  /// voting_period_end is the timestamp before which voting must be done.
+  /// Unless a successfull MsgExec is called before (to execute a proposal whose
+  /// tally is successful before the voting period ends), tallying will be done
+  /// at this point, and the `final_tally_result`and `status` fields will be
+  /// accordingly updated.
   @$pb.TagNumber(10)
   $0.Timestamp get votingPeriodEnd => $_getN(9);
   @$pb.TagNumber(10)
@@ -1303,6 +1216,7 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   $0.Timestamp ensureVotingPeriodEnd() => $_ensure(9);
 
+  /// executor_result is the final result of the proposal execution. Initial value is NotRun.
   @$pb.TagNumber(11)
   ProposalExecutorResult get executorResult => $_getN(10);
   @$pb.TagNumber(11)
@@ -1315,70 +1229,53 @@ class Proposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   void clearExecutorResult() => clearField(11);
 
+  /// messages is a list of `sdk.Msg`s that will be executed if the proposal passes.
   @$pb.TagNumber(12)
   $core.List<$2.Any> get messages => $_getList(11);
 }
 
+/// TallyResult represents the sum of weighted votes for each vote option.
 class TallyResult extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'TallyResult',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'yesCount')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'abstainCount')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'noCount')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'noWithVetoCount')
-    ..hasRequiredFields = false;
-
-  TallyResult._() : super();
   factory TallyResult({
     $core.String? yesCount,
     $core.String? abstainCount,
     $core.String? noCount,
     $core.String? noWithVetoCount,
   }) {
-    final _result = create();
+    final $result = create();
     if (yesCount != null) {
-      _result.yesCount = yesCount;
+      $result.yesCount = yesCount;
     }
     if (abstainCount != null) {
-      _result.abstainCount = abstainCount;
+      $result.abstainCount = abstainCount;
     }
     if (noCount != null) {
-      _result.noCount = noCount;
+      $result.noCount = noCount;
     }
     if (noWithVetoCount != null) {
-      _result.noWithVetoCount = noWithVetoCount;
+      $result.noWithVetoCount = noWithVetoCount;
     }
-    return _result;
+    return $result;
   }
+  TallyResult._() : super();
   factory TallyResult.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory TallyResult.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TallyResult',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'yesCount')
+    ..aOS(2, _omitFieldNames ? '' : 'abstainCount')
+    ..aOS(3, _omitFieldNames ? '' : 'noCount')
+    ..aOS(4, _omitFieldNames ? '' : 'noWithVetoCount')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1388,8 +1285,10 @@ class TallyResult extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   TallyResult copyWith(void Function(TallyResult) updates) =>
       super.copyWith((message) => updates(message as TallyResult))
-          as TallyResult; // ignore: deprecated_member_use
+          as TallyResult;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TallyResult create() => TallyResult._();
   TallyResult createEmptyInstance() => create();
@@ -1399,6 +1298,7 @@ class TallyResult extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<TallyResult>(create);
   static TallyResult? _defaultInstance;
 
+  /// yes_count is the weighted sum of yes votes.
   @$pb.TagNumber(1)
   $core.String get yesCount => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1411,6 +1311,7 @@ class TallyResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearYesCount() => clearField(1);
 
+  /// abstain_count is the weighted sum of abstainers.
   @$pb.TagNumber(2)
   $core.String get abstainCount => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1423,6 +1324,7 @@ class TallyResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearAbstainCount() => clearField(2);
 
+  /// no_count is the weighted sum of no votes.
   @$pb.TagNumber(3)
   $core.String get noCount => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -1435,6 +1337,7 @@ class TallyResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearNoCount() => clearField(3);
 
+  /// no_with_veto_count is the weighted sum of veto.
   @$pb.TagNumber(4)
   $core.String get noWithVetoCount => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -1448,51 +1351,8 @@ class TallyResult extends $pb.GeneratedMessage {
   void clearNoWithVetoCount() => clearField(4);
 }
 
+/// Vote represents a vote for a proposal.
 class Vote extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Vote',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voter')
-    ..e<VoteOption>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'option',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: VoteOption.VOTE_OPTION_UNSPECIFIED,
-        valueOf: VoteOption.valueOf,
-        enumValues: VoteOption.values)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..aOM<$0.Timestamp>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'submitTime',
-        subBuilder: $0.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  Vote._() : super();
   factory Vote({
     $fixnum.Int64? proposalId,
     $core.String? voter,
@@ -1500,30 +1360,50 @@ class Vote extends $pb.GeneratedMessage {
     $core.String? metadata,
     $0.Timestamp? submitTime,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (voter != null) {
-      _result.voter = voter;
+      $result.voter = voter;
     }
     if (option != null) {
-      _result.option = option;
+      $result.option = option;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
     if (submitTime != null) {
-      _result.submitTime = submitTime;
+      $result.submitTime = submitTime;
     }
-    return _result;
+    return $result;
   }
+  Vote._() : super();
   factory Vote.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Vote.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Vote',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'voter')
+    ..e<VoteOption>(3, _omitFieldNames ? '' : 'option', $pb.PbFieldType.OE,
+        defaultOrMaker: VoteOption.VOTE_OPTION_UNSPECIFIED,
+        valueOf: VoteOption.valueOf,
+        enumValues: VoteOption.values)
+    ..aOS(4, _omitFieldNames ? '' : 'metadata')
+    ..aOM<$0.Timestamp>(5, _omitFieldNames ? '' : 'submitTime',
+        subBuilder: $0.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1532,9 +1412,10 @@ class Vote extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Vote copyWith(void Function(Vote) updates) =>
-      super.copyWith((message) => updates(message as Vote))
-          as Vote; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Vote)) as Vote;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Vote create() => Vote._();
   Vote createEmptyInstance() => create();
@@ -1544,6 +1425,7 @@ class Vote extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Vote>(create);
   static Vote? _defaultInstance;
 
+  /// proposal is the unique ID of the proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1556,6 +1438,7 @@ class Vote extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearProposalId() => clearField(1);
 
+  /// voter is the account address of the voter.
   @$pb.TagNumber(2)
   $core.String get voter => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1568,6 +1451,7 @@ class Vote extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearVoter() => clearField(2);
 
+  /// option is the voter's choice on the proposal.
   @$pb.TagNumber(3)
   VoteOption get option => $_getN(2);
   @$pb.TagNumber(3)
@@ -1580,6 +1464,7 @@ class Vote extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearOption() => clearField(3);
 
+  /// metadata is any arbitrary metadata to attached to the vote.
   @$pb.TagNumber(4)
   $core.String get metadata => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -1592,6 +1477,7 @@ class Vote extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearMetadata() => clearField(4);
 
+  /// submit_time is the timestamp when the vote was submitted.
   @$pb.TagNumber(5)
   $0.Timestamp get submitTime => $_getN(4);
   @$pb.TagNumber(5)
@@ -1606,3 +1492,7 @@ class Vote extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $0.Timestamp ensureSubmitTime() => $_ensure(4);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

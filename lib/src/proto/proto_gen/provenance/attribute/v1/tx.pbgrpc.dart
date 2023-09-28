@@ -1,18 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/attribute/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import 'tx.pb.dart' as $0;
+
 export 'tx.pb.dart';
 
+@$pb.GrpcServiceName('provenance.attribute.v1.Msg')
 class MsgClient extends $grpc.Client {
   static final _$addAttribute =
       $grpc.ClientMethod<$0.MsgAddAttributeRequest, $0.MsgAddAttributeResponse>(
@@ -26,6 +33,13 @@ class MsgClient extends $grpc.Client {
       ($0.MsgUpdateAttributeRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgUpdateAttributeResponse.fromBuffer(value));
+  static final _$updateAttributeExpiration = $grpc.ClientMethod<
+          $0.MsgUpdateAttributeExpirationRequest,
+          $0.MsgUpdateAttributeExpirationResponse>(
+      '/provenance.attribute.v1.Msg/UpdateAttributeExpiration',
+      ($0.MsgUpdateAttributeExpirationRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgUpdateAttributeExpirationResponse.fromBuffer(value));
   static final _$deleteAttribute = $grpc.ClientMethod<
           $0.MsgDeleteAttributeRequest, $0.MsgDeleteAttributeResponse>(
       '/provenance.attribute.v1.Msg/DeleteAttribute',
@@ -39,6 +53,12 @@ class MsgClient extends $grpc.Client {
       ($0.MsgDeleteDistinctAttributeRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgDeleteDistinctAttributeResponse.fromBuffer(value));
+  static final _$setAccountData = $grpc.ClientMethod<
+          $0.MsgSetAccountDataRequest, $0.MsgSetAccountDataResponse>(
+      '/provenance.attribute.v1.Msg/SetAccountData',
+      ($0.MsgSetAccountDataRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgSetAccountDataResponse.fromBuffer(value));
 
   MsgClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -57,6 +77,13 @@ class MsgClient extends $grpc.Client {
     return $createUnaryCall(_$updateAttribute, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.MsgUpdateAttributeExpirationResponse>
+      updateAttributeExpiration($0.MsgUpdateAttributeExpirationRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateAttributeExpiration, request,
+        options: options);
+  }
+
   $grpc.ResponseFuture<$0.MsgDeleteAttributeResponse> deleteAttribute(
       $0.MsgDeleteAttributeRequest request,
       {$grpc.CallOptions? options}) {
@@ -69,8 +96,15 @@ class MsgClient extends $grpc.Client {
     return $createUnaryCall(_$deleteDistinctAttribute, request,
         options: options);
   }
+
+  $grpc.ResponseFuture<$0.MsgSetAccountDataResponse> setAccountData(
+      $0.MsgSetAccountDataRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$setAccountData, request, options: options);
+  }
 }
 
+@$pb.GrpcServiceName('provenance.attribute.v1.Msg')
 abstract class MsgServiceBase extends $grpc.Service {
   $core.String get $name => 'provenance.attribute.v1.Msg';
 
@@ -93,6 +127,16 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgUpdateAttributeRequest.fromBuffer(value),
         ($0.MsgUpdateAttributeResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgUpdateAttributeExpirationRequest,
+            $0.MsgUpdateAttributeExpirationResponse>(
+        'UpdateAttributeExpiration',
+        updateAttributeExpiration_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgUpdateAttributeExpirationRequest.fromBuffer(value),
+        ($0.MsgUpdateAttributeExpirationResponse value) =>
+            value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgDeleteAttributeRequest,
             $0.MsgDeleteAttributeResponse>(
         'DeleteAttribute',
@@ -112,6 +156,15 @@ abstract class MsgServiceBase extends $grpc.Service {
             $0.MsgDeleteDistinctAttributeRequest.fromBuffer(value),
         ($0.MsgDeleteDistinctAttributeResponse value) =>
             value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgSetAccountDataRequest,
+            $0.MsgSetAccountDataResponse>(
+        'SetAccountData',
+        setAccountData_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgSetAccountDataRequest.fromBuffer(value),
+        ($0.MsgSetAccountDataResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.MsgAddAttributeResponse> addAttribute_Pre(
@@ -126,6 +179,12 @@ abstract class MsgServiceBase extends $grpc.Service {
     return updateAttribute(call, await request);
   }
 
+  $async.Future<$0.MsgUpdateAttributeExpirationResponse>
+      updateAttributeExpiration_Pre($grpc.ServiceCall call,
+          $async.Future<$0.MsgUpdateAttributeExpirationRequest> request) async {
+    return updateAttributeExpiration(call, await request);
+  }
+
   $async.Future<$0.MsgDeleteAttributeResponse> deleteAttribute_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.MsgDeleteAttributeRequest> request) async {
@@ -138,12 +197,23 @@ abstract class MsgServiceBase extends $grpc.Service {
     return deleteDistinctAttribute(call, await request);
   }
 
+  $async.Future<$0.MsgSetAccountDataResponse> setAccountData_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgSetAccountDataRequest> request) async {
+    return setAccountData(call, await request);
+  }
+
   $async.Future<$0.MsgAddAttributeResponse> addAttribute(
       $grpc.ServiceCall call, $0.MsgAddAttributeRequest request);
   $async.Future<$0.MsgUpdateAttributeResponse> updateAttribute(
       $grpc.ServiceCall call, $0.MsgUpdateAttributeRequest request);
+  $async.Future<$0.MsgUpdateAttributeExpirationResponse>
+      updateAttributeExpiration($grpc.ServiceCall call,
+          $0.MsgUpdateAttributeExpirationRequest request);
   $async.Future<$0.MsgDeleteAttributeResponse> deleteAttribute(
       $grpc.ServiceCall call, $0.MsgDeleteAttributeRequest request);
   $async.Future<$0.MsgDeleteDistinctAttributeResponse> deleteDistinctAttribute(
       $grpc.ServiceCall call, $0.MsgDeleteDistinctAttributeRequest request);
+  $async.Future<$0.MsgSetAccountDataResponse> setAccountData(
+      $grpc.ServiceCall call, $0.MsgSetAccountDataRequest request);
 }

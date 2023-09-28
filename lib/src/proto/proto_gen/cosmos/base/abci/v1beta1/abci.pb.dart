@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/abci/v1beta1/abci.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -13,90 +17,9 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../../google/protobuf/any.pb.dart' as $1;
 import '../../../../tendermint/abci/types.pb.dart' as $0;
 
+/// TxResponse defines a structure containing relevant tx data and metadata. The
+/// tags are stringified and the log is JSON decoded.
 class TxResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'TxResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'txhash')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codespace')
-    ..a<$core.int>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'code',
-        $pb.PbFieldType.OU3)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'rawLog')
-    ..pc<ABCIMessageLog>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'logs',
-        $pb.PbFieldType.PM,
-        subBuilder: ABCIMessageLog.create)
-    ..aOS(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'info')
-    ..aInt64(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'gasWanted')
-    ..aInt64(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'gasUsed')
-    ..aOM<$1.Any>(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'tx',
-        subBuilder: $1.Any.create)
-    ..aOS(
-        12,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timestamp')
-    ..pc<$0.Event>(
-        13,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'events',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Event.create)
-    ..hasRequiredFields = false;
-
-  TxResponse._() : super();
   factory TxResponse({
     $fixnum.Int64? height,
     $core.String? txhash,
@@ -112,54 +35,78 @@ class TxResponse extends $pb.GeneratedMessage {
     $core.String? timestamp,
     $core.Iterable<$0.Event>? events,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (txhash != null) {
-      _result.txhash = txhash;
+      $result.txhash = txhash;
     }
     if (codespace != null) {
-      _result.codespace = codespace;
+      $result.codespace = codespace;
     }
     if (code != null) {
-      _result.code = code;
+      $result.code = code;
     }
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
     if (rawLog != null) {
-      _result.rawLog = rawLog;
+      $result.rawLog = rawLog;
     }
     if (logs != null) {
-      _result.logs.addAll(logs);
+      $result.logs.addAll(logs);
     }
     if (info != null) {
-      _result.info = info;
+      $result.info = info;
     }
     if (gasWanted != null) {
-      _result.gasWanted = gasWanted;
+      $result.gasWanted = gasWanted;
     }
     if (gasUsed != null) {
-      _result.gasUsed = gasUsed;
+      $result.gasUsed = gasUsed;
     }
     if (tx != null) {
-      _result.tx = tx;
+      $result.tx = tx;
     }
     if (timestamp != null) {
-      _result.timestamp = timestamp;
+      $result.timestamp = timestamp;
     }
     if (events != null) {
-      _result.events.addAll(events);
+      $result.events.addAll(events);
     }
-    return _result;
+    return $result;
   }
+  TxResponse._() : super();
   factory TxResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory TxResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TxResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'height')
+    ..aOS(2, _omitFieldNames ? '' : 'txhash')
+    ..aOS(3, _omitFieldNames ? '' : 'codespace')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OU3)
+    ..aOS(5, _omitFieldNames ? '' : 'data')
+    ..aOS(6, _omitFieldNames ? '' : 'rawLog')
+    ..pc<ABCIMessageLog>(7, _omitFieldNames ? '' : 'logs', $pb.PbFieldType.PM,
+        subBuilder: ABCIMessageLog.create)
+    ..aOS(8, _omitFieldNames ? '' : 'info')
+    ..aInt64(9, _omitFieldNames ? '' : 'gasWanted')
+    ..aInt64(10, _omitFieldNames ? '' : 'gasUsed')
+    ..aOM<$1.Any>(11, _omitFieldNames ? '' : 'tx', subBuilder: $1.Any.create)
+    ..aOS(12, _omitFieldNames ? '' : 'timestamp')
+    ..pc<$0.Event>(13, _omitFieldNames ? '' : 'events', $pb.PbFieldType.PM,
+        subBuilder: $0.Event.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -168,9 +115,10 @@ class TxResponse extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   TxResponse copyWith(void Function(TxResponse) updates) =>
-      super.copyWith((message) => updates(message as TxResponse))
-          as TxResponse; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as TxResponse)) as TxResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TxResponse create() => TxResponse._();
   TxResponse createEmptyInstance() => create();
@@ -180,6 +128,7 @@ class TxResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<TxResponse>(create);
   static TxResponse? _defaultInstance;
 
+  /// The block height
   @$pb.TagNumber(1)
   $fixnum.Int64 get height => $_getI64(0);
   @$pb.TagNumber(1)
@@ -192,6 +141,7 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearHeight() => clearField(1);
 
+  /// The transaction hash.
   @$pb.TagNumber(2)
   $core.String get txhash => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -204,6 +154,7 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearTxhash() => clearField(2);
 
+  /// Namespace for the Code
   @$pb.TagNumber(3)
   $core.String get codespace => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -216,6 +167,7 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearCodespace() => clearField(3);
 
+  /// Response code.
   @$pb.TagNumber(4)
   $core.int get code => $_getIZ(3);
   @$pb.TagNumber(4)
@@ -228,6 +180,7 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearCode() => clearField(4);
 
+  /// Result bytes, if any.
   @$pb.TagNumber(5)
   $core.String get data => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -240,6 +193,8 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearData() => clearField(5);
 
+  /// The output of the application's logger (raw string). May be
+  /// non-deterministic.
   @$pb.TagNumber(6)
   $core.String get rawLog => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -252,9 +207,11 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearRawLog() => clearField(6);
 
+  /// The output of the application's logger (typed). May be non-deterministic.
   @$pb.TagNumber(7)
   $core.List<ABCIMessageLog> get logs => $_getList(6);
 
+  /// Additional information. May be non-deterministic.
   @$pb.TagNumber(8)
   $core.String get info => $_getSZ(7);
   @$pb.TagNumber(8)
@@ -267,6 +224,7 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearInfo() => clearField(8);
 
+  /// Amount of gas requested for transaction.
   @$pb.TagNumber(9)
   $fixnum.Int64 get gasWanted => $_getI64(8);
   @$pb.TagNumber(9)
@@ -279,6 +237,7 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   void clearGasWanted() => clearField(9);
 
+  /// Amount of gas consumed by transaction.
   @$pb.TagNumber(10)
   $fixnum.Int64 get gasUsed => $_getI64(9);
   @$pb.TagNumber(10)
@@ -291,6 +250,7 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   void clearGasUsed() => clearField(10);
 
+  /// The request transaction bytes.
   @$pb.TagNumber(11)
   $1.Any get tx => $_getN(10);
   @$pb.TagNumber(11)
@@ -305,6 +265,9 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $1.Any ensureTx() => $_ensure(10);
 
+  /// Time of the previous block. For heights > 1, it's the weighted median of
+  /// the timestamps of the valid votes in the block.LastCommit. For height == 1,
+  /// it's genesis time.
   @$pb.TagNumber(12)
   $core.String get timestamp => $_getSZ(11);
   @$pb.TagNumber(12)
@@ -317,64 +280,54 @@ class TxResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   void clearTimestamp() => clearField(12);
 
+  ///  Events defines all the events emitted by processing a transaction. Note,
+  ///  these events include those emitted by processing all the messages and those
+  ///  emitted from the ante. Whereas Logs contains the events, with
+  ///  additional metadata, emitted only by processing the messages.
+  ///
+  ///  Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
   @$pb.TagNumber(13)
   $core.List<$0.Event> get events => $_getList(12);
 }
 
+/// ABCIMessageLog defines a structure containing an indexed tx ABCI message log.
 class ABCIMessageLog extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ABCIMessageLog',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.int>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgIndex',
-        $pb.PbFieldType.OU3)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'log')
-    ..pc<StringEvent>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'events',
-        $pb.PbFieldType.PM,
-        subBuilder: StringEvent.create)
-    ..hasRequiredFields = false;
-
-  ABCIMessageLog._() : super();
   factory ABCIMessageLog({
     $core.int? msgIndex,
     $core.String? log,
     $core.Iterable<StringEvent>? events,
   }) {
-    final _result = create();
+    final $result = create();
     if (msgIndex != null) {
-      _result.msgIndex = msgIndex;
+      $result.msgIndex = msgIndex;
     }
     if (log != null) {
-      _result.log = log;
+      $result.log = log;
     }
     if (events != null) {
-      _result.events.addAll(events);
+      $result.events.addAll(events);
     }
-    return _result;
+    return $result;
   }
+  ABCIMessageLog._() : super();
   factory ABCIMessageLog.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ABCIMessageLog.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ABCIMessageLog',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'msgIndex', $pb.PbFieldType.OU3)
+    ..aOS(2, _omitFieldNames ? '' : 'log')
+    ..pc<StringEvent>(3, _omitFieldNames ? '' : 'events', $pb.PbFieldType.PM,
+        subBuilder: StringEvent.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -384,8 +337,10 @@ class ABCIMessageLog extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ABCIMessageLog copyWith(void Function(ABCIMessageLog) updates) =>
       super.copyWith((message) => updates(message as ABCIMessageLog))
-          as ABCIMessageLog; // ignore: deprecated_member_use
+          as ABCIMessageLog;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ABCIMessageLog create() => ABCIMessageLog._();
   ABCIMessageLog createEmptyInstance() => create();
@@ -420,54 +375,46 @@ class ABCIMessageLog extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearLog() => clearField(2);
 
+  /// Events contains a slice of Event objects that were emitted during some
+  /// execution.
   @$pb.TagNumber(3)
   $core.List<StringEvent> get events => $_getList(2);
 }
 
+/// StringEvent defines en Event object wrapper where all the attributes
+/// contain key/value pairs that are strings instead of raw bytes.
 class StringEvent extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'StringEvent',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'type')
-    ..pc<Attribute>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'attributes',
-        $pb.PbFieldType.PM,
-        subBuilder: Attribute.create)
-    ..hasRequiredFields = false;
-
-  StringEvent._() : super();
   factory StringEvent({
     $core.String? type,
     $core.Iterable<Attribute>? attributes,
   }) {
-    final _result = create();
+    final $result = create();
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (attributes != null) {
-      _result.attributes.addAll(attributes);
+      $result.attributes.addAll(attributes);
     }
-    return _result;
+    return $result;
   }
+  StringEvent._() : super();
   factory StringEvent.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory StringEvent.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StringEvent',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'type')
+    ..pc<Attribute>(2, _omitFieldNames ? '' : 'attributes', $pb.PbFieldType.PM,
+        subBuilder: Attribute.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -477,8 +424,10 @@ class StringEvent extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   StringEvent copyWith(void Function(StringEvent) updates) =>
       super.copyWith((message) => updates(message as StringEvent))
-          as StringEvent; // ignore: deprecated_member_use
+          as StringEvent;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static StringEvent create() => StringEvent._();
   StringEvent createEmptyInstance() => create();
@@ -504,48 +453,39 @@ class StringEvent extends $pb.GeneratedMessage {
   $core.List<Attribute> get attributes => $_getList(1);
 }
 
+/// Attribute defines an attribute wrapper where the key and value are
+/// strings instead of raw bytes.
 class Attribute extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Attribute',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value')
-    ..hasRequiredFields = false;
-
-  Attribute._() : super();
   factory Attribute({
     $core.String? key,
     $core.String? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  Attribute._() : super();
   factory Attribute.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Attribute.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Attribute',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'key')
+    ..aOS(2, _omitFieldNames ? '' : 'value')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -554,9 +494,10 @@ class Attribute extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Attribute copyWith(void Function(Attribute) updates) =>
-      super.copyWith((message) => updates(message as Attribute))
-          as Attribute; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Attribute)) as Attribute;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Attribute create() => Attribute._();
   Attribute createEmptyInstance() => create();
@@ -591,52 +532,41 @@ class Attribute extends $pb.GeneratedMessage {
   void clearValue() => clearField(2);
 }
 
+/// GasInfo defines tx execution gas context.
 class GasInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GasInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'gasWanted',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'gasUsed',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  GasInfo._() : super();
   factory GasInfo({
     $fixnum.Int64? gasWanted,
     $fixnum.Int64? gasUsed,
   }) {
-    final _result = create();
+    final $result = create();
     if (gasWanted != null) {
-      _result.gasWanted = gasWanted;
+      $result.gasWanted = gasWanted;
     }
     if (gasUsed != null) {
-      _result.gasUsed = gasUsed;
+      $result.gasUsed = gasUsed;
     }
-    return _result;
+    return $result;
   }
+  GasInfo._() : super();
   factory GasInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GasInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GasInfo',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'gasWanted', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'gasUsed', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -645,9 +575,10 @@ class GasInfo extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   GasInfo copyWith(void Function(GasInfo) updates) =>
-      super.copyWith((message) => updates(message as GasInfo))
-          as GasInfo; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as GasInfo)) as GasInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GasInfo create() => GasInfo._();
   GasInfo createEmptyInstance() => create();
@@ -657,6 +588,7 @@ class GasInfo extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GasInfo>(create);
   static GasInfo? _defaultInstance;
 
+  /// GasWanted is the maximum units of work we allow this tx to perform.
   @$pb.TagNumber(1)
   $fixnum.Int64 get gasWanted => $_getI64(0);
   @$pb.TagNumber(1)
@@ -669,6 +601,7 @@ class GasInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGasWanted() => clearField(1);
 
+  /// GasUsed is the amount of gas actually consumed.
   @$pb.TagNumber(2)
   $fixnum.Int64 get gasUsed => $_getI64(1);
   @$pb.TagNumber(2)
@@ -682,72 +615,52 @@ class GasInfo extends $pb.GeneratedMessage {
   void clearGasUsed() => clearField(2);
 }
 
+/// Result is the union of ResponseFormat and ResponseCheckTx.
 class Result extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Result',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'log')
-    ..pc<$0.Event>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'events',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Event.create)
-    ..pc<$1.Any>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgResponses',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  Result._() : super();
   factory Result({
     @$core.Deprecated('This field is deprecated.') $core.List<$core.int>? data,
     $core.String? log,
     $core.Iterable<$0.Event>? events,
     $core.Iterable<$1.Any>? msgResponses,
   }) {
-    final _result = create();
+    final $result = create();
     if (data != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.data = data;
+      $result.data = data;
     }
     if (log != null) {
-      _result.log = log;
+      $result.log = log;
     }
     if (events != null) {
-      _result.events.addAll(events);
+      $result.events.addAll(events);
     }
     if (msgResponses != null) {
-      _result.msgResponses.addAll(msgResponses);
+      $result.msgResponses.addAll(msgResponses);
     }
-    return _result;
+    return $result;
   }
+  Result._() : super();
   factory Result.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Result.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Result',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..aOS(2, _omitFieldNames ? '' : 'log')
+    ..pc<$0.Event>(3, _omitFieldNames ? '' : 'events', $pb.PbFieldType.PM,
+        subBuilder: $0.Event.create)
+    ..pc<$1.Any>(4, _omitFieldNames ? '' : 'msgResponses', $pb.PbFieldType.PM,
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -756,9 +669,10 @@ class Result extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Result copyWith(void Function(Result) updates) =>
-      super.copyWith((message) => updates(message as Result))
-          as Result; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Result)) as Result;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Result create() => Result._();
   Result createEmptyInstance() => create();
@@ -768,6 +682,10 @@ class Result extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Result>(create);
   static Result? _defaultInstance;
 
+  /// Data is any data returned from message or handler execution. It MUST be
+  /// length prefixed in order to separate data from multiple message executions.
+  /// Deprecated. This field is still populated, but prefer msg_response instead
+  /// because it also contains the Msg response typeURL.
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.List<$core.int> get data => $_getN(0);
@@ -784,6 +702,7 @@ class Result extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearData() => clearField(1);
 
+  /// Log contains the log information from message or handler execution.
   @$pb.TagNumber(2)
   $core.String get log => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -796,57 +715,52 @@ class Result extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearLog() => clearField(2);
 
+  /// Events contains a slice of Event objects that were emitted during message
+  /// or handler execution.
   @$pb.TagNumber(3)
   $core.List<$0.Event> get events => $_getList(2);
 
+  ///  msg_responses contains the Msg handler responses type packed in Anys.
+  ///
+  ///  Since: cosmos-sdk 0.46
   @$pb.TagNumber(4)
   $core.List<$1.Any> get msgResponses => $_getList(3);
 }
 
+/// SimulationResponse defines the response generated when a transaction is
+/// successfully simulated.
 class SimulationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SimulationResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<GasInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'gasInfo',
-        subBuilder: GasInfo.create)
-    ..aOM<Result>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'result',
-        subBuilder: Result.create)
-    ..hasRequiredFields = false;
-
-  SimulationResponse._() : super();
   factory SimulationResponse({
     GasInfo? gasInfo,
     Result? result,
   }) {
-    final _result = create();
+    final $result = create();
     if (gasInfo != null) {
-      _result.gasInfo = gasInfo;
+      $result.gasInfo = gasInfo;
     }
     if (result != null) {
-      _result.result = result;
+      $result.result = result;
     }
-    return _result;
+    return $result;
   }
+  SimulationResponse._() : super();
   factory SimulationResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SimulationResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SimulationResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<GasInfo>(1, _omitFieldNames ? '' : 'gasInfo',
+        subBuilder: GasInfo.create)
+    ..aOM<Result>(2, _omitFieldNames ? '' : 'result', subBuilder: Result.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -856,8 +770,10 @@ class SimulationResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SimulationResponse copyWith(void Function(SimulationResponse) updates) =>
       super.copyWith((message) => updates(message as SimulationResponse))
-          as SimulationResponse; // ignore: deprecated_member_use
+          as SimulationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SimulationResponse create() => SimulationResponse._();
   SimulationResponse createEmptyInstance() => create();
@@ -897,49 +813,40 @@ class SimulationResponse extends $pb.GeneratedMessage {
   Result ensureResult() => $_ensure(1);
 }
 
+/// MsgData defines the data returned in a Result object during message
+/// execution.
 class MsgData extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgData',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgType')
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  MsgData._() : super();
   factory MsgData({
     $core.String? msgType,
     $core.List<$core.int>? data,
   }) {
-    final _result = create();
+    final $result = create();
     if (msgType != null) {
-      _result.msgType = msgType;
+      $result.msgType = msgType;
     }
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
-    return _result;
+    return $result;
   }
+  MsgData._() : super();
   factory MsgData.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgData.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgData',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'msgType')
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -948,9 +855,10 @@ class MsgData extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgData copyWith(void Function(MsgData) updates) =>
-      super.copyWith((message) => updates(message as MsgData))
-          as MsgData; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgData)) as MsgData;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgData create() => MsgData._();
   MsgData createEmptyInstance() => create();
@@ -985,54 +893,43 @@ class MsgData extends $pb.GeneratedMessage {
   void clearData() => clearField(2);
 }
 
+/// TxMsgData defines a list of MsgData. A transaction will have a MsgData object
+/// for each message.
 class TxMsgData extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'TxMsgData',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<MsgData>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.PM,
-        subBuilder: MsgData.create)
-    ..pc<$1.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgResponses',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  TxMsgData._() : super();
   factory TxMsgData({
     @$core.Deprecated('This field is deprecated.')
     $core.Iterable<MsgData>? data,
     $core.Iterable<$1.Any>? msgResponses,
   }) {
-    final _result = create();
+    final $result = create();
     if (data != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.data.addAll(data);
+      $result.data.addAll(data);
     }
     if (msgResponses != null) {
-      _result.msgResponses.addAll(msgResponses);
+      $result.msgResponses.addAll(msgResponses);
     }
-    return _result;
+    return $result;
   }
+  TxMsgData._() : super();
   factory TxMsgData.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory TxMsgData.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TxMsgData',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<MsgData>(1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.PM,
+        subBuilder: MsgData.create)
+    ..pc<$1.Any>(2, _omitFieldNames ? '' : 'msgResponses', $pb.PbFieldType.PM,
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1041,9 +938,10 @@ class TxMsgData extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   TxMsgData copyWith(void Function(TxMsgData) updates) =>
-      super.copyWith((message) => updates(message as TxMsgData))
-          as TxMsgData; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as TxMsgData)) as TxMsgData;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TxMsgData create() => TxMsgData._();
   TxMsgData createEmptyInstance() => create();
@@ -1053,69 +951,20 @@ class TxMsgData extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TxMsgData>(create);
   static TxMsgData? _defaultInstance;
 
+  /// data field is deprecated and not populated.
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.List<MsgData> get data => $_getList(0);
 
+  ///  msg_responses contains the Msg handler responses packed into Anys.
+  ///
+  ///  Since: cosmos-sdk 0.46
   @$pb.TagNumber(2)
   $core.List<$1.Any> get msgResponses => $_getList(1);
 }
 
+/// SearchTxsResult defines a structure for querying txs pageable
 class SearchTxsResult extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SearchTxsResult',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.abci.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalCount',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'count',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pageNumber',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pageTotal',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'limit',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..pc<TxResponse>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'txs',
-        $pb.PbFieldType.PM,
-        subBuilder: TxResponse.create)
-    ..hasRequiredFields = false;
-
-  SearchTxsResult._() : super();
   factory SearchTxsResult({
     $fixnum.Int64? totalCount,
     $fixnum.Int64? count,
@@ -1124,33 +973,57 @@ class SearchTxsResult extends $pb.GeneratedMessage {
     $fixnum.Int64? limit,
     $core.Iterable<TxResponse>? txs,
   }) {
-    final _result = create();
+    final $result = create();
     if (totalCount != null) {
-      _result.totalCount = totalCount;
+      $result.totalCount = totalCount;
     }
     if (count != null) {
-      _result.count = count;
+      $result.count = count;
     }
     if (pageNumber != null) {
-      _result.pageNumber = pageNumber;
+      $result.pageNumber = pageNumber;
     }
     if (pageTotal != null) {
-      _result.pageTotal = pageTotal;
+      $result.pageTotal = pageTotal;
     }
     if (limit != null) {
-      _result.limit = limit;
+      $result.limit = limit;
     }
     if (txs != null) {
-      _result.txs.addAll(txs);
+      $result.txs.addAll(txs);
     }
-    return _result;
+    return $result;
   }
+  SearchTxsResult._() : super();
   factory SearchTxsResult.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SearchTxsResult.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SearchTxsResult',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.abci.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'totalCount', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'count', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'pageNumber', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'pageTotal', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(5, _omitFieldNames ? '' : 'limit', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pc<TxResponse>(6, _omitFieldNames ? '' : 'txs', $pb.PbFieldType.PM,
+        subBuilder: TxResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1160,8 +1033,10 @@ class SearchTxsResult extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SearchTxsResult copyWith(void Function(SearchTxsResult) updates) =>
       super.copyWith((message) => updates(message as SearchTxsResult))
-          as SearchTxsResult; // ignore: deprecated_member_use
+          as SearchTxsResult;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SearchTxsResult create() => SearchTxsResult._();
   SearchTxsResult createEmptyInstance() => create();
@@ -1172,6 +1047,7 @@ class SearchTxsResult extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SearchTxsResult>(create);
   static SearchTxsResult? _defaultInstance;
 
+  /// Count of all txs
   @$pb.TagNumber(1)
   $fixnum.Int64 get totalCount => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1184,6 +1060,7 @@ class SearchTxsResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTotalCount() => clearField(1);
 
+  /// Count of txs in current page
   @$pb.TagNumber(2)
   $fixnum.Int64 get count => $_getI64(1);
   @$pb.TagNumber(2)
@@ -1196,6 +1073,7 @@ class SearchTxsResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearCount() => clearField(2);
 
+  /// Index of current page, start from 1
   @$pb.TagNumber(3)
   $fixnum.Int64 get pageNumber => $_getI64(2);
   @$pb.TagNumber(3)
@@ -1208,6 +1086,7 @@ class SearchTxsResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearPageNumber() => clearField(3);
 
+  /// Count of total pages
   @$pb.TagNumber(4)
   $fixnum.Int64 get pageTotal => $_getI64(3);
   @$pb.TagNumber(4)
@@ -1220,6 +1099,7 @@ class SearchTxsResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearPageTotal() => clearField(4);
 
+  /// Max count txs per page
   @$pb.TagNumber(5)
   $fixnum.Int64 get limit => $_getI64(4);
   @$pb.TagNumber(5)
@@ -1232,6 +1112,11 @@ class SearchTxsResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearLimit() => clearField(5);
 
+  /// List of txs in current page
   @$pb.TagNumber(6)
   $core.List<TxResponse> get txs => $_getList(5);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

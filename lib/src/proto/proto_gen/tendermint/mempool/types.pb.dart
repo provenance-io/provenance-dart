@@ -1,48 +1,45 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/mempool/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Txs extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Txs',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.mempool'),
-      createEmptyInstance: create)
-    ..p<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'txs',
-        $pb.PbFieldType.PY)
-    ..hasRequiredFields = false;
-
-  Txs._() : super();
   factory Txs({
     $core.Iterable<$core.List<$core.int>>? txs,
   }) {
-    final _result = create();
+    final $result = create();
     if (txs != null) {
-      _result.txs.addAll(txs);
+      $result.txs.addAll(txs);
     }
-    return _result;
+    return $result;
   }
+  Txs._() : super();
   factory Txs.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Txs.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Txs',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.mempool'),
+      createEmptyInstance: create)
+    ..p<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'txs', $pb.PbFieldType.PY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -51,9 +48,10 @@ class Txs extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Txs copyWith(void Function(Txs) updates) =>
-      super.copyWith((message) => updates(message as Txs))
-          as Txs; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Txs)) as Txs;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Txs create() => Txs._();
   Txs createEmptyInstance() => create();
@@ -70,44 +68,36 @@ class Txs extends $pb.GeneratedMessage {
 enum Message_Sum { txs, notSet }
 
 class Message extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, Message_Sum> _Message_SumByTag = {
-    1: Message_Sum.txs,
-    0: Message_Sum.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Message',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.mempool'),
-      createEmptyInstance: create)
-    ..oo(0, [1])
-    ..aOM<Txs>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'txs',
-        subBuilder: Txs.create)
-    ..hasRequiredFields = false;
-
-  Message._() : super();
   factory Message({
     Txs? txs,
   }) {
-    final _result = create();
+    final $result = create();
     if (txs != null) {
-      _result.txs = txs;
+      $result.txs = txs;
     }
-    return _result;
+    return $result;
   }
+  Message._() : super();
   factory Message.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Message.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, Message_Sum> _Message_SumByTag = {
+    1: Message_Sum.txs,
+    0: Message_Sum.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Message',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.mempool'),
+      createEmptyInstance: create)
+    ..oo(0, [1])
+    ..aOM<Txs>(1, _omitFieldNames ? '' : 'txs', subBuilder: Txs.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -116,9 +106,10 @@ class Message extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Message copyWith(void Function(Message) updates) =>
-      super.copyWith((message) => updates(message as Message))
-          as Message; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Message)) as Message;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Message create() => Message._();
   Message createEmptyInstance() => create();
@@ -145,3 +136,7 @@ class Message extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   Txs ensureTxs() => $_ensure(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

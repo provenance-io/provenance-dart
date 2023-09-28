@@ -1,57 +1,51 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/mint/v1beta1/mint.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// Minter represents the minting state.
 class Minter extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Minter',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.mint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'inflation')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'annualProvisions')
-    ..hasRequiredFields = false;
-
-  Minter._() : super();
   factory Minter({
     $core.String? inflation,
     $core.String? annualProvisions,
   }) {
-    final _result = create();
+    final $result = create();
     if (inflation != null) {
-      _result.inflation = inflation;
+      $result.inflation = inflation;
     }
     if (annualProvisions != null) {
-      _result.annualProvisions = annualProvisions;
+      $result.annualProvisions = annualProvisions;
     }
-    return _result;
+    return $result;
   }
+  Minter._() : super();
   factory Minter.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Minter.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Minter',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.mint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'inflation')
+    ..aOS(2, _omitFieldNames ? '' : 'annualProvisions')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -60,9 +54,10 @@ class Minter extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Minter copyWith(void Function(Minter) updates) =>
-      super.copyWith((message) => updates(message as Minter))
-          as Minter; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Minter)) as Minter;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Minter create() => Minter._();
   Minter createEmptyInstance() => create();
@@ -72,6 +67,7 @@ class Minter extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Minter>(create);
   static Minter? _defaultInstance;
 
+  /// current annual inflation rate
   @$pb.TagNumber(1)
   $core.String get inflation => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -84,6 +80,7 @@ class Minter extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearInflation() => clearField(1);
 
+  /// current annual expected provisions
   @$pb.TagNumber(2)
   $core.String get annualProvisions => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -97,51 +94,8 @@ class Minter extends $pb.GeneratedMessage {
   void clearAnnualProvisions() => clearField(2);
 }
 
+/// Params holds parameters for the mint module.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.mint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'mintDenom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'inflationRateChange')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'inflationMax')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'inflationMin')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'goalBonded')
-    ..a<$fixnum.Int64>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blocksPerYear',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
     $core.String? mintDenom,
     $core.String? inflationRateChange,
@@ -150,33 +104,50 @@ class Params extends $pb.GeneratedMessage {
     $core.String? goalBonded,
     $fixnum.Int64? blocksPerYear,
   }) {
-    final _result = create();
+    final $result = create();
     if (mintDenom != null) {
-      _result.mintDenom = mintDenom;
+      $result.mintDenom = mintDenom;
     }
     if (inflationRateChange != null) {
-      _result.inflationRateChange = inflationRateChange;
+      $result.inflationRateChange = inflationRateChange;
     }
     if (inflationMax != null) {
-      _result.inflationMax = inflationMax;
+      $result.inflationMax = inflationMax;
     }
     if (inflationMin != null) {
-      _result.inflationMin = inflationMin;
+      $result.inflationMin = inflationMin;
     }
     if (goalBonded != null) {
-      _result.goalBonded = goalBonded;
+      $result.goalBonded = goalBonded;
     }
     if (blocksPerYear != null) {
-      _result.blocksPerYear = blocksPerYear;
+      $result.blocksPerYear = blocksPerYear;
     }
-    return _result;
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.mint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'mintDenom')
+    ..aOS(2, _omitFieldNames ? '' : 'inflationRateChange')
+    ..aOS(3, _omitFieldNames ? '' : 'inflationMax')
+    ..aOS(4, _omitFieldNames ? '' : 'inflationMin')
+    ..aOS(5, _omitFieldNames ? '' : 'goalBonded')
+    ..a<$fixnum.Int64>(
+        6, _omitFieldNames ? '' : 'blocksPerYear', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -185,9 +156,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -197,6 +169,7 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
+  /// type of coin to mint
   @$pb.TagNumber(1)
   $core.String get mintDenom => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -209,6 +182,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMintDenom() => clearField(1);
 
+  /// maximum annual change in inflation rate
   @$pb.TagNumber(2)
   $core.String get inflationRateChange => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -221,6 +195,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearInflationRateChange() => clearField(2);
 
+  /// maximum inflation rate
   @$pb.TagNumber(3)
   $core.String get inflationMax => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -233,6 +208,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearInflationMax() => clearField(3);
 
+  /// minimum inflation rate
   @$pb.TagNumber(4)
   $core.String get inflationMin => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -245,6 +221,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearInflationMin() => clearField(4);
 
+  /// goal of percent bonded atoms
   @$pb.TagNumber(5)
   $core.String get goalBonded => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -257,6 +234,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearGoalBonded() => clearField(5);
 
+  /// expected blocks per year
   @$pb.TagNumber(6)
   $fixnum.Int64 get blocksPerYear => $_getI64(5);
   @$pb.TagNumber(6)
@@ -269,3 +247,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearBlocksPerYear() => clearField(6);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

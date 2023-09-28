@@ -1,84 +1,69 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/tendermint/v1beta1/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../../tendermint/types/types.pb.dart' as $0;
-import '../../../../tendermint/types/evidence.pb.dart' as $1;
-import '../../../../tendermint/version/types.pb.dart' as $2;
 import '../../../../google/protobuf/timestamp.pb.dart' as $3;
+import '../../../../tendermint/types/evidence.pb.dart' as $1;
+import '../../../../tendermint/types/types.pb.dart' as $0;
+import '../../../../tendermint/version/types.pb.dart' as $2;
 
+/// Block is tendermint type Block, with the Header proposer address
+/// field converted to bech32 string.
 class Block extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Block',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<Header>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'header',
-        subBuilder: Header.create)
-    ..aOM<$0.Data>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        subBuilder: $0.Data.create)
-    ..aOM<$1.EvidenceList>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'evidence',
-        subBuilder: $1.EvidenceList.create)
-    ..aOM<$0.Commit>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastCommit',
-        subBuilder: $0.Commit.create)
-    ..hasRequiredFields = false;
-
-  Block._() : super();
   factory Block({
     Header? header,
     $0.Data? data,
     $1.EvidenceList? evidence,
     $0.Commit? lastCommit,
   }) {
-    final _result = create();
+    final $result = create();
     if (header != null) {
-      _result.header = header;
+      $result.header = header;
     }
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
     if (evidence != null) {
-      _result.evidence = evidence;
+      $result.evidence = evidence;
     }
     if (lastCommit != null) {
-      _result.lastCommit = lastCommit;
+      $result.lastCommit = lastCommit;
     }
-    return _result;
+    return $result;
   }
+  Block._() : super();
   factory Block.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Block.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Block',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<Header>(1, _omitFieldNames ? '' : 'header', subBuilder: Header.create)
+    ..aOM<$0.Data>(2, _omitFieldNames ? '' : 'data', subBuilder: $0.Data.create)
+    ..aOM<$1.EvidenceList>(3, _omitFieldNames ? '' : 'evidence',
+        subBuilder: $1.EvidenceList.create)
+    ..aOM<$0.Commit>(4, _omitFieldNames ? '' : 'lastCommit',
+        subBuilder: $0.Commit.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -87,9 +72,10 @@ class Block extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Block copyWith(void Function(Block) updates) =>
-      super.copyWith((message) => updates(message as Block))
-          as Block; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Block)) as Block;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Block create() => Block._();
   Block createEmptyInstance() => create();
@@ -156,100 +142,8 @@ class Block extends $pb.GeneratedMessage {
   $0.Commit ensureLastCommit() => $_ensure(3);
 }
 
+/// Header defines the structure of a Tendermint block header.
 class Header extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Header',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.tendermint.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$2.Consensus>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version',
-        subBuilder: $2.Consensus.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chainId')
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height')
-    ..aOM<$3.Timestamp>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'time',
-        subBuilder: $3.Timestamp.create)
-    ..aOM<$0.BlockID>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastBlockId',
-        subBuilder: $0.BlockID.create)
-    ..a<$core.List<$core.int>>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastCommitHash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'dataHash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorsHash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextValidatorsHash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusHash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'appHash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        12,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastResultsHash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        13,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'evidenceHash',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        14,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposerAddress')
-    ..hasRequiredFields = false;
-
-  Header._() : super();
   factory Header({
     $2.Consensus? version,
     $core.String? chainId,
@@ -266,57 +160,91 @@ class Header extends $pb.GeneratedMessage {
     $core.List<$core.int>? evidenceHash,
     $core.String? proposerAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (chainId != null) {
-      _result.chainId = chainId;
+      $result.chainId = chainId;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (time != null) {
-      _result.time = time;
+      $result.time = time;
     }
     if (lastBlockId != null) {
-      _result.lastBlockId = lastBlockId;
+      $result.lastBlockId = lastBlockId;
     }
     if (lastCommitHash != null) {
-      _result.lastCommitHash = lastCommitHash;
+      $result.lastCommitHash = lastCommitHash;
     }
     if (dataHash != null) {
-      _result.dataHash = dataHash;
+      $result.dataHash = dataHash;
     }
     if (validatorsHash != null) {
-      _result.validatorsHash = validatorsHash;
+      $result.validatorsHash = validatorsHash;
     }
     if (nextValidatorsHash != null) {
-      _result.nextValidatorsHash = nextValidatorsHash;
+      $result.nextValidatorsHash = nextValidatorsHash;
     }
     if (consensusHash != null) {
-      _result.consensusHash = consensusHash;
+      $result.consensusHash = consensusHash;
     }
     if (appHash != null) {
-      _result.appHash = appHash;
+      $result.appHash = appHash;
     }
     if (lastResultsHash != null) {
-      _result.lastResultsHash = lastResultsHash;
+      $result.lastResultsHash = lastResultsHash;
     }
     if (evidenceHash != null) {
-      _result.evidenceHash = evidenceHash;
+      $result.evidenceHash = evidenceHash;
     }
     if (proposerAddress != null) {
-      _result.proposerAddress = proposerAddress;
+      $result.proposerAddress = proposerAddress;
     }
-    return _result;
+    return $result;
   }
+  Header._() : super();
   factory Header.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Header.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Header',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.tendermint.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$2.Consensus>(1, _omitFieldNames ? '' : 'version',
+        subBuilder: $2.Consensus.create)
+    ..aOS(2, _omitFieldNames ? '' : 'chainId')
+    ..aInt64(3, _omitFieldNames ? '' : 'height')
+    ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'time',
+        subBuilder: $3.Timestamp.create)
+    ..aOM<$0.BlockID>(5, _omitFieldNames ? '' : 'lastBlockId',
+        subBuilder: $0.BlockID.create)
+    ..a<$core.List<$core.int>>(
+        6, _omitFieldNames ? '' : 'lastCommitHash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        7, _omitFieldNames ? '' : 'dataHash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        8, _omitFieldNames ? '' : 'validatorsHash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        9, _omitFieldNames ? '' : 'nextValidatorsHash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        10, _omitFieldNames ? '' : 'consensusHash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        11, _omitFieldNames ? '' : 'appHash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        12, _omitFieldNames ? '' : 'lastResultsHash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        13, _omitFieldNames ? '' : 'evidenceHash', $pb.PbFieldType.OY)
+    ..aOS(14, _omitFieldNames ? '' : 'proposerAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -325,9 +253,10 @@ class Header extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Header copyWith(void Function(Header) updates) =>
-      super.copyWith((message) => updates(message as Header))
-          as Header; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Header)) as Header;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Header create() => Header._();
   Header createEmptyInstance() => create();
@@ -337,6 +266,7 @@ class Header extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Header>(create);
   static Header? _defaultInstance;
 
+  /// basic block info
   @$pb.TagNumber(1)
   $2.Consensus get version => $_getN(0);
   @$pb.TagNumber(1)
@@ -389,6 +319,7 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $3.Timestamp ensureTime() => $_ensure(3);
 
+  /// prev block info
   @$pb.TagNumber(5)
   $0.BlockID get lastBlockId => $_getN(4);
   @$pb.TagNumber(5)
@@ -403,6 +334,7 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $0.BlockID ensureLastBlockId() => $_ensure(4);
 
+  /// hashes of block data
   @$pb.TagNumber(6)
   $core.List<$core.int> get lastCommitHash => $_getN(5);
   @$pb.TagNumber(6)
@@ -427,6 +359,7 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearDataHash() => clearField(7);
 
+  /// hashes from the app output from the prev block
   @$pb.TagNumber(8)
   $core.List<$core.int> get validatorsHash => $_getN(7);
   @$pb.TagNumber(8)
@@ -487,6 +420,7 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   void clearLastResultsHash() => clearField(12);
 
+  /// consensus info
   @$pb.TagNumber(13)
   $core.List<$core.int> get evidenceHash => $_getN(12);
   @$pb.TagNumber(13)
@@ -499,6 +433,9 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(13)
   void clearEvidenceHash() => clearField(13);
 
+  /// proposer_address is the original block proposer address, formatted as a Bech32 string.
+  /// In Tendermint, this type is `bytes`, but in the SDK, we convert it to a Bech32 string
+  /// for better UX.
   @$pb.TagNumber(14)
   $core.String get proposerAddress => $_getSZ(13);
   @$pb.TagNumber(14)
@@ -511,3 +448,7 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   void clearProposerAddress() => clearField(14);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

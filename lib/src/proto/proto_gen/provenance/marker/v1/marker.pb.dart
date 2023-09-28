@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/marker/v1/marker.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,65 +15,58 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../cosmos/auth/v1beta1/auth.pb.dart' as $0;
+import '../../../cosmos/base/v1beta1/coin.pb.dart' as $2;
 import 'accessgrant.pb.dart' as $1;
-
 import 'marker.pbenum.dart';
 
 export 'marker.pbenum.dart';
 
+/// Params defines the set of params for the account module.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxTotalSupply',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOB(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'enableGovernance')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'unrestrictedDenomRegex')
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
+    @$core.Deprecated('This field is deprecated.')
     $fixnum.Int64? maxTotalSupply,
     $core.bool? enableGovernance,
     $core.String? unrestrictedDenomRegex,
+    $core.String? maxSupply,
   }) {
-    final _result = create();
+    final $result = create();
     if (maxTotalSupply != null) {
-      _result.maxTotalSupply = maxTotalSupply;
+      // ignore: deprecated_member_use_from_same_package
+      $result.maxTotalSupply = maxTotalSupply;
     }
     if (enableGovernance != null) {
-      _result.enableGovernance = enableGovernance;
+      $result.enableGovernance = enableGovernance;
     }
     if (unrestrictedDenomRegex != null) {
-      _result.unrestrictedDenomRegex = unrestrictedDenomRegex;
+      $result.unrestrictedDenomRegex = unrestrictedDenomRegex;
     }
-    return _result;
+    if (maxSupply != null) {
+      $result.maxSupply = maxSupply;
+    }
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'maxTotalSupply', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOB(2, _omitFieldNames ? '' : 'enableGovernance')
+    ..aOS(3, _omitFieldNames ? '' : 'unrestrictedDenomRegex')
+    ..aOS(4, _omitFieldNames ? '' : 'maxSupply')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -78,9 +75,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -90,18 +88,24 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
+  /// Deprecated: Prefer to use `max_supply` instead. Maximum amount of supply to allow a marker to be created with
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $fixnum.Int64 get maxTotalSupply => $_getI64(0);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   set maxTotalSupply($fixnum.Int64 v) {
     $_setInt64(0, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   $core.bool hasMaxTotalSupply() => $_has(0);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1)
   void clearMaxTotalSupply() => clearField(1);
 
+  /// indicates if governance based controls of markers is allowed.
   @$pb.TagNumber(2)
   $core.bool get enableGovernance => $_getBF(1);
   @$pb.TagNumber(2)
@@ -114,6 +118,8 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearEnableGovernance() => clearField(2);
 
+  /// a regular expression used to validate marker denom values from normal create requests (governance
+  /// requests are only subject to platform coin validation denom expression)
   @$pb.TagNumber(3)
   $core.String get unrestrictedDenomRegex => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -125,77 +131,23 @@ class Params extends $pb.GeneratedMessage {
   $core.bool hasUnrestrictedDenomRegex() => $_has(2);
   @$pb.TagNumber(3)
   void clearUnrestrictedDenomRegex() => clearField(3);
+
+  /// maximum amount of supply to allow a marker to be created with
+  @$pb.TagNumber(4)
+  $core.String get maxSupply => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set maxSupply($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasMaxSupply() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMaxSupply() => clearField(4);
 }
 
+/// MarkerAccount holds the marker configuration information in addition to a base account structure.
 class MarkerAccount extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MarkerAccount',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOM<$0.BaseAccount>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'baseAccount',
-        subBuilder: $0.BaseAccount.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'manager')
-    ..pc<$1.AccessGrant>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'accessControl',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.AccessGrant.create)
-    ..e<MarkerStatus>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'status',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: MarkerStatus.MARKER_STATUS_UNSPECIFIED,
-        valueOf: MarkerStatus.valueOf,
-        enumValues: MarkerStatus.values)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'supply')
-    ..e<MarkerType>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'markerType',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: MarkerType.MARKER_TYPE_UNSPECIFIED,
-        valueOf: MarkerType.valueOf,
-        enumValues: MarkerType.values)
-    ..aOB(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'supplyFixed')
-    ..aOB(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowGovernanceControl')
-    ..hasRequiredFields = false;
-
-  MarkerAccount._() : super();
   factory MarkerAccount({
     $0.BaseAccount? baseAccount,
     $core.String? manager,
@@ -206,43 +158,80 @@ class MarkerAccount extends $pb.GeneratedMessage {
     MarkerType? markerType,
     $core.bool? supplyFixed,
     $core.bool? allowGovernanceControl,
+    $core.bool? allowForcedTransfer,
+    $core.Iterable<$core.String>? requiredAttributes,
   }) {
-    final _result = create();
+    final $result = create();
     if (baseAccount != null) {
-      _result.baseAccount = baseAccount;
+      $result.baseAccount = baseAccount;
     }
     if (manager != null) {
-      _result.manager = manager;
+      $result.manager = manager;
     }
     if (accessControl != null) {
-      _result.accessControl.addAll(accessControl);
+      $result.accessControl.addAll(accessControl);
     }
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (supply != null) {
-      _result.supply = supply;
+      $result.supply = supply;
     }
     if (markerType != null) {
-      _result.markerType = markerType;
+      $result.markerType = markerType;
     }
     if (supplyFixed != null) {
-      _result.supplyFixed = supplyFixed;
+      $result.supplyFixed = supplyFixed;
     }
     if (allowGovernanceControl != null) {
-      _result.allowGovernanceControl = allowGovernanceControl;
+      $result.allowGovernanceControl = allowGovernanceControl;
     }
-    return _result;
+    if (allowForcedTransfer != null) {
+      $result.allowForcedTransfer = allowForcedTransfer;
+    }
+    if (requiredAttributes != null) {
+      $result.requiredAttributes.addAll(requiredAttributes);
+    }
+    return $result;
   }
+  MarkerAccount._() : super();
   factory MarkerAccount.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MarkerAccount.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MarkerAccount',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOM<$0.BaseAccount>(1, _omitFieldNames ? '' : 'baseAccount',
+        subBuilder: $0.BaseAccount.create)
+    ..aOS(2, _omitFieldNames ? '' : 'manager')
+    ..pc<$1.AccessGrant>(
+        3, _omitFieldNames ? '' : 'accessControl', $pb.PbFieldType.PM,
+        subBuilder: $1.AccessGrant.create)
+    ..e<MarkerStatus>(4, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE,
+        defaultOrMaker: MarkerStatus.MARKER_STATUS_UNSPECIFIED,
+        valueOf: MarkerStatus.valueOf,
+        enumValues: MarkerStatus.values)
+    ..aOS(5, _omitFieldNames ? '' : 'denom')
+    ..aOS(6, _omitFieldNames ? '' : 'supply')
+    ..e<MarkerType>(7, _omitFieldNames ? '' : 'markerType', $pb.PbFieldType.OE,
+        defaultOrMaker: MarkerType.MARKER_TYPE_UNSPECIFIED,
+        valueOf: MarkerType.valueOf,
+        enumValues: MarkerType.values)
+    ..aOB(8, _omitFieldNames ? '' : 'supplyFixed')
+    ..aOB(9, _omitFieldNames ? '' : 'allowGovernanceControl')
+    ..aOB(10, _omitFieldNames ? '' : 'allowForcedTransfer')
+    ..pPS(11, _omitFieldNames ? '' : 'requiredAttributes')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -252,8 +241,10 @@ class MarkerAccount extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MarkerAccount copyWith(void Function(MarkerAccount) updates) =>
       super.copyWith((message) => updates(message as MarkerAccount))
-          as MarkerAccount; // ignore: deprecated_member_use
+          as MarkerAccount;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MarkerAccount create() => MarkerAccount._();
   MarkerAccount createEmptyInstance() => create();
@@ -264,6 +255,7 @@ class MarkerAccount extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MarkerAccount>(create);
   static MarkerAccount? _defaultInstance;
 
+  /// base cosmos account information including address and coin holdings.
   @$pb.TagNumber(1)
   $0.BaseAccount get baseAccount => $_getN(0);
   @$pb.TagNumber(1)
@@ -278,6 +270,8 @@ class MarkerAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $0.BaseAccount ensureBaseAccount() => $_ensure(0);
 
+  /// Address that owns the marker configuration.  This account must sign any requests
+  /// to change marker config (only valid for statuses prior to finalization)
   @$pb.TagNumber(2)
   $core.String get manager => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -290,9 +284,11 @@ class MarkerAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearManager() => clearField(2);
 
+  /// Access control lists
   @$pb.TagNumber(3)
   $core.List<$1.AccessGrant> get accessControl => $_getList(2);
 
+  /// Indicates the current status of this marker record.
   @$pb.TagNumber(4)
   MarkerStatus get status => $_getN(3);
   @$pb.TagNumber(4)
@@ -305,6 +301,7 @@ class MarkerAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearStatus() => clearField(4);
 
+  /// value denomination and total supply for the token.
   @$pb.TagNumber(5)
   $core.String get denom => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -317,6 +314,7 @@ class MarkerAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearDenom() => clearField(5);
 
+  /// the total supply expected for a marker.  This is the amount that is minted when a marker is created.
   @$pb.TagNumber(6)
   $core.String get supply => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -329,6 +327,7 @@ class MarkerAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearSupply() => clearField(6);
 
+  /// Marker type information
   @$pb.TagNumber(7)
   MarkerType get markerType => $_getN(6);
   @$pb.TagNumber(7)
@@ -341,6 +340,8 @@ class MarkerAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearMarkerType() => clearField(7);
 
+  /// A fixed supply will mint additional coin automatically if the total supply decreases below a set value.  This
+  /// may occur if the coin is burned or an account holding the coin is slashed. (default: true)
   @$pb.TagNumber(8)
   $core.bool get supplyFixed => $_getBF(7);
   @$pb.TagNumber(8)
@@ -353,6 +354,7 @@ class MarkerAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearSupplyFixed() => clearField(8);
 
+  /// indicates that governance based control is allowed for this marker
   @$pb.TagNumber(9)
   $core.bool get allowGovernanceControl => $_getBF(8);
   @$pb.TagNumber(9)
@@ -364,77 +366,184 @@ class MarkerAccount extends $pb.GeneratedMessage {
   $core.bool hasAllowGovernanceControl() => $_has(8);
   @$pb.TagNumber(9)
   void clearAllowGovernanceControl() => clearField(9);
+
+  /// Whether an admin can transfer restricted coins from a 3rd-party account without their signature.
+  @$pb.TagNumber(10)
+  $core.bool get allowForcedTransfer => $_getBF(9);
+  @$pb.TagNumber(10)
+  set allowForcedTransfer($core.bool v) {
+    $_setBool(9, v);
+  }
+
+  @$pb.TagNumber(10)
+  $core.bool hasAllowForcedTransfer() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearAllowForcedTransfer() => clearField(10);
+
+  /// list of required attributes on restricted marker in order to send and receive transfers if sender does not have
+  /// transfer authority
+  @$pb.TagNumber(11)
+  $core.List<$core.String> get requiredAttributes => $_getList(10);
 }
 
-class EventMarkerAdd extends $pb.GeneratedMessage {
+/// NetAssetValue defines a marker's net asset value
+class NetAssetValue extends $pb.GeneratedMessage {
+  factory NetAssetValue({
+    $2.Coin? price,
+    $fixnum.Int64? volume,
+    $fixnum.Int64? updatedBlockHeight,
+  }) {
+    final $result = create();
+    if (price != null) {
+      $result.price = price;
+    }
+    if (volume != null) {
+      $result.volume = volume;
+    }
+    if (updatedBlockHeight != null) {
+      $result.updatedBlockHeight = updatedBlockHeight;
+    }
+    return $result;
+  }
+  NetAssetValue._() : super();
+  factory NetAssetValue.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory NetAssetValue.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerAdd',
+      _omitMessageNames ? '' : 'NetAssetValue',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
       createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'status')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'manager')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'markerType')
+    ..aOM<$2.Coin>(1, _omitFieldNames ? '' : 'price',
+        subBuilder: $2.Coin.create)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'volume', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'updatedBlockHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
-  EventMarkerAdd._() : super();
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  NetAssetValue clone() => NetAssetValue()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  NetAssetValue copyWith(void Function(NetAssetValue) updates) =>
+      super.copyWith((message) => updates(message as NetAssetValue))
+          as NetAssetValue;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static NetAssetValue create() => NetAssetValue._();
+  NetAssetValue createEmptyInstance() => create();
+  static $pb.PbList<NetAssetValue> createRepeated() =>
+      $pb.PbList<NetAssetValue>();
+  @$core.pragma('dart2js:noInline')
+  static NetAssetValue getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<NetAssetValue>(create);
+  static NetAssetValue? _defaultInstance;
+
+  /// price is the complete value of the asset's volume
+  @$pb.TagNumber(1)
+  $2.Coin get price => $_getN(0);
+  @$pb.TagNumber(1)
+  set price($2.Coin v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasPrice() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPrice() => clearField(1);
+  @$pb.TagNumber(1)
+  $2.Coin ensurePrice() => $_ensure(0);
+
+  /// volume is the number of tokens of the marker that were purchased for the price
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get volume => $_getI64(1);
+  @$pb.TagNumber(2)
+  set volume($fixnum.Int64 v) {
+    $_setInt64(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasVolume() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearVolume() => clearField(2);
+
+  /// updated_block_height is the block height of last update
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get updatedBlockHeight => $_getI64(2);
+  @$pb.TagNumber(3)
+  set updatedBlockHeight($fixnum.Int64 v) {
+    $_setInt64(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasUpdatedBlockHeight() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUpdatedBlockHeight() => clearField(3);
+}
+
+/// EventMarkerAdd event emitted when marker is added
+class EventMarkerAdd extends $pb.GeneratedMessage {
   factory EventMarkerAdd({
     $core.String? denom,
     $core.String? amount,
     $core.String? status,
     $core.String? manager,
     $core.String? markerType,
+    $core.String? address,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
     if (manager != null) {
-      _result.manager = manager;
+      $result.manager = manager;
     }
     if (markerType != null) {
-      _result.markerType = markerType;
+      $result.markerType = markerType;
     }
-    return _result;
+    if (address != null) {
+      $result.address = address;
+    }
+    return $result;
   }
+  EventMarkerAdd._() : super();
   factory EventMarkerAdd.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerAdd.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerAdd',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'amount')
+    ..aOS(3, _omitFieldNames ? '' : 'status')
+    ..aOS(4, _omitFieldNames ? '' : 'manager')
+    ..aOS(5, _omitFieldNames ? '' : 'markerType')
+    ..aOS(6, _omitFieldNames ? '' : 'address')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -444,8 +553,10 @@ class EventMarkerAdd extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerAdd copyWith(void Function(EventMarkerAdd) updates) =>
       super.copyWith((message) => updates(message as EventMarkerAdd))
-          as EventMarkerAdd; // ignore: deprecated_member_use
+          as EventMarkerAdd;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerAdd create() => EventMarkerAdd._();
   EventMarkerAdd createEmptyInstance() => create();
@@ -515,60 +626,58 @@ class EventMarkerAdd extends $pb.GeneratedMessage {
   $core.bool hasMarkerType() => $_has(4);
   @$pb.TagNumber(5)
   void clearMarkerType() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get address => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set address($core.String v) {
+    $_setString(5, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasAddress() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAddress() => clearField(6);
 }
 
+/// EventMarkerAddAccess event emitted when marker access is added
 class EventMarkerAddAccess extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerAddAccess',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOM<EventMarkerAccess>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'access',
-        subBuilder: EventMarkerAccess.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..hasRequiredFields = false;
-
-  EventMarkerAddAccess._() : super();
   factory EventMarkerAddAccess({
     EventMarkerAccess? access,
     $core.String? denom,
     $core.String? administrator,
   }) {
-    final _result = create();
+    final $result = create();
     if (access != null) {
-      _result.access = access;
+      $result.access = access;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerAddAccess._() : super();
   factory EventMarkerAddAccess.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerAddAccess.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerAddAccess',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOM<EventMarkerAccess>(1, _omitFieldNames ? '' : 'access',
+        subBuilder: EventMarkerAccess.create)
+    ..aOS(2, _omitFieldNames ? '' : 'denom')
+    ..aOS(3, _omitFieldNames ? '' : 'administrator')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -579,8 +688,10 @@ class EventMarkerAddAccess extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerAddAccess copyWith(void Function(EventMarkerAddAccess) updates) =>
       super.copyWith((message) => updates(message as EventMarkerAddAccess))
-          as EventMarkerAddAccess; // ignore: deprecated_member_use
+          as EventMarkerAddAccess;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerAddAccess create() => EventMarkerAddAccess._();
   EventMarkerAddAccess createEmptyInstance() => create();
@@ -630,48 +741,38 @@ class EventMarkerAddAccess extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(3);
 }
 
+/// EventMarkerAccess event access permissions for address
 class EventMarkerAccess extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerAccess',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..pPS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'permissions')
-    ..hasRequiredFields = false;
-
-  EventMarkerAccess._() : super();
   factory EventMarkerAccess({
     $core.String? address,
     $core.Iterable<$core.String>? permissions,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (permissions != null) {
-      _result.permissions.addAll(permissions);
+      $result.permissions.addAll(permissions);
     }
-    return _result;
+    return $result;
   }
+  EventMarkerAccess._() : super();
   factory EventMarkerAccess.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerAccess.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerAccess',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..pPS(2, _omitFieldNames ? '' : 'permissions')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -681,8 +782,10 @@ class EventMarkerAccess extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerAccess copyWith(void Function(EventMarkerAccess) updates) =>
       super.copyWith((message) => updates(message as EventMarkerAccess))
-          as EventMarkerAccess; // ignore: deprecated_member_use
+          as EventMarkerAccess;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerAccess create() => EventMarkerAccess._();
   EventMarkerAccess createEmptyInstance() => create();
@@ -709,57 +812,43 @@ class EventMarkerAccess extends $pb.GeneratedMessage {
   $core.List<$core.String> get permissions => $_getList(1);
 }
 
+/// EventMarkerDeleteAccess event emitted when marker access is revoked
 class EventMarkerDeleteAccess extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerDeleteAccess',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'removeAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..hasRequiredFields = false;
-
-  EventMarkerDeleteAccess._() : super();
   factory EventMarkerDeleteAccess({
     $core.String? removeAddress,
     $core.String? denom,
     $core.String? administrator,
   }) {
-    final _result = create();
+    final $result = create();
     if (removeAddress != null) {
-      _result.removeAddress = removeAddress;
+      $result.removeAddress = removeAddress;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerDeleteAccess._() : super();
   factory EventMarkerDeleteAccess.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerDeleteAccess.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerDeleteAccess',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'removeAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'denom')
+    ..aOS(3, _omitFieldNames ? '' : 'administrator')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -771,8 +860,10 @@ class EventMarkerDeleteAccess extends $pb.GeneratedMessage {
   EventMarkerDeleteAccess copyWith(
           void Function(EventMarkerDeleteAccess) updates) =>
       super.copyWith((message) => updates(message as EventMarkerDeleteAccess))
-          as EventMarkerDeleteAccess; // ignore: deprecated_member_use
+          as EventMarkerDeleteAccess;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerDeleteAccess create() => EventMarkerDeleteAccess._();
   EventMarkerDeleteAccess createEmptyInstance() => create();
@@ -820,48 +911,38 @@ class EventMarkerDeleteAccess extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(3);
 }
 
+/// EventMarkerFinalize event emitted when marker is finalized
 class EventMarkerFinalize extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerFinalize',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..hasRequiredFields = false;
-
-  EventMarkerFinalize._() : super();
   factory EventMarkerFinalize({
     $core.String? denom,
     $core.String? administrator,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerFinalize._() : super();
   factory EventMarkerFinalize.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerFinalize.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerFinalize',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'administrator')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -871,8 +952,10 @@ class EventMarkerFinalize extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerFinalize copyWith(void Function(EventMarkerFinalize) updates) =>
       super.copyWith((message) => updates(message as EventMarkerFinalize))
-          as EventMarkerFinalize; // ignore: deprecated_member_use
+          as EventMarkerFinalize;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerFinalize create() => EventMarkerFinalize._();
   EventMarkerFinalize createEmptyInstance() => create();
@@ -908,48 +991,38 @@ class EventMarkerFinalize extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(2);
 }
 
+/// EventMarkerActivate event emitted when marker is activated
 class EventMarkerActivate extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerActivate',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..hasRequiredFields = false;
-
-  EventMarkerActivate._() : super();
   factory EventMarkerActivate({
     $core.String? denom,
     $core.String? administrator,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerActivate._() : super();
   factory EventMarkerActivate.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerActivate.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerActivate',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'administrator')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -959,8 +1032,10 @@ class EventMarkerActivate extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerActivate copyWith(void Function(EventMarkerActivate) updates) =>
       super.copyWith((message) => updates(message as EventMarkerActivate))
-          as EventMarkerActivate; // ignore: deprecated_member_use
+          as EventMarkerActivate;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerActivate create() => EventMarkerActivate._();
   EventMarkerActivate createEmptyInstance() => create();
@@ -996,48 +1071,38 @@ class EventMarkerActivate extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(2);
 }
 
+/// EventMarkerCancel event emitted when marker is cancelled
 class EventMarkerCancel extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerCancel',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..hasRequiredFields = false;
-
-  EventMarkerCancel._() : super();
   factory EventMarkerCancel({
     $core.String? denom,
     $core.String? administrator,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerCancel._() : super();
   factory EventMarkerCancel.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerCancel.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerCancel',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'administrator')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1047,8 +1112,10 @@ class EventMarkerCancel extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerCancel copyWith(void Function(EventMarkerCancel) updates) =>
       super.copyWith((message) => updates(message as EventMarkerCancel))
-          as EventMarkerCancel; // ignore: deprecated_member_use
+          as EventMarkerCancel;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerCancel create() => EventMarkerCancel._();
   EventMarkerCancel createEmptyInstance() => create();
@@ -1084,48 +1151,38 @@ class EventMarkerCancel extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(2);
 }
 
+/// EventMarkerDelete event emitted when marker is deleted
 class EventMarkerDelete extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerDelete',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..hasRequiredFields = false;
-
-  EventMarkerDelete._() : super();
   factory EventMarkerDelete({
     $core.String? denom,
     $core.String? administrator,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerDelete._() : super();
   factory EventMarkerDelete.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerDelete.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerDelete',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'administrator')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1135,8 +1192,10 @@ class EventMarkerDelete extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerDelete copyWith(void Function(EventMarkerDelete) updates) =>
       super.copyWith((message) => updates(message as EventMarkerDelete))
-          as EventMarkerDelete; // ignore: deprecated_member_use
+          as EventMarkerDelete;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerDelete create() => EventMarkerDelete._();
   EventMarkerDelete createEmptyInstance() => create();
@@ -1172,57 +1231,43 @@ class EventMarkerDelete extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(2);
 }
 
+/// EventMarkerMint event emitted when additional marker supply is minted
 class EventMarkerMint extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerMint',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..hasRequiredFields = false;
-
-  EventMarkerMint._() : super();
   factory EventMarkerMint({
     $core.String? amount,
     $core.String? denom,
     $core.String? administrator,
   }) {
-    final _result = create();
+    final $result = create();
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerMint._() : super();
   factory EventMarkerMint.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerMint.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerMint',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'amount')
+    ..aOS(2, _omitFieldNames ? '' : 'denom')
+    ..aOS(3, _omitFieldNames ? '' : 'administrator')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1232,8 +1277,10 @@ class EventMarkerMint extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerMint copyWith(void Function(EventMarkerMint) updates) =>
       super.copyWith((message) => updates(message as EventMarkerMint))
-          as EventMarkerMint; // ignore: deprecated_member_use
+          as EventMarkerMint;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerMint create() => EventMarkerMint._();
   EventMarkerMint createEmptyInstance() => create();
@@ -1281,57 +1328,43 @@ class EventMarkerMint extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(3);
 }
 
+/// EventMarkerBurn event emitted when coin is burned from marker
 class EventMarkerBurn extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerBurn',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..hasRequiredFields = false;
-
-  EventMarkerBurn._() : super();
   factory EventMarkerBurn({
     $core.String? amount,
     $core.String? denom,
     $core.String? administrator,
   }) {
-    final _result = create();
+    final $result = create();
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerBurn._() : super();
   factory EventMarkerBurn.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerBurn.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerBurn',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'amount')
+    ..aOS(2, _omitFieldNames ? '' : 'denom')
+    ..aOS(3, _omitFieldNames ? '' : 'administrator')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1341,8 +1374,10 @@ class EventMarkerBurn extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerBurn copyWith(void Function(EventMarkerBurn) updates) =>
       super.copyWith((message) => updates(message as EventMarkerBurn))
-          as EventMarkerBurn; // ignore: deprecated_member_use
+          as EventMarkerBurn;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerBurn create() => EventMarkerBurn._();
   EventMarkerBurn createEmptyInstance() => create();
@@ -1390,66 +1425,48 @@ class EventMarkerBurn extends $pb.GeneratedMessage {
   void clearAdministrator() => clearField(3);
 }
 
+/// EventMarkerWithdraw event emitted when coins are withdrew from marker
 class EventMarkerWithdraw extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerWithdraw',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'coins')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'toAddress')
-    ..hasRequiredFields = false;
-
-  EventMarkerWithdraw._() : super();
   factory EventMarkerWithdraw({
     $core.String? coins,
     $core.String? denom,
     $core.String? administrator,
     $core.String? toAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (coins != null) {
-      _result.coins = coins;
+      $result.coins = coins;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
     if (toAddress != null) {
-      _result.toAddress = toAddress;
+      $result.toAddress = toAddress;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerWithdraw._() : super();
   factory EventMarkerWithdraw.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerWithdraw.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerWithdraw',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'coins')
+    ..aOS(2, _omitFieldNames ? '' : 'denom')
+    ..aOS(3, _omitFieldNames ? '' : 'administrator')
+    ..aOS(4, _omitFieldNames ? '' : 'toAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1459,8 +1476,10 @@ class EventMarkerWithdraw extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerWithdraw copyWith(void Function(EventMarkerWithdraw) updates) =>
       super.copyWith((message) => updates(message as EventMarkerWithdraw))
-          as EventMarkerWithdraw; // ignore: deprecated_member_use
+          as EventMarkerWithdraw;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerWithdraw create() => EventMarkerWithdraw._();
   EventMarkerWithdraw createEmptyInstance() => create();
@@ -1520,44 +1539,8 @@ class EventMarkerWithdraw extends $pb.GeneratedMessage {
   void clearToAddress() => clearField(4);
 }
 
+/// EventMarkerTransfer event emitted when coins are transfered to from account to another
 class EventMarkerTransfer extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerTransfer',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'toAddress')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'fromAddress')
-    ..hasRequiredFields = false;
-
-  EventMarkerTransfer._() : super();
   factory EventMarkerTransfer({
     $core.String? amount,
     $core.String? denom,
@@ -1565,30 +1548,44 @@ class EventMarkerTransfer extends $pb.GeneratedMessage {
     $core.String? toAddress,
     $core.String? fromAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
     if (toAddress != null) {
-      _result.toAddress = toAddress;
+      $result.toAddress = toAddress;
     }
     if (fromAddress != null) {
-      _result.fromAddress = fromAddress;
+      $result.fromAddress = fromAddress;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerTransfer._() : super();
   factory EventMarkerTransfer.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerTransfer.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerTransfer',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'amount')
+    ..aOS(2, _omitFieldNames ? '' : 'denom')
+    ..aOS(3, _omitFieldNames ? '' : 'administrator')
+    ..aOS(4, _omitFieldNames ? '' : 'toAddress')
+    ..aOS(5, _omitFieldNames ? '' : 'fromAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1598,8 +1595,10 @@ class EventMarkerTransfer extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventMarkerTransfer copyWith(void Function(EventMarkerTransfer) updates) =>
       super.copyWith((message) => updates(message as EventMarkerTransfer))
-          as EventMarkerTransfer; // ignore: deprecated_member_use
+          as EventMarkerTransfer;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerTransfer create() => EventMarkerTransfer._();
   EventMarkerTransfer createEmptyInstance() => create();
@@ -1671,56 +1670,8 @@ class EventMarkerTransfer extends $pb.GeneratedMessage {
   void clearFromAddress() => clearField(5);
 }
 
+/// EventMarkerSetDenomMetadata event emitted when metadata is set on marker with denom
 class EventMarkerSetDenomMetadata extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMarkerSetDenomMetadata',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadataBase')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadataDescription')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadataDisplay')
-    ..pc<EventDenomUnit>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadataDenomUnits',
-        $pb.PbFieldType.PM,
-        subBuilder: EventDenomUnit.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'administrator')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadataName')
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadataSymbol')
-    ..hasRequiredFields = false;
-
-  EventMarkerSetDenomMetadata._() : super();
   factory EventMarkerSetDenomMetadata({
     $core.String? metadataBase,
     $core.String? metadataDescription,
@@ -1730,36 +1681,54 @@ class EventMarkerSetDenomMetadata extends $pb.GeneratedMessage {
     $core.String? metadataName,
     $core.String? metadataSymbol,
   }) {
-    final _result = create();
+    final $result = create();
     if (metadataBase != null) {
-      _result.metadataBase = metadataBase;
+      $result.metadataBase = metadataBase;
     }
     if (metadataDescription != null) {
-      _result.metadataDescription = metadataDescription;
+      $result.metadataDescription = metadataDescription;
     }
     if (metadataDisplay != null) {
-      _result.metadataDisplay = metadataDisplay;
+      $result.metadataDisplay = metadataDisplay;
     }
     if (metadataDenomUnits != null) {
-      _result.metadataDenomUnits.addAll(metadataDenomUnits);
+      $result.metadataDenomUnits.addAll(metadataDenomUnits);
     }
     if (administrator != null) {
-      _result.administrator = administrator;
+      $result.administrator = administrator;
     }
     if (metadataName != null) {
-      _result.metadataName = metadataName;
+      $result.metadataName = metadataName;
     }
     if (metadataSymbol != null) {
-      _result.metadataSymbol = metadataSymbol;
+      $result.metadataSymbol = metadataSymbol;
     }
-    return _result;
+    return $result;
   }
+  EventMarkerSetDenomMetadata._() : super();
   factory EventMarkerSetDenomMetadata.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMarkerSetDenomMetadata.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarkerSetDenomMetadata',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'metadataBase')
+    ..aOS(2, _omitFieldNames ? '' : 'metadataDescription')
+    ..aOS(3, _omitFieldNames ? '' : 'metadataDisplay')
+    ..pc<EventDenomUnit>(
+        4, _omitFieldNames ? '' : 'metadataDenomUnits', $pb.PbFieldType.PM,
+        subBuilder: EventDenomUnit.create)
+    ..aOS(5, _omitFieldNames ? '' : 'administrator')
+    ..aOS(6, _omitFieldNames ? '' : 'metadataName')
+    ..aOS(7, _omitFieldNames ? '' : 'metadataSymbol')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1772,8 +1741,10 @@ class EventMarkerSetDenomMetadata extends $pb.GeneratedMessage {
           void Function(EventMarkerSetDenomMetadata) updates) =>
       super.copyWith(
               (message) => updates(message as EventMarkerSetDenomMetadata))
-          as EventMarkerSetDenomMetadata; // ignore: deprecated_member_use
+          as EventMarkerSetDenomMetadata;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMarkerSetDenomMetadata create() =>
       EventMarkerSetDenomMetadata._();
@@ -1861,57 +1832,43 @@ class EventMarkerSetDenomMetadata extends $pb.GeneratedMessage {
   void clearMetadataSymbol() => clearField(7);
 }
 
+/// EventDenomUnit denom units for set denom metadata event
 class EventDenomUnit extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventDenomUnit',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'exponent')
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'aliases')
-    ..hasRequiredFields = false;
-
-  EventDenomUnit._() : super();
   factory EventDenomUnit({
     $core.String? denom,
     $core.String? exponent,
     $core.Iterable<$core.String>? aliases,
   }) {
-    final _result = create();
+    final $result = create();
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (exponent != null) {
-      _result.exponent = exponent;
+      $result.exponent = exponent;
     }
     if (aliases != null) {
-      _result.aliases.addAll(aliases);
+      $result.aliases.addAll(aliases);
     }
-    return _result;
+    return $result;
   }
+  EventDenomUnit._() : super();
   factory EventDenomUnit.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventDenomUnit.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventDenomUnit',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'exponent')
+    ..pPS(3, _omitFieldNames ? '' : 'aliases')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1921,8 +1878,10 @@ class EventDenomUnit extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventDenomUnit copyWith(void Function(EventDenomUnit) updates) =>
       super.copyWith((message) => updates(message as EventDenomUnit))
-          as EventDenomUnit; // ignore: deprecated_member_use
+          as EventDenomUnit;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventDenomUnit create() => EventDenomUnit._();
   EventDenomUnit createEmptyInstance() => create();
@@ -1960,3 +1919,123 @@ class EventDenomUnit extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.List<$core.String> get aliases => $_getList(2);
 }
+
+/// EventSetNetAssetValue event emitted when Net Asset Value for marker is update or added
+class EventSetNetAssetValue extends $pb.GeneratedMessage {
+  factory EventSetNetAssetValue({
+    $core.String? denom,
+    $core.String? price,
+    $core.String? volume,
+    $core.String? source,
+  }) {
+    final $result = create();
+    if (denom != null) {
+      $result.denom = denom;
+    }
+    if (price != null) {
+      $result.price = price;
+    }
+    if (volume != null) {
+      $result.volume = volume;
+    }
+    if (source != null) {
+      $result.source = source;
+    }
+    return $result;
+  }
+  EventSetNetAssetValue._() : super();
+  factory EventSetNetAssetValue.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EventSetNetAssetValue.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventSetNetAssetValue',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'denom')
+    ..aOS(2, _omitFieldNames ? '' : 'price')
+    ..aOS(3, _omitFieldNames ? '' : 'volume')
+    ..aOS(4, _omitFieldNames ? '' : 'source')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EventSetNetAssetValue clone() =>
+      EventSetNetAssetValue()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EventSetNetAssetValue copyWith(
+          void Function(EventSetNetAssetValue) updates) =>
+      super.copyWith((message) => updates(message as EventSetNetAssetValue))
+          as EventSetNetAssetValue;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EventSetNetAssetValue create() => EventSetNetAssetValue._();
+  EventSetNetAssetValue createEmptyInstance() => create();
+  static $pb.PbList<EventSetNetAssetValue> createRepeated() =>
+      $pb.PbList<EventSetNetAssetValue>();
+  @$core.pragma('dart2js:noInline')
+  static EventSetNetAssetValue getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EventSetNetAssetValue>(create);
+  static EventSetNetAssetValue? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get denom => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set denom($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasDenom() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDenom() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get price => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set price($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPrice() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPrice() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get volume => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set volume($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasVolume() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearVolume() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get source => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set source($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasSource() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearSource() => clearField(4);
+}
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');
