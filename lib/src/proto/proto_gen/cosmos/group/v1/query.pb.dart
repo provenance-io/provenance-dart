@@ -1,53 +1,50 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/group/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'types.pb.dart' as $1;
 import '../../base/query/v1beta1/pagination.pb.dart' as $2;
+import 'types.pb.dart' as $1;
 
+/// QueryGroupInfoRequest is the Query/GroupInfo request type.
 class QueryGroupInfoRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupInfoRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryGroupInfoRequest._() : super();
   factory QueryGroupInfoRequest({
     $fixnum.Int64? groupId,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupInfoRequest._() : super();
   factory QueryGroupInfoRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupInfoRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupInfoRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -59,8 +56,10 @@ class QueryGroupInfoRequest extends $pb.GeneratedMessage {
   QueryGroupInfoRequest copyWith(
           void Function(QueryGroupInfoRequest) updates) =>
       super.copyWith((message) => updates(message as QueryGroupInfoRequest))
-          as QueryGroupInfoRequest; // ignore: deprecated_member_use
+          as QueryGroupInfoRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupInfoRequest create() => QueryGroupInfoRequest._();
   QueryGroupInfoRequest createEmptyInstance() => create();
@@ -71,6 +70,7 @@ class QueryGroupInfoRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupInfoRequest>(create);
   static QueryGroupInfoRequest? _defaultInstance;
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(1)
   $fixnum.Int64 get groupId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -84,40 +84,34 @@ class QueryGroupInfoRequest extends $pb.GeneratedMessage {
   void clearGroupId() => clearField(1);
 }
 
+/// QueryGroupInfoResponse is the Query/GroupInfo response type.
 class QueryGroupInfoResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupInfoResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.GroupInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'info',
-        subBuilder: $1.GroupInfo.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupInfoResponse._() : super();
   factory QueryGroupInfoResponse({
     $1.GroupInfo? info,
   }) {
-    final _result = create();
+    final $result = create();
     if (info != null) {
-      _result.info = info;
+      $result.info = info;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupInfoResponse._() : super();
   factory QueryGroupInfoResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupInfoResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupInfoResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.GroupInfo>(1, _omitFieldNames ? '' : 'info',
+        subBuilder: $1.GroupInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -129,8 +123,10 @@ class QueryGroupInfoResponse extends $pb.GeneratedMessage {
   QueryGroupInfoResponse copyWith(
           void Function(QueryGroupInfoResponse) updates) =>
       super.copyWith((message) => updates(message as QueryGroupInfoResponse))
-          as QueryGroupInfoResponse; // ignore: deprecated_member_use
+          as QueryGroupInfoResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupInfoResponse create() => QueryGroupInfoResponse._();
   QueryGroupInfoResponse createEmptyInstance() => create();
@@ -141,6 +137,7 @@ class QueryGroupInfoResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupInfoResponse>(create);
   static QueryGroupInfoResponse? _defaultInstance;
 
+  /// info is the GroupInfo for the group.
   @$pb.TagNumber(1)
   $1.GroupInfo get info => $_getN(0);
   @$pb.TagNumber(1)
@@ -156,39 +153,33 @@ class QueryGroupInfoResponse extends $pb.GeneratedMessage {
   $1.GroupInfo ensureInfo() => $_ensure(0);
 }
 
+/// QueryGroupPolicyInfoRequest is the Query/GroupPolicyInfo request type.
 class QueryGroupPolicyInfoRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupPolicyInfoRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..hasRequiredFields = false;
-
-  QueryGroupPolicyInfoRequest._() : super();
   factory QueryGroupPolicyInfoRequest({
     $core.String? address,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupPolicyInfoRequest._() : super();
   factory QueryGroupPolicyInfoRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupPolicyInfoRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupPolicyInfoRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -201,8 +192,10 @@ class QueryGroupPolicyInfoRequest extends $pb.GeneratedMessage {
           void Function(QueryGroupPolicyInfoRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGroupPolicyInfoRequest))
-          as QueryGroupPolicyInfoRequest; // ignore: deprecated_member_use
+          as QueryGroupPolicyInfoRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupPolicyInfoRequest create() =>
       QueryGroupPolicyInfoRequest._();
@@ -214,6 +207,7 @@ class QueryGroupPolicyInfoRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupPolicyInfoRequest>(create);
   static QueryGroupPolicyInfoRequest? _defaultInstance;
 
+  /// address is the account address of the group policy.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -227,40 +221,34 @@ class QueryGroupPolicyInfoRequest extends $pb.GeneratedMessage {
   void clearAddress() => clearField(1);
 }
 
+/// QueryGroupPolicyInfoResponse is the Query/GroupPolicyInfo response type.
 class QueryGroupPolicyInfoResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupPolicyInfoResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.GroupPolicyInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'info',
-        subBuilder: $1.GroupPolicyInfo.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupPolicyInfoResponse._() : super();
   factory QueryGroupPolicyInfoResponse({
     $1.GroupPolicyInfo? info,
   }) {
-    final _result = create();
+    final $result = create();
     if (info != null) {
-      _result.info = info;
+      $result.info = info;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupPolicyInfoResponse._() : super();
   factory QueryGroupPolicyInfoResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupPolicyInfoResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupPolicyInfoResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.GroupPolicyInfo>(1, _omitFieldNames ? '' : 'info',
+        subBuilder: $1.GroupPolicyInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -273,8 +261,10 @@ class QueryGroupPolicyInfoResponse extends $pb.GeneratedMessage {
           void Function(QueryGroupPolicyInfoResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGroupPolicyInfoResponse))
-          as QueryGroupPolicyInfoResponse; // ignore: deprecated_member_use
+          as QueryGroupPolicyInfoResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupPolicyInfoResponse create() =>
       QueryGroupPolicyInfoResponse._();
@@ -286,6 +276,7 @@ class QueryGroupPolicyInfoResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupPolicyInfoResponse>(create);
   static QueryGroupPolicyInfoResponse? _defaultInstance;
 
+  /// info is the GroupPolicyInfo for the group policy.
   @$pb.TagNumber(1)
   $1.GroupPolicyInfo get info => $_getN(0);
   @$pb.TagNumber(1)
@@ -301,51 +292,40 @@ class QueryGroupPolicyInfoResponse extends $pb.GeneratedMessage {
   $1.GroupPolicyInfo ensureInfo() => $_ensure(0);
 }
 
+/// QueryGroupMembersRequest is the Query/GroupMembers request type.
 class QueryGroupMembersRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupMembersRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupMembersRequest._() : super();
   factory QueryGroupMembersRequest({
     $fixnum.Int64? groupId,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupMembersRequest._() : super();
   factory QueryGroupMembersRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupMembersRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupMembersRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -357,8 +337,10 @@ class QueryGroupMembersRequest extends $pb.GeneratedMessage {
   QueryGroupMembersRequest copyWith(
           void Function(QueryGroupMembersRequest) updates) =>
       super.copyWith((message) => updates(message as QueryGroupMembersRequest))
-          as QueryGroupMembersRequest; // ignore: deprecated_member_use
+          as QueryGroupMembersRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupMembersRequest create() => QueryGroupMembersRequest._();
   QueryGroupMembersRequest createEmptyInstance() => create();
@@ -369,6 +351,7 @@ class QueryGroupMembersRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupMembersRequest>(create);
   static QueryGroupMembersRequest? _defaultInstance;
 
+  /// group_id is the unique ID of the group.
   @$pb.TagNumber(1)
   $fixnum.Int64 get groupId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -381,6 +364,7 @@ class QueryGroupMembersRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGroupId() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -396,51 +380,41 @@ class QueryGroupMembersRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupMembersResponse is the Query/GroupMembersResponse response type.
 class QueryGroupMembersResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupMembersResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.GroupMember>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'members',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.GroupMember.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupMembersResponse._() : super();
   factory QueryGroupMembersResponse({
     $core.Iterable<$1.GroupMember>? members,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (members != null) {
-      _result.members.addAll(members);
+      $result.members.addAll(members);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupMembersResponse._() : super();
   factory QueryGroupMembersResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupMembersResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupMembersResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.GroupMember>(
+        1, _omitFieldNames ? '' : 'members', $pb.PbFieldType.PM,
+        subBuilder: $1.GroupMember.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -452,8 +426,10 @@ class QueryGroupMembersResponse extends $pb.GeneratedMessage {
   QueryGroupMembersResponse copyWith(
           void Function(QueryGroupMembersResponse) updates) =>
       super.copyWith((message) => updates(message as QueryGroupMembersResponse))
-          as QueryGroupMembersResponse; // ignore: deprecated_member_use
+          as QueryGroupMembersResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupMembersResponse create() => QueryGroupMembersResponse._();
   QueryGroupMembersResponse createEmptyInstance() => create();
@@ -464,9 +440,11 @@ class QueryGroupMembersResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupMembersResponse>(create);
   static QueryGroupMembersResponse? _defaultInstance;
 
+  /// members are the members of the group with given group_id.
   @$pb.TagNumber(1)
   $core.List<$1.GroupMember> get members => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -482,49 +460,39 @@ class QueryGroupMembersResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupsByAdminRequest is the Query/GroupsByAdmin request type.
 class QueryGroupsByAdminRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupsByAdminRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupsByAdminRequest._() : super();
   factory QueryGroupsByAdminRequest({
     $core.String? admin,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupsByAdminRequest._() : super();
   factory QueryGroupsByAdminRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupsByAdminRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupsByAdminRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -536,8 +504,10 @@ class QueryGroupsByAdminRequest extends $pb.GeneratedMessage {
   QueryGroupsByAdminRequest copyWith(
           void Function(QueryGroupsByAdminRequest) updates) =>
       super.copyWith((message) => updates(message as QueryGroupsByAdminRequest))
-          as QueryGroupsByAdminRequest; // ignore: deprecated_member_use
+          as QueryGroupsByAdminRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupsByAdminRequest create() => QueryGroupsByAdminRequest._();
   QueryGroupsByAdminRequest createEmptyInstance() => create();
@@ -548,6 +518,7 @@ class QueryGroupsByAdminRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupsByAdminRequest>(create);
   static QueryGroupsByAdminRequest? _defaultInstance;
 
+  /// admin is the account address of a group's admin.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -560,6 +531,7 @@ class QueryGroupsByAdminRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -575,51 +547,40 @@ class QueryGroupsByAdminRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupsByAdminResponse is the Query/GroupsByAdminResponse response type.
 class QueryGroupsByAdminResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupsByAdminResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.GroupInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groups',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.GroupInfo.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupsByAdminResponse._() : super();
   factory QueryGroupsByAdminResponse({
     $core.Iterable<$1.GroupInfo>? groups,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (groups != null) {
-      _result.groups.addAll(groups);
+      $result.groups.addAll(groups);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupsByAdminResponse._() : super();
   factory QueryGroupsByAdminResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupsByAdminResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupsByAdminResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.GroupInfo>(1, _omitFieldNames ? '' : 'groups', $pb.PbFieldType.PM,
+        subBuilder: $1.GroupInfo.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -632,8 +593,10 @@ class QueryGroupsByAdminResponse extends $pb.GeneratedMessage {
           void Function(QueryGroupsByAdminResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGroupsByAdminResponse))
-          as QueryGroupsByAdminResponse; // ignore: deprecated_member_use
+          as QueryGroupsByAdminResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupsByAdminResponse create() => QueryGroupsByAdminResponse._();
   QueryGroupsByAdminResponse createEmptyInstance() => create();
@@ -644,9 +607,11 @@ class QueryGroupsByAdminResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupsByAdminResponse>(create);
   static QueryGroupsByAdminResponse? _defaultInstance;
 
+  /// groups are the groups info with the provided admin.
   @$pb.TagNumber(1)
   $core.List<$1.GroupInfo> get groups => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -662,51 +627,40 @@ class QueryGroupsByAdminResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupPoliciesByGroupRequest is the Query/GroupPoliciesByGroup request type.
 class QueryGroupPoliciesByGroupRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupPoliciesByGroupRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupPoliciesByGroupRequest._() : super();
   factory QueryGroupPoliciesByGroupRequest({
     $fixnum.Int64? groupId,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupId != null) {
-      _result.groupId = groupId;
+      $result.groupId = groupId;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupPoliciesByGroupRequest._() : super();
   factory QueryGroupPoliciesByGroupRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupPoliciesByGroupRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupPoliciesByGroupRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'groupId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -719,8 +673,10 @@ class QueryGroupPoliciesByGroupRequest extends $pb.GeneratedMessage {
           void Function(QueryGroupPoliciesByGroupRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGroupPoliciesByGroupRequest))
-          as QueryGroupPoliciesByGroupRequest; // ignore: deprecated_member_use
+          as QueryGroupPoliciesByGroupRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupPoliciesByGroupRequest create() =>
       QueryGroupPoliciesByGroupRequest._();
@@ -733,6 +689,7 @@ class QueryGroupPoliciesByGroupRequest extends $pb.GeneratedMessage {
           create);
   static QueryGroupPoliciesByGroupRequest? _defaultInstance;
 
+  /// group_id is the unique ID of the group policy's group.
   @$pb.TagNumber(1)
   $fixnum.Int64 get groupId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -745,6 +702,7 @@ class QueryGroupPoliciesByGroupRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearGroupId() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -760,51 +718,41 @@ class QueryGroupPoliciesByGroupRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupPoliciesByGroupResponse is the Query/GroupPoliciesByGroup response type.
 class QueryGroupPoliciesByGroupResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupPoliciesByGroupResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.GroupPolicyInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicies',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.GroupPolicyInfo.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupPoliciesByGroupResponse._() : super();
   factory QueryGroupPoliciesByGroupResponse({
     $core.Iterable<$1.GroupPolicyInfo>? groupPolicies,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupPolicies != null) {
-      _result.groupPolicies.addAll(groupPolicies);
+      $result.groupPolicies.addAll(groupPolicies);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupPoliciesByGroupResponse._() : super();
   factory QueryGroupPoliciesByGroupResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupPoliciesByGroupResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupPoliciesByGroupResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.GroupPolicyInfo>(
+        1, _omitFieldNames ? '' : 'groupPolicies', $pb.PbFieldType.PM,
+        subBuilder: $1.GroupPolicyInfo.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -817,8 +765,10 @@ class QueryGroupPoliciesByGroupResponse extends $pb.GeneratedMessage {
           void Function(QueryGroupPoliciesByGroupResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryGroupPoliciesByGroupResponse))
-          as QueryGroupPoliciesByGroupResponse; // ignore: deprecated_member_use
+          as QueryGroupPoliciesByGroupResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupPoliciesByGroupResponse create() =>
       QueryGroupPoliciesByGroupResponse._();
@@ -831,9 +781,11 @@ class QueryGroupPoliciesByGroupResponse extends $pb.GeneratedMessage {
           create);
   static QueryGroupPoliciesByGroupResponse? _defaultInstance;
 
+  /// group_policies are the group policies info associated with the provided group.
   @$pb.TagNumber(1)
   $core.List<$1.GroupPolicyInfo> get groupPolicies => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -849,49 +801,39 @@ class QueryGroupPoliciesByGroupResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupPoliciesByAdminRequest is the Query/GroupPoliciesByAdmin request type.
 class QueryGroupPoliciesByAdminRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupPoliciesByAdminRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupPoliciesByAdminRequest._() : super();
   factory QueryGroupPoliciesByAdminRequest({
     $core.String? admin,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupPoliciesByAdminRequest._() : super();
   factory QueryGroupPoliciesByAdminRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupPoliciesByAdminRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupPoliciesByAdminRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'admin')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -904,8 +846,10 @@ class QueryGroupPoliciesByAdminRequest extends $pb.GeneratedMessage {
           void Function(QueryGroupPoliciesByAdminRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGroupPoliciesByAdminRequest))
-          as QueryGroupPoliciesByAdminRequest; // ignore: deprecated_member_use
+          as QueryGroupPoliciesByAdminRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupPoliciesByAdminRequest create() =>
       QueryGroupPoliciesByAdminRequest._();
@@ -918,6 +862,7 @@ class QueryGroupPoliciesByAdminRequest extends $pb.GeneratedMessage {
           create);
   static QueryGroupPoliciesByAdminRequest? _defaultInstance;
 
+  /// admin is the admin address of the group policy.
   @$pb.TagNumber(1)
   $core.String get admin => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -930,6 +875,7 @@ class QueryGroupPoliciesByAdminRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAdmin() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -945,51 +891,41 @@ class QueryGroupPoliciesByAdminRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupPoliciesByAdminResponse is the Query/GroupPoliciesByAdmin response type.
 class QueryGroupPoliciesByAdminResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupPoliciesByAdminResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.GroupPolicyInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groupPolicies',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.GroupPolicyInfo.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupPoliciesByAdminResponse._() : super();
   factory QueryGroupPoliciesByAdminResponse({
     $core.Iterable<$1.GroupPolicyInfo>? groupPolicies,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (groupPolicies != null) {
-      _result.groupPolicies.addAll(groupPolicies);
+      $result.groupPolicies.addAll(groupPolicies);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupPoliciesByAdminResponse._() : super();
   factory QueryGroupPoliciesByAdminResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupPoliciesByAdminResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupPoliciesByAdminResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.GroupPolicyInfo>(
+        1, _omitFieldNames ? '' : 'groupPolicies', $pb.PbFieldType.PM,
+        subBuilder: $1.GroupPolicyInfo.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1002,8 +938,10 @@ class QueryGroupPoliciesByAdminResponse extends $pb.GeneratedMessage {
           void Function(QueryGroupPoliciesByAdminResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryGroupPoliciesByAdminResponse))
-          as QueryGroupPoliciesByAdminResponse; // ignore: deprecated_member_use
+          as QueryGroupPoliciesByAdminResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupPoliciesByAdminResponse create() =>
       QueryGroupPoliciesByAdminResponse._();
@@ -1016,9 +954,11 @@ class QueryGroupPoliciesByAdminResponse extends $pb.GeneratedMessage {
           create);
   static QueryGroupPoliciesByAdminResponse? _defaultInstance;
 
+  /// group_policies are the group policies info with provided admin.
   @$pb.TagNumber(1)
   $core.List<$1.GroupPolicyInfo> get groupPolicies => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1034,41 +974,35 @@ class QueryGroupPoliciesByAdminResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryProposalRequest is the Query/Proposal request type.
 class QueryProposalRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryProposalRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryProposalRequest._() : super();
   factory QueryProposalRequest({
     $fixnum.Int64? proposalId,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
-    return _result;
+    return $result;
   }
+  QueryProposalRequest._() : super();
   factory QueryProposalRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryProposalRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryProposalRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1079,8 +1013,10 @@ class QueryProposalRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryProposalRequest copyWith(void Function(QueryProposalRequest) updates) =>
       super.copyWith((message) => updates(message as QueryProposalRequest))
-          as QueryProposalRequest; // ignore: deprecated_member_use
+          as QueryProposalRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryProposalRequest create() => QueryProposalRequest._();
   QueryProposalRequest createEmptyInstance() => create();
@@ -1091,6 +1027,7 @@ class QueryProposalRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryProposalRequest>(create);
   static QueryProposalRequest? _defaultInstance;
 
+  /// proposal_id is the unique ID of a proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1104,40 +1041,34 @@ class QueryProposalRequest extends $pb.GeneratedMessage {
   void clearProposalId() => clearField(1);
 }
 
+/// QueryProposalResponse is the Query/Proposal response type.
 class QueryProposalResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryProposalResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Proposal>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposal',
-        subBuilder: $1.Proposal.create)
-    ..hasRequiredFields = false;
-
-  QueryProposalResponse._() : super();
   factory QueryProposalResponse({
     $1.Proposal? proposal,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposal != null) {
-      _result.proposal = proposal;
+      $result.proposal = proposal;
     }
-    return _result;
+    return $result;
   }
+  QueryProposalResponse._() : super();
   factory QueryProposalResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryProposalResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryProposalResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Proposal>(1, _omitFieldNames ? '' : 'proposal',
+        subBuilder: $1.Proposal.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1149,8 +1080,10 @@ class QueryProposalResponse extends $pb.GeneratedMessage {
   QueryProposalResponse copyWith(
           void Function(QueryProposalResponse) updates) =>
       super.copyWith((message) => updates(message as QueryProposalResponse))
-          as QueryProposalResponse; // ignore: deprecated_member_use
+          as QueryProposalResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryProposalResponse create() => QueryProposalResponse._();
   QueryProposalResponse createEmptyInstance() => create();
@@ -1161,6 +1094,7 @@ class QueryProposalResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryProposalResponse>(create);
   static QueryProposalResponse? _defaultInstance;
 
+  /// proposal is the proposal info.
   @$pb.TagNumber(1)
   $1.Proposal get proposal => $_getN(0);
   @$pb.TagNumber(1)
@@ -1176,49 +1110,39 @@ class QueryProposalResponse extends $pb.GeneratedMessage {
   $1.Proposal ensureProposal() => $_ensure(0);
 }
 
+/// QueryProposalsByGroupPolicyRequest is the Query/ProposalByGroupPolicy request type.
 class QueryProposalsByGroupPolicyRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryProposalsByGroupPolicyRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryProposalsByGroupPolicyRequest._() : super();
   factory QueryProposalsByGroupPolicyRequest({
     $core.String? address,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryProposalsByGroupPolicyRequest._() : super();
   factory QueryProposalsByGroupPolicyRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryProposalsByGroupPolicyRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryProposalsByGroupPolicyRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1231,8 +1155,10 @@ class QueryProposalsByGroupPolicyRequest extends $pb.GeneratedMessage {
           void Function(QueryProposalsByGroupPolicyRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryProposalsByGroupPolicyRequest))
-          as QueryProposalsByGroupPolicyRequest; // ignore: deprecated_member_use
+          as QueryProposalsByGroupPolicyRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryProposalsByGroupPolicyRequest create() =>
       QueryProposalsByGroupPolicyRequest._();
@@ -1245,6 +1171,7 @@ class QueryProposalsByGroupPolicyRequest extends $pb.GeneratedMessage {
           create);
   static QueryProposalsByGroupPolicyRequest? _defaultInstance;
 
+  /// address is the account address of the group policy related to proposals.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1257,6 +1184,7 @@ class QueryProposalsByGroupPolicyRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1272,45 +1200,22 @@ class QueryProposalsByGroupPolicyRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryProposalsByGroupPolicyResponse is the Query/ProposalByGroupPolicy response type.
 class QueryProposalsByGroupPolicyResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryProposalsByGroupPolicyResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.Proposal>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposals',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Proposal.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryProposalsByGroupPolicyResponse._() : super();
   factory QueryProposalsByGroupPolicyResponse({
     $core.Iterable<$1.Proposal>? proposals,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposals != null) {
-      _result.proposals.addAll(proposals);
+      $result.proposals.addAll(proposals);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryProposalsByGroupPolicyResponse._() : super();
   factory QueryProposalsByGroupPolicyResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -1318,6 +1223,18 @@ class QueryProposalsByGroupPolicyResponse extends $pb.GeneratedMessage {
   factory QueryProposalsByGroupPolicyResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryProposalsByGroupPolicyResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.Proposal>(1, _omitFieldNames ? '' : 'proposals', $pb.PbFieldType.PM,
+        subBuilder: $1.Proposal.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1330,8 +1247,10 @@ class QueryProposalsByGroupPolicyResponse extends $pb.GeneratedMessage {
           void Function(QueryProposalsByGroupPolicyResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryProposalsByGroupPolicyResponse))
-          as QueryProposalsByGroupPolicyResponse; // ignore: deprecated_member_use
+          as QueryProposalsByGroupPolicyResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryProposalsByGroupPolicyResponse create() =>
       QueryProposalsByGroupPolicyResponse._();
@@ -1344,9 +1263,11 @@ class QueryProposalsByGroupPolicyResponse extends $pb.GeneratedMessage {
           QueryProposalsByGroupPolicyResponse>(create);
   static QueryProposalsByGroupPolicyResponse? _defaultInstance;
 
+  /// proposals are the proposals with given group policy.
   @$pb.TagNumber(1)
   $core.List<$1.Proposal> get proposals => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1362,50 +1283,40 @@ class QueryProposalsByGroupPolicyResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryVoteByProposalVoterRequest is the Query/VoteByProposalVoter request type.
 class QueryVoteByProposalVoterRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryVoteByProposalVoterRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voter')
-    ..hasRequiredFields = false;
-
-  QueryVoteByProposalVoterRequest._() : super();
   factory QueryVoteByProposalVoterRequest({
     $fixnum.Int64? proposalId,
     $core.String? voter,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (voter != null) {
-      _result.voter = voter;
+      $result.voter = voter;
     }
-    return _result;
+    return $result;
   }
+  QueryVoteByProposalVoterRequest._() : super();
   factory QueryVoteByProposalVoterRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryVoteByProposalVoterRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryVoteByProposalVoterRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'voter')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1418,8 +1329,10 @@ class QueryVoteByProposalVoterRequest extends $pb.GeneratedMessage {
           void Function(QueryVoteByProposalVoterRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryVoteByProposalVoterRequest))
-          as QueryVoteByProposalVoterRequest; // ignore: deprecated_member_use
+          as QueryVoteByProposalVoterRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryVoteByProposalVoterRequest create() =>
       QueryVoteByProposalVoterRequest._();
@@ -1432,6 +1345,7 @@ class QueryVoteByProposalVoterRequest extends $pb.GeneratedMessage {
           create);
   static QueryVoteByProposalVoterRequest? _defaultInstance;
 
+  /// proposal_id is the unique ID of a proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1444,6 +1358,7 @@ class QueryVoteByProposalVoterRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearProposalId() => clearField(1);
 
+  /// voter is a proposal voter account address.
   @$pb.TagNumber(2)
   $core.String get voter => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1457,40 +1372,33 @@ class QueryVoteByProposalVoterRequest extends $pb.GeneratedMessage {
   void clearVoter() => clearField(2);
 }
 
+/// QueryVoteByProposalVoterResponse is the Query/VoteByProposalVoter response type.
 class QueryVoteByProposalVoterResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryVoteByProposalVoterResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Vote>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vote',
-        subBuilder: $1.Vote.create)
-    ..hasRequiredFields = false;
-
-  QueryVoteByProposalVoterResponse._() : super();
   factory QueryVoteByProposalVoterResponse({
     $1.Vote? vote,
   }) {
-    final _result = create();
+    final $result = create();
     if (vote != null) {
-      _result.vote = vote;
+      $result.vote = vote;
     }
-    return _result;
+    return $result;
   }
+  QueryVoteByProposalVoterResponse._() : super();
   factory QueryVoteByProposalVoterResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryVoteByProposalVoterResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryVoteByProposalVoterResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Vote>(1, _omitFieldNames ? '' : 'vote', subBuilder: $1.Vote.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1503,8 +1411,10 @@ class QueryVoteByProposalVoterResponse extends $pb.GeneratedMessage {
           void Function(QueryVoteByProposalVoterResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryVoteByProposalVoterResponse))
-          as QueryVoteByProposalVoterResponse; // ignore: deprecated_member_use
+          as QueryVoteByProposalVoterResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryVoteByProposalVoterResponse create() =>
       QueryVoteByProposalVoterResponse._();
@@ -1517,6 +1427,7 @@ class QueryVoteByProposalVoterResponse extends $pb.GeneratedMessage {
           create);
   static QueryVoteByProposalVoterResponse? _defaultInstance;
 
+  /// vote is the vote with given proposal_id and voter.
   @$pb.TagNumber(1)
   $1.Vote get vote => $_getN(0);
   @$pb.TagNumber(1)
@@ -1532,51 +1443,41 @@ class QueryVoteByProposalVoterResponse extends $pb.GeneratedMessage {
   $1.Vote ensureVote() => $_ensure(0);
 }
 
+/// QueryVotesByProposalRequest is the Query/VotesByProposal request type.
 class QueryVotesByProposalRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryVotesByProposalRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryVotesByProposalRequest._() : super();
   factory QueryVotesByProposalRequest({
     $fixnum.Int64? proposalId,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryVotesByProposalRequest._() : super();
   factory QueryVotesByProposalRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryVotesByProposalRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryVotesByProposalRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1589,8 +1490,10 @@ class QueryVotesByProposalRequest extends $pb.GeneratedMessage {
           void Function(QueryVotesByProposalRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryVotesByProposalRequest))
-          as QueryVotesByProposalRequest; // ignore: deprecated_member_use
+          as QueryVotesByProposalRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryVotesByProposalRequest create() =>
       QueryVotesByProposalRequest._();
@@ -1602,6 +1505,7 @@ class QueryVotesByProposalRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryVotesByProposalRequest>(create);
   static QueryVotesByProposalRequest? _defaultInstance;
 
+  /// proposal_id is the unique ID of a proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -1614,6 +1518,7 @@ class QueryVotesByProposalRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearProposalId() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1629,51 +1534,40 @@ class QueryVotesByProposalRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryVotesByProposalResponse is the Query/VotesByProposal response type.
 class QueryVotesByProposalResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryVotesByProposalResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.Vote>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votes',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Vote.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryVotesByProposalResponse._() : super();
   factory QueryVotesByProposalResponse({
     $core.Iterable<$1.Vote>? votes,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (votes != null) {
-      _result.votes.addAll(votes);
+      $result.votes.addAll(votes);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryVotesByProposalResponse._() : super();
   factory QueryVotesByProposalResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryVotesByProposalResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryVotesByProposalResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.Vote>(1, _omitFieldNames ? '' : 'votes', $pb.PbFieldType.PM,
+        subBuilder: $1.Vote.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1686,8 +1580,10 @@ class QueryVotesByProposalResponse extends $pb.GeneratedMessage {
           void Function(QueryVotesByProposalResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryVotesByProposalResponse))
-          as QueryVotesByProposalResponse; // ignore: deprecated_member_use
+          as QueryVotesByProposalResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryVotesByProposalResponse create() =>
       QueryVotesByProposalResponse._();
@@ -1699,9 +1595,11 @@ class QueryVotesByProposalResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryVotesByProposalResponse>(create);
   static QueryVotesByProposalResponse? _defaultInstance;
 
+  /// votes are the list of votes for given proposal_id.
   @$pb.TagNumber(1)
   $core.List<$1.Vote> get votes => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1717,49 +1615,39 @@ class QueryVotesByProposalResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryVotesByVoterRequest is the Query/VotesByVoter request type.
 class QueryVotesByVoterRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryVotesByVoterRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voter')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryVotesByVoterRequest._() : super();
   factory QueryVotesByVoterRequest({
     $core.String? voter,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (voter != null) {
-      _result.voter = voter;
+      $result.voter = voter;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryVotesByVoterRequest._() : super();
   factory QueryVotesByVoterRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryVotesByVoterRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryVotesByVoterRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'voter')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1771,8 +1659,10 @@ class QueryVotesByVoterRequest extends $pb.GeneratedMessage {
   QueryVotesByVoterRequest copyWith(
           void Function(QueryVotesByVoterRequest) updates) =>
       super.copyWith((message) => updates(message as QueryVotesByVoterRequest))
-          as QueryVotesByVoterRequest; // ignore: deprecated_member_use
+          as QueryVotesByVoterRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryVotesByVoterRequest create() => QueryVotesByVoterRequest._();
   QueryVotesByVoterRequest createEmptyInstance() => create();
@@ -1783,6 +1673,7 @@ class QueryVotesByVoterRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryVotesByVoterRequest>(create);
   static QueryVotesByVoterRequest? _defaultInstance;
 
+  /// voter is a proposal voter account address.
   @$pb.TagNumber(1)
   $core.String get voter => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1795,6 +1686,7 @@ class QueryVotesByVoterRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearVoter() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1810,51 +1702,40 @@ class QueryVotesByVoterRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryVotesByVoterResponse is the Query/VotesByVoter response type.
 class QueryVotesByVoterResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryVotesByVoterResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.Vote>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'votes',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Vote.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryVotesByVoterResponse._() : super();
   factory QueryVotesByVoterResponse({
     $core.Iterable<$1.Vote>? votes,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (votes != null) {
-      _result.votes.addAll(votes);
+      $result.votes.addAll(votes);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryVotesByVoterResponse._() : super();
   factory QueryVotesByVoterResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryVotesByVoterResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryVotesByVoterResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.Vote>(1, _omitFieldNames ? '' : 'votes', $pb.PbFieldType.PM,
+        subBuilder: $1.Vote.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1866,8 +1747,10 @@ class QueryVotesByVoterResponse extends $pb.GeneratedMessage {
   QueryVotesByVoterResponse copyWith(
           void Function(QueryVotesByVoterResponse) updates) =>
       super.copyWith((message) => updates(message as QueryVotesByVoterResponse))
-          as QueryVotesByVoterResponse; // ignore: deprecated_member_use
+          as QueryVotesByVoterResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryVotesByVoterResponse create() => QueryVotesByVoterResponse._();
   QueryVotesByVoterResponse createEmptyInstance() => create();
@@ -1878,9 +1761,11 @@ class QueryVotesByVoterResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryVotesByVoterResponse>(create);
   static QueryVotesByVoterResponse? _defaultInstance;
 
+  /// votes are the list of votes by given voter.
   @$pb.TagNumber(1)
   $core.List<$1.Vote> get votes => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1896,49 +1781,39 @@ class QueryVotesByVoterResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupsByMemberRequest is the Query/GroupsByMember request type.
 class QueryGroupsByMemberRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupsByMemberRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupsByMemberRequest._() : super();
   factory QueryGroupsByMemberRequest({
     $core.String? address,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupsByMemberRequest._() : super();
   factory QueryGroupsByMemberRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupsByMemberRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupsByMemberRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1951,8 +1826,10 @@ class QueryGroupsByMemberRequest extends $pb.GeneratedMessage {
           void Function(QueryGroupsByMemberRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGroupsByMemberRequest))
-          as QueryGroupsByMemberRequest; // ignore: deprecated_member_use
+          as QueryGroupsByMemberRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupsByMemberRequest create() => QueryGroupsByMemberRequest._();
   QueryGroupsByMemberRequest createEmptyInstance() => create();
@@ -1963,6 +1840,7 @@ class QueryGroupsByMemberRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupsByMemberRequest>(create);
   static QueryGroupsByMemberRequest? _defaultInstance;
 
+  /// address is the group member address.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1975,6 +1853,7 @@ class QueryGroupsByMemberRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1990,51 +1869,40 @@ class QueryGroupsByMemberRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryGroupsByMemberResponse is the Query/GroupsByMember response type.
 class QueryGroupsByMemberResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryGroupsByMemberResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.GroupInfo>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'groups',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.GroupInfo.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryGroupsByMemberResponse._() : super();
   factory QueryGroupsByMemberResponse({
     $core.Iterable<$1.GroupInfo>? groups,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (groups != null) {
-      _result.groups.addAll(groups);
+      $result.groups.addAll(groups);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryGroupsByMemberResponse._() : super();
   factory QueryGroupsByMemberResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryGroupsByMemberResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupsByMemberResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.GroupInfo>(1, _omitFieldNames ? '' : 'groups', $pb.PbFieldType.PM,
+        subBuilder: $1.GroupInfo.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2047,8 +1915,10 @@ class QueryGroupsByMemberResponse extends $pb.GeneratedMessage {
           void Function(QueryGroupsByMemberResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryGroupsByMemberResponse))
-          as QueryGroupsByMemberResponse; // ignore: deprecated_member_use
+          as QueryGroupsByMemberResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryGroupsByMemberResponse create() =>
       QueryGroupsByMemberResponse._();
@@ -2060,9 +1930,11 @@ class QueryGroupsByMemberResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryGroupsByMemberResponse>(create);
   static QueryGroupsByMemberResponse? _defaultInstance;
 
+  /// groups are the groups info with the provided group member.
   @$pb.TagNumber(1)
   $core.List<$1.GroupInfo> get groups => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -2078,41 +1950,35 @@ class QueryGroupsByMemberResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryTallyResultRequest is the Query/TallyResult request type.
 class QueryTallyResultRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryTallyResultRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryTallyResultRequest._() : super();
   factory QueryTallyResultRequest({
     $fixnum.Int64? proposalId,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
-    return _result;
+    return $result;
   }
+  QueryTallyResultRequest._() : super();
   factory QueryTallyResultRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryTallyResultRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryTallyResultRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2124,8 +1990,10 @@ class QueryTallyResultRequest extends $pb.GeneratedMessage {
   QueryTallyResultRequest copyWith(
           void Function(QueryTallyResultRequest) updates) =>
       super.copyWith((message) => updates(message as QueryTallyResultRequest))
-          as QueryTallyResultRequest; // ignore: deprecated_member_use
+          as QueryTallyResultRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryTallyResultRequest create() => QueryTallyResultRequest._();
   QueryTallyResultRequest createEmptyInstance() => create();
@@ -2136,6 +2004,7 @@ class QueryTallyResultRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryTallyResultRequest>(create);
   static QueryTallyResultRequest? _defaultInstance;
 
+  /// proposal_id is the unique id of a proposal.
   @$pb.TagNumber(1)
   $fixnum.Int64 get proposalId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -2149,40 +2018,34 @@ class QueryTallyResultRequest extends $pb.GeneratedMessage {
   void clearProposalId() => clearField(1);
 }
 
+/// QueryTallyResultResponse is the Query/TallyResult response type.
 class QueryTallyResultResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryTallyResultResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.group.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.TallyResult>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'tally',
-        subBuilder: $1.TallyResult.create)
-    ..hasRequiredFields = false;
-
-  QueryTallyResultResponse._() : super();
   factory QueryTallyResultResponse({
     $1.TallyResult? tally,
   }) {
-    final _result = create();
+    final $result = create();
     if (tally != null) {
-      _result.tally = tally;
+      $result.tally = tally;
     }
-    return _result;
+    return $result;
   }
+  QueryTallyResultResponse._() : super();
   factory QueryTallyResultResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryTallyResultResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryTallyResultResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.TallyResult>(1, _omitFieldNames ? '' : 'tally',
+        subBuilder: $1.TallyResult.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2194,8 +2057,10 @@ class QueryTallyResultResponse extends $pb.GeneratedMessage {
   QueryTallyResultResponse copyWith(
           void Function(QueryTallyResultResponse) updates) =>
       super.copyWith((message) => updates(message as QueryTallyResultResponse))
-          as QueryTallyResultResponse; // ignore: deprecated_member_use
+          as QueryTallyResultResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryTallyResultResponse create() => QueryTallyResultResponse._();
   QueryTallyResultResponse createEmptyInstance() => create();
@@ -2206,6 +2071,7 @@ class QueryTallyResultResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryTallyResultResponse>(create);
   static QueryTallyResultResponse? _defaultInstance;
 
+  /// tally defines the requested tally.
   @$pb.TagNumber(1)
   $1.TallyResult get tally => $_getN(0);
   @$pb.TagNumber(1)
@@ -2220,3 +2086,155 @@ class QueryTallyResultResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.TallyResult ensureTally() => $_ensure(0);
 }
+
+///  QueryGroupsRequest is the Query/Groups request type.
+///
+///  Since: cosmos-sdk 0.47.1
+class QueryGroupsRequest extends $pb.GeneratedMessage {
+  factory QueryGroupsRequest({
+    $2.PageRequest? pagination,
+  }) {
+    final $result = create();
+    if (pagination != null) {
+      $result.pagination = pagination;
+    }
+    return $result;
+  }
+  QueryGroupsRequest._() : super();
+  factory QueryGroupsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGroupsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGroupsRequest clone() => QueryGroupsRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGroupsRequest copyWith(void Function(QueryGroupsRequest) updates) =>
+      super.copyWith((message) => updates(message as QueryGroupsRequest))
+          as QueryGroupsRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGroupsRequest create() => QueryGroupsRequest._();
+  QueryGroupsRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryGroupsRequest> createRepeated() =>
+      $pb.PbList<QueryGroupsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGroupsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGroupsRequest>(create);
+  static QueryGroupsRequest? _defaultInstance;
+
+  /// pagination defines an optional pagination for the request.
+  @$pb.TagNumber(2)
+  $2.PageRequest get pagination => $_getN(0);
+  @$pb.TagNumber(2)
+  set pagination($2.PageRequest v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageRequest ensurePagination() => $_ensure(0);
+}
+
+///  QueryGroupsResponse is the Query/Groups response type.
+///
+///  Since: cosmos-sdk 0.47.1
+class QueryGroupsResponse extends $pb.GeneratedMessage {
+  factory QueryGroupsResponse({
+    $core.Iterable<$1.GroupInfo>? groups,
+    $2.PageResponse? pagination,
+  }) {
+    final $result = create();
+    if (groups != null) {
+      $result.groups.addAll(groups);
+    }
+    if (pagination != null) {
+      $result.pagination = pagination;
+    }
+    return $result;
+  }
+  QueryGroupsResponse._() : super();
+  factory QueryGroupsResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGroupsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGroupsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.group.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.GroupInfo>(1, _omitFieldNames ? '' : 'groups', $pb.PbFieldType.PM,
+        subBuilder: $1.GroupInfo.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGroupsResponse clone() => QueryGroupsResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGroupsResponse copyWith(void Function(QueryGroupsResponse) updates) =>
+      super.copyWith((message) => updates(message as QueryGroupsResponse))
+          as QueryGroupsResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGroupsResponse create() => QueryGroupsResponse._();
+  QueryGroupsResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryGroupsResponse> createRepeated() =>
+      $pb.PbList<QueryGroupsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGroupsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGroupsResponse>(create);
+  static QueryGroupsResponse? _defaultInstance;
+
+  /// `groups` is all the groups present in state.
+  @$pb.TagNumber(1)
+  $core.List<$1.GroupInfo> get groups => $_getList(0);
+
+  /// pagination defines the pagination in the response.
+  @$pb.TagNumber(2)
+  $2.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageResponse v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageResponse ensurePagination() => $_ensure(1);
+}
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

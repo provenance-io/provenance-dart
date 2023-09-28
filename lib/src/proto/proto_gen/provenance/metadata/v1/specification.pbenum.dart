@@ -1,35 +1,28 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/metadata/v1/specification.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-// ignore_for_file: UNDEFINED_SHOWN_NAME
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:core' as $core;
+
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// DefinitionType indicates the required definition type for this value
 class DefinitionType extends $pb.ProtobufEnum {
-  static const DefinitionType DEFINITION_TYPE_UNSPECIFIED = DefinitionType._(
-      0,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DEFINITION_TYPE_UNSPECIFIED');
-  static const DefinitionType DEFINITION_TYPE_PROPOSED = DefinitionType._(
-      1,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DEFINITION_TYPE_PROPOSED');
-  static const DefinitionType DEFINITION_TYPE_RECORD = DefinitionType._(
-      2,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DEFINITION_TYPE_RECORD');
-  static const DefinitionType DEFINITION_TYPE_RECORD_LIST = DefinitionType._(
-      3,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DEFINITION_TYPE_RECORD_LIST');
+  static const DefinitionType DEFINITION_TYPE_UNSPECIFIED =
+      DefinitionType._(0, _omitEnumNames ? '' : 'DEFINITION_TYPE_UNSPECIFIED');
+  static const DefinitionType DEFINITION_TYPE_PROPOSED =
+      DefinitionType._(1, _omitEnumNames ? '' : 'DEFINITION_TYPE_PROPOSED');
+  static const DefinitionType DEFINITION_TYPE_RECORD =
+      DefinitionType._(2, _omitEnumNames ? '' : 'DEFINITION_TYPE_RECORD');
+  static const DefinitionType DEFINITION_TYPE_RECORD_LIST =
+      DefinitionType._(3, _omitEnumNames ? '' : 'DEFINITION_TYPE_RECORD_LIST');
 
   static const $core.List<DefinitionType> values = <DefinitionType>[
     DEFINITION_TYPE_UNSPECIFIED,
@@ -45,62 +38,30 @@ class DefinitionType extends $pb.ProtobufEnum {
   const DefinitionType._($core.int v, $core.String n) : super(v, n);
 }
 
+/// PartyType are the different roles parties on a contract may use
 class PartyType extends $pb.ProtobufEnum {
-  static const PartyType PARTY_TYPE_UNSPECIFIED = PartyType._(
-      0,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_UNSPECIFIED');
-  static const PartyType PARTY_TYPE_ORIGINATOR = PartyType._(
-      1,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_ORIGINATOR');
-  static const PartyType PARTY_TYPE_SERVICER = PartyType._(
-      2,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_SERVICER');
-  static const PartyType PARTY_TYPE_INVESTOR = PartyType._(
-      3,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_INVESTOR');
-  static const PartyType PARTY_TYPE_CUSTODIAN = PartyType._(
-      4,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_CUSTODIAN');
-  static const PartyType PARTY_TYPE_OWNER = PartyType._(
-      5,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_OWNER');
-  static const PartyType PARTY_TYPE_AFFILIATE = PartyType._(
-      6,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_AFFILIATE');
-  static const PartyType PARTY_TYPE_OMNIBUS = PartyType._(
-      7,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_OMNIBUS');
-  static const PartyType PARTY_TYPE_PROVENANCE = PartyType._(
-      8,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_PROVENANCE');
-  static const PartyType PARTY_TYPE_CONTROLLER = PartyType._(
-      10,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_CONTROLLER');
-  static const PartyType PARTY_TYPE_VALIDATOR = PartyType._(
-      11,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PARTY_TYPE_VALIDATOR');
+  static const PartyType PARTY_TYPE_UNSPECIFIED =
+      PartyType._(0, _omitEnumNames ? '' : 'PARTY_TYPE_UNSPECIFIED');
+  static const PartyType PARTY_TYPE_ORIGINATOR =
+      PartyType._(1, _omitEnumNames ? '' : 'PARTY_TYPE_ORIGINATOR');
+  static const PartyType PARTY_TYPE_SERVICER =
+      PartyType._(2, _omitEnumNames ? '' : 'PARTY_TYPE_SERVICER');
+  static const PartyType PARTY_TYPE_INVESTOR =
+      PartyType._(3, _omitEnumNames ? '' : 'PARTY_TYPE_INVESTOR');
+  static const PartyType PARTY_TYPE_CUSTODIAN =
+      PartyType._(4, _omitEnumNames ? '' : 'PARTY_TYPE_CUSTODIAN');
+  static const PartyType PARTY_TYPE_OWNER =
+      PartyType._(5, _omitEnumNames ? '' : 'PARTY_TYPE_OWNER');
+  static const PartyType PARTY_TYPE_AFFILIATE =
+      PartyType._(6, _omitEnumNames ? '' : 'PARTY_TYPE_AFFILIATE');
+  static const PartyType PARTY_TYPE_OMNIBUS =
+      PartyType._(7, _omitEnumNames ? '' : 'PARTY_TYPE_OMNIBUS');
+  static const PartyType PARTY_TYPE_PROVENANCE =
+      PartyType._(8, _omitEnumNames ? '' : 'PARTY_TYPE_PROVENANCE');
+  static const PartyType PARTY_TYPE_CONTROLLER =
+      PartyType._(10, _omitEnumNames ? '' : 'PARTY_TYPE_CONTROLLER');
+  static const PartyType PARTY_TYPE_VALIDATOR =
+      PartyType._(11, _omitEnumNames ? '' : 'PARTY_TYPE_VALIDATOR');
 
   static const $core.List<PartyType> values = <PartyType>[
     PARTY_TYPE_UNSPECIFIED,
@@ -122,3 +83,5 @@ class PartyType extends $pb.ProtobufEnum {
 
   const PartyType._($core.int v, $core.String n) : super(v, n);
 }
+
+const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

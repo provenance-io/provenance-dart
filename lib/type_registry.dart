@@ -1,169 +1,187 @@
 library provenance_dart;
 
 import 'package:protobuf/protobuf.dart';
-import 'package:provenance_dart/proto_cosmos_app_module_v1alpha1.dart'
-    as cosmos_app_module_v1alpha1;
-import 'package:provenance_dart/proto_cosmos_app_v1alpha1.dart'
-    as cosmos_app_v1alpha1;
-import 'package:provenance_dart/proto_cosmos_auth_v1beta1.dart'
-    as cosmos_auth_v1beta1;
-import 'package:provenance_dart/proto_cosmos_authz_v1beta1.dart'
-    as cosmos_authz_v1beta1;
-import 'package:provenance_dart/proto_cosmos_bank_v1beta1.dart'
-    as cosmos_bank_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_abci_v1beta1.dart'
-    as cosmos_base_abci_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_kv_v1beta1.dart'
-    as cosmos_base_kv_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_node_v1beta1.dart'
-    as cosmos_base_node_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_query_v1beta1.dart'
-    as cosmos_base_query_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_reflection_v1beta1.dart'
-    as cosmos_base_reflection_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_reflection_v2alpha1.dart'
-    as cosmos_base_reflection_v2alpha1;
-import 'package:provenance_dart/proto_cosmos_base_snapshots_v1beta1.dart'
-    as cosmos_base_snapshots_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_store_v1beta1.dart'
-    as cosmos_base_store_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_tendermint_v1beta1.dart'
-    as cosmos_base_tendermint_v1beta1;
-import 'package:provenance_dart/proto_cosmos_base_v1beta1.dart'
-    as cosmos_base_v1beta1;
-import 'package:provenance_dart/proto_cosmos_capability_v1beta1.dart'
-    as cosmos_capability_v1beta1;
-import 'package:provenance_dart/proto_cosmos_crisis_v1beta1.dart'
-    as cosmos_crisis_v1beta1;
-import 'package:provenance_dart/proto_cosmos_crypto_ed25519.dart'
-    as cosmos_crypto_ed25519;
+import 'package:provenance_dart/proto_cosmwasm_wasm_v1.dart'
+    as cosmwasm_wasm_v1;
+import 'package:provenance_dart/proto_cosmwasm_wasm_v1beta1.dart'
+    as cosmwasm_wasm_v1beta1;
+import 'package:provenance_dart/proto_proofs.dart' as proofs;
+import 'package:provenance_dart/proto_gogoproto.dart' as gogoproto;
+import 'package:provenance_dart/proto_cosmos_proto.dart' as cosmos_proto;
+import 'package:provenance_dart/proto_google_api.dart' as google_api;
+import 'package:provenance_dart/proto_google_protobuf.dart' as google_protobuf;
 import 'package:provenance_dart/proto_cosmos_crypto_hd_v1.dart'
     as cosmos_crypto_hd_v1;
-import 'package:provenance_dart/proto_cosmos_crypto_keyring_v1.dart'
-    as cosmos_crypto_keyring_v1;
+import 'package:provenance_dart/proto_cosmos_crypto_secp256r1.dart'
+    as cosmos_crypto_secp256r1;
 import 'package:provenance_dart/proto_cosmos_crypto_multisig.dart'
     as cosmos_crypto_multisig;
 import 'package:provenance_dart/proto_cosmos_crypto_multisig_v1beta1.dart'
     as cosmos_crypto_multisig_v1beta1;
 import 'package:provenance_dart/proto_cosmos_crypto_secp256k1.dart'
     as cosmos_crypto_secp256k1;
-import 'package:provenance_dart/proto_cosmos_crypto_secp256r1.dart'
-    as cosmos_crypto_secp256r1;
-import 'package:provenance_dart/proto_cosmos_distribution_v1beta1.dart'
-    as cosmos_distribution_v1beta1;
-import 'package:provenance_dart/proto_cosmos_evidence_v1beta1.dart'
-    as cosmos_evidence_v1beta1;
+import 'package:provenance_dart/proto_cosmos_crypto_keyring_v1.dart'
+    as cosmos_crypto_keyring_v1;
+import 'package:provenance_dart/proto_cosmos_crypto_ed25519.dart'
+    as cosmos_crypto_ed25519;
+import 'package:provenance_dart/proto_cosmos_quarantine_v1beta1.dart'
+    as cosmos_quarantine_v1beta1;
+import 'package:provenance_dart/proto_cosmos_upgrade_v1beta1.dart'
+    as cosmos_upgrade_v1beta1;
 import 'package:provenance_dart/proto_cosmos_feegrant_v1beta1.dart'
     as cosmos_feegrant_v1beta1;
-import 'package:provenance_dart/proto_cosmos_genutil_v1beta1.dart'
-    as cosmos_genutil_v1beta1;
-import 'package:provenance_dart/proto_cosmos_gov_v1.dart' as cosmos_gov_v1;
-import 'package:provenance_dart/proto_cosmos_gov_v1beta1.dart'
-    as cosmos_gov_v1beta1;
-import 'package:provenance_dart/proto_cosmos_group_v1.dart' as cosmos_group_v1;
 import 'package:provenance_dart/proto_cosmos_mint_v1beta1.dart'
     as cosmos_mint_v1beta1;
+import 'package:provenance_dart/proto_cosmos_app_module_v1alpha1.dart'
+    as cosmos_app_module_v1alpha1;
+import 'package:provenance_dart/proto_cosmos_app_v1alpha1.dart'
+    as cosmos_app_v1alpha1;
+import 'package:provenance_dart/proto_cosmos_evidence_v1beta1.dart'
+    as cosmos_evidence_v1beta1;
 import 'package:provenance_dart/proto_cosmos_nft_v1beta1.dart'
     as cosmos_nft_v1beta1;
-import 'package:provenance_dart/proto_cosmos_orm_module_v1alpha1.dart'
-    as cosmos_orm_module_v1alpha1;
-import 'package:provenance_dart/proto_cosmos_orm_v1.dart' as cosmos_orm_v1;
-import 'package:provenance_dart/proto_cosmos_orm_v1alpha1.dart'
-    as cosmos_orm_v1alpha1;
-import 'package:provenance_dart/proto_cosmos_params_v1beta1.dart'
-    as cosmos_params_v1beta1;
-import 'package:provenance_dart/proto_cosmos_proto.dart' as cosmos_proto;
-import 'package:provenance_dart/proto_cosmos_slashing_v1beta1.dart'
-    as cosmos_slashing_v1beta1;
-import 'package:provenance_dart/proto_cosmos_staking_v1beta1.dart'
-    as cosmos_staking_v1beta1;
+import 'package:provenance_dart/proto_cosmos_msg_v1.dart' as cosmos_msg_v1;
+import 'package:provenance_dart/proto_cosmos_auth_v1beta1.dart'
+    as cosmos_auth_v1beta1;
+import 'package:provenance_dart/proto_cosmos_group_v1.dart' as cosmos_group_v1;
+import 'package:provenance_dart/proto_cosmos_bank_v1beta1.dart'
+    as cosmos_bank_v1beta1;
+import 'package:provenance_dart/proto_cosmos_sanction_v1beta1.dart'
+    as cosmos_sanction_v1beta1;
+import 'package:provenance_dart/proto_cosmos_capability_v1beta1.dart'
+    as cosmos_capability_v1beta1;
+import 'package:provenance_dart/proto_cosmos_distribution_v1beta1.dart'
+    as cosmos_distribution_v1beta1;
+import 'package:provenance_dart/proto_cosmos_crisis_v1beta1.dart'
+    as cosmos_crisis_v1beta1;
 import 'package:provenance_dart/proto_cosmos_tx_signing_v1beta1.dart'
     as cosmos_tx_signing_v1beta1;
 import 'package:provenance_dart/proto_cosmos_tx_v1beta1.dart'
     as cosmos_tx_v1beta1;
-import 'package:provenance_dart/proto_cosmos_upgrade_v1beta1.dart'
-    as cosmos_upgrade_v1beta1;
+import 'package:provenance_dart/proto_cosmos_streaming_abci_v1.dart'
+    as cosmos_streaming_abci_v1;
 import 'package:provenance_dart/proto_cosmos_vesting_v1beta1.dart'
     as cosmos_vesting_v1beta1;
-import 'package:provenance_dart/proto_cosmwasm_wasm_v1.dart'
-    as cosmwasm_wasm_v1;
-import 'package:provenance_dart/proto_cosmwasm_wasm_v1beta1.dart'
-    as cosmwasm_wasm_v1beta1;
-import 'package:provenance_dart/proto_google_api.dart' as google_api;
-import 'package:provenance_dart/proto_google_protobuf.dart' as google_protobuf;
-import 'package:provenance_dart/proto_ibc_applications_fee_v1.dart'
-    as ibc_applications_fee_v1;
-import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_controller_v1.dart'
-    as ibc_applications_interchain_accounts_controller_v1;
-import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_host_v1.dart'
-    as ibc_applications_interchain_accounts_host_v1;
-import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_v1.dart'
-    as ibc_applications_interchain_accounts_v1;
-import 'package:provenance_dart/proto_ibc_applications_transfer_v1.dart'
-    as ibc_applications_transfer_v1;
-import 'package:provenance_dart/proto_ibc_applications_transfer_v2.dart'
-    as ibc_applications_transfer_v2;
-import 'package:provenance_dart/proto_ibc_core_channel_v1.dart'
-    as ibc_core_channel_v1;
-import 'package:provenance_dart/proto_ibc_core_client_v1.dart'
-    as ibc_core_client_v1;
-import 'package:provenance_dart/proto_ibc_core_commitment_v1.dart'
-    as ibc_core_commitment_v1;
-import 'package:provenance_dart/proto_ibc_core_connection_v1.dart'
-    as ibc_core_connection_v1;
-import 'package:provenance_dart/proto_ibc_core_port_v1.dart'
-    as ibc_core_port_v1;
+import 'package:provenance_dart/proto_cosmos_staking_v1beta1.dart'
+    as cosmos_staking_v1beta1;
+import 'package:provenance_dart/proto_cosmos_genutil_v1beta1.dart'
+    as cosmos_genutil_v1beta1;
+import 'package:provenance_dart/proto_cosmos_params_v1beta1.dart'
+    as cosmos_params_v1beta1;
+import 'package:provenance_dart/proto_cosmos_authz_v1beta1.dart'
+    as cosmos_authz_v1beta1;
+import 'package:provenance_dart/proto_cosmos_orm_v1.dart' as cosmos_orm_v1;
+import 'package:provenance_dart/proto_cosmos_orm_module_v1alpha1.dart'
+    as cosmos_orm_module_v1alpha1;
+import 'package:provenance_dart/proto_cosmos_orm_v1alpha1.dart'
+    as cosmos_orm_v1alpha1;
+import 'package:provenance_dart/proto_cosmos_slashing_v1beta1.dart'
+    as cosmos_slashing_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_abci_v1beta1.dart'
+    as cosmos_base_abci_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_kv_v1beta1.dart'
+    as cosmos_base_kv_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_snapshots_v1beta1.dart'
+    as cosmos_base_snapshots_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_v1beta1.dart'
+    as cosmos_base_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_tendermint_v1beta1.dart'
+    as cosmos_base_tendermint_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_node_v1beta1.dart'
+    as cosmos_base_node_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_query_v1beta1.dart'
+    as cosmos_base_query_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_store_v1beta1.dart'
+    as cosmos_base_store_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_reflection_v1beta1.dart'
+    as cosmos_base_reflection_v1beta1;
+import 'package:provenance_dart/proto_cosmos_base_reflection_v2alpha1.dart'
+    as cosmos_base_reflection_v2alpha1;
+import 'package:provenance_dart/proto_cosmos_gov_v1.dart' as cosmos_gov_v1;
+import 'package:provenance_dart/proto_cosmos_gov_v1beta1.dart'
+    as cosmos_gov_v1beta1;
 import 'package:provenance_dart/proto_ibc_core_types_v1.dart'
     as ibc_core_types_v1;
-import 'package:provenance_dart/proto_ibc_lightclients_localhost_v1.dart'
-    as ibc_lightclients_localhost_v1;
+import 'package:provenance_dart/proto_ibc_core_connection_v1.dart'
+    as ibc_core_connection_v1;
+import 'package:provenance_dart/proto_ibc_core_commitment_v1.dart'
+    as ibc_core_commitment_v1;
+import 'package:provenance_dart/proto_ibc_core_channel_v1.dart'
+    as ibc_core_channel_v1;
+import 'package:provenance_dart/proto_ibc_core_port_v1.dart'
+    as ibc_core_port_v1;
+import 'package:provenance_dart/proto_ibc_core_client_v1.dart'
+    as ibc_core_client_v1;
 import 'package:provenance_dart/proto_ibc_lightclients_solomachine_v1.dart'
     as ibc_lightclients_solomachine_v1;
 import 'package:provenance_dart/proto_ibc_lightclients_solomachine_v2.dart'
     as ibc_lightclients_solomachine_v2;
 import 'package:provenance_dart/proto_ibc_lightclients_tendermint_v1.dart'
     as ibc_lightclients_tendermint_v1;
-import 'package:provenance_dart/proto_proofs.dart' as proofs;
+import 'package:provenance_dart/proto_ibc_lightclients_localhost_v1.dart'
+    as ibc_lightclients_localhost_v1;
+import 'package:provenance_dart/proto_ibc_applications_fee_v1.dart'
+    as ibc_applications_fee_v1;
+import 'package:provenance_dart/proto_ibc_applications_transfer_v1.dart'
+    as ibc_applications_transfer_v1;
+import 'package:provenance_dart/proto_ibc_applications_transfer_v2.dart'
+    as ibc_applications_transfer_v2;
+import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_v1.dart'
+    as ibc_applications_interchain_accounts_v1;
+import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_host_v1.dart'
+    as ibc_applications_interchain_accounts_host_v1;
+import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_controller_v1.dart'
+    as ibc_applications_interchain_accounts_controller_v1;
+import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_genesis_v1.dart'
+    as ibc_applications_interchain_accounts_genesis_v1;
+import 'package:provenance_dart/proto_provenance_trigger_v1.dart'
+    as provenance_trigger_v1;
 import 'package:provenance_dart/proto_provenance_attribute_v1.dart'
     as provenance_attribute_v1;
+import 'package:provenance_dart/proto_provenance_msgfees_v1.dart'
+    as provenance_msgfees_v1;
+import 'package:provenance_dart/proto_provenance_oracle_v1.dart'
+    as provenance_oracle_v1;
+import 'package:provenance_dart/proto_provenance_reward_v1.dart'
+    as provenance_reward_v1;
+import 'package:provenance_dart/proto_provenance_ibchooks_v1.dart'
+    as provenance_ibchooks_v1;
 import 'package:provenance_dart/proto_provenance_marker_v1.dart'
     as provenance_marker_v1;
+import 'package:provenance_dart/proto_provenance_name_v1.dart'
+    as provenance_name_v1;
 import 'package:provenance_dart/proto_provenance_metadata_v1.dart'
     as provenance_metadata_v1;
 import 'package:provenance_dart/proto_provenance_metadata_v1_p8e.dart'
     as provenance_metadata_v1_p8e;
-import 'package:provenance_dart/proto_provenance_msgfees_v1.dart'
-    as provenance_msgfees_v1;
-import 'package:provenance_dart/proto_provenance_name_v1.dart'
-    as provenance_name_v1;
-import 'package:provenance_dart/proto_provenance_reward_v1.dart'
-    as provenance_reward_v1;
-import 'package:provenance_dart/proto_tendermint_abci.dart' as tendermint_abci;
-import 'package:provenance_dart/proto_tendermint_blockchain.dart'
-    as tendermint_blockchain;
+import 'package:provenance_dart/proto_provenance_hold_v1.dart'
+    as provenance_hold_v1;
+import 'package:provenance_dart/proto_tendermint_statesync.dart'
+    as tendermint_statesync;
 import 'package:provenance_dart/proto_tendermint_consensus.dart'
     as tendermint_consensus;
 import 'package:provenance_dart/proto_tendermint_crypto.dart'
     as tendermint_crypto;
-import 'package:provenance_dart/proto_tendermint_libs_bits.dart'
-    as tendermint_libs_bits;
-import 'package:provenance_dart/proto_tendermint_mempool.dart'
-    as tendermint_mempool;
-import 'package:provenance_dart/proto_tendermint_p2p.dart' as tendermint_p2p;
-import 'package:provenance_dart/proto_tendermint_privval.dart'
-    as tendermint_privval;
-import 'package:provenance_dart/proto_tendermint_rpc_grpc.dart'
-    as tendermint_rpc_grpc;
-import 'package:provenance_dart/proto_tendermint_state.dart'
-    as tendermint_state;
-import 'package:provenance_dart/proto_tendermint_statesync.dart'
-    as tendermint_statesync;
-import 'package:provenance_dart/proto_tendermint_store.dart'
-    as tendermint_store;
+import 'package:provenance_dart/proto_tendermint_abci.dart' as tendermint_abci;
 import 'package:provenance_dart/proto_tendermint_types.dart'
     as tendermint_types;
+import 'package:provenance_dart/proto_tendermint_privval.dart'
+    as tendermint_privval;
+import 'package:provenance_dart/proto_tendermint_state.dart'
+    as tendermint_state;
+import 'package:provenance_dart/proto_tendermint_libs_bits.dart'
+    as tendermint_libs_bits;
+import 'package:provenance_dart/proto_tendermint_blockchain.dart'
+    as tendermint_blockchain;
 import 'package:provenance_dart/proto_tendermint_version.dart'
     as tendermint_version;
+import 'package:provenance_dart/proto_tendermint_p2p.dart' as tendermint_p2p;
+import 'package:provenance_dart/proto_tendermint_mempool.dart'
+    as tendermint_mempool;
+import 'package:provenance_dart/proto_tendermint_rpc_grpc.dart'
+    as tendermint_rpc_grpc;
+import 'package:provenance_dart/proto_tendermint_store.dart'
+    as tendermint_store;
 
 TypeRegistry provenanceTypes = TypeRegistry([
   cosmwasm_wasm_v1.StoreCodeProposal(),
@@ -177,6 +195,7 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmwasm_wasm_v1.UnpinCodesProposal(),
   cosmwasm_wasm_v1.AccessConfigUpdate(),
   cosmwasm_wasm_v1.UpdateInstantiateConfigProposal(),
+  cosmwasm_wasm_v1.StoreAndInstantiateContractProposal(),
   cosmwasm_wasm_v1.AccessTypeParam(),
   cosmwasm_wasm_v1.AccessConfig(),
   cosmwasm_wasm_v1.Params(),
@@ -185,6 +204,15 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmwasm_wasm_v1.ContractCodeHistoryEntry(),
   cosmwasm_wasm_v1.AbsoluteTxPosition(),
   cosmwasm_wasm_v1.Model(),
+  cosmwasm_wasm_v1.ContractExecutionAuthorization(),
+  cosmwasm_wasm_v1.ContractMigrationAuthorization(),
+  cosmwasm_wasm_v1.ContractGrant(),
+  cosmwasm_wasm_v1.MaxCallsLimit(),
+  cosmwasm_wasm_v1.MaxFundsLimit(),
+  cosmwasm_wasm_v1.CombinedLimit(),
+  cosmwasm_wasm_v1.AllowAllMessagesFilter(),
+  cosmwasm_wasm_v1.AcceptedMessageKeysFilter(),
+  cosmwasm_wasm_v1.AcceptedMessagesFilter(),
   cosmwasm_wasm_v1.GenesisState_GenMsgs(),
   cosmwasm_wasm_v1.GenesisState(),
   cosmwasm_wasm_v1.Code(),
@@ -227,6 +255,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmwasm_wasm_v1.QueryPinnedCodesResponse(),
   cosmwasm_wasm_v1.QueryParamsRequest(),
   cosmwasm_wasm_v1.QueryParamsResponse(),
+  cosmwasm_wasm_v1.QueryContractsByCreatorRequest(),
+  cosmwasm_wasm_v1.QueryContractsByCreatorResponse(),
   cosmwasm_wasm_v1beta1.StoreCodeProposal(),
   cosmwasm_wasm_v1beta1.InstantiateContractProposal(),
   cosmwasm_wasm_v1beta1.MigrateContractProposal(),
@@ -342,6 +372,32 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_crypto_keyring_v1.Record(),
   cosmos_crypto_ed25519.PubKey(),
   cosmos_crypto_ed25519.PrivKey(),
+  cosmos_quarantine_v1beta1.QuarantinedFunds(),
+  cosmos_quarantine_v1beta1.AutoResponseEntry(),
+  cosmos_quarantine_v1beta1.AutoResponseUpdate(),
+  cosmos_quarantine_v1beta1.QuarantineRecord(),
+  cosmos_quarantine_v1beta1.QuarantineRecordSuffixIndex(),
+  cosmos_quarantine_v1beta1.GenesisState(),
+  cosmos_quarantine_v1beta1.MsgOptIn(),
+  cosmos_quarantine_v1beta1.MsgOptInResponse(),
+  cosmos_quarantine_v1beta1.MsgOptOut(),
+  cosmos_quarantine_v1beta1.MsgOptOutResponse(),
+  cosmos_quarantine_v1beta1.MsgAccept(),
+  cosmos_quarantine_v1beta1.MsgAcceptResponse(),
+  cosmos_quarantine_v1beta1.MsgDecline(),
+  cosmos_quarantine_v1beta1.MsgDeclineResponse(),
+  cosmos_quarantine_v1beta1.MsgUpdateAutoResponses(),
+  cosmos_quarantine_v1beta1.MsgUpdateAutoResponsesResponse(),
+  cosmos_quarantine_v1beta1.QueryIsQuarantinedRequest(),
+  cosmos_quarantine_v1beta1.QueryIsQuarantinedResponse(),
+  cosmos_quarantine_v1beta1.QueryQuarantinedFundsRequest(),
+  cosmos_quarantine_v1beta1.QueryQuarantinedFundsResponse(),
+  cosmos_quarantine_v1beta1.QueryAutoResponsesRequest(),
+  cosmos_quarantine_v1beta1.QueryAutoResponsesResponse(),
+  cosmos_quarantine_v1beta1.EventOptIn(),
+  cosmos_quarantine_v1beta1.EventOptOut(),
+  cosmos_quarantine_v1beta1.EventFundsQuarantined(),
+  cosmos_quarantine_v1beta1.EventFundsReleased(),
   cosmos_upgrade_v1beta1.Plan(),
   cosmos_upgrade_v1beta1.SoftwareUpgradeProposal(),
   cosmos_upgrade_v1beta1.CancelSoftwareUpgradeProposal(),
@@ -409,15 +465,31 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_nft_v1beta1.Entry(),
   cosmos_nft_v1beta1.MsgSend(),
   cosmos_nft_v1beta1.MsgSendResponse(),
+  cosmos_nft_v1beta1.QueryBalanceRequest(),
+  cosmos_nft_v1beta1.QueryBalanceResponse(),
+  cosmos_nft_v1beta1.QueryOwnerRequest(),
+  cosmos_nft_v1beta1.QueryOwnerResponse(),
+  cosmos_nft_v1beta1.QuerySupplyRequest(),
+  cosmos_nft_v1beta1.QuerySupplyResponse(),
+  cosmos_nft_v1beta1.QueryNFTsRequest(),
+  cosmos_nft_v1beta1.QueryNFTsResponse(),
+  cosmos_nft_v1beta1.QueryNFTRequest(),
+  cosmos_nft_v1beta1.QueryNFTResponse(),
+  cosmos_nft_v1beta1.QueryClassRequest(),
+  cosmos_nft_v1beta1.QueryClassResponse(),
+  cosmos_nft_v1beta1.QueryClassesRequest(),
+  cosmos_nft_v1beta1.QueryClassesResponse(),
   cosmos_auth_v1beta1.GenesisState(),
   cosmos_auth_v1beta1.QueryAccountsRequest(),
   cosmos_auth_v1beta1.QueryAccountsResponse(),
   cosmos_auth_v1beta1.QueryAccountRequest(),
-  cosmos_auth_v1beta1.QueryModuleAccountsRequest(),
-  cosmos_auth_v1beta1.QueryParamsResponse(),
   cosmos_auth_v1beta1.QueryAccountResponse(),
   cosmos_auth_v1beta1.QueryParamsRequest(),
+  cosmos_auth_v1beta1.QueryParamsResponse(),
+  cosmos_auth_v1beta1.QueryModuleAccountsRequest(),
   cosmos_auth_v1beta1.QueryModuleAccountsResponse(),
+  cosmos_auth_v1beta1.QueryModuleAccountByNameRequest(),
+  cosmos_auth_v1beta1.QueryModuleAccountByNameResponse(),
   cosmos_auth_v1beta1.Bech32PrefixRequest(),
   cosmos_auth_v1beta1.Bech32PrefixResponse(),
   cosmos_auth_v1beta1.AddressBytesToStringRequest(),
@@ -495,6 +567,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_group_v1.QueryGroupsByMemberResponse(),
   cosmos_group_v1.QueryTallyResultRequest(),
   cosmos_group_v1.QueryTallyResultResponse(),
+  cosmos_group_v1.QueryGroupsRequest(),
+  cosmos_group_v1.QueryGroupsResponse(),
   cosmos_group_v1.EventCreateGroup(),
   cosmos_group_v1.EventUpdateGroup(),
   cosmos_group_v1.EventCreateGroupPolicy(),
@@ -504,6 +578,7 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_group_v1.EventVote(),
   cosmos_group_v1.EventExec(),
   cosmos_group_v1.EventLeaveGroup(),
+  cosmos_group_v1.EventProposalPruned(),
   cosmos_bank_v1beta1.SendAuthorization(),
   cosmos_bank_v1beta1.GenesisState(),
   cosmos_bank_v1beta1.Balance(),
@@ -511,6 +586,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_bank_v1beta1.MsgSendResponse(),
   cosmos_bank_v1beta1.MsgMultiSend(),
   cosmos_bank_v1beta1.MsgMultiSendResponse(),
+  cosmos_bank_v1beta1.MsgUpdateDenomMetadata(),
+  cosmos_bank_v1beta1.MsgUpdateDenomMetadataResponse(),
   cosmos_bank_v1beta1.QueryBalanceRequest(),
   cosmos_bank_v1beta1.QueryBalanceResponse(),
   cosmos_bank_v1beta1.QueryAllBalancesRequest(),
@@ -539,6 +616,28 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_bank_v1beta1.Supply(),
   cosmos_bank_v1beta1.DenomUnit(),
   cosmos_bank_v1beta1.Metadata(),
+  cosmos_sanction_v1beta1.GenesisState(),
+  cosmos_sanction_v1beta1.MsgSanction(),
+  cosmos_sanction_v1beta1.MsgSanctionResponse(),
+  cosmos_sanction_v1beta1.MsgUnsanction(),
+  cosmos_sanction_v1beta1.MsgUnsanctionResponse(),
+  cosmos_sanction_v1beta1.MsgUpdateParams(),
+  cosmos_sanction_v1beta1.MsgUpdateParamsResponse(),
+  cosmos_sanction_v1beta1.QueryIsSanctionedRequest(),
+  cosmos_sanction_v1beta1.QueryIsSanctionedResponse(),
+  cosmos_sanction_v1beta1.QuerySanctionedAddressesRequest(),
+  cosmos_sanction_v1beta1.QuerySanctionedAddressesResponse(),
+  cosmos_sanction_v1beta1.QueryTemporaryEntriesRequest(),
+  cosmos_sanction_v1beta1.QueryTemporaryEntriesResponse(),
+  cosmos_sanction_v1beta1.QueryParamsRequest(),
+  cosmos_sanction_v1beta1.QueryParamsResponse(),
+  cosmos_sanction_v1beta1.Params(),
+  cosmos_sanction_v1beta1.TemporaryEntry(),
+  cosmos_sanction_v1beta1.EventAddressSanctioned(),
+  cosmos_sanction_v1beta1.EventAddressUnsanctioned(),
+  cosmos_sanction_v1beta1.EventTempAddressSanctioned(),
+  cosmos_sanction_v1beta1.EventTempAddressUnsanctioned(),
+  cosmos_sanction_v1beta1.EventParamsUpdated(),
   cosmos_capability_v1beta1.GenesisOwners(),
   cosmos_capability_v1beta1.GenesisState(),
   cosmos_capability_v1beta1.Capability(),
@@ -621,6 +720,14 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_tx_v1beta1.Fee(),
   cosmos_tx_v1beta1.Tip(),
   cosmos_tx_v1beta1.AuxSignerData(),
+  cosmos_streaming_abci_v1.ListenBeginBlockRequest(),
+  cosmos_streaming_abci_v1.ListenBeginBlockResponse(),
+  cosmos_streaming_abci_v1.ListenEndBlockRequest(),
+  cosmos_streaming_abci_v1.ListenEndBlockResponse(),
+  cosmos_streaming_abci_v1.ListenDeliverTxRequest(),
+  cosmos_streaming_abci_v1.ListenDeliverTxResponse(),
+  cosmos_streaming_abci_v1.ListenCommitRequest(),
+  cosmos_streaming_abci_v1.ListenCommitResponse(),
   cosmos_vesting_v1beta1.BaseVestingAccount(),
   cosmos_vesting_v1beta1.ContinuousVestingAccount(),
   cosmos_vesting_v1beta1.DelayedVestingAccount(),
@@ -800,6 +907,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   cosmos_base_store_v1beta1.StoreInfo(),
   cosmos_base_store_v1beta1.CommitID(),
   cosmos_base_store_v1beta1.StoreKVPair(),
+  cosmos_base_store_v1beta1.BlockMetadata_DeliverTx(),
+  cosmos_base_store_v1beta1.BlockMetadata(),
   cosmos_base_reflection_v1beta1.ListAllInterfacesRequest(),
   cosmos_base_reflection_v1beta1.ListAllInterfacesResponse(),
   cosmos_base_reflection_v1beta1.ListImplementationsRequest(),
@@ -926,6 +1035,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   ibc_core_connection_v1.QueryConnectionClientStateResponse(),
   ibc_core_connection_v1.QueryConnectionConsensusStateRequest(),
   ibc_core_connection_v1.QueryConnectionConsensusStateResponse(),
+  ibc_core_connection_v1.QueryConnectionParamsRequest(),
+  ibc_core_connection_v1.QueryConnectionParamsResponse(),
   ibc_core_commitment_v1.MerkleRoot(),
   ibc_core_commitment_v1.MerklePrefix(),
   ibc_core_commitment_v1.MerklePath(),
@@ -1100,6 +1211,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   ibc_applications_fee_v1.QueryFeeEnabledChannelsResponse(),
   ibc_applications_fee_v1.QueryFeeEnabledChannelRequest(),
   ibc_applications_fee_v1.QueryFeeEnabledChannelResponse(),
+  ibc_applications_transfer_v1.Allocation(),
+  ibc_applications_transfer_v1.TransferAuthorization(),
   ibc_applications_transfer_v1.GenesisState(),
   ibc_applications_transfer_v1.MsgTransfer(),
   ibc_applications_transfer_v1.MsgTransferResponse(),
@@ -1120,36 +1233,67 @@ TypeRegistry provenanceTypes = TypeRegistry([
   ibc_applications_interchain_accounts_v1.InterchainAccount(),
   ibc_applications_interchain_accounts_v1.InterchainAccountPacketData(),
   ibc_applications_interchain_accounts_v1.CosmosTx(),
-  ibc_applications_interchain_accounts_v1.GenesisState(),
-  ibc_applications_interchain_accounts_v1.ControllerGenesisState(),
-  ibc_applications_interchain_accounts_v1.HostGenesisState(),
-  ibc_applications_interchain_accounts_v1.ActiveChannel(),
-  ibc_applications_interchain_accounts_v1.RegisteredInterchainAccount(),
   ibc_applications_interchain_accounts_host_v1.Params(),
   ibc_applications_interchain_accounts_host_v1.QueryParamsRequest(),
   ibc_applications_interchain_accounts_host_v1.QueryParamsResponse(),
   ibc_applications_interchain_accounts_controller_v1.Params(),
+  ibc_applications_interchain_accounts_controller_v1
+      .MsgRegisterInterchainAccount(),
+  ibc_applications_interchain_accounts_controller_v1
+      .MsgRegisterInterchainAccountResponse(),
+  ibc_applications_interchain_accounts_controller_v1.MsgSendTx(),
+  ibc_applications_interchain_accounts_controller_v1.MsgSendTxResponse(),
   ibc_applications_interchain_accounts_controller_v1
       .QueryInterchainAccountRequest(),
   ibc_applications_interchain_accounts_controller_v1
       .QueryInterchainAccountResponse(),
   ibc_applications_interchain_accounts_controller_v1.QueryParamsRequest(),
   ibc_applications_interchain_accounts_controller_v1.QueryParamsResponse(),
+  ibc_applications_interchain_accounts_genesis_v1.GenesisState(),
+  ibc_applications_interchain_accounts_genesis_v1.ControllerGenesisState(),
+  ibc_applications_interchain_accounts_genesis_v1.HostGenesisState(),
+  ibc_applications_interchain_accounts_genesis_v1.ActiveChannel(),
+  ibc_applications_interchain_accounts_genesis_v1.RegisteredInterchainAccount(),
+  provenance_trigger_v1.Trigger(),
+  provenance_trigger_v1.QueuedTrigger(),
+  provenance_trigger_v1.BlockHeightEvent(),
+  provenance_trigger_v1.BlockTimeEvent(),
+  provenance_trigger_v1.TransactionEvent(),
+  provenance_trigger_v1.Attribute(),
+  provenance_trigger_v1.EventTriggerCreated(),
+  provenance_trigger_v1.EventTriggerDestroyed(),
+  provenance_trigger_v1.GenesisState(),
+  provenance_trigger_v1.GasLimit(),
+  provenance_trigger_v1.MsgCreateTriggerRequest(),
+  provenance_trigger_v1.MsgCreateTriggerResponse(),
+  provenance_trigger_v1.MsgDestroyTriggerRequest(),
+  provenance_trigger_v1.MsgDestroyTriggerResponse(),
+  provenance_trigger_v1.QueryTriggerByIDRequest(),
+  provenance_trigger_v1.QueryTriggerByIDResponse(),
+  provenance_trigger_v1.QueryTriggersRequest(),
+  provenance_trigger_v1.QueryTriggersResponse(),
   provenance_attribute_v1.Params(),
   provenance_attribute_v1.Attribute(),
   provenance_attribute_v1.EventAttributeAdd(),
   provenance_attribute_v1.EventAttributeUpdate(),
+  provenance_attribute_v1.EventAttributeExpirationUpdate(),
   provenance_attribute_v1.EventAttributeDelete(),
   provenance_attribute_v1.EventAttributeDistinctDelete(),
+  provenance_attribute_v1.EventAttributeExpired(),
+  provenance_attribute_v1.EventAccountDataUpdated(),
   provenance_attribute_v1.GenesisState(),
   provenance_attribute_v1.MsgAddAttributeRequest(),
   provenance_attribute_v1.MsgAddAttributeResponse(),
   provenance_attribute_v1.MsgUpdateAttributeRequest(),
   provenance_attribute_v1.MsgUpdateAttributeResponse(),
+  provenance_attribute_v1.MsgUpdateAttributeExpirationRequest(),
+  provenance_attribute_v1.MsgUpdateAttributeExpirationResponse(),
   provenance_attribute_v1.MsgDeleteAttributeRequest(),
   provenance_attribute_v1.MsgDeleteAttributeResponse(),
   provenance_attribute_v1.MsgDeleteDistinctAttributeRequest(),
   provenance_attribute_v1.MsgDeleteDistinctAttributeResponse(),
+  provenance_attribute_v1.MsgSetAccountDataRequest(),
+  provenance_attribute_v1.MsgSetAccountDataResponse(),
   provenance_attribute_v1.QueryParamsRequest(),
   provenance_attribute_v1.QueryParamsResponse(),
   provenance_attribute_v1.QueryAttributeRequest(),
@@ -1158,6 +1302,10 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_attribute_v1.QueryAttributesResponse(),
   provenance_attribute_v1.QueryScanRequest(),
   provenance_attribute_v1.QueryScanResponse(),
+  provenance_attribute_v1.QueryAttributeAccountsRequest(),
+  provenance_attribute_v1.QueryAttributeAccountsResponse(),
+  provenance_attribute_v1.QueryAccountDataRequest(),
+  provenance_attribute_v1.QueryAccountDataResponse(),
   provenance_msgfees_v1.AddMsgFeeProposal(),
   provenance_msgfees_v1.UpdateMsgFeeProposal(),
   provenance_msgfees_v1.RemoveMsgFeeProposal(),
@@ -1170,12 +1318,34 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_msgfees_v1.GenesisState(),
   provenance_msgfees_v1.MsgAssessCustomMsgFeeRequest(),
   provenance_msgfees_v1.MsgAssessCustomMsgFeeResponse(),
+  provenance_msgfees_v1.MsgAddMsgFeeProposalRequest(),
+  provenance_msgfees_v1.MsgAddMsgFeeProposalResponse(),
+  provenance_msgfees_v1.MsgUpdateMsgFeeProposalRequest(),
+  provenance_msgfees_v1.MsgUpdateMsgFeeProposalResponse(),
+  provenance_msgfees_v1.MsgRemoveMsgFeeProposalRequest(),
+  provenance_msgfees_v1.MsgRemoveMsgFeeProposalResponse(),
+  provenance_msgfees_v1.MsgUpdateNhashPerUsdMilProposalRequest(),
+  provenance_msgfees_v1.MsgUpdateNhashPerUsdMilProposalResponse(),
+  provenance_msgfees_v1.MsgUpdateConversionFeeDenomProposalRequest(),
+  provenance_msgfees_v1.MsgUpdateConversionFeeDenomProposalResponse(),
   provenance_msgfees_v1.QueryParamsRequest(),
   provenance_msgfees_v1.QueryParamsResponse(),
   provenance_msgfees_v1.QueryAllMsgFeesRequest(),
   provenance_msgfees_v1.QueryAllMsgFeesResponse(),
   provenance_msgfees_v1.CalculateTxFeesRequest(),
   provenance_msgfees_v1.CalculateTxFeesResponse(),
+  provenance_oracle_v1.EventOracleQuerySuccess(),
+  provenance_oracle_v1.EventOracleQueryError(),
+  provenance_oracle_v1.EventOracleQueryTimeout(),
+  provenance_oracle_v1.GenesisState(),
+  provenance_oracle_v1.MsgSendQueryOracleRequest(),
+  provenance_oracle_v1.MsgSendQueryOracleResponse(),
+  provenance_oracle_v1.MsgUpdateOracleRequest(),
+  provenance_oracle_v1.MsgUpdateOracleResponse(),
+  provenance_oracle_v1.QueryOracleAddressRequest(),
+  provenance_oracle_v1.QueryOracleAddressResponse(),
+  provenance_oracle_v1.QueryOracleRequest(),
+  provenance_oracle_v1.QueryOracleResponse(),
   provenance_reward_v1.RewardProgram(),
   provenance_reward_v1.ClaimPeriodRewardDistribution(),
   provenance_reward_v1.RewardAccountState(),
@@ -1207,6 +1377,10 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_reward_v1.QueryRewardDistributionsByAddressRequest(),
   provenance_reward_v1.QueryRewardDistributionsByAddressResponse(),
   provenance_reward_v1.RewardAccountResponse(),
+  provenance_ibchooks_v1.Params(),
+  provenance_ibchooks_v1.GenesisState(),
+  provenance_ibchooks_v1.MsgEmitIBCAck(),
+  provenance_ibchooks_v1.MsgEmitIBCAckResponse(),
   provenance_marker_v1.AddMarkerProposal(),
   provenance_marker_v1.SupplyIncreaseProposal(),
   provenance_marker_v1.SupplyDecreaseProposal(),
@@ -1217,6 +1391,7 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_marker_v1.SetDenomMetadataProposal(),
   provenance_marker_v1.Params(),
   provenance_marker_v1.MarkerAccount(),
+  provenance_marker_v1.NetAssetValue(),
   provenance_marker_v1.EventMarkerAdd(),
   provenance_marker_v1.EventMarkerAddAccess(),
   provenance_marker_v1.EventMarkerAccess(),
@@ -1231,9 +1406,12 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_marker_v1.EventMarkerTransfer(),
   provenance_marker_v1.EventMarkerSetDenomMetadata(),
   provenance_marker_v1.EventDenomUnit(),
+  provenance_marker_v1.EventSetNetAssetValue(),
   provenance_marker_v1.MarkerTransferAuthorization(),
   provenance_marker_v1.AccessGrant(),
   provenance_marker_v1.GenesisState(),
+  provenance_marker_v1.DenySendAddress(),
+  provenance_marker_v1.MarkerNetAssetValues(),
   provenance_marker_v1.MsgGrantAllowanceRequest(),
   provenance_marker_v1.MsgGrantAllowanceResponse(),
   provenance_marker_v1.MsgAddMarkerRequest(),
@@ -1262,6 +1440,20 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_marker_v1.MsgIbcTransferResponse(),
   provenance_marker_v1.MsgSetDenomMetadataRequest(),
   provenance_marker_v1.MsgSetDenomMetadataResponse(),
+  provenance_marker_v1.MsgAddFinalizeActivateMarkerRequest(),
+  provenance_marker_v1.MsgAddFinalizeActivateMarkerResponse(),
+  provenance_marker_v1.MsgSupplyIncreaseProposalRequest(),
+  provenance_marker_v1.MsgSupplyIncreaseProposalResponse(),
+  provenance_marker_v1.MsgUpdateRequiredAttributesRequest(),
+  provenance_marker_v1.MsgUpdateRequiredAttributesResponse(),
+  provenance_marker_v1.MsgUpdateForcedTransferRequest(),
+  provenance_marker_v1.MsgUpdateForcedTransferResponse(),
+  provenance_marker_v1.MsgSetAccountDataRequest(),
+  provenance_marker_v1.MsgSetAccountDataResponse(),
+  provenance_marker_v1.MsgUpdateSendDenyListRequest(),
+  provenance_marker_v1.MsgUpdateSendDenyListResponse(),
+  provenance_marker_v1.MsgAddNetAssetValuesRequest(),
+  provenance_marker_v1.MsgAddNetAssetValuesResponse(),
   provenance_marker_v1.QueryParamsRequest(),
   provenance_marker_v1.QueryParamsResponse(),
   provenance_marker_v1.QueryAllMarkersRequest(),
@@ -1278,17 +1470,26 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_marker_v1.QueryAccessResponse(),
   provenance_marker_v1.QueryDenomMetadataRequest(),
   provenance_marker_v1.QueryDenomMetadataResponse(),
+  provenance_marker_v1.QueryAccountDataRequest(),
+  provenance_marker_v1.QueryAccountDataResponse(),
   provenance_marker_v1.Balance(),
+  provenance_marker_v1.QueryNetAssetValuesRequest(),
+  provenance_marker_v1.QueryNetAssetValuesResponse(),
   provenance_name_v1.Params(),
   provenance_name_v1.NameRecord(),
   provenance_name_v1.CreateRootNameProposal(),
   provenance_name_v1.EventNameBound(),
   provenance_name_v1.EventNameUnbound(),
+  provenance_name_v1.EventNameUpdate(),
   provenance_name_v1.GenesisState(),
   provenance_name_v1.MsgBindNameRequest(),
   provenance_name_v1.MsgBindNameResponse(),
   provenance_name_v1.MsgDeleteNameRequest(),
   provenance_name_v1.MsgDeleteNameResponse(),
+  provenance_name_v1.MsgCreateRootNameRequest(),
+  provenance_name_v1.MsgCreateRootNameResponse(),
+  provenance_name_v1.MsgModifyNameRequest(),
+  provenance_name_v1.MsgModifyNameResponse(),
   provenance_name_v1.QueryParamsRequest(),
   provenance_name_v1.QueryParamsResponse(),
   provenance_name_v1.QueryResolveRequest(),
@@ -1322,6 +1523,10 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_metadata_v1.MsgAddScopeOwnerResponse(),
   provenance_metadata_v1.MsgDeleteScopeOwnerRequest(),
   provenance_metadata_v1.MsgDeleteScopeOwnerResponse(),
+  provenance_metadata_v1.MsgUpdateValueOwnersRequest(),
+  provenance_metadata_v1.MsgUpdateValueOwnersResponse(),
+  provenance_metadata_v1.MsgMigrateValueOwnerRequest(),
+  provenance_metadata_v1.MsgMigrateValueOwnerResponse(),
   provenance_metadata_v1.MsgWriteSessionRequest(),
   provenance_metadata_v1.SessionIdComponents(),
   provenance_metadata_v1.MsgWriteSessionResponse(),
@@ -1345,16 +1550,18 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_metadata_v1.MsgWriteRecordSpecificationResponse(),
   provenance_metadata_v1.MsgDeleteRecordSpecificationRequest(),
   provenance_metadata_v1.MsgDeleteRecordSpecificationResponse(),
-  provenance_metadata_v1.MsgWriteP8eContractSpecRequest(),
-  provenance_metadata_v1.MsgWriteP8eContractSpecResponse(),
-  provenance_metadata_v1.MsgP8eMemorializeContractRequest(),
-  provenance_metadata_v1.MsgP8eMemorializeContractResponse(),
   provenance_metadata_v1.MsgBindOSLocatorRequest(),
   provenance_metadata_v1.MsgBindOSLocatorResponse(),
   provenance_metadata_v1.MsgDeleteOSLocatorRequest(),
   provenance_metadata_v1.MsgDeleteOSLocatorResponse(),
   provenance_metadata_v1.MsgModifyOSLocatorRequest(),
   provenance_metadata_v1.MsgModifyOSLocatorResponse(),
+  provenance_metadata_v1.MsgSetAccountDataRequest(),
+  provenance_metadata_v1.MsgSetAccountDataResponse(),
+  provenance_metadata_v1.MsgWriteP8eContractSpecRequest(),
+  provenance_metadata_v1.MsgWriteP8eContractSpecResponse(),
+  provenance_metadata_v1.MsgP8eMemorializeContractRequest(),
+  provenance_metadata_v1.MsgP8eMemorializeContractResponse(),
   provenance_metadata_v1.QueryParamsRequest(),
   provenance_metadata_v1.QueryParamsResponse(),
   provenance_metadata_v1.ScopeRequest(),
@@ -1393,6 +1600,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_metadata_v1.RecordSpecificationWrapper(),
   provenance_metadata_v1.RecordSpecificationsAllRequest(),
   provenance_metadata_v1.RecordSpecificationsAllResponse(),
+  provenance_metadata_v1.GetByAddrRequest(),
+  provenance_metadata_v1.GetByAddrResponse(),
   provenance_metadata_v1.OSLocatorParamsRequest(),
   provenance_metadata_v1.OSLocatorParamsResponse(),
   provenance_metadata_v1.OSLocatorRequest(),
@@ -1403,6 +1612,8 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_metadata_v1.OSLocatorsByScopeResponse(),
   provenance_metadata_v1.OSAllLocatorsRequest(),
   provenance_metadata_v1.OSAllLocatorsResponse(),
+  provenance_metadata_v1.AccountDataRequest(),
+  provenance_metadata_v1.AccountDataResponse(),
   provenance_metadata_v1.Scope(),
   provenance_metadata_v1.Session(),
   provenance_metadata_v1.Record(),
@@ -1454,6 +1665,14 @@ TypeRegistry provenanceTypes = TypeRegistry([
   provenance_metadata_v1_p8e.ConditionSpec(),
   provenance_metadata_v1_p8e.ConsiderationSpec(),
   provenance_metadata_v1_p8e.OutputSpec(),
+  provenance_hold_v1.AccountHold(),
+  provenance_hold_v1.GenesisState(),
+  provenance_hold_v1.GetHoldsRequest(),
+  provenance_hold_v1.GetHoldsResponse(),
+  provenance_hold_v1.GetAllHoldsRequest(),
+  provenance_hold_v1.GetAllHoldsResponse(),
+  provenance_hold_v1.EventHoldAdded(),
+  provenance_hold_v1.EventHoldReleased(),
   tendermint_statesync.Message(),
   tendermint_statesync.SnapshotsRequest(),
   tendermint_statesync.SnapshotsResponse(),

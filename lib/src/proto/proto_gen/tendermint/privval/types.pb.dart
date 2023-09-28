@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/privval/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -15,48 +19,36 @@ import '../types/types.pb.dart' as $1;
 export 'types.pbenum.dart';
 
 class RemoteSignerError extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RemoteSignerError',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..a<$core.int>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'code',
-        $pb.PbFieldType.O3)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..hasRequiredFields = false;
-
-  RemoteSignerError._() : super();
   factory RemoteSignerError({
     $core.int? code,
     $core.String? description,
   }) {
-    final _result = create();
+    final $result = create();
     if (code != null) {
-      _result.code = code;
+      $result.code = code;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
-    return _result;
+    return $result;
   }
+  RemoteSignerError._() : super();
   factory RemoteSignerError.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RemoteSignerError.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RemoteSignerError',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'code', $pb.PbFieldType.O3)
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -66,8 +58,10 @@ class RemoteSignerError extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   RemoteSignerError copyWith(void Function(RemoteSignerError) updates) =>
       super.copyWith((message) => updates(message as RemoteSignerError))
-          as RemoteSignerError; // ignore: deprecated_member_use
+          as RemoteSignerError;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RemoteSignerError create() => RemoteSignerError._();
   RemoteSignerError createEmptyInstance() => create();
@@ -103,39 +97,33 @@ class RemoteSignerError extends $pb.GeneratedMessage {
   void clearDescription() => clearField(2);
 }
 
+/// PubKeyRequest requests the consensus public key from the remote signer.
 class PubKeyRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PubKeyRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chainId')
-    ..hasRequiredFields = false;
-
-  PubKeyRequest._() : super();
   factory PubKeyRequest({
     $core.String? chainId,
   }) {
-    final _result = create();
+    final $result = create();
     if (chainId != null) {
-      _result.chainId = chainId;
+      $result.chainId = chainId;
     }
-    return _result;
+    return $result;
   }
+  PubKeyRequest._() : super();
   factory PubKeyRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PubKeyRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PubKeyRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'chainId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -145,8 +133,10 @@ class PubKeyRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PubKeyRequest copyWith(void Function(PubKeyRequest) updates) =>
       super.copyWith((message) => updates(message as PubKeyRequest))
-          as PubKeyRequest; // ignore: deprecated_member_use
+          as PubKeyRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PubKeyRequest create() => PubKeyRequest._();
   PubKeyRequest createEmptyInstance() => create();
@@ -170,50 +160,40 @@ class PubKeyRequest extends $pb.GeneratedMessage {
   void clearChainId() => clearField(1);
 }
 
+/// PubKeyResponse is a response message containing the public key.
 class PubKeyResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PubKeyResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..aOM<$0.PublicKey>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pubKey',
-        subBuilder: $0.PublicKey.create)
-    ..aOM<RemoteSignerError>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'error',
-        subBuilder: RemoteSignerError.create)
-    ..hasRequiredFields = false;
-
-  PubKeyResponse._() : super();
   factory PubKeyResponse({
     $0.PublicKey? pubKey,
     RemoteSignerError? error,
   }) {
-    final _result = create();
+    final $result = create();
     if (pubKey != null) {
-      _result.pubKey = pubKey;
+      $result.pubKey = pubKey;
     }
     if (error != null) {
-      _result.error = error;
+      $result.error = error;
     }
-    return _result;
+    return $result;
   }
+  PubKeyResponse._() : super();
   factory PubKeyResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PubKeyResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PubKeyResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..aOM<$0.PublicKey>(1, _omitFieldNames ? '' : 'pubKey',
+        subBuilder: $0.PublicKey.create)
+    ..aOM<RemoteSignerError>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: RemoteSignerError.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -223,8 +203,10 @@ class PubKeyResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PubKeyResponse copyWith(void Function(PubKeyResponse) updates) =>
       super.copyWith((message) => updates(message as PubKeyResponse))
-          as PubKeyResponse; // ignore: deprecated_member_use
+          as PubKeyResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PubKeyResponse create() => PubKeyResponse._();
   PubKeyResponse createEmptyInstance() => create();
@@ -264,49 +246,38 @@ class PubKeyResponse extends $pb.GeneratedMessage {
   RemoteSignerError ensureError() => $_ensure(1);
 }
 
+/// SignVoteRequest is a request to sign a vote
 class SignVoteRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SignVoteRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..aOM<$1.Vote>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vote',
-        subBuilder: $1.Vote.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chainId')
-    ..hasRequiredFields = false;
-
-  SignVoteRequest._() : super();
   factory SignVoteRequest({
     $1.Vote? vote,
     $core.String? chainId,
   }) {
-    final _result = create();
+    final $result = create();
     if (vote != null) {
-      _result.vote = vote;
+      $result.vote = vote;
     }
     if (chainId != null) {
-      _result.chainId = chainId;
+      $result.chainId = chainId;
     }
-    return _result;
+    return $result;
   }
+  SignVoteRequest._() : super();
   factory SignVoteRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SignVoteRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SignVoteRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..aOM<$1.Vote>(1, _omitFieldNames ? '' : 'vote', subBuilder: $1.Vote.create)
+    ..aOS(2, _omitFieldNames ? '' : 'chainId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -316,8 +287,10 @@ class SignVoteRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SignVoteRequest copyWith(void Function(SignVoteRequest) updates) =>
       super.copyWith((message) => updates(message as SignVoteRequest))
-          as SignVoteRequest; // ignore: deprecated_member_use
+          as SignVoteRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SignVoteRequest create() => SignVoteRequest._();
   SignVoteRequest createEmptyInstance() => create();
@@ -355,50 +328,39 @@ class SignVoteRequest extends $pb.GeneratedMessage {
   void clearChainId() => clearField(2);
 }
 
+/// SignedVoteResponse is a response containing a signed vote or an error
 class SignedVoteResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SignedVoteResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..aOM<$1.Vote>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vote',
-        subBuilder: $1.Vote.create)
-    ..aOM<RemoteSignerError>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'error',
-        subBuilder: RemoteSignerError.create)
-    ..hasRequiredFields = false;
-
-  SignedVoteResponse._() : super();
   factory SignedVoteResponse({
     $1.Vote? vote,
     RemoteSignerError? error,
   }) {
-    final _result = create();
+    final $result = create();
     if (vote != null) {
-      _result.vote = vote;
+      $result.vote = vote;
     }
     if (error != null) {
-      _result.error = error;
+      $result.error = error;
     }
-    return _result;
+    return $result;
   }
+  SignedVoteResponse._() : super();
   factory SignedVoteResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SignedVoteResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SignedVoteResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..aOM<$1.Vote>(1, _omitFieldNames ? '' : 'vote', subBuilder: $1.Vote.create)
+    ..aOM<RemoteSignerError>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: RemoteSignerError.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -408,8 +370,10 @@ class SignedVoteResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SignedVoteResponse copyWith(void Function(SignedVoteResponse) updates) =>
       super.copyWith((message) => updates(message as SignedVoteResponse))
-          as SignedVoteResponse; // ignore: deprecated_member_use
+          as SignedVoteResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SignedVoteResponse create() => SignedVoteResponse._();
   SignedVoteResponse createEmptyInstance() => create();
@@ -449,49 +413,39 @@ class SignedVoteResponse extends $pb.GeneratedMessage {
   RemoteSignerError ensureError() => $_ensure(1);
 }
 
+/// SignProposalRequest is a request to sign a proposal
 class SignProposalRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SignProposalRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..aOM<$1.Proposal>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposal',
-        subBuilder: $1.Proposal.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chainId')
-    ..hasRequiredFields = false;
-
-  SignProposalRequest._() : super();
   factory SignProposalRequest({
     $1.Proposal? proposal,
     $core.String? chainId,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposal != null) {
-      _result.proposal = proposal;
+      $result.proposal = proposal;
     }
     if (chainId != null) {
-      _result.chainId = chainId;
+      $result.chainId = chainId;
     }
-    return _result;
+    return $result;
   }
+  SignProposalRequest._() : super();
   factory SignProposalRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SignProposalRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SignProposalRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..aOM<$1.Proposal>(1, _omitFieldNames ? '' : 'proposal',
+        subBuilder: $1.Proposal.create)
+    ..aOS(2, _omitFieldNames ? '' : 'chainId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -501,8 +455,10 @@ class SignProposalRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SignProposalRequest copyWith(void Function(SignProposalRequest) updates) =>
       super.copyWith((message) => updates(message as SignProposalRequest))
-          as SignProposalRequest; // ignore: deprecated_member_use
+          as SignProposalRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SignProposalRequest create() => SignProposalRequest._();
   SignProposalRequest createEmptyInstance() => create();
@@ -540,50 +496,40 @@ class SignProposalRequest extends $pb.GeneratedMessage {
   void clearChainId() => clearField(2);
 }
 
+/// SignedProposalResponse is response containing a signed proposal or an error
 class SignedProposalResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SignedProposalResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..aOM<$1.Proposal>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposal',
-        subBuilder: $1.Proposal.create)
-    ..aOM<RemoteSignerError>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'error',
-        subBuilder: RemoteSignerError.create)
-    ..hasRequiredFields = false;
-
-  SignedProposalResponse._() : super();
   factory SignedProposalResponse({
     $1.Proposal? proposal,
     RemoteSignerError? error,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposal != null) {
-      _result.proposal = proposal;
+      $result.proposal = proposal;
     }
     if (error != null) {
-      _result.error = error;
+      $result.error = error;
     }
-    return _result;
+    return $result;
   }
+  SignedProposalResponse._() : super();
   factory SignedProposalResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SignedProposalResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SignedProposalResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..aOM<$1.Proposal>(1, _omitFieldNames ? '' : 'proposal',
+        subBuilder: $1.Proposal.create)
+    ..aOM<RemoteSignerError>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: RemoteSignerError.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -595,8 +541,10 @@ class SignedProposalResponse extends $pb.GeneratedMessage {
   SignedProposalResponse copyWith(
           void Function(SignedProposalResponse) updates) =>
       super.copyWith((message) => updates(message as SignedProposalResponse))
-          as SignedProposalResponse; // ignore: deprecated_member_use
+          as SignedProposalResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SignedProposalResponse create() => SignedProposalResponse._();
   SignedProposalResponse createEmptyInstance() => create();
@@ -636,26 +584,24 @@ class SignedProposalResponse extends $pb.GeneratedMessage {
   RemoteSignerError ensureError() => $_ensure(1);
 }
 
+/// PingRequest is a request to confirm that the connection is alive.
 class PingRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PingRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  PingRequest._() : super();
   factory PingRequest() => create();
+  PingRequest._() : super();
   factory PingRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PingRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PingRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -665,8 +611,10 @@ class PingRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PingRequest copyWith(void Function(PingRequest) updates) =>
       super.copyWith((message) => updates(message as PingRequest))
-          as PingRequest; // ignore: deprecated_member_use
+          as PingRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PingRequest create() => PingRequest._();
   PingRequest createEmptyInstance() => create();
@@ -677,26 +625,24 @@ class PingRequest extends $pb.GeneratedMessage {
   static PingRequest? _defaultInstance;
 }
 
+/// PingResponse is a response to confirm that the connection is alive.
 class PingResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PingResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  PingResponse._() : super();
   factory PingResponse() => create();
+  PingResponse._() : super();
   factory PingResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PingResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PingResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -706,8 +652,10 @@ class PingResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PingResponse copyWith(void Function(PingResponse) updates) =>
       super.copyWith((message) => updates(message as PingResponse))
-          as PingResponse; // ignore: deprecated_member_use
+          as PingResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PingResponse create() => PingResponse._();
   PingResponse createEmptyInstance() => create();
@@ -732,6 +680,51 @@ enum Message_Sum {
 }
 
 class Message extends $pb.GeneratedMessage {
+  factory Message({
+    PubKeyRequest? pubKeyRequest,
+    PubKeyResponse? pubKeyResponse,
+    SignVoteRequest? signVoteRequest,
+    SignedVoteResponse? signedVoteResponse,
+    SignProposalRequest? signProposalRequest,
+    SignedProposalResponse? signedProposalResponse,
+    PingRequest? pingRequest,
+    PingResponse? pingResponse,
+  }) {
+    final $result = create();
+    if (pubKeyRequest != null) {
+      $result.pubKeyRequest = pubKeyRequest;
+    }
+    if (pubKeyResponse != null) {
+      $result.pubKeyResponse = pubKeyResponse;
+    }
+    if (signVoteRequest != null) {
+      $result.signVoteRequest = signVoteRequest;
+    }
+    if (signedVoteResponse != null) {
+      $result.signedVoteResponse = signedVoteResponse;
+    }
+    if (signProposalRequest != null) {
+      $result.signProposalRequest = signProposalRequest;
+    }
+    if (signedProposalResponse != null) {
+      $result.signedProposalResponse = signedProposalResponse;
+    }
+    if (pingRequest != null) {
+      $result.pingRequest = pingRequest;
+    }
+    if (pingResponse != null) {
+      $result.pingResponse = pingResponse;
+    }
+    return $result;
+  }
+  Message._() : super();
+  factory Message.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Message.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, Message_Sum> _Message_SumByTag = {
     1: Message_Sum.pubKeyRequest,
     2: Message_Sum.pubKeyResponse,
@@ -744,109 +737,30 @@ class Message extends $pb.GeneratedMessage {
     0: Message_Sum.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Message',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.privval'),
+      _omitMessageNames ? '' : 'Message',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.privval'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4, 5, 6, 7, 8])
-    ..aOM<PubKeyRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pubKeyRequest',
+    ..aOM<PubKeyRequest>(1, _omitFieldNames ? '' : 'pubKeyRequest',
         subBuilder: PubKeyRequest.create)
-    ..aOM<PubKeyResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pubKeyResponse',
+    ..aOM<PubKeyResponse>(2, _omitFieldNames ? '' : 'pubKeyResponse',
         subBuilder: PubKeyResponse.create)
-    ..aOM<SignVoteRequest>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signVoteRequest',
+    ..aOM<SignVoteRequest>(3, _omitFieldNames ? '' : 'signVoteRequest',
         subBuilder: SignVoteRequest.create)
-    ..aOM<SignedVoteResponse>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signedVoteResponse',
+    ..aOM<SignedVoteResponse>(4, _omitFieldNames ? '' : 'signedVoteResponse',
         subBuilder: SignedVoteResponse.create)
-    ..aOM<SignProposalRequest>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signProposalRequest',
+    ..aOM<SignProposalRequest>(5, _omitFieldNames ? '' : 'signProposalRequest',
         subBuilder: SignProposalRequest.create)
     ..aOM<SignedProposalResponse>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signedProposalResponse',
+        6, _omitFieldNames ? '' : 'signedProposalResponse',
         subBuilder: SignedProposalResponse.create)
-    ..aOM<PingRequest>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pingRequest',
+    ..aOM<PingRequest>(7, _omitFieldNames ? '' : 'pingRequest',
         subBuilder: PingRequest.create)
-    ..aOM<PingResponse>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pingResponse',
+    ..aOM<PingResponse>(8, _omitFieldNames ? '' : 'pingResponse',
         subBuilder: PingResponse.create)
     ..hasRequiredFields = false;
 
-  Message._() : super();
-  factory Message({
-    PubKeyRequest? pubKeyRequest,
-    PubKeyResponse? pubKeyResponse,
-    SignVoteRequest? signVoteRequest,
-    SignedVoteResponse? signedVoteResponse,
-    SignProposalRequest? signProposalRequest,
-    SignedProposalResponse? signedProposalResponse,
-    PingRequest? pingRequest,
-    PingResponse? pingResponse,
-  }) {
-    final _result = create();
-    if (pubKeyRequest != null) {
-      _result.pubKeyRequest = pubKeyRequest;
-    }
-    if (pubKeyResponse != null) {
-      _result.pubKeyResponse = pubKeyResponse;
-    }
-    if (signVoteRequest != null) {
-      _result.signVoteRequest = signVoteRequest;
-    }
-    if (signedVoteResponse != null) {
-      _result.signedVoteResponse = signedVoteResponse;
-    }
-    if (signProposalRequest != null) {
-      _result.signProposalRequest = signProposalRequest;
-    }
-    if (signedProposalResponse != null) {
-      _result.signedProposalResponse = signedProposalResponse;
-    }
-    if (pingRequest != null) {
-      _result.pingRequest = pingRequest;
-    }
-    if (pingResponse != null) {
-      _result.pingResponse = pingResponse;
-    }
-    return _result;
-  }
-  factory Message.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Message.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -855,9 +769,10 @@ class Message extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Message copyWith(void Function(Message) updates) =>
-      super.copyWith((message) => updates(message as Message))
-          as Message; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Message)) as Message;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Message create() => Message._();
   Message createEmptyInstance() => create();
@@ -982,3 +897,7 @@ class Message extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   PingResponse ensurePingResponse() => $_ensure(7);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

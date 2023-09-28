@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/authz/v1beta1/authz.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,39 +16,34 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../google/protobuf/any.pb.dart' as $0;
 import '../../../google/protobuf/timestamp.pb.dart' as $1;
 
+/// GenericAuthorization gives the grantee unrestricted permissions to execute
+/// the provided method on behalf of the granter's account.
 class GenericAuthorization extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenericAuthorization',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg')
-    ..hasRequiredFields = false;
-
-  GenericAuthorization._() : super();
   factory GenericAuthorization({
     $core.String? msg,
   }) {
-    final _result = create();
+    final $result = create();
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
-    return _result;
+    return $result;
   }
+  GenericAuthorization._() : super();
   factory GenericAuthorization.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenericAuthorization.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenericAuthorization',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'msg')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -55,8 +54,10 @@ class GenericAuthorization extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenericAuthorization copyWith(void Function(GenericAuthorization) updates) =>
       super.copyWith((message) => updates(message as GenericAuthorization))
-          as GenericAuthorization; // ignore: deprecated_member_use
+          as GenericAuthorization;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenericAuthorization create() => GenericAuthorization._();
   GenericAuthorization createEmptyInstance() => create();
@@ -67,6 +68,7 @@ class GenericAuthorization extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GenericAuthorization>(create);
   static GenericAuthorization? _defaultInstance;
 
+  /// Msg, identified by it's type URL, to grant unrestricted permissions to execute
   @$pb.TagNumber(1)
   $core.String get msg => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -80,49 +82,40 @@ class GenericAuthorization extends $pb.GeneratedMessage {
   void clearMsg() => clearField(1);
 }
 
+/// CountAuthorization gives the grantee unrestricted permissions to execute
+/// the provided method on behalf of the granter's account up to the allowed authorizations count.
 class CountAuthorization extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CountAuthorization',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowedAuthorizations',
-        $pb.PbFieldType.O3)
-    ..hasRequiredFields = false;
-
-  CountAuthorization._() : super();
   factory CountAuthorization({
     $core.String? msg,
     $core.int? allowedAuthorizations,
   }) {
-    final _result = create();
+    final $result = create();
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
     if (allowedAuthorizations != null) {
-      _result.allowedAuthorizations = allowedAuthorizations;
+      $result.allowedAuthorizations = allowedAuthorizations;
     }
-    return _result;
+    return $result;
   }
+  CountAuthorization._() : super();
   factory CountAuthorization.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CountAuthorization.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CountAuthorization',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'msg')
+    ..a<$core.int>(
+        2, _omitFieldNames ? '' : 'allowedAuthorizations', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -132,8 +125,10 @@ class CountAuthorization extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CountAuthorization copyWith(void Function(CountAuthorization) updates) =>
       super.copyWith((message) => updates(message as CountAuthorization))
-          as CountAuthorization; // ignore: deprecated_member_use
+          as CountAuthorization;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CountAuthorization create() => CountAuthorization._();
   CountAuthorization createEmptyInstance() => create();
@@ -144,6 +139,7 @@ class CountAuthorization extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<CountAuthorization>(create);
   static CountAuthorization? _defaultInstance;
 
+  /// Msg, identified by it's type URL, to grant unrestricted permissions to execute
   @$pb.TagNumber(1)
   $core.String get msg => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -156,6 +152,7 @@ class CountAuthorization extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMsg() => clearField(1);
 
+  /// Allowed number of authorizations assigned to grantee
   @$pb.TagNumber(2)
   $core.int get allowedAuthorizations => $_getIZ(1);
   @$pb.TagNumber(2)
@@ -169,50 +166,41 @@ class CountAuthorization extends $pb.GeneratedMessage {
   void clearAllowedAuthorizations() => clearField(2);
 }
 
+/// Grant gives permissions to execute
+/// the provide method with expiration time.
 class Grant extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Grant',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$0.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'authorization',
-        subBuilder: $0.Any.create)
-    ..aOM<$1.Timestamp>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'expiration',
-        subBuilder: $1.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  Grant._() : super();
   factory Grant({
     $0.Any? authorization,
     $1.Timestamp? expiration,
   }) {
-    final _result = create();
+    final $result = create();
     if (authorization != null) {
-      _result.authorization = authorization;
+      $result.authorization = authorization;
     }
     if (expiration != null) {
-      _result.expiration = expiration;
+      $result.expiration = expiration;
     }
-    return _result;
+    return $result;
   }
+  Grant._() : super();
   factory Grant.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Grant.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Grant',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$0.Any>(1, _omitFieldNames ? '' : 'authorization',
+        subBuilder: $0.Any.create)
+    ..aOM<$1.Timestamp>(2, _omitFieldNames ? '' : 'expiration',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -221,9 +209,10 @@ class Grant extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Grant copyWith(void Function(Grant) updates) =>
-      super.copyWith((message) => updates(message as Grant))
-          as Grant; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Grant)) as Grant;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Grant create() => Grant._();
   Grant createEmptyInstance() => create();
@@ -247,6 +236,9 @@ class Grant extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $0.Any ensureAuthorization() => $_ensure(0);
 
+  /// time when the grant will expire and will be pruned. If null, then the grant
+  /// doesn't have a time expiration (other conditions  in `authorization`
+  /// may apply to invalidate the grant)
   @$pb.TagNumber(2)
   $1.Timestamp get expiration => $_getN(1);
   @$pb.TagNumber(2)
@@ -262,68 +254,51 @@ class Grant extends $pb.GeneratedMessage {
   $1.Timestamp ensureExpiration() => $_ensure(1);
 }
 
+/// GrantAuthorization extends a grant with both the addresses of the grantee and granter.
+/// It is used in genesis.proto and query.proto
 class GrantAuthorization extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GrantAuthorization',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'granter')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'grantee')
-    ..aOM<$0.Any>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'authorization',
-        subBuilder: $0.Any.create)
-    ..aOM<$1.Timestamp>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'expiration',
-        subBuilder: $1.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  GrantAuthorization._() : super();
   factory GrantAuthorization({
     $core.String? granter,
     $core.String? grantee,
     $0.Any? authorization,
     $1.Timestamp? expiration,
   }) {
-    final _result = create();
+    final $result = create();
     if (granter != null) {
-      _result.granter = granter;
+      $result.granter = granter;
     }
     if (grantee != null) {
-      _result.grantee = grantee;
+      $result.grantee = grantee;
     }
     if (authorization != null) {
-      _result.authorization = authorization;
+      $result.authorization = authorization;
     }
     if (expiration != null) {
-      _result.expiration = expiration;
+      $result.expiration = expiration;
     }
-    return _result;
+    return $result;
   }
+  GrantAuthorization._() : super();
   factory GrantAuthorization.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GrantAuthorization.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GrantAuthorization',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'granter')
+    ..aOS(2, _omitFieldNames ? '' : 'grantee')
+    ..aOM<$0.Any>(3, _omitFieldNames ? '' : 'authorization',
+        subBuilder: $0.Any.create)
+    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'expiration',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -333,8 +308,10 @@ class GrantAuthorization extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GrantAuthorization copyWith(void Function(GrantAuthorization) updates) =>
       super.copyWith((message) => updates(message as GrantAuthorization))
-          as GrantAuthorization; // ignore: deprecated_member_use
+          as GrantAuthorization;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GrantAuthorization create() => GrantAuthorization._();
   GrantAuthorization createEmptyInstance() => create();
@@ -398,39 +375,33 @@ class GrantAuthorization extends $pb.GeneratedMessage {
   $1.Timestamp ensureExpiration() => $_ensure(3);
 }
 
+/// GrantQueueItem contains the list of TypeURL of a sdk.Msg.
 class GrantQueueItem extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GrantQueueItem',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.authz.v1beta1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msgTypeUrls')
-    ..hasRequiredFields = false;
-
-  GrantQueueItem._() : super();
   factory GrantQueueItem({
     $core.Iterable<$core.String>? msgTypeUrls,
   }) {
-    final _result = create();
+    final $result = create();
     if (msgTypeUrls != null) {
-      _result.msgTypeUrls.addAll(msgTypeUrls);
+      $result.msgTypeUrls.addAll(msgTypeUrls);
     }
-    return _result;
+    return $result;
   }
+  GrantQueueItem._() : super();
   factory GrantQueueItem.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GrantQueueItem.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GrantQueueItem',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.authz.v1beta1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'msgTypeUrls')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -440,8 +411,10 @@ class GrantQueueItem extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GrantQueueItem copyWith(void Function(GrantQueueItem) updates) =>
       super.copyWith((message) => updates(message as GrantQueueItem))
-          as GrantQueueItem; // ignore: deprecated_member_use
+          as GrantQueueItem;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GrantQueueItem create() => GrantQueueItem._();
   GrantQueueItem createEmptyInstance() => create();
@@ -452,6 +425,11 @@ class GrantQueueItem extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GrantQueueItem>(create);
   static GrantQueueItem? _defaultInstance;
 
+  /// msg_type_urls contains the list of TypeURL of a sdk.Msg.
   @$pb.TagNumber(1)
   $core.List<$core.String> get msgTypeUrls => $_getList(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

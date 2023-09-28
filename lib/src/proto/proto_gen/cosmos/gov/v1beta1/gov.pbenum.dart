@@ -1,40 +1,30 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/gov/v1beta1/gov.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-// ignore_for_file: UNDEFINED_SHOWN_NAME
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:core' as $core;
+
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// VoteOption enumerates the valid vote options for a given governance proposal.
 class VoteOption extends $pb.ProtobufEnum {
-  static const VoteOption VOTE_OPTION_UNSPECIFIED = VoteOption._(
-      0,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'VOTE_OPTION_UNSPECIFIED');
-  static const VoteOption VOTE_OPTION_YES = VoteOption._(
-      1,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'VOTE_OPTION_YES');
-  static const VoteOption VOTE_OPTION_ABSTAIN = VoteOption._(
-      2,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'VOTE_OPTION_ABSTAIN');
-  static const VoteOption VOTE_OPTION_NO = VoteOption._(
-      3,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'VOTE_OPTION_NO');
-  static const VoteOption VOTE_OPTION_NO_WITH_VETO = VoteOption._(
-      4,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'VOTE_OPTION_NO_WITH_VETO');
+  static const VoteOption VOTE_OPTION_UNSPECIFIED =
+      VoteOption._(0, _omitEnumNames ? '' : 'VOTE_OPTION_UNSPECIFIED');
+  static const VoteOption VOTE_OPTION_YES =
+      VoteOption._(1, _omitEnumNames ? '' : 'VOTE_OPTION_YES');
+  static const VoteOption VOTE_OPTION_ABSTAIN =
+      VoteOption._(2, _omitEnumNames ? '' : 'VOTE_OPTION_ABSTAIN');
+  static const VoteOption VOTE_OPTION_NO =
+      VoteOption._(3, _omitEnumNames ? '' : 'VOTE_OPTION_NO');
+  static const VoteOption VOTE_OPTION_NO_WITH_VETO =
+      VoteOption._(4, _omitEnumNames ? '' : 'VOTE_OPTION_NO_WITH_VETO');
 
   static const $core.List<VoteOption> values = <VoteOption>[
     VOTE_OPTION_UNSPECIFIED,
@@ -51,37 +41,20 @@ class VoteOption extends $pb.ProtobufEnum {
   const VoteOption._($core.int v, $core.String n) : super(v, n);
 }
 
+/// ProposalStatus enumerates the valid statuses of a proposal.
 class ProposalStatus extends $pb.ProtobufEnum {
-  static const ProposalStatus PROPOSAL_STATUS_UNSPECIFIED = ProposalStatus._(
-      0,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PROPOSAL_STATUS_UNSPECIFIED');
+  static const ProposalStatus PROPOSAL_STATUS_UNSPECIFIED =
+      ProposalStatus._(0, _omitEnumNames ? '' : 'PROPOSAL_STATUS_UNSPECIFIED');
   static const ProposalStatus PROPOSAL_STATUS_DEPOSIT_PERIOD = ProposalStatus._(
-      1,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PROPOSAL_STATUS_DEPOSIT_PERIOD');
+      1, _omitEnumNames ? '' : 'PROPOSAL_STATUS_DEPOSIT_PERIOD');
   static const ProposalStatus PROPOSAL_STATUS_VOTING_PERIOD = ProposalStatus._(
-      2,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PROPOSAL_STATUS_VOTING_PERIOD');
-  static const ProposalStatus PROPOSAL_STATUS_PASSED = ProposalStatus._(
-      3,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PROPOSAL_STATUS_PASSED');
-  static const ProposalStatus PROPOSAL_STATUS_REJECTED = ProposalStatus._(
-      4,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PROPOSAL_STATUS_REJECTED');
-  static const ProposalStatus PROPOSAL_STATUS_FAILED = ProposalStatus._(
-      5,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'PROPOSAL_STATUS_FAILED');
+      2, _omitEnumNames ? '' : 'PROPOSAL_STATUS_VOTING_PERIOD');
+  static const ProposalStatus PROPOSAL_STATUS_PASSED =
+      ProposalStatus._(3, _omitEnumNames ? '' : 'PROPOSAL_STATUS_PASSED');
+  static const ProposalStatus PROPOSAL_STATUS_REJECTED =
+      ProposalStatus._(4, _omitEnumNames ? '' : 'PROPOSAL_STATUS_REJECTED');
+  static const ProposalStatus PROPOSAL_STATUS_FAILED =
+      ProposalStatus._(5, _omitEnumNames ? '' : 'PROPOSAL_STATUS_FAILED');
 
   static const $core.List<ProposalStatus> values = <ProposalStatus>[
     PROPOSAL_STATUS_UNSPECIFIED,
@@ -98,3 +71,5 @@ class ProposalStatus extends $pb.ProtobufEnum {
 
   const ProposalStatus._($core.int v, $core.String n) : super(v, n);
 }
+
+const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

@@ -1,48 +1,50 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/crypto/ed25519/keys.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// PubKey is an ed25519 public key for handling Tendermint keys in SDK.
+/// It's needed for Any serialization and SDK compatibility.
+/// It must not be used in a non Tendermint key context because it doesn't implement
+/// ADR-28. Nevertheless, you will like to use ed25519 in app user level
+/// then you must create a new proto message and follow ADR-28 for Address construction.
 class PubKey extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PubKey',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.ed25519'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  PubKey._() : super();
   factory PubKey({
     $core.List<$core.int>? key,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
-    return _result;
+    return $result;
   }
+  PubKey._() : super();
   factory PubKey.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PubKey.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PubKey',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.ed25519'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -51,9 +53,10 @@ class PubKey extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   PubKey copyWith(void Function(PubKey) updates) =>
-      super.copyWith((message) => updates(message as PubKey))
-          as PubKey; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as PubKey)) as PubKey;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PubKey create() => PubKey._();
   PubKey createEmptyInstance() => create();
@@ -76,40 +79,35 @@ class PubKey extends $pb.GeneratedMessage {
   void clearKey() => clearField(1);
 }
 
+/// Deprecated: PrivKey defines a ed25519 private key.
+/// NOTE: ed25519 keys must not be used in SDK apps except in a tendermint validator context.
 class PrivKey extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PrivKey',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.ed25519'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  PrivKey._() : super();
   factory PrivKey({
     $core.List<$core.int>? key,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
-    return _result;
+    return $result;
   }
+  PrivKey._() : super();
   factory PrivKey.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PrivKey.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PrivKey',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.ed25519'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -118,9 +116,10 @@ class PrivKey extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   PrivKey copyWith(void Function(PrivKey) updates) =>
-      super.copyWith((message) => updates(message as PrivKey))
-          as PrivKey; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as PrivKey)) as PrivKey;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PrivKey create() => PrivKey._();
   PrivKey createEmptyInstance() => create();
@@ -142,3 +141,7 @@ class PrivKey extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearKey() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

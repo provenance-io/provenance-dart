@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/statesync/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -19,6 +23,35 @@ enum Message_Sum {
 }
 
 class Message extends $pb.GeneratedMessage {
+  factory Message({
+    SnapshotsRequest? snapshotsRequest,
+    SnapshotsResponse? snapshotsResponse,
+    ChunkRequest? chunkRequest,
+    ChunkResponse? chunkResponse,
+  }) {
+    final $result = create();
+    if (snapshotsRequest != null) {
+      $result.snapshotsRequest = snapshotsRequest;
+    }
+    if (snapshotsResponse != null) {
+      $result.snapshotsResponse = snapshotsResponse;
+    }
+    if (chunkRequest != null) {
+      $result.chunkRequest = chunkRequest;
+    }
+    if (chunkResponse != null) {
+      $result.chunkResponse = chunkResponse;
+    }
+    return $result;
+  }
+  Message._() : super();
+  factory Message.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Message.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, Message_Sum> _Message_SumByTag = {
     1: Message_Sum.snapshotsRequest,
     2: Message_Sum.snapshotsResponse,
@@ -27,69 +60,21 @@ class Message extends $pb.GeneratedMessage {
     0: Message_Sum.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Message',
+      _omitMessageNames ? '' : 'Message',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.statesync'),
+          _omitMessageNames ? '' : 'tendermint.statesync'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4])
-    ..aOM<SnapshotsRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'snapshotsRequest',
+    ..aOM<SnapshotsRequest>(1, _omitFieldNames ? '' : 'snapshotsRequest',
         subBuilder: SnapshotsRequest.create)
-    ..aOM<SnapshotsResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'snapshotsResponse',
+    ..aOM<SnapshotsResponse>(2, _omitFieldNames ? '' : 'snapshotsResponse',
         subBuilder: SnapshotsResponse.create)
-    ..aOM<ChunkRequest>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chunkRequest',
+    ..aOM<ChunkRequest>(3, _omitFieldNames ? '' : 'chunkRequest',
         subBuilder: ChunkRequest.create)
-    ..aOM<ChunkResponse>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chunkResponse',
+    ..aOM<ChunkResponse>(4, _omitFieldNames ? '' : 'chunkResponse',
         subBuilder: ChunkResponse.create)
     ..hasRequiredFields = false;
 
-  Message._() : super();
-  factory Message({
-    SnapshotsRequest? snapshotsRequest,
-    SnapshotsResponse? snapshotsResponse,
-    ChunkRequest? chunkRequest,
-    ChunkResponse? chunkResponse,
-  }) {
-    final _result = create();
-    if (snapshotsRequest != null) {
-      _result.snapshotsRequest = snapshotsRequest;
-    }
-    if (snapshotsResponse != null) {
-      _result.snapshotsResponse = snapshotsResponse;
-    }
-    if (chunkRequest != null) {
-      _result.chunkRequest = chunkRequest;
-    }
-    if (chunkResponse != null) {
-      _result.chunkResponse = chunkResponse;
-    }
-    return _result;
-  }
-  factory Message.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Message.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -98,9 +83,10 @@ class Message extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Message copyWith(void Function(Message) updates) =>
-      super.copyWith((message) => updates(message as Message))
-          as Message; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Message)) as Message;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Message create() => Message._();
   Message createEmptyInstance() => create();
@@ -171,25 +157,22 @@ class Message extends $pb.GeneratedMessage {
 }
 
 class SnapshotsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.statesync'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  SnapshotsRequest._() : super();
   factory SnapshotsRequest() => create();
+  SnapshotsRequest._() : super();
   factory SnapshotsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SnapshotsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnapshotsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.statesync'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -199,8 +182,10 @@ class SnapshotsRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SnapshotsRequest copyWith(void Function(SnapshotsRequest) updates) =>
       super.copyWith((message) => updates(message as SnapshotsRequest))
-          as SnapshotsRequest; // ignore: deprecated_member_use
+          as SnapshotsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotsRequest create() => SnapshotsRequest._();
   SnapshotsRequest createEmptyInstance() => create();
@@ -213,49 +198,6 @@ class SnapshotsRequest extends $pb.GeneratedMessage {
 }
 
 class SnapshotsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.statesync'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'format',
-        $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chunks',
-        $pb.PbFieldType.OU3)
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  SnapshotsResponse._() : super();
   factory SnapshotsResponse({
     $fixnum.Int64? height,
     $core.int? format,
@@ -263,30 +205,47 @@ class SnapshotsResponse extends $pb.GeneratedMessage {
     $core.List<$core.int>? hash,
     $core.List<$core.int>? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (format != null) {
-      _result.format = format;
+      $result.format = format;
     }
     if (chunks != null) {
-      _result.chunks = chunks;
+      $result.chunks = chunks;
     }
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  SnapshotsResponse._() : super();
   factory SnapshotsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SnapshotsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnapshotsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.statesync'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'height', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'format', $pb.PbFieldType.OU3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'chunks', $pb.PbFieldType.OU3)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'metadata', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -296,8 +255,10 @@ class SnapshotsResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SnapshotsResponse copyWith(void Function(SnapshotsResponse) updates) =>
       super.copyWith((message) => updates(message as SnapshotsResponse))
-          as SnapshotsResponse; // ignore: deprecated_member_use
+          as SnapshotsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotsResponse create() => SnapshotsResponse._();
   SnapshotsResponse createEmptyInstance() => create();
@@ -370,60 +331,42 @@ class SnapshotsResponse extends $pb.GeneratedMessage {
 }
 
 class ChunkRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ChunkRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.statesync'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'format',
-        $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'index',
-        $pb.PbFieldType.OU3)
-    ..hasRequiredFields = false;
-
-  ChunkRequest._() : super();
   factory ChunkRequest({
     $fixnum.Int64? height,
     $core.int? format,
     $core.int? index,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (format != null) {
-      _result.format = format;
+      $result.format = format;
     }
     if (index != null) {
-      _result.index = index;
+      $result.index = index;
     }
-    return _result;
+    return $result;
   }
+  ChunkRequest._() : super();
   factory ChunkRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ChunkRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChunkRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.statesync'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'height', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'format', $pb.PbFieldType.OU3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'index', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -433,8 +376,10 @@ class ChunkRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ChunkRequest copyWith(void Function(ChunkRequest) updates) =>
       super.copyWith((message) => updates(message as ChunkRequest))
-          as ChunkRequest; // ignore: deprecated_member_use
+          as ChunkRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ChunkRequest create() => ChunkRequest._();
   ChunkRequest createEmptyInstance() => create();
@@ -483,48 +428,6 @@ class ChunkRequest extends $pb.GeneratedMessage {
 }
 
 class ChunkResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ChunkResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.statesync'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'format',
-        $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'index',
-        $pb.PbFieldType.OU3)
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chunk',
-        $pb.PbFieldType.OY)
-    ..aOB(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'missing')
-    ..hasRequiredFields = false;
-
-  ChunkResponse._() : super();
   factory ChunkResponse({
     $fixnum.Int64? height,
     $core.int? format,
@@ -532,30 +435,46 @@ class ChunkResponse extends $pb.GeneratedMessage {
     $core.List<$core.int>? chunk,
     $core.bool? missing,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (format != null) {
-      _result.format = format;
+      $result.format = format;
     }
     if (index != null) {
-      _result.index = index;
+      $result.index = index;
     }
     if (chunk != null) {
-      _result.chunk = chunk;
+      $result.chunk = chunk;
     }
     if (missing != null) {
-      _result.missing = missing;
+      $result.missing = missing;
     }
-    return _result;
+    return $result;
   }
+  ChunkResponse._() : super();
   factory ChunkResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ChunkResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChunkResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'tendermint.statesync'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'height', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'format', $pb.PbFieldType.OU3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'index', $pb.PbFieldType.OU3)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'chunk', $pb.PbFieldType.OY)
+    ..aOB(5, _omitFieldNames ? '' : 'missing')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -565,8 +484,10 @@ class ChunkResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ChunkResponse copyWith(void Function(ChunkResponse) updates) =>
       super.copyWith((message) => updates(message as ChunkResponse))
-          as ChunkResponse; // ignore: deprecated_member_use
+          as ChunkResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ChunkResponse create() => ChunkResponse._();
   ChunkResponse createEmptyInstance() => create();
@@ -637,3 +558,7 @@ class ChunkResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearMissing() => clearField(5);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

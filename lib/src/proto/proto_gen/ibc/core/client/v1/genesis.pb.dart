@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/client/v1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,58 +16,8 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'client.pb.dart' as $0;
 
+/// GenesisState defines the ibc client submodule's genesis state.
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..pc<$0.IdentifiedClientState>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clients',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.IdentifiedClientState.create)
-    ..pc<$0.ClientConsensusStates>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientsConsensus',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.ClientConsensusStates.create)
-    ..pc<IdentifiedGenesisMetadata>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientsMetadata',
-        $pb.PbFieldType.PM,
-        subBuilder: IdentifiedGenesisMetadata.create)
-    ..aOM<$0.Params>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $0.Params.create)
-    ..aOB(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'createLocalhost')
-    ..a<$fixnum.Int64>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextClientSequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  GenesisState._() : super();
   factory GenesisState({
     $core.Iterable<$0.IdentifiedClientState>? clients,
     $core.Iterable<$0.ClientConsensusStates>? clientsConsensus,
@@ -72,33 +26,57 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.bool? createLocalhost,
     $fixnum.Int64? nextClientSequence,
   }) {
-    final _result = create();
+    final $result = create();
     if (clients != null) {
-      _result.clients.addAll(clients);
+      $result.clients.addAll(clients);
     }
     if (clientsConsensus != null) {
-      _result.clientsConsensus.addAll(clientsConsensus);
+      $result.clientsConsensus.addAll(clientsConsensus);
     }
     if (clientsMetadata != null) {
-      _result.clientsMetadata.addAll(clientsMetadata);
+      $result.clientsMetadata.addAll(clientsMetadata);
     }
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
     if (createLocalhost != null) {
-      _result.createLocalhost = createLocalhost;
+      $result.createLocalhost = createLocalhost;
     }
     if (nextClientSequence != null) {
-      _result.nextClientSequence = nextClientSequence;
+      $result.nextClientSequence = nextClientSequence;
     }
-    return _result;
+    return $result;
   }
+  GenesisState._() : super();
   factory GenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisState',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..pc<$0.IdentifiedClientState>(
+        1, _omitFieldNames ? '' : 'clients', $pb.PbFieldType.PM,
+        subBuilder: $0.IdentifiedClientState.create)
+    ..pc<$0.ClientConsensusStates>(
+        2, _omitFieldNames ? '' : 'clientsConsensus', $pb.PbFieldType.PM,
+        subBuilder: $0.ClientConsensusStates.create)
+    ..pc<IdentifiedGenesisMetadata>(
+        3, _omitFieldNames ? '' : 'clientsMetadata', $pb.PbFieldType.PM,
+        subBuilder: IdentifiedGenesisMetadata.create)
+    ..aOM<$0.Params>(4, _omitFieldNames ? '' : 'params',
+        subBuilder: $0.Params.create)
+    ..aOB(5, _omitFieldNames ? '' : 'createLocalhost')
+    ..a<$fixnum.Int64>(
+        6, _omitFieldNames ? '' : 'nextClientSequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -108,8 +86,10 @@ class GenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState copyWith(void Function(GenesisState) updates) =>
       super.copyWith((message) => updates(message as GenesisState))
-          as GenesisState; // ignore: deprecated_member_use
+          as GenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
@@ -120,12 +100,15 @@ class GenesisState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
   static GenesisState? _defaultInstance;
 
+  /// client states with their corresponding identifiers
   @$pb.TagNumber(1)
   $core.List<$0.IdentifiedClientState> get clients => $_getList(0);
 
+  /// consensus states from each client
   @$pb.TagNumber(2)
   $core.List<$0.ClientConsensusStates> get clientsConsensus => $_getList(1);
 
+  /// metadata from each client
   @$pb.TagNumber(3)
   $core.List<IdentifiedGenesisMetadata> get clientsMetadata => $_getList(2);
 
@@ -143,6 +126,7 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $0.Params ensureParams() => $_ensure(3);
 
+  /// create localhost on initialization
   @$pb.TagNumber(5)
   $core.bool get createLocalhost => $_getBF(4);
   @$pb.TagNumber(5)
@@ -155,6 +139,7 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearCreateLocalhost() => clearField(5);
 
+  /// the sequence for the next generated client identifier
   @$pb.TagNumber(6)
   $fixnum.Int64 get nextClientSequence => $_getI64(5);
   @$pb.TagNumber(6)
@@ -168,50 +153,41 @@ class GenesisState extends $pb.GeneratedMessage {
   void clearNextClientSequence() => clearField(6);
 }
 
+/// GenesisMetadata defines the genesis type for metadata that clients may return
+/// with ExportMetadata
 class GenesisMetadata extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisMetadata',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  GenesisMetadata._() : super();
   factory GenesisMetadata({
     $core.List<$core.int>? key,
     $core.List<$core.int>? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  GenesisMetadata._() : super();
   factory GenesisMetadata.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisMetadata.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisMetadata',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -221,8 +197,10 @@ class GenesisMetadata extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisMetadata copyWith(void Function(GenesisMetadata) updates) =>
       super.copyWith((message) => updates(message as GenesisMetadata))
-          as GenesisMetadata; // ignore: deprecated_member_use
+          as GenesisMetadata;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisMetadata create() => GenesisMetadata._();
   GenesisMetadata createEmptyInstance() => create();
@@ -233,6 +211,7 @@ class GenesisMetadata extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GenesisMetadata>(create);
   static GenesisMetadata? _defaultInstance;
 
+  /// store key of metadata without clientID-prefix
   @$pb.TagNumber(1)
   $core.List<$core.int> get key => $_getN(0);
   @$pb.TagNumber(1)
@@ -245,6 +224,7 @@ class GenesisMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearKey() => clearField(1);
 
+  /// metadata value
   @$pb.TagNumber(2)
   $core.List<$core.int> get value => $_getN(1);
   @$pb.TagNumber(2)
@@ -258,50 +238,41 @@ class GenesisMetadata extends $pb.GeneratedMessage {
   void clearValue() => clearField(2);
 }
 
+/// IdentifiedGenesisMetadata has the client metadata with the corresponding
+/// client id.
 class IdentifiedGenesisMetadata extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'IdentifiedGenesisMetadata',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..pc<GenesisMetadata>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientMetadata',
-        $pb.PbFieldType.PM,
-        subBuilder: GenesisMetadata.create)
-    ..hasRequiredFields = false;
-
-  IdentifiedGenesisMetadata._() : super();
   factory IdentifiedGenesisMetadata({
     $core.String? clientId,
     $core.Iterable<GenesisMetadata>? clientMetadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (clientMetadata != null) {
-      _result.clientMetadata.addAll(clientMetadata);
+      $result.clientMetadata.addAll(clientMetadata);
     }
-    return _result;
+    return $result;
   }
+  IdentifiedGenesisMetadata._() : super();
   factory IdentifiedGenesisMetadata.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory IdentifiedGenesisMetadata.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'IdentifiedGenesisMetadata',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..pc<GenesisMetadata>(
+        2, _omitFieldNames ? '' : 'clientMetadata', $pb.PbFieldType.PM,
+        subBuilder: GenesisMetadata.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -313,8 +284,10 @@ class IdentifiedGenesisMetadata extends $pb.GeneratedMessage {
   IdentifiedGenesisMetadata copyWith(
           void Function(IdentifiedGenesisMetadata) updates) =>
       super.copyWith((message) => updates(message as IdentifiedGenesisMetadata))
-          as IdentifiedGenesisMetadata; // ignore: deprecated_member_use
+          as IdentifiedGenesisMetadata;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static IdentifiedGenesisMetadata create() => IdentifiedGenesisMetadata._();
   IdentifiedGenesisMetadata createEmptyInstance() => create();
@@ -340,3 +313,7 @@ class IdentifiedGenesisMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.List<GenesisMetadata> get clientMetadata => $_getList(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

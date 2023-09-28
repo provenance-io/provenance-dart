@@ -1,25 +1,23 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/group/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-// ignore_for_file: UNDEFINED_SHOWN_NAME
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:core' as $core;
+
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// Exec defines modes of execution of a proposal on creation or on new vote.
 class Exec extends $pb.ProtobufEnum {
-  static const Exec EXEC_UNSPECIFIED = Exec._(
-      0,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'EXEC_UNSPECIFIED');
-  static const Exec EXEC_TRY = Exec._(
-      1,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'EXEC_TRY');
+  static const Exec EXEC_UNSPECIFIED =
+      Exec._(0, _omitEnumNames ? '' : 'EXEC_UNSPECIFIED');
+  static const Exec EXEC_TRY = Exec._(1, _omitEnumNames ? '' : 'EXEC_TRY');
 
   static const $core.List<Exec> values = <Exec>[
     EXEC_UNSPECIFIED,
@@ -32,3 +30,5 @@ class Exec extends $pb.ProtobufEnum {
 
   const Exec._($core.int v, $core.String n) : super(v, n);
 }
+
+const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

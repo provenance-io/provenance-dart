@@ -75,6 +75,13 @@ class _TestAuthServer extends auth.QueryServiceBase {
     // TODO: implement moduleAccounts
     throw UnimplementedError();
   }
+
+  @override
+  Future<QueryModuleAccountByNameResponse> moduleAccountByName(
+      ServiceCall call, QueryModuleAccountByNameRequest request) {
+    // TODO: implement moduleAccountByName
+    throw UnimplementedError();
+  }
 }
 
 class _TestTxServer extends tx.ServiceBase {

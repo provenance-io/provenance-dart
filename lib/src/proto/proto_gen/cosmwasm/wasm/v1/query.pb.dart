@@ -1,51 +1,50 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmwasm/wasm/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'types.pb.dart' as $1;
 import '../../../cosmos/base/query/v1beta1/pagination.pb.dart' as $2;
+import 'types.pb.dart' as $1;
 
+/// QueryContractInfoRequest is the request type for the Query/ContractInfo RPC
+/// method
 class QueryContractInfoRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryContractInfoRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..hasRequiredFields = false;
-
-  QueryContractInfoRequest._() : super();
   factory QueryContractInfoRequest({
     $core.String? address,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
-    return _result;
+    return $result;
   }
+  QueryContractInfoRequest._() : super();
   factory QueryContractInfoRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryContractInfoRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryContractInfoRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -57,8 +56,10 @@ class QueryContractInfoRequest extends $pb.GeneratedMessage {
   QueryContractInfoRequest copyWith(
           void Function(QueryContractInfoRequest) updates) =>
       super.copyWith((message) => updates(message as QueryContractInfoRequest))
-          as QueryContractInfoRequest; // ignore: deprecated_member_use
+          as QueryContractInfoRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryContractInfoRequest create() => QueryContractInfoRequest._();
   QueryContractInfoRequest createEmptyInstance() => create();
@@ -69,6 +70,7 @@ class QueryContractInfoRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryContractInfoRequest>(create);
   static QueryContractInfoRequest? _defaultInstance;
 
+  /// address is the address of the contract to query
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -82,49 +84,40 @@ class QueryContractInfoRequest extends $pb.GeneratedMessage {
   void clearAddress() => clearField(1);
 }
 
+/// QueryContractInfoResponse is the response type for the Query/ContractInfo RPC
+/// method
 class QueryContractInfoResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryContractInfoResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOM<$1.ContractInfo>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractInfo',
-        subBuilder: $1.ContractInfo.create)
-    ..hasRequiredFields = false;
-
-  QueryContractInfoResponse._() : super();
   factory QueryContractInfoResponse({
     $core.String? address,
     $1.ContractInfo? contractInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (contractInfo != null) {
-      _result.contractInfo = contractInfo;
+      $result.contractInfo = contractInfo;
     }
-    return _result;
+    return $result;
   }
+  QueryContractInfoResponse._() : super();
   factory QueryContractInfoResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryContractInfoResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryContractInfoResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOM<$1.ContractInfo>(2, _omitFieldNames ? '' : 'contractInfo',
+        subBuilder: $1.ContractInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -136,8 +129,10 @@ class QueryContractInfoResponse extends $pb.GeneratedMessage {
   QueryContractInfoResponse copyWith(
           void Function(QueryContractInfoResponse) updates) =>
       super.copyWith((message) => updates(message as QueryContractInfoResponse))
-          as QueryContractInfoResponse; // ignore: deprecated_member_use
+          as QueryContractInfoResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryContractInfoResponse create() => QueryContractInfoResponse._();
   QueryContractInfoResponse createEmptyInstance() => create();
@@ -148,6 +143,7 @@ class QueryContractInfoResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryContractInfoResponse>(create);
   static QueryContractInfoResponse? _defaultInstance;
 
+  /// address is the address of the contract
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -175,49 +171,40 @@ class QueryContractInfoResponse extends $pb.GeneratedMessage {
   $1.ContractInfo ensureContractInfo() => $_ensure(1);
 }
 
+/// QueryContractHistoryRequest is the request type for the Query/ContractHistory
+/// RPC method
 class QueryContractHistoryRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryContractHistoryRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryContractHistoryRequest._() : super();
   factory QueryContractHistoryRequest({
     $core.String? address,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryContractHistoryRequest._() : super();
   factory QueryContractHistoryRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryContractHistoryRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryContractHistoryRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -230,8 +217,10 @@ class QueryContractHistoryRequest extends $pb.GeneratedMessage {
           void Function(QueryContractHistoryRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryContractHistoryRequest))
-          as QueryContractHistoryRequest; // ignore: deprecated_member_use
+          as QueryContractHistoryRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryContractHistoryRequest create() =>
       QueryContractHistoryRequest._();
@@ -243,6 +232,7 @@ class QueryContractHistoryRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryContractHistoryRequest>(create);
   static QueryContractHistoryRequest? _defaultInstance;
 
+  /// address is the address of the contract to query
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -255,6 +245,7 @@ class QueryContractHistoryRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -270,51 +261,42 @@ class QueryContractHistoryRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryContractHistoryResponse is the response type for the
+/// Query/ContractHistory RPC method
 class QueryContractHistoryResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryContractHistoryResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.ContractCodeHistoryEntry>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'entries',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.ContractCodeHistoryEntry.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryContractHistoryResponse._() : super();
   factory QueryContractHistoryResponse({
     $core.Iterable<$1.ContractCodeHistoryEntry>? entries,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (entries != null) {
-      _result.entries.addAll(entries);
+      $result.entries.addAll(entries);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryContractHistoryResponse._() : super();
   factory QueryContractHistoryResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryContractHistoryResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryContractHistoryResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.ContractCodeHistoryEntry>(
+        1, _omitFieldNames ? '' : 'entries', $pb.PbFieldType.PM,
+        subBuilder: $1.ContractCodeHistoryEntry.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -327,8 +309,10 @@ class QueryContractHistoryResponse extends $pb.GeneratedMessage {
           void Function(QueryContractHistoryResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryContractHistoryResponse))
-          as QueryContractHistoryResponse; // ignore: deprecated_member_use
+          as QueryContractHistoryResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryContractHistoryResponse create() =>
       QueryContractHistoryResponse._();
@@ -343,6 +327,7 @@ class QueryContractHistoryResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$1.ContractCodeHistoryEntry> get entries => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -358,51 +343,41 @@ class QueryContractHistoryResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryContractsByCodeRequest is the request type for the Query/ContractsByCode
+/// RPC method
 class QueryContractsByCodeRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryContractsByCodeRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryContractsByCodeRequest._() : super();
   factory QueryContractsByCodeRequest({
     $fixnum.Int64? codeId,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryContractsByCodeRequest._() : super();
   factory QueryContractsByCodeRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryContractsByCodeRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryContractsByCodeRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -415,8 +390,10 @@ class QueryContractsByCodeRequest extends $pb.GeneratedMessage {
           void Function(QueryContractsByCodeRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryContractsByCodeRequest))
-          as QueryContractsByCodeRequest; // ignore: deprecated_member_use
+          as QueryContractsByCodeRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryContractsByCodeRequest create() =>
       QueryContractsByCodeRequest._();
@@ -440,6 +417,7 @@ class QueryContractsByCodeRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearCodeId() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -455,49 +433,40 @@ class QueryContractsByCodeRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryContractsByCodeResponse is the response type for the
+/// Query/ContractsByCode RPC method
 class QueryContractsByCodeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryContractsByCodeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contracts')
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryContractsByCodeResponse._() : super();
   factory QueryContractsByCodeResponse({
     $core.Iterable<$core.String>? contracts,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (contracts != null) {
-      _result.contracts.addAll(contracts);
+      $result.contracts.addAll(contracts);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryContractsByCodeResponse._() : super();
   factory QueryContractsByCodeResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryContractsByCodeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryContractsByCodeResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'contracts')
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -510,8 +479,10 @@ class QueryContractsByCodeResponse extends $pb.GeneratedMessage {
           void Function(QueryContractsByCodeResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryContractsByCodeResponse))
-          as QueryContractsByCodeResponse; // ignore: deprecated_member_use
+          as QueryContractsByCodeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryContractsByCodeResponse create() =>
       QueryContractsByCodeResponse._();
@@ -523,9 +494,11 @@ class QueryContractsByCodeResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryContractsByCodeResponse>(create);
   static QueryContractsByCodeResponse? _defaultInstance;
 
+  /// contracts are a set of contract addresses
   @$pb.TagNumber(1)
   $core.List<$core.String> get contracts => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -541,49 +514,40 @@ class QueryContractsByCodeResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryAllContractStateRequest is the request type for the
+/// Query/AllContractState RPC method
 class QueryAllContractStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllContractStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryAllContractStateRequest._() : super();
   factory QueryAllContractStateRequest({
     $core.String? address,
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryAllContractStateRequest._() : super();
   factory QueryAllContractStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllContractStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllContractStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -596,8 +560,10 @@ class QueryAllContractStateRequest extends $pb.GeneratedMessage {
           void Function(QueryAllContractStateRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryAllContractStateRequest))
-          as QueryAllContractStateRequest; // ignore: deprecated_member_use
+          as QueryAllContractStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllContractStateRequest create() =>
       QueryAllContractStateRequest._();
@@ -609,6 +575,7 @@ class QueryAllContractStateRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryAllContractStateRequest>(create);
   static QueryAllContractStateRequest? _defaultInstance;
 
+  /// address is the address of the contract
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -621,6 +588,7 @@ class QueryAllContractStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -636,51 +604,41 @@ class QueryAllContractStateRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryAllContractStateResponse is the response type for the
+/// Query/AllContractState RPC method
 class QueryAllContractStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryAllContractStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.Model>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'models',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Model.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryAllContractStateResponse._() : super();
   factory QueryAllContractStateResponse({
     $core.Iterable<$1.Model>? models,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (models != null) {
-      _result.models.addAll(models);
+      $result.models.addAll(models);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryAllContractStateResponse._() : super();
   factory QueryAllContractStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryAllContractStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryAllContractStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.Model>(1, _omitFieldNames ? '' : 'models', $pb.PbFieldType.PM,
+        subBuilder: $1.Model.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -693,8 +651,10 @@ class QueryAllContractStateResponse extends $pb.GeneratedMessage {
           void Function(QueryAllContractStateResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryAllContractStateResponse))
-          as QueryAllContractStateResponse; // ignore: deprecated_member_use
+          as QueryAllContractStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryAllContractStateResponse create() =>
       QueryAllContractStateResponse._();
@@ -709,6 +669,7 @@ class QueryAllContractStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$1.Model> get models => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -724,49 +685,40 @@ class QueryAllContractStateResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryRawContractStateRequest is the request type for the
+/// Query/RawContractState RPC method
 class QueryRawContractStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryRawContractStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'queryData',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  QueryRawContractStateRequest._() : super();
   factory QueryRawContractStateRequest({
     $core.String? address,
     $core.List<$core.int>? queryData,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (queryData != null) {
-      _result.queryData = queryData;
+      $result.queryData = queryData;
     }
-    return _result;
+    return $result;
   }
+  QueryRawContractStateRequest._() : super();
   factory QueryRawContractStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryRawContractStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryRawContractStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'queryData', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -779,8 +731,10 @@ class QueryRawContractStateRequest extends $pb.GeneratedMessage {
           void Function(QueryRawContractStateRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryRawContractStateRequest))
-          as QueryRawContractStateRequest; // ignore: deprecated_member_use
+          as QueryRawContractStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryRawContractStateRequest create() =>
       QueryRawContractStateRequest._();
@@ -792,6 +746,7 @@ class QueryRawContractStateRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryRawContractStateRequest>(create);
   static QueryRawContractStateRequest? _defaultInstance;
 
+  /// address is the address of the contract
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -817,40 +772,35 @@ class QueryRawContractStateRequest extends $pb.GeneratedMessage {
   void clearQueryData() => clearField(2);
 }
 
+/// QueryRawContractStateResponse is the response type for the
+/// Query/RawContractState RPC method
 class QueryRawContractStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryRawContractStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  QueryRawContractStateResponse._() : super();
   factory QueryRawContractStateResponse({
     $core.List<$core.int>? data,
   }) {
-    final _result = create();
+    final $result = create();
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
-    return _result;
+    return $result;
   }
+  QueryRawContractStateResponse._() : super();
   factory QueryRawContractStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryRawContractStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryRawContractStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -863,8 +813,10 @@ class QueryRawContractStateResponse extends $pb.GeneratedMessage {
           void Function(QueryRawContractStateResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryRawContractStateResponse))
-          as QueryRawContractStateResponse; // ignore: deprecated_member_use
+          as QueryRawContractStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryRawContractStateResponse create() =>
       QueryRawContractStateResponse._();
@@ -876,6 +828,7 @@ class QueryRawContractStateResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryRawContractStateResponse>(create);
   static QueryRawContractStateResponse? _defaultInstance;
 
+  /// Data contains the raw store data
   @$pb.TagNumber(1)
   $core.List<$core.int> get data => $_getN(0);
   @$pb.TagNumber(1)
@@ -889,49 +842,40 @@ class QueryRawContractStateResponse extends $pb.GeneratedMessage {
   void clearData() => clearField(1);
 }
 
+/// QuerySmartContractStateRequest is the request type for the
+/// Query/SmartContractState RPC method
 class QuerySmartContractStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QuerySmartContractStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'queryData',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  QuerySmartContractStateRequest._() : super();
   factory QuerySmartContractStateRequest({
     $core.String? address,
     $core.List<$core.int>? queryData,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (queryData != null) {
-      _result.queryData = queryData;
+      $result.queryData = queryData;
     }
-    return _result;
+    return $result;
   }
+  QuerySmartContractStateRequest._() : super();
   factory QuerySmartContractStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QuerySmartContractStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QuerySmartContractStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'queryData', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -944,8 +888,10 @@ class QuerySmartContractStateRequest extends $pb.GeneratedMessage {
           void Function(QuerySmartContractStateRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QuerySmartContractStateRequest))
-          as QuerySmartContractStateRequest; // ignore: deprecated_member_use
+          as QuerySmartContractStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QuerySmartContractStateRequest create() =>
       QuerySmartContractStateRequest._();
@@ -957,6 +903,7 @@ class QuerySmartContractStateRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QuerySmartContractStateRequest>(create);
   static QuerySmartContractStateRequest? _defaultInstance;
 
+  /// address is the address of the contract
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -969,6 +916,7 @@ class QuerySmartContractStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// QueryData contains the query data passed to the contract
   @$pb.TagNumber(2)
   $core.List<$core.int> get queryData => $_getN(1);
   @$pb.TagNumber(2)
@@ -982,40 +930,35 @@ class QuerySmartContractStateRequest extends $pb.GeneratedMessage {
   void clearQueryData() => clearField(2);
 }
 
+/// QuerySmartContractStateResponse is the response type for the
+/// Query/SmartContractState RPC method
 class QuerySmartContractStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QuerySmartContractStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  QuerySmartContractStateResponse._() : super();
   factory QuerySmartContractStateResponse({
     $core.List<$core.int>? data,
   }) {
-    final _result = create();
+    final $result = create();
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
-    return _result;
+    return $result;
   }
+  QuerySmartContractStateResponse._() : super();
   factory QuerySmartContractStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QuerySmartContractStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QuerySmartContractStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1028,8 +971,10 @@ class QuerySmartContractStateResponse extends $pb.GeneratedMessage {
           void Function(QuerySmartContractStateResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QuerySmartContractStateResponse))
-          as QuerySmartContractStateResponse; // ignore: deprecated_member_use
+          as QuerySmartContractStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QuerySmartContractStateResponse create() =>
       QuerySmartContractStateResponse._();
@@ -1042,6 +987,7 @@ class QuerySmartContractStateResponse extends $pb.GeneratedMessage {
           create);
   static QuerySmartContractStateResponse? _defaultInstance;
 
+  /// Data contains the json data returned from the smart contract
   @$pb.TagNumber(1)
   $core.List<$core.int> get data => $_getN(0);
   @$pb.TagNumber(1)
@@ -1055,41 +1001,34 @@ class QuerySmartContractStateResponse extends $pb.GeneratedMessage {
   void clearData() => clearField(1);
 }
 
+/// QueryCodeRequest is the request type for the Query/Code RPC method
 class QueryCodeRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryCodeRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryCodeRequest._() : super();
   factory QueryCodeRequest({
     $fixnum.Int64? codeId,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
-    return _result;
+    return $result;
   }
+  QueryCodeRequest._() : super();
   factory QueryCodeRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryCodeRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCodeRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1099,8 +1038,10 @@ class QueryCodeRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryCodeRequest copyWith(void Function(QueryCodeRequest) updates) =>
       super.copyWith((message) => updates(message as QueryCodeRequest))
-          as QueryCodeRequest; // ignore: deprecated_member_use
+          as QueryCodeRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryCodeRequest create() => QueryCodeRequest._();
   QueryCodeRequest createEmptyInstance() => create();
@@ -1124,70 +1065,51 @@ class QueryCodeRequest extends $pb.GeneratedMessage {
   void clearCodeId() => clearField(1);
 }
 
+/// CodeInfoResponse contains code meta data from CodeInfo
 class CodeInfoResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CodeInfoResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'creator')
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'dataHash',
-        $pb.PbFieldType.OY)
-    ..aOM<$1.AccessConfig>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'instantiatePermission',
-        subBuilder: $1.AccessConfig.create)
-    ..hasRequiredFields = false;
-
-  CodeInfoResponse._() : super();
   factory CodeInfoResponse({
     $fixnum.Int64? codeId,
     $core.String? creator,
     $core.List<$core.int>? dataHash,
     $1.AccessConfig? instantiatePermission,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
     if (creator != null) {
-      _result.creator = creator;
+      $result.creator = creator;
     }
     if (dataHash != null) {
-      _result.dataHash = dataHash;
+      $result.dataHash = dataHash;
     }
     if (instantiatePermission != null) {
-      _result.instantiatePermission = instantiatePermission;
+      $result.instantiatePermission = instantiatePermission;
     }
-    return _result;
+    return $result;
   }
+  CodeInfoResponse._() : super();
   factory CodeInfoResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CodeInfoResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CodeInfoResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'creator')
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'dataHash', $pb.PbFieldType.OY)
+    ..aOM<$1.AccessConfig>(6, _omitFieldNames ? '' : 'instantiatePermission',
+        subBuilder: $1.AccessConfig.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1197,8 +1119,10 @@ class CodeInfoResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CodeInfoResponse copyWith(void Function(CodeInfoResponse) updates) =>
       super.copyWith((message) => updates(message as CodeInfoResponse))
-          as CodeInfoResponse; // ignore: deprecated_member_use
+          as CodeInfoResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CodeInfoResponse create() => CodeInfoResponse._();
   CodeInfoResponse createEmptyInstance() => create();
@@ -1260,50 +1184,40 @@ class CodeInfoResponse extends $pb.GeneratedMessage {
   $1.AccessConfig ensureInstantiatePermission() => $_ensure(3);
 }
 
+/// QueryCodeResponse is the response type for the Query/Code RPC method
 class QueryCodeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryCodeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOM<CodeInfoResponse>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeInfo',
-        subBuilder: CodeInfoResponse.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  QueryCodeResponse._() : super();
   factory QueryCodeResponse({
     CodeInfoResponse? codeInfo,
     $core.List<$core.int>? data,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeInfo != null) {
-      _result.codeInfo = codeInfo;
+      $result.codeInfo = codeInfo;
     }
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
-    return _result;
+    return $result;
   }
+  QueryCodeResponse._() : super();
   factory QueryCodeResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryCodeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCodeResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOM<CodeInfoResponse>(1, _omitFieldNames ? '' : 'codeInfo',
+        subBuilder: CodeInfoResponse.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1313,8 +1227,10 @@ class QueryCodeResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryCodeResponse copyWith(void Function(QueryCodeResponse) updates) =>
       super.copyWith((message) => updates(message as QueryCodeResponse))
-          as QueryCodeResponse; // ignore: deprecated_member_use
+          as QueryCodeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryCodeResponse create() => QueryCodeResponse._();
   QueryCodeResponse createEmptyInstance() => create();
@@ -1352,40 +1268,34 @@ class QueryCodeResponse extends $pb.GeneratedMessage {
   void clearData() => clearField(2);
 }
 
+/// QueryCodesRequest is the request type for the Query/Codes RPC method
 class QueryCodesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryCodesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryCodesRequest._() : super();
   factory QueryCodesRequest({
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryCodesRequest._() : super();
   factory QueryCodesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryCodesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCodesRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1395,8 +1305,10 @@ class QueryCodesRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryCodesRequest copyWith(void Function(QueryCodesRequest) updates) =>
       super.copyWith((message) => updates(message as QueryCodesRequest))
-          as QueryCodesRequest; // ignore: deprecated_member_use
+          as QueryCodesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryCodesRequest create() => QueryCodesRequest._();
   QueryCodesRequest createEmptyInstance() => create();
@@ -1407,6 +1319,7 @@ class QueryCodesRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryCodesRequest>(create);
   static QueryCodesRequest? _defaultInstance;
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(1)
   $2.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(1)
@@ -1422,51 +1335,41 @@ class QueryCodesRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(0);
 }
 
+/// QueryCodesResponse is the response type for the Query/Codes RPC method
 class QueryCodesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryCodesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..pc<CodeInfoResponse>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeInfos',
-        $pb.PbFieldType.PM,
-        subBuilder: CodeInfoResponse.create)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryCodesResponse._() : super();
   factory QueryCodesResponse({
     $core.Iterable<CodeInfoResponse>? codeInfos,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeInfos != null) {
-      _result.codeInfos.addAll(codeInfos);
+      $result.codeInfos.addAll(codeInfos);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryCodesResponse._() : super();
   factory QueryCodesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryCodesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCodesResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..pc<CodeInfoResponse>(
+        1, _omitFieldNames ? '' : 'codeInfos', $pb.PbFieldType.PM,
+        subBuilder: CodeInfoResponse.create)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1476,8 +1379,10 @@ class QueryCodesResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryCodesResponse copyWith(void Function(QueryCodesResponse) updates) =>
       super.copyWith((message) => updates(message as QueryCodesResponse))
-          as QueryCodesResponse; // ignore: deprecated_member_use
+          as QueryCodesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryCodesResponse create() => QueryCodesResponse._();
   QueryCodesResponse createEmptyInstance() => create();
@@ -1491,6 +1396,7 @@ class QueryCodesResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<CodeInfoResponse> get codeInfos => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1506,40 +1412,35 @@ class QueryCodesResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryPinnedCodesRequest is the request type for the Query/PinnedCodes
+/// RPC method
 class QueryPinnedCodesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPinnedCodesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryPinnedCodesRequest._() : super();
   factory QueryPinnedCodesRequest({
     $2.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryPinnedCodesRequest._() : super();
   factory QueryPinnedCodesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPinnedCodesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPinnedCodesRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1551,8 +1452,10 @@ class QueryPinnedCodesRequest extends $pb.GeneratedMessage {
   QueryPinnedCodesRequest copyWith(
           void Function(QueryPinnedCodesRequest) updates) =>
       super.copyWith((message) => updates(message as QueryPinnedCodesRequest))
-          as QueryPinnedCodesRequest; // ignore: deprecated_member_use
+          as QueryPinnedCodesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPinnedCodesRequest create() => QueryPinnedCodesRequest._();
   QueryPinnedCodesRequest createEmptyInstance() => create();
@@ -1563,6 +1466,7 @@ class QueryPinnedCodesRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryPinnedCodesRequest>(create);
   static QueryPinnedCodesRequest? _defaultInstance;
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(2)
   $2.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(2)
@@ -1578,50 +1482,40 @@ class QueryPinnedCodesRequest extends $pb.GeneratedMessage {
   $2.PageRequest ensurePagination() => $_ensure(0);
 }
 
+/// QueryPinnedCodesResponse is the response type for the
+/// Query/PinnedCodes RPC method
 class QueryPinnedCodesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPinnedCodesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..p<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeIds',
-        $pb.PbFieldType.KU6)
-    ..aOM<$2.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $2.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryPinnedCodesResponse._() : super();
   factory QueryPinnedCodesResponse({
     $core.Iterable<$fixnum.Int64>? codeIds,
     $2.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeIds != null) {
-      _result.codeIds.addAll(codeIds);
+      $result.codeIds.addAll(codeIds);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryPinnedCodesResponse._() : super();
   factory QueryPinnedCodesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPinnedCodesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPinnedCodesResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..p<$fixnum.Int64>(1, _omitFieldNames ? '' : 'codeIds', $pb.PbFieldType.KU6)
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1633,8 +1527,10 @@ class QueryPinnedCodesResponse extends $pb.GeneratedMessage {
   QueryPinnedCodesResponse copyWith(
           void Function(QueryPinnedCodesResponse) updates) =>
       super.copyWith((message) => updates(message as QueryPinnedCodesResponse))
-          as QueryPinnedCodesResponse; // ignore: deprecated_member_use
+          as QueryPinnedCodesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPinnedCodesResponse create() => QueryPinnedCodesResponse._();
   QueryPinnedCodesResponse createEmptyInstance() => create();
@@ -1648,6 +1544,7 @@ class QueryPinnedCodesResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$fixnum.Int64> get codeIds => $_getList(0);
 
+  /// pagination defines the pagination in the response.
   @$pb.TagNumber(2)
   $2.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1663,26 +1560,24 @@ class QueryPinnedCodesResponse extends $pb.GeneratedMessage {
   $2.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryParamsRequest is the request type for the Query/Params RPC method.
 class QueryParamsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryParamsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  QueryParamsRequest._() : super();
   factory QueryParamsRequest() => create();
+  QueryParamsRequest._() : super();
   factory QueryParamsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryParamsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryParamsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1692,8 +1587,10 @@ class QueryParamsRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryParamsRequest copyWith(void Function(QueryParamsRequest) updates) =>
       super.copyWith((message) => updates(message as QueryParamsRequest))
-          as QueryParamsRequest; // ignore: deprecated_member_use
+          as QueryParamsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryParamsRequest create() => QueryParamsRequest._();
   QueryParamsRequest createEmptyInstance() => create();
@@ -1705,40 +1602,34 @@ class QueryParamsRequest extends $pb.GeneratedMessage {
   static QueryParamsRequest? _defaultInstance;
 }
 
+/// QueryParamsResponse is the response type for the Query/Params RPC method.
 class QueryParamsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryParamsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Params>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $1.Params.create)
-    ..hasRequiredFields = false;
-
-  QueryParamsResponse._() : super();
   factory QueryParamsResponse({
     $1.Params? params,
   }) {
-    final _result = create();
+    final $result = create();
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
-    return _result;
+    return $result;
   }
+  QueryParamsResponse._() : super();
   factory QueryParamsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryParamsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryParamsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Params>(1, _omitFieldNames ? '' : 'params',
+        subBuilder: $1.Params.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1748,8 +1639,10 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryParamsResponse copyWith(void Function(QueryParamsResponse) updates) =>
       super.copyWith((message) => updates(message as QueryParamsResponse))
-          as QueryParamsResponse; // ignore: deprecated_member_use
+          as QueryParamsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryParamsResponse create() => QueryParamsResponse._();
   QueryParamsResponse createEmptyInstance() => create();
@@ -1760,6 +1653,7 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryParamsResponse>(create);
   static QueryParamsResponse? _defaultInstance;
 
+  /// params defines the parameters of the module.
   @$pb.TagNumber(1)
   $1.Params get params => $_getN(0);
   @$pb.TagNumber(1)
@@ -1774,3 +1668,179 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Params ensureParams() => $_ensure(0);
 }
+
+/// QueryContractsByCreatorRequest is the request type for the
+/// Query/ContractsByCreator RPC method.
+class QueryContractsByCreatorRequest extends $pb.GeneratedMessage {
+  factory QueryContractsByCreatorRequest({
+    $core.String? creatorAddress,
+    $2.PageRequest? pagination,
+  }) {
+    final $result = create();
+    if (creatorAddress != null) {
+      $result.creatorAddress = creatorAddress;
+    }
+    if (pagination != null) {
+      $result.pagination = pagination;
+    }
+    return $result;
+  }
+  QueryContractsByCreatorRequest._() : super();
+  factory QueryContractsByCreatorRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryContractsByCreatorRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryContractsByCreatorRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'creatorAddress')
+    ..aOM<$2.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryContractsByCreatorRequest clone() =>
+      QueryContractsByCreatorRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryContractsByCreatorRequest copyWith(
+          void Function(QueryContractsByCreatorRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryContractsByCreatorRequest))
+          as QueryContractsByCreatorRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryContractsByCreatorRequest create() =>
+      QueryContractsByCreatorRequest._();
+  QueryContractsByCreatorRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryContractsByCreatorRequest> createRepeated() =>
+      $pb.PbList<QueryContractsByCreatorRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryContractsByCreatorRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryContractsByCreatorRequest>(create);
+  static QueryContractsByCreatorRequest? _defaultInstance;
+
+  /// CreatorAddress is the address of contract creator
+  @$pb.TagNumber(1)
+  $core.String get creatorAddress => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set creatorAddress($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasCreatorAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCreatorAddress() => clearField(1);
+
+  /// Pagination defines an optional pagination for the request.
+  @$pb.TagNumber(2)
+  $2.PageRequest get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageRequest v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageRequest ensurePagination() => $_ensure(1);
+}
+
+/// QueryContractsByCreatorResponse is the response type for the
+/// Query/ContractsByCreator RPC method.
+class QueryContractsByCreatorResponse extends $pb.GeneratedMessage {
+  factory QueryContractsByCreatorResponse({
+    $core.Iterable<$core.String>? contractAddresses,
+    $2.PageResponse? pagination,
+  }) {
+    final $result = create();
+    if (contractAddresses != null) {
+      $result.contractAddresses.addAll(contractAddresses);
+    }
+    if (pagination != null) {
+      $result.pagination = pagination;
+    }
+    return $result;
+  }
+  QueryContractsByCreatorResponse._() : super();
+  factory QueryContractsByCreatorResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryContractsByCreatorResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryContractsByCreatorResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'contractAddresses')
+    ..aOM<$2.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $2.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryContractsByCreatorResponse clone() =>
+      QueryContractsByCreatorResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryContractsByCreatorResponse copyWith(
+          void Function(QueryContractsByCreatorResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryContractsByCreatorResponse))
+          as QueryContractsByCreatorResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryContractsByCreatorResponse create() =>
+      QueryContractsByCreatorResponse._();
+  QueryContractsByCreatorResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryContractsByCreatorResponse> createRepeated() =>
+      $pb.PbList<QueryContractsByCreatorResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryContractsByCreatorResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryContractsByCreatorResponse>(
+          create);
+  static QueryContractsByCreatorResponse? _defaultInstance;
+
+  /// ContractAddresses result set
+  @$pb.TagNumber(1)
+  $core.List<$core.String> get contractAddresses => $_getList(0);
+
+  /// Pagination defines the pagination in the response.
+  @$pb.TagNumber(2)
+  $2.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(2)
+  set pagination($2.PageResponse v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPagination() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.PageResponse ensurePagination() => $_ensure(1);
+}
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

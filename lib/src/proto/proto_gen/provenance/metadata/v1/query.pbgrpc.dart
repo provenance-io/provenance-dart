@@ -1,18 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/metadata/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import 'query.pb.dart' as $0;
+
 export 'query.pb.dart';
 
+@$pb.GrpcServiceName('provenance.metadata.v1.Query')
 class QueryClient extends $grpc.Client {
   static final _$params =
       $grpc.ClientMethod<$0.QueryParamsRequest, $0.QueryParamsResponse>(
@@ -113,6 +120,12 @@ class QueryClient extends $grpc.Client {
       ($0.RecordSpecificationsAllRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.RecordSpecificationsAllResponse.fromBuffer(value));
+  static final _$getByAddr =
+      $grpc.ClientMethod<$0.GetByAddrRequest, $0.GetByAddrResponse>(
+          '/provenance.metadata.v1.Query/GetByAddr',
+          ($0.GetByAddrRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.GetByAddrResponse.fromBuffer(value));
   static final _$oSLocatorParams =
       $grpc.ClientMethod<$0.OSLocatorParamsRequest, $0.OSLocatorParamsResponse>(
           '/provenance.metadata.v1.Query/OSLocatorParams',
@@ -143,6 +156,12 @@ class QueryClient extends $grpc.Client {
           ($0.OSAllLocatorsRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.OSAllLocatorsResponse.fromBuffer(value));
+  static final _$accountData =
+      $grpc.ClientMethod<$0.AccountDataRequest, $0.AccountDataResponse>(
+          '/provenance.metadata.v1.Query/AccountData',
+          ($0.AccountDataRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.AccountDataResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -248,6 +267,12 @@ class QueryClient extends $grpc.Client {
         options: options);
   }
 
+  $grpc.ResponseFuture<$0.GetByAddrResponse> getByAddr(
+      $0.GetByAddrRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getByAddr, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.OSLocatorParamsResponse> oSLocatorParams(
       $0.OSLocatorParamsRequest request,
       {$grpc.CallOptions? options}) {
@@ -277,8 +302,15 @@ class QueryClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$oSAllLocators, request, options: options);
   }
+
+  $grpc.ResponseFuture<$0.AccountDataResponse> accountData(
+      $0.AccountDataRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$accountData, request, options: options);
+  }
 }
 
+@$pb.GrpcServiceName('provenance.metadata.v1.Query')
 abstract class QueryServiceBase extends $grpc.Service {
   $core.String get $name => 'provenance.metadata.v1.Query';
 
@@ -418,6 +450,13 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.RecordSpecificationsAllRequest.fromBuffer(value),
         ($0.RecordSpecificationsAllResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetByAddrRequest, $0.GetByAddrResponse>(
+        'GetByAddr',
+        getByAddr_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.GetByAddrRequest.fromBuffer(value),
+        ($0.GetByAddrResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.OSLocatorParamsRequest,
             $0.OSLocatorParamsResponse>(
         'OSLocatorParams',
@@ -461,6 +500,15 @@ abstract class QueryServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.OSAllLocatorsRequest.fromBuffer(value),
             ($0.OSAllLocatorsResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.AccountDataRequest, $0.AccountDataResponse>(
+            'AccountData',
+            accountData_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.AccountDataRequest.fromBuffer(value),
+            ($0.AccountDataResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryParamsResponse> params_Pre($grpc.ServiceCall call,
@@ -553,6 +601,11 @@ abstract class QueryServiceBase extends $grpc.Service {
     return recordSpecificationsAll(call, await request);
   }
 
+  $async.Future<$0.GetByAddrResponse> getByAddr_Pre($grpc.ServiceCall call,
+      $async.Future<$0.GetByAddrRequest> request) async {
+    return getByAddr(call, await request);
+  }
+
   $async.Future<$0.OSLocatorParamsResponse> oSLocatorParams_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.OSLocatorParamsRequest> request) async {
@@ -580,6 +633,11 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call,
       $async.Future<$0.OSAllLocatorsRequest> request) async {
     return oSAllLocators(call, await request);
+  }
+
+  $async.Future<$0.AccountDataResponse> accountData_Pre($grpc.ServiceCall call,
+      $async.Future<$0.AccountDataRequest> request) async {
+    return accountData(call, await request);
   }
 
   $async.Future<$0.QueryParamsResponse> params(
@@ -615,6 +673,8 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.RecordSpecificationRequest request);
   $async.Future<$0.RecordSpecificationsAllResponse> recordSpecificationsAll(
       $grpc.ServiceCall call, $0.RecordSpecificationsAllRequest request);
+  $async.Future<$0.GetByAddrResponse> getByAddr(
+      $grpc.ServiceCall call, $0.GetByAddrRequest request);
   $async.Future<$0.OSLocatorParamsResponse> oSLocatorParams(
       $grpc.ServiceCall call, $0.OSLocatorParamsRequest request);
   $async.Future<$0.OSLocatorResponse> oSLocator(
@@ -625,4 +685,6 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.OSLocatorsByScopeRequest request);
   $async.Future<$0.OSAllLocatorsResponse> oSAllLocators(
       $grpc.ServiceCall call, $0.OSAllLocatorsRequest request);
+  $async.Future<$0.AccountDataResponse> accountData(
+      $grpc.ServiceCall call, $0.AccountDataRequest request);
 }

@@ -1,18 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/connection/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import 'query.pb.dart' as $0;
+
 export 'query.pb.dart';
 
+@$pb.GrpcServiceName('ibc.core.connection.v1.Query')
 class QueryClient extends $grpc.Client {
   static final _$connection =
       $grpc.ClientMethod<$0.QueryConnectionRequest, $0.QueryConnectionResponse>(
@@ -46,6 +53,12 @@ class QueryClient extends $grpc.Client {
       ($0.QueryConnectionConsensusStateRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.QueryConnectionConsensusStateResponse.fromBuffer(value));
+  static final _$connectionParams = $grpc.ClientMethod<
+          $0.QueryConnectionParamsRequest, $0.QueryConnectionParamsResponse>(
+      '/ibc.core.connection.v1.Query/ConnectionParams',
+      ($0.QueryConnectionParamsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryConnectionParamsResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -82,8 +95,15 @@ class QueryClient extends $grpc.Client {
     return $createUnaryCall(_$connectionConsensusState, request,
         options: options);
   }
+
+  $grpc.ResponseFuture<$0.QueryConnectionParamsResponse> connectionParams(
+      $0.QueryConnectionParamsRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$connectionParams, request, options: options);
+  }
 }
 
+@$pb.GrpcServiceName('ibc.core.connection.v1.Query')
 abstract class QueryServiceBase extends $grpc.Service {
   $core.String get $name => 'ibc.core.connection.v1.Query';
 
@@ -135,6 +155,15 @@ abstract class QueryServiceBase extends $grpc.Service {
             $0.QueryConnectionConsensusStateRequest.fromBuffer(value),
         ($0.QueryConnectionConsensusStateResponse value) =>
             value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryConnectionParamsRequest,
+            $0.QueryConnectionParamsResponse>(
+        'ConnectionParams',
+        connectionParams_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryConnectionParamsRequest.fromBuffer(value),
+        ($0.QueryConnectionParamsResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryConnectionResponse> connection_Pre(
@@ -169,6 +198,12 @@ abstract class QueryServiceBase extends $grpc.Service {
     return connectionConsensusState(call, await request);
   }
 
+  $async.Future<$0.QueryConnectionParamsResponse> connectionParams_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryConnectionParamsRequest> request) async {
+    return connectionParams(call, await request);
+  }
+
   $async.Future<$0.QueryConnectionResponse> connection(
       $grpc.ServiceCall call, $0.QueryConnectionRequest request);
   $async.Future<$0.QueryConnectionsResponse> connections(
@@ -180,4 +215,6 @@ abstract class QueryServiceBase extends $grpc.Service {
   $async.Future<$0.QueryConnectionConsensusStateResponse>
       connectionConsensusState($grpc.ServiceCall call,
           $0.QueryConnectionConsensusStateRequest request);
+  $async.Future<$0.QueryConnectionParamsResponse> connectionParams(
+      $grpc.ServiceCall call, $0.QueryConnectionParamsRequest request);
 }

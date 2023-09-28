@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/channel/v1/channel.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,58 +15,14 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../client/v1/client.pb.dart' as $0;
-
 import 'channel.pbenum.dart';
 
 export 'channel.pbenum.dart';
 
+/// Channel defines pipeline for exactly-once packet delivery between specific
+/// modules on separate blockchains, which has at least one end capable of
+/// sending packets and one end capable of receiving packets.
 class Channel extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Channel',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..e<State>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'state',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: State.STATE_UNINITIALIZED_UNSPECIFIED,
-        valueOf: State.valueOf,
-        enumValues: State.values)
-    ..e<Order>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ordering',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: Order.ORDER_NONE_UNSPECIFIED,
-        valueOf: Order.valueOf,
-        enumValues: Order.values)
-    ..aOM<Counterparty>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterparty',
-        subBuilder: Counterparty.create)
-    ..pPS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionHops')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..hasRequiredFields = false;
-
-  Channel._() : super();
   factory Channel({
     State? state,
     Order? ordering,
@@ -70,30 +30,51 @@ class Channel extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? connectionHops,
     $core.String? version,
   }) {
-    final _result = create();
+    final $result = create();
     if (state != null) {
-      _result.state = state;
+      $result.state = state;
     }
     if (ordering != null) {
-      _result.ordering = ordering;
+      $result.ordering = ordering;
     }
     if (counterparty != null) {
-      _result.counterparty = counterparty;
+      $result.counterparty = counterparty;
     }
     if (connectionHops != null) {
-      _result.connectionHops.addAll(connectionHops);
+      $result.connectionHops.addAll(connectionHops);
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
-    return _result;
+    return $result;
   }
+  Channel._() : super();
   factory Channel.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Channel.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Channel',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..e<State>(1, _omitFieldNames ? '' : 'state', $pb.PbFieldType.OE,
+        defaultOrMaker: State.STATE_UNINITIALIZED_UNSPECIFIED,
+        valueOf: State.valueOf,
+        enumValues: State.values)
+    ..e<Order>(2, _omitFieldNames ? '' : 'ordering', $pb.PbFieldType.OE,
+        defaultOrMaker: Order.ORDER_NONE_UNSPECIFIED,
+        valueOf: Order.valueOf,
+        enumValues: Order.values)
+    ..aOM<Counterparty>(3, _omitFieldNames ? '' : 'counterparty',
+        subBuilder: Counterparty.create)
+    ..pPS(4, _omitFieldNames ? '' : 'connectionHops')
+    ..aOS(5, _omitFieldNames ? '' : 'version')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -102,9 +83,10 @@ class Channel extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Channel copyWith(void Function(Channel) updates) =>
-      super.copyWith((message) => updates(message as Channel))
-          as Channel; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Channel)) as Channel;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Channel create() => Channel._();
   Channel createEmptyInstance() => create();
@@ -114,6 +96,7 @@ class Channel extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Channel>(create);
   static Channel? _defaultInstance;
 
+  /// current state of the channel end
   @$pb.TagNumber(1)
   State get state => $_getN(0);
   @$pb.TagNumber(1)
@@ -126,6 +109,7 @@ class Channel extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearState() => clearField(1);
 
+  /// whether the channel is ordered or unordered
   @$pb.TagNumber(2)
   Order get ordering => $_getN(1);
   @$pb.TagNumber(2)
@@ -138,6 +122,7 @@ class Channel extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearOrdering() => clearField(2);
 
+  /// counterparty channel end
   @$pb.TagNumber(3)
   Counterparty get counterparty => $_getN(2);
   @$pb.TagNumber(3)
@@ -152,9 +137,12 @@ class Channel extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   Counterparty ensureCounterparty() => $_ensure(2);
 
+  /// list of connection identifiers, in order, along which packets sent on
+  /// this channel will travel
   @$pb.TagNumber(4)
   $core.List<$core.String> get connectionHops => $_getList(3);
 
+  /// opaque channel version, which is agreed upon during the handshake
   @$pb.TagNumber(5)
   $core.String get version => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -168,63 +156,9 @@ class Channel extends $pb.GeneratedMessage {
   void clearVersion() => clearField(5);
 }
 
+/// IdentifiedChannel defines a channel with additional port and channel
+/// identifier fields.
 class IdentifiedChannel extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'IdentifiedChannel',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..e<State>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'state',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: State.STATE_UNINITIALIZED_UNSPECIFIED,
-        valueOf: State.valueOf,
-        enumValues: State.values)
-    ..e<Order>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ordering',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: Order.ORDER_NONE_UNSPECIFIED,
-        valueOf: Order.valueOf,
-        enumValues: Order.values)
-    ..aOM<Counterparty>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterparty',
-        subBuilder: Counterparty.create)
-    ..pPS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connectionHops')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..hasRequiredFields = false;
-
-  IdentifiedChannel._() : super();
   factory IdentifiedChannel({
     State? state,
     Order? ordering,
@@ -234,36 +168,59 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
     $core.String? portId,
     $core.String? channelId,
   }) {
-    final _result = create();
+    final $result = create();
     if (state != null) {
-      _result.state = state;
+      $result.state = state;
     }
     if (ordering != null) {
-      _result.ordering = ordering;
+      $result.ordering = ordering;
     }
     if (counterparty != null) {
-      _result.counterparty = counterparty;
+      $result.counterparty = counterparty;
     }
     if (connectionHops != null) {
-      _result.connectionHops.addAll(connectionHops);
+      $result.connectionHops.addAll(connectionHops);
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
-    return _result;
+    return $result;
   }
+  IdentifiedChannel._() : super();
   factory IdentifiedChannel.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory IdentifiedChannel.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'IdentifiedChannel',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..e<State>(1, _omitFieldNames ? '' : 'state', $pb.PbFieldType.OE,
+        defaultOrMaker: State.STATE_UNINITIALIZED_UNSPECIFIED,
+        valueOf: State.valueOf,
+        enumValues: State.values)
+    ..e<Order>(2, _omitFieldNames ? '' : 'ordering', $pb.PbFieldType.OE,
+        defaultOrMaker: Order.ORDER_NONE_UNSPECIFIED,
+        valueOf: Order.valueOf,
+        enumValues: Order.values)
+    ..aOM<Counterparty>(3, _omitFieldNames ? '' : 'counterparty',
+        subBuilder: Counterparty.create)
+    ..pPS(4, _omitFieldNames ? '' : 'connectionHops')
+    ..aOS(5, _omitFieldNames ? '' : 'version')
+    ..aOS(6, _omitFieldNames ? '' : 'portId')
+    ..aOS(7, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -273,8 +230,10 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   IdentifiedChannel copyWith(void Function(IdentifiedChannel) updates) =>
       super.copyWith((message) => updates(message as IdentifiedChannel))
-          as IdentifiedChannel; // ignore: deprecated_member_use
+          as IdentifiedChannel;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static IdentifiedChannel create() => IdentifiedChannel._();
   IdentifiedChannel createEmptyInstance() => create();
@@ -285,6 +244,7 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<IdentifiedChannel>(create);
   static IdentifiedChannel? _defaultInstance;
 
+  /// current state of the channel end
   @$pb.TagNumber(1)
   State get state => $_getN(0);
   @$pb.TagNumber(1)
@@ -297,6 +257,7 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearState() => clearField(1);
 
+  /// whether the channel is ordered or unordered
   @$pb.TagNumber(2)
   Order get ordering => $_getN(1);
   @$pb.TagNumber(2)
@@ -309,6 +270,7 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearOrdering() => clearField(2);
 
+  /// counterparty channel end
   @$pb.TagNumber(3)
   Counterparty get counterparty => $_getN(2);
   @$pb.TagNumber(3)
@@ -323,9 +285,12 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   Counterparty ensureCounterparty() => $_ensure(2);
 
+  /// list of connection identifiers, in order, along which packets sent on
+  /// this channel will travel
   @$pb.TagNumber(4)
   $core.List<$core.String> get connectionHops => $_getList(3);
 
+  /// opaque channel version, which is agreed upon during the handshake
   @$pb.TagNumber(5)
   $core.String get version => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -338,6 +303,7 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearVersion() => clearField(5);
 
+  /// port identifier
   @$pb.TagNumber(6)
   $core.String get portId => $_getSZ(5);
   @$pb.TagNumber(6)
@@ -350,6 +316,7 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearPortId() => clearField(6);
 
+  /// channel identifier
   @$pb.TagNumber(7)
   $core.String get channelId => $_getSZ(6);
   @$pb.TagNumber(7)
@@ -363,48 +330,38 @@ class IdentifiedChannel extends $pb.GeneratedMessage {
   void clearChannelId() => clearField(7);
 }
 
+/// Counterparty defines a channel end counterparty
 class Counterparty extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Counterparty',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..hasRequiredFields = false;
-
-  Counterparty._() : super();
   factory Counterparty({
     $core.String? portId,
     $core.String? channelId,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
-    return _result;
+    return $result;
   }
+  Counterparty._() : super();
   factory Counterparty.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Counterparty.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Counterparty',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -414,8 +371,10 @@ class Counterparty extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Counterparty copyWith(void Function(Counterparty) updates) =>
       super.copyWith((message) => updates(message as Counterparty))
-          as Counterparty; // ignore: deprecated_member_use
+          as Counterparty;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Counterparty create() => Counterparty._();
   Counterparty createEmptyInstance() => create();
@@ -426,6 +385,7 @@ class Counterparty extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<Counterparty>(create);
   static Counterparty? _defaultInstance;
 
+  /// port on the counterparty chain which owns the other end of the channel.
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -438,6 +398,7 @@ class Counterparty extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel end on the counterparty chain
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -451,65 +412,8 @@ class Counterparty extends $pb.GeneratedMessage {
   void clearChannelId() => clearField(2);
 }
 
+/// Packet defines a type that carries data across different chains through IBC
 class Packet extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Packet',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sourcePort')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sourceChannel')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'destinationPort')
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'destinationChannel')
-    ..a<$core.List<$core.int>>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..aOM<$0.Height>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timeoutHeight',
-        subBuilder: $0.Height.create)
-    ..a<$fixnum.Int64>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timeoutTimestamp',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  Packet._() : super();
   factory Packet({
     $fixnum.Int64? sequence,
     $core.String? sourcePort,
@@ -520,39 +424,62 @@ class Packet extends $pb.GeneratedMessage {
     $0.Height? timeoutHeight,
     $fixnum.Int64? timeoutTimestamp,
   }) {
-    final _result = create();
+    final $result = create();
     if (sequence != null) {
-      _result.sequence = sequence;
+      $result.sequence = sequence;
     }
     if (sourcePort != null) {
-      _result.sourcePort = sourcePort;
+      $result.sourcePort = sourcePort;
     }
     if (sourceChannel != null) {
-      _result.sourceChannel = sourceChannel;
+      $result.sourceChannel = sourceChannel;
     }
     if (destinationPort != null) {
-      _result.destinationPort = destinationPort;
+      $result.destinationPort = destinationPort;
     }
     if (destinationChannel != null) {
-      _result.destinationChannel = destinationChannel;
+      $result.destinationChannel = destinationChannel;
     }
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
     if (timeoutHeight != null) {
-      _result.timeoutHeight = timeoutHeight;
+      $result.timeoutHeight = timeoutHeight;
     }
     if (timeoutTimestamp != null) {
-      _result.timeoutTimestamp = timeoutTimestamp;
+      $result.timeoutTimestamp = timeoutTimestamp;
     }
-    return _result;
+    return $result;
   }
+  Packet._() : super();
   factory Packet.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Packet.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Packet',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'sourcePort')
+    ..aOS(3, _omitFieldNames ? '' : 'sourceChannel')
+    ..aOS(4, _omitFieldNames ? '' : 'destinationPort')
+    ..aOS(5, _omitFieldNames ? '' : 'destinationChannel')
+    ..a<$core.List<$core.int>>(
+        6, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..aOM<$0.Height>(7, _omitFieldNames ? '' : 'timeoutHeight',
+        subBuilder: $0.Height.create)
+    ..a<$fixnum.Int64>(
+        8, _omitFieldNames ? '' : 'timeoutTimestamp', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -561,9 +488,10 @@ class Packet extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Packet copyWith(void Function(Packet) updates) =>
-      super.copyWith((message) => updates(message as Packet))
-          as Packet; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Packet)) as Packet;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Packet create() => Packet._();
   Packet createEmptyInstance() => create();
@@ -573,6 +501,9 @@ class Packet extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Packet>(create);
   static Packet? _defaultInstance;
 
+  /// number corresponds to the order of sends and receives, where a Packet
+  /// with an earlier sequence number must be sent and received before a Packet
+  /// with a later sequence number.
   @$pb.TagNumber(1)
   $fixnum.Int64 get sequence => $_getI64(0);
   @$pb.TagNumber(1)
@@ -585,6 +516,7 @@ class Packet extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSequence() => clearField(1);
 
+  /// identifies the port on the sending chain.
   @$pb.TagNumber(2)
   $core.String get sourcePort => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -597,6 +529,7 @@ class Packet extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearSourcePort() => clearField(2);
 
+  /// identifies the channel end on the sending chain.
   @$pb.TagNumber(3)
   $core.String get sourceChannel => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -609,6 +542,7 @@ class Packet extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearSourceChannel() => clearField(3);
 
+  /// identifies the port on the receiving chain.
   @$pb.TagNumber(4)
   $core.String get destinationPort => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -621,6 +555,7 @@ class Packet extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearDestinationPort() => clearField(4);
 
+  /// identifies the channel end on the receiving chain.
   @$pb.TagNumber(5)
   $core.String get destinationChannel => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -633,6 +568,7 @@ class Packet extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearDestinationChannel() => clearField(5);
 
+  /// actual opaque bytes transferred directly to the application module
   @$pb.TagNumber(6)
   $core.List<$core.int> get data => $_getN(5);
   @$pb.TagNumber(6)
@@ -645,6 +581,7 @@ class Packet extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearData() => clearField(6);
 
+  /// block height after which the packet times out
   @$pb.TagNumber(7)
   $0.Height get timeoutHeight => $_getN(6);
   @$pb.TagNumber(7)
@@ -659,6 +596,7 @@ class Packet extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $0.Height ensureTimeoutHeight() => $_ensure(6);
 
+  /// block timestamp (in nanoseconds) after which the packet times out
   @$pb.TagNumber(8)
   $fixnum.Int64 get timeoutTimestamp => $_getI64(7);
   @$pb.TagNumber(8)
@@ -672,69 +610,54 @@ class Packet extends $pb.GeneratedMessage {
   void clearTimeoutTimestamp() => clearField(8);
 }
 
+/// PacketState defines the generic type necessary to retrieve and store
+/// packet commitments, acknowledgements, and receipts.
+/// Caller is responsible for knowing the context necessary to interpret this
+/// state as a commitment, acknowledgement, or a receipt.
 class PacketState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PacketState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  PacketState._() : super();
   factory PacketState({
     $core.String? portId,
     $core.String? channelId,
     $fixnum.Int64? sequence,
     $core.List<$core.int>? data,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (sequence != null) {
-      _result.sequence = sequence;
+      $result.sequence = sequence;
     }
     if (data != null) {
-      _result.data = data;
+      $result.data = data;
     }
-    return _result;
+    return $result;
   }
+  PacketState._() : super();
   factory PacketState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PacketState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PacketState',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -744,8 +667,10 @@ class PacketState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   PacketState copyWith(void Function(PacketState) updates) =>
       super.copyWith((message) => updates(message as PacketState))
-          as PacketState; // ignore: deprecated_member_use
+          as PacketState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PacketState create() => PacketState._();
   PacketState createEmptyInstance() => create();
@@ -755,6 +680,7 @@ class PacketState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<PacketState>(create);
   static PacketState? _defaultInstance;
 
+  /// channel port identifier.
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -767,6 +693,7 @@ class PacketState extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier.
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -779,6 +706,7 @@ class PacketState extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// packet sequence.
   @$pb.TagNumber(3)
   $fixnum.Int64 get sequence => $_getI64(2);
   @$pb.TagNumber(3)
@@ -791,6 +719,7 @@ class PacketState extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearSequence() => clearField(3);
 
+  /// embedded data that represents packet state.
   @$pb.TagNumber(4)
   $core.List<$core.int> get data => $_getN(3);
   @$pb.TagNumber(4)
@@ -804,59 +733,47 @@ class PacketState extends $pb.GeneratedMessage {
   void clearData() => clearField(4);
 }
 
+/// PacketId is an identifer for a unique Packet
+/// Source chains refer to packets by source port/channel
+/// Destination chains refer to packets by destination port/channel
 class PacketId extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PacketId',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  PacketId._() : super();
   factory PacketId({
     $core.String? portId,
     $core.String? channelId,
     $fixnum.Int64? sequence,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (sequence != null) {
-      _result.sequence = sequence;
+      $result.sequence = sequence;
     }
-    return _result;
+    return $result;
   }
+  PacketId._() : super();
   factory PacketId.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PacketId.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PacketId',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -865,9 +782,10 @@ class PacketId extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   PacketId copyWith(void Function(PacketId) updates) =>
-      super.copyWith((message) => updates(message as PacketId))
-          as PacketId; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as PacketId)) as PacketId;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PacketId create() => PacketId._();
   PacketId createEmptyInstance() => create();
@@ -877,6 +795,7 @@ class PacketId extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PacketId>(create);
   static PacketId? _defaultInstance;
 
+  /// channel port identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -889,6 +808,7 @@ class PacketId extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -901,6 +821,7 @@ class PacketId extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// packet sequence
   @$pb.TagNumber(3)
   $fixnum.Int64 get sequence => $_getI64(2);
   @$pb.TagNumber(3)
@@ -916,7 +837,35 @@ class PacketId extends $pb.GeneratedMessage {
 
 enum Acknowledgement_Response { result, error, notSet }
 
+/// Acknowledgement is the recommended acknowledgement format to be used by
+/// app-specific protocols.
+/// NOTE: The field numbers 21 and 22 were explicitly chosen to avoid accidental
+/// conflicts with other protobuf message formats used for acknowledgements.
+/// The first byte of any message with this format will be the non-ASCII values
+/// `0xaa` (result) or `0xb2` (error). Implemented as defined by ICS:
+/// https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#acknowledgement-envelope
 class Acknowledgement extends $pb.GeneratedMessage {
+  factory Acknowledgement({
+    $core.List<$core.int>? result,
+    $core.String? error,
+  }) {
+    final $result = create();
+    if (result != null) {
+      $result.result = result;
+    }
+    if (error != null) {
+      $result.error = error;
+    }
+    return $result;
+  }
+  Acknowledgement._() : super();
+  factory Acknowledgement.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Acknowledgement.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, Acknowledgement_Response>
       _Acknowledgement_ResponseByTag = {
     21: Acknowledgement_Response.result,
@@ -924,48 +873,16 @@ class Acknowledgement extends $pb.GeneratedMessage {
     0: Acknowledgement_Response.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Acknowledgement',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
+      _omitMessageNames ? '' : 'Acknowledgement',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
       createEmptyInstance: create)
     ..oo(0, [21, 22])
     ..a<$core.List<$core.int>>(
-        21,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'result',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        22,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'error')
+        21, _omitFieldNames ? '' : 'result', $pb.PbFieldType.OY)
+    ..aOS(22, _omitFieldNames ? '' : 'error')
     ..hasRequiredFields = false;
 
-  Acknowledgement._() : super();
-  factory Acknowledgement({
-    $core.List<$core.int>? result,
-    $core.String? error,
-  }) {
-    final _result = create();
-    if (result != null) {
-      _result.result = result;
-    }
-    if (error != null) {
-      _result.error = error;
-    }
-    return _result;
-  }
-  factory Acknowledgement.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Acknowledgement.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -975,8 +892,10 @@ class Acknowledgement extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Acknowledgement copyWith(void Function(Acknowledgement) updates) =>
       super.copyWith((message) => updates(message as Acknowledgement))
-          as Acknowledgement; // ignore: deprecated_member_use
+          as Acknowledgement;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Acknowledgement create() => Acknowledgement._();
   Acknowledgement createEmptyInstance() => create();
@@ -1015,3 +934,7 @@ class Acknowledgement extends $pb.GeneratedMessage {
   @$pb.TagNumber(22)
   void clearError() => clearField(22);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/applications/fee/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,56 +15,46 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../../cosmos/base/query/v1beta1/pagination.pb.dart' as $1;
-import 'fee.pb.dart' as $2;
-import '../../../core/channel/v1/channel.pb.dart' as $3;
 import '../../../../cosmos/base/v1beta1/coin.pb.dart' as $4;
+import '../../../core/channel/v1/channel.pb.dart' as $3;
+import 'fee.pb.dart' as $2;
 import 'genesis.pb.dart' as $5;
 
+/// QueryIncentivizedPacketsRequest defines the request type for the IncentivizedPackets rpc
 class QueryIncentivizedPacketsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryIncentivizedPacketsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageRequest.create)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'queryHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryIncentivizedPacketsRequest._() : super();
   factory QueryIncentivizedPacketsRequest({
     $1.PageRequest? pagination,
     $fixnum.Int64? queryHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (queryHeight != null) {
-      _result.queryHeight = queryHeight;
+      $result.queryHeight = queryHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryIncentivizedPacketsRequest._() : super();
   factory QueryIncentivizedPacketsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryIncentivizedPacketsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryIncentivizedPacketsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageRequest.create)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'queryHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -73,8 +67,10 @@ class QueryIncentivizedPacketsRequest extends $pb.GeneratedMessage {
           void Function(QueryIncentivizedPacketsRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryIncentivizedPacketsRequest))
-          as QueryIncentivizedPacketsRequest; // ignore: deprecated_member_use
+          as QueryIncentivizedPacketsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryIncentivizedPacketsRequest create() =>
       QueryIncentivizedPacketsRequest._();
@@ -87,6 +83,7 @@ class QueryIncentivizedPacketsRequest extends $pb.GeneratedMessage {
           create);
   static QueryIncentivizedPacketsRequest? _defaultInstance;
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(1)
   $1.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(1)
@@ -101,6 +98,7 @@ class QueryIncentivizedPacketsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.PageRequest ensurePagination() => $_ensure(0);
 
+  /// block height at which to query
   @$pb.TagNumber(2)
   $fixnum.Int64 get queryHeight => $_getI64(1);
   @$pb.TagNumber(2)
@@ -114,41 +112,35 @@ class QueryIncentivizedPacketsRequest extends $pb.GeneratedMessage {
   void clearQueryHeight() => clearField(2);
 }
 
+/// QueryIncentivizedPacketsResponse defines the response type for the IncentivizedPackets rpc
 class QueryIncentivizedPacketsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryIncentivizedPacketsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..pc<$2.IdentifiedPacketFees>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'incentivizedPackets',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.IdentifiedPacketFees.create)
-    ..hasRequiredFields = false;
-
-  QueryIncentivizedPacketsResponse._() : super();
   factory QueryIncentivizedPacketsResponse({
     $core.Iterable<$2.IdentifiedPacketFees>? incentivizedPackets,
   }) {
-    final _result = create();
+    final $result = create();
     if (incentivizedPackets != null) {
-      _result.incentivizedPackets.addAll(incentivizedPackets);
+      $result.incentivizedPackets.addAll(incentivizedPackets);
     }
-    return _result;
+    return $result;
   }
+  QueryIncentivizedPacketsResponse._() : super();
   factory QueryIncentivizedPacketsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryIncentivizedPacketsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryIncentivizedPacketsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..pc<$2.IdentifiedPacketFees>(
+        1, _omitFieldNames ? '' : 'incentivizedPackets', $pb.PbFieldType.PM,
+        subBuilder: $2.IdentifiedPacketFees.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -161,8 +153,10 @@ class QueryIncentivizedPacketsResponse extends $pb.GeneratedMessage {
           void Function(QueryIncentivizedPacketsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryIncentivizedPacketsResponse))
-          as QueryIncentivizedPacketsResponse; // ignore: deprecated_member_use
+          as QueryIncentivizedPacketsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryIncentivizedPacketsResponse create() =>
       QueryIncentivizedPacketsResponse._();
@@ -175,55 +169,46 @@ class QueryIncentivizedPacketsResponse extends $pb.GeneratedMessage {
           create);
   static QueryIncentivizedPacketsResponse? _defaultInstance;
 
+  /// list of identified fees for incentivized packets
   @$pb.TagNumber(1)
   $core.List<$2.IdentifiedPacketFees> get incentivizedPackets => $_getList(0);
 }
 
+/// QueryIncentivizedPacketRequest defines the request type for the IncentivizedPacket rpc
 class QueryIncentivizedPacketRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryIncentivizedPacketRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.PacketId>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetId',
-        subBuilder: $3.PacketId.create)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'queryHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryIncentivizedPacketRequest._() : super();
   factory QueryIncentivizedPacketRequest({
     $3.PacketId? packetId,
     $fixnum.Int64? queryHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (packetId != null) {
-      _result.packetId = packetId;
+      $result.packetId = packetId;
     }
     if (queryHeight != null) {
-      _result.queryHeight = queryHeight;
+      $result.queryHeight = queryHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryIncentivizedPacketRequest._() : super();
   factory QueryIncentivizedPacketRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryIncentivizedPacketRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryIncentivizedPacketRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.PacketId>(1, _omitFieldNames ? '' : 'packetId',
+        subBuilder: $3.PacketId.create)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'queryHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -236,8 +221,10 @@ class QueryIncentivizedPacketRequest extends $pb.GeneratedMessage {
           void Function(QueryIncentivizedPacketRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryIncentivizedPacketRequest))
-          as QueryIncentivizedPacketRequest; // ignore: deprecated_member_use
+          as QueryIncentivizedPacketRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryIncentivizedPacketRequest create() =>
       QueryIncentivizedPacketRequest._();
@@ -249,6 +236,7 @@ class QueryIncentivizedPacketRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryIncentivizedPacketRequest>(create);
   static QueryIncentivizedPacketRequest? _defaultInstance;
 
+  /// unique packet identifier comprised of channel ID, port ID and sequence
   @$pb.TagNumber(1)
   $3.PacketId get packetId => $_getN(0);
   @$pb.TagNumber(1)
@@ -263,6 +251,7 @@ class QueryIncentivizedPacketRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $3.PacketId ensurePacketId() => $_ensure(0);
 
+  /// block height at which to query
   @$pb.TagNumber(2)
   $fixnum.Int64 get queryHeight => $_getI64(1);
   @$pb.TagNumber(2)
@@ -276,40 +265,35 @@ class QueryIncentivizedPacketRequest extends $pb.GeneratedMessage {
   void clearQueryHeight() => clearField(2);
 }
 
+/// QueryIncentivizedPacketsResponse defines the response type for the IncentivizedPacket rpc
 class QueryIncentivizedPacketResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryIncentivizedPacketResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.IdentifiedPacketFees>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'incentivizedPacket',
-        subBuilder: $2.IdentifiedPacketFees.create)
-    ..hasRequiredFields = false;
-
-  QueryIncentivizedPacketResponse._() : super();
   factory QueryIncentivizedPacketResponse({
     $2.IdentifiedPacketFees? incentivizedPacket,
   }) {
-    final _result = create();
+    final $result = create();
     if (incentivizedPacket != null) {
-      _result.incentivizedPacket = incentivizedPacket;
+      $result.incentivizedPacket = incentivizedPacket;
     }
-    return _result;
+    return $result;
   }
+  QueryIncentivizedPacketResponse._() : super();
   factory QueryIncentivizedPacketResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryIncentivizedPacketResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryIncentivizedPacketResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.IdentifiedPacketFees>(
+        1, _omitFieldNames ? '' : 'incentivizedPacket',
+        subBuilder: $2.IdentifiedPacketFees.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -322,8 +306,10 @@ class QueryIncentivizedPacketResponse extends $pb.GeneratedMessage {
           void Function(QueryIncentivizedPacketResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryIncentivizedPacketResponse))
-          as QueryIncentivizedPacketResponse; // ignore: deprecated_member_use
+          as QueryIncentivizedPacketResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryIncentivizedPacketResponse create() =>
       QueryIncentivizedPacketResponse._();
@@ -336,6 +322,7 @@ class QueryIncentivizedPacketResponse extends $pb.GeneratedMessage {
           create);
   static QueryIncentivizedPacketResponse? _defaultInstance;
 
+  /// the identified fees for the incentivized packet
   @$pb.TagNumber(1)
   $2.IdentifiedPacketFees get incentivizedPacket => $_getN(0);
   @$pb.TagNumber(1)
@@ -351,63 +338,31 @@ class QueryIncentivizedPacketResponse extends $pb.GeneratedMessage {
   $2.IdentifiedPacketFees ensureIncentivizedPacket() => $_ensure(0);
 }
 
+/// QueryIncentivizedPacketsForChannelRequest defines the request type for querying for all incentivized packets
+/// for a specific channel
 class QueryIncentivizedPacketsForChannelRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryIncentivizedPacketsForChannelRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageRequest.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'queryHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryIncentivizedPacketsForChannelRequest._() : super();
   factory QueryIncentivizedPacketsForChannelRequest({
     $1.PageRequest? pagination,
     $core.String? portId,
     $core.String? channelId,
     $fixnum.Int64? queryHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (queryHeight != null) {
-      _result.queryHeight = queryHeight;
+      $result.queryHeight = queryHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryIncentivizedPacketsForChannelRequest._() : super();
   factory QueryIncentivizedPacketsForChannelRequest.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -415,6 +370,21 @@ class QueryIncentivizedPacketsForChannelRequest extends $pb.GeneratedMessage {
   factory QueryIncentivizedPacketsForChannelRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryIncentivizedPacketsForChannelRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageRequest.create)
+    ..aOS(2, _omitFieldNames ? '' : 'portId')
+    ..aOS(3, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'queryHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -427,8 +397,10 @@ class QueryIncentivizedPacketsForChannelRequest extends $pb.GeneratedMessage {
           void Function(QueryIncentivizedPacketsForChannelRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryIncentivizedPacketsForChannelRequest))
-          as QueryIncentivizedPacketsForChannelRequest; // ignore: deprecated_member_use
+          as QueryIncentivizedPacketsForChannelRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryIncentivizedPacketsForChannelRequest create() =>
       QueryIncentivizedPacketsForChannelRequest._();
@@ -442,6 +414,7 @@ class QueryIncentivizedPacketsForChannelRequest extends $pb.GeneratedMessage {
           QueryIncentivizedPacketsForChannelRequest>(create);
   static QueryIncentivizedPacketsForChannelRequest? _defaultInstance;
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(1)
   $1.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(1)
@@ -480,6 +453,7 @@ class QueryIncentivizedPacketsForChannelRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearChannelId() => clearField(3);
 
+  /// Height to query at
   @$pb.TagNumber(4)
   $fixnum.Int64 get queryHeight => $_getI64(3);
   @$pb.TagNumber(4)
@@ -493,35 +467,18 @@ class QueryIncentivizedPacketsForChannelRequest extends $pb.GeneratedMessage {
   void clearQueryHeight() => clearField(4);
 }
 
+/// QueryIncentivizedPacketsResponse defines the response type for the incentivized packets RPC
 class QueryIncentivizedPacketsForChannelResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryIncentivizedPacketsForChannelResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..pc<$2.IdentifiedPacketFees>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'incentivizedPackets',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.IdentifiedPacketFees.create)
-    ..hasRequiredFields = false;
-
-  QueryIncentivizedPacketsForChannelResponse._() : super();
   factory QueryIncentivizedPacketsForChannelResponse({
     $core.Iterable<$2.IdentifiedPacketFees>? incentivizedPackets,
   }) {
-    final _result = create();
+    final $result = create();
     if (incentivizedPackets != null) {
-      _result.incentivizedPackets.addAll(incentivizedPackets);
+      $result.incentivizedPackets.addAll(incentivizedPackets);
     }
-    return _result;
+    return $result;
   }
+  QueryIncentivizedPacketsForChannelResponse._() : super();
   factory QueryIncentivizedPacketsForChannelResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -529,6 +486,17 @@ class QueryIncentivizedPacketsForChannelResponse extends $pb.GeneratedMessage {
   factory QueryIncentivizedPacketsForChannelResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryIncentivizedPacketsForChannelResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..pc<$2.IdentifiedPacketFees>(
+        1, _omitFieldNames ? '' : 'incentivizedPackets', $pb.PbFieldType.PM,
+        subBuilder: $2.IdentifiedPacketFees.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -541,8 +509,10 @@ class QueryIncentivizedPacketsForChannelResponse extends $pb.GeneratedMessage {
           void Function(QueryIncentivizedPacketsForChannelResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryIncentivizedPacketsForChannelResponse))
-          as QueryIncentivizedPacketsForChannelResponse; // ignore: deprecated_member_use
+          as QueryIncentivizedPacketsForChannelResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryIncentivizedPacketsForChannelResponse create() =>
       QueryIncentivizedPacketsForChannelResponse._();
@@ -556,44 +526,39 @@ class QueryIncentivizedPacketsForChannelResponse extends $pb.GeneratedMessage {
           QueryIncentivizedPacketsForChannelResponse>(create);
   static QueryIncentivizedPacketsForChannelResponse? _defaultInstance;
 
+  /// Map of all incentivized_packets
   @$pb.TagNumber(1)
   $core.List<$2.IdentifiedPacketFees> get incentivizedPackets => $_getList(0);
 }
 
+/// QueryTotalRecvFeesRequest defines the request type for the TotalRecvFees rpc
 class QueryTotalRecvFeesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryTotalRecvFeesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.PacketId>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetId',
-        subBuilder: $3.PacketId.create)
-    ..hasRequiredFields = false;
-
-  QueryTotalRecvFeesRequest._() : super();
   factory QueryTotalRecvFeesRequest({
     $3.PacketId? packetId,
   }) {
-    final _result = create();
+    final $result = create();
     if (packetId != null) {
-      _result.packetId = packetId;
+      $result.packetId = packetId;
     }
-    return _result;
+    return $result;
   }
+  QueryTotalRecvFeesRequest._() : super();
   factory QueryTotalRecvFeesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryTotalRecvFeesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryTotalRecvFeesRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.PacketId>(1, _omitFieldNames ? '' : 'packetId',
+        subBuilder: $3.PacketId.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -605,8 +570,10 @@ class QueryTotalRecvFeesRequest extends $pb.GeneratedMessage {
   QueryTotalRecvFeesRequest copyWith(
           void Function(QueryTotalRecvFeesRequest) updates) =>
       super.copyWith((message) => updates(message as QueryTotalRecvFeesRequest))
-          as QueryTotalRecvFeesRequest; // ignore: deprecated_member_use
+          as QueryTotalRecvFeesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryTotalRecvFeesRequest create() => QueryTotalRecvFeesRequest._();
   QueryTotalRecvFeesRequest createEmptyInstance() => create();
@@ -617,6 +584,7 @@ class QueryTotalRecvFeesRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryTotalRecvFeesRequest>(create);
   static QueryTotalRecvFeesRequest? _defaultInstance;
 
+  /// the packet identifier for the associated fees
   @$pb.TagNumber(1)
   $3.PacketId get packetId => $_getN(0);
   @$pb.TagNumber(1)
@@ -632,41 +600,34 @@ class QueryTotalRecvFeesRequest extends $pb.GeneratedMessage {
   $3.PacketId ensurePacketId() => $_ensure(0);
 }
 
+/// QueryTotalRecvFeesResponse defines the response type for the TotalRecvFees rpc
 class QueryTotalRecvFeesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryTotalRecvFeesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..pc<$4.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recvFees',
-        $pb.PbFieldType.PM,
-        subBuilder: $4.Coin.create)
-    ..hasRequiredFields = false;
-
-  QueryTotalRecvFeesResponse._() : super();
   factory QueryTotalRecvFeesResponse({
     $core.Iterable<$4.Coin>? recvFees,
   }) {
-    final _result = create();
+    final $result = create();
     if (recvFees != null) {
-      _result.recvFees.addAll(recvFees);
+      $result.recvFees.addAll(recvFees);
     }
-    return _result;
+    return $result;
   }
+  QueryTotalRecvFeesResponse._() : super();
   factory QueryTotalRecvFeesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryTotalRecvFeesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryTotalRecvFeesResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..pc<$4.Coin>(1, _omitFieldNames ? '' : 'recvFees', $pb.PbFieldType.PM,
+        subBuilder: $4.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -679,8 +640,10 @@ class QueryTotalRecvFeesResponse extends $pb.GeneratedMessage {
           void Function(QueryTotalRecvFeesResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryTotalRecvFeesResponse))
-          as QueryTotalRecvFeesResponse; // ignore: deprecated_member_use
+          as QueryTotalRecvFeesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryTotalRecvFeesResponse create() => QueryTotalRecvFeesResponse._();
   QueryTotalRecvFeesResponse createEmptyInstance() => create();
@@ -691,44 +654,39 @@ class QueryTotalRecvFeesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryTotalRecvFeesResponse>(create);
   static QueryTotalRecvFeesResponse? _defaultInstance;
 
+  /// the total packet receive fees
   @$pb.TagNumber(1)
   $core.List<$4.Coin> get recvFees => $_getList(0);
 }
 
+/// QueryTotalAckFeesRequest defines the request type for the TotalAckFees rpc
 class QueryTotalAckFeesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryTotalAckFeesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.PacketId>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetId',
-        subBuilder: $3.PacketId.create)
-    ..hasRequiredFields = false;
-
-  QueryTotalAckFeesRequest._() : super();
   factory QueryTotalAckFeesRequest({
     $3.PacketId? packetId,
   }) {
-    final _result = create();
+    final $result = create();
     if (packetId != null) {
-      _result.packetId = packetId;
+      $result.packetId = packetId;
     }
-    return _result;
+    return $result;
   }
+  QueryTotalAckFeesRequest._() : super();
   factory QueryTotalAckFeesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryTotalAckFeesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryTotalAckFeesRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.PacketId>(1, _omitFieldNames ? '' : 'packetId',
+        subBuilder: $3.PacketId.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -740,8 +698,10 @@ class QueryTotalAckFeesRequest extends $pb.GeneratedMessage {
   QueryTotalAckFeesRequest copyWith(
           void Function(QueryTotalAckFeesRequest) updates) =>
       super.copyWith((message) => updates(message as QueryTotalAckFeesRequest))
-          as QueryTotalAckFeesRequest; // ignore: deprecated_member_use
+          as QueryTotalAckFeesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryTotalAckFeesRequest create() => QueryTotalAckFeesRequest._();
   QueryTotalAckFeesRequest createEmptyInstance() => create();
@@ -752,6 +712,7 @@ class QueryTotalAckFeesRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryTotalAckFeesRequest>(create);
   static QueryTotalAckFeesRequest? _defaultInstance;
 
+  /// the packet identifier for the associated fees
   @$pb.TagNumber(1)
   $3.PacketId get packetId => $_getN(0);
   @$pb.TagNumber(1)
@@ -767,41 +728,34 @@ class QueryTotalAckFeesRequest extends $pb.GeneratedMessage {
   $3.PacketId ensurePacketId() => $_ensure(0);
 }
 
+/// QueryTotalAckFeesResponse defines the response type for the TotalAckFees rpc
 class QueryTotalAckFeesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryTotalAckFeesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..pc<$4.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ackFees',
-        $pb.PbFieldType.PM,
-        subBuilder: $4.Coin.create)
-    ..hasRequiredFields = false;
-
-  QueryTotalAckFeesResponse._() : super();
   factory QueryTotalAckFeesResponse({
     $core.Iterable<$4.Coin>? ackFees,
   }) {
-    final _result = create();
+    final $result = create();
     if (ackFees != null) {
-      _result.ackFees.addAll(ackFees);
+      $result.ackFees.addAll(ackFees);
     }
-    return _result;
+    return $result;
   }
+  QueryTotalAckFeesResponse._() : super();
   factory QueryTotalAckFeesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryTotalAckFeesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryTotalAckFeesResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..pc<$4.Coin>(1, _omitFieldNames ? '' : 'ackFees', $pb.PbFieldType.PM,
+        subBuilder: $4.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -813,8 +767,10 @@ class QueryTotalAckFeesResponse extends $pb.GeneratedMessage {
   QueryTotalAckFeesResponse copyWith(
           void Function(QueryTotalAckFeesResponse) updates) =>
       super.copyWith((message) => updates(message as QueryTotalAckFeesResponse))
-          as QueryTotalAckFeesResponse; // ignore: deprecated_member_use
+          as QueryTotalAckFeesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryTotalAckFeesResponse create() => QueryTotalAckFeesResponse._();
   QueryTotalAckFeesResponse createEmptyInstance() => create();
@@ -825,44 +781,39 @@ class QueryTotalAckFeesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryTotalAckFeesResponse>(create);
   static QueryTotalAckFeesResponse? _defaultInstance;
 
+  /// the total packet acknowledgement fees
   @$pb.TagNumber(1)
   $core.List<$4.Coin> get ackFees => $_getList(0);
 }
 
+/// QueryTotalTimeoutFeesRequest defines the request type for the TotalTimeoutFees rpc
 class QueryTotalTimeoutFeesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryTotalTimeoutFeesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.PacketId>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetId',
-        subBuilder: $3.PacketId.create)
-    ..hasRequiredFields = false;
-
-  QueryTotalTimeoutFeesRequest._() : super();
   factory QueryTotalTimeoutFeesRequest({
     $3.PacketId? packetId,
   }) {
-    final _result = create();
+    final $result = create();
     if (packetId != null) {
-      _result.packetId = packetId;
+      $result.packetId = packetId;
     }
-    return _result;
+    return $result;
   }
+  QueryTotalTimeoutFeesRequest._() : super();
   factory QueryTotalTimeoutFeesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryTotalTimeoutFeesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryTotalTimeoutFeesRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.PacketId>(1, _omitFieldNames ? '' : 'packetId',
+        subBuilder: $3.PacketId.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -875,8 +826,10 @@ class QueryTotalTimeoutFeesRequest extends $pb.GeneratedMessage {
           void Function(QueryTotalTimeoutFeesRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryTotalTimeoutFeesRequest))
-          as QueryTotalTimeoutFeesRequest; // ignore: deprecated_member_use
+          as QueryTotalTimeoutFeesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryTotalTimeoutFeesRequest create() =>
       QueryTotalTimeoutFeesRequest._();
@@ -888,6 +841,7 @@ class QueryTotalTimeoutFeesRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryTotalTimeoutFeesRequest>(create);
   static QueryTotalTimeoutFeesRequest? _defaultInstance;
 
+  /// the packet identifier for the associated fees
   @$pb.TagNumber(1)
   $3.PacketId get packetId => $_getN(0);
   @$pb.TagNumber(1)
@@ -903,41 +857,34 @@ class QueryTotalTimeoutFeesRequest extends $pb.GeneratedMessage {
   $3.PacketId ensurePacketId() => $_ensure(0);
 }
 
+/// QueryTotalTimeoutFeesResponse defines the response type for the TotalTimeoutFees rpc
 class QueryTotalTimeoutFeesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryTotalTimeoutFeesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..pc<$4.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timeoutFees',
-        $pb.PbFieldType.PM,
-        subBuilder: $4.Coin.create)
-    ..hasRequiredFields = false;
-
-  QueryTotalTimeoutFeesResponse._() : super();
   factory QueryTotalTimeoutFeesResponse({
     $core.Iterable<$4.Coin>? timeoutFees,
   }) {
-    final _result = create();
+    final $result = create();
     if (timeoutFees != null) {
-      _result.timeoutFees.addAll(timeoutFees);
+      $result.timeoutFees.addAll(timeoutFees);
     }
-    return _result;
+    return $result;
   }
+  QueryTotalTimeoutFeesResponse._() : super();
   factory QueryTotalTimeoutFeesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryTotalTimeoutFeesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryTotalTimeoutFeesResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..pc<$4.Coin>(1, _omitFieldNames ? '' : 'timeoutFees', $pb.PbFieldType.PM,
+        subBuilder: $4.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -950,8 +897,10 @@ class QueryTotalTimeoutFeesResponse extends $pb.GeneratedMessage {
           void Function(QueryTotalTimeoutFeesResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryTotalTimeoutFeesResponse))
-          as QueryTotalTimeoutFeesResponse; // ignore: deprecated_member_use
+          as QueryTotalTimeoutFeesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryTotalTimeoutFeesResponse create() =>
       QueryTotalTimeoutFeesResponse._();
@@ -963,52 +912,43 @@ class QueryTotalTimeoutFeesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryTotalTimeoutFeesResponse>(create);
   static QueryTotalTimeoutFeesResponse? _defaultInstance;
 
+  /// the total packet timeout fees
   @$pb.TagNumber(1)
   $core.List<$4.Coin> get timeoutFees => $_getList(0);
 }
 
+/// QueryPayeeRequest defines the request type for the Payee rpc
 class QueryPayeeRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPayeeRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'relayer')
-    ..hasRequiredFields = false;
-
-  QueryPayeeRequest._() : super();
   factory QueryPayeeRequest({
     $core.String? channelId,
     $core.String? relayer,
   }) {
-    final _result = create();
+    final $result = create();
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (relayer != null) {
-      _result.relayer = relayer;
+      $result.relayer = relayer;
     }
-    return _result;
+    return $result;
   }
+  QueryPayeeRequest._() : super();
   factory QueryPayeeRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPayeeRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPayeeRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'relayer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1018,8 +958,10 @@ class QueryPayeeRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryPayeeRequest copyWith(void Function(QueryPayeeRequest) updates) =>
       super.copyWith((message) => updates(message as QueryPayeeRequest))
-          as QueryPayeeRequest; // ignore: deprecated_member_use
+          as QueryPayeeRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPayeeRequest create() => QueryPayeeRequest._();
   QueryPayeeRequest createEmptyInstance() => create();
@@ -1030,6 +972,7 @@ class QueryPayeeRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryPayeeRequest>(create);
   static QueryPayeeRequest? _defaultInstance;
 
+  /// unique channel identifier
   @$pb.TagNumber(1)
   $core.String get channelId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1042,6 +985,7 @@ class QueryPayeeRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearChannelId() => clearField(1);
 
+  /// the relayer address to which the distribution address is registered
   @$pb.TagNumber(2)
   $core.String get relayer => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1055,39 +999,33 @@ class QueryPayeeRequest extends $pb.GeneratedMessage {
   void clearRelayer() => clearField(2);
 }
 
+/// QueryPayeeResponse defines the response type for the Payee rpc
 class QueryPayeeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPayeeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'payeeAddress')
-    ..hasRequiredFields = false;
-
-  QueryPayeeResponse._() : super();
   factory QueryPayeeResponse({
     $core.String? payeeAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (payeeAddress != null) {
-      _result.payeeAddress = payeeAddress;
+      $result.payeeAddress = payeeAddress;
     }
-    return _result;
+    return $result;
   }
+  QueryPayeeResponse._() : super();
   factory QueryPayeeResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPayeeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPayeeResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'payeeAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1097,8 +1035,10 @@ class QueryPayeeResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryPayeeResponse copyWith(void Function(QueryPayeeResponse) updates) =>
       super.copyWith((message) => updates(message as QueryPayeeResponse))
-          as QueryPayeeResponse; // ignore: deprecated_member_use
+          as QueryPayeeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPayeeResponse create() => QueryPayeeResponse._();
   QueryPayeeResponse createEmptyInstance() => create();
@@ -1109,6 +1049,7 @@ class QueryPayeeResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryPayeeResponse>(create);
   static QueryPayeeResponse? _defaultInstance;
 
+  /// the payee address to which packet fees are paid out
   @$pb.TagNumber(1)
   $core.String get payeeAddress => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1122,48 +1063,38 @@ class QueryPayeeResponse extends $pb.GeneratedMessage {
   void clearPayeeAddress() => clearField(1);
 }
 
+/// QueryCounterpartyPayeeRequest defines the request type for the CounterpartyPayee rpc
 class QueryCounterpartyPayeeRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryCounterpartyPayeeRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'relayer')
-    ..hasRequiredFields = false;
-
-  QueryCounterpartyPayeeRequest._() : super();
   factory QueryCounterpartyPayeeRequest({
     $core.String? channelId,
     $core.String? relayer,
   }) {
-    final _result = create();
+    final $result = create();
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (relayer != null) {
-      _result.relayer = relayer;
+      $result.relayer = relayer;
     }
-    return _result;
+    return $result;
   }
+  QueryCounterpartyPayeeRequest._() : super();
   factory QueryCounterpartyPayeeRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryCounterpartyPayeeRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCounterpartyPayeeRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'relayer')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1176,8 +1107,10 @@ class QueryCounterpartyPayeeRequest extends $pb.GeneratedMessage {
           void Function(QueryCounterpartyPayeeRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryCounterpartyPayeeRequest))
-          as QueryCounterpartyPayeeRequest; // ignore: deprecated_member_use
+          as QueryCounterpartyPayeeRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryCounterpartyPayeeRequest create() =>
       QueryCounterpartyPayeeRequest._();
@@ -1189,6 +1122,7 @@ class QueryCounterpartyPayeeRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryCounterpartyPayeeRequest>(create);
   static QueryCounterpartyPayeeRequest? _defaultInstance;
 
+  /// unique channel identifier
   @$pb.TagNumber(1)
   $core.String get channelId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1201,6 +1135,7 @@ class QueryCounterpartyPayeeRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearChannelId() => clearField(1);
 
+  /// the relayer address to which the counterparty is registered
   @$pb.TagNumber(2)
   $core.String get relayer => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1214,39 +1149,33 @@ class QueryCounterpartyPayeeRequest extends $pb.GeneratedMessage {
   void clearRelayer() => clearField(2);
 }
 
+/// QueryCounterpartyPayeeResponse defines the response type for the CounterpartyPayee rpc
 class QueryCounterpartyPayeeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryCounterpartyPayeeResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterpartyPayee')
-    ..hasRequiredFields = false;
-
-  QueryCounterpartyPayeeResponse._() : super();
   factory QueryCounterpartyPayeeResponse({
     $core.String? counterpartyPayee,
   }) {
-    final _result = create();
+    final $result = create();
     if (counterpartyPayee != null) {
-      _result.counterpartyPayee = counterpartyPayee;
+      $result.counterpartyPayee = counterpartyPayee;
     }
-    return _result;
+    return $result;
   }
+  QueryCounterpartyPayeeResponse._() : super();
   factory QueryCounterpartyPayeeResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryCounterpartyPayeeResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCounterpartyPayeeResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'counterpartyPayee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1259,8 +1188,10 @@ class QueryCounterpartyPayeeResponse extends $pb.GeneratedMessage {
           void Function(QueryCounterpartyPayeeResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryCounterpartyPayeeResponse))
-          as QueryCounterpartyPayeeResponse; // ignore: deprecated_member_use
+          as QueryCounterpartyPayeeResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryCounterpartyPayeeResponse create() =>
       QueryCounterpartyPayeeResponse._();
@@ -1272,6 +1203,7 @@ class QueryCounterpartyPayeeResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryCounterpartyPayeeResponse>(create);
   static QueryCounterpartyPayeeResponse? _defaultInstance;
 
+  /// the counterparty payee address used to compensate forward relaying
   @$pb.TagNumber(1)
   $core.String get counterpartyPayee => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1285,51 +1217,41 @@ class QueryCounterpartyPayeeResponse extends $pb.GeneratedMessage {
   void clearCounterpartyPayee() => clearField(1);
 }
 
+/// QueryFeeEnabledChannelsRequest defines the request type for the FeeEnabledChannels rpc
 class QueryFeeEnabledChannelsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryFeeEnabledChannelsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $1.PageRequest.create)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'queryHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryFeeEnabledChannelsRequest._() : super();
   factory QueryFeeEnabledChannelsRequest({
     $1.PageRequest? pagination,
     $fixnum.Int64? queryHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (queryHeight != null) {
-      _result.queryHeight = queryHeight;
+      $result.queryHeight = queryHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryFeeEnabledChannelsRequest._() : super();
   factory QueryFeeEnabledChannelsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryFeeEnabledChannelsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryFeeEnabledChannelsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $1.PageRequest.create)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'queryHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1342,8 +1264,10 @@ class QueryFeeEnabledChannelsRequest extends $pb.GeneratedMessage {
           void Function(QueryFeeEnabledChannelsRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryFeeEnabledChannelsRequest))
-          as QueryFeeEnabledChannelsRequest; // ignore: deprecated_member_use
+          as QueryFeeEnabledChannelsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryFeeEnabledChannelsRequest create() =>
       QueryFeeEnabledChannelsRequest._();
@@ -1355,6 +1279,7 @@ class QueryFeeEnabledChannelsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryFeeEnabledChannelsRequest>(create);
   static QueryFeeEnabledChannelsRequest? _defaultInstance;
 
+  /// pagination defines an optional pagination for the request.
   @$pb.TagNumber(1)
   $1.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(1)
@@ -1369,6 +1294,7 @@ class QueryFeeEnabledChannelsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.PageRequest ensurePagination() => $_ensure(0);
 
+  /// block height at which to query
   @$pb.TagNumber(2)
   $fixnum.Int64 get queryHeight => $_getI64(1);
   @$pb.TagNumber(2)
@@ -1382,41 +1308,35 @@ class QueryFeeEnabledChannelsRequest extends $pb.GeneratedMessage {
   void clearQueryHeight() => clearField(2);
 }
 
+/// QueryFeeEnabledChannelsResponse defines the response type for the FeeEnabledChannels rpc
 class QueryFeeEnabledChannelsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryFeeEnabledChannelsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..pc<$5.FeeEnabledChannel>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'feeEnabledChannels',
-        $pb.PbFieldType.PM,
-        subBuilder: $5.FeeEnabledChannel.create)
-    ..hasRequiredFields = false;
-
-  QueryFeeEnabledChannelsResponse._() : super();
   factory QueryFeeEnabledChannelsResponse({
     $core.Iterable<$5.FeeEnabledChannel>? feeEnabledChannels,
   }) {
-    final _result = create();
+    final $result = create();
     if (feeEnabledChannels != null) {
-      _result.feeEnabledChannels.addAll(feeEnabledChannels);
+      $result.feeEnabledChannels.addAll(feeEnabledChannels);
     }
-    return _result;
+    return $result;
   }
+  QueryFeeEnabledChannelsResponse._() : super();
   factory QueryFeeEnabledChannelsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryFeeEnabledChannelsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryFeeEnabledChannelsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..pc<$5.FeeEnabledChannel>(
+        1, _omitFieldNames ? '' : 'feeEnabledChannels', $pb.PbFieldType.PM,
+        subBuilder: $5.FeeEnabledChannel.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1429,8 +1349,10 @@ class QueryFeeEnabledChannelsResponse extends $pb.GeneratedMessage {
           void Function(QueryFeeEnabledChannelsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryFeeEnabledChannelsResponse))
-          as QueryFeeEnabledChannelsResponse; // ignore: deprecated_member_use
+          as QueryFeeEnabledChannelsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryFeeEnabledChannelsResponse create() =>
       QueryFeeEnabledChannelsResponse._();
@@ -1443,52 +1365,43 @@ class QueryFeeEnabledChannelsResponse extends $pb.GeneratedMessage {
           create);
   static QueryFeeEnabledChannelsResponse? _defaultInstance;
 
+  /// list of fee enabled channels
   @$pb.TagNumber(1)
   $core.List<$5.FeeEnabledChannel> get feeEnabledChannels => $_getList(0);
 }
 
+/// QueryFeeEnabledChannelRequest defines the request type for the FeeEnabledChannel rpc
 class QueryFeeEnabledChannelRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryFeeEnabledChannelRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..hasRequiredFields = false;
-
-  QueryFeeEnabledChannelRequest._() : super();
   factory QueryFeeEnabledChannelRequest({
     $core.String? portId,
     $core.String? channelId,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
-    return _result;
+    return $result;
   }
+  QueryFeeEnabledChannelRequest._() : super();
   factory QueryFeeEnabledChannelRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryFeeEnabledChannelRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryFeeEnabledChannelRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1501,8 +1414,10 @@ class QueryFeeEnabledChannelRequest extends $pb.GeneratedMessage {
           void Function(QueryFeeEnabledChannelRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryFeeEnabledChannelRequest))
-          as QueryFeeEnabledChannelRequest; // ignore: deprecated_member_use
+          as QueryFeeEnabledChannelRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryFeeEnabledChannelRequest create() =>
       QueryFeeEnabledChannelRequest._();
@@ -1514,6 +1429,7 @@ class QueryFeeEnabledChannelRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryFeeEnabledChannelRequest>(create);
   static QueryFeeEnabledChannelRequest? _defaultInstance;
 
+  /// unique port identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1526,6 +1442,7 @@ class QueryFeeEnabledChannelRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// unique channel identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1539,39 +1456,33 @@ class QueryFeeEnabledChannelRequest extends $pb.GeneratedMessage {
   void clearChannelId() => clearField(2);
 }
 
+/// QueryFeeEnabledChannelResponse defines the response type for the FeeEnabledChannel rpc
 class QueryFeeEnabledChannelResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryFeeEnabledChannelResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOB(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'feeEnabled')
-    ..hasRequiredFields = false;
-
-  QueryFeeEnabledChannelResponse._() : super();
   factory QueryFeeEnabledChannelResponse({
     $core.bool? feeEnabled,
   }) {
-    final _result = create();
+    final $result = create();
     if (feeEnabled != null) {
-      _result.feeEnabled = feeEnabled;
+      $result.feeEnabled = feeEnabled;
     }
-    return _result;
+    return $result;
   }
+  QueryFeeEnabledChannelResponse._() : super();
   factory QueryFeeEnabledChannelResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryFeeEnabledChannelResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryFeeEnabledChannelResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'feeEnabled')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1584,8 +1495,10 @@ class QueryFeeEnabledChannelResponse extends $pb.GeneratedMessage {
           void Function(QueryFeeEnabledChannelResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryFeeEnabledChannelResponse))
-          as QueryFeeEnabledChannelResponse; // ignore: deprecated_member_use
+          as QueryFeeEnabledChannelResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryFeeEnabledChannelResponse create() =>
       QueryFeeEnabledChannelResponse._();
@@ -1597,6 +1510,7 @@ class QueryFeeEnabledChannelResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryFeeEnabledChannelResponse>(create);
   static QueryFeeEnabledChannelResponse? _defaultInstance;
 
+  /// boolean flag representing the fee enabled channel status
   @$pb.TagNumber(1)
   $core.bool get feeEnabled => $_getBF(0);
   @$pb.TagNumber(1)
@@ -1609,3 +1523,7 @@ class QueryFeeEnabledChannelResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearFeeEnabled() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

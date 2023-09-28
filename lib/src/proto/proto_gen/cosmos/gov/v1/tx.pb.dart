@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/gov/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -13,73 +17,53 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../google/protobuf/any.pb.dart' as $1;
 import '../../base/v1beta1/coin.pb.dart' as $2;
 import 'gov.pb.dart' as $3;
-
 import 'gov.pbenum.dart' as $3;
 
+/// MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
+/// proposal Content.
 class MsgSubmitProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgSubmitProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'messages',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Any.create)
-    ..pc<$2.Coin>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'initialDeposit',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.Coin.create)
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposer')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  MsgSubmitProposal._() : super();
   factory MsgSubmitProposal({
     $core.Iterable<$1.Any>? messages,
     $core.Iterable<$2.Coin>? initialDeposit,
     $core.String? proposer,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (messages != null) {
-      _result.messages.addAll(messages);
+      $result.messages.addAll(messages);
     }
     if (initialDeposit != null) {
-      _result.initialDeposit.addAll(initialDeposit);
+      $result.initialDeposit.addAll(initialDeposit);
     }
     if (proposer != null) {
-      _result.proposer = proposer;
+      $result.proposer = proposer;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  MsgSubmitProposal._() : super();
   factory MsgSubmitProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgSubmitProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSubmitProposal',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.Any>(1, _omitFieldNames ? '' : 'messages', $pb.PbFieldType.PM,
+        subBuilder: $1.Any.create)
+    ..pc<$2.Coin>(
+        2, _omitFieldNames ? '' : 'initialDeposit', $pb.PbFieldType.PM,
+        subBuilder: $2.Coin.create)
+    ..aOS(3, _omitFieldNames ? '' : 'proposer')
+    ..aOS(4, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -89,8 +73,10 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgSubmitProposal copyWith(void Function(MsgSubmitProposal) updates) =>
       super.copyWith((message) => updates(message as MsgSubmitProposal))
-          as MsgSubmitProposal; // ignore: deprecated_member_use
+          as MsgSubmitProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgSubmitProposal create() => MsgSubmitProposal._();
   MsgSubmitProposal createEmptyInstance() => create();
@@ -119,6 +105,7 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearProposer() => clearField(3);
 
+  /// metadata is any arbitrary metadata attached to the proposal.
   @$pb.TagNumber(4)
   $core.String get metadata => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -132,41 +119,34 @@ class MsgSubmitProposal extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(4);
 }
 
+/// MsgSubmitProposalResponse defines the Msg/SubmitProposal response type.
 class MsgSubmitProposalResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgSubmitProposalResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  MsgSubmitProposalResponse._() : super();
   factory MsgSubmitProposalResponse({
     $fixnum.Int64? proposalId,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
-    return _result;
+    return $result;
   }
+  MsgSubmitProposalResponse._() : super();
   factory MsgSubmitProposalResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgSubmitProposalResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSubmitProposalResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -178,8 +158,10 @@ class MsgSubmitProposalResponse extends $pb.GeneratedMessage {
   MsgSubmitProposalResponse copyWith(
           void Function(MsgSubmitProposalResponse) updates) =>
       super.copyWith((message) => updates(message as MsgSubmitProposalResponse))
-          as MsgSubmitProposalResponse; // ignore: deprecated_member_use
+          as MsgSubmitProposalResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgSubmitProposalResponse create() => MsgSubmitProposalResponse._();
   MsgSubmitProposalResponse createEmptyInstance() => create();
@@ -203,49 +185,39 @@ class MsgSubmitProposalResponse extends $pb.GeneratedMessage {
   void clearProposalId() => clearField(1);
 }
 
+/// MsgExecLegacyContent is used to wrap the legacy content field into a message.
+/// This ensures backwards compatibility with v1beta1.MsgSubmitProposal.
 class MsgExecLegacyContent extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgExecLegacyContent',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'content',
-        subBuilder: $1.Any.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'authority')
-    ..hasRequiredFields = false;
-
-  MsgExecLegacyContent._() : super();
   factory MsgExecLegacyContent({
     $1.Any? content,
     $core.String? authority,
   }) {
-    final _result = create();
+    final $result = create();
     if (content != null) {
-      _result.content = content;
+      $result.content = content;
     }
     if (authority != null) {
-      _result.authority = authority;
+      $result.authority = authority;
     }
-    return _result;
+    return $result;
   }
+  MsgExecLegacyContent._() : super();
   factory MsgExecLegacyContent.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgExecLegacyContent.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgExecLegacyContent',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Any>(1, _omitFieldNames ? '' : 'content',
+        subBuilder: $1.Any.create)
+    ..aOS(2, _omitFieldNames ? '' : 'authority')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -256,8 +228,10 @@ class MsgExecLegacyContent extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgExecLegacyContent copyWith(void Function(MsgExecLegacyContent) updates) =>
       super.copyWith((message) => updates(message as MsgExecLegacyContent))
-          as MsgExecLegacyContent; // ignore: deprecated_member_use
+          as MsgExecLegacyContent;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgExecLegacyContent create() => MsgExecLegacyContent._();
   MsgExecLegacyContent createEmptyInstance() => create();
@@ -268,6 +242,7 @@ class MsgExecLegacyContent extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgExecLegacyContent>(create);
   static MsgExecLegacyContent? _defaultInstance;
 
+  /// content is the proposal's content.
   @$pb.TagNumber(1)
   $1.Any get content => $_getN(0);
   @$pb.TagNumber(1)
@@ -282,6 +257,7 @@ class MsgExecLegacyContent extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Any ensureContent() => $_ensure(0);
 
+  /// authority must be the gov module address.
   @$pb.TagNumber(2)
   $core.String get authority => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -295,26 +271,23 @@ class MsgExecLegacyContent extends $pb.GeneratedMessage {
   void clearAuthority() => clearField(2);
 }
 
+/// MsgExecLegacyContentResponse defines the Msg/ExecLegacyContent response type.
 class MsgExecLegacyContentResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgExecLegacyContentResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgExecLegacyContentResponse._() : super();
   factory MsgExecLegacyContentResponse() => create();
+  MsgExecLegacyContentResponse._() : super();
   factory MsgExecLegacyContentResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgExecLegacyContentResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgExecLegacyContentResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -327,8 +300,10 @@ class MsgExecLegacyContentResponse extends $pb.GeneratedMessage {
           void Function(MsgExecLegacyContentResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgExecLegacyContentResponse))
-          as MsgExecLegacyContentResponse; // ignore: deprecated_member_use
+          as MsgExecLegacyContentResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgExecLegacyContentResponse create() =>
       MsgExecLegacyContentResponse._();
@@ -341,72 +316,52 @@ class MsgExecLegacyContentResponse extends $pb.GeneratedMessage {
   static MsgExecLegacyContentResponse? _defaultInstance;
 }
 
+/// MsgVote defines a message to cast a vote.
 class MsgVote extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgVote',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voter')
-    ..e<$3.VoteOption>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'option',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $3.VoteOption.VOTE_OPTION_UNSPECIFIED,
-        valueOf: $3.VoteOption.valueOf,
-        enumValues: $3.VoteOption.values)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  MsgVote._() : super();
   factory MsgVote({
     $fixnum.Int64? proposalId,
     $core.String? voter,
     $3.VoteOption? option,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (voter != null) {
-      _result.voter = voter;
+      $result.voter = voter;
     }
     if (option != null) {
-      _result.option = option;
+      $result.option = option;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  MsgVote._() : super();
   factory MsgVote.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgVote.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgVote',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'voter')
+    ..e<$3.VoteOption>(3, _omitFieldNames ? '' : 'option', $pb.PbFieldType.OE,
+        defaultOrMaker: $3.VoteOption.VOTE_OPTION_UNSPECIFIED,
+        valueOf: $3.VoteOption.valueOf,
+        enumValues: $3.VoteOption.values)
+    ..aOS(4, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -415,9 +370,10 @@ class MsgVote extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgVote copyWith(void Function(MsgVote) updates) =>
-      super.copyWith((message) => updates(message as MsgVote))
-          as MsgVote; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgVote)) as MsgVote;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgVote create() => MsgVote._();
   MsgVote createEmptyInstance() => create();
@@ -476,26 +432,23 @@ class MsgVote extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(4);
 }
 
+/// MsgVoteResponse defines the Msg/Vote response type.
 class MsgVoteResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgVoteResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgVoteResponse._() : super();
   factory MsgVoteResponse() => create();
+  MsgVoteResponse._() : super();
   factory MsgVoteResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgVoteResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgVoteResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -505,8 +458,10 @@ class MsgVoteResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgVoteResponse copyWith(void Function(MsgVoteResponse) updates) =>
       super.copyWith((message) => updates(message as MsgVoteResponse))
-          as MsgVoteResponse; // ignore: deprecated_member_use
+          as MsgVoteResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgVoteResponse create() => MsgVoteResponse._();
   MsgVoteResponse createEmptyInstance() => create();
@@ -518,70 +473,51 @@ class MsgVoteResponse extends $pb.GeneratedMessage {
   static MsgVoteResponse? _defaultInstance;
 }
 
+/// MsgVoteWeighted defines a message to cast a vote.
 class MsgVoteWeighted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgVoteWeighted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voter')
-    ..pc<$3.WeightedVoteOption>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'options',
-        $pb.PbFieldType.PM,
-        subBuilder: $3.WeightedVoteOption.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata')
-    ..hasRequiredFields = false;
-
-  MsgVoteWeighted._() : super();
   factory MsgVoteWeighted({
     $fixnum.Int64? proposalId,
     $core.String? voter,
     $core.Iterable<$3.WeightedVoteOption>? options,
     $core.String? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (voter != null) {
-      _result.voter = voter;
+      $result.voter = voter;
     }
     if (options != null) {
-      _result.options.addAll(options);
+      $result.options.addAll(options);
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  MsgVoteWeighted._() : super();
   factory MsgVoteWeighted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgVoteWeighted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgVoteWeighted',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'voter')
+    ..pc<$3.WeightedVoteOption>(
+        3, _omitFieldNames ? '' : 'options', $pb.PbFieldType.PM,
+        subBuilder: $3.WeightedVoteOption.create)
+    ..aOS(4, _omitFieldNames ? '' : 'metadata')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -591,8 +527,10 @@ class MsgVoteWeighted extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgVoteWeighted copyWith(void Function(MsgVoteWeighted) updates) =>
       super.copyWith((message) => updates(message as MsgVoteWeighted))
-          as MsgVoteWeighted; // ignore: deprecated_member_use
+          as MsgVoteWeighted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgVoteWeighted create() => MsgVoteWeighted._();
   MsgVoteWeighted createEmptyInstance() => create();
@@ -643,26 +581,23 @@ class MsgVoteWeighted extends $pb.GeneratedMessage {
   void clearMetadata() => clearField(4);
 }
 
+/// MsgVoteWeightedResponse defines the Msg/VoteWeighted response type.
 class MsgVoteWeightedResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgVoteWeightedResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgVoteWeightedResponse._() : super();
   factory MsgVoteWeightedResponse() => create();
+  MsgVoteWeightedResponse._() : super();
   factory MsgVoteWeightedResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgVoteWeightedResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgVoteWeightedResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -674,8 +609,10 @@ class MsgVoteWeightedResponse extends $pb.GeneratedMessage {
   MsgVoteWeightedResponse copyWith(
           void Function(MsgVoteWeightedResponse) updates) =>
       super.copyWith((message) => updates(message as MsgVoteWeightedResponse))
-          as MsgVoteWeightedResponse; // ignore: deprecated_member_use
+          as MsgVoteWeightedResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgVoteWeightedResponse create() => MsgVoteWeightedResponse._();
   MsgVoteWeightedResponse createEmptyInstance() => create();
@@ -687,61 +624,45 @@ class MsgVoteWeightedResponse extends $pb.GeneratedMessage {
   static MsgVoteWeightedResponse? _defaultInstance;
 }
 
+/// MsgDeposit defines a message to submit a deposit to an existing proposal.
 class MsgDeposit extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDeposit',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proposalId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'depositor')
-    ..pc<$2.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.Coin.create)
-    ..hasRequiredFields = false;
-
-  MsgDeposit._() : super();
   factory MsgDeposit({
     $fixnum.Int64? proposalId,
     $core.String? depositor,
     $core.Iterable<$2.Coin>? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (proposalId != null) {
-      _result.proposalId = proposalId;
+      $result.proposalId = proposalId;
     }
     if (depositor != null) {
-      _result.depositor = depositor;
+      $result.depositor = depositor;
     }
     if (amount != null) {
-      _result.amount.addAll(amount);
+      $result.amount.addAll(amount);
     }
-    return _result;
+    return $result;
   }
+  MsgDeposit._() : super();
   factory MsgDeposit.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDeposit.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDeposit',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'proposalId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'depositor')
+    ..pc<$2.Coin>(3, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $2.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -750,9 +671,10 @@ class MsgDeposit extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   MsgDeposit copyWith(void Function(MsgDeposit) updates) =>
-      super.copyWith((message) => updates(message as MsgDeposit))
-          as MsgDeposit; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as MsgDeposit)) as MsgDeposit;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDeposit create() => MsgDeposit._();
   MsgDeposit createEmptyInstance() => create();
@@ -790,26 +712,23 @@ class MsgDeposit extends $pb.GeneratedMessage {
   $core.List<$2.Coin> get amount => $_getList(2);
 }
 
+/// MsgDepositResponse defines the Msg/Deposit response type.
 class MsgDepositResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgDepositResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.gov.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgDepositResponse._() : super();
   factory MsgDepositResponse() => create();
+  MsgDepositResponse._() : super();
   factory MsgDepositResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgDepositResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgDepositResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.gov.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -819,8 +738,10 @@ class MsgDepositResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgDepositResponse copyWith(void Function(MsgDepositResponse) updates) =>
       super.copyWith((message) => updates(message as MsgDepositResponse))
-          as MsgDepositResponse; // ignore: deprecated_member_use
+          as MsgDepositResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgDepositResponse create() => MsgDepositResponse._();
   MsgDepositResponse createEmptyInstance() => create();
@@ -831,3 +752,7 @@ class MsgDepositResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgDepositResponse>(create);
   static MsgDepositResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

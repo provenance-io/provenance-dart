@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/types/params.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,70 +16,53 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/duration.pb.dart' as $0;
 
+/// ConsensusParams contains consensus critical parameters that determine the
+/// validity of blocks.
 class ConsensusParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ConsensusParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..aOM<BlockParams>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'block',
-        subBuilder: BlockParams.create)
-    ..aOM<EvidenceParams>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'evidence',
-        subBuilder: EvidenceParams.create)
-    ..aOM<ValidatorParams>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validator',
-        subBuilder: ValidatorParams.create)
-    ..aOM<VersionParams>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version',
-        subBuilder: VersionParams.create)
-    ..hasRequiredFields = false;
-
-  ConsensusParams._() : super();
   factory ConsensusParams({
     BlockParams? block,
     EvidenceParams? evidence,
     ValidatorParams? validator,
     VersionParams? version,
   }) {
-    final _result = create();
+    final $result = create();
     if (block != null) {
-      _result.block = block;
+      $result.block = block;
     }
     if (evidence != null) {
-      _result.evidence = evidence;
+      $result.evidence = evidence;
     }
     if (validator != null) {
-      _result.validator = validator;
+      $result.validator = validator;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
-    return _result;
+    return $result;
   }
+  ConsensusParams._() : super();
   factory ConsensusParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ConsensusParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ConsensusParams',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..aOM<BlockParams>(1, _omitFieldNames ? '' : 'block',
+        subBuilder: BlockParams.create)
+    ..aOM<EvidenceParams>(2, _omitFieldNames ? '' : 'evidence',
+        subBuilder: EvidenceParams.create)
+    ..aOM<ValidatorParams>(3, _omitFieldNames ? '' : 'validator',
+        subBuilder: ValidatorParams.create)
+    ..aOM<VersionParams>(4, _omitFieldNames ? '' : 'version',
+        subBuilder: VersionParams.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -85,8 +72,10 @@ class ConsensusParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ConsensusParams copyWith(void Function(ConsensusParams) updates) =>
       super.copyWith((message) => updates(message as ConsensusParams))
-          as ConsensusParams; // ignore: deprecated_member_use
+          as ConsensusParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ConsensusParams create() => ConsensusParams._();
   ConsensusParams createEmptyInstance() => create();
@@ -154,57 +143,43 @@ class ConsensusParams extends $pb.GeneratedMessage {
   VersionParams ensureVersion() => $_ensure(3);
 }
 
+/// BlockParams contains limits on the block size.
 class BlockParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BlockParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxBytes')
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxGas')
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timeIotaMs')
-    ..hasRequiredFields = false;
-
-  BlockParams._() : super();
   factory BlockParams({
     $fixnum.Int64? maxBytes,
     $fixnum.Int64? maxGas,
     $fixnum.Int64? timeIotaMs,
   }) {
-    final _result = create();
+    final $result = create();
     if (maxBytes != null) {
-      _result.maxBytes = maxBytes;
+      $result.maxBytes = maxBytes;
     }
     if (maxGas != null) {
-      _result.maxGas = maxGas;
+      $result.maxGas = maxGas;
     }
     if (timeIotaMs != null) {
-      _result.timeIotaMs = timeIotaMs;
+      $result.timeIotaMs = timeIotaMs;
     }
-    return _result;
+    return $result;
   }
+  BlockParams._() : super();
   factory BlockParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BlockParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BlockParams',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'maxBytes')
+    ..aInt64(2, _omitFieldNames ? '' : 'maxGas')
+    ..aInt64(3, _omitFieldNames ? '' : 'timeIotaMs')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -214,8 +189,10 @@ class BlockParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   BlockParams copyWith(void Function(BlockParams) updates) =>
       super.copyWith((message) => updates(message as BlockParams))
-          as BlockParams; // ignore: deprecated_member_use
+          as BlockParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BlockParams create() => BlockParams._();
   BlockParams createEmptyInstance() => create();
@@ -225,6 +202,8 @@ class BlockParams extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<BlockParams>(create);
   static BlockParams? _defaultInstance;
 
+  /// Max block size, in bytes.
+  /// Note: must be greater than 0
   @$pb.TagNumber(1)
   $fixnum.Int64 get maxBytes => $_getI64(0);
   @$pb.TagNumber(1)
@@ -237,6 +216,8 @@ class BlockParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMaxBytes() => clearField(1);
 
+  /// Max gas per block.
+  /// Note: must be greater or equal to -1
   @$pb.TagNumber(2)
   $fixnum.Int64 get maxGas => $_getI64(1);
   @$pb.TagNumber(2)
@@ -249,6 +230,10 @@ class BlockParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMaxGas() => clearField(2);
 
+  ///  Minimum time increment between consecutive blocks (in milliseconds) If the
+  ///  block header timestamp is ahead of the system clock, decrease this value.
+  ///
+  ///  Not exposed to the application.
   @$pb.TagNumber(3)
   $fixnum.Int64 get timeIotaMs => $_getI64(2);
   @$pb.TagNumber(3)
@@ -262,58 +247,44 @@ class BlockParams extends $pb.GeneratedMessage {
   void clearTimeIotaMs() => clearField(3);
 }
 
+/// EvidenceParams determine how we handle evidence of malfeasance.
 class EvidenceParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EvidenceParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxAgeNumBlocks')
-    ..aOM<$0.Duration>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxAgeDuration',
-        subBuilder: $0.Duration.create)
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxBytes')
-    ..hasRequiredFields = false;
-
-  EvidenceParams._() : super();
   factory EvidenceParams({
     $fixnum.Int64? maxAgeNumBlocks,
     $0.Duration? maxAgeDuration,
     $fixnum.Int64? maxBytes,
   }) {
-    final _result = create();
+    final $result = create();
     if (maxAgeNumBlocks != null) {
-      _result.maxAgeNumBlocks = maxAgeNumBlocks;
+      $result.maxAgeNumBlocks = maxAgeNumBlocks;
     }
     if (maxAgeDuration != null) {
-      _result.maxAgeDuration = maxAgeDuration;
+      $result.maxAgeDuration = maxAgeDuration;
     }
     if (maxBytes != null) {
-      _result.maxBytes = maxBytes;
+      $result.maxBytes = maxBytes;
     }
-    return _result;
+    return $result;
   }
+  EvidenceParams._() : super();
   factory EvidenceParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EvidenceParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EvidenceParams',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'maxAgeNumBlocks')
+    ..aOM<$0.Duration>(2, _omitFieldNames ? '' : 'maxAgeDuration',
+        subBuilder: $0.Duration.create)
+    ..aInt64(3, _omitFieldNames ? '' : 'maxBytes')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -323,8 +294,10 @@ class EvidenceParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EvidenceParams copyWith(void Function(EvidenceParams) updates) =>
       super.copyWith((message) => updates(message as EvidenceParams))
-          as EvidenceParams; // ignore: deprecated_member_use
+          as EvidenceParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EvidenceParams create() => EvidenceParams._();
   EvidenceParams createEmptyInstance() => create();
@@ -335,6 +308,10 @@ class EvidenceParams extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EvidenceParams>(create);
   static EvidenceParams? _defaultInstance;
 
+  ///  Max age of evidence, in blocks.
+  ///
+  ///  The basic formula for calculating this is: MaxAgeDuration / {average block
+  ///  time}.
   @$pb.TagNumber(1)
   $fixnum.Int64 get maxAgeNumBlocks => $_getI64(0);
   @$pb.TagNumber(1)
@@ -347,6 +324,11 @@ class EvidenceParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMaxAgeNumBlocks() => clearField(1);
 
+  ///  Max age of evidence, in time.
+  ///
+  ///  It should correspond with an app's "unbonding period" or other similar
+  ///  mechanism for handling [Nothing-At-Stake
+  ///  attacks](https://github.com/ethereum/wiki/wiki/Proof-of-Stake-FAQ#what-is-the-nothing-at-stake-problem-and-how-can-it-be-fixed).
   @$pb.TagNumber(2)
   $0.Duration get maxAgeDuration => $_getN(1);
   @$pb.TagNumber(2)
@@ -361,6 +343,9 @@ class EvidenceParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $0.Duration ensureMaxAgeDuration() => $_ensure(1);
 
+  /// This sets the maximum size of total evidence in bytes that can be committed in a single block.
+  /// and should fall comfortably under the max block bytes.
+  /// Default is 1048576 or 1MB
   @$pb.TagNumber(3)
   $fixnum.Int64 get maxBytes => $_getI64(2);
   @$pb.TagNumber(3)
@@ -374,39 +359,34 @@ class EvidenceParams extends $pb.GeneratedMessage {
   void clearMaxBytes() => clearField(3);
 }
 
+/// ValidatorParams restrict the public key types validators can use.
+/// NOTE: uses ABCI pubkey naming, not Amino names.
 class ValidatorParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ValidatorParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pubKeyTypes')
-    ..hasRequiredFields = false;
-
-  ValidatorParams._() : super();
   factory ValidatorParams({
     $core.Iterable<$core.String>? pubKeyTypes,
   }) {
-    final _result = create();
+    final $result = create();
     if (pubKeyTypes != null) {
-      _result.pubKeyTypes.addAll(pubKeyTypes);
+      $result.pubKeyTypes.addAll(pubKeyTypes);
     }
-    return _result;
+    return $result;
   }
+  ValidatorParams._() : super();
   factory ValidatorParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ValidatorParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ValidatorParams',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'pubKeyTypes')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -416,8 +396,10 @@ class ValidatorParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ValidatorParams copyWith(void Function(ValidatorParams) updates) =>
       super.copyWith((message) => updates(message as ValidatorParams))
-          as ValidatorParams; // ignore: deprecated_member_use
+          as ValidatorParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ValidatorParams create() => ValidatorParams._();
   ValidatorParams createEmptyInstance() => create();
@@ -432,41 +414,35 @@ class ValidatorParams extends $pb.GeneratedMessage {
   $core.List<$core.String> get pubKeyTypes => $_getList(0);
 }
 
+/// VersionParams contains the ABCI application version.
 class VersionParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'VersionParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'appVersion',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  VersionParams._() : super();
   factory VersionParams({
     $fixnum.Int64? appVersion,
   }) {
-    final _result = create();
+    final $result = create();
     if (appVersion != null) {
-      _result.appVersion = appVersion;
+      $result.appVersion = appVersion;
     }
-    return _result;
+    return $result;
   }
+  VersionParams._() : super();
   factory VersionParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory VersionParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VersionParams',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'appVersion', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -476,8 +452,10 @@ class VersionParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   VersionParams copyWith(void Function(VersionParams) updates) =>
       super.copyWith((message) => updates(message as VersionParams))
-          as VersionParams; // ignore: deprecated_member_use
+          as VersionParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static VersionParams create() => VersionParams._();
   VersionParams createEmptyInstance() => create();
@@ -501,48 +479,40 @@ class VersionParams extends $pb.GeneratedMessage {
   void clearAppVersion() => clearField(1);
 }
 
+///  HashedParams is a subset of ConsensusParams.
+///
+///  It is hashed into the Header.ConsensusHash.
 class HashedParams extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'HashedParams',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockMaxBytes')
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockMaxGas')
-    ..hasRequiredFields = false;
-
-  HashedParams._() : super();
   factory HashedParams({
     $fixnum.Int64? blockMaxBytes,
     $fixnum.Int64? blockMaxGas,
   }) {
-    final _result = create();
+    final $result = create();
     if (blockMaxBytes != null) {
-      _result.blockMaxBytes = blockMaxBytes;
+      $result.blockMaxBytes = blockMaxBytes;
     }
     if (blockMaxGas != null) {
-      _result.blockMaxGas = blockMaxGas;
+      $result.blockMaxGas = blockMaxGas;
     }
-    return _result;
+    return $result;
   }
+  HashedParams._() : super();
   factory HashedParams.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory HashedParams.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HashedParams',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'blockMaxBytes')
+    ..aInt64(2, _omitFieldNames ? '' : 'blockMaxGas')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -552,8 +522,10 @@ class HashedParams extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   HashedParams copyWith(void Function(HashedParams) updates) =>
       super.copyWith((message) => updates(message as HashedParams))
-          as HashedParams; // ignore: deprecated_member_use
+          as HashedParams;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static HashedParams create() => HashedParams._();
   HashedParams createEmptyInstance() => create();
@@ -588,3 +560,7 @@ class HashedParams extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearBlockMaxGas() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

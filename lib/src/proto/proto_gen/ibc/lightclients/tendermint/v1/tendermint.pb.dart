@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/lightclients/tendermint/v1/tendermint.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,89 +15,16 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../../google/protobuf/duration.pb.dart' as $0;
-import '../../../core/client/v1/client.pb.dart' as $1;
-import '../../../../proofs.pb.dart' as $2;
 import '../../../../google/protobuf/timestamp.pb.dart' as $3;
-import '../../../core/commitment/v1/commitment.pb.dart' as $4;
+import '../../../../proofs.pb.dart' as $2;
 import '../../../../tendermint/types/types.pb.dart' as $5;
 import '../../../../tendermint/types/validator.pb.dart' as $6;
+import '../../../core/client/v1/client.pb.dart' as $1;
+import '../../../core/commitment/v1/commitment.pb.dart' as $4;
 
+/// ClientState from Tendermint tracks the current validator set, latest height,
+/// and a possible frozen height.
 class ClientState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ClientState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.lightclients.tendermint.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chainId')
-    ..aOM<Fraction>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'trustLevel',
-        subBuilder: Fraction.create)
-    ..aOM<$0.Duration>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'trustingPeriod',
-        subBuilder: $0.Duration.create)
-    ..aOM<$0.Duration>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'unbondingPeriod',
-        subBuilder: $0.Duration.create)
-    ..aOM<$0.Duration>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxClockDrift',
-        subBuilder: $0.Duration.create)
-    ..aOM<$1.Height>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'frozenHeight',
-        subBuilder: $1.Height.create)
-    ..aOM<$1.Height>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'latestHeight',
-        subBuilder: $1.Height.create)
-    ..pc<$2.ProofSpec>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofSpecs',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.ProofSpec.create)
-    ..pPS(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'upgradePath')
-    ..aOB(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowUpdateAfterExpiry')
-    ..aOB(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowUpdateAfterMisbehaviour')
-    ..hasRequiredFields = false;
-
-  ClientState._() : super();
   factory ClientState({
     $core.String? chainId,
     Fraction? trustLevel,
@@ -109,50 +40,78 @@ class ClientState extends $pb.GeneratedMessage {
     @$core.Deprecated('This field is deprecated.')
     $core.bool? allowUpdateAfterMisbehaviour,
   }) {
-    final _result = create();
+    final $result = create();
     if (chainId != null) {
-      _result.chainId = chainId;
+      $result.chainId = chainId;
     }
     if (trustLevel != null) {
-      _result.trustLevel = trustLevel;
+      $result.trustLevel = trustLevel;
     }
     if (trustingPeriod != null) {
-      _result.trustingPeriod = trustingPeriod;
+      $result.trustingPeriod = trustingPeriod;
     }
     if (unbondingPeriod != null) {
-      _result.unbondingPeriod = unbondingPeriod;
+      $result.unbondingPeriod = unbondingPeriod;
     }
     if (maxClockDrift != null) {
-      _result.maxClockDrift = maxClockDrift;
+      $result.maxClockDrift = maxClockDrift;
     }
     if (frozenHeight != null) {
-      _result.frozenHeight = frozenHeight;
+      $result.frozenHeight = frozenHeight;
     }
     if (latestHeight != null) {
-      _result.latestHeight = latestHeight;
+      $result.latestHeight = latestHeight;
     }
     if (proofSpecs != null) {
-      _result.proofSpecs.addAll(proofSpecs);
+      $result.proofSpecs.addAll(proofSpecs);
     }
     if (upgradePath != null) {
-      _result.upgradePath.addAll(upgradePath);
+      $result.upgradePath.addAll(upgradePath);
     }
     if (allowUpdateAfterExpiry != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.allowUpdateAfterExpiry = allowUpdateAfterExpiry;
+      $result.allowUpdateAfterExpiry = allowUpdateAfterExpiry;
     }
     if (allowUpdateAfterMisbehaviour != null) {
       // ignore: deprecated_member_use_from_same_package
-      _result.allowUpdateAfterMisbehaviour = allowUpdateAfterMisbehaviour;
+      $result.allowUpdateAfterMisbehaviour = allowUpdateAfterMisbehaviour;
     }
-    return _result;
+    return $result;
   }
+  ClientState._() : super();
   factory ClientState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClientState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ClientState',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.lightclients.tendermint.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'chainId')
+    ..aOM<Fraction>(2, _omitFieldNames ? '' : 'trustLevel',
+        subBuilder: Fraction.create)
+    ..aOM<$0.Duration>(3, _omitFieldNames ? '' : 'trustingPeriod',
+        subBuilder: $0.Duration.create)
+    ..aOM<$0.Duration>(4, _omitFieldNames ? '' : 'unbondingPeriod',
+        subBuilder: $0.Duration.create)
+    ..aOM<$0.Duration>(5, _omitFieldNames ? '' : 'maxClockDrift',
+        subBuilder: $0.Duration.create)
+    ..aOM<$1.Height>(6, _omitFieldNames ? '' : 'frozenHeight',
+        subBuilder: $1.Height.create)
+    ..aOM<$1.Height>(7, _omitFieldNames ? '' : 'latestHeight',
+        subBuilder: $1.Height.create)
+    ..pc<$2.ProofSpec>(
+        8, _omitFieldNames ? '' : 'proofSpecs', $pb.PbFieldType.PM,
+        subBuilder: $2.ProofSpec.create)
+    ..pPS(9, _omitFieldNames ? '' : 'upgradePath')
+    ..aOB(10, _omitFieldNames ? '' : 'allowUpdateAfterExpiry')
+    ..aOB(11, _omitFieldNames ? '' : 'allowUpdateAfterMisbehaviour')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -162,8 +121,10 @@ class ClientState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ClientState copyWith(void Function(ClientState) updates) =>
       super.copyWith((message) => updates(message as ClientState))
-          as ClientState; // ignore: deprecated_member_use
+          as ClientState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClientState create() => ClientState._();
   ClientState createEmptyInstance() => create();
@@ -199,6 +160,8 @@ class ClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   Fraction ensureTrustLevel() => $_ensure(1);
 
+  /// duration of the period since the LastestTimestamp during which the
+  /// submitted headers are valid for upgrade
   @$pb.TagNumber(3)
   $0.Duration get trustingPeriod => $_getN(2);
   @$pb.TagNumber(3)
@@ -213,6 +176,7 @@ class ClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $0.Duration ensureTrustingPeriod() => $_ensure(2);
 
+  /// duration of the staking unbonding period
   @$pb.TagNumber(4)
   $0.Duration get unbondingPeriod => $_getN(3);
   @$pb.TagNumber(4)
@@ -227,6 +191,7 @@ class ClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $0.Duration ensureUnbondingPeriod() => $_ensure(3);
 
+  /// defines how much new (untrusted) header's Time can drift into the future.
   @$pb.TagNumber(5)
   $0.Duration get maxClockDrift => $_getN(4);
   @$pb.TagNumber(5)
@@ -241,6 +206,7 @@ class ClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $0.Duration ensureMaxClockDrift() => $_ensure(4);
 
+  /// Block height when the client was frozen due to a misbehaviour
   @$pb.TagNumber(6)
   $1.Height get frozenHeight => $_getN(5);
   @$pb.TagNumber(6)
@@ -255,6 +221,7 @@ class ClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $1.Height ensureFrozenHeight() => $_ensure(5);
 
+  /// Latest height the client was updated to
   @$pb.TagNumber(7)
   $1.Height get latestHeight => $_getN(6);
   @$pb.TagNumber(7)
@@ -269,12 +236,21 @@ class ClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $1.Height ensureLatestHeight() => $_ensure(6);
 
+  /// Proof specifications used in verifying counterparty state
   @$pb.TagNumber(8)
   $core.List<$2.ProofSpec> get proofSpecs => $_getList(7);
 
+  /// Path at which next upgraded client will be committed.
+  /// Each element corresponds to the key for a single CommitmentProof in the
+  /// chained proof. NOTE: ClientState must stored under
+  /// `{upgradePath}/{upgradeHeight}/clientState` ConsensusState must be stored
+  /// under `{upgradepath}/{upgradeHeight}/consensusState` For SDK chains using
+  /// the default upgrade module, upgrade_path should be []string{"upgrade",
+  /// "upgradedIBCState"}`
   @$pb.TagNumber(9)
   $core.List<$core.String> get upgradePath => $_getList(8);
 
+  /// allow_update_after_expiry is deprecated
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(10)
   $core.bool get allowUpdateAfterExpiry => $_getBF(9);
@@ -291,6 +267,7 @@ class ClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   void clearAllowUpdateAfterExpiry() => clearField(10);
 
+  /// allow_update_after_misbehaviour is deprecated
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   $core.bool get allowUpdateAfterMisbehaviour => $_getBF(10);
@@ -308,60 +285,46 @@ class ClientState extends $pb.GeneratedMessage {
   void clearAllowUpdateAfterMisbehaviour() => clearField(11);
 }
 
+/// ConsensusState defines the consensus state from Tendermint.
 class ConsensusState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ConsensusState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.lightclients.tendermint.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.Timestamp>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timestamp',
-        subBuilder: $3.Timestamp.create)
-    ..aOM<$4.MerkleRoot>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'root',
-        subBuilder: $4.MerkleRoot.create)
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextValidatorsHash',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  ConsensusState._() : super();
   factory ConsensusState({
     $3.Timestamp? timestamp,
     $4.MerkleRoot? root,
     $core.List<$core.int>? nextValidatorsHash,
   }) {
-    final _result = create();
+    final $result = create();
     if (timestamp != null) {
-      _result.timestamp = timestamp;
+      $result.timestamp = timestamp;
     }
     if (root != null) {
-      _result.root = root;
+      $result.root = root;
     }
     if (nextValidatorsHash != null) {
-      _result.nextValidatorsHash = nextValidatorsHash;
+      $result.nextValidatorsHash = nextValidatorsHash;
     }
-    return _result;
+    return $result;
   }
+  ConsensusState._() : super();
   factory ConsensusState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ConsensusState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ConsensusState',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.lightclients.tendermint.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.Timestamp>(1, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $3.Timestamp.create)
+    ..aOM<$4.MerkleRoot>(2, _omitFieldNames ? '' : 'root',
+        subBuilder: $4.MerkleRoot.create)
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'nextValidatorsHash', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -371,8 +334,10 @@ class ConsensusState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ConsensusState copyWith(void Function(ConsensusState) updates) =>
       super.copyWith((message) => updates(message as ConsensusState))
-          as ConsensusState; // ignore: deprecated_member_use
+          as ConsensusState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ConsensusState create() => ConsensusState._();
   ConsensusState createEmptyInstance() => create();
@@ -383,6 +348,8 @@ class ConsensusState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ConsensusState>(create);
   static ConsensusState? _defaultInstance;
 
+  /// timestamp that corresponds to the block height in which the ConsensusState
+  /// was stored.
   @$pb.TagNumber(1)
   $3.Timestamp get timestamp => $_getN(0);
   @$pb.TagNumber(1)
@@ -397,6 +364,7 @@ class ConsensusState extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $3.Timestamp ensureTimestamp() => $_ensure(0);
 
+  /// commitment root (i.e app hash)
   @$pb.TagNumber(2)
   $4.MerkleRoot get root => $_getN(1);
   @$pb.TagNumber(2)
@@ -424,61 +392,46 @@ class ConsensusState extends $pb.GeneratedMessage {
   void clearNextValidatorsHash() => clearField(3);
 }
 
+/// Misbehaviour is a wrapper over two conflicting Headers
+/// that implements Misbehaviour interface expected by ICS-02
 class Misbehaviour extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Misbehaviour',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.lightclients.tendermint.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..aOM<Header>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'header1',
-        protoName: 'header_1',
-        subBuilder: Header.create)
-    ..aOM<Header>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'header2',
-        protoName: 'header_2',
-        subBuilder: Header.create)
-    ..hasRequiredFields = false;
-
-  Misbehaviour._() : super();
   factory Misbehaviour({
     $core.String? clientId,
     Header? header1,
     Header? header2,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (header1 != null) {
-      _result.header1 = header1;
+      $result.header1 = header1;
     }
     if (header2 != null) {
-      _result.header2 = header2;
+      $result.header2 = header2;
     }
-    return _result;
+    return $result;
   }
+  Misbehaviour._() : super();
   factory Misbehaviour.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Misbehaviour.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Misbehaviour',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.lightclients.tendermint.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..aOM<Header>(2, _omitFieldNames ? '' : 'header1',
+        protoName: 'header_1', subBuilder: Header.create)
+    ..aOM<Header>(3, _omitFieldNames ? '' : 'header2',
+        protoName: 'header_2', subBuilder: Header.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -488,8 +441,10 @@ class Misbehaviour extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Misbehaviour copyWith(void Function(Misbehaviour) updates) =>
       super.copyWith((message) => updates(message as Misbehaviour))
-          as Misbehaviour; // ignore: deprecated_member_use
+          as Misbehaviour;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Misbehaviour create() => Misbehaviour._();
   Misbehaviour createEmptyInstance() => create();
@@ -541,70 +496,63 @@ class Misbehaviour extends $pb.GeneratedMessage {
   Header ensureHeader2() => $_ensure(2);
 }
 
+/// Header defines the Tendermint client consensus Header.
+/// It encapsulates all the information necessary to update from a trusted
+/// Tendermint ConsensusState. The inclusion of TrustedHeight and
+/// TrustedValidators allows this update to process correctly, so long as the
+/// ConsensusState for the TrustedHeight exists, this removes race conditions
+/// among relayers The SignedHeader and ValidatorSet are the new untrusted update
+/// fields for the client. The TrustedHeight is the height of a stored
+/// ConsensusState on the client that will be used to verify the new untrusted
+/// header. The Trusted ConsensusState must be within the unbonding period of
+/// current time in order to correctly verify, and the TrustedValidators must
+/// hash to TrustedConsensusState.NextValidatorsHash since that is the last
+/// trusted validator set at the TrustedHeight.
 class Header extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Header',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.lightclients.tendermint.v1'),
-      createEmptyInstance: create)
-    ..aOM<$5.SignedHeader>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signedHeader',
-        subBuilder: $5.SignedHeader.create)
-    ..aOM<$6.ValidatorSet>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorSet',
-        subBuilder: $6.ValidatorSet.create)
-    ..aOM<$1.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'trustedHeight',
-        subBuilder: $1.Height.create)
-    ..aOM<$6.ValidatorSet>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'trustedValidators',
-        subBuilder: $6.ValidatorSet.create)
-    ..hasRequiredFields = false;
-
-  Header._() : super();
   factory Header({
     $5.SignedHeader? signedHeader,
     $6.ValidatorSet? validatorSet,
     $1.Height? trustedHeight,
     $6.ValidatorSet? trustedValidators,
   }) {
-    final _result = create();
+    final $result = create();
     if (signedHeader != null) {
-      _result.signedHeader = signedHeader;
+      $result.signedHeader = signedHeader;
     }
     if (validatorSet != null) {
-      _result.validatorSet = validatorSet;
+      $result.validatorSet = validatorSet;
     }
     if (trustedHeight != null) {
-      _result.trustedHeight = trustedHeight;
+      $result.trustedHeight = trustedHeight;
     }
     if (trustedValidators != null) {
-      _result.trustedValidators = trustedValidators;
+      $result.trustedValidators = trustedValidators;
     }
-    return _result;
+    return $result;
   }
+  Header._() : super();
   factory Header.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Header.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Header',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.lightclients.tendermint.v1'),
+      createEmptyInstance: create)
+    ..aOM<$5.SignedHeader>(1, _omitFieldNames ? '' : 'signedHeader',
+        subBuilder: $5.SignedHeader.create)
+    ..aOM<$6.ValidatorSet>(2, _omitFieldNames ? '' : 'validatorSet',
+        subBuilder: $6.ValidatorSet.create)
+    ..aOM<$1.Height>(3, _omitFieldNames ? '' : 'trustedHeight',
+        subBuilder: $1.Height.create)
+    ..aOM<$6.ValidatorSet>(4, _omitFieldNames ? '' : 'trustedValidators',
+        subBuilder: $6.ValidatorSet.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -613,9 +561,10 @@ class Header extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Header copyWith(void Function(Header) updates) =>
-      super.copyWith((message) => updates(message as Header))
-          as Header; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Header)) as Header;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Header create() => Header._();
   Header createEmptyInstance() => create();
@@ -682,52 +631,43 @@ class Header extends $pb.GeneratedMessage {
   $6.ValidatorSet ensureTrustedValidators() => $_ensure(3);
 }
 
+/// Fraction defines the protobuf message type for tmmath.Fraction that only
+/// supports positive values.
 class Fraction extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Fraction',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.lightclients.tendermint.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'numerator',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denominator',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  Fraction._() : super();
   factory Fraction({
     $fixnum.Int64? numerator,
     $fixnum.Int64? denominator,
   }) {
-    final _result = create();
+    final $result = create();
     if (numerator != null) {
-      _result.numerator = numerator;
+      $result.numerator = numerator;
     }
     if (denominator != null) {
-      _result.denominator = denominator;
+      $result.denominator = denominator;
     }
-    return _result;
+    return $result;
   }
+  Fraction._() : super();
   factory Fraction.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Fraction.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Fraction',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.lightclients.tendermint.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'numerator', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'denominator', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -736,9 +676,10 @@ class Fraction extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Fraction copyWith(void Function(Fraction) updates) =>
-      super.copyWith((message) => updates(message as Fraction))
-          as Fraction; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Fraction)) as Fraction;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Fraction create() => Fraction._();
   Fraction createEmptyInstance() => create();
@@ -772,3 +713,7 @@ class Fraction extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDenominator() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

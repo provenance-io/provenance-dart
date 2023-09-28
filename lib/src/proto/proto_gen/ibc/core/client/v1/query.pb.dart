@@ -1,52 +1,51 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/client/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../../../cosmos/base/query/v1beta1/pagination.pb.dart' as $3;
 import '../../../../google/protobuf/any.pb.dart' as $1;
 import 'client.pb.dart' as $2;
-import '../../../../cosmos/base/query/v1beta1/pagination.pb.dart' as $3;
 
+/// QueryClientStateRequest is the request type for the Query/ClientState RPC
+/// method
 class QueryClientStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..hasRequiredFields = false;
-
-  QueryClientStateRequest._() : super();
   factory QueryClientStateRequest({
     $core.String? clientId,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
-    return _result;
+    return $result;
   }
+  QueryClientStateRequest._() : super();
   factory QueryClientStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -58,8 +57,10 @@ class QueryClientStateRequest extends $pb.GeneratedMessage {
   QueryClientStateRequest copyWith(
           void Function(QueryClientStateRequest) updates) =>
       super.copyWith((message) => updates(message as QueryClientStateRequest))
-          as QueryClientStateRequest; // ignore: deprecated_member_use
+          as QueryClientStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientStateRequest create() => QueryClientStateRequest._();
   QueryClientStateRequest createEmptyInstance() => create();
@@ -70,6 +71,7 @@ class QueryClientStateRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryClientStateRequest>(create);
   static QueryClientStateRequest? _defaultInstance;
 
+  /// client state unique identifier
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -83,60 +85,48 @@ class QueryClientStateRequest extends $pb.GeneratedMessage {
   void clearClientId() => clearField(1);
 }
 
+/// QueryClientStateResponse is the response type for the Query/ClientState RPC
+/// method. Besides the client state, it includes a proof and the height from
+/// which the proof was retrieved.
 class QueryClientStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientState',
-        subBuilder: $1.Any.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryClientStateResponse._() : super();
   factory QueryClientStateResponse({
     $1.Any? clientState,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientState != null) {
-      _result.clientState = clientState;
+      $result.clientState = clientState;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryClientStateResponse._() : super();
   factory QueryClientStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Any>(1, _omitFieldNames ? '' : 'clientState',
+        subBuilder: $1.Any.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -148,8 +138,10 @@ class QueryClientStateResponse extends $pb.GeneratedMessage {
   QueryClientStateResponse copyWith(
           void Function(QueryClientStateResponse) updates) =>
       super.copyWith((message) => updates(message as QueryClientStateResponse))
-          as QueryClientStateResponse; // ignore: deprecated_member_use
+          as QueryClientStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientStateResponse create() => QueryClientStateResponse._();
   QueryClientStateResponse createEmptyInstance() => create();
@@ -160,6 +152,7 @@ class QueryClientStateResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryClientStateResponse>(create);
   static QueryClientStateResponse? _defaultInstance;
 
+  /// client state associated with the request identifier
   @$pb.TagNumber(1)
   $1.Any get clientState => $_getN(0);
   @$pb.TagNumber(1)
@@ -174,6 +167,7 @@ class QueryClientStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Any ensureClientState() => $_ensure(0);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -186,6 +180,7 @@ class QueryClientStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -201,40 +196,35 @@ class QueryClientStateResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryClientStatesRequest is the request type for the Query/ClientStates RPC
+/// method
 class QueryClientStatesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientStatesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryClientStatesRequest._() : super();
   factory QueryClientStatesRequest({
     $3.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryClientStatesRequest._() : super();
   factory QueryClientStatesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientStatesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientStatesRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -246,8 +236,10 @@ class QueryClientStatesRequest extends $pb.GeneratedMessage {
   QueryClientStatesRequest copyWith(
           void Function(QueryClientStatesRequest) updates) =>
       super.copyWith((message) => updates(message as QueryClientStatesRequest))
-          as QueryClientStatesRequest; // ignore: deprecated_member_use
+          as QueryClientStatesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientStatesRequest create() => QueryClientStatesRequest._();
   QueryClientStatesRequest createEmptyInstance() => create();
@@ -258,6 +250,7 @@ class QueryClientStatesRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryClientStatesRequest>(create);
   static QueryClientStatesRequest? _defaultInstance;
 
+  /// pagination request
   @$pb.TagNumber(1)
   $3.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(1)
@@ -273,51 +266,42 @@ class QueryClientStatesRequest extends $pb.GeneratedMessage {
   $3.PageRequest ensurePagination() => $_ensure(0);
 }
 
+/// QueryClientStatesResponse is the response type for the Query/ClientStates RPC
+/// method.
 class QueryClientStatesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientStatesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..pc<$2.IdentifiedClientState>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientStates',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.IdentifiedClientState.create)
-    ..aOM<$3.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryClientStatesResponse._() : super();
   factory QueryClientStatesResponse({
     $core.Iterable<$2.IdentifiedClientState>? clientStates,
     $3.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientStates != null) {
-      _result.clientStates.addAll(clientStates);
+      $result.clientStates.addAll(clientStates);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryClientStatesResponse._() : super();
   factory QueryClientStatesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientStatesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientStatesResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..pc<$2.IdentifiedClientState>(
+        1, _omitFieldNames ? '' : 'clientStates', $pb.PbFieldType.PM,
+        subBuilder: $2.IdentifiedClientState.create)
+    ..aOM<$3.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -329,8 +313,10 @@ class QueryClientStatesResponse extends $pb.GeneratedMessage {
   QueryClientStatesResponse copyWith(
           void Function(QueryClientStatesResponse) updates) =>
       super.copyWith((message) => updates(message as QueryClientStatesResponse))
-          as QueryClientStatesResponse; // ignore: deprecated_member_use
+          as QueryClientStatesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientStatesResponse create() => QueryClientStatesResponse._();
   QueryClientStatesResponse createEmptyInstance() => create();
@@ -341,9 +327,11 @@ class QueryClientStatesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryClientStatesResponse>(create);
   static QueryClientStatesResponse? _defaultInstance;
 
+  /// list of stored ClientStates of the chain.
   @$pb.TagNumber(1)
   $core.List<$2.IdentifiedClientState> get clientStates => $_getList(0);
 
+  /// pagination response
   @$pb.TagNumber(2)
   $3.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -359,70 +347,54 @@ class QueryClientStatesResponse extends $pb.GeneratedMessage {
   $3.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryConsensusStateRequest is the request type for the Query/ConsensusState
+/// RPC method. Besides the consensus state, it includes a proof and the height
+/// from which the proof was retrieved.
 class QueryConsensusStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConsensusStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'revisionNumber',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'revisionHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOB(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'latestHeight')
-    ..hasRequiredFields = false;
-
-  QueryConsensusStateRequest._() : super();
   factory QueryConsensusStateRequest({
     $core.String? clientId,
     $fixnum.Int64? revisionNumber,
     $fixnum.Int64? revisionHeight,
     $core.bool? latestHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (revisionNumber != null) {
-      _result.revisionNumber = revisionNumber;
+      $result.revisionNumber = revisionNumber;
     }
     if (revisionHeight != null) {
-      _result.revisionHeight = revisionHeight;
+      $result.revisionHeight = revisionHeight;
     }
     if (latestHeight != null) {
-      _result.latestHeight = latestHeight;
+      $result.latestHeight = latestHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryConsensusStateRequest._() : super();
   factory QueryConsensusStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConsensusStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConsensusStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'revisionNumber', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'revisionHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOB(4, _omitFieldNames ? '' : 'latestHeight')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -435,8 +407,10 @@ class QueryConsensusStateRequest extends $pb.GeneratedMessage {
           void Function(QueryConsensusStateRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryConsensusStateRequest))
-          as QueryConsensusStateRequest; // ignore: deprecated_member_use
+          as QueryConsensusStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConsensusStateRequest create() => QueryConsensusStateRequest._();
   QueryConsensusStateRequest createEmptyInstance() => create();
@@ -447,6 +421,7 @@ class QueryConsensusStateRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryConsensusStateRequest>(create);
   static QueryConsensusStateRequest? _defaultInstance;
 
+  /// client identifier
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -459,6 +434,7 @@ class QueryConsensusStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// consensus state revision number
   @$pb.TagNumber(2)
   $fixnum.Int64 get revisionNumber => $_getI64(1);
   @$pb.TagNumber(2)
@@ -471,6 +447,7 @@ class QueryConsensusStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearRevisionNumber() => clearField(2);
 
+  /// consensus state revision height
   @$pb.TagNumber(3)
   $fixnum.Int64 get revisionHeight => $_getI64(2);
   @$pb.TagNumber(3)
@@ -483,6 +460,8 @@ class QueryConsensusStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRevisionHeight() => clearField(3);
 
+  /// latest_height overrrides the height field and queries the latest stored
+  /// ConsensusState
   @$pb.TagNumber(4)
   $core.bool get latestHeight => $_getBF(3);
   @$pb.TagNumber(4)
@@ -496,60 +475,47 @@ class QueryConsensusStateRequest extends $pb.GeneratedMessage {
   void clearLatestHeight() => clearField(4);
 }
 
+/// QueryConsensusStateResponse is the response type for the Query/ConsensusState
+/// RPC method
 class QueryConsensusStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConsensusStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusState',
-        subBuilder: $1.Any.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryConsensusStateResponse._() : super();
   factory QueryConsensusStateResponse({
     $1.Any? consensusState,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (consensusState != null) {
-      _result.consensusState = consensusState;
+      $result.consensusState = consensusState;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryConsensusStateResponse._() : super();
   factory QueryConsensusStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConsensusStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConsensusStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Any>(1, _omitFieldNames ? '' : 'consensusState',
+        subBuilder: $1.Any.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -562,8 +528,10 @@ class QueryConsensusStateResponse extends $pb.GeneratedMessage {
           void Function(QueryConsensusStateResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryConsensusStateResponse))
-          as QueryConsensusStateResponse; // ignore: deprecated_member_use
+          as QueryConsensusStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConsensusStateResponse create() =>
       QueryConsensusStateResponse._();
@@ -575,6 +543,7 @@ class QueryConsensusStateResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryConsensusStateResponse>(create);
   static QueryConsensusStateResponse? _defaultInstance;
 
+  /// consensus state associated with the client identifier at the given height
   @$pb.TagNumber(1)
   $1.Any get consensusState => $_getN(0);
   @$pb.TagNumber(1)
@@ -589,6 +558,7 @@ class QueryConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Any ensureConsensusState() => $_ensure(0);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -601,6 +571,7 @@ class QueryConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -616,49 +587,40 @@ class QueryConsensusStateResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryConsensusStatesRequest is the request type for the Query/ConsensusStates
+/// RPC method.
 class QueryConsensusStatesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConsensusStatesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..aOM<$3.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryConsensusStatesRequest._() : super();
   factory QueryConsensusStatesRequest({
     $core.String? clientId,
     $3.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryConsensusStatesRequest._() : super();
   factory QueryConsensusStatesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConsensusStatesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConsensusStatesRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..aOM<$3.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -671,8 +633,10 @@ class QueryConsensusStatesRequest extends $pb.GeneratedMessage {
           void Function(QueryConsensusStatesRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryConsensusStatesRequest))
-          as QueryConsensusStatesRequest; // ignore: deprecated_member_use
+          as QueryConsensusStatesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConsensusStatesRequest create() =>
       QueryConsensusStatesRequest._();
@@ -684,6 +648,7 @@ class QueryConsensusStatesRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryConsensusStatesRequest>(create);
   static QueryConsensusStatesRequest? _defaultInstance;
 
+  /// client identifier
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -696,6 +661,7 @@ class QueryConsensusStatesRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// pagination request
   @$pb.TagNumber(2)
   $3.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -711,51 +677,42 @@ class QueryConsensusStatesRequest extends $pb.GeneratedMessage {
   $3.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryConsensusStatesResponse is the response type for the
+/// Query/ConsensusStates RPC method
 class QueryConsensusStatesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConsensusStatesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..pc<$2.ConsensusStateWithHeight>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusStates',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.ConsensusStateWithHeight.create)
-    ..aOM<$3.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryConsensusStatesResponse._() : super();
   factory QueryConsensusStatesResponse({
     $core.Iterable<$2.ConsensusStateWithHeight>? consensusStates,
     $3.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (consensusStates != null) {
-      _result.consensusStates.addAll(consensusStates);
+      $result.consensusStates.addAll(consensusStates);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryConsensusStatesResponse._() : super();
   factory QueryConsensusStatesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConsensusStatesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConsensusStatesResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..pc<$2.ConsensusStateWithHeight>(
+        1, _omitFieldNames ? '' : 'consensusStates', $pb.PbFieldType.PM,
+        subBuilder: $2.ConsensusStateWithHeight.create)
+    ..aOM<$3.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -768,8 +725,10 @@ class QueryConsensusStatesResponse extends $pb.GeneratedMessage {
           void Function(QueryConsensusStatesResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryConsensusStatesResponse))
-          as QueryConsensusStatesResponse; // ignore: deprecated_member_use
+          as QueryConsensusStatesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConsensusStatesResponse create() =>
       QueryConsensusStatesResponse._();
@@ -781,9 +740,11 @@ class QueryConsensusStatesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryConsensusStatesResponse>(create);
   static QueryConsensusStatesResponse? _defaultInstance;
 
+  /// consensus states associated with the identifier
   @$pb.TagNumber(1)
   $core.List<$2.ConsensusStateWithHeight> get consensusStates => $_getList(0);
 
+  /// pagination response
   @$pb.TagNumber(2)
   $3.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -799,49 +760,40 @@ class QueryConsensusStatesResponse extends $pb.GeneratedMessage {
   $3.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryConsensusStateHeightsRequest is the request type for Query/ConsensusStateHeights
+/// RPC method.
 class QueryConsensusStateHeightsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConsensusStateHeightsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..aOM<$3.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryConsensusStateHeightsRequest._() : super();
   factory QueryConsensusStateHeightsRequest({
     $core.String? clientId,
     $3.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryConsensusStateHeightsRequest._() : super();
   factory QueryConsensusStateHeightsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConsensusStateHeightsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConsensusStateHeightsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..aOM<$3.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -854,8 +806,10 @@ class QueryConsensusStateHeightsRequest extends $pb.GeneratedMessage {
           void Function(QueryConsensusStateHeightsRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryConsensusStateHeightsRequest))
-          as QueryConsensusStateHeightsRequest; // ignore: deprecated_member_use
+          as QueryConsensusStateHeightsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConsensusStateHeightsRequest create() =>
       QueryConsensusStateHeightsRequest._();
@@ -868,6 +822,7 @@ class QueryConsensusStateHeightsRequest extends $pb.GeneratedMessage {
           create);
   static QueryConsensusStateHeightsRequest? _defaultInstance;
 
+  /// client identifier
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -880,6 +835,7 @@ class QueryConsensusStateHeightsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// pagination request
   @$pb.TagNumber(2)
   $3.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -895,51 +851,42 @@ class QueryConsensusStateHeightsRequest extends $pb.GeneratedMessage {
   $3.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryConsensusStateHeightsResponse is the response type for the
+/// Query/ConsensusStateHeights RPC method
 class QueryConsensusStateHeightsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConsensusStateHeightsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..pc<$2.Height>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusStateHeights',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.Height.create)
-    ..aOM<$3.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageResponse.create)
-    ..hasRequiredFields = false;
-
-  QueryConsensusStateHeightsResponse._() : super();
   factory QueryConsensusStateHeightsResponse({
     $core.Iterable<$2.Height>? consensusStateHeights,
     $3.PageResponse? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (consensusStateHeights != null) {
-      _result.consensusStateHeights.addAll(consensusStateHeights);
+      $result.consensusStateHeights.addAll(consensusStateHeights);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryConsensusStateHeightsResponse._() : super();
   factory QueryConsensusStateHeightsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConsensusStateHeightsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConsensusStateHeightsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..pc<$2.Height>(
+        1, _omitFieldNames ? '' : 'consensusStateHeights', $pb.PbFieldType.PM,
+        subBuilder: $2.Height.create)
+    ..aOM<$3.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -952,8 +899,10 @@ class QueryConsensusStateHeightsResponse extends $pb.GeneratedMessage {
           void Function(QueryConsensusStateHeightsResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryConsensusStateHeightsResponse))
-          as QueryConsensusStateHeightsResponse; // ignore: deprecated_member_use
+          as QueryConsensusStateHeightsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConsensusStateHeightsResponse create() =>
       QueryConsensusStateHeightsResponse._();
@@ -966,9 +915,11 @@ class QueryConsensusStateHeightsResponse extends $pb.GeneratedMessage {
           create);
   static QueryConsensusStateHeightsResponse? _defaultInstance;
 
+  /// consensus state heights
   @$pb.TagNumber(1)
   $core.List<$2.Height> get consensusStateHeights => $_getList(0);
 
+  /// pagination response
   @$pb.TagNumber(2)
   $3.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -984,39 +935,34 @@ class QueryConsensusStateHeightsResponse extends $pb.GeneratedMessage {
   $3.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryClientStatusRequest is the request type for the Query/ClientStatus RPC
+/// method
 class QueryClientStatusRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientStatusRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..hasRequiredFields = false;
-
-  QueryClientStatusRequest._() : super();
   factory QueryClientStatusRequest({
     $core.String? clientId,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
-    return _result;
+    return $result;
   }
+  QueryClientStatusRequest._() : super();
   factory QueryClientStatusRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientStatusRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientStatusRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1028,8 +974,10 @@ class QueryClientStatusRequest extends $pb.GeneratedMessage {
   QueryClientStatusRequest copyWith(
           void Function(QueryClientStatusRequest) updates) =>
       super.copyWith((message) => updates(message as QueryClientStatusRequest))
-          as QueryClientStatusRequest; // ignore: deprecated_member_use
+          as QueryClientStatusRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientStatusRequest create() => QueryClientStatusRequest._();
   QueryClientStatusRequest createEmptyInstance() => create();
@@ -1040,6 +988,7 @@ class QueryClientStatusRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryClientStatusRequest>(create);
   static QueryClientStatusRequest? _defaultInstance;
 
+  /// client unique identifier
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1053,39 +1002,34 @@ class QueryClientStatusRequest extends $pb.GeneratedMessage {
   void clearClientId() => clearField(1);
 }
 
+/// QueryClientStatusResponse is the response type for the Query/ClientStatus RPC
+/// method. It returns the current status of the IBC client.
 class QueryClientStatusResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientStatusResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'status')
-    ..hasRequiredFields = false;
-
-  QueryClientStatusResponse._() : super();
   factory QueryClientStatusResponse({
     $core.String? status,
   }) {
-    final _result = create();
+    final $result = create();
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
-    return _result;
+    return $result;
   }
+  QueryClientStatusResponse._() : super();
   factory QueryClientStatusResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientStatusResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientStatusResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'status')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1097,8 +1041,10 @@ class QueryClientStatusResponse extends $pb.GeneratedMessage {
   QueryClientStatusResponse copyWith(
           void Function(QueryClientStatusResponse) updates) =>
       super.copyWith((message) => updates(message as QueryClientStatusResponse))
-          as QueryClientStatusResponse; // ignore: deprecated_member_use
+          as QueryClientStatusResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientStatusResponse create() => QueryClientStatusResponse._();
   QueryClientStatusResponse createEmptyInstance() => create();
@@ -1122,26 +1068,25 @@ class QueryClientStatusResponse extends $pb.GeneratedMessage {
   void clearStatus() => clearField(1);
 }
 
+/// QueryClientParamsRequest is the request type for the Query/ClientParams RPC
+/// method.
 class QueryClientParamsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientParamsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  QueryClientParamsRequest._() : super();
   factory QueryClientParamsRequest() => create();
+  QueryClientParamsRequest._() : super();
   factory QueryClientParamsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientParamsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientParamsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1153,8 +1098,10 @@ class QueryClientParamsRequest extends $pb.GeneratedMessage {
   QueryClientParamsRequest copyWith(
           void Function(QueryClientParamsRequest) updates) =>
       super.copyWith((message) => updates(message as QueryClientParamsRequest))
-          as QueryClientParamsRequest; // ignore: deprecated_member_use
+          as QueryClientParamsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientParamsRequest create() => QueryClientParamsRequest._();
   QueryClientParamsRequest createEmptyInstance() => create();
@@ -1166,40 +1113,35 @@ class QueryClientParamsRequest extends $pb.GeneratedMessage {
   static QueryClientParamsRequest? _defaultInstance;
 }
 
+/// QueryClientParamsResponse is the response type for the Query/ClientParams RPC
+/// method.
 class QueryClientParamsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryClientParamsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.Params>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $2.Params.create)
-    ..hasRequiredFields = false;
-
-  QueryClientParamsResponse._() : super();
   factory QueryClientParamsResponse({
     $2.Params? params,
   }) {
-    final _result = create();
+    final $result = create();
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
-    return _result;
+    return $result;
   }
+  QueryClientParamsResponse._() : super();
   factory QueryClientParamsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryClientParamsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryClientParamsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.Params>(1, _omitFieldNames ? '' : 'params',
+        subBuilder: $2.Params.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1211,8 +1153,10 @@ class QueryClientParamsResponse extends $pb.GeneratedMessage {
   QueryClientParamsResponse copyWith(
           void Function(QueryClientParamsResponse) updates) =>
       super.copyWith((message) => updates(message as QueryClientParamsResponse))
-          as QueryClientParamsResponse; // ignore: deprecated_member_use
+          as QueryClientParamsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryClientParamsResponse create() => QueryClientParamsResponse._();
   QueryClientParamsResponse createEmptyInstance() => create();
@@ -1223,6 +1167,7 @@ class QueryClientParamsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryClientParamsResponse>(create);
   static QueryClientParamsResponse? _defaultInstance;
 
+  /// params defines the parameters of the module.
   @$pb.TagNumber(1)
   $2.Params get params => $_getN(0);
   @$pb.TagNumber(1)
@@ -1238,26 +1183,25 @@ class QueryClientParamsResponse extends $pb.GeneratedMessage {
   $2.Params ensureParams() => $_ensure(0);
 }
 
+/// QueryUpgradedClientStateRequest is the request type for the
+/// Query/UpgradedClientState RPC method
 class QueryUpgradedClientStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUpgradedClientStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  QueryUpgradedClientStateRequest._() : super();
   factory QueryUpgradedClientStateRequest() => create();
+  QueryUpgradedClientStateRequest._() : super();
   factory QueryUpgradedClientStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryUpgradedClientStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUpgradedClientStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1270,8 +1214,10 @@ class QueryUpgradedClientStateRequest extends $pb.GeneratedMessage {
           void Function(QueryUpgradedClientStateRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryUpgradedClientStateRequest))
-          as QueryUpgradedClientStateRequest; // ignore: deprecated_member_use
+          as QueryUpgradedClientStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUpgradedClientStateRequest create() =>
       QueryUpgradedClientStateRequest._();
@@ -1285,40 +1231,35 @@ class QueryUpgradedClientStateRequest extends $pb.GeneratedMessage {
   static QueryUpgradedClientStateRequest? _defaultInstance;
 }
 
+/// QueryUpgradedClientStateResponse is the response type for the
+/// Query/UpgradedClientState RPC method.
 class QueryUpgradedClientStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUpgradedClientStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'upgradedClientState',
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  QueryUpgradedClientStateResponse._() : super();
   factory QueryUpgradedClientStateResponse({
     $1.Any? upgradedClientState,
   }) {
-    final _result = create();
+    final $result = create();
     if (upgradedClientState != null) {
-      _result.upgradedClientState = upgradedClientState;
+      $result.upgradedClientState = upgradedClientState;
     }
-    return _result;
+    return $result;
   }
+  QueryUpgradedClientStateResponse._() : super();
   factory QueryUpgradedClientStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryUpgradedClientStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUpgradedClientStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Any>(1, _omitFieldNames ? '' : 'upgradedClientState',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1331,8 +1272,10 @@ class QueryUpgradedClientStateResponse extends $pb.GeneratedMessage {
           void Function(QueryUpgradedClientStateResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryUpgradedClientStateResponse))
-          as QueryUpgradedClientStateResponse; // ignore: deprecated_member_use
+          as QueryUpgradedClientStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUpgradedClientStateResponse create() =>
       QueryUpgradedClientStateResponse._();
@@ -1345,6 +1288,7 @@ class QueryUpgradedClientStateResponse extends $pb.GeneratedMessage {
           create);
   static QueryUpgradedClientStateResponse? _defaultInstance;
 
+  /// client state associated with the request identifier
   @$pb.TagNumber(1)
   $1.Any get upgradedClientState => $_getN(0);
   @$pb.TagNumber(1)
@@ -1360,26 +1304,25 @@ class QueryUpgradedClientStateResponse extends $pb.GeneratedMessage {
   $1.Any ensureUpgradedClientState() => $_ensure(0);
 }
 
+/// QueryUpgradedConsensusStateRequest is the request type for the
+/// Query/UpgradedConsensusState RPC method
 class QueryUpgradedConsensusStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUpgradedConsensusStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  QueryUpgradedConsensusStateRequest._() : super();
   factory QueryUpgradedConsensusStateRequest() => create();
+  QueryUpgradedConsensusStateRequest._() : super();
   factory QueryUpgradedConsensusStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryUpgradedConsensusStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUpgradedConsensusStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1392,8 +1335,10 @@ class QueryUpgradedConsensusStateRequest extends $pb.GeneratedMessage {
           void Function(QueryUpgradedConsensusStateRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryUpgradedConsensusStateRequest))
-          as QueryUpgradedConsensusStateRequest; // ignore: deprecated_member_use
+          as QueryUpgradedConsensusStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUpgradedConsensusStateRequest create() =>
       QueryUpgradedConsensusStateRequest._();
@@ -1407,34 +1352,19 @@ class QueryUpgradedConsensusStateRequest extends $pb.GeneratedMessage {
   static QueryUpgradedConsensusStateRequest? _defaultInstance;
 }
 
+/// QueryUpgradedConsensusStateResponse is the response type for the
+/// Query/UpgradedConsensusState RPC method.
 class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUpgradedConsensusStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'upgradedConsensusState',
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  QueryUpgradedConsensusStateResponse._() : super();
   factory QueryUpgradedConsensusStateResponse({
     $1.Any? upgradedConsensusState,
   }) {
-    final _result = create();
+    final $result = create();
     if (upgradedConsensusState != null) {
-      _result.upgradedConsensusState = upgradedConsensusState;
+      $result.upgradedConsensusState = upgradedConsensusState;
     }
-    return _result;
+    return $result;
   }
+  QueryUpgradedConsensusStateResponse._() : super();
   factory QueryUpgradedConsensusStateResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -1442,6 +1372,16 @@ class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
   factory QueryUpgradedConsensusStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUpgradedConsensusStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Any>(1, _omitFieldNames ? '' : 'upgradedConsensusState',
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1454,8 +1394,10 @@ class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
           void Function(QueryUpgradedConsensusStateResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryUpgradedConsensusStateResponse))
-          as QueryUpgradedConsensusStateResponse; // ignore: deprecated_member_use
+          as QueryUpgradedConsensusStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUpgradedConsensusStateResponse create() =>
       QueryUpgradedConsensusStateResponse._();
@@ -1468,6 +1410,7 @@ class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
           QueryUpgradedConsensusStateResponse>(create);
   static QueryUpgradedConsensusStateResponse? _defaultInstance;
 
+  /// Consensus state associated with the request identifier
   @$pb.TagNumber(1)
   $1.Any get upgradedConsensusState => $_getN(0);
   @$pb.TagNumber(1)
@@ -1482,3 +1425,7 @@ class QueryUpgradedConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Any ensureUpgradedConsensusState() => $_ensure(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

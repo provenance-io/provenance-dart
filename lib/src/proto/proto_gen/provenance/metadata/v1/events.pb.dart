@@ -1,65 +1,55 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/metadata/v1/events.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// EventTxCompleted is an event message indicating that a TX has completed.
 class EventTxCompleted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventTxCompleted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'module')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'endpoint')
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signers')
-    ..hasRequiredFields = false;
-
-  EventTxCompleted._() : super();
   factory EventTxCompleted({
     $core.String? module,
     $core.String? endpoint,
     $core.Iterable<$core.String>? signers,
   }) {
-    final _result = create();
+    final $result = create();
     if (module != null) {
-      _result.module = module;
+      $result.module = module;
     }
     if (endpoint != null) {
-      _result.endpoint = endpoint;
+      $result.endpoint = endpoint;
     }
     if (signers != null) {
-      _result.signers.addAll(signers);
+      $result.signers.addAll(signers);
     }
-    return _result;
+    return $result;
   }
+  EventTxCompleted._() : super();
   factory EventTxCompleted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventTxCompleted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventTxCompleted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'module')
+    ..aOS(2, _omitFieldNames ? '' : 'endpoint')
+    ..pPS(3, _omitFieldNames ? '' : 'signers')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -69,8 +59,10 @@ class EventTxCompleted extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventTxCompleted copyWith(void Function(EventTxCompleted) updates) =>
       super.copyWith((message) => updates(message as EventTxCompleted))
-          as EventTxCompleted; // ignore: deprecated_member_use
+          as EventTxCompleted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventTxCompleted create() => EventTxCompleted._();
   EventTxCompleted createEmptyInstance() => create();
@@ -81,6 +73,7 @@ class EventTxCompleted extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventTxCompleted>(create);
   static EventTxCompleted? _defaultInstance;
 
+  /// module is the module the TX belongs to.
   @$pb.TagNumber(1)
   $core.String get module => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -93,6 +86,7 @@ class EventTxCompleted extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearModule() => clearField(1);
 
+  /// endpoint is the rpc endpoint that was just completed.
   @$pb.TagNumber(2)
   $core.String get endpoint => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -105,43 +99,38 @@ class EventTxCompleted extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearEndpoint() => clearField(2);
 
+  /// signers are the bech32 address strings of the signers of this TX.
   @$pb.TagNumber(3)
   $core.List<$core.String> get signers => $_getList(2);
 }
 
+/// EventScopeCreated is an event message indicating a scope has been created.
 class EventScopeCreated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventScopeCreated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventScopeCreated._() : super();
   factory EventScopeCreated({
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventScopeCreated._() : super();
   factory EventScopeCreated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventScopeCreated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventScopeCreated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -151,8 +140,10 @@ class EventScopeCreated extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventScopeCreated copyWith(void Function(EventScopeCreated) updates) =>
       super.copyWith((message) => updates(message as EventScopeCreated))
-          as EventScopeCreated; // ignore: deprecated_member_use
+          as EventScopeCreated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventScopeCreated create() => EventScopeCreated._();
   EventScopeCreated createEmptyInstance() => create();
@@ -163,6 +154,7 @@ class EventScopeCreated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventScopeCreated>(create);
   static EventScopeCreated? _defaultInstance;
 
+  /// scope_addr is the bech32 address string of the scope id that was created.
   @$pb.TagNumber(1)
   $core.String get scopeAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -176,39 +168,33 @@ class EventScopeCreated extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(1);
 }
 
+/// EventScopeUpdated is an event message indicating a scope has been updated.
 class EventScopeUpdated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventScopeUpdated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventScopeUpdated._() : super();
   factory EventScopeUpdated({
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventScopeUpdated._() : super();
   factory EventScopeUpdated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventScopeUpdated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventScopeUpdated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -218,8 +204,10 @@ class EventScopeUpdated extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventScopeUpdated copyWith(void Function(EventScopeUpdated) updates) =>
       super.copyWith((message) => updates(message as EventScopeUpdated))
-          as EventScopeUpdated; // ignore: deprecated_member_use
+          as EventScopeUpdated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventScopeUpdated create() => EventScopeUpdated._();
   EventScopeUpdated createEmptyInstance() => create();
@@ -230,6 +218,7 @@ class EventScopeUpdated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventScopeUpdated>(create);
   static EventScopeUpdated? _defaultInstance;
 
+  /// scope_addr is the bech32 address string of the scope id that was updated.
   @$pb.TagNumber(1)
   $core.String get scopeAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -243,39 +232,33 @@ class EventScopeUpdated extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(1);
 }
 
+/// EventScopeDeleted is an event message indicating a scope has been deleted.
 class EventScopeDeleted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventScopeDeleted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventScopeDeleted._() : super();
   factory EventScopeDeleted({
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventScopeDeleted._() : super();
   factory EventScopeDeleted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventScopeDeleted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventScopeDeleted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -285,8 +268,10 @@ class EventScopeDeleted extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventScopeDeleted copyWith(void Function(EventScopeDeleted) updates) =>
       super.copyWith((message) => updates(message as EventScopeDeleted))
-          as EventScopeDeleted; // ignore: deprecated_member_use
+          as EventScopeDeleted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventScopeDeleted create() => EventScopeDeleted._();
   EventScopeDeleted createEmptyInstance() => create();
@@ -297,6 +282,7 @@ class EventScopeDeleted extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventScopeDeleted>(create);
   static EventScopeDeleted? _defaultInstance;
 
+  /// scope_addr is the bech32 address string of the scope id that was deleted.
   @$pb.TagNumber(1)
   $core.String get scopeAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -310,48 +296,38 @@ class EventScopeDeleted extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(1);
 }
 
+/// EventSessionCreated is an event message indicating a session has been created.
 class EventSessionCreated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventSessionCreated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionAddr')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventSessionCreated._() : super();
   factory EventSessionCreated({
     $core.String? sessionAddr,
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (sessionAddr != null) {
-      _result.sessionAddr = sessionAddr;
+      $result.sessionAddr = sessionAddr;
     }
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventSessionCreated._() : super();
   factory EventSessionCreated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventSessionCreated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventSessionCreated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'sessionAddr')
+    ..aOS(2, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -361,8 +337,10 @@ class EventSessionCreated extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventSessionCreated copyWith(void Function(EventSessionCreated) updates) =>
       super.copyWith((message) => updates(message as EventSessionCreated))
-          as EventSessionCreated; // ignore: deprecated_member_use
+          as EventSessionCreated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventSessionCreated create() => EventSessionCreated._();
   EventSessionCreated createEmptyInstance() => create();
@@ -373,6 +351,7 @@ class EventSessionCreated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventSessionCreated>(create);
   static EventSessionCreated? _defaultInstance;
 
+  /// session_addr is the bech32 address string of the session id that was created.
   @$pb.TagNumber(1)
   $core.String get sessionAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -385,6 +364,7 @@ class EventSessionCreated extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSessionAddr() => clearField(1);
 
+  /// scope_addr is the bech32 address string of the scope id this session belongs to.
   @$pb.TagNumber(2)
   $core.String get scopeAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -398,48 +378,38 @@ class EventSessionCreated extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(2);
 }
 
+/// EventSessionUpdated is an event message indicating a session has been updated.
 class EventSessionUpdated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventSessionUpdated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionAddr')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventSessionUpdated._() : super();
   factory EventSessionUpdated({
     $core.String? sessionAddr,
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (sessionAddr != null) {
-      _result.sessionAddr = sessionAddr;
+      $result.sessionAddr = sessionAddr;
     }
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventSessionUpdated._() : super();
   factory EventSessionUpdated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventSessionUpdated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventSessionUpdated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'sessionAddr')
+    ..aOS(2, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -449,8 +419,10 @@ class EventSessionUpdated extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventSessionUpdated copyWith(void Function(EventSessionUpdated) updates) =>
       super.copyWith((message) => updates(message as EventSessionUpdated))
-          as EventSessionUpdated; // ignore: deprecated_member_use
+          as EventSessionUpdated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventSessionUpdated create() => EventSessionUpdated._();
   EventSessionUpdated createEmptyInstance() => create();
@@ -461,6 +433,7 @@ class EventSessionUpdated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventSessionUpdated>(create);
   static EventSessionUpdated? _defaultInstance;
 
+  /// session_addr is the bech32 address string of the session id that was updated.
   @$pb.TagNumber(1)
   $core.String get sessionAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -473,6 +446,7 @@ class EventSessionUpdated extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSessionAddr() => clearField(1);
 
+  /// scope_addr is the bech32 address string of the scope id this session belongs to.
   @$pb.TagNumber(2)
   $core.String get scopeAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -486,48 +460,38 @@ class EventSessionUpdated extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(2);
 }
 
+/// EventSessionDeleted is an event message indicating a session has been deleted.
 class EventSessionDeleted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventSessionDeleted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionAddr')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventSessionDeleted._() : super();
   factory EventSessionDeleted({
     $core.String? sessionAddr,
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (sessionAddr != null) {
-      _result.sessionAddr = sessionAddr;
+      $result.sessionAddr = sessionAddr;
     }
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventSessionDeleted._() : super();
   factory EventSessionDeleted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventSessionDeleted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventSessionDeleted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'sessionAddr')
+    ..aOS(2, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -537,8 +501,10 @@ class EventSessionDeleted extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventSessionDeleted copyWith(void Function(EventSessionDeleted) updates) =>
       super.copyWith((message) => updates(message as EventSessionDeleted))
-          as EventSessionDeleted; // ignore: deprecated_member_use
+          as EventSessionDeleted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventSessionDeleted create() => EventSessionDeleted._();
   EventSessionDeleted createEmptyInstance() => create();
@@ -549,6 +515,7 @@ class EventSessionDeleted extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventSessionDeleted>(create);
   static EventSessionDeleted? _defaultInstance;
 
+  /// session_addr is the bech32 address string of the session id that was deleted.
   @$pb.TagNumber(1)
   $core.String get sessionAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -561,6 +528,7 @@ class EventSessionDeleted extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSessionAddr() => clearField(1);
 
+  /// scope_addr is the bech32 address string of the scope id this session belongs to.
   @$pb.TagNumber(2)
   $core.String get scopeAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -574,57 +542,43 @@ class EventSessionDeleted extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(2);
 }
 
+/// EventRecordCreated is an event message indicating a record has been created.
 class EventRecordCreated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventRecordCreated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordAddr')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionAddr')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventRecordCreated._() : super();
   factory EventRecordCreated({
     $core.String? recordAddr,
     $core.String? sessionAddr,
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordAddr != null) {
-      _result.recordAddr = recordAddr;
+      $result.recordAddr = recordAddr;
     }
     if (sessionAddr != null) {
-      _result.sessionAddr = sessionAddr;
+      $result.sessionAddr = sessionAddr;
     }
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventRecordCreated._() : super();
   factory EventRecordCreated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventRecordCreated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventRecordCreated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'recordAddr')
+    ..aOS(2, _omitFieldNames ? '' : 'sessionAddr')
+    ..aOS(3, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -634,8 +588,10 @@ class EventRecordCreated extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventRecordCreated copyWith(void Function(EventRecordCreated) updates) =>
       super.copyWith((message) => updates(message as EventRecordCreated))
-          as EventRecordCreated; // ignore: deprecated_member_use
+          as EventRecordCreated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventRecordCreated create() => EventRecordCreated._();
   EventRecordCreated createEmptyInstance() => create();
@@ -646,6 +602,7 @@ class EventRecordCreated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventRecordCreated>(create);
   static EventRecordCreated? _defaultInstance;
 
+  /// record_addr is the bech32 address string of the record id that was created.
   @$pb.TagNumber(1)
   $core.String get recordAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -658,6 +615,7 @@ class EventRecordCreated extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRecordAddr() => clearField(1);
 
+  /// session_addr is the bech32 address string of the session id this record belongs to.
   @$pb.TagNumber(2)
   $core.String get sessionAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -670,6 +628,7 @@ class EventRecordCreated extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearSessionAddr() => clearField(2);
 
+  /// scope_addr is the bech32 address string of the scope id this record belongs to.
   @$pb.TagNumber(3)
   $core.String get scopeAddr => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -683,57 +642,43 @@ class EventRecordCreated extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(3);
 }
 
+/// EventRecordUpdated is an event message indicating a record has been updated.
 class EventRecordUpdated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventRecordUpdated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordAddr')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sessionAddr')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventRecordUpdated._() : super();
   factory EventRecordUpdated({
     $core.String? recordAddr,
     $core.String? sessionAddr,
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordAddr != null) {
-      _result.recordAddr = recordAddr;
+      $result.recordAddr = recordAddr;
     }
     if (sessionAddr != null) {
-      _result.sessionAddr = sessionAddr;
+      $result.sessionAddr = sessionAddr;
     }
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventRecordUpdated._() : super();
   factory EventRecordUpdated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventRecordUpdated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventRecordUpdated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'recordAddr')
+    ..aOS(2, _omitFieldNames ? '' : 'sessionAddr')
+    ..aOS(3, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -743,8 +688,10 @@ class EventRecordUpdated extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventRecordUpdated copyWith(void Function(EventRecordUpdated) updates) =>
       super.copyWith((message) => updates(message as EventRecordUpdated))
-          as EventRecordUpdated; // ignore: deprecated_member_use
+          as EventRecordUpdated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventRecordUpdated create() => EventRecordUpdated._();
   EventRecordUpdated createEmptyInstance() => create();
@@ -755,6 +702,7 @@ class EventRecordUpdated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventRecordUpdated>(create);
   static EventRecordUpdated? _defaultInstance;
 
+  /// record_addr is the bech32 address string of the record id that was updated.
   @$pb.TagNumber(1)
   $core.String get recordAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -767,6 +715,7 @@ class EventRecordUpdated extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRecordAddr() => clearField(1);
 
+  /// session_addr is the bech32 address string of the session id this record belongs to.
   @$pb.TagNumber(2)
   $core.String get sessionAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -779,6 +728,7 @@ class EventRecordUpdated extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearSessionAddr() => clearField(2);
 
+  /// scope_addr is the bech32 address string of the scope id this record belongs to.
   @$pb.TagNumber(3)
   $core.String get scopeAddr => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -792,48 +742,38 @@ class EventRecordUpdated extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(3);
 }
 
+/// EventRecordDeleted is an event message indicating a record has been deleted.
 class EventRecordDeleted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventRecordDeleted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordAddr')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeAddr')
-    ..hasRequiredFields = false;
-
-  EventRecordDeleted._() : super();
   factory EventRecordDeleted({
     $core.String? recordAddr,
     $core.String? scopeAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordAddr != null) {
-      _result.recordAddr = recordAddr;
+      $result.recordAddr = recordAddr;
     }
     if (scopeAddr != null) {
-      _result.scopeAddr = scopeAddr;
+      $result.scopeAddr = scopeAddr;
     }
-    return _result;
+    return $result;
   }
+  EventRecordDeleted._() : super();
   factory EventRecordDeleted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventRecordDeleted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventRecordDeleted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'recordAddr')
+    ..aOS(3, _omitFieldNames ? '' : 'scopeAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -843,8 +783,10 @@ class EventRecordDeleted extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EventRecordDeleted copyWith(void Function(EventRecordDeleted) updates) =>
       super.copyWith((message) => updates(message as EventRecordDeleted))
-          as EventRecordDeleted; // ignore: deprecated_member_use
+          as EventRecordDeleted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventRecordDeleted create() => EventRecordDeleted._();
   EventRecordDeleted createEmptyInstance() => create();
@@ -855,6 +797,7 @@ class EventRecordDeleted extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventRecordDeleted>(create);
   static EventRecordDeleted? _defaultInstance;
 
+  /// record is the bech32 address string of the record id that was deleted.
   @$pb.TagNumber(1)
   $core.String get recordAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -867,6 +810,7 @@ class EventRecordDeleted extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRecordAddr() => clearField(1);
 
+  /// scope_addr is the bech32 address string of the scope id this record belonged to.
   @$pb.TagNumber(3)
   $core.String get scopeAddr => $_getSZ(1);
   @$pb.TagNumber(3)
@@ -880,39 +824,33 @@ class EventRecordDeleted extends $pb.GeneratedMessage {
   void clearScopeAddr() => clearField(3);
 }
 
+/// EventScopeSpecificationCreated is an event message indicating a scope specification has been created.
 class EventScopeSpecificationCreated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventScopeSpecificationCreated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventScopeSpecificationCreated._() : super();
   factory EventScopeSpecificationCreated({
     $core.String? scopeSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeSpecificationAddr != null) {
-      _result.scopeSpecificationAddr = scopeSpecificationAddr;
+      $result.scopeSpecificationAddr = scopeSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventScopeSpecificationCreated._() : super();
   factory EventScopeSpecificationCreated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventScopeSpecificationCreated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventScopeSpecificationCreated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -925,8 +863,10 @@ class EventScopeSpecificationCreated extends $pb.GeneratedMessage {
           void Function(EventScopeSpecificationCreated) updates) =>
       super.copyWith(
               (message) => updates(message as EventScopeSpecificationCreated))
-          as EventScopeSpecificationCreated; // ignore: deprecated_member_use
+          as EventScopeSpecificationCreated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventScopeSpecificationCreated create() =>
       EventScopeSpecificationCreated._();
@@ -938,6 +878,8 @@ class EventScopeSpecificationCreated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventScopeSpecificationCreated>(create);
   static EventScopeSpecificationCreated? _defaultInstance;
 
+  /// scope_specification_addr is the bech32 address string of the specification id of the scope specification that was
+  /// created.
   @$pb.TagNumber(1)
   $core.String get scopeSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -951,39 +893,33 @@ class EventScopeSpecificationCreated extends $pb.GeneratedMessage {
   void clearScopeSpecificationAddr() => clearField(1);
 }
 
+/// EventScopeSpecificationUpdated is an event message indicating a scope specification has been updated.
 class EventScopeSpecificationUpdated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventScopeSpecificationUpdated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventScopeSpecificationUpdated._() : super();
   factory EventScopeSpecificationUpdated({
     $core.String? scopeSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeSpecificationAddr != null) {
-      _result.scopeSpecificationAddr = scopeSpecificationAddr;
+      $result.scopeSpecificationAddr = scopeSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventScopeSpecificationUpdated._() : super();
   factory EventScopeSpecificationUpdated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventScopeSpecificationUpdated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventScopeSpecificationUpdated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -996,8 +932,10 @@ class EventScopeSpecificationUpdated extends $pb.GeneratedMessage {
           void Function(EventScopeSpecificationUpdated) updates) =>
       super.copyWith(
               (message) => updates(message as EventScopeSpecificationUpdated))
-          as EventScopeSpecificationUpdated; // ignore: deprecated_member_use
+          as EventScopeSpecificationUpdated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventScopeSpecificationUpdated create() =>
       EventScopeSpecificationUpdated._();
@@ -1009,6 +947,8 @@ class EventScopeSpecificationUpdated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventScopeSpecificationUpdated>(create);
   static EventScopeSpecificationUpdated? _defaultInstance;
 
+  /// scope_specification_addr is the bech32 address string of the specification id of the scope specification that was
+  /// updated.
   @$pb.TagNumber(1)
   $core.String get scopeSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1022,39 +962,33 @@ class EventScopeSpecificationUpdated extends $pb.GeneratedMessage {
   void clearScopeSpecificationAddr() => clearField(1);
 }
 
+/// EventScopeSpecificationDeleted is an event message indicating a scope specification has been deleted.
 class EventScopeSpecificationDeleted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventScopeSpecificationDeleted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scopeSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventScopeSpecificationDeleted._() : super();
   factory EventScopeSpecificationDeleted({
     $core.String? scopeSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (scopeSpecificationAddr != null) {
-      _result.scopeSpecificationAddr = scopeSpecificationAddr;
+      $result.scopeSpecificationAddr = scopeSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventScopeSpecificationDeleted._() : super();
   factory EventScopeSpecificationDeleted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventScopeSpecificationDeleted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventScopeSpecificationDeleted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1067,8 +1001,10 @@ class EventScopeSpecificationDeleted extends $pb.GeneratedMessage {
           void Function(EventScopeSpecificationDeleted) updates) =>
       super.copyWith(
               (message) => updates(message as EventScopeSpecificationDeleted))
-          as EventScopeSpecificationDeleted; // ignore: deprecated_member_use
+          as EventScopeSpecificationDeleted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventScopeSpecificationDeleted create() =>
       EventScopeSpecificationDeleted._();
@@ -1080,6 +1016,8 @@ class EventScopeSpecificationDeleted extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventScopeSpecificationDeleted>(create);
   static EventScopeSpecificationDeleted? _defaultInstance;
 
+  /// scope_specification_addr is the bech32 address string of the specification id of the scope specification that was
+  /// deleted.
   @$pb.TagNumber(1)
   $core.String get scopeSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1093,39 +1031,33 @@ class EventScopeSpecificationDeleted extends $pb.GeneratedMessage {
   void clearScopeSpecificationAddr() => clearField(1);
 }
 
+/// EventContractSpecificationCreated is an event message indicating a contract specification has been created.
 class EventContractSpecificationCreated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventContractSpecificationCreated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventContractSpecificationCreated._() : super();
   factory EventContractSpecificationCreated({
     $core.String? contractSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (contractSpecificationAddr != null) {
-      _result.contractSpecificationAddr = contractSpecificationAddr;
+      $result.contractSpecificationAddr = contractSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventContractSpecificationCreated._() : super();
   factory EventContractSpecificationCreated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventContractSpecificationCreated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventContractSpecificationCreated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1138,8 +1070,10 @@ class EventContractSpecificationCreated extends $pb.GeneratedMessage {
           void Function(EventContractSpecificationCreated) updates) =>
       super.copyWith((message) =>
               updates(message as EventContractSpecificationCreated))
-          as EventContractSpecificationCreated; // ignore: deprecated_member_use
+          as EventContractSpecificationCreated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventContractSpecificationCreated create() =>
       EventContractSpecificationCreated._();
@@ -1152,6 +1086,8 @@ class EventContractSpecificationCreated extends $pb.GeneratedMessage {
           create);
   static EventContractSpecificationCreated? _defaultInstance;
 
+  /// contract_specification_addr is the bech32 address string of the specification id of the contract specification that
+  /// was created.
   @$pb.TagNumber(1)
   $core.String get contractSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1165,39 +1101,33 @@ class EventContractSpecificationCreated extends $pb.GeneratedMessage {
   void clearContractSpecificationAddr() => clearField(1);
 }
 
+/// EventContractSpecificationUpdated is an event message indicating a contract specification has been updated.
 class EventContractSpecificationUpdated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventContractSpecificationUpdated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventContractSpecificationUpdated._() : super();
   factory EventContractSpecificationUpdated({
     $core.String? contractSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (contractSpecificationAddr != null) {
-      _result.contractSpecificationAddr = contractSpecificationAddr;
+      $result.contractSpecificationAddr = contractSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventContractSpecificationUpdated._() : super();
   factory EventContractSpecificationUpdated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventContractSpecificationUpdated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventContractSpecificationUpdated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1210,8 +1140,10 @@ class EventContractSpecificationUpdated extends $pb.GeneratedMessage {
           void Function(EventContractSpecificationUpdated) updates) =>
       super.copyWith((message) =>
               updates(message as EventContractSpecificationUpdated))
-          as EventContractSpecificationUpdated; // ignore: deprecated_member_use
+          as EventContractSpecificationUpdated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventContractSpecificationUpdated create() =>
       EventContractSpecificationUpdated._();
@@ -1224,6 +1156,8 @@ class EventContractSpecificationUpdated extends $pb.GeneratedMessage {
           create);
   static EventContractSpecificationUpdated? _defaultInstance;
 
+  /// contract_specification_addr is the bech32 address string of the specification id of the contract specification that
+  /// was updated.
   @$pb.TagNumber(1)
   $core.String get contractSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1237,39 +1171,33 @@ class EventContractSpecificationUpdated extends $pb.GeneratedMessage {
   void clearContractSpecificationAddr() => clearField(1);
 }
 
+/// EventContractSpecificationDeleted is an event message indicating a contract specification has been deleted.
 class EventContractSpecificationDeleted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventContractSpecificationDeleted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventContractSpecificationDeleted._() : super();
   factory EventContractSpecificationDeleted({
     $core.String? contractSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (contractSpecificationAddr != null) {
-      _result.contractSpecificationAddr = contractSpecificationAddr;
+      $result.contractSpecificationAddr = contractSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventContractSpecificationDeleted._() : super();
   factory EventContractSpecificationDeleted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventContractSpecificationDeleted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventContractSpecificationDeleted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1282,8 +1210,10 @@ class EventContractSpecificationDeleted extends $pb.GeneratedMessage {
           void Function(EventContractSpecificationDeleted) updates) =>
       super.copyWith((message) =>
               updates(message as EventContractSpecificationDeleted))
-          as EventContractSpecificationDeleted; // ignore: deprecated_member_use
+          as EventContractSpecificationDeleted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventContractSpecificationDeleted create() =>
       EventContractSpecificationDeleted._();
@@ -1296,6 +1226,8 @@ class EventContractSpecificationDeleted extends $pb.GeneratedMessage {
           create);
   static EventContractSpecificationDeleted? _defaultInstance;
 
+  /// contract_specification_addr is the bech32 address string of the specification id of the contract specification that
+  /// was deleted.
   @$pb.TagNumber(1)
   $core.String get contractSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1309,48 +1241,38 @@ class EventContractSpecificationDeleted extends $pb.GeneratedMessage {
   void clearContractSpecificationAddr() => clearField(1);
 }
 
+/// EventRecordSpecificationCreated is an event message indicating a record specification has been created.
 class EventRecordSpecificationCreated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventRecordSpecificationCreated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordSpecificationAddr')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventRecordSpecificationCreated._() : super();
   factory EventRecordSpecificationCreated({
     $core.String? recordSpecificationAddr,
     $core.String? contractSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordSpecificationAddr != null) {
-      _result.recordSpecificationAddr = recordSpecificationAddr;
+      $result.recordSpecificationAddr = recordSpecificationAddr;
     }
     if (contractSpecificationAddr != null) {
-      _result.contractSpecificationAddr = contractSpecificationAddr;
+      $result.contractSpecificationAddr = contractSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventRecordSpecificationCreated._() : super();
   factory EventRecordSpecificationCreated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventRecordSpecificationCreated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventRecordSpecificationCreated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'recordSpecificationAddr')
+    ..aOS(2, _omitFieldNames ? '' : 'contractSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1363,8 +1285,10 @@ class EventRecordSpecificationCreated extends $pb.GeneratedMessage {
           void Function(EventRecordSpecificationCreated) updates) =>
       super.copyWith(
               (message) => updates(message as EventRecordSpecificationCreated))
-          as EventRecordSpecificationCreated; // ignore: deprecated_member_use
+          as EventRecordSpecificationCreated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventRecordSpecificationCreated create() =>
       EventRecordSpecificationCreated._();
@@ -1377,6 +1301,8 @@ class EventRecordSpecificationCreated extends $pb.GeneratedMessage {
           create);
   static EventRecordSpecificationCreated? _defaultInstance;
 
+  /// record_specification_addr is the bech32 address string of the specification id of the record specification that was
+  /// created.
   @$pb.TagNumber(1)
   $core.String get recordSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1389,6 +1315,8 @@ class EventRecordSpecificationCreated extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRecordSpecificationAddr() => clearField(1);
 
+  /// contract_specification_addr is the bech32 address string of the contract specification id this record specification
+  /// belongs to.
   @$pb.TagNumber(2)
   $core.String get contractSpecificationAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1402,48 +1330,38 @@ class EventRecordSpecificationCreated extends $pb.GeneratedMessage {
   void clearContractSpecificationAddr() => clearField(2);
 }
 
+/// EventRecordSpecificationUpdated is an event message indicating a record specification has been updated.
 class EventRecordSpecificationUpdated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventRecordSpecificationUpdated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordSpecificationAddr')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventRecordSpecificationUpdated._() : super();
   factory EventRecordSpecificationUpdated({
     $core.String? recordSpecificationAddr,
     $core.String? contractSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordSpecificationAddr != null) {
-      _result.recordSpecificationAddr = recordSpecificationAddr;
+      $result.recordSpecificationAddr = recordSpecificationAddr;
     }
     if (contractSpecificationAddr != null) {
-      _result.contractSpecificationAddr = contractSpecificationAddr;
+      $result.contractSpecificationAddr = contractSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventRecordSpecificationUpdated._() : super();
   factory EventRecordSpecificationUpdated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventRecordSpecificationUpdated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventRecordSpecificationUpdated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'recordSpecificationAddr')
+    ..aOS(2, _omitFieldNames ? '' : 'contractSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1456,8 +1374,10 @@ class EventRecordSpecificationUpdated extends $pb.GeneratedMessage {
           void Function(EventRecordSpecificationUpdated) updates) =>
       super.copyWith(
               (message) => updates(message as EventRecordSpecificationUpdated))
-          as EventRecordSpecificationUpdated; // ignore: deprecated_member_use
+          as EventRecordSpecificationUpdated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventRecordSpecificationUpdated create() =>
       EventRecordSpecificationUpdated._();
@@ -1470,6 +1390,8 @@ class EventRecordSpecificationUpdated extends $pb.GeneratedMessage {
           create);
   static EventRecordSpecificationUpdated? _defaultInstance;
 
+  /// record_specification_addr is the bech32 address string of the specification id of the record specification that was
+  /// updated.
   @$pb.TagNumber(1)
   $core.String get recordSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1482,6 +1404,8 @@ class EventRecordSpecificationUpdated extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRecordSpecificationAddr() => clearField(1);
 
+  /// contract_specification_addr is the bech32 address string of the contract specification id this record specification
+  /// belongs to.
   @$pb.TagNumber(2)
   $core.String get contractSpecificationAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1495,48 +1419,38 @@ class EventRecordSpecificationUpdated extends $pb.GeneratedMessage {
   void clearContractSpecificationAddr() => clearField(2);
 }
 
+/// EventRecordSpecificationDeleted is an event message indicating a record specification has been deleted.
 class EventRecordSpecificationDeleted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventRecordSpecificationDeleted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'recordSpecificationAddr')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'contractSpecificationAddr')
-    ..hasRequiredFields = false;
-
-  EventRecordSpecificationDeleted._() : super();
   factory EventRecordSpecificationDeleted({
     $core.String? recordSpecificationAddr,
     $core.String? contractSpecificationAddr,
   }) {
-    final _result = create();
+    final $result = create();
     if (recordSpecificationAddr != null) {
-      _result.recordSpecificationAddr = recordSpecificationAddr;
+      $result.recordSpecificationAddr = recordSpecificationAddr;
     }
     if (contractSpecificationAddr != null) {
-      _result.contractSpecificationAddr = contractSpecificationAddr;
+      $result.contractSpecificationAddr = contractSpecificationAddr;
     }
-    return _result;
+    return $result;
   }
+  EventRecordSpecificationDeleted._() : super();
   factory EventRecordSpecificationDeleted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventRecordSpecificationDeleted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventRecordSpecificationDeleted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'recordSpecificationAddr')
+    ..aOS(2, _omitFieldNames ? '' : 'contractSpecificationAddr')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1549,8 +1463,10 @@ class EventRecordSpecificationDeleted extends $pb.GeneratedMessage {
           void Function(EventRecordSpecificationDeleted) updates) =>
       super.copyWith(
               (message) => updates(message as EventRecordSpecificationDeleted))
-          as EventRecordSpecificationDeleted; // ignore: deprecated_member_use
+          as EventRecordSpecificationDeleted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventRecordSpecificationDeleted create() =>
       EventRecordSpecificationDeleted._();
@@ -1563,6 +1479,8 @@ class EventRecordSpecificationDeleted extends $pb.GeneratedMessage {
           create);
   static EventRecordSpecificationDeleted? _defaultInstance;
 
+  /// record_specification_addr is the bech32 address string of the specification id of the record specification that was
+  /// deleted.
   @$pb.TagNumber(1)
   $core.String get recordSpecificationAddr => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1575,6 +1493,8 @@ class EventRecordSpecificationDeleted extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRecordSpecificationAddr() => clearField(1);
 
+  /// contract_specification_addr is the bech32 address string of the contract specification id this record specification
+  /// belongs to.
   @$pb.TagNumber(2)
   $core.String get contractSpecificationAddr => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1588,39 +1508,33 @@ class EventRecordSpecificationDeleted extends $pb.GeneratedMessage {
   void clearContractSpecificationAddr() => clearField(2);
 }
 
+/// EventOSLocatorCreated is an event message indicating an object store locator has been created.
 class EventOSLocatorCreated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventOSLocatorCreated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'owner')
-    ..hasRequiredFields = false;
-
-  EventOSLocatorCreated._() : super();
   factory EventOSLocatorCreated({
     $core.String? owner,
   }) {
-    final _result = create();
+    final $result = create();
     if (owner != null) {
-      _result.owner = owner;
+      $result.owner = owner;
     }
-    return _result;
+    return $result;
   }
+  EventOSLocatorCreated._() : super();
   factory EventOSLocatorCreated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventOSLocatorCreated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventOSLocatorCreated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'owner')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1632,8 +1546,10 @@ class EventOSLocatorCreated extends $pb.GeneratedMessage {
   EventOSLocatorCreated copyWith(
           void Function(EventOSLocatorCreated) updates) =>
       super.copyWith((message) => updates(message as EventOSLocatorCreated))
-          as EventOSLocatorCreated; // ignore: deprecated_member_use
+          as EventOSLocatorCreated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventOSLocatorCreated create() => EventOSLocatorCreated._();
   EventOSLocatorCreated createEmptyInstance() => create();
@@ -1644,6 +1560,7 @@ class EventOSLocatorCreated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventOSLocatorCreated>(create);
   static EventOSLocatorCreated? _defaultInstance;
 
+  /// owner is the owner in the object store locator that was created.
   @$pb.TagNumber(1)
   $core.String get owner => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1657,39 +1574,33 @@ class EventOSLocatorCreated extends $pb.GeneratedMessage {
   void clearOwner() => clearField(1);
 }
 
+/// EventOSLocatorUpdated is an event message indicating an object store locator has been updated.
 class EventOSLocatorUpdated extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventOSLocatorUpdated',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'owner')
-    ..hasRequiredFields = false;
-
-  EventOSLocatorUpdated._() : super();
   factory EventOSLocatorUpdated({
     $core.String? owner,
   }) {
-    final _result = create();
+    final $result = create();
     if (owner != null) {
-      _result.owner = owner;
+      $result.owner = owner;
     }
-    return _result;
+    return $result;
   }
+  EventOSLocatorUpdated._() : super();
   factory EventOSLocatorUpdated.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventOSLocatorUpdated.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventOSLocatorUpdated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'owner')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1701,8 +1612,10 @@ class EventOSLocatorUpdated extends $pb.GeneratedMessage {
   EventOSLocatorUpdated copyWith(
           void Function(EventOSLocatorUpdated) updates) =>
       super.copyWith((message) => updates(message as EventOSLocatorUpdated))
-          as EventOSLocatorUpdated; // ignore: deprecated_member_use
+          as EventOSLocatorUpdated;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventOSLocatorUpdated create() => EventOSLocatorUpdated._();
   EventOSLocatorUpdated createEmptyInstance() => create();
@@ -1713,6 +1626,7 @@ class EventOSLocatorUpdated extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventOSLocatorUpdated>(create);
   static EventOSLocatorUpdated? _defaultInstance;
 
+  /// owner is the owner in the object store locator that was updated.
   @$pb.TagNumber(1)
   $core.String get owner => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1726,39 +1640,33 @@ class EventOSLocatorUpdated extends $pb.GeneratedMessage {
   void clearOwner() => clearField(1);
 }
 
+/// EventOSLocatorDeleted is an event message indicating an object store locator has been deleted.
 class EventOSLocatorDeleted extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventOSLocatorDeleted',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.metadata.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'owner')
-    ..hasRequiredFields = false;
-
-  EventOSLocatorDeleted._() : super();
   factory EventOSLocatorDeleted({
     $core.String? owner,
   }) {
-    final _result = create();
+    final $result = create();
     if (owner != null) {
-      _result.owner = owner;
+      $result.owner = owner;
     }
-    return _result;
+    return $result;
   }
+  EventOSLocatorDeleted._() : super();
   factory EventOSLocatorDeleted.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventOSLocatorDeleted.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventOSLocatorDeleted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'owner')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1770,8 +1678,10 @@ class EventOSLocatorDeleted extends $pb.GeneratedMessage {
   EventOSLocatorDeleted copyWith(
           void Function(EventOSLocatorDeleted) updates) =>
       super.copyWith((message) => updates(message as EventOSLocatorDeleted))
-          as EventOSLocatorDeleted; // ignore: deprecated_member_use
+          as EventOSLocatorDeleted;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventOSLocatorDeleted create() => EventOSLocatorDeleted._();
   EventOSLocatorDeleted createEmptyInstance() => create();
@@ -1782,6 +1692,7 @@ class EventOSLocatorDeleted extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<EventOSLocatorDeleted>(create);
   static EventOSLocatorDeleted? _defaultInstance;
 
+  /// owner is the owner in the object store locator that was deleted.
   @$pb.TagNumber(1)
   $core.String get owner => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1794,3 +1705,7 @@ class EventOSLocatorDeleted extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearOwner() => clearField(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

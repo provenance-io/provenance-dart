@@ -10,9 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   ecdsa: 0.0.4
-  grpc: 3.0.2
+  grpc: 3.2.4
   json_annotation: ^4.8.1
-  protobuf: 2.1.0
+  protobuf: 3.1.0
   secp256k1: 0.3.0
   sha3: 0.2.0
   web_socket_channel: 2.1.0

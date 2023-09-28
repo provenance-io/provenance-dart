@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/vesting/v1beta1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -13,46 +17,9 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../base/v1beta1/coin.pb.dart' as $1;
 import 'vesting.pb.dart' as $2;
 
+/// MsgCreateVestingAccount defines a message that enables creating a vesting
+/// account.
 class MsgCreateVestingAccount extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateVestingAccount',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.vesting.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'fromAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'toAddress')
-    ..pc<$1.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
-    ..aInt64(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'endTime')
-    ..aOB(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delayed')
-    ..hasRequiredFields = false;
-
-  MsgCreateVestingAccount._() : super();
   factory MsgCreateVestingAccount({
     $core.String? fromAddress,
     $core.String? toAddress,
@@ -60,30 +27,45 @@ class MsgCreateVestingAccount extends $pb.GeneratedMessage {
     $fixnum.Int64? endTime,
     $core.bool? delayed,
   }) {
-    final _result = create();
+    final $result = create();
     if (fromAddress != null) {
-      _result.fromAddress = fromAddress;
+      $result.fromAddress = fromAddress;
     }
     if (toAddress != null) {
-      _result.toAddress = toAddress;
+      $result.toAddress = toAddress;
     }
     if (amount != null) {
-      _result.amount.addAll(amount);
+      $result.amount.addAll(amount);
     }
     if (endTime != null) {
-      _result.endTime = endTime;
+      $result.endTime = endTime;
     }
     if (delayed != null) {
-      _result.delayed = delayed;
+      $result.delayed = delayed;
     }
-    return _result;
+    return $result;
   }
+  MsgCreateVestingAccount._() : super();
   factory MsgCreateVestingAccount.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateVestingAccount.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateVestingAccount',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.vesting.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'fromAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'toAddress')
+    ..pc<$1.Coin>(3, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..aInt64(4, _omitFieldNames ? '' : 'endTime')
+    ..aOB(5, _omitFieldNames ? '' : 'delayed')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -95,8 +77,10 @@ class MsgCreateVestingAccount extends $pb.GeneratedMessage {
   MsgCreateVestingAccount copyWith(
           void Function(MsgCreateVestingAccount) updates) =>
       super.copyWith((message) => updates(message as MsgCreateVestingAccount))
-          as MsgCreateVestingAccount; // ignore: deprecated_member_use
+          as MsgCreateVestingAccount;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateVestingAccount create() => MsgCreateVestingAccount._();
   MsgCreateVestingAccount createEmptyInstance() => create();
@@ -134,6 +118,7 @@ class MsgCreateVestingAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.List<$1.Coin> get amount => $_getList(2);
 
+  /// end of vesting as unix time (in seconds).
   @$pb.TagNumber(4)
   $fixnum.Int64 get endTime => $_getI64(3);
   @$pb.TagNumber(4)
@@ -159,26 +144,24 @@ class MsgCreateVestingAccount extends $pb.GeneratedMessage {
   void clearDelayed() => clearField(5);
 }
 
+/// MsgCreateVestingAccountResponse defines the Msg/CreateVestingAccount response type.
 class MsgCreateVestingAccountResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreateVestingAccountResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.vesting.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgCreateVestingAccountResponse._() : super();
   factory MsgCreateVestingAccountResponse() => create();
+  MsgCreateVestingAccountResponse._() : super();
   factory MsgCreateVestingAccountResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreateVestingAccountResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreateVestingAccountResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.vesting.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -191,8 +174,10 @@ class MsgCreateVestingAccountResponse extends $pb.GeneratedMessage {
           void Function(MsgCreateVestingAccountResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCreateVestingAccountResponse))
-          as MsgCreateVestingAccountResponse; // ignore: deprecated_member_use
+          as MsgCreateVestingAccountResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreateVestingAccountResponse create() =>
       MsgCreateVestingAccountResponse._();
@@ -206,59 +191,47 @@ class MsgCreateVestingAccountResponse extends $pb.GeneratedMessage {
   static MsgCreateVestingAccountResponse? _defaultInstance;
 }
 
+///  MsgCreatePermanentLockedAccount defines a message that enables creating a permanent
+///  locked account.
+///
+///  Since: cosmos-sdk 0.46
 class MsgCreatePermanentLockedAccount extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreatePermanentLockedAccount',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.vesting.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'fromAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'toAddress')
-    ..pc<$1.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
-    ..hasRequiredFields = false;
-
-  MsgCreatePermanentLockedAccount._() : super();
   factory MsgCreatePermanentLockedAccount({
     $core.String? fromAddress,
     $core.String? toAddress,
     $core.Iterable<$1.Coin>? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (fromAddress != null) {
-      _result.fromAddress = fromAddress;
+      $result.fromAddress = fromAddress;
     }
     if (toAddress != null) {
-      _result.toAddress = toAddress;
+      $result.toAddress = toAddress;
     }
     if (amount != null) {
-      _result.amount.addAll(amount);
+      $result.amount.addAll(amount);
     }
-    return _result;
+    return $result;
   }
+  MsgCreatePermanentLockedAccount._() : super();
   factory MsgCreatePermanentLockedAccount.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreatePermanentLockedAccount.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreatePermanentLockedAccount',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.vesting.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'fromAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'toAddress')
+    ..pc<$1.Coin>(3, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -271,8 +244,10 @@ class MsgCreatePermanentLockedAccount extends $pb.GeneratedMessage {
           void Function(MsgCreatePermanentLockedAccount) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCreatePermanentLockedAccount))
-          as MsgCreatePermanentLockedAccount; // ignore: deprecated_member_use
+          as MsgCreatePermanentLockedAccount;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreatePermanentLockedAccount create() =>
       MsgCreatePermanentLockedAccount._();
@@ -313,20 +288,12 @@ class MsgCreatePermanentLockedAccount extends $pb.GeneratedMessage {
   $core.List<$1.Coin> get amount => $_getList(2);
 }
 
+///  MsgCreatePermanentLockedAccountResponse defines the Msg/CreatePermanentLockedAccount response type.
+///
+///  Since: cosmos-sdk 0.46
 class MsgCreatePermanentLockedAccountResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreatePermanentLockedAccountResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.vesting.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgCreatePermanentLockedAccountResponse._() : super();
   factory MsgCreatePermanentLockedAccountResponse() => create();
+  MsgCreatePermanentLockedAccountResponse._() : super();
   factory MsgCreatePermanentLockedAccountResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -334,6 +301,14 @@ class MsgCreatePermanentLockedAccountResponse extends $pb.GeneratedMessage {
   factory MsgCreatePermanentLockedAccountResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreatePermanentLockedAccountResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.vesting.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -346,8 +321,10 @@ class MsgCreatePermanentLockedAccountResponse extends $pb.GeneratedMessage {
           void Function(MsgCreatePermanentLockedAccountResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgCreatePermanentLockedAccountResponse))
-          as MsgCreatePermanentLockedAccountResponse; // ignore: deprecated_member_use
+          as MsgCreatePermanentLockedAccountResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreatePermanentLockedAccountResponse create() =>
       MsgCreatePermanentLockedAccountResponse._();
@@ -361,68 +338,53 @@ class MsgCreatePermanentLockedAccountResponse extends $pb.GeneratedMessage {
   static MsgCreatePermanentLockedAccountResponse? _defaultInstance;
 }
 
+///  MsgCreateVestingAccount defines a message that enables creating a vesting
+///  account.
+///
+///  Since: cosmos-sdk 0.46
 class MsgCreatePeriodicVestingAccount extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreatePeriodicVestingAccount',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.vesting.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'fromAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'toAddress')
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'startTime')
-    ..pc<$2.Period>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vestingPeriods',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.Period.create)
-    ..hasRequiredFields = false;
-
-  MsgCreatePeriodicVestingAccount._() : super();
   factory MsgCreatePeriodicVestingAccount({
     $core.String? fromAddress,
     $core.String? toAddress,
     $fixnum.Int64? startTime,
     $core.Iterable<$2.Period>? vestingPeriods,
   }) {
-    final _result = create();
+    final $result = create();
     if (fromAddress != null) {
-      _result.fromAddress = fromAddress;
+      $result.fromAddress = fromAddress;
     }
     if (toAddress != null) {
-      _result.toAddress = toAddress;
+      $result.toAddress = toAddress;
     }
     if (startTime != null) {
-      _result.startTime = startTime;
+      $result.startTime = startTime;
     }
     if (vestingPeriods != null) {
-      _result.vestingPeriods.addAll(vestingPeriods);
+      $result.vestingPeriods.addAll(vestingPeriods);
     }
-    return _result;
+    return $result;
   }
+  MsgCreatePeriodicVestingAccount._() : super();
   factory MsgCreatePeriodicVestingAccount.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgCreatePeriodicVestingAccount.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreatePeriodicVestingAccount',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.vesting.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'fromAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'toAddress')
+    ..aInt64(3, _omitFieldNames ? '' : 'startTime')
+    ..pc<$2.Period>(
+        4, _omitFieldNames ? '' : 'vestingPeriods', $pb.PbFieldType.PM,
+        subBuilder: $2.Period.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -435,8 +397,10 @@ class MsgCreatePeriodicVestingAccount extends $pb.GeneratedMessage {
           void Function(MsgCreatePeriodicVestingAccount) updates) =>
       super.copyWith(
               (message) => updates(message as MsgCreatePeriodicVestingAccount))
-          as MsgCreatePeriodicVestingAccount; // ignore: deprecated_member_use
+          as MsgCreatePeriodicVestingAccount;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreatePeriodicVestingAccount create() =>
       MsgCreatePeriodicVestingAccount._();
@@ -473,6 +437,7 @@ class MsgCreatePeriodicVestingAccount extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearToAddress() => clearField(2);
 
+  /// start of vesting as unix time (in seconds).
   @$pb.TagNumber(3)
   $fixnum.Int64 get startTime => $_getI64(2);
   @$pb.TagNumber(3)
@@ -489,20 +454,13 @@ class MsgCreatePeriodicVestingAccount extends $pb.GeneratedMessage {
   $core.List<$2.Period> get vestingPeriods => $_getList(3);
 }
 
+///  MsgCreateVestingAccountResponse defines the Msg/CreatePeriodicVestingAccount
+///  response type.
+///
+///  Since: cosmos-sdk 0.46
 class MsgCreatePeriodicVestingAccountResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgCreatePeriodicVestingAccountResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.vesting.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgCreatePeriodicVestingAccountResponse._() : super();
   factory MsgCreatePeriodicVestingAccountResponse() => create();
+  MsgCreatePeriodicVestingAccountResponse._() : super();
   factory MsgCreatePeriodicVestingAccountResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -510,6 +468,14 @@ class MsgCreatePeriodicVestingAccountResponse extends $pb.GeneratedMessage {
   factory MsgCreatePeriodicVestingAccountResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgCreatePeriodicVestingAccountResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.vesting.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -522,8 +488,10 @@ class MsgCreatePeriodicVestingAccountResponse extends $pb.GeneratedMessage {
           void Function(MsgCreatePeriodicVestingAccountResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgCreatePeriodicVestingAccountResponse))
-          as MsgCreatePeriodicVestingAccountResponse; // ignore: deprecated_member_use
+          as MsgCreatePeriodicVestingAccountResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgCreatePeriodicVestingAccountResponse create() =>
       MsgCreatePeriodicVestingAccountResponse._();
@@ -536,3 +504,7 @@ class MsgCreatePeriodicVestingAccountResponse extends $pb.GeneratedMessage {
           MsgCreatePeriodicVestingAccountResponse>(create);
   static MsgCreatePeriodicVestingAccountResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

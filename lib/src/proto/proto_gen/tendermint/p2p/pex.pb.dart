@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/p2p/pex.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,25 +16,21 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'types.pb.dart' as $0;
 
 class PexRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PexRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.p2p'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  PexRequest._() : super();
   factory PexRequest() => create();
+  PexRequest._() : super();
   factory PexRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PexRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PexRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.p2p'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -39,9 +39,10 @@ class PexRequest extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   PexRequest copyWith(void Function(PexRequest) updates) =>
-      super.copyWith((message) => updates(message as PexRequest))
-          as PexRequest; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as PexRequest)) as PexRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PexRequest create() => PexRequest._();
   PexRequest createEmptyInstance() => create();
@@ -53,40 +54,31 @@ class PexRequest extends $pb.GeneratedMessage {
 }
 
 class PexAddrs extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'PexAddrs',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.p2p'),
-      createEmptyInstance: create)
-    ..pc<$0.NetAddress>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'addrs',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.NetAddress.create)
-    ..hasRequiredFields = false;
-
-  PexAddrs._() : super();
   factory PexAddrs({
     $core.Iterable<$0.NetAddress>? addrs,
   }) {
-    final _result = create();
+    final $result = create();
     if (addrs != null) {
-      _result.addrs.addAll(addrs);
+      $result.addrs.addAll(addrs);
     }
-    return _result;
+    return $result;
   }
+  PexAddrs._() : super();
   factory PexAddrs.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory PexAddrs.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PexAddrs',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.p2p'),
+      createEmptyInstance: create)
+    ..pc<$0.NetAddress>(1, _omitFieldNames ? '' : 'addrs', $pb.PbFieldType.PM,
+        subBuilder: $0.NetAddress.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -95,9 +87,10 @@ class PexAddrs extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   PexAddrs copyWith(void Function(PexAddrs) updates) =>
-      super.copyWith((message) => updates(message as PexAddrs))
-          as PexAddrs; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as PexAddrs)) as PexAddrs;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PexAddrs create() => PexAddrs._();
   PexAddrs createEmptyInstance() => create();
@@ -114,55 +107,43 @@ class PexAddrs extends $pb.GeneratedMessage {
 enum Message_Sum { pexRequest, pexAddrs, notSet }
 
 class Message extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, Message_Sum> _Message_SumByTag = {
-    1: Message_Sum.pexRequest,
-    2: Message_Sum.pexAddrs,
-    0: Message_Sum.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Message',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.p2p'),
-      createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<PexRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pexRequest',
-        subBuilder: PexRequest.create)
-    ..aOM<PexAddrs>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pexAddrs',
-        subBuilder: PexAddrs.create)
-    ..hasRequiredFields = false;
-
-  Message._() : super();
   factory Message({
     PexRequest? pexRequest,
     PexAddrs? pexAddrs,
   }) {
-    final _result = create();
+    final $result = create();
     if (pexRequest != null) {
-      _result.pexRequest = pexRequest;
+      $result.pexRequest = pexRequest;
     }
     if (pexAddrs != null) {
-      _result.pexAddrs = pexAddrs;
+      $result.pexAddrs = pexAddrs;
     }
-    return _result;
+    return $result;
   }
+  Message._() : super();
   factory Message.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Message.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, Message_Sum> _Message_SumByTag = {
+    1: Message_Sum.pexRequest,
+    2: Message_Sum.pexAddrs,
+    0: Message_Sum.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Message',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.p2p'),
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<PexRequest>(1, _omitFieldNames ? '' : 'pexRequest',
+        subBuilder: PexRequest.create)
+    ..aOM<PexAddrs>(2, _omitFieldNames ? '' : 'pexAddrs',
+        subBuilder: PexAddrs.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -171,9 +152,10 @@ class Message extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Message copyWith(void Function(Message) updates) =>
-      super.copyWith((message) => updates(message as Message))
-          as Message; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Message)) as Message;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Message create() => Message._();
   Message createEmptyInstance() => create();
@@ -214,3 +196,7 @@ class Message extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   PexAddrs ensurePexAddrs() => $_ensure(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

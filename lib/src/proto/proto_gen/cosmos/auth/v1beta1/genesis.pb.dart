@@ -1,62 +1,55 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/auth/v1beta1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'auth.pb.dart' as $0;
 import '../../../google/protobuf/any.pb.dart' as $1;
+import 'auth.pb.dart' as $0;
 
+/// GenesisState defines the auth module's genesis state.
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.auth.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$0.Params>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $0.Params.create)
-    ..pc<$1.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'accounts',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Any.create)
-    ..hasRequiredFields = false;
-
-  GenesisState._() : super();
   factory GenesisState({
     $0.Params? params,
     $core.Iterable<$1.Any>? accounts,
   }) {
-    final _result = create();
+    final $result = create();
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
     if (accounts != null) {
-      _result.accounts.addAll(accounts);
+      $result.accounts.addAll(accounts);
     }
-    return _result;
+    return $result;
   }
+  GenesisState._() : super();
   factory GenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisState',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.auth.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$0.Params>(1, _omitFieldNames ? '' : 'params',
+        subBuilder: $0.Params.create)
+    ..pc<$1.Any>(2, _omitFieldNames ? '' : 'accounts', $pb.PbFieldType.PM,
+        subBuilder: $1.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -66,8 +59,10 @@ class GenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState copyWith(void Function(GenesisState) updates) =>
       super.copyWith((message) => updates(message as GenesisState))
-          as GenesisState; // ignore: deprecated_member_use
+          as GenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
@@ -78,6 +73,7 @@ class GenesisState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
   static GenesisState? _defaultInstance;
 
+  /// params defines all the paramaters of the module.
   @$pb.TagNumber(1)
   $0.Params get params => $_getN(0);
   @$pb.TagNumber(1)
@@ -92,6 +88,11 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $0.Params ensureParams() => $_ensure(0);
 
+  /// accounts are the accounts present at genesis.
   @$pb.TagNumber(2)
   $core.List<$1.Any> get accounts => $_getList(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

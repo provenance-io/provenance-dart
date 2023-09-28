@@ -1,65 +1,55 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/crisis/v1beta1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// MsgVerifyInvariant represents a message to verify a particular invariance.
 class MsgVerifyInvariant extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgVerifyInvariant',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crisis.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sender')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'invariantModuleName')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'invariantRoute')
-    ..hasRequiredFields = false;
-
-  MsgVerifyInvariant._() : super();
   factory MsgVerifyInvariant({
     $core.String? sender,
     $core.String? invariantModuleName,
     $core.String? invariantRoute,
   }) {
-    final _result = create();
+    final $result = create();
     if (sender != null) {
-      _result.sender = sender;
+      $result.sender = sender;
     }
     if (invariantModuleName != null) {
-      _result.invariantModuleName = invariantModuleName;
+      $result.invariantModuleName = invariantModuleName;
     }
     if (invariantRoute != null) {
-      _result.invariantRoute = invariantRoute;
+      $result.invariantRoute = invariantRoute;
     }
-    return _result;
+    return $result;
   }
+  MsgVerifyInvariant._() : super();
   factory MsgVerifyInvariant.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgVerifyInvariant.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgVerifyInvariant',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crisis.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'sender')
+    ..aOS(2, _omitFieldNames ? '' : 'invariantModuleName')
+    ..aOS(3, _omitFieldNames ? '' : 'invariantRoute')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -69,8 +59,10 @@ class MsgVerifyInvariant extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgVerifyInvariant copyWith(void Function(MsgVerifyInvariant) updates) =>
       super.copyWith((message) => updates(message as MsgVerifyInvariant))
-          as MsgVerifyInvariant; // ignore: deprecated_member_use
+          as MsgVerifyInvariant;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgVerifyInvariant create() => MsgVerifyInvariant._();
   MsgVerifyInvariant createEmptyInstance() => create();
@@ -118,26 +110,24 @@ class MsgVerifyInvariant extends $pb.GeneratedMessage {
   void clearInvariantRoute() => clearField(3);
 }
 
+/// MsgVerifyInvariantResponse defines the Msg/VerifyInvariant response type.
 class MsgVerifyInvariantResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgVerifyInvariantResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crisis.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgVerifyInvariantResponse._() : super();
   factory MsgVerifyInvariantResponse() => create();
+  MsgVerifyInvariantResponse._() : super();
   factory MsgVerifyInvariantResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgVerifyInvariantResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgVerifyInvariantResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crisis.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -150,8 +140,10 @@ class MsgVerifyInvariantResponse extends $pb.GeneratedMessage {
           void Function(MsgVerifyInvariantResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgVerifyInvariantResponse))
-          as MsgVerifyInvariantResponse; // ignore: deprecated_member_use
+          as MsgVerifyInvariantResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgVerifyInvariantResponse create() => MsgVerifyInvariantResponse._();
   MsgVerifyInvariantResponse createEmptyInstance() => create();
@@ -162,3 +154,7 @@ class MsgVerifyInvariantResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgVerifyInvariantResponse>(create);
   static MsgVerifyInvariantResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

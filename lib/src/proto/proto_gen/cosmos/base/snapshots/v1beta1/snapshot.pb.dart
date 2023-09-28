@@ -1,59 +1,21 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/snapshots/v1beta1/snapshot.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// Snapshot contains Tendermint state sync snapshot info.
 class Snapshot extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Snapshot',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'format',
-        $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chunks',
-        $pb.PbFieldType.OU3)
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OY)
-    ..aOM<Metadata>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata',
-        subBuilder: Metadata.create)
-    ..hasRequiredFields = false;
-
-  Snapshot._() : super();
   factory Snapshot({
     $fixnum.Int64? height,
     $core.int? format,
@@ -61,30 +23,47 @@ class Snapshot extends $pb.GeneratedMessage {
     $core.List<$core.int>? hash,
     Metadata? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (format != null) {
-      _result.format = format;
+      $result.format = format;
     }
     if (chunks != null) {
-      _result.chunks = chunks;
+      $result.chunks = chunks;
     }
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  Snapshot._() : super();
   factory Snapshot.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Snapshot.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Snapshot',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'height', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'format', $pb.PbFieldType.OU3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'chunks', $pb.PbFieldType.OU3)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OY)
+    ..aOM<Metadata>(5, _omitFieldNames ? '' : 'metadata',
+        subBuilder: Metadata.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -93,9 +72,10 @@ class Snapshot extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Snapshot copyWith(void Function(Snapshot) updates) =>
-      super.copyWith((message) => updates(message as Snapshot))
-          as Snapshot; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Snapshot)) as Snapshot;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Snapshot create() => Snapshot._();
   Snapshot createEmptyInstance() => create();
@@ -168,40 +148,34 @@ class Snapshot extends $pb.GeneratedMessage {
   Metadata ensureMetadata() => $_ensure(4);
 }
 
+/// Metadata contains SDK-specific snapshot metadata.
 class Metadata extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Metadata',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
-      createEmptyInstance: create)
-    ..p<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'chunkHashes',
-        $pb.PbFieldType.PY)
-    ..hasRequiredFields = false;
-
-  Metadata._() : super();
   factory Metadata({
     $core.Iterable<$core.List<$core.int>>? chunkHashes,
   }) {
-    final _result = create();
+    final $result = create();
     if (chunkHashes != null) {
-      _result.chunkHashes.addAll(chunkHashes);
+      $result.chunkHashes.addAll(chunkHashes);
     }
-    return _result;
+    return $result;
   }
+  Metadata._() : super();
   factory Metadata.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Metadata.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Metadata',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..p<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'chunkHashes', $pb.PbFieldType.PY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -210,9 +184,10 @@ class Metadata extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Metadata copyWith(void Function(Metadata) updates) =>
-      super.copyWith((message) => updates(message as Metadata))
-          as Metadata; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Metadata)) as Metadata;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Metadata create() => Metadata._();
   Metadata createEmptyInstance() => create();
@@ -236,7 +211,47 @@ enum SnapshotItem_Item {
   notSet
 }
 
+///  SnapshotItem is an item contained in a rootmulti.Store snapshot.
+///
+///  Since: cosmos-sdk 0.46
 class SnapshotItem extends $pb.GeneratedMessage {
+  factory SnapshotItem({
+    SnapshotStoreItem? store,
+    SnapshotIAVLItem? iavl,
+    SnapshotExtensionMeta? extension_3,
+    SnapshotExtensionPayload? extensionPayload,
+    SnapshotKVItem? kv,
+    SnapshotSchema? schema,
+  }) {
+    final $result = create();
+    if (store != null) {
+      $result.store = store;
+    }
+    if (iavl != null) {
+      $result.iavl = iavl;
+    }
+    if (extension_3 != null) {
+      $result.extension_3 = extension_3;
+    }
+    if (extensionPayload != null) {
+      $result.extensionPayload = extensionPayload;
+    }
+    if (kv != null) {
+      $result.kv = kv;
+    }
+    if (schema != null) {
+      $result.schema = schema;
+    }
+    return $result;
+  }
+  SnapshotItem._() : super();
+  factory SnapshotItem.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SnapshotItem.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, SnapshotItem_Item> _SnapshotItem_ItemByTag =
       {
     1: SnapshotItem_Item.store,
@@ -248,89 +263,26 @@ class SnapshotItem extends $pb.GeneratedMessage {
     0: SnapshotItem_Item.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotItem',
+      _omitMessageNames ? '' : 'SnapshotItem',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4, 5, 6])
-    ..aOM<SnapshotStoreItem>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'store',
+    ..aOM<SnapshotStoreItem>(1, _omitFieldNames ? '' : 'store',
         subBuilder: SnapshotStoreItem.create)
-    ..aOM<SnapshotIAVLItem>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'iavl',
+    ..aOM<SnapshotIAVLItem>(2, _omitFieldNames ? '' : 'iavl',
         subBuilder: SnapshotIAVLItem.create)
-    ..aOM<SnapshotExtensionMeta>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'extension',
+    ..aOM<SnapshotExtensionMeta>(3, _omitFieldNames ? '' : 'extension',
         subBuilder: SnapshotExtensionMeta.create)
     ..aOM<SnapshotExtensionPayload>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'extensionPayload',
+        4, _omitFieldNames ? '' : 'extensionPayload',
         subBuilder: SnapshotExtensionPayload.create)
-    ..aOM<SnapshotKVItem>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'kv',
+    ..aOM<SnapshotKVItem>(5, _omitFieldNames ? '' : 'kv',
         subBuilder: SnapshotKVItem.create)
-    ..aOM<SnapshotSchema>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'schema',
+    ..aOM<SnapshotSchema>(6, _omitFieldNames ? '' : 'schema',
         subBuilder: SnapshotSchema.create)
     ..hasRequiredFields = false;
 
-  SnapshotItem._() : super();
-  factory SnapshotItem({
-    SnapshotStoreItem? store,
-    SnapshotIAVLItem? iavl,
-    SnapshotExtensionMeta? extension_3,
-    SnapshotExtensionPayload? extensionPayload,
-    SnapshotKVItem? kv,
-    SnapshotSchema? schema,
-  }) {
-    final _result = create();
-    if (store != null) {
-      _result.store = store;
-    }
-    if (iavl != null) {
-      _result.iavl = iavl;
-    }
-    if (extension_3 != null) {
-      _result.extension_3 = extension_3;
-    }
-    if (extensionPayload != null) {
-      _result.extensionPayload = extensionPayload;
-    }
-    if (kv != null) {
-      _result.kv = kv;
-    }
-    if (schema != null) {
-      _result.schema = schema;
-    }
-    return _result;
-  }
-  factory SnapshotItem.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory SnapshotItem.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -340,8 +292,10 @@ class SnapshotItem extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SnapshotItem copyWith(void Function(SnapshotItem) updates) =>
       super.copyWith((message) => updates(message as SnapshotItem))
-          as SnapshotItem; // ignore: deprecated_member_use
+          as SnapshotItem;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotItem create() => SnapshotItem._();
   SnapshotItem createEmptyInstance() => create();
@@ -440,39 +394,35 @@ class SnapshotItem extends $pb.GeneratedMessage {
   SnapshotSchema ensureSchema() => $_ensure(5);
 }
 
+///  SnapshotStoreItem contains metadata about a snapshotted store.
+///
+///  Since: cosmos-sdk 0.46
 class SnapshotStoreItem extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotStoreItem',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..hasRequiredFields = false;
-
-  SnapshotStoreItem._() : super();
   factory SnapshotStoreItem({
     $core.String? name,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
-    return _result;
+    return $result;
   }
+  SnapshotStoreItem._() : super();
   factory SnapshotStoreItem.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SnapshotStoreItem.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnapshotStoreItem',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -482,8 +432,10 @@ class SnapshotStoreItem extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SnapshotStoreItem copyWith(void Function(SnapshotStoreItem) updates) =>
       super.copyWith((message) => updates(message as SnapshotStoreItem))
-          as SnapshotStoreItem; // ignore: deprecated_member_use
+          as SnapshotStoreItem;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotStoreItem create() => SnapshotStoreItem._();
   SnapshotStoreItem createEmptyInstance() => create();
@@ -507,69 +459,52 @@ class SnapshotStoreItem extends $pb.GeneratedMessage {
   void clearName() => clearField(1);
 }
 
+///  SnapshotIAVLItem is an exported IAVL node.
+///
+///  Since: cosmos-sdk 0.46
 class SnapshotIAVLItem extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotIAVLItem',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OY)
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..a<$core.int>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        $pb.PbFieldType.O3)
-    ..hasRequiredFields = false;
-
-  SnapshotIAVLItem._() : super();
   factory SnapshotIAVLItem({
     $core.List<$core.int>? key,
     $core.List<$core.int>? value,
     $fixnum.Int64? version,
     $core.int? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  SnapshotIAVLItem._() : super();
   factory SnapshotIAVLItem.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SnapshotIAVLItem.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnapshotIAVLItem',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OY)
+    ..aInt64(3, _omitFieldNames ? '' : 'version')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'height', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -579,8 +514,10 @@ class SnapshotIAVLItem extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SnapshotIAVLItem copyWith(void Function(SnapshotIAVLItem) updates) =>
       super.copyWith((message) => updates(message as SnapshotIAVLItem))
-          as SnapshotIAVLItem; // ignore: deprecated_member_use
+          as SnapshotIAVLItem;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotIAVLItem create() => SnapshotIAVLItem._();
   SnapshotIAVLItem createEmptyInstance() => create();
@@ -615,6 +552,7 @@ class SnapshotIAVLItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearValue() => clearField(2);
 
+  /// version is block height
   @$pb.TagNumber(3)
   $fixnum.Int64 get version => $_getI64(2);
   @$pb.TagNumber(3)
@@ -627,6 +565,7 @@ class SnapshotIAVLItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearVersion() => clearField(3);
 
+  /// height is depth of the tree.
   @$pb.TagNumber(4)
   $core.int get height => $_getIZ(3);
   @$pb.TagNumber(4)
@@ -640,49 +579,40 @@ class SnapshotIAVLItem extends $pb.GeneratedMessage {
   void clearHeight() => clearField(4);
 }
 
+///  SnapshotExtensionMeta contains metadata about an external snapshotter.
+///
+///  Since: cosmos-sdk 0.46
 class SnapshotExtensionMeta extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotExtensionMeta',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'format',
-        $pb.PbFieldType.OU3)
-    ..hasRequiredFields = false;
-
-  SnapshotExtensionMeta._() : super();
   factory SnapshotExtensionMeta({
     $core.String? name,
     $core.int? format,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (format != null) {
-      _result.format = format;
+      $result.format = format;
     }
-    return _result;
+    return $result;
   }
+  SnapshotExtensionMeta._() : super();
   factory SnapshotExtensionMeta.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SnapshotExtensionMeta.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnapshotExtensionMeta',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'format', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -694,8 +624,10 @@ class SnapshotExtensionMeta extends $pb.GeneratedMessage {
   SnapshotExtensionMeta copyWith(
           void Function(SnapshotExtensionMeta) updates) =>
       super.copyWith((message) => updates(message as SnapshotExtensionMeta))
-          as SnapshotExtensionMeta; // ignore: deprecated_member_use
+          as SnapshotExtensionMeta;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotExtensionMeta create() => SnapshotExtensionMeta._();
   SnapshotExtensionMeta createEmptyInstance() => create();
@@ -731,40 +663,36 @@ class SnapshotExtensionMeta extends $pb.GeneratedMessage {
   void clearFormat() => clearField(2);
 }
 
+///  SnapshotExtensionPayload contains payloads of an external snapshotter.
+///
+///  Since: cosmos-sdk 0.46
 class SnapshotExtensionPayload extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotExtensionPayload',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'payload',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  SnapshotExtensionPayload._() : super();
   factory SnapshotExtensionPayload({
     $core.List<$core.int>? payload,
   }) {
-    final _result = create();
+    final $result = create();
     if (payload != null) {
-      _result.payload = payload;
+      $result.payload = payload;
     }
-    return _result;
+    return $result;
   }
+  SnapshotExtensionPayload._() : super();
   factory SnapshotExtensionPayload.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SnapshotExtensionPayload.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnapshotExtensionPayload',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -776,8 +704,10 @@ class SnapshotExtensionPayload extends $pb.GeneratedMessage {
   SnapshotExtensionPayload copyWith(
           void Function(SnapshotExtensionPayload) updates) =>
       super.copyWith((message) => updates(message as SnapshotExtensionPayload))
-          as SnapshotExtensionPayload; // ignore: deprecated_member_use
+          as SnapshotExtensionPayload;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotExtensionPayload create() => SnapshotExtensionPayload._();
   SnapshotExtensionPayload createEmptyInstance() => create();
@@ -801,50 +731,42 @@ class SnapshotExtensionPayload extends $pb.GeneratedMessage {
   void clearPayload() => clearField(1);
 }
 
+///  SnapshotKVItem is an exported Key/Value Pair
+///
+///  Since: cosmos-sdk 0.46
 class SnapshotKVItem extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotKVItem',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  SnapshotKVItem._() : super();
   factory SnapshotKVItem({
     $core.List<$core.int>? key,
     $core.List<$core.int>? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  SnapshotKVItem._() : super();
   factory SnapshotKVItem.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SnapshotKVItem.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnapshotKVItem',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -854,8 +776,10 @@ class SnapshotKVItem extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SnapshotKVItem copyWith(void Function(SnapshotKVItem) updates) =>
       super.copyWith((message) => updates(message as SnapshotKVItem))
-          as SnapshotKVItem; // ignore: deprecated_member_use
+          as SnapshotKVItem;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotKVItem create() => SnapshotKVItem._();
   SnapshotKVItem createEmptyInstance() => create();
@@ -891,40 +815,36 @@ class SnapshotKVItem extends $pb.GeneratedMessage {
   void clearValue() => clearField(2);
 }
 
+///  SnapshotSchema is an exported schema of smt store
+///
+///  Since: cosmos-sdk 0.46
 class SnapshotSchema extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SnapshotSchema',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.snapshots.v1beta1'),
-      createEmptyInstance: create)
-    ..p<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'keys',
-        $pb.PbFieldType.PY)
-    ..hasRequiredFields = false;
-
-  SnapshotSchema._() : super();
   factory SnapshotSchema({
     $core.Iterable<$core.List<$core.int>>? keys,
   }) {
-    final _result = create();
+    final $result = create();
     if (keys != null) {
-      _result.keys.addAll(keys);
+      $result.keys.addAll(keys);
     }
-    return _result;
+    return $result;
   }
+  SnapshotSchema._() : super();
   factory SnapshotSchema.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SnapshotSchema.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnapshotSchema',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.snapshots.v1beta1'),
+      createEmptyInstance: create)
+    ..p<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'keys', $pb.PbFieldType.PY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -934,8 +854,10 @@ class SnapshotSchema extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   SnapshotSchema copyWith(void Function(SnapshotSchema) updates) =>
       super.copyWith((message) => updates(message as SnapshotSchema))
-          as SnapshotSchema; // ignore: deprecated_member_use
+          as SnapshotSchema;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SnapshotSchema create() => SnapshotSchema._();
   SnapshotSchema createEmptyInstance() => create();
@@ -949,3 +871,7 @@ class SnapshotSchema extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$core.List<$core.int>> get keys => $_getList(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

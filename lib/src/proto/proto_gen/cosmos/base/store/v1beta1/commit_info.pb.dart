@@ -1,59 +1,53 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/store/v1beta1/commit_info.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// CommitInfo defines commit information used by the multi-store when committing
+/// a version/height.
 class CommitInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CommitInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.store.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..pc<StoreInfo>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'storeInfos',
-        $pb.PbFieldType.PM,
-        subBuilder: StoreInfo.create)
-    ..hasRequiredFields = false;
-
-  CommitInfo._() : super();
   factory CommitInfo({
     $fixnum.Int64? version,
     $core.Iterable<StoreInfo>? storeInfos,
   }) {
-    final _result = create();
+    final $result = create();
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (storeInfos != null) {
-      _result.storeInfos.addAll(storeInfos);
+      $result.storeInfos.addAll(storeInfos);
     }
-    return _result;
+    return $result;
   }
+  CommitInfo._() : super();
   factory CommitInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CommitInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CommitInfo',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.store.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'version')
+    ..pc<StoreInfo>(2, _omitFieldNames ? '' : 'storeInfos', $pb.PbFieldType.PM,
+        subBuilder: StoreInfo.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -62,9 +56,10 @@ class CommitInfo extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   CommitInfo copyWith(void Function(CommitInfo) updates) =>
-      super.copyWith((message) => updates(message as CommitInfo))
-          as CommitInfo; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as CommitInfo)) as CommitInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CommitInfo create() => CommitInfo._();
   CommitInfo createEmptyInstance() => create();
@@ -90,49 +85,40 @@ class CommitInfo extends $pb.GeneratedMessage {
   $core.List<StoreInfo> get storeInfos => $_getList(1);
 }
 
+/// StoreInfo defines store-specific commit information. It contains a reference
+/// between a store name and the commit ID.
 class StoreInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'StoreInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.store.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..aOM<CommitID>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'commitId',
-        subBuilder: CommitID.create)
-    ..hasRequiredFields = false;
-
-  StoreInfo._() : super();
   factory StoreInfo({
     $core.String? name,
     CommitID? commitId,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (commitId != null) {
-      _result.commitId = commitId;
+      $result.commitId = commitId;
     }
-    return _result;
+    return $result;
   }
+  StoreInfo._() : super();
   factory StoreInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory StoreInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StoreInfo',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.store.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOM<CommitID>(2, _omitFieldNames ? '' : 'commitId',
+        subBuilder: CommitID.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -141,9 +127,10 @@ class StoreInfo extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   StoreInfo copyWith(void Function(StoreInfo) updates) =>
-      super.copyWith((message) => updates(message as StoreInfo))
-          as StoreInfo; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as StoreInfo)) as StoreInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static StoreInfo create() => StoreInfo._();
   StoreInfo createEmptyInstance() => create();
@@ -180,49 +167,40 @@ class StoreInfo extends $pb.GeneratedMessage {
   CommitID ensureCommitId() => $_ensure(1);
 }
 
+/// CommitID defines the committment information when a specific store is
+/// committed.
 class CommitID extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CommitID',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.store.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'version')
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'hash',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  CommitID._() : super();
   factory CommitID({
     $fixnum.Int64? version,
     $core.List<$core.int>? hash,
   }) {
-    final _result = create();
+    final $result = create();
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (hash != null) {
-      _result.hash = hash;
+      $result.hash = hash;
     }
-    return _result;
+    return $result;
   }
+  CommitID._() : super();
   factory CommitID.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CommitID.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CommitID',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.store.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'version')
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'hash', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -231,9 +209,10 @@ class CommitID extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   CommitID copyWith(void Function(CommitID) updates) =>
-      super.copyWith((message) => updates(message as CommitID))
-          as CommitID; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as CommitID)) as CommitID;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CommitID create() => CommitID._();
   CommitID createEmptyInstance() => create();
@@ -267,3 +246,7 @@ class CommitID extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearHash() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

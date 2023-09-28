@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: gogoproto/gogo.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,696 +15,388 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 class Gogo {
   static final goprotoEnumPrefix = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.EnumOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoEnumPrefix',
+      _omitMessageNames ? '' : 'google.protobuf.EnumOptions',
+      _omitFieldNames ? '' : 'goprotoEnumPrefix',
       62001,
       $pb.PbFieldType.OB);
   static final goprotoEnumStringer = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.EnumOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoEnumStringer',
+      _omitMessageNames ? '' : 'google.protobuf.EnumOptions',
+      _omitFieldNames ? '' : 'goprotoEnumStringer',
       62021,
       $pb.PbFieldType.OB);
   static final enumStringer = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.EnumOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'enumStringer',
+      _omitMessageNames ? '' : 'google.protobuf.EnumOptions',
+      _omitFieldNames ? '' : 'enumStringer',
       62022,
       $pb.PbFieldType.OB);
   static final enumCustomname = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.EnumOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'enumCustomname',
+      _omitMessageNames ? '' : 'google.protobuf.EnumOptions',
+      _omitFieldNames ? '' : 'enumCustomname',
       62023,
       $pb.PbFieldType.OS);
   static final enumdecl = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.EnumOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'enumdecl',
+      _omitMessageNames ? '' : 'google.protobuf.EnumOptions',
+      _omitFieldNames ? '' : 'enumdecl',
       62024,
       $pb.PbFieldType.OB);
   static final enumvalueCustomname = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.EnumValueOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'enumvalueCustomname',
+      _omitMessageNames ? '' : 'google.protobuf.EnumValueOptions',
+      _omitFieldNames ? '' : 'enumvalueCustomname',
       66001,
       $pb.PbFieldType.OS);
   static final goprotoGettersAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoGettersAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoGettersAll',
       63001,
       $pb.PbFieldType.OB);
   static final goprotoEnumPrefixAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoEnumPrefixAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoEnumPrefixAll',
       63002,
       $pb.PbFieldType.OB);
   static final goprotoStringerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoStringerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoStringerAll',
       63003,
       $pb.PbFieldType.OB);
   static final verboseEqualAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'verboseEqualAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'verboseEqualAll',
       63004,
       $pb.PbFieldType.OB);
   static final faceAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'faceAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'faceAll',
       63005,
       $pb.PbFieldType.OB);
   static final gostringAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'gostringAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'gostringAll',
       63006,
       $pb.PbFieldType.OB);
   static final populateAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'populateAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'populateAll',
       63007,
       $pb.PbFieldType.OB);
   static final stringerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'stringerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'stringerAll',
       63008,
       $pb.PbFieldType.OB);
   static final onlyoneAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'onlyoneAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'onlyoneAll',
       63009,
       $pb.PbFieldType.OB);
   static final equalAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'equalAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'equalAll',
       63013,
       $pb.PbFieldType.OB);
   static final descriptionAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'descriptionAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'descriptionAll',
       63014,
       $pb.PbFieldType.OB);
   static final testgenAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'testgenAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'testgenAll',
       63015,
       $pb.PbFieldType.OB);
   static final benchgenAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'benchgenAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'benchgenAll',
       63016,
       $pb.PbFieldType.OB);
   static final marshalerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'marshalerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'marshalerAll',
       63017,
       $pb.PbFieldType.OB);
   static final unmarshalerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'unmarshalerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'unmarshalerAll',
       63018,
       $pb.PbFieldType.OB);
   static final stableMarshalerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'stableMarshalerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'stableMarshalerAll',
       63019,
       $pb.PbFieldType.OB);
   static final sizerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'sizerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'sizerAll',
       63020,
       $pb.PbFieldType.OB);
   static final goprotoEnumStringerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoEnumStringerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoEnumStringerAll',
       63021,
       $pb.PbFieldType.OB);
   static final enumStringerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'enumStringerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'enumStringerAll',
       63022,
       $pb.PbFieldType.OB);
   static final unsafeMarshalerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'unsafeMarshalerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'unsafeMarshalerAll',
       63023,
       $pb.PbFieldType.OB);
   static final unsafeUnmarshalerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'unsafeUnmarshalerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'unsafeUnmarshalerAll',
       63024,
       $pb.PbFieldType.OB);
   static final goprotoExtensionsMapAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoExtensionsMapAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoExtensionsMapAll',
       63025,
       $pb.PbFieldType.OB);
   static final goprotoUnrecognizedAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoUnrecognizedAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoUnrecognizedAll',
       63026,
       $pb.PbFieldType.OB);
   static final gogoprotoImport = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'gogoprotoImport',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'gogoprotoImport',
       63027,
       $pb.PbFieldType.OB);
   static final protosizerAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'protosizerAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'protosizerAll',
       63028,
       $pb.PbFieldType.OB);
   static final compareAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'compareAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'compareAll',
       63029,
       $pb.PbFieldType.OB);
   static final typedeclAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'typedeclAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'typedeclAll',
       63030,
       $pb.PbFieldType.OB);
   static final enumdeclAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'enumdeclAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'enumdeclAll',
       63031,
       $pb.PbFieldType.OB);
   static final goprotoRegistration = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoRegistration',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoRegistration',
       63032,
       $pb.PbFieldType.OB);
   static final messagenameAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'messagenameAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'messagenameAll',
       63033,
       $pb.PbFieldType.OB);
   static final goprotoSizecacheAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoSizecacheAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoSizecacheAll',
       63034,
       $pb.PbFieldType.OB);
   static final goprotoUnkeyedAll = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FileOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoUnkeyedAll',
+      _omitMessageNames ? '' : 'google.protobuf.FileOptions',
+      _omitFieldNames ? '' : 'goprotoUnkeyedAll',
       63035,
       $pb.PbFieldType.OB);
   static final goprotoGetters = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoGetters',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'goprotoGetters',
       64001,
       $pb.PbFieldType.OB);
   static final goprotoStringer = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoStringer',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'goprotoStringer',
       64003,
       $pb.PbFieldType.OB);
   static final verboseEqual = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'verboseEqual',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'verboseEqual',
       64004,
       $pb.PbFieldType.OB);
   static final face = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'face',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'face',
       64005,
       $pb.PbFieldType.OB);
   static final gostring = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'gostring',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'gostring',
       64006,
       $pb.PbFieldType.OB);
   static final populate = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'populate',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'populate',
       64007,
       $pb.PbFieldType.OB);
   static final stringer = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'stringer',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'stringer',
       67008,
       $pb.PbFieldType.OB);
   static final onlyone = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'onlyone',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'onlyone',
       64009,
       $pb.PbFieldType.OB);
   static final equal = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'equal',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'equal',
       64013,
       $pb.PbFieldType.OB);
   static final description = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'description',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'description',
       64014,
       $pb.PbFieldType.OB);
   static final testgen = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'testgen',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'testgen',
       64015,
       $pb.PbFieldType.OB);
   static final benchgen = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'benchgen',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'benchgen',
       64016,
       $pb.PbFieldType.OB);
   static final marshaler = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'marshaler',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'marshaler',
       64017,
       $pb.PbFieldType.OB);
   static final unmarshaler = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'unmarshaler',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'unmarshaler',
       64018,
       $pb.PbFieldType.OB);
   static final stableMarshaler = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'stableMarshaler',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'stableMarshaler',
       64019,
       $pb.PbFieldType.OB);
   static final sizer = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'sizer',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'sizer',
       64020,
       $pb.PbFieldType.OB);
   static final unsafeMarshaler = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'unsafeMarshaler',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'unsafeMarshaler',
       64023,
       $pb.PbFieldType.OB);
   static final unsafeUnmarshaler = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'unsafeUnmarshaler',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'unsafeUnmarshaler',
       64024,
       $pb.PbFieldType.OB);
   static final goprotoExtensionsMap = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoExtensionsMap',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'goprotoExtensionsMap',
       64025,
       $pb.PbFieldType.OB);
   static final goprotoUnrecognized = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoUnrecognized',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'goprotoUnrecognized',
       64026,
       $pb.PbFieldType.OB);
   static final protosizer = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'protosizer',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'protosizer',
       64028,
       $pb.PbFieldType.OB);
   static final compare = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'compare',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'compare',
       64029,
       $pb.PbFieldType.OB);
   static final typedecl = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'typedecl',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'typedecl',
       64030,
       $pb.PbFieldType.OB);
   static final messagename = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'messagename',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'messagename',
       64033,
       $pb.PbFieldType.OB);
   static final goprotoSizecache = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoSizecache',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'goprotoSizecache',
       64034,
       $pb.PbFieldType.OB);
   static final goprotoUnkeyed = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.MessageOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'goprotoUnkeyed',
+      _omitMessageNames ? '' : 'google.protobuf.MessageOptions',
+      _omitFieldNames ? '' : 'goprotoUnkeyed',
       64035,
       $pb.PbFieldType.OB);
   static final nullable = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'nullable',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'nullable',
       65001,
       $pb.PbFieldType.OB);
   static final embed = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'embed',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'embed',
       65002,
       $pb.PbFieldType.OB);
   static final customtype = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'customtype',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'customtype',
       65003,
       $pb.PbFieldType.OS);
   static final customname = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'customname',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'customname',
       65004,
       $pb.PbFieldType.OS);
   static final jsontag = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'jsontag',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'jsontag',
       65005,
       $pb.PbFieldType.OS);
   static final moretags = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'moretags',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'moretags',
       65006,
       $pb.PbFieldType.OS);
   static final casttype = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'casttype',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'casttype',
       65007,
       $pb.PbFieldType.OS);
   static final castkey = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'castkey',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'castkey',
       65008,
       $pb.PbFieldType.OS);
   static final castvalue = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'castvalue',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'castvalue',
       65009,
       $pb.PbFieldType.OS);
   static final stdtime = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'stdtime',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'stdtime',
       65010,
       $pb.PbFieldType.OB);
   static final stdduration = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'stdduration',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'stdduration',
       65011,
       $pb.PbFieldType.OB);
   static final wktpointer = $pb.Extension<$core.bool>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'wktpointer',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'wktpointer',
       65012,
       $pb.PbFieldType.OB);
   static final castrepeated = $pb.Extension<$core.String>(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'google.protobuf.FieldOptions',
-      const $core.bool.fromEnvironment('protobuf.omit_field_names')
-          ? ''
-          : 'castrepeated',
+      _omitMessageNames ? '' : 'google.protobuf.FieldOptions',
+      _omitFieldNames ? '' : 'castrepeated',
       65013,
       $pb.PbFieldType.OS);
   static void registerAllExtensions($pb.ExtensionRegistry registry) {
@@ -783,3 +479,7 @@ class Gogo {
     registry.add(castrepeated);
   }
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -12,10 +12,13 @@ option go_package = "github.com/provenance-io/provenance/x/marker/types";
 option java_package        = "io.provenance.marker.v1";
 option java_multiple_files = true;
 
-// AddMarkerProposal defines defines a governance proposal to create a new marker
+// AddMarkerProposal is deprecated and can no longer be used.
+// Deprecated: This message is no longer usable. It is only still included for
+// backwards compatibility (e.g. looking up old governance proposals).
+// It is replaced by providing a MsgAddMarkerRequest in a governance proposal.
 message AddMarkerProposal {
-  option (gogoproto.equal)            = true;
-  option (gogoproto.goproto_stringer) = false;
+  option deprecated        = true;
+  option (gogoproto.equal) = true;
 
   string title       = 1;
   string description = 2;

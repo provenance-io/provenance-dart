@@ -1,35 +1,42 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/slashing/v1beta1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-import 'dart:core' as $core;
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:convert' as $convert;
+import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use msgUnjailDescriptor instead')
-const MsgUnjail$json = const {
+const MsgUnjail$json = {
   '1': 'MsgUnjail',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'validator_addr',
       '3': 1,
       '4': 1,
       '5': 9,
-      '8': const {},
+      '8': {},
       '10': 'validatorAddr'
     },
   ],
-  '7': const {},
+  '7': {},
 };
 
 /// Descriptor for `MsgUnjail`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List msgUnjailDescriptor = $convert.base64Decode(
-    'CglNc2dVbmphaWwSSgoOdmFsaWRhdG9yX2FkZHIYASABKAlCI9K0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ+reHwdhZGRyZXNzUg12YWxpZGF0b3JBZGRyOhuC57AqDnZhbGlkYXRvcl9hZGRyiKAfAJigHwE=');
+    'CglNc2dVbmphaWwSSgoOdmFsaWRhdG9yX2FkZHIYASABKAlCI+reHwdhZGRyZXNz0rQtFGNvc2'
+    '1vcy5BZGRyZXNzU3RyaW5nUg12YWxpZGF0b3JBZGRyOhuIoB8AmKAfAYLnsCoOdmFsaWRhdG9y'
+    'X2FkZHI=');
+
 @$core.Deprecated('Use msgUnjailResponseDescriptor instead')
-const MsgUnjailResponse$json = const {
+const MsgUnjailResponse$json = {
   '1': 'MsgUnjailResponse',
 };
 

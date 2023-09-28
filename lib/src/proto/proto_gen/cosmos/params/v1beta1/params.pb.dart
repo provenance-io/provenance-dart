@@ -1,67 +1,56 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/params/v1beta1/params.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// ParameterChangeProposal defines a proposal to change one or more parameters.
 class ParameterChangeProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ParameterChangeProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.params.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..pc<ParamChange>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'changes',
-        $pb.PbFieldType.PM,
-        subBuilder: ParamChange.create)
-    ..hasRequiredFields = false;
-
-  ParameterChangeProposal._() : super();
   factory ParameterChangeProposal({
     $core.String? title,
     $core.String? description,
     $core.Iterable<ParamChange>? changes,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (changes != null) {
-      _result.changes.addAll(changes);
+      $result.changes.addAll(changes);
     }
-    return _result;
+    return $result;
   }
+  ParameterChangeProposal._() : super();
   factory ParameterChangeProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ParameterChangeProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ParameterChangeProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..pc<ParamChange>(3, _omitFieldNames ? '' : 'changes', $pb.PbFieldType.PM,
+        subBuilder: ParamChange.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -73,8 +62,10 @@ class ParameterChangeProposal extends $pb.GeneratedMessage {
   ParameterChangeProposal copyWith(
           void Function(ParameterChangeProposal) updates) =>
       super.copyWith((message) => updates(message as ParameterChangeProposal))
-          as ParameterChangeProposal; // ignore: deprecated_member_use
+          as ParameterChangeProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ParameterChangeProposal create() => ParameterChangeProposal._();
   ParameterChangeProposal createEmptyInstance() => create();
@@ -113,57 +104,44 @@ class ParameterChangeProposal extends $pb.GeneratedMessage {
   $core.List<ParamChange> get changes => $_getList(2);
 }
 
+/// ParamChange defines an individual parameter change, for use in
+/// ParameterChangeProposal.
 class ParamChange extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ParamChange',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.params.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'subspace')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value')
-    ..hasRequiredFields = false;
-
-  ParamChange._() : super();
   factory ParamChange({
     $core.String? subspace,
     $core.String? key,
     $core.String? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (subspace != null) {
-      _result.subspace = subspace;
+      $result.subspace = subspace;
     }
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  ParamChange._() : super();
   factory ParamChange.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ParamChange.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ParamChange',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.params.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'subspace')
+    ..aOS(2, _omitFieldNames ? '' : 'key')
+    ..aOS(3, _omitFieldNames ? '' : 'value')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -173,8 +151,10 @@ class ParamChange extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ParamChange copyWith(void Function(ParamChange) updates) =>
       super.copyWith((message) => updates(message as ParamChange))
-          as ParamChange; // ignore: deprecated_member_use
+          as ParamChange;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ParamChange create() => ParamChange._();
   ParamChange createEmptyInstance() => create();
@@ -220,3 +200,7 @@ class ParamChange extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearValue() => clearField(3);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

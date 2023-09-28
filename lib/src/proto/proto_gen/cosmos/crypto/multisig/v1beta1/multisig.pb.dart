@@ -1,48 +1,48 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/crypto/multisig/v1beta1/multisig.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// MultiSignature wraps the signatures from a multisig.LegacyAminoPubKey.
+/// See cosmos.tx.v1betata1.ModeInfo.Multi for how to specify which signers
+/// signed and with which modes.
 class MultiSignature extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MultiSignature',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.multisig.v1beta1'),
-      createEmptyInstance: create)
-    ..p<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signatures',
-        $pb.PbFieldType.PY)
-    ..hasRequiredFields = false;
-
-  MultiSignature._() : super();
   factory MultiSignature({
     $core.Iterable<$core.List<$core.int>>? signatures,
   }) {
-    final _result = create();
+    final $result = create();
     if (signatures != null) {
-      _result.signatures.addAll(signatures);
+      $result.signatures.addAll(signatures);
     }
-    return _result;
+    return $result;
   }
+  MultiSignature._() : super();
   factory MultiSignature.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MultiSignature.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MultiSignature',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.multisig.v1beta1'),
+      createEmptyInstance: create)
+    ..p<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'signatures', $pb.PbFieldType.PY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -52,8 +52,10 @@ class MultiSignature extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MultiSignature copyWith(void Function(MultiSignature) updates) =>
       super.copyWith((message) => updates(message as MultiSignature))
-          as MultiSignature; // ignore: deprecated_member_use
+          as MultiSignature;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MultiSignature create() => MultiSignature._();
   MultiSignature createEmptyInstance() => create();
@@ -68,50 +70,43 @@ class MultiSignature extends $pb.GeneratedMessage {
   $core.List<$core.List<$core.int>> get signatures => $_getList(0);
 }
 
+/// CompactBitArray is an implementation of a space efficient bit array.
+/// This is used to ensure that the encoded data takes up a minimal amount of
+/// space after proto encoding.
+/// This is not thread safe, and is not intended for concurrent usage.
 class CompactBitArray extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CompactBitArray',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.multisig.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$core.int>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'extraBitsStored',
-        $pb.PbFieldType.OU3)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'elems',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  CompactBitArray._() : super();
   factory CompactBitArray({
     $core.int? extraBitsStored,
     $core.List<$core.int>? elems,
   }) {
-    final _result = create();
+    final $result = create();
     if (extraBitsStored != null) {
-      _result.extraBitsStored = extraBitsStored;
+      $result.extraBitsStored = extraBitsStored;
     }
     if (elems != null) {
-      _result.elems = elems;
+      $result.elems = elems;
     }
-    return _result;
+    return $result;
   }
+  CompactBitArray._() : super();
   factory CompactBitArray.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CompactBitArray.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CompactBitArray',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.multisig.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(
+        1, _omitFieldNames ? '' : 'extraBitsStored', $pb.PbFieldType.OU3)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'elems', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -121,8 +116,10 @@ class CompactBitArray extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   CompactBitArray copyWith(void Function(CompactBitArray) updates) =>
       super.copyWith((message) => updates(message as CompactBitArray))
-          as CompactBitArray; // ignore: deprecated_member_use
+          as CompactBitArray;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CompactBitArray create() => CompactBitArray._();
   CompactBitArray createEmptyInstance() => create();
@@ -157,3 +154,7 @@ class CompactBitArray extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearElems() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

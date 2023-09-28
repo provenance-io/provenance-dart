@@ -1,65 +1,23 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/applications/fee/v1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'fee.pb.dart' as $0;
 import '../../../core/channel/v1/channel.pb.dart' as $1;
+import 'fee.pb.dart' as $0;
 
+/// GenesisState defines the ICS29 fee middleware genesis state
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..pc<$0.IdentifiedPacketFees>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'identifiedFees',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.IdentifiedPacketFees.create)
-    ..pc<FeeEnabledChannel>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'feeEnabledChannels',
-        $pb.PbFieldType.PM,
-        subBuilder: FeeEnabledChannel.create)
-    ..pc<RegisteredPayee>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'registeredPayees',
-        $pb.PbFieldType.PM,
-        subBuilder: RegisteredPayee.create)
-    ..pc<RegisteredCounterpartyPayee>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'registeredCounterpartyPayees',
-        $pb.PbFieldType.PM,
-        subBuilder: RegisteredCounterpartyPayee.create)
-    ..pc<ForwardRelayerAddress>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'forwardRelayers',
-        $pb.PbFieldType.PM,
-        subBuilder: ForwardRelayerAddress.create)
-    ..hasRequiredFields = false;
-
-  GenesisState._() : super();
   factory GenesisState({
     $core.Iterable<$0.IdentifiedPacketFees>? identifiedFees,
     $core.Iterable<FeeEnabledChannel>? feeEnabledChannels,
@@ -67,30 +25,56 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.Iterable<RegisteredCounterpartyPayee>? registeredCounterpartyPayees,
     $core.Iterable<ForwardRelayerAddress>? forwardRelayers,
   }) {
-    final _result = create();
+    final $result = create();
     if (identifiedFees != null) {
-      _result.identifiedFees.addAll(identifiedFees);
+      $result.identifiedFees.addAll(identifiedFees);
     }
     if (feeEnabledChannels != null) {
-      _result.feeEnabledChannels.addAll(feeEnabledChannels);
+      $result.feeEnabledChannels.addAll(feeEnabledChannels);
     }
     if (registeredPayees != null) {
-      _result.registeredPayees.addAll(registeredPayees);
+      $result.registeredPayees.addAll(registeredPayees);
     }
     if (registeredCounterpartyPayees != null) {
-      _result.registeredCounterpartyPayees.addAll(registeredCounterpartyPayees);
+      $result.registeredCounterpartyPayees.addAll(registeredCounterpartyPayees);
     }
     if (forwardRelayers != null) {
-      _result.forwardRelayers.addAll(forwardRelayers);
+      $result.forwardRelayers.addAll(forwardRelayers);
     }
-    return _result;
+    return $result;
   }
+  GenesisState._() : super();
   factory GenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisState',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..pc<$0.IdentifiedPacketFees>(
+        1, _omitFieldNames ? '' : 'identifiedFees', $pb.PbFieldType.PM,
+        subBuilder: $0.IdentifiedPacketFees.create)
+    ..pc<FeeEnabledChannel>(
+        2, _omitFieldNames ? '' : 'feeEnabledChannels', $pb.PbFieldType.PM,
+        subBuilder: FeeEnabledChannel.create)
+    ..pc<RegisteredPayee>(
+        3, _omitFieldNames ? '' : 'registeredPayees', $pb.PbFieldType.PM,
+        subBuilder: RegisteredPayee.create)
+    ..pc<RegisteredCounterpartyPayee>(
+        4,
+        _omitFieldNames ? '' : 'registeredCounterpartyPayees',
+        $pb.PbFieldType.PM,
+        subBuilder: RegisteredCounterpartyPayee.create)
+    ..pc<ForwardRelayerAddress>(
+        5, _omitFieldNames ? '' : 'forwardRelayers', $pb.PbFieldType.PM,
+        subBuilder: ForwardRelayerAddress.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -100,8 +84,10 @@ class GenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState copyWith(void Function(GenesisState) updates) =>
       super.copyWith((message) => updates(message as GenesisState))
-          as GenesisState; // ignore: deprecated_member_use
+          as GenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
@@ -112,65 +98,60 @@ class GenesisState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
   static GenesisState? _defaultInstance;
 
+  /// list of identified packet fees
   @$pb.TagNumber(1)
   $core.List<$0.IdentifiedPacketFees> get identifiedFees => $_getList(0);
 
+  /// list of fee enabled channels
   @$pb.TagNumber(2)
   $core.List<FeeEnabledChannel> get feeEnabledChannels => $_getList(1);
 
+  /// list of registered payees
   @$pb.TagNumber(3)
   $core.List<RegisteredPayee> get registeredPayees => $_getList(2);
 
+  /// list of registered counterparty payees
   @$pb.TagNumber(4)
   $core.List<RegisteredCounterpartyPayee> get registeredCounterpartyPayees =>
       $_getList(3);
 
+  /// list of forward relayer addresses
   @$pb.TagNumber(5)
   $core.List<ForwardRelayerAddress> get forwardRelayers => $_getList(4);
 }
 
+/// FeeEnabledChannel contains the PortID & ChannelID for a fee enabled channel
 class FeeEnabledChannel extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'FeeEnabledChannel',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..hasRequiredFields = false;
-
-  FeeEnabledChannel._() : super();
   factory FeeEnabledChannel({
     $core.String? portId,
     $core.String? channelId,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
-    return _result;
+    return $result;
   }
+  FeeEnabledChannel._() : super();
   factory FeeEnabledChannel.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory FeeEnabledChannel.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FeeEnabledChannel',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -180,8 +161,10 @@ class FeeEnabledChannel extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   FeeEnabledChannel copyWith(void Function(FeeEnabledChannel) updates) =>
       super.copyWith((message) => updates(message as FeeEnabledChannel))
-          as FeeEnabledChannel; // ignore: deprecated_member_use
+          as FeeEnabledChannel;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static FeeEnabledChannel create() => FeeEnabledChannel._();
   FeeEnabledChannel createEmptyInstance() => create();
@@ -192,6 +175,7 @@ class FeeEnabledChannel extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<FeeEnabledChannel>(create);
   static FeeEnabledChannel? _defaultInstance;
 
+  /// unique port identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -204,6 +188,7 @@ class FeeEnabledChannel extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// unique channel identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -217,57 +202,43 @@ class FeeEnabledChannel extends $pb.GeneratedMessage {
   void clearChannelId() => clearField(2);
 }
 
+/// RegisteredPayee contains the relayer address and payee address for a specific channel
 class RegisteredPayee extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RegisteredPayee',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'relayer')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'payee')
-    ..hasRequiredFields = false;
-
-  RegisteredPayee._() : super();
   factory RegisteredPayee({
     $core.String? channelId,
     $core.String? relayer,
     $core.String? payee,
   }) {
-    final _result = create();
+    final $result = create();
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (relayer != null) {
-      _result.relayer = relayer;
+      $result.relayer = relayer;
     }
     if (payee != null) {
-      _result.payee = payee;
+      $result.payee = payee;
     }
-    return _result;
+    return $result;
   }
+  RegisteredPayee._() : super();
   factory RegisteredPayee.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RegisteredPayee.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RegisteredPayee',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'relayer')
+    ..aOS(3, _omitFieldNames ? '' : 'payee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -277,8 +248,10 @@ class RegisteredPayee extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   RegisteredPayee copyWith(void Function(RegisteredPayee) updates) =>
       super.copyWith((message) => updates(message as RegisteredPayee))
-          as RegisteredPayee; // ignore: deprecated_member_use
+          as RegisteredPayee;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RegisteredPayee create() => RegisteredPayee._();
   RegisteredPayee createEmptyInstance() => create();
@@ -289,6 +262,7 @@ class RegisteredPayee extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<RegisteredPayee>(create);
   static RegisteredPayee? _defaultInstance;
 
+  /// unique channel identifier
   @$pb.TagNumber(1)
   $core.String get channelId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -301,6 +275,7 @@ class RegisteredPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearChannelId() => clearField(1);
 
+  /// the relayer address
   @$pb.TagNumber(2)
   $core.String get relayer => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -313,6 +288,7 @@ class RegisteredPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearRelayer() => clearField(2);
 
+  /// the payee address
   @$pb.TagNumber(3)
   $core.String get payee => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -326,57 +302,44 @@ class RegisteredPayee extends $pb.GeneratedMessage {
   void clearPayee() => clearField(3);
 }
 
+/// RegisteredCounterpartyPayee contains the relayer address and counterparty payee address for a specific channel (used
+/// for recv fee distribution)
 class RegisteredCounterpartyPayee extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RegisteredCounterpartyPayee',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'relayer')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'counterpartyPayee')
-    ..hasRequiredFields = false;
-
-  RegisteredCounterpartyPayee._() : super();
   factory RegisteredCounterpartyPayee({
     $core.String? channelId,
     $core.String? relayer,
     $core.String? counterpartyPayee,
   }) {
-    final _result = create();
+    final $result = create();
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (relayer != null) {
-      _result.relayer = relayer;
+      $result.relayer = relayer;
     }
     if (counterpartyPayee != null) {
-      _result.counterpartyPayee = counterpartyPayee;
+      $result.counterpartyPayee = counterpartyPayee;
     }
-    return _result;
+    return $result;
   }
+  RegisteredCounterpartyPayee._() : super();
   factory RegisteredCounterpartyPayee.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RegisteredCounterpartyPayee.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RegisteredCounterpartyPayee',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'relayer')
+    ..aOS(3, _omitFieldNames ? '' : 'counterpartyPayee')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -389,8 +352,10 @@ class RegisteredCounterpartyPayee extends $pb.GeneratedMessage {
           void Function(RegisteredCounterpartyPayee) updates) =>
       super.copyWith(
               (message) => updates(message as RegisteredCounterpartyPayee))
-          as RegisteredCounterpartyPayee; // ignore: deprecated_member_use
+          as RegisteredCounterpartyPayee;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RegisteredCounterpartyPayee create() =>
       RegisteredCounterpartyPayee._();
@@ -402,6 +367,7 @@ class RegisteredCounterpartyPayee extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<RegisteredCounterpartyPayee>(create);
   static RegisteredCounterpartyPayee? _defaultInstance;
 
+  /// unique channel identifier
   @$pb.TagNumber(1)
   $core.String get channelId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -414,6 +380,7 @@ class RegisteredCounterpartyPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearChannelId() => clearField(1);
 
+  /// the relayer address
   @$pb.TagNumber(2)
   $core.String get relayer => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -426,6 +393,7 @@ class RegisteredCounterpartyPayee extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearRelayer() => clearField(2);
 
+  /// the counterparty payee address
   @$pb.TagNumber(3)
   $core.String get counterpartyPayee => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -439,49 +407,39 @@ class RegisteredCounterpartyPayee extends $pb.GeneratedMessage {
   void clearCounterpartyPayee() => clearField(3);
 }
 
+/// ForwardRelayerAddress contains the forward relayer address and PacketId used for async acknowledgements
 class ForwardRelayerAddress extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ForwardRelayerAddress',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.applications.fee.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOM<$1.PacketId>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetId',
-        subBuilder: $1.PacketId.create)
-    ..hasRequiredFields = false;
-
-  ForwardRelayerAddress._() : super();
   factory ForwardRelayerAddress({
     $core.String? address,
     $1.PacketId? packetId,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (packetId != null) {
-      _result.packetId = packetId;
+      $result.packetId = packetId;
     }
-    return _result;
+    return $result;
   }
+  ForwardRelayerAddress._() : super();
   factory ForwardRelayerAddress.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ForwardRelayerAddress.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ForwardRelayerAddress',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'ibc.applications.fee.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOM<$1.PacketId>(2, _omitFieldNames ? '' : 'packetId',
+        subBuilder: $1.PacketId.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -493,8 +451,10 @@ class ForwardRelayerAddress extends $pb.GeneratedMessage {
   ForwardRelayerAddress copyWith(
           void Function(ForwardRelayerAddress) updates) =>
       super.copyWith((message) => updates(message as ForwardRelayerAddress))
-          as ForwardRelayerAddress; // ignore: deprecated_member_use
+          as ForwardRelayerAddress;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ForwardRelayerAddress create() => ForwardRelayerAddress._();
   ForwardRelayerAddress createEmptyInstance() => create();
@@ -505,6 +465,7 @@ class ForwardRelayerAddress extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ForwardRelayerAddress>(create);
   static ForwardRelayerAddress? _defaultInstance;
 
+  /// the forward relayer address
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -517,6 +478,7 @@ class ForwardRelayerAddress extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// unique packet identifer comprised of the channel ID, port ID and sequence
   @$pb.TagNumber(2)
   $1.PacketId get packetId => $_getN(1);
   @$pb.TagNumber(2)
@@ -531,3 +493,7 @@ class ForwardRelayerAddress extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $1.PacketId ensurePacketId() => $_ensure(1);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -1,36 +1,26 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/authz/v1beta1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-import 'dart:core' as $core;
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:convert' as $convert;
+import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use queryGrantsRequestDescriptor instead')
-const QueryGrantsRequest$json = const {
+const QueryGrantsRequest$json = {
   '1': 'QueryGrantsRequest',
-  '2': const [
-    const {
-      '1': 'granter',
-      '3': 1,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'granter'
-    },
-    const {
-      '1': 'grantee',
-      '3': 2,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'grantee'
-    },
-    const {'1': 'msg_type_url', '3': 3, '4': 1, '5': 9, '10': 'msgTypeUrl'},
-    const {
+  '2': [
+    {'1': 'granter', '3': 1, '4': 1, '5': 9, '8': {}, '10': 'granter'},
+    {'1': 'grantee', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'grantee'},
+    {'1': 'msg_type_url', '3': 3, '4': 1, '5': 9, '10': 'msgTypeUrl'},
+    {
       '1': 'pagination',
       '3': 4,
       '4': 1,
@@ -43,12 +33,17 @@ const QueryGrantsRequest$json = const {
 
 /// Descriptor for `QueryGrantsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryGrantsRequestDescriptor = $convert.base64Decode(
-    'ChJRdWVyeUdyYW50c1JlcXVlc3QSMgoHZ3JhbnRlchgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdncmFudGVyEjIKB2dyYW50ZWUYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlZRIgCgxtc2dfdHlwZV91cmwYAyABKAlSCm1zZ1R5cGVVcmwSRgoKcGFnaW5hdGlvbhgEIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBhZ2luYXRpb24=');
+    'ChJRdWVyeUdyYW50c1JlcXVlc3QSMgoHZ3JhbnRlchgBIAEoCUIY0rQtFGNvc21vcy5BZGRyZX'
+    'NzU3RyaW5nUgdncmFudGVyEjIKB2dyYW50ZWUYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0'
+    'cmluZ1IHZ3JhbnRlZRIgCgxtc2dfdHlwZV91cmwYAyABKAlSCm1zZ1R5cGVVcmwSRgoKcGFnaW'
+    '5hdGlvbhgEIAEoCzImLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlcXVlc3RSCnBh'
+    'Z2luYXRpb24=');
+
 @$core.Deprecated('Use queryGrantsResponseDescriptor instead')
-const QueryGrantsResponse$json = const {
+const QueryGrantsResponse$json = {
   '1': 'QueryGrantsResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'grants',
       '3': 1,
       '4': 3,
@@ -56,7 +51,7 @@ const QueryGrantsResponse$json = const {
       '6': '.cosmos.authz.v1beta1.Grant',
       '10': 'grants'
     },
-    const {
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -69,20 +64,16 @@ const QueryGrantsResponse$json = const {
 
 /// Descriptor for `QueryGrantsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryGrantsResponseDescriptor = $convert.base64Decode(
-    'ChNRdWVyeUdyYW50c1Jlc3BvbnNlEjMKBmdyYW50cxgBIAMoCzIbLmNvc21vcy5hdXRoei52MWJldGExLkdyYW50UgZncmFudHMSRwoKcGFnaW5hdGlvbhgCIAEoCzInLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlc3BvbnNlUgpwYWdpbmF0aW9u');
+    'ChNRdWVyeUdyYW50c1Jlc3BvbnNlEjMKBmdyYW50cxgBIAMoCzIbLmNvc21vcy5hdXRoei52MW'
+    'JldGExLkdyYW50UgZncmFudHMSRwoKcGFnaW5hdGlvbhgCIAEoCzInLmNvc21vcy5iYXNlLnF1'
+    'ZXJ5LnYxYmV0YTEuUGFnZVJlc3BvbnNlUgpwYWdpbmF0aW9u');
+
 @$core.Deprecated('Use queryGranterGrantsRequestDescriptor instead')
-const QueryGranterGrantsRequest$json = const {
+const QueryGranterGrantsRequest$json = {
   '1': 'QueryGranterGrantsRequest',
-  '2': const [
-    const {
-      '1': 'granter',
-      '3': 1,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'granter'
-    },
-    const {
+  '2': [
+    {'1': 'granter', '3': 1, '4': 1, '5': 9, '8': {}, '10': 'granter'},
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -94,14 +85,16 @@ const QueryGranterGrantsRequest$json = const {
 };
 
 /// Descriptor for `QueryGranterGrantsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryGranterGrantsRequestDescriptor =
-    $convert.base64Decode(
-        'ChlRdWVyeUdyYW50ZXJHcmFudHNSZXF1ZXN0EjIKB2dyYW50ZXIYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlchJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+final $typed_data.Uint8List queryGranterGrantsRequestDescriptor = $convert.base64Decode(
+    'ChlRdWVyeUdyYW50ZXJHcmFudHNSZXF1ZXN0EjIKB2dyYW50ZXIYASABKAlCGNK0LRRjb3Ntb3'
+    'MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlchJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJh'
+    'c2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryGranterGrantsResponseDescriptor instead')
-const QueryGranterGrantsResponse$json = const {
+const QueryGranterGrantsResponse$json = {
   '1': 'QueryGranterGrantsResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'grants',
       '3': 1,
       '4': 3,
@@ -109,7 +102,7 @@ const QueryGranterGrantsResponse$json = const {
       '6': '.cosmos.authz.v1beta1.GrantAuthorization',
       '10': 'grants'
     },
-    const {
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -121,22 +114,18 @@ const QueryGranterGrantsResponse$json = const {
 };
 
 /// Descriptor for `QueryGranterGrantsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryGranterGrantsResponseDescriptor =
-    $convert.base64Decode(
-        'ChpRdWVyeUdyYW50ZXJHcmFudHNSZXNwb25zZRJACgZncmFudHMYASADKAsyKC5jb3Ntb3MuYXV0aHoudjFiZXRhMS5HcmFudEF1dGhvcml6YXRpb25SBmdyYW50cxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');
+final $typed_data.Uint8List queryGranterGrantsResponseDescriptor = $convert.base64Decode(
+    'ChpRdWVyeUdyYW50ZXJHcmFudHNSZXNwb25zZRJACgZncmFudHMYASADKAsyKC5jb3Ntb3MuYX'
+    'V0aHoudjFiZXRhMS5HcmFudEF1dGhvcml6YXRpb25SBmdyYW50cxJHCgpwYWdpbmF0aW9uGAIg'
+    'ASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb2'
+    '4=');
+
 @$core.Deprecated('Use queryGranteeGrantsRequestDescriptor instead')
-const QueryGranteeGrantsRequest$json = const {
+const QueryGranteeGrantsRequest$json = {
   '1': 'QueryGranteeGrantsRequest',
-  '2': const [
-    const {
-      '1': 'grantee',
-      '3': 1,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'grantee'
-    },
-    const {
+  '2': [
+    {'1': 'grantee', '3': 1, '4': 1, '5': 9, '8': {}, '10': 'grantee'},
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -148,14 +137,16 @@ const QueryGranteeGrantsRequest$json = const {
 };
 
 /// Descriptor for `QueryGranteeGrantsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryGranteeGrantsRequestDescriptor =
-    $convert.base64Decode(
-        'ChlRdWVyeUdyYW50ZWVHcmFudHNSZXF1ZXN0EjIKB2dyYW50ZWUYASABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlZRJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+final $typed_data.Uint8List queryGranteeGrantsRequestDescriptor = $convert.base64Decode(
+    'ChlRdWVyeUdyYW50ZWVHcmFudHNSZXF1ZXN0EjIKB2dyYW50ZWUYASABKAlCGNK0LRRjb3Ntb3'
+    'MuQWRkcmVzc1N0cmluZ1IHZ3JhbnRlZRJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJh'
+    'c2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryGranteeGrantsResponseDescriptor instead')
-const QueryGranteeGrantsResponse$json = const {
+const QueryGranteeGrantsResponse$json = {
   '1': 'QueryGranteeGrantsResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'grants',
       '3': 1,
       '4': 3,
@@ -163,7 +154,7 @@ const QueryGranteeGrantsResponse$json = const {
       '6': '.cosmos.authz.v1beta1.GrantAuthorization',
       '10': 'grants'
     },
-    const {
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -175,6 +166,8 @@ const QueryGranteeGrantsResponse$json = const {
 };
 
 /// Descriptor for `QueryGranteeGrantsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryGranteeGrantsResponseDescriptor =
-    $convert.base64Decode(
-        'ChpRdWVyeUdyYW50ZWVHcmFudHNSZXNwb25zZRJACgZncmFudHMYASADKAsyKC5jb3Ntb3MuYXV0aHoudjFiZXRhMS5HcmFudEF1dGhvcml6YXRpb25SBmdyYW50cxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');
+final $typed_data.Uint8List queryGranteeGrantsResponseDescriptor = $convert.base64Decode(
+    'ChpRdWVyeUdyYW50ZWVHcmFudHNSZXNwb25zZRJACgZncmFudHMYASADKAsyKC5jb3Ntb3MuYX'
+    'V0aHoudjFiZXRhMS5HcmFudEF1dGhvcml6YXRpb25SBmdyYW50cxJHCgpwYWdpbmF0aW9uGAIg'
+    'ASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb2'
+    '4=');

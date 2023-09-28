@@ -1,19 +1,23 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/applications/transfer/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-import 'dart:core' as $core;
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:convert' as $convert;
+import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use queryDenomTraceRequestDescriptor instead')
-const QueryDenomTraceRequest$json = const {
+const QueryDenomTraceRequest$json = {
   '1': 'QueryDenomTraceRequest',
-  '2': const [
-    const {'1': 'hash', '3': 1, '4': 1, '5': 9, '10': 'hash'},
+  '2': [
+    {'1': 'hash', '3': 1, '4': 1, '5': 9, '10': 'hash'},
   ],
 };
 
@@ -21,11 +25,12 @@ const QueryDenomTraceRequest$json = const {
 final $typed_data.Uint8List queryDenomTraceRequestDescriptor =
     $convert.base64Decode(
         'ChZRdWVyeURlbm9tVHJhY2VSZXF1ZXN0EhIKBGhhc2gYASABKAlSBGhhc2g=');
+
 @$core.Deprecated('Use queryDenomTraceResponseDescriptor instead')
-const QueryDenomTraceResponse$json = const {
+const QueryDenomTraceResponse$json = {
   '1': 'QueryDenomTraceResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'denom_trace',
       '3': 1,
       '4': 1,
@@ -39,12 +44,14 @@ const QueryDenomTraceResponse$json = const {
 /// Descriptor for `QueryDenomTraceResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDenomTraceResponseDescriptor =
     $convert.base64Decode(
-        'ChdRdWVyeURlbm9tVHJhY2VSZXNwb25zZRJJCgtkZW5vbV90cmFjZRgBIAEoCzIoLmliYy5hcHBsaWNhdGlvbnMudHJhbnNmZXIudjEuRGVub21UcmFjZVIKZGVub21UcmFjZQ==');
+        'ChdRdWVyeURlbm9tVHJhY2VSZXNwb25zZRJJCgtkZW5vbV90cmFjZRgBIAEoCzIoLmliYy5hcH'
+        'BsaWNhdGlvbnMudHJhbnNmZXIudjEuRGVub21UcmFjZVIKZGVub21UcmFjZQ==');
+
 @$core.Deprecated('Use queryDenomTracesRequestDescriptor instead')
-const QueryDenomTracesRequest$json = const {
+const QueryDenomTracesRequest$json = {
   '1': 'QueryDenomTracesRequest',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'pagination',
       '3': 1,
       '4': 1,
@@ -58,21 +65,23 @@ const QueryDenomTracesRequest$json = const {
 /// Descriptor for `QueryDenomTracesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDenomTracesRequestDescriptor =
     $convert.base64Decode(
-        'ChdRdWVyeURlbm9tVHJhY2VzUmVxdWVzdBJGCgpwYWdpbmF0aW9uGAEgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+        'ChdRdWVyeURlbm9tVHJhY2VzUmVxdWVzdBJGCgpwYWdpbmF0aW9uGAEgASgLMiYuY29zbW9zLm'
+        'Jhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryDenomTracesResponseDescriptor instead')
-const QueryDenomTracesResponse$json = const {
+const QueryDenomTracesResponse$json = {
   '1': 'QueryDenomTracesResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'denom_traces',
       '3': 1,
       '4': 3,
       '5': 11,
       '6': '.ibc.applications.transfer.v1.DenomTrace',
-      '8': const {},
+      '8': {},
       '10': 'denomTraces'
     },
-    const {
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -84,22 +93,26 @@ const QueryDenomTracesResponse$json = const {
 };
 
 /// Descriptor for `QueryDenomTracesResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryDenomTracesResponseDescriptor =
-    $convert.base64Decode(
-        'ChhRdWVyeURlbm9tVHJhY2VzUmVzcG9uc2USWwoMZGVub21fdHJhY2VzGAEgAygLMiguaWJjLmFwcGxpY2F0aW9ucy50cmFuc2Zlci52MS5EZW5vbVRyYWNlQg6q3x8GVHJhY2VzyN4fAFILZGVub21UcmFjZXMSRwoKcGFnaW5hdGlvbhgCIAEoCzInLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YTEuUGFnZVJlc3BvbnNlUgpwYWdpbmF0aW9u');
+final $typed_data.Uint8List queryDenomTracesResponseDescriptor = $convert.base64Decode(
+    'ChhRdWVyeURlbm9tVHJhY2VzUmVzcG9uc2USWwoMZGVub21fdHJhY2VzGAEgAygLMiguaWJjLm'
+    'FwcGxpY2F0aW9ucy50cmFuc2Zlci52MS5EZW5vbVRyYWNlQg7I3h8Aqt8fBlRyYWNlc1ILZGVu'
+    'b21UcmFjZXMSRwoKcGFnaW5hdGlvbhgCIAEoCzInLmNvc21vcy5iYXNlLnF1ZXJ5LnYxYmV0YT'
+    'EuUGFnZVJlc3BvbnNlUgpwYWdpbmF0aW9u');
+
 @$core.Deprecated('Use queryParamsRequestDescriptor instead')
-const QueryParamsRequest$json = const {
+const QueryParamsRequest$json = {
   '1': 'QueryParamsRequest',
 };
 
 /// Descriptor for `QueryParamsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryParamsRequestDescriptor =
     $convert.base64Decode('ChJRdWVyeVBhcmFtc1JlcXVlc3Q=');
+
 @$core.Deprecated('Use queryParamsResponseDescriptor instead')
-const QueryParamsResponse$json = const {
+const QueryParamsResponse$json = {
   '1': 'QueryParamsResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'params',
       '3': 1,
       '4': 1,
@@ -112,12 +125,14 @@ const QueryParamsResponse$json = const {
 
 /// Descriptor for `QueryParamsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryParamsResponseDescriptor = $convert.base64Decode(
-    'ChNRdWVyeVBhcmFtc1Jlc3BvbnNlEjwKBnBhcmFtcxgBIAEoCzIkLmliYy5hcHBsaWNhdGlvbnMudHJhbnNmZXIudjEuUGFyYW1zUgZwYXJhbXM=');
+    'ChNRdWVyeVBhcmFtc1Jlc3BvbnNlEjwKBnBhcmFtcxgBIAEoCzIkLmliYy5hcHBsaWNhdGlvbn'
+    'MudHJhbnNmZXIudjEuUGFyYW1zUgZwYXJhbXM=');
+
 @$core.Deprecated('Use queryDenomHashRequestDescriptor instead')
-const QueryDenomHashRequest$json = const {
+const QueryDenomHashRequest$json = {
   '1': 'QueryDenomHashRequest',
-  '2': const [
-    const {'1': 'trace', '3': 1, '4': 1, '5': 9, '10': 'trace'},
+  '2': [
+    {'1': 'trace', '3': 1, '4': 1, '5': 9, '10': 'trace'},
   ],
 };
 
@@ -125,11 +140,12 @@ const QueryDenomHashRequest$json = const {
 final $typed_data.Uint8List queryDenomHashRequestDescriptor =
     $convert.base64Decode(
         'ChVRdWVyeURlbm9tSGFzaFJlcXVlc3QSFAoFdHJhY2UYASABKAlSBXRyYWNl');
+
 @$core.Deprecated('Use queryDenomHashResponseDescriptor instead')
-const QueryDenomHashResponse$json = const {
+const QueryDenomHashResponse$json = {
   '1': 'QueryDenomHashResponse',
-  '2': const [
-    const {'1': 'hash', '3': 1, '4': 1, '5': 9, '10': 'hash'},
+  '2': [
+    {'1': 'hash', '3': 1, '4': 1, '5': 9, '10': 'hash'},
   ],
 };
 
@@ -137,34 +153,32 @@ const QueryDenomHashResponse$json = const {
 final $typed_data.Uint8List queryDenomHashResponseDescriptor =
     $convert.base64Decode(
         'ChZRdWVyeURlbm9tSGFzaFJlc3BvbnNlEhIKBGhhc2gYASABKAlSBGhhc2g=');
+
 @$core.Deprecated('Use queryEscrowAddressRequestDescriptor instead')
-const QueryEscrowAddressRequest$json = const {
+const QueryEscrowAddressRequest$json = {
   '1': 'QueryEscrowAddressRequest',
-  '2': const [
-    const {'1': 'port_id', '3': 1, '4': 1, '5': 9, '10': 'portId'},
-    const {'1': 'channel_id', '3': 2, '4': 1, '5': 9, '10': 'channelId'},
+  '2': [
+    {'1': 'port_id', '3': 1, '4': 1, '5': 9, '10': 'portId'},
+    {'1': 'channel_id', '3': 2, '4': 1, '5': 9, '10': 'channelId'},
   ],
 };
 
 /// Descriptor for `QueryEscrowAddressRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryEscrowAddressRequestDescriptor =
     $convert.base64Decode(
-        'ChlRdWVyeUVzY3Jvd0FkZHJlc3NSZXF1ZXN0EhcKB3BvcnRfaWQYASABKAlSBnBvcnRJZBIdCgpjaGFubmVsX2lkGAIgASgJUgljaGFubmVsSWQ=');
+        'ChlRdWVyeUVzY3Jvd0FkZHJlc3NSZXF1ZXN0EhcKB3BvcnRfaWQYASABKAlSBnBvcnRJZBIdCg'
+        'pjaGFubmVsX2lkGAIgASgJUgljaGFubmVsSWQ=');
+
 @$core.Deprecated('Use queryEscrowAddressResponseDescriptor instead')
-const QueryEscrowAddressResponse$json = const {
+const QueryEscrowAddressResponse$json = {
   '1': 'QueryEscrowAddressResponse',
-  '2': const [
-    const {
-      '1': 'escrow_address',
-      '3': 1,
-      '4': 1,
-      '5': 9,
-      '10': 'escrowAddress'
-    },
+  '2': [
+    {'1': 'escrow_address', '3': 1, '4': 1, '5': 9, '10': 'escrowAddress'},
   ],
 };
 
 /// Descriptor for `QueryEscrowAddressResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryEscrowAddressResponseDescriptor =
     $convert.base64Decode(
-        'ChpRdWVyeUVzY3Jvd0FkZHJlc3NSZXNwb25zZRIlCg5lc2Nyb3dfYWRkcmVzcxgBIAEoCVINZXNjcm93QWRkcmVzcw==');
+        'ChpRdWVyeUVzY3Jvd0FkZHJlc3NSZXNwb25zZRIlCg5lc2Nyb3dfYWRkcmVzcxgBIAEoCVINZX'
+        'Njcm93QWRkcmVzcw==');

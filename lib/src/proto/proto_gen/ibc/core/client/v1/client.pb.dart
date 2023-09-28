@@ -1,61 +1,56 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/client/v1/client.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../../google/protobuf/any.pb.dart' as $0;
 import '../../../../cosmos/upgrade/v1beta1/upgrade.pb.dart' as $1;
+import '../../../../google/protobuf/any.pb.dart' as $0;
 
+/// IdentifiedClientState defines a client state with an additional client
+/// identifier field.
 class IdentifiedClientState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'IdentifiedClientState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..aOM<$0.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientState',
-        subBuilder: $0.Any.create)
-    ..hasRequiredFields = false;
-
-  IdentifiedClientState._() : super();
   factory IdentifiedClientState({
     $core.String? clientId,
     $0.Any? clientState,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (clientState != null) {
-      _result.clientState = clientState;
+      $result.clientState = clientState;
     }
-    return _result;
+    return $result;
   }
+  IdentifiedClientState._() : super();
   factory IdentifiedClientState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory IdentifiedClientState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'IdentifiedClientState',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..aOM<$0.Any>(2, _omitFieldNames ? '' : 'clientState',
+        subBuilder: $0.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -67,8 +62,10 @@ class IdentifiedClientState extends $pb.GeneratedMessage {
   IdentifiedClientState copyWith(
           void Function(IdentifiedClientState) updates) =>
       super.copyWith((message) => updates(message as IdentifiedClientState))
-          as IdentifiedClientState; // ignore: deprecated_member_use
+          as IdentifiedClientState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static IdentifiedClientState create() => IdentifiedClientState._();
   IdentifiedClientState createEmptyInstance() => create();
@@ -79,6 +76,7 @@ class IdentifiedClientState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<IdentifiedClientState>(create);
   static IdentifiedClientState? _defaultInstance;
 
+  /// client identifier
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -91,6 +89,7 @@ class IdentifiedClientState extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// client state
   @$pb.TagNumber(2)
   $0.Any get clientState => $_getN(1);
   @$pb.TagNumber(2)
@@ -106,50 +105,40 @@ class IdentifiedClientState extends $pb.GeneratedMessage {
   $0.Any ensureClientState() => $_ensure(1);
 }
 
+/// ConsensusStateWithHeight defines a consensus state with an additional height
+/// field.
 class ConsensusStateWithHeight extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ConsensusStateWithHeight',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOM<Height>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        subBuilder: Height.create)
-    ..aOM<$0.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusState',
-        subBuilder: $0.Any.create)
-    ..hasRequiredFields = false;
-
-  ConsensusStateWithHeight._() : super();
   factory ConsensusStateWithHeight({
     Height? height,
     $0.Any? consensusState,
   }) {
-    final _result = create();
+    final $result = create();
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
     if (consensusState != null) {
-      _result.consensusState = consensusState;
+      $result.consensusState = consensusState;
     }
-    return _result;
+    return $result;
   }
+  ConsensusStateWithHeight._() : super();
   factory ConsensusStateWithHeight.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ConsensusStateWithHeight.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ConsensusStateWithHeight',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOM<Height>(1, _omitFieldNames ? '' : 'height', subBuilder: Height.create)
+    ..aOM<$0.Any>(2, _omitFieldNames ? '' : 'consensusState',
+        subBuilder: $0.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -161,8 +150,10 @@ class ConsensusStateWithHeight extends $pb.GeneratedMessage {
   ConsensusStateWithHeight copyWith(
           void Function(ConsensusStateWithHeight) updates) =>
       super.copyWith((message) => updates(message as ConsensusStateWithHeight))
-          as ConsensusStateWithHeight; // ignore: deprecated_member_use
+          as ConsensusStateWithHeight;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ConsensusStateWithHeight create() => ConsensusStateWithHeight._();
   ConsensusStateWithHeight createEmptyInstance() => create();
@@ -173,6 +164,7 @@ class ConsensusStateWithHeight extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ConsensusStateWithHeight>(create);
   static ConsensusStateWithHeight? _defaultInstance;
 
+  /// consensus state height
   @$pb.TagNumber(1)
   Height get height => $_getN(0);
   @$pb.TagNumber(1)
@@ -187,6 +179,7 @@ class ConsensusStateWithHeight extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   Height ensureHeight() => $_ensure(0);
 
+  /// consensus state
   @$pb.TagNumber(2)
   $0.Any get consensusState => $_getN(1);
   @$pb.TagNumber(2)
@@ -202,50 +195,41 @@ class ConsensusStateWithHeight extends $pb.GeneratedMessage {
   $0.Any ensureConsensusState() => $_ensure(1);
 }
 
+/// ClientConsensusStates defines all the stored consensus states for a given
+/// client.
 class ClientConsensusStates extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ClientConsensusStates',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..pc<ConsensusStateWithHeight>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusStates',
-        $pb.PbFieldType.PM,
-        subBuilder: ConsensusStateWithHeight.create)
-    ..hasRequiredFields = false;
-
-  ClientConsensusStates._() : super();
   factory ClientConsensusStates({
     $core.String? clientId,
     $core.Iterable<ConsensusStateWithHeight>? consensusStates,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (consensusStates != null) {
-      _result.consensusStates.addAll(consensusStates);
+      $result.consensusStates.addAll(consensusStates);
     }
-    return _result;
+    return $result;
   }
+  ClientConsensusStates._() : super();
   factory ClientConsensusStates.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClientConsensusStates.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ClientConsensusStates',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'clientId')
+    ..pc<ConsensusStateWithHeight>(
+        2, _omitFieldNames ? '' : 'consensusStates', $pb.PbFieldType.PM,
+        subBuilder: ConsensusStateWithHeight.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -257,8 +241,10 @@ class ClientConsensusStates extends $pb.GeneratedMessage {
   ClientConsensusStates copyWith(
           void Function(ClientConsensusStates) updates) =>
       super.copyWith((message) => updates(message as ClientConsensusStates))
-          as ClientConsensusStates; // ignore: deprecated_member_use
+          as ClientConsensusStates;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClientConsensusStates create() => ClientConsensusStates._();
   ClientConsensusStates createEmptyInstance() => create();
@@ -269,6 +255,7 @@ class ClientConsensusStates extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ClientConsensusStates>(create);
   static ClientConsensusStates? _defaultInstance;
 
+  /// client identifier
   @$pb.TagNumber(1)
   $core.String get clientId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -281,70 +268,56 @@ class ClientConsensusStates extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearClientId() => clearField(1);
 
+  /// consensus states and their heights associated with the client
   @$pb.TagNumber(2)
   $core.List<ConsensusStateWithHeight> get consensusStates => $_getList(1);
 }
 
+/// ClientUpdateProposal is a governance proposal. If it passes, the substitute
+/// client's latest consensus state is copied over to the subject client. The proposal
+/// handler may fail if the subject and the substitute do not match in client and
+/// chain parameters (with exception to latest height, frozen height, and chain-id).
 class ClientUpdateProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ClientUpdateProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'subjectClientId')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'substituteClientId')
-    ..hasRequiredFields = false;
-
-  ClientUpdateProposal._() : super();
   factory ClientUpdateProposal({
     $core.String? title,
     $core.String? description,
     $core.String? subjectClientId,
     $core.String? substituteClientId,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (subjectClientId != null) {
-      _result.subjectClientId = subjectClientId;
+      $result.subjectClientId = subjectClientId;
     }
     if (substituteClientId != null) {
-      _result.substituteClientId = substituteClientId;
+      $result.substituteClientId = substituteClientId;
     }
-    return _result;
+    return $result;
   }
+  ClientUpdateProposal._() : super();
   factory ClientUpdateProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClientUpdateProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ClientUpdateProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'subjectClientId')
+    ..aOS(4, _omitFieldNames ? '' : 'substituteClientId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -355,8 +328,10 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ClientUpdateProposal copyWith(void Function(ClientUpdateProposal) updates) =>
       super.copyWith((message) => updates(message as ClientUpdateProposal))
-          as ClientUpdateProposal; // ignore: deprecated_member_use
+          as ClientUpdateProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClientUpdateProposal create() => ClientUpdateProposal._();
   ClientUpdateProposal createEmptyInstance() => create();
@@ -367,6 +342,7 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ClientUpdateProposal>(create);
   static ClientUpdateProposal? _defaultInstance;
 
+  /// the title of the update proposal
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -379,6 +355,7 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearTitle() => clearField(1);
 
+  /// the description of the proposal
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -391,6 +368,7 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
+  /// the client identifier for the client to be updated if the proposal passes
   @$pb.TagNumber(3)
   $core.String get subjectClientId => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -403,6 +381,8 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearSubjectClientId() => clearField(3);
 
+  /// the substitute client identifier for the client standing in for the subject
+  /// client
   @$pb.TagNumber(4)
   $core.String get substituteClientId => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -416,68 +396,50 @@ class ClientUpdateProposal extends $pb.GeneratedMessage {
   void clearSubstituteClientId() => clearField(4);
 }
 
+/// UpgradeProposal is a gov Content type for initiating an IBC breaking
+/// upgrade.
 class UpgradeProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'UpgradeProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOM<$1.Plan>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'plan',
-        subBuilder: $1.Plan.create)
-    ..aOM<$0.Any>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'upgradedClientState',
-        subBuilder: $0.Any.create)
-    ..hasRequiredFields = false;
-
-  UpgradeProposal._() : super();
   factory UpgradeProposal({
     $core.String? title,
     $core.String? description,
     $1.Plan? plan,
     $0.Any? upgradedClientState,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (plan != null) {
-      _result.plan = plan;
+      $result.plan = plan;
     }
     if (upgradedClientState != null) {
-      _result.upgradedClientState = upgradedClientState;
+      $result.upgradedClientState = upgradedClientState;
     }
-    return _result;
+    return $result;
   }
+  UpgradeProposal._() : super();
   factory UpgradeProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory UpgradeProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpgradeProposal',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOM<$1.Plan>(3, _omitFieldNames ? '' : 'plan', subBuilder: $1.Plan.create)
+    ..aOM<$0.Any>(4, _omitFieldNames ? '' : 'upgradedClientState',
+        subBuilder: $0.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -487,8 +449,10 @@ class UpgradeProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   UpgradeProposal copyWith(void Function(UpgradeProposal) updates) =>
       super.copyWith((message) => updates(message as UpgradeProposal))
-          as UpgradeProposal; // ignore: deprecated_member_use
+          as UpgradeProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpgradeProposal create() => UpgradeProposal._();
   UpgradeProposal createEmptyInstance() => create();
@@ -537,6 +501,12 @@ class UpgradeProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $1.Plan ensurePlan() => $_ensure(2);
 
+  /// An UpgradedClientState must be provided to perform an IBC breaking upgrade.
+  /// This will make the chain commit to the correct upgraded (self) client state
+  /// before the upgrade occurs, so that connecting chains can verify that the
+  /// new upgraded client is valid by verifying a proof on the previous version
+  /// of the chain. This will allow IBC connections to persist smoothly across
+  /// planned chain upgrades
   @$pb.TagNumber(4)
   $0.Any get upgradedClientState => $_getN(3);
   @$pb.TagNumber(4)
@@ -552,52 +522,51 @@ class UpgradeProposal extends $pb.GeneratedMessage {
   $0.Any ensureUpgradedClientState() => $_ensure(3);
 }
 
+///  Height is a monotonically increasing data type
+///  that can be compared against another Height for the purposes of updating and
+///  freezing clients
+///
+///  Normally the RevisionHeight is incremented at each height while keeping
+///  RevisionNumber the same. However some consensus algorithms may choose to
+///  reset the height in certain conditions e.g. hard forks, state-machine
+///  breaking changes In these cases, the RevisionNumber is incremented so that
+///  height continues to be monitonically increasing even as the RevisionHeight
+///  gets reset
 class Height extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Height',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'revisionNumber',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'revisionHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  Height._() : super();
   factory Height({
     $fixnum.Int64? revisionNumber,
     $fixnum.Int64? revisionHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (revisionNumber != null) {
-      _result.revisionNumber = revisionNumber;
+      $result.revisionNumber = revisionNumber;
     }
     if (revisionHeight != null) {
-      _result.revisionHeight = revisionHeight;
+      $result.revisionHeight = revisionHeight;
     }
-    return _result;
+    return $result;
   }
+  Height._() : super();
   factory Height.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Height.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Height',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'revisionNumber', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'revisionHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -606,9 +575,10 @@ class Height extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Height copyWith(void Function(Height) updates) =>
-      super.copyWith((message) => updates(message as Height))
-          as Height; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Height)) as Height;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Height create() => Height._();
   Height createEmptyInstance() => create();
@@ -618,6 +588,7 @@ class Height extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Height>(create);
   static Height? _defaultInstance;
 
+  /// the revision that the client is currently on
   @$pb.TagNumber(1)
   $fixnum.Int64 get revisionNumber => $_getI64(0);
   @$pb.TagNumber(1)
@@ -630,6 +601,7 @@ class Height extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRevisionNumber() => clearField(1);
 
+  /// the height within the given revision
   @$pb.TagNumber(2)
   $fixnum.Int64 get revisionHeight => $_getI64(1);
   @$pb.TagNumber(2)
@@ -643,39 +615,33 @@ class Height extends $pb.GeneratedMessage {
   void clearRevisionHeight() => clearField(2);
 }
 
+/// Params defines the set of IBC light client parameters.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.client.v1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowedClients')
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
     $core.Iterable<$core.String>? allowedClients,
   }) {
-    final _result = create();
+    final $result = create();
     if (allowedClients != null) {
-      _result.allowedClients.addAll(allowedClients);
+      $result.allowedClients.addAll(allowedClients);
     }
-    return _result;
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.client.v1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'allowedClients')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -684,9 +650,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -696,6 +663,11 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
+  /// allowed_clients defines the list of allowed client state types.
   @$pb.TagNumber(1)
   $core.List<$core.String> get allowedClients => $_getList(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -1,62 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/slashing/v1beta1/slashing.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../google/protobuf/timestamp.pb.dart' as $0;
 import '../../../google/protobuf/duration.pb.dart' as $1;
+import '../../../google/protobuf/timestamp.pb.dart' as $0;
 
+/// ValidatorSigningInfo defines a validator's signing info for monitoring their
+/// liveness activity.
 class ValidatorSigningInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ValidatorSigningInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.slashing.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'startHeight')
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'indexOffset')
-    ..aOM<$0.Timestamp>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'jailedUntil',
-        subBuilder: $0.Timestamp.create)
-    ..aOB(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'tombstoned')
-    ..aInt64(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'missedBlocksCounter')
-    ..hasRequiredFields = false;
-
-  ValidatorSigningInfo._() : super();
   factory ValidatorSigningInfo({
     $core.String? address,
     $fixnum.Int64? startHeight,
@@ -65,33 +28,49 @@ class ValidatorSigningInfo extends $pb.GeneratedMessage {
     $core.bool? tombstoned,
     $fixnum.Int64? missedBlocksCounter,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (startHeight != null) {
-      _result.startHeight = startHeight;
+      $result.startHeight = startHeight;
     }
     if (indexOffset != null) {
-      _result.indexOffset = indexOffset;
+      $result.indexOffset = indexOffset;
     }
     if (jailedUntil != null) {
-      _result.jailedUntil = jailedUntil;
+      $result.jailedUntil = jailedUntil;
     }
     if (tombstoned != null) {
-      _result.tombstoned = tombstoned;
+      $result.tombstoned = tombstoned;
     }
     if (missedBlocksCounter != null) {
-      _result.missedBlocksCounter = missedBlocksCounter;
+      $result.missedBlocksCounter = missedBlocksCounter;
     }
-    return _result;
+    return $result;
   }
+  ValidatorSigningInfo._() : super();
   factory ValidatorSigningInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ValidatorSigningInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ValidatorSigningInfo',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.slashing.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aInt64(2, _omitFieldNames ? '' : 'startHeight')
+    ..aInt64(3, _omitFieldNames ? '' : 'indexOffset')
+    ..aOM<$0.Timestamp>(4, _omitFieldNames ? '' : 'jailedUntil',
+        subBuilder: $0.Timestamp.create)
+    ..aOB(5, _omitFieldNames ? '' : 'tombstoned')
+    ..aInt64(6, _omitFieldNames ? '' : 'missedBlocksCounter')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -102,8 +81,10 @@ class ValidatorSigningInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ValidatorSigningInfo copyWith(void Function(ValidatorSigningInfo) updates) =>
       super.copyWith((message) => updates(message as ValidatorSigningInfo))
-          as ValidatorSigningInfo; // ignore: deprecated_member_use
+          as ValidatorSigningInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ValidatorSigningInfo create() => ValidatorSigningInfo._();
   ValidatorSigningInfo createEmptyInstance() => create();
@@ -126,6 +107,7 @@ class ValidatorSigningInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// Height at which validator was first a candidate OR was unjailed
   @$pb.TagNumber(2)
   $fixnum.Int64 get startHeight => $_getI64(1);
   @$pb.TagNumber(2)
@@ -138,6 +120,9 @@ class ValidatorSigningInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearStartHeight() => clearField(2);
 
+  /// Index which is incremented each time the validator was a bonded
+  /// in a block and may have signed a precommit or not. This in conjunction with the
+  /// `SignedBlocksWindow` param determines the index in the `MissedBlocksBitArray`.
   @$pb.TagNumber(3)
   $fixnum.Int64 get indexOffset => $_getI64(2);
   @$pb.TagNumber(3)
@@ -150,6 +135,7 @@ class ValidatorSigningInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearIndexOffset() => clearField(3);
 
+  /// Timestamp until which the validator is jailed due to liveness downtime.
   @$pb.TagNumber(4)
   $0.Timestamp get jailedUntil => $_getN(3);
   @$pb.TagNumber(4)
@@ -164,6 +150,8 @@ class ValidatorSigningInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $0.Timestamp ensureJailedUntil() => $_ensure(3);
 
+  /// Whether or not a validator has been tombstoned (killed out of validator set). It is set
+  /// once the validator commits an equivocation or for any other configured misbehiavor.
   @$pb.TagNumber(5)
   $core.bool get tombstoned => $_getBF(4);
   @$pb.TagNumber(5)
@@ -176,6 +164,8 @@ class ValidatorSigningInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearTombstoned() => clearField(5);
 
+  /// A counter kept to avoid unnecessary array reads.
+  /// Note that `Sum(MissedBlocksBitArray)` always equals `MissedBlocksCounter`.
   @$pb.TagNumber(6)
   $fixnum.Int64 get missedBlocksCounter => $_getI64(5);
   @$pb.TagNumber(6)
@@ -189,48 +179,8 @@ class ValidatorSigningInfo extends $pb.GeneratedMessage {
   void clearMissedBlocksCounter() => clearField(6);
 }
 
+/// Params represents the parameters used for by the slashing module.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.slashing.v1beta1'),
-      createEmptyInstance: create)
-    ..aInt64(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'signedBlocksWindow')
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'minSignedPerWindow',
-        $pb.PbFieldType.OY)
-    ..aOM<$1.Duration>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'downtimeJailDuration',
-        subBuilder: $1.Duration.create)
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'slashFractionDoubleSign',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'slashFractionDowntime',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
     $fixnum.Int64? signedBlocksWindow,
     $core.List<$core.int>? minSignedPerWindow,
@@ -238,30 +188,48 @@ class Params extends $pb.GeneratedMessage {
     $core.List<$core.int>? slashFractionDoubleSign,
     $core.List<$core.int>? slashFractionDowntime,
   }) {
-    final _result = create();
+    final $result = create();
     if (signedBlocksWindow != null) {
-      _result.signedBlocksWindow = signedBlocksWindow;
+      $result.signedBlocksWindow = signedBlocksWindow;
     }
     if (minSignedPerWindow != null) {
-      _result.minSignedPerWindow = minSignedPerWindow;
+      $result.minSignedPerWindow = minSignedPerWindow;
     }
     if (downtimeJailDuration != null) {
-      _result.downtimeJailDuration = downtimeJailDuration;
+      $result.downtimeJailDuration = downtimeJailDuration;
     }
     if (slashFractionDoubleSign != null) {
-      _result.slashFractionDoubleSign = slashFractionDoubleSign;
+      $result.slashFractionDoubleSign = slashFractionDoubleSign;
     }
     if (slashFractionDowntime != null) {
-      _result.slashFractionDowntime = slashFractionDowntime;
+      $result.slashFractionDowntime = slashFractionDowntime;
     }
-    return _result;
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.slashing.v1beta1'),
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'signedBlocksWindow')
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'minSignedPerWindow', $pb.PbFieldType.OY)
+    ..aOM<$1.Duration>(3, _omitFieldNames ? '' : 'downtimeJailDuration',
+        subBuilder: $1.Duration.create)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'slashFractionDoubleSign', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'slashFractionDowntime', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -270,9 +238,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -344,3 +313,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearSlashFractionDowntime() => clearField(5);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

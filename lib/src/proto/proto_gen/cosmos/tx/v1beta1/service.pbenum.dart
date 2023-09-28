@@ -1,30 +1,26 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/tx/v1beta1/service.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-// ignore_for_file: UNDEFINED_SHOWN_NAME
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:core' as $core;
+
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// OrderBy defines the sorting order
 class OrderBy extends $pb.ProtobufEnum {
-  static const OrderBy ORDER_BY_UNSPECIFIED = OrderBy._(
-      0,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'ORDER_BY_UNSPECIFIED');
-  static const OrderBy ORDER_BY_ASC = OrderBy._(
-      1,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'ORDER_BY_ASC');
-  static const OrderBy ORDER_BY_DESC = OrderBy._(
-      2,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'ORDER_BY_DESC');
+  static const OrderBy ORDER_BY_UNSPECIFIED =
+      OrderBy._(0, _omitEnumNames ? '' : 'ORDER_BY_UNSPECIFIED');
+  static const OrderBy ORDER_BY_ASC =
+      OrderBy._(1, _omitEnumNames ? '' : 'ORDER_BY_ASC');
+  static const OrderBy ORDER_BY_DESC =
+      OrderBy._(2, _omitEnumNames ? '' : 'ORDER_BY_DESC');
 
   static const $core.List<OrderBy> values = <OrderBy>[
     ORDER_BY_UNSPECIFIED,
@@ -39,27 +35,16 @@ class OrderBy extends $pb.ProtobufEnum {
   const OrderBy._($core.int v, $core.String n) : super(v, n);
 }
 
+/// BroadcastMode specifies the broadcast mode for the TxService.Broadcast RPC method.
 class BroadcastMode extends $pb.ProtobufEnum {
-  static const BroadcastMode BROADCAST_MODE_UNSPECIFIED = BroadcastMode._(
-      0,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'BROADCAST_MODE_UNSPECIFIED');
-  static const BroadcastMode BROADCAST_MODE_BLOCK = BroadcastMode._(
-      1,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'BROADCAST_MODE_BLOCK');
-  static const BroadcastMode BROADCAST_MODE_SYNC = BroadcastMode._(
-      2,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'BROADCAST_MODE_SYNC');
-  static const BroadcastMode BROADCAST_MODE_ASYNC = BroadcastMode._(
-      3,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'BROADCAST_MODE_ASYNC');
+  static const BroadcastMode BROADCAST_MODE_UNSPECIFIED =
+      BroadcastMode._(0, _omitEnumNames ? '' : 'BROADCAST_MODE_UNSPECIFIED');
+  static const BroadcastMode BROADCAST_MODE_BLOCK =
+      BroadcastMode._(1, _omitEnumNames ? '' : 'BROADCAST_MODE_BLOCK');
+  static const BroadcastMode BROADCAST_MODE_SYNC =
+      BroadcastMode._(2, _omitEnumNames ? '' : 'BROADCAST_MODE_SYNC');
+  static const BroadcastMode BROADCAST_MODE_ASYNC =
+      BroadcastMode._(3, _omitEnumNames ? '' : 'BROADCAST_MODE_ASYNC');
 
   static const $core.List<BroadcastMode> values = <BroadcastMode>[
     BROADCAST_MODE_UNSPECIFIED,
@@ -74,3 +59,5 @@ class BroadcastMode extends $pb.ProtobufEnum {
 
   const BroadcastMode._($core.int v, $core.String n) : super(v, n);
 }
+
+const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

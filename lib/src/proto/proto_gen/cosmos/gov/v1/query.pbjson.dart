@@ -1,30 +1,36 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/gov/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-import 'dart:core' as $core;
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:convert' as $convert;
+import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use queryProposalRequestDescriptor instead')
-const QueryProposalRequest$json = const {
+const QueryProposalRequest$json = {
   '1': 'QueryProposalRequest',
-  '2': const [
-    const {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
+  '2': [
+    {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
   ],
 };
 
 /// Descriptor for `QueryProposalRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryProposalRequestDescriptor = $convert.base64Decode(
-    'ChRRdWVyeVByb3Bvc2FsUmVxdWVzdBIfCgtwcm9wb3NhbF9pZBgBIAEoBFIKcHJvcG9zYWxJZA==');
+    'ChRRdWVyeVByb3Bvc2FsUmVxdWVzdBIfCgtwcm9wb3NhbF9pZBgBIAEoBFIKcHJvcG9zYWxJZA'
+    '==');
+
 @$core.Deprecated('Use queryProposalResponseDescriptor instead')
-const QueryProposalResponse$json = const {
+const QueryProposalResponse$json = {
   '1': 'QueryProposalResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'proposal',
       '3': 1,
       '4': 1,
@@ -37,12 +43,14 @@ const QueryProposalResponse$json = const {
 
 /// Descriptor for `QueryProposalResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryProposalResponseDescriptor = $convert.base64Decode(
-    'ChVRdWVyeVByb3Bvc2FsUmVzcG9uc2USMwoIcHJvcG9zYWwYASABKAsyFy5jb3Ntb3MuZ292LnYxLlByb3Bvc2FsUghwcm9wb3NhbA==');
+    'ChVRdWVyeVByb3Bvc2FsUmVzcG9uc2USMwoIcHJvcG9zYWwYASABKAsyFy5jb3Ntb3MuZ292Ln'
+    'YxLlByb3Bvc2FsUghwcm9wb3NhbA==');
+
 @$core.Deprecated('Use queryProposalsRequestDescriptor instead')
-const QueryProposalsRequest$json = const {
+const QueryProposalsRequest$json = {
   '1': 'QueryProposalsRequest',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'proposal_status',
       '3': 1,
       '4': 1,
@@ -50,16 +58,9 @@ const QueryProposalsRequest$json = const {
       '6': '.cosmos.gov.v1.ProposalStatus',
       '10': 'proposalStatus'
     },
-    const {'1': 'voter', '3': 2, '4': 1, '5': 9, '8': const {}, '10': 'voter'},
-    const {
-      '1': 'depositor',
-      '3': 3,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'depositor'
-    },
-    const {
+    {'1': 'voter', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'voter'},
+    {'1': 'depositor', '3': 3, '4': 1, '5': 9, '8': {}, '10': 'depositor'},
+    {
       '1': 'pagination',
       '3': 4,
       '4': 1,
@@ -72,12 +73,17 @@ const QueryProposalsRequest$json = const {
 
 /// Descriptor for `QueryProposalsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryProposalsRequestDescriptor = $convert.base64Decode(
-    'ChVRdWVyeVByb3Bvc2Fsc1JlcXVlc3QSRgoPcHJvcG9zYWxfc3RhdHVzGAEgASgOMh0uY29zbW9zLmdvdi52MS5Qcm9wb3NhbFN0YXR1c1IOcHJvcG9zYWxTdGF0dXMSLgoFdm90ZXIYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IFdm90ZXISNgoJZGVwb3NpdG9yGAMgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSCWRlcG9zaXRvchJGCgpwYWdpbmF0aW9uGAQgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+    'ChVRdWVyeVByb3Bvc2Fsc1JlcXVlc3QSRgoPcHJvcG9zYWxfc3RhdHVzGAEgASgOMh0uY29zbW'
+    '9zLmdvdi52MS5Qcm9wb3NhbFN0YXR1c1IOcHJvcG9zYWxTdGF0dXMSLgoFdm90ZXIYAiABKAlC'
+    'GNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IFdm90ZXISNgoJZGVwb3NpdG9yGAMgASgJQhjStC'
+    '0UY29zbW9zLkFkZHJlc3NTdHJpbmdSCWRlcG9zaXRvchJGCgpwYWdpbmF0aW9uGAQgASgLMiYu'
+    'Y29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryProposalsResponseDescriptor instead')
-const QueryProposalsResponse$json = const {
+const QueryProposalsResponse$json = {
   '1': 'QueryProposalsResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'proposals',
       '3': 1,
       '4': 3,
@@ -85,7 +91,7 @@ const QueryProposalsResponse$json = const {
       '6': '.cosmos.gov.v1.Proposal',
       '10': 'proposals'
     },
-    const {
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -97,26 +103,30 @@ const QueryProposalsResponse$json = const {
 };
 
 /// Descriptor for `QueryProposalsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List queryProposalsResponseDescriptor =
-    $convert.base64Decode(
-        'ChZRdWVyeVByb3Bvc2Fsc1Jlc3BvbnNlEjUKCXByb3Bvc2FscxgBIAMoCzIXLmNvc21vcy5nb3YudjEuUHJvcG9zYWxSCXByb3Bvc2FscxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');
+final $typed_data.Uint8List queryProposalsResponseDescriptor = $convert.base64Decode(
+    'ChZRdWVyeVByb3Bvc2Fsc1Jlc3BvbnNlEjUKCXByb3Bvc2FscxgBIAMoCzIXLmNvc21vcy5nb3'
+    'YudjEuUHJvcG9zYWxSCXByb3Bvc2FscxJHCgpwYWdpbmF0aW9uGAIgASgLMicuY29zbW9zLmJh'
+    'c2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');
+
 @$core.Deprecated('Use queryVoteRequestDescriptor instead')
-const QueryVoteRequest$json = const {
+const QueryVoteRequest$json = {
   '1': 'QueryVoteRequest',
-  '2': const [
-    const {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
-    const {'1': 'voter', '3': 2, '4': 1, '5': 9, '8': const {}, '10': 'voter'},
+  '2': [
+    {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
+    {'1': 'voter', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'voter'},
   ],
 };
 
 /// Descriptor for `QueryVoteRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryVoteRequestDescriptor = $convert.base64Decode(
-    'ChBRdWVyeVZvdGVSZXF1ZXN0Eh8KC3Byb3Bvc2FsX2lkGAEgASgEUgpwcm9wb3NhbElkEi4KBXZvdGVyGAIgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSBXZvdGVy');
+    'ChBRdWVyeVZvdGVSZXF1ZXN0Eh8KC3Byb3Bvc2FsX2lkGAEgASgEUgpwcm9wb3NhbElkEi4KBX'
+    'ZvdGVyGAIgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSBXZvdGVy');
+
 @$core.Deprecated('Use queryVoteResponseDescriptor instead')
-const QueryVoteResponse$json = const {
+const QueryVoteResponse$json = {
   '1': 'QueryVoteResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'vote',
       '3': 1,
       '4': 1,
@@ -129,13 +139,15 @@ const QueryVoteResponse$json = const {
 
 /// Descriptor for `QueryVoteResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryVoteResponseDescriptor = $convert.base64Decode(
-    'ChFRdWVyeVZvdGVSZXNwb25zZRInCgR2b3RlGAEgASgLMhMuY29zbW9zLmdvdi52MS5Wb3RlUgR2b3Rl');
+    'ChFRdWVyeVZvdGVSZXNwb25zZRInCgR2b3RlGAEgASgLMhMuY29zbW9zLmdvdi52MS5Wb3RlUg'
+    'R2b3Rl');
+
 @$core.Deprecated('Use queryVotesRequestDescriptor instead')
-const QueryVotesRequest$json = const {
+const QueryVotesRequest$json = {
   '1': 'QueryVotesRequest',
-  '2': const [
-    const {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
-    const {
+  '2': [
+    {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -148,12 +160,15 @@ const QueryVotesRequest$json = const {
 
 /// Descriptor for `QueryVotesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryVotesRequestDescriptor = $convert.base64Decode(
-    'ChFRdWVyeVZvdGVzUmVxdWVzdBIfCgtwcm9wb3NhbF9pZBgBIAEoBFIKcHJvcG9zYWxJZBJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+    'ChFRdWVyeVZvdGVzUmVxdWVzdBIfCgtwcm9wb3NhbF9pZBgBIAEoBFIKcHJvcG9zYWxJZBJGCg'
+    'pwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVz'
+    'dFIKcGFnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryVotesResponseDescriptor instead')
-const QueryVotesResponse$json = const {
+const QueryVotesResponse$json = {
   '1': 'QueryVotesResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'votes',
       '3': 1,
       '4': 3,
@@ -161,7 +176,7 @@ const QueryVotesResponse$json = const {
       '6': '.cosmos.gov.v1.Vote',
       '10': 'votes'
     },
-    const {
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -174,23 +189,27 @@ const QueryVotesResponse$json = const {
 
 /// Descriptor for `QueryVotesResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryVotesResponseDescriptor = $convert.base64Decode(
-    'ChJRdWVyeVZvdGVzUmVzcG9uc2USKQoFdm90ZXMYASADKAsyEy5jb3Ntb3MuZ292LnYxLlZvdGVSBXZvdGVzEkcKCnBhZ2luYXRpb24YAiABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbg==');
+    'ChJRdWVyeVZvdGVzUmVzcG9uc2USKQoFdm90ZXMYASADKAsyEy5jb3Ntb3MuZ292LnYxLlZvdG'
+    'VSBXZvdGVzEkcKCnBhZ2luYXRpb24YAiABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGEx'
+    'LlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryParamsRequestDescriptor instead')
-const QueryParamsRequest$json = const {
+const QueryParamsRequest$json = {
   '1': 'QueryParamsRequest',
-  '2': const [
-    const {'1': 'params_type', '3': 1, '4': 1, '5': 9, '10': 'paramsType'},
+  '2': [
+    {'1': 'params_type', '3': 1, '4': 1, '5': 9, '10': 'paramsType'},
   ],
 };
 
 /// Descriptor for `QueryParamsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryParamsRequestDescriptor = $convert.base64Decode(
     'ChJRdWVyeVBhcmFtc1JlcXVlc3QSHwoLcGFyYW1zX3R5cGUYASABKAlSCnBhcmFtc1R5cGU=');
+
 @$core.Deprecated('Use queryParamsResponseDescriptor instead')
-const QueryParamsResponse$json = const {
+const QueryParamsResponse$json = {
   '1': 'QueryParamsResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'voting_params',
       '3': 1,
       '4': 1,
@@ -198,7 +217,7 @@ const QueryParamsResponse$json = const {
       '6': '.cosmos.gov.v1.VotingParams',
       '10': 'votingParams'
     },
-    const {
+    {
       '1': 'deposit_params',
       '3': 2,
       '4': 1,
@@ -206,7 +225,7 @@ const QueryParamsResponse$json = const {
       '6': '.cosmos.gov.v1.DepositParams',
       '10': 'depositParams'
     },
-    const {
+    {
       '1': 'tally_params',
       '3': 3,
       '4': 1,
@@ -219,31 +238,30 @@ const QueryParamsResponse$json = const {
 
 /// Descriptor for `QueryParamsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryParamsResponseDescriptor = $convert.base64Decode(
-    'ChNRdWVyeVBhcmFtc1Jlc3BvbnNlEkAKDXZvdGluZ19wYXJhbXMYASABKAsyGy5jb3Ntb3MuZ292LnYxLlZvdGluZ1BhcmFtc1IMdm90aW5nUGFyYW1zEkMKDmRlcG9zaXRfcGFyYW1zGAIgASgLMhwuY29zbW9zLmdvdi52MS5EZXBvc2l0UGFyYW1zUg1kZXBvc2l0UGFyYW1zEj0KDHRhbGx5X3BhcmFtcxgDIAEoCzIaLmNvc21vcy5nb3YudjEuVGFsbHlQYXJhbXNSC3RhbGx5UGFyYW1z');
+    'ChNRdWVyeVBhcmFtc1Jlc3BvbnNlEkAKDXZvdGluZ19wYXJhbXMYASABKAsyGy5jb3Ntb3MuZ2'
+    '92LnYxLlZvdGluZ1BhcmFtc1IMdm90aW5nUGFyYW1zEkMKDmRlcG9zaXRfcGFyYW1zGAIgASgL'
+    'MhwuY29zbW9zLmdvdi52MS5EZXBvc2l0UGFyYW1zUg1kZXBvc2l0UGFyYW1zEj0KDHRhbGx5X3'
+    'BhcmFtcxgDIAEoCzIaLmNvc21vcy5nb3YudjEuVGFsbHlQYXJhbXNSC3RhbGx5UGFyYW1z');
+
 @$core.Deprecated('Use queryDepositRequestDescriptor instead')
-const QueryDepositRequest$json = const {
+const QueryDepositRequest$json = {
   '1': 'QueryDepositRequest',
-  '2': const [
-    const {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
-    const {
-      '1': 'depositor',
-      '3': 2,
-      '4': 1,
-      '5': 9,
-      '8': const {},
-      '10': 'depositor'
-    },
+  '2': [
+    {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
+    {'1': 'depositor', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'depositor'},
   ],
 };
 
 /// Descriptor for `QueryDepositRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDepositRequestDescriptor = $convert.base64Decode(
-    'ChNRdWVyeURlcG9zaXRSZXF1ZXN0Eh8KC3Byb3Bvc2FsX2lkGAEgASgEUgpwcm9wb3NhbElkEjYKCWRlcG9zaXRvchgCIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUglkZXBvc2l0b3I=');
+    'ChNRdWVyeURlcG9zaXRSZXF1ZXN0Eh8KC3Byb3Bvc2FsX2lkGAEgASgEUgpwcm9wb3NhbElkEj'
+    'YKCWRlcG9zaXRvchgCIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUglkZXBvc2l0b3I=');
+
 @$core.Deprecated('Use queryDepositResponseDescriptor instead')
-const QueryDepositResponse$json = const {
+const QueryDepositResponse$json = {
   '1': 'QueryDepositResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'deposit',
       '3': 1,
       '4': 1,
@@ -256,13 +274,15 @@ const QueryDepositResponse$json = const {
 
 /// Descriptor for `QueryDepositResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDepositResponseDescriptor = $convert.base64Decode(
-    'ChRRdWVyeURlcG9zaXRSZXNwb25zZRIwCgdkZXBvc2l0GAEgASgLMhYuY29zbW9zLmdvdi52MS5EZXBvc2l0UgdkZXBvc2l0');
+    'ChRRdWVyeURlcG9zaXRSZXNwb25zZRIwCgdkZXBvc2l0GAEgASgLMhYuY29zbW9zLmdvdi52MS'
+    '5EZXBvc2l0UgdkZXBvc2l0');
+
 @$core.Deprecated('Use queryDepositsRequestDescriptor instead')
-const QueryDepositsRequest$json = const {
+const QueryDepositsRequest$json = {
   '1': 'QueryDepositsRequest',
-  '2': const [
-    const {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
-    const {
+  '2': [
+    {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -275,12 +295,15 @@ const QueryDepositsRequest$json = const {
 
 /// Descriptor for `QueryDepositsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDepositsRequestDescriptor = $convert.base64Decode(
-    'ChRRdWVyeURlcG9zaXRzUmVxdWVzdBIfCgtwcm9wb3NhbF9pZBgBIAEoBFIKcHJvcG9zYWxJZBJGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+    'ChRRdWVyeURlcG9zaXRzUmVxdWVzdBIfCgtwcm9wb3NhbF9pZBgBIAEoBFIKcHJvcG9zYWxJZB'
+    'JGCgpwYWdpbmF0aW9uGAIgASgLMiYuY29zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVx'
+    'dWVzdFIKcGFnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryDepositsResponseDescriptor instead')
-const QueryDepositsResponse$json = const {
+const QueryDepositsResponse$json = {
   '1': 'QueryDepositsResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'deposits',
       '3': 1,
       '4': 3,
@@ -288,7 +311,7 @@ const QueryDepositsResponse$json = const {
       '6': '.cosmos.gov.v1.Deposit',
       '10': 'deposits'
     },
-    const {
+    {
       '1': 'pagination',
       '3': 2,
       '4': 1,
@@ -301,24 +324,29 @@ const QueryDepositsResponse$json = const {
 
 /// Descriptor for `QueryDepositsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryDepositsResponseDescriptor = $convert.base64Decode(
-    'ChVRdWVyeURlcG9zaXRzUmVzcG9uc2USMgoIZGVwb3NpdHMYASADKAsyFi5jb3Ntb3MuZ292LnYxLkRlcG9zaXRSCGRlcG9zaXRzEkcKCnBhZ2luYXRpb24YAiABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbg==');
+    'ChVRdWVyeURlcG9zaXRzUmVzcG9uc2USMgoIZGVwb3NpdHMYASADKAsyFi5jb3Ntb3MuZ292Ln'
+    'YxLkRlcG9zaXRSCGRlcG9zaXRzEkcKCnBhZ2luYXRpb24YAiABKAsyJy5jb3Ntb3MuYmFzZS5x'
+    'dWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcGFnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryTallyResultRequestDescriptor instead')
-const QueryTallyResultRequest$json = const {
+const QueryTallyResultRequest$json = {
   '1': 'QueryTallyResultRequest',
-  '2': const [
-    const {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
+  '2': [
+    {'1': 'proposal_id', '3': 1, '4': 1, '5': 4, '10': 'proposalId'},
   ],
 };
 
 /// Descriptor for `QueryTallyResultRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryTallyResultRequestDescriptor =
     $convert.base64Decode(
-        'ChdRdWVyeVRhbGx5UmVzdWx0UmVxdWVzdBIfCgtwcm9wb3NhbF9pZBgBIAEoBFIKcHJvcG9zYWxJZA==');
+        'ChdRdWVyeVRhbGx5UmVzdWx0UmVxdWVzdBIfCgtwcm9wb3NhbF9pZBgBIAEoBFIKcHJvcG9zYW'
+        'xJZA==');
+
 @$core.Deprecated('Use queryTallyResultResponseDescriptor instead')
-const QueryTallyResultResponse$json = const {
+const QueryTallyResultResponse$json = {
   '1': 'QueryTallyResultResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'tally',
       '3': 1,
       '4': 1,
@@ -332,4 +360,5 @@ const QueryTallyResultResponse$json = const {
 /// Descriptor for `QueryTallyResultResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List queryTallyResultResponseDescriptor =
     $convert.base64Decode(
-        'ChhRdWVyeVRhbGx5UmVzdWx0UmVzcG9uc2USMAoFdGFsbHkYASABKAsyGi5jb3Ntb3MuZ292LnYxLlRhbGx5UmVzdWx0UgV0YWxseQ==');
+        'ChhRdWVyeVRhbGx5UmVzdWx0UmVzcG9uc2USMAoFdGFsbHkYASABKAsyGi5jb3Ntb3MuZ292Ln'
+        'YxLlRhbGx5UmVzdWx0UgV0YWxseQ==');

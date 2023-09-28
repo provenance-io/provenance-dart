@@ -1,62 +1,56 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/core/channel/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'channel.pb.dart' as $1;
-import '../../client/v1/client.pb.dart' as $2;
 import '../../../../cosmos/base/query/v1beta1/pagination.pb.dart' as $3;
 import '../../../../google/protobuf/any.pb.dart' as $4;
+import '../../client/v1/client.pb.dart' as $2;
+import 'channel.pb.dart' as $1;
 
+/// QueryChannelRequest is the request type for the Query/Channel RPC method
 class QueryChannelRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryChannelRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..hasRequiredFields = false;
-
-  QueryChannelRequest._() : super();
   factory QueryChannelRequest({
     $core.String? portId,
     $core.String? channelId,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
-    return _result;
+    return $result;
   }
+  QueryChannelRequest._() : super();
   factory QueryChannelRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryChannelRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryChannelRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -66,8 +60,10 @@ class QueryChannelRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryChannelRequest copyWith(void Function(QueryChannelRequest) updates) =>
       super.copyWith((message) => updates(message as QueryChannelRequest))
-          as QueryChannelRequest; // ignore: deprecated_member_use
+          as QueryChannelRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryChannelRequest create() => QueryChannelRequest._();
   QueryChannelRequest createEmptyInstance() => create();
@@ -78,6 +74,7 @@ class QueryChannelRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryChannelRequest>(create);
   static QueryChannelRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -90,6 +87,7 @@ class QueryChannelRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -103,60 +101,48 @@ class QueryChannelRequest extends $pb.GeneratedMessage {
   void clearChannelId() => clearField(2);
 }
 
+/// QueryChannelResponse is the response type for the Query/Channel RPC method.
+/// Besides the Channel end, it includes a proof and the height from which the
+/// proof was retrieved.
 class QueryChannelResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryChannelResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.Channel>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channel',
-        subBuilder: $1.Channel.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryChannelResponse._() : super();
   factory QueryChannelResponse({
     $1.Channel? channel,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (channel != null) {
-      _result.channel = channel;
+      $result.channel = channel;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryChannelResponse._() : super();
   factory QueryChannelResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryChannelResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryChannelResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Channel>(1, _omitFieldNames ? '' : 'channel',
+        subBuilder: $1.Channel.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -167,8 +153,10 @@ class QueryChannelResponse extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryChannelResponse copyWith(void Function(QueryChannelResponse) updates) =>
       super.copyWith((message) => updates(message as QueryChannelResponse))
-          as QueryChannelResponse; // ignore: deprecated_member_use
+          as QueryChannelResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryChannelResponse create() => QueryChannelResponse._();
   QueryChannelResponse createEmptyInstance() => create();
@@ -179,6 +167,7 @@ class QueryChannelResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryChannelResponse>(create);
   static QueryChannelResponse? _defaultInstance;
 
+  /// channel associated with the request identifiers
   @$pb.TagNumber(1)
   $1.Channel get channel => $_getN(0);
   @$pb.TagNumber(1)
@@ -193,6 +182,7 @@ class QueryChannelResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.Channel ensureChannel() => $_ensure(0);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -205,6 +195,7 @@ class QueryChannelResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -220,40 +211,34 @@ class QueryChannelResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryChannelsRequest is the request type for the Query/Channels RPC method
 class QueryChannelsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryChannelsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOM<$3.PageRequest>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryChannelsRequest._() : super();
   factory QueryChannelsRequest({
     $3.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryChannelsRequest._() : super();
   factory QueryChannelsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryChannelsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryChannelsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOM<$3.PageRequest>(1, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -264,8 +249,10 @@ class QueryChannelsRequest extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   QueryChannelsRequest copyWith(void Function(QueryChannelsRequest) updates) =>
       super.copyWith((message) => updates(message as QueryChannelsRequest))
-          as QueryChannelsRequest; // ignore: deprecated_member_use
+          as QueryChannelsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryChannelsRequest create() => QueryChannelsRequest._();
   QueryChannelsRequest createEmptyInstance() => create();
@@ -276,6 +263,7 @@ class QueryChannelsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryChannelsRequest>(create);
   static QueryChannelsRequest? _defaultInstance;
 
+  /// pagination request
   @$pb.TagNumber(1)
   $3.PageRequest get pagination => $_getN(0);
   @$pb.TagNumber(1)
@@ -291,61 +279,47 @@ class QueryChannelsRequest extends $pb.GeneratedMessage {
   $3.PageRequest ensurePagination() => $_ensure(0);
 }
 
+/// QueryChannelsResponse is the response type for the Query/Channels RPC method.
 class QueryChannelsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryChannelsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.IdentifiedChannel>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channels',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.IdentifiedChannel.create)
-    ..aOM<$3.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageResponse.create)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryChannelsResponse._() : super();
   factory QueryChannelsResponse({
     $core.Iterable<$1.IdentifiedChannel>? channels,
     $3.PageResponse? pagination,
     $2.Height? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (channels != null) {
-      _result.channels.addAll(channels);
+      $result.channels.addAll(channels);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  QueryChannelsResponse._() : super();
   factory QueryChannelsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryChannelsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryChannelsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.IdentifiedChannel>(
+        1, _omitFieldNames ? '' : 'channels', $pb.PbFieldType.PM,
+        subBuilder: $1.IdentifiedChannel.create)
+    ..aOM<$3.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'height',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -357,8 +331,10 @@ class QueryChannelsResponse extends $pb.GeneratedMessage {
   QueryChannelsResponse copyWith(
           void Function(QueryChannelsResponse) updates) =>
       super.copyWith((message) => updates(message as QueryChannelsResponse))
-          as QueryChannelsResponse; // ignore: deprecated_member_use
+          as QueryChannelsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryChannelsResponse create() => QueryChannelsResponse._();
   QueryChannelsResponse createEmptyInstance() => create();
@@ -369,9 +345,11 @@ class QueryChannelsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryChannelsResponse>(create);
   static QueryChannelsResponse? _defaultInstance;
 
+  /// list of stored channels of the chain.
   @$pb.TagNumber(1)
   $core.List<$1.IdentifiedChannel> get channels => $_getList(0);
 
+  /// pagination response
   @$pb.TagNumber(2)
   $3.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -386,6 +364,7 @@ class QueryChannelsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $3.PageResponse ensurePagination() => $_ensure(1);
 
+  /// query block height
   @$pb.TagNumber(3)
   $2.Height get height => $_getN(2);
   @$pb.TagNumber(3)
@@ -401,49 +380,40 @@ class QueryChannelsResponse extends $pb.GeneratedMessage {
   $2.Height ensureHeight() => $_ensure(2);
 }
 
+/// QueryConnectionChannelsRequest is the request type for the
+/// Query/QueryConnectionChannels RPC method
 class QueryConnectionChannelsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionChannelsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'connection')
-    ..aOM<$3.PageRequest>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryConnectionChannelsRequest._() : super();
   factory QueryConnectionChannelsRequest({
     $core.String? connection,
     $3.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (connection != null) {
-      _result.connection = connection;
+      $result.connection = connection;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionChannelsRequest._() : super();
   factory QueryConnectionChannelsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConnectionChannelsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionChannelsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'connection')
+    ..aOM<$3.PageRequest>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -456,8 +426,10 @@ class QueryConnectionChannelsRequest extends $pb.GeneratedMessage {
           void Function(QueryConnectionChannelsRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryConnectionChannelsRequest))
-          as QueryConnectionChannelsRequest; // ignore: deprecated_member_use
+          as QueryConnectionChannelsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionChannelsRequest create() =>
       QueryConnectionChannelsRequest._();
@@ -469,6 +441,7 @@ class QueryConnectionChannelsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryConnectionChannelsRequest>(create);
   static QueryConnectionChannelsRequest? _defaultInstance;
 
+  /// connection unique identifier
   @$pb.TagNumber(1)
   $core.String get connection => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -481,6 +454,7 @@ class QueryConnectionChannelsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearConnection() => clearField(1);
 
+  /// pagination request
   @$pb.TagNumber(2)
   $3.PageRequest get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -496,61 +470,48 @@ class QueryConnectionChannelsRequest extends $pb.GeneratedMessage {
   $3.PageRequest ensurePagination() => $_ensure(1);
 }
 
+/// QueryConnectionChannelsResponse is the Response type for the
+/// Query/QueryConnectionChannels RPC method
 class QueryConnectionChannelsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryConnectionChannelsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.IdentifiedChannel>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channels',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.IdentifiedChannel.create)
-    ..aOM<$3.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageResponse.create)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryConnectionChannelsResponse._() : super();
   factory QueryConnectionChannelsResponse({
     $core.Iterable<$1.IdentifiedChannel>? channels,
     $3.PageResponse? pagination,
     $2.Height? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (channels != null) {
-      _result.channels.addAll(channels);
+      $result.channels.addAll(channels);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  QueryConnectionChannelsResponse._() : super();
   factory QueryConnectionChannelsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryConnectionChannelsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryConnectionChannelsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.IdentifiedChannel>(
+        1, _omitFieldNames ? '' : 'channels', $pb.PbFieldType.PM,
+        subBuilder: $1.IdentifiedChannel.create)
+    ..aOM<$3.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'height',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -563,8 +524,10 @@ class QueryConnectionChannelsResponse extends $pb.GeneratedMessage {
           void Function(QueryConnectionChannelsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryConnectionChannelsResponse))
-          as QueryConnectionChannelsResponse; // ignore: deprecated_member_use
+          as QueryConnectionChannelsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryConnectionChannelsResponse create() =>
       QueryConnectionChannelsResponse._();
@@ -577,9 +540,11 @@ class QueryConnectionChannelsResponse extends $pb.GeneratedMessage {
           create);
   static QueryConnectionChannelsResponse? _defaultInstance;
 
+  /// list of channels associated with a connection.
   @$pb.TagNumber(1)
   $core.List<$1.IdentifiedChannel> get channels => $_getList(0);
 
+  /// pagination response
   @$pb.TagNumber(2)
   $3.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -594,6 +559,7 @@ class QueryConnectionChannelsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $3.PageResponse ensurePagination() => $_ensure(1);
 
+  /// query block height
   @$pb.TagNumber(3)
   $2.Height get height => $_getN(2);
   @$pb.TagNumber(3)
@@ -609,48 +575,39 @@ class QueryConnectionChannelsResponse extends $pb.GeneratedMessage {
   $2.Height ensureHeight() => $_ensure(2);
 }
 
+/// QueryChannelClientStateRequest is the request type for the Query/ClientState
+/// RPC method
 class QueryChannelClientStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryChannelClientStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..hasRequiredFields = false;
-
-  QueryChannelClientStateRequest._() : super();
   factory QueryChannelClientStateRequest({
     $core.String? portId,
     $core.String? channelId,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
-    return _result;
+    return $result;
   }
+  QueryChannelClientStateRequest._() : super();
   factory QueryChannelClientStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryChannelClientStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryChannelClientStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -663,8 +620,10 @@ class QueryChannelClientStateRequest extends $pb.GeneratedMessage {
           void Function(QueryChannelClientStateRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryChannelClientStateRequest))
-          as QueryChannelClientStateRequest; // ignore: deprecated_member_use
+          as QueryChannelClientStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryChannelClientStateRequest create() =>
       QueryChannelClientStateRequest._();
@@ -676,6 +635,7 @@ class QueryChannelClientStateRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryChannelClientStateRequest>(create);
   static QueryChannelClientStateRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -688,6 +648,7 @@ class QueryChannelClientStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -701,60 +662,48 @@ class QueryChannelClientStateRequest extends $pb.GeneratedMessage {
   void clearChannelId() => clearField(2);
 }
 
+/// QueryChannelClientStateResponse is the Response type for the
+/// Query/QueryChannelClientState RPC method
 class QueryChannelClientStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryChannelClientStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOM<$2.IdentifiedClientState>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'identifiedClientState',
-        subBuilder: $2.IdentifiedClientState.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryChannelClientStateResponse._() : super();
   factory QueryChannelClientStateResponse({
     $2.IdentifiedClientState? identifiedClientState,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (identifiedClientState != null) {
-      _result.identifiedClientState = identifiedClientState;
+      $result.identifiedClientState = identifiedClientState;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryChannelClientStateResponse._() : super();
   factory QueryChannelClientStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryChannelClientStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryChannelClientStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOM<$2.IdentifiedClientState>(
+        1, _omitFieldNames ? '' : 'identifiedClientState',
+        subBuilder: $2.IdentifiedClientState.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -767,8 +716,10 @@ class QueryChannelClientStateResponse extends $pb.GeneratedMessage {
           void Function(QueryChannelClientStateResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryChannelClientStateResponse))
-          as QueryChannelClientStateResponse; // ignore: deprecated_member_use
+          as QueryChannelClientStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryChannelClientStateResponse create() =>
       QueryChannelClientStateResponse._();
@@ -781,6 +732,7 @@ class QueryChannelClientStateResponse extends $pb.GeneratedMessage {
           create);
   static QueryChannelClientStateResponse? _defaultInstance;
 
+  /// client state associated with the channel
   @$pb.TagNumber(1)
   $2.IdentifiedClientState get identifiedClientState => $_getN(0);
   @$pb.TagNumber(1)
@@ -795,6 +747,7 @@ class QueryChannelClientStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $2.IdentifiedClientState ensureIdentifiedClientState() => $_ensure(0);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -807,6 +760,7 @@ class QueryChannelClientStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -822,70 +776,53 @@ class QueryChannelClientStateResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryChannelConsensusStateRequest is the request type for the
+/// Query/ConsensusState RPC method
 class QueryChannelConsensusStateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryChannelConsensusStateRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'revisionNumber',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'revisionHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryChannelConsensusStateRequest._() : super();
   factory QueryChannelConsensusStateRequest({
     $core.String? portId,
     $core.String? channelId,
     $fixnum.Int64? revisionNumber,
     $fixnum.Int64? revisionHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (revisionNumber != null) {
-      _result.revisionNumber = revisionNumber;
+      $result.revisionNumber = revisionNumber;
     }
     if (revisionHeight != null) {
-      _result.revisionHeight = revisionHeight;
+      $result.revisionHeight = revisionHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryChannelConsensusStateRequest._() : super();
   factory QueryChannelConsensusStateRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryChannelConsensusStateRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryChannelConsensusStateRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'revisionNumber', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'revisionHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -898,8 +835,10 @@ class QueryChannelConsensusStateRequest extends $pb.GeneratedMessage {
           void Function(QueryChannelConsensusStateRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryChannelConsensusStateRequest))
-          as QueryChannelConsensusStateRequest; // ignore: deprecated_member_use
+          as QueryChannelConsensusStateRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryChannelConsensusStateRequest create() =>
       QueryChannelConsensusStateRequest._();
@@ -912,6 +851,7 @@ class QueryChannelConsensusStateRequest extends $pb.GeneratedMessage {
           create);
   static QueryChannelConsensusStateRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -924,6 +864,7 @@ class QueryChannelConsensusStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -936,6 +877,7 @@ class QueryChannelConsensusStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// revision number of the consensus state
   @$pb.TagNumber(3)
   $fixnum.Int64 get revisionNumber => $_getI64(2);
   @$pb.TagNumber(3)
@@ -948,6 +890,7 @@ class QueryChannelConsensusStateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearRevisionNumber() => clearField(3);
 
+  /// revision height of the consensus state
   @$pb.TagNumber(4)
   $fixnum.Int64 get revisionHeight => $_getI64(3);
   @$pb.TagNumber(4)
@@ -961,69 +904,52 @@ class QueryChannelConsensusStateRequest extends $pb.GeneratedMessage {
   void clearRevisionHeight() => clearField(4);
 }
 
+/// QueryChannelClientStateResponse is the Response type for the
+/// Query/QueryChannelClientState RPC method
 class QueryChannelConsensusStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryChannelConsensusStateResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOM<$4.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'consensusState',
-        subBuilder: $4.Any.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'clientId')
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryChannelConsensusStateResponse._() : super();
   factory QueryChannelConsensusStateResponse({
     $4.Any? consensusState,
     $core.String? clientId,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (consensusState != null) {
-      _result.consensusState = consensusState;
+      $result.consensusState = consensusState;
     }
     if (clientId != null) {
-      _result.clientId = clientId;
+      $result.clientId = clientId;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryChannelConsensusStateResponse._() : super();
   factory QueryChannelConsensusStateResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryChannelConsensusStateResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryChannelConsensusStateResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOM<$4.Any>(1, _omitFieldNames ? '' : 'consensusState',
+        subBuilder: $4.Any.create)
+    ..aOS(2, _omitFieldNames ? '' : 'clientId')
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(4, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1036,8 +962,10 @@ class QueryChannelConsensusStateResponse extends $pb.GeneratedMessage {
           void Function(QueryChannelConsensusStateResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryChannelConsensusStateResponse))
-          as QueryChannelConsensusStateResponse; // ignore: deprecated_member_use
+          as QueryChannelConsensusStateResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryChannelConsensusStateResponse create() =>
       QueryChannelConsensusStateResponse._();
@@ -1050,6 +978,7 @@ class QueryChannelConsensusStateResponse extends $pb.GeneratedMessage {
           create);
   static QueryChannelConsensusStateResponse? _defaultInstance;
 
+  /// consensus state associated with the channel
   @$pb.TagNumber(1)
   $4.Any get consensusState => $_getN(0);
   @$pb.TagNumber(1)
@@ -1064,6 +993,7 @@ class QueryChannelConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $4.Any ensureConsensusState() => $_ensure(0);
 
+  /// client ID associated with the consensus state
   @$pb.TagNumber(2)
   $core.String get clientId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1076,6 +1006,7 @@ class QueryChannelConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearClientId() => clearField(2);
 
+  /// merkle proof of existence
   @$pb.TagNumber(3)
   $core.List<$core.int> get proof => $_getN(2);
   @$pb.TagNumber(3)
@@ -1088,6 +1019,7 @@ class QueryChannelConsensusStateResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearProof() => clearField(3);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(4)
   $2.Height get proofHeight => $_getN(3);
   @$pb.TagNumber(4)
@@ -1103,59 +1035,46 @@ class QueryChannelConsensusStateResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(3);
 }
 
+/// QueryPacketCommitmentRequest is the request type for the
+/// Query/PacketCommitment RPC method
 class QueryPacketCommitmentRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketCommitmentRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryPacketCommitmentRequest._() : super();
   factory QueryPacketCommitmentRequest({
     $core.String? portId,
     $core.String? channelId,
     $fixnum.Int64? sequence,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (sequence != null) {
-      _result.sequence = sequence;
+      $result.sequence = sequence;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketCommitmentRequest._() : super();
   factory QueryPacketCommitmentRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketCommitmentRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketCommitmentRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1168,8 +1087,10 @@ class QueryPacketCommitmentRequest extends $pb.GeneratedMessage {
           void Function(QueryPacketCommitmentRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryPacketCommitmentRequest))
-          as QueryPacketCommitmentRequest; // ignore: deprecated_member_use
+          as QueryPacketCommitmentRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketCommitmentRequest create() =>
       QueryPacketCommitmentRequest._();
@@ -1181,6 +1102,7 @@ class QueryPacketCommitmentRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryPacketCommitmentRequest>(create);
   static QueryPacketCommitmentRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1193,6 +1115,7 @@ class QueryPacketCommitmentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1205,6 +1128,7 @@ class QueryPacketCommitmentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// packet sequence
   @$pb.TagNumber(3)
   $fixnum.Int64 get sequence => $_getI64(2);
   @$pb.TagNumber(3)
@@ -1218,60 +1142,48 @@ class QueryPacketCommitmentRequest extends $pb.GeneratedMessage {
   void clearSequence() => clearField(3);
 }
 
+/// QueryPacketCommitmentResponse defines the client query response for a packet
+/// which also includes a proof and the height from which the proof was
+/// retrieved
 class QueryPacketCommitmentResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketCommitmentResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'commitment',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryPacketCommitmentResponse._() : super();
   factory QueryPacketCommitmentResponse({
     $core.List<$core.int>? commitment,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (commitment != null) {
-      _result.commitment = commitment;
+      $result.commitment = commitment;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketCommitmentResponse._() : super();
   factory QueryPacketCommitmentResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketCommitmentResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketCommitmentResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'commitment', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1284,8 +1196,10 @@ class QueryPacketCommitmentResponse extends $pb.GeneratedMessage {
           void Function(QueryPacketCommitmentResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryPacketCommitmentResponse))
-          as QueryPacketCommitmentResponse; // ignore: deprecated_member_use
+          as QueryPacketCommitmentResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketCommitmentResponse create() =>
       QueryPacketCommitmentResponse._();
@@ -1297,6 +1211,7 @@ class QueryPacketCommitmentResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryPacketCommitmentResponse>(create);
   static QueryPacketCommitmentResponse? _defaultInstance;
 
+  /// packet associated with the request fields
   @$pb.TagNumber(1)
   $core.List<$core.int> get commitment => $_getN(0);
   @$pb.TagNumber(1)
@@ -1309,6 +1224,7 @@ class QueryPacketCommitmentResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearCommitment() => clearField(1);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -1321,6 +1237,7 @@ class QueryPacketCommitmentResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -1336,58 +1253,45 @@ class QueryPacketCommitmentResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryPacketCommitmentsRequest is the request type for the
+/// Query/QueryPacketCommitments RPC method
 class QueryPacketCommitmentsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketCommitmentsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOM<$3.PageRequest>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageRequest.create)
-    ..hasRequiredFields = false;
-
-  QueryPacketCommitmentsRequest._() : super();
   factory QueryPacketCommitmentsRequest({
     $core.String? portId,
     $core.String? channelId,
     $3.PageRequest? pagination,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketCommitmentsRequest._() : super();
   factory QueryPacketCommitmentsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketCommitmentsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketCommitmentsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..aOM<$3.PageRequest>(3, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1400,8 +1304,10 @@ class QueryPacketCommitmentsRequest extends $pb.GeneratedMessage {
           void Function(QueryPacketCommitmentsRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryPacketCommitmentsRequest))
-          as QueryPacketCommitmentsRequest; // ignore: deprecated_member_use
+          as QueryPacketCommitmentsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketCommitmentsRequest create() =>
       QueryPacketCommitmentsRequest._();
@@ -1413,6 +1319,7 @@ class QueryPacketCommitmentsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryPacketCommitmentsRequest>(create);
   static QueryPacketCommitmentsRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1425,6 +1332,7 @@ class QueryPacketCommitmentsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1437,6 +1345,7 @@ class QueryPacketCommitmentsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// pagination request
   @$pb.TagNumber(3)
   $3.PageRequest get pagination => $_getN(2);
   @$pb.TagNumber(3)
@@ -1452,61 +1361,48 @@ class QueryPacketCommitmentsRequest extends $pb.GeneratedMessage {
   $3.PageRequest ensurePagination() => $_ensure(2);
 }
 
+/// QueryPacketCommitmentsResponse is the request type for the
+/// Query/QueryPacketCommitments RPC method
 class QueryPacketCommitmentsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketCommitmentsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.PacketState>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'commitments',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.PacketState.create)
-    ..aOM<$3.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageResponse.create)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryPacketCommitmentsResponse._() : super();
   factory QueryPacketCommitmentsResponse({
     $core.Iterable<$1.PacketState>? commitments,
     $3.PageResponse? pagination,
     $2.Height? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (commitments != null) {
-      _result.commitments.addAll(commitments);
+      $result.commitments.addAll(commitments);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketCommitmentsResponse._() : super();
   factory QueryPacketCommitmentsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketCommitmentsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketCommitmentsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.PacketState>(
+        1, _omitFieldNames ? '' : 'commitments', $pb.PbFieldType.PM,
+        subBuilder: $1.PacketState.create)
+    ..aOM<$3.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'height',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1519,8 +1415,10 @@ class QueryPacketCommitmentsResponse extends $pb.GeneratedMessage {
           void Function(QueryPacketCommitmentsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryPacketCommitmentsResponse))
-          as QueryPacketCommitmentsResponse; // ignore: deprecated_member_use
+          as QueryPacketCommitmentsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketCommitmentsResponse create() =>
       QueryPacketCommitmentsResponse._();
@@ -1535,6 +1433,7 @@ class QueryPacketCommitmentsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$1.PacketState> get commitments => $_getList(0);
 
+  /// pagination response
   @$pb.TagNumber(2)
   $3.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -1549,6 +1448,7 @@ class QueryPacketCommitmentsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $3.PageResponse ensurePagination() => $_ensure(1);
 
+  /// query block height
   @$pb.TagNumber(3)
   $2.Height get height => $_getN(2);
   @$pb.TagNumber(3)
@@ -1564,59 +1464,46 @@ class QueryPacketCommitmentsResponse extends $pb.GeneratedMessage {
   $2.Height ensureHeight() => $_ensure(2);
 }
 
+/// QueryPacketReceiptRequest is the request type for the
+/// Query/PacketReceipt RPC method
 class QueryPacketReceiptRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketReceiptRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryPacketReceiptRequest._() : super();
   factory QueryPacketReceiptRequest({
     $core.String? portId,
     $core.String? channelId,
     $fixnum.Int64? sequence,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (sequence != null) {
-      _result.sequence = sequence;
+      $result.sequence = sequence;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketReceiptRequest._() : super();
   factory QueryPacketReceiptRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketReceiptRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketReceiptRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1628,8 +1515,10 @@ class QueryPacketReceiptRequest extends $pb.GeneratedMessage {
   QueryPacketReceiptRequest copyWith(
           void Function(QueryPacketReceiptRequest) updates) =>
       super.copyWith((message) => updates(message as QueryPacketReceiptRequest))
-          as QueryPacketReceiptRequest; // ignore: deprecated_member_use
+          as QueryPacketReceiptRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketReceiptRequest create() => QueryPacketReceiptRequest._();
   QueryPacketReceiptRequest createEmptyInstance() => create();
@@ -1640,6 +1529,7 @@ class QueryPacketReceiptRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryPacketReceiptRequest>(create);
   static QueryPacketReceiptRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1652,6 +1542,7 @@ class QueryPacketReceiptRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1664,6 +1555,7 @@ class QueryPacketReceiptRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// packet sequence
   @$pb.TagNumber(3)
   $fixnum.Int64 get sequence => $_getI64(2);
   @$pb.TagNumber(3)
@@ -1677,59 +1569,47 @@ class QueryPacketReceiptRequest extends $pb.GeneratedMessage {
   void clearSequence() => clearField(3);
 }
 
+/// QueryPacketReceiptResponse defines the client query response for a packet
+/// receipt which also includes a proof, and the height from which the proof was
+/// retrieved
 class QueryPacketReceiptResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketReceiptResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOB(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'received')
-    ..a<$core.List<$core.int>>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryPacketReceiptResponse._() : super();
   factory QueryPacketReceiptResponse({
     $core.bool? received,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (received != null) {
-      _result.received = received;
+      $result.received = received;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketReceiptResponse._() : super();
   factory QueryPacketReceiptResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketReceiptResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketReceiptResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOB(2, _omitFieldNames ? '' : 'received')
+    ..a<$core.List<$core.int>>(
+        3, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(4, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1742,8 +1622,10 @@ class QueryPacketReceiptResponse extends $pb.GeneratedMessage {
           void Function(QueryPacketReceiptResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryPacketReceiptResponse))
-          as QueryPacketReceiptResponse; // ignore: deprecated_member_use
+          as QueryPacketReceiptResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketReceiptResponse create() => QueryPacketReceiptResponse._();
   QueryPacketReceiptResponse createEmptyInstance() => create();
@@ -1754,6 +1636,7 @@ class QueryPacketReceiptResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryPacketReceiptResponse>(create);
   static QueryPacketReceiptResponse? _defaultInstance;
 
+  /// success flag for if receipt exists
   @$pb.TagNumber(2)
   $core.bool get received => $_getBF(0);
   @$pb.TagNumber(2)
@@ -1766,6 +1649,7 @@ class QueryPacketReceiptResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearReceived() => clearField(2);
 
+  /// merkle proof of existence
   @$pb.TagNumber(3)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(3)
@@ -1778,6 +1662,7 @@ class QueryPacketReceiptResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearProof() => clearField(3);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(4)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(4)
@@ -1793,59 +1678,46 @@ class QueryPacketReceiptResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryPacketAcknowledgementRequest is the request type for the
+/// Query/PacketAcknowledgement RPC method
 class QueryPacketAcknowledgementRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketAcknowledgementRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  QueryPacketAcknowledgementRequest._() : super();
   factory QueryPacketAcknowledgementRequest({
     $core.String? portId,
     $core.String? channelId,
     $fixnum.Int64? sequence,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (sequence != null) {
-      _result.sequence = sequence;
+      $result.sequence = sequence;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketAcknowledgementRequest._() : super();
   factory QueryPacketAcknowledgementRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketAcknowledgementRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketAcknowledgementRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1858,8 +1730,10 @@ class QueryPacketAcknowledgementRequest extends $pb.GeneratedMessage {
           void Function(QueryPacketAcknowledgementRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryPacketAcknowledgementRequest))
-          as QueryPacketAcknowledgementRequest; // ignore: deprecated_member_use
+          as QueryPacketAcknowledgementRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketAcknowledgementRequest create() =>
       QueryPacketAcknowledgementRequest._();
@@ -1872,6 +1746,7 @@ class QueryPacketAcknowledgementRequest extends $pb.GeneratedMessage {
           create);
   static QueryPacketAcknowledgementRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1884,6 +1759,7 @@ class QueryPacketAcknowledgementRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1896,6 +1772,7 @@ class QueryPacketAcknowledgementRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// packet sequence
   @$pb.TagNumber(3)
   $fixnum.Int64 get sequence => $_getI64(2);
   @$pb.TagNumber(3)
@@ -1909,60 +1786,48 @@ class QueryPacketAcknowledgementRequest extends $pb.GeneratedMessage {
   void clearSequence() => clearField(3);
 }
 
+/// QueryPacketAcknowledgementResponse defines the client query response for a
+/// packet which also includes a proof and the height from which the
+/// proof was retrieved
 class QueryPacketAcknowledgementResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketAcknowledgementResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'acknowledgement',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryPacketAcknowledgementResponse._() : super();
   factory QueryPacketAcknowledgementResponse({
     $core.List<$core.int>? acknowledgement,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (acknowledgement != null) {
-      _result.acknowledgement = acknowledgement;
+      $result.acknowledgement = acknowledgement;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketAcknowledgementResponse._() : super();
   factory QueryPacketAcknowledgementResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketAcknowledgementResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketAcknowledgementResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'acknowledgement', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1975,8 +1840,10 @@ class QueryPacketAcknowledgementResponse extends $pb.GeneratedMessage {
           void Function(QueryPacketAcknowledgementResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryPacketAcknowledgementResponse))
-          as QueryPacketAcknowledgementResponse; // ignore: deprecated_member_use
+          as QueryPacketAcknowledgementResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketAcknowledgementResponse create() =>
       QueryPacketAcknowledgementResponse._();
@@ -1989,6 +1856,7 @@ class QueryPacketAcknowledgementResponse extends $pb.GeneratedMessage {
           create);
   static QueryPacketAcknowledgementResponse? _defaultInstance;
 
+  /// packet associated with the request fields
   @$pb.TagNumber(1)
   $core.List<$core.int> get acknowledgement => $_getN(0);
   @$pb.TagNumber(1)
@@ -2001,6 +1869,7 @@ class QueryPacketAcknowledgementResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAcknowledgement() => clearField(1);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -2013,6 +1882,7 @@ class QueryPacketAcknowledgementResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -2028,68 +1898,51 @@ class QueryPacketAcknowledgementResponse extends $pb.GeneratedMessage {
   $2.Height ensureProofHeight() => $_ensure(2);
 }
 
+/// QueryPacketAcknowledgementsRequest is the request type for the
+/// Query/QueryPacketCommitments RPC method
 class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketAcknowledgementsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..aOM<$3.PageRequest>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageRequest.create)
-    ..p<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetCommitmentSequences',
-        $pb.PbFieldType.KU6)
-    ..hasRequiredFields = false;
-
-  QueryPacketAcknowledgementsRequest._() : super();
   factory QueryPacketAcknowledgementsRequest({
     $core.String? portId,
     $core.String? channelId,
     $3.PageRequest? pagination,
     $core.Iterable<$fixnum.Int64>? packetCommitmentSequences,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (packetCommitmentSequences != null) {
-      _result.packetCommitmentSequences.addAll(packetCommitmentSequences);
+      $result.packetCommitmentSequences.addAll(packetCommitmentSequences);
     }
-    return _result;
+    return $result;
   }
+  QueryPacketAcknowledgementsRequest._() : super();
   factory QueryPacketAcknowledgementsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryPacketAcknowledgementsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketAcknowledgementsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..aOM<$3.PageRequest>(3, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageRequest.create)
+    ..p<$fixnum.Int64>(4, _omitFieldNames ? '' : 'packetCommitmentSequences',
+        $pb.PbFieldType.KU6)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2102,8 +1955,10 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
           void Function(QueryPacketAcknowledgementsRequest) updates) =>
       super.copyWith((message) =>
               updates(message as QueryPacketAcknowledgementsRequest))
-          as QueryPacketAcknowledgementsRequest; // ignore: deprecated_member_use
+          as QueryPacketAcknowledgementsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketAcknowledgementsRequest create() =>
       QueryPacketAcknowledgementsRequest._();
@@ -2116,6 +1971,7 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
           create);
   static QueryPacketAcknowledgementsRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -2128,6 +1984,7 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -2140,6 +1997,7 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// pagination request
   @$pb.TagNumber(3)
   $3.PageRequest get pagination => $_getN(2);
   @$pb.TagNumber(3)
@@ -2154,59 +2012,32 @@ class QueryPacketAcknowledgementsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $3.PageRequest ensurePagination() => $_ensure(2);
 
+  /// list of packet sequences
   @$pb.TagNumber(4)
   $core.List<$fixnum.Int64> get packetCommitmentSequences => $_getList(3);
 }
 
+/// QueryPacketAcknowledgemetsResponse is the request type for the
+/// Query/QueryPacketAcknowledgements RPC method
 class QueryPacketAcknowledgementsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryPacketAcknowledgementsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..pc<$1.PacketState>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'acknowledgements',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.PacketState.create)
-    ..aOM<$3.PageResponse>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pagination',
-        subBuilder: $3.PageResponse.create)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryPacketAcknowledgementsResponse._() : super();
   factory QueryPacketAcknowledgementsResponse({
     $core.Iterable<$1.PacketState>? acknowledgements,
     $3.PageResponse? pagination,
     $2.Height? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (acknowledgements != null) {
-      _result.acknowledgements.addAll(acknowledgements);
+      $result.acknowledgements.addAll(acknowledgements);
     }
     if (pagination != null) {
-      _result.pagination = pagination;
+      $result.pagination = pagination;
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  QueryPacketAcknowledgementsResponse._() : super();
   factory QueryPacketAcknowledgementsResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -2214,6 +2045,21 @@ class QueryPacketAcknowledgementsResponse extends $pb.GeneratedMessage {
   factory QueryPacketAcknowledgementsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryPacketAcknowledgementsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.PacketState>(
+        1, _omitFieldNames ? '' : 'acknowledgements', $pb.PbFieldType.PM,
+        subBuilder: $1.PacketState.create)
+    ..aOM<$3.PageResponse>(2, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $3.PageResponse.create)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'height',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2226,8 +2072,10 @@ class QueryPacketAcknowledgementsResponse extends $pb.GeneratedMessage {
           void Function(QueryPacketAcknowledgementsResponse) updates) =>
       super.copyWith((message) =>
               updates(message as QueryPacketAcknowledgementsResponse))
-          as QueryPacketAcknowledgementsResponse; // ignore: deprecated_member_use
+          as QueryPacketAcknowledgementsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryPacketAcknowledgementsResponse create() =>
       QueryPacketAcknowledgementsResponse._();
@@ -2243,6 +2091,7 @@ class QueryPacketAcknowledgementsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$1.PacketState> get acknowledgements => $_getList(0);
 
+  /// pagination response
   @$pb.TagNumber(2)
   $3.PageResponse get pagination => $_getN(1);
   @$pb.TagNumber(2)
@@ -2257,6 +2106,7 @@ class QueryPacketAcknowledgementsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $3.PageResponse ensurePagination() => $_ensure(1);
 
+  /// query block height
   @$pb.TagNumber(3)
   $2.Height get height => $_getN(2);
   @$pb.TagNumber(3)
@@ -2272,58 +2122,45 @@ class QueryPacketAcknowledgementsResponse extends $pb.GeneratedMessage {
   $2.Height ensureHeight() => $_ensure(2);
 }
 
+/// QueryUnreceivedPacketsRequest is the request type for the
+/// Query/UnreceivedPackets RPC method
 class QueryUnreceivedPacketsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUnreceivedPacketsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..p<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetCommitmentSequences',
-        $pb.PbFieldType.KU6)
-    ..hasRequiredFields = false;
-
-  QueryUnreceivedPacketsRequest._() : super();
   factory QueryUnreceivedPacketsRequest({
     $core.String? portId,
     $core.String? channelId,
     $core.Iterable<$fixnum.Int64>? packetCommitmentSequences,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (packetCommitmentSequences != null) {
-      _result.packetCommitmentSequences.addAll(packetCommitmentSequences);
+      $result.packetCommitmentSequences.addAll(packetCommitmentSequences);
     }
-    return _result;
+    return $result;
   }
+  QueryUnreceivedPacketsRequest._() : super();
   factory QueryUnreceivedPacketsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryUnreceivedPacketsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUnreceivedPacketsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..p<$fixnum.Int64>(3, _omitFieldNames ? '' : 'packetCommitmentSequences',
+        $pb.PbFieldType.KU6)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2336,8 +2173,10 @@ class QueryUnreceivedPacketsRequest extends $pb.GeneratedMessage {
           void Function(QueryUnreceivedPacketsRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryUnreceivedPacketsRequest))
-          as QueryUnreceivedPacketsRequest; // ignore: deprecated_member_use
+          as QueryUnreceivedPacketsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUnreceivedPacketsRequest create() =>
       QueryUnreceivedPacketsRequest._();
@@ -2349,6 +2188,7 @@ class QueryUnreceivedPacketsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryUnreceivedPacketsRequest>(create);
   static QueryUnreceivedPacketsRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -2361,6 +2201,7 @@ class QueryUnreceivedPacketsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -2373,54 +2214,46 @@ class QueryUnreceivedPacketsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// list of packet sequences
   @$pb.TagNumber(3)
   $core.List<$fixnum.Int64> get packetCommitmentSequences => $_getList(2);
 }
 
+/// QueryUnreceivedPacketsResponse is the response type for the
+/// Query/UnreceivedPacketCommitments RPC method
 class QueryUnreceivedPacketsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUnreceivedPacketsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..p<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequences',
-        $pb.PbFieldType.KU6)
-    ..aOM<$2.Height>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryUnreceivedPacketsResponse._() : super();
   factory QueryUnreceivedPacketsResponse({
     $core.Iterable<$fixnum.Int64>? sequences,
     $2.Height? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (sequences != null) {
-      _result.sequences.addAll(sequences);
+      $result.sequences.addAll(sequences);
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  QueryUnreceivedPacketsResponse._() : super();
   factory QueryUnreceivedPacketsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryUnreceivedPacketsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUnreceivedPacketsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..p<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'sequences', $pb.PbFieldType.KU6)
+    ..aOM<$2.Height>(2, _omitFieldNames ? '' : 'height',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2433,8 +2266,10 @@ class QueryUnreceivedPacketsResponse extends $pb.GeneratedMessage {
           void Function(QueryUnreceivedPacketsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryUnreceivedPacketsResponse))
-          as QueryUnreceivedPacketsResponse; // ignore: deprecated_member_use
+          as QueryUnreceivedPacketsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUnreceivedPacketsResponse create() =>
       QueryUnreceivedPacketsResponse._();
@@ -2446,9 +2281,11 @@ class QueryUnreceivedPacketsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryUnreceivedPacketsResponse>(create);
   static QueryUnreceivedPacketsResponse? _defaultInstance;
 
+  /// list of unreceived packet sequences
   @$pb.TagNumber(1)
   $core.List<$fixnum.Int64> get sequences => $_getList(0);
 
+  /// query block height
   @$pb.TagNumber(2)
   $2.Height get height => $_getN(1);
   @$pb.TagNumber(2)
@@ -2464,58 +2301,45 @@ class QueryUnreceivedPacketsResponse extends $pb.GeneratedMessage {
   $2.Height ensureHeight() => $_ensure(1);
 }
 
+/// QueryUnreceivedAcks is the request type for the
+/// Query/UnreceivedAcks RPC method
 class QueryUnreceivedAcksRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUnreceivedAcksRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..p<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'packetAckSequences',
-        $pb.PbFieldType.KU6)
-    ..hasRequiredFields = false;
-
-  QueryUnreceivedAcksRequest._() : super();
   factory QueryUnreceivedAcksRequest({
     $core.String? portId,
     $core.String? channelId,
     $core.Iterable<$fixnum.Int64>? packetAckSequences,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
     if (packetAckSequences != null) {
-      _result.packetAckSequences.addAll(packetAckSequences);
+      $result.packetAckSequences.addAll(packetAckSequences);
     }
-    return _result;
+    return $result;
   }
+  QueryUnreceivedAcksRequest._() : super();
   factory QueryUnreceivedAcksRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryUnreceivedAcksRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUnreceivedAcksRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..p<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'packetAckSequences', $pb.PbFieldType.KU6)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2528,8 +2352,10 @@ class QueryUnreceivedAcksRequest extends $pb.GeneratedMessage {
           void Function(QueryUnreceivedAcksRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryUnreceivedAcksRequest))
-          as QueryUnreceivedAcksRequest; // ignore: deprecated_member_use
+          as QueryUnreceivedAcksRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUnreceivedAcksRequest create() => QueryUnreceivedAcksRequest._();
   QueryUnreceivedAcksRequest createEmptyInstance() => create();
@@ -2540,6 +2366,7 @@ class QueryUnreceivedAcksRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryUnreceivedAcksRequest>(create);
   static QueryUnreceivedAcksRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -2552,6 +2379,7 @@ class QueryUnreceivedAcksRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -2564,54 +2392,46 @@ class QueryUnreceivedAcksRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => clearField(2);
 
+  /// list of acknowledgement sequences
   @$pb.TagNumber(3)
   $core.List<$fixnum.Int64> get packetAckSequences => $_getList(2);
 }
 
+/// QueryUnreceivedAcksResponse is the response type for the
+/// Query/UnreceivedAcks RPC method
 class QueryUnreceivedAcksResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryUnreceivedAcksResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..p<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequences',
-        $pb.PbFieldType.KU6)
-    ..aOM<$2.Height>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'height',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryUnreceivedAcksResponse._() : super();
   factory QueryUnreceivedAcksResponse({
     $core.Iterable<$fixnum.Int64>? sequences,
     $2.Height? height,
   }) {
-    final _result = create();
+    final $result = create();
     if (sequences != null) {
-      _result.sequences.addAll(sequences);
+      $result.sequences.addAll(sequences);
     }
     if (height != null) {
-      _result.height = height;
+      $result.height = height;
     }
-    return _result;
+    return $result;
   }
+  QueryUnreceivedAcksResponse._() : super();
   factory QueryUnreceivedAcksResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryUnreceivedAcksResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryUnreceivedAcksResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..p<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'sequences', $pb.PbFieldType.KU6)
+    ..aOM<$2.Height>(2, _omitFieldNames ? '' : 'height',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2624,8 +2444,10 @@ class QueryUnreceivedAcksResponse extends $pb.GeneratedMessage {
           void Function(QueryUnreceivedAcksResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryUnreceivedAcksResponse))
-          as QueryUnreceivedAcksResponse; // ignore: deprecated_member_use
+          as QueryUnreceivedAcksResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryUnreceivedAcksResponse create() =>
       QueryUnreceivedAcksResponse._();
@@ -2637,9 +2459,11 @@ class QueryUnreceivedAcksResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<QueryUnreceivedAcksResponse>(create);
   static QueryUnreceivedAcksResponse? _defaultInstance;
 
+  /// list of unreceived acknowledgement sequences
   @$pb.TagNumber(1)
   $core.List<$fixnum.Int64> get sequences => $_getList(0);
 
+  /// query block height
   @$pb.TagNumber(2)
   $2.Height get height => $_getN(1);
   @$pb.TagNumber(2)
@@ -2655,48 +2479,39 @@ class QueryUnreceivedAcksResponse extends $pb.GeneratedMessage {
   $2.Height ensureHeight() => $_ensure(1);
 }
 
+/// QueryNextSequenceReceiveRequest is the request type for the
+/// Query/QueryNextSequenceReceiveRequest RPC method
 class QueryNextSequenceReceiveRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryNextSequenceReceiveRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'portId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'channelId')
-    ..hasRequiredFields = false;
-
-  QueryNextSequenceReceiveRequest._() : super();
   factory QueryNextSequenceReceiveRequest({
     $core.String? portId,
     $core.String? channelId,
   }) {
-    final _result = create();
+    final $result = create();
     if (portId != null) {
-      _result.portId = portId;
+      $result.portId = portId;
     }
     if (channelId != null) {
-      _result.channelId = channelId;
+      $result.channelId = channelId;
     }
-    return _result;
+    return $result;
   }
+  QueryNextSequenceReceiveRequest._() : super();
   factory QueryNextSequenceReceiveRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryNextSequenceReceiveRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryNextSequenceReceiveRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'portId')
+    ..aOS(2, _omitFieldNames ? '' : 'channelId')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2709,8 +2524,10 @@ class QueryNextSequenceReceiveRequest extends $pb.GeneratedMessage {
           void Function(QueryNextSequenceReceiveRequest) updates) =>
       super.copyWith(
               (message) => updates(message as QueryNextSequenceReceiveRequest))
-          as QueryNextSequenceReceiveRequest; // ignore: deprecated_member_use
+          as QueryNextSequenceReceiveRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryNextSequenceReceiveRequest create() =>
       QueryNextSequenceReceiveRequest._();
@@ -2723,6 +2540,7 @@ class QueryNextSequenceReceiveRequest extends $pb.GeneratedMessage {
           create);
   static QueryNextSequenceReceiveRequest? _defaultInstance;
 
+  /// port unique identifier
   @$pb.TagNumber(1)
   $core.String get portId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -2735,6 +2553,7 @@ class QueryNextSequenceReceiveRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPortId() => clearField(1);
 
+  /// channel unique identifier
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -2748,61 +2567,48 @@ class QueryNextSequenceReceiveRequest extends $pb.GeneratedMessage {
   void clearChannelId() => clearField(2);
 }
 
+/// QuerySequenceResponse is the request type for the
+/// Query/QueryNextSequenceReceiveResponse RPC method
 class QueryNextSequenceReceiveResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'QueryNextSequenceReceiveResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'ibc.core.channel.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nextSequenceReceive',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proof',
-        $pb.PbFieldType.OY)
-    ..aOM<$2.Height>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'proofHeight',
-        subBuilder: $2.Height.create)
-    ..hasRequiredFields = false;
-
-  QueryNextSequenceReceiveResponse._() : super();
   factory QueryNextSequenceReceiveResponse({
     $fixnum.Int64? nextSequenceReceive,
     $core.List<$core.int>? proof,
     $2.Height? proofHeight,
   }) {
-    final _result = create();
+    final $result = create();
     if (nextSequenceReceive != null) {
-      _result.nextSequenceReceive = nextSequenceReceive;
+      $result.nextSequenceReceive = nextSequenceReceive;
     }
     if (proof != null) {
-      _result.proof = proof;
+      $result.proof = proof;
     }
     if (proofHeight != null) {
-      _result.proofHeight = proofHeight;
+      $result.proofHeight = proofHeight;
     }
-    return _result;
+    return $result;
   }
+  QueryNextSequenceReceiveResponse._() : super();
   factory QueryNextSequenceReceiveResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory QueryNextSequenceReceiveResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryNextSequenceReceiveResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'ibc.core.channel.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'nextSequenceReceive', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'proof', $pb.PbFieldType.OY)
+    ..aOM<$2.Height>(3, _omitFieldNames ? '' : 'proofHeight',
+        subBuilder: $2.Height.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -2815,8 +2621,10 @@ class QueryNextSequenceReceiveResponse extends $pb.GeneratedMessage {
           void Function(QueryNextSequenceReceiveResponse) updates) =>
       super.copyWith(
               (message) => updates(message as QueryNextSequenceReceiveResponse))
-          as QueryNextSequenceReceiveResponse; // ignore: deprecated_member_use
+          as QueryNextSequenceReceiveResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static QueryNextSequenceReceiveResponse create() =>
       QueryNextSequenceReceiveResponse._();
@@ -2829,6 +2637,7 @@ class QueryNextSequenceReceiveResponse extends $pb.GeneratedMessage {
           create);
   static QueryNextSequenceReceiveResponse? _defaultInstance;
 
+  /// next sequence receive number
   @$pb.TagNumber(1)
   $fixnum.Int64 get nextSequenceReceive => $_getI64(0);
   @$pb.TagNumber(1)
@@ -2841,6 +2650,7 @@ class QueryNextSequenceReceiveResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearNextSequenceReceive() => clearField(1);
 
+  /// merkle proof of existence
   @$pb.TagNumber(2)
   $core.List<$core.int> get proof => $_getN(1);
   @$pb.TagNumber(2)
@@ -2853,6 +2663,7 @@ class QueryNextSequenceReceiveResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearProof() => clearField(2);
 
+  /// height at which the proof was retrieved
   @$pb.TagNumber(3)
   $2.Height get proofHeight => $_getN(2);
   @$pb.TagNumber(3)
@@ -2867,3 +2678,7 @@ class QueryNextSequenceReceiveResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $2.Height ensureProofHeight() => $_ensure(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

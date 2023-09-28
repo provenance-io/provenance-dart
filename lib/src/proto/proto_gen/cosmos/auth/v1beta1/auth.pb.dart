@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/auth/v1beta1/auth.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,71 +16,54 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../google/protobuf/any.pb.dart' as $0;
 
+/// BaseAccount defines a base account type. It contains all the necessary fields
+/// for basic account functionality. Any custom account type should extend this
+/// type for additional functionality (e.g. vesting).
 class BaseAccount extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'BaseAccount',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.auth.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aOM<$0.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pubKey',
-        subBuilder: $0.Any.create)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'accountNumber',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sequence',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  BaseAccount._() : super();
   factory BaseAccount({
     $core.String? address,
     $0.Any? pubKey,
     $fixnum.Int64? accountNumber,
     $fixnum.Int64? sequence,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (pubKey != null) {
-      _result.pubKey = pubKey;
+      $result.pubKey = pubKey;
     }
     if (accountNumber != null) {
-      _result.accountNumber = accountNumber;
+      $result.accountNumber = accountNumber;
     }
     if (sequence != null) {
-      _result.sequence = sequence;
+      $result.sequence = sequence;
     }
-    return _result;
+    return $result;
   }
+  BaseAccount._() : super();
   factory BaseAccount.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BaseAccount.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BaseAccount',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.auth.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aOM<$0.Any>(2, _omitFieldNames ? '' : 'pubKey', subBuilder: $0.Any.create)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'accountNumber', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'sequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -86,8 +73,10 @@ class BaseAccount extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   BaseAccount copyWith(void Function(BaseAccount) updates) =>
       super.copyWith((message) => updates(message as BaseAccount))
-          as BaseAccount; // ignore: deprecated_member_use
+          as BaseAccount;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BaseAccount create() => BaseAccount._();
   BaseAccount createEmptyInstance() => create();
@@ -148,58 +137,44 @@ class BaseAccount extends $pb.GeneratedMessage {
   void clearSequence() => clearField(4);
 }
 
+/// ModuleAccount defines an account for modules that holds coins on a pool.
 class ModuleAccount extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ModuleAccount',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.auth.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<BaseAccount>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'baseAccount',
-        subBuilder: BaseAccount.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'permissions')
-    ..hasRequiredFields = false;
-
-  ModuleAccount._() : super();
   factory ModuleAccount({
     BaseAccount? baseAccount,
     $core.String? name,
     $core.Iterable<$core.String>? permissions,
   }) {
-    final _result = create();
+    final $result = create();
     if (baseAccount != null) {
-      _result.baseAccount = baseAccount;
+      $result.baseAccount = baseAccount;
     }
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (permissions != null) {
-      _result.permissions.addAll(permissions);
+      $result.permissions.addAll(permissions);
     }
-    return _result;
+    return $result;
   }
+  ModuleAccount._() : super();
   factory ModuleAccount.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ModuleAccount.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ModuleAccount',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.auth.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<BaseAccount>(1, _omitFieldNames ? '' : 'baseAccount',
+        subBuilder: BaseAccount.create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..pPS(3, _omitFieldNames ? '' : 'permissions')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -209,8 +184,10 @@ class ModuleAccount extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ModuleAccount copyWith(void Function(ModuleAccount) updates) =>
       super.copyWith((message) => updates(message as ModuleAccount))
-          as ModuleAccount; // ignore: deprecated_member_use
+          as ModuleAccount;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ModuleAccount create() => ModuleAccount._();
   ModuleAccount createEmptyInstance() => create();
@@ -251,54 +228,8 @@ class ModuleAccount extends $pb.GeneratedMessage {
   $core.List<$core.String> get permissions => $_getList(2);
 }
 
+/// Params defines the parameters for the auth module.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.auth.v1beta1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'maxMemoCharacters',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'txSigLimit',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'txSizeCostPerByte',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sigVerifyCostEd25519',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sigVerifyCostSecp256k1',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
     $fixnum.Int64? maxMemoCharacters,
     $fixnum.Int64? txSigLimit,
@@ -306,30 +237,54 @@ class Params extends $pb.GeneratedMessage {
     $fixnum.Int64? sigVerifyCostEd25519,
     $fixnum.Int64? sigVerifyCostSecp256k1,
   }) {
-    final _result = create();
+    final $result = create();
     if (maxMemoCharacters != null) {
-      _result.maxMemoCharacters = maxMemoCharacters;
+      $result.maxMemoCharacters = maxMemoCharacters;
     }
     if (txSigLimit != null) {
-      _result.txSigLimit = txSigLimit;
+      $result.txSigLimit = txSigLimit;
     }
     if (txSizeCostPerByte != null) {
-      _result.txSizeCostPerByte = txSizeCostPerByte;
+      $result.txSizeCostPerByte = txSizeCostPerByte;
     }
     if (sigVerifyCostEd25519 != null) {
-      _result.sigVerifyCostEd25519 = sigVerifyCostEd25519;
+      $result.sigVerifyCostEd25519 = sigVerifyCostEd25519;
     }
     if (sigVerifyCostSecp256k1 != null) {
-      _result.sigVerifyCostSecp256k1 = sigVerifyCostSecp256k1;
+      $result.sigVerifyCostSecp256k1 = sigVerifyCostSecp256k1;
     }
-    return _result;
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.auth.v1beta1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'maxMemoCharacters', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'txSigLimit', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'txSizeCostPerByte', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'sigVerifyCostEd25519', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        5, _omitFieldNames ? '' : 'sigVerifyCostSecp256k1', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -338,9 +293,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -410,3 +366,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearSigVerifyCostSecp256k1() => clearField(5);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

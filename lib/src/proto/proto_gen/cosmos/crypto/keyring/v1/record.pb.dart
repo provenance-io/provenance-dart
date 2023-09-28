@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/crypto/keyring/v1/record.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,40 +16,35 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../../google/protobuf/any.pb.dart' as $0;
 import '../../hd/v1/hd.pb.dart' as $1;
 
+/// Item is a keyring item stored in a keyring backend.
+/// Local item
 class Record_Local extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Record.Local',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.keyring.v1'),
-      createEmptyInstance: create)
-    ..aOM<$0.Any>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'privKey',
-        subBuilder: $0.Any.create)
-    ..hasRequiredFields = false;
-
-  Record_Local._() : super();
   factory Record_Local({
     $0.Any? privKey,
   }) {
-    final _result = create();
+    final $result = create();
     if (privKey != null) {
-      _result.privKey = privKey;
+      $result.privKey = privKey;
     }
-    return _result;
+    return $result;
   }
+  Record_Local._() : super();
   factory Record_Local.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Record_Local.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Record.Local',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.keyring.v1'),
+      createEmptyInstance: create)
+    ..aOM<$0.Any>(1, _omitFieldNames ? '' : 'privKey',
+        subBuilder: $0.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -55,8 +54,10 @@ class Record_Local extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Record_Local copyWith(void Function(Record_Local) updates) =>
       super.copyWith((message) => updates(message as Record_Local))
-          as Record_Local; // ignore: deprecated_member_use
+          as Record_Local;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Record_Local create() => Record_Local._();
   Record_Local createEmptyInstance() => create();
@@ -82,40 +83,34 @@ class Record_Local extends $pb.GeneratedMessage {
   $0.Any ensurePrivKey() => $_ensure(0);
 }
 
+/// Ledger item
 class Record_Ledger extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Record.Ledger',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.keyring.v1'),
-      createEmptyInstance: create)
-    ..aOM<$1.BIP44Params>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'path',
-        subBuilder: $1.BIP44Params.create)
-    ..hasRequiredFields = false;
-
-  Record_Ledger._() : super();
   factory Record_Ledger({
     $1.BIP44Params? path,
   }) {
-    final _result = create();
+    final $result = create();
     if (path != null) {
-      _result.path = path;
+      $result.path = path;
     }
-    return _result;
+    return $result;
   }
+  Record_Ledger._() : super();
   factory Record_Ledger.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Record_Ledger.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Record.Ledger',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.keyring.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.BIP44Params>(1, _omitFieldNames ? '' : 'path',
+        subBuilder: $1.BIP44Params.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -125,8 +120,10 @@ class Record_Ledger extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Record_Ledger copyWith(void Function(Record_Ledger) updates) =>
       super.copyWith((message) => updates(message as Record_Ledger))
-          as Record_Ledger; // ignore: deprecated_member_use
+          as Record_Ledger;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Record_Ledger create() => Record_Ledger._();
   Record_Ledger createEmptyInstance() => create();
@@ -152,26 +149,24 @@ class Record_Ledger extends $pb.GeneratedMessage {
   $1.BIP44Params ensurePath() => $_ensure(0);
 }
 
+/// Multi item
 class Record_Multi extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Record.Multi',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.keyring.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  Record_Multi._() : super();
   factory Record_Multi() => create();
+  Record_Multi._() : super();
   factory Record_Multi.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Record_Multi.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Record.Multi',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.keyring.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -181,8 +176,10 @@ class Record_Multi extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Record_Multi copyWith(void Function(Record_Multi) updates) =>
       super.copyWith((message) => updates(message as Record_Multi))
-          as Record_Multi; // ignore: deprecated_member_use
+          as Record_Multi;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Record_Multi create() => Record_Multi._();
   Record_Multi createEmptyInstance() => create();
@@ -194,26 +191,24 @@ class Record_Multi extends $pb.GeneratedMessage {
   static Record_Multi? _defaultInstance;
 }
 
+/// Offline item
 class Record_Offline extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Record.Offline',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.keyring.v1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  Record_Offline._() : super();
   factory Record_Offline() => create();
+  Record_Offline._() : super();
   factory Record_Offline.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Record_Offline.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Record.Offline',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.keyring.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -223,8 +218,10 @@ class Record_Offline extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   Record_Offline copyWith(void Function(Record_Offline) updates) =>
       super.copyWith((message) => updates(message as Record_Offline))
-          as Record_Offline; // ignore: deprecated_member_use
+          as Record_Offline;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Record_Offline create() => Record_Offline._();
   Record_Offline createEmptyInstance() => create();
@@ -238,62 +235,8 @@ class Record_Offline extends $pb.GeneratedMessage {
 
 enum Record_Item { local, ledger, multi, offline, notSet }
 
+/// Record is used for representing a key in the keyring.
 class Record extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, Record_Item> _Record_ItemByTag = {
-    3: Record_Item.local,
-    4: Record_Item.ledger,
-    5: Record_Item.multi,
-    6: Record_Item.offline,
-    0: Record_Item.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Record',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.crypto.keyring.v1'),
-      createEmptyInstance: create)
-    ..oo(0, [3, 4, 5, 6])
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'name')
-    ..aOM<$0.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'pubKey',
-        subBuilder: $0.Any.create)
-    ..aOM<Record_Local>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'local',
-        subBuilder: Record_Local.create)
-    ..aOM<Record_Ledger>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ledger',
-        subBuilder: Record_Ledger.create)
-    ..aOM<Record_Multi>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'multi',
-        subBuilder: Record_Multi.create)
-    ..aOM<Record_Offline>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'offline',
-        subBuilder: Record_Offline.create)
-    ..hasRequiredFields = false;
-
-  Record._() : super();
   factory Record({
     $core.String? name,
     $0.Any? pubKey,
@@ -302,33 +245,60 @@ class Record extends $pb.GeneratedMessage {
     Record_Multi? multi,
     Record_Offline? offline,
   }) {
-    final _result = create();
+    final $result = create();
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (pubKey != null) {
-      _result.pubKey = pubKey;
+      $result.pubKey = pubKey;
     }
     if (local != null) {
-      _result.local = local;
+      $result.local = local;
     }
     if (ledger != null) {
-      _result.ledger = ledger;
+      $result.ledger = ledger;
     }
     if (multi != null) {
-      _result.multi = multi;
+      $result.multi = multi;
     }
     if (offline != null) {
-      _result.offline = offline;
+      $result.offline = offline;
     }
-    return _result;
+    return $result;
   }
+  Record._() : super();
   factory Record.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Record.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, Record_Item> _Record_ItemByTag = {
+    3: Record_Item.local,
+    4: Record_Item.ledger,
+    5: Record_Item.multi,
+    6: Record_Item.offline,
+    0: Record_Item.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Record',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.crypto.keyring.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [3, 4, 5, 6])
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOM<$0.Any>(2, _omitFieldNames ? '' : 'pubKey', subBuilder: $0.Any.create)
+    ..aOM<Record_Local>(3, _omitFieldNames ? '' : 'local',
+        subBuilder: Record_Local.create)
+    ..aOM<Record_Ledger>(4, _omitFieldNames ? '' : 'ledger',
+        subBuilder: Record_Ledger.create)
+    ..aOM<Record_Multi>(5, _omitFieldNames ? '' : 'multi',
+        subBuilder: Record_Multi.create)
+    ..aOM<Record_Offline>(6, _omitFieldNames ? '' : 'offline',
+        subBuilder: Record_Offline.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -337,9 +307,10 @@ class Record extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Record copyWith(void Function(Record) updates) =>
-      super.copyWith((message) => updates(message as Record))
-          as Record; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Record)) as Record;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Record create() => Record._();
   Record createEmptyInstance() => create();
@@ -352,6 +323,7 @@ class Record extends $pb.GeneratedMessage {
   Record_Item whichItem() => _Record_ItemByTag[$_whichOneof(0)]!;
   void clearItem() => clearField($_whichOneof(0));
 
+  /// name represents a name of Record
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -364,6 +336,7 @@ class Record extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
 
+  /// pub_key represents a public key in any format
   @$pb.TagNumber(2)
   $0.Any get pubKey => $_getN(1);
   @$pb.TagNumber(2)
@@ -378,6 +351,7 @@ class Record extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $0.Any ensurePubKey() => $_ensure(1);
 
+  /// local stores the private key locally.
   @$pb.TagNumber(3)
   Record_Local get local => $_getN(2);
   @$pb.TagNumber(3)
@@ -392,6 +366,7 @@ class Record extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   Record_Local ensureLocal() => $_ensure(2);
 
+  /// ledger stores the information about a Ledger key.
   @$pb.TagNumber(4)
   Record_Ledger get ledger => $_getN(3);
   @$pb.TagNumber(4)
@@ -406,6 +381,7 @@ class Record extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   Record_Ledger ensureLedger() => $_ensure(3);
 
+  /// Multi does not store any other information.
   @$pb.TagNumber(5)
   Record_Multi get multi => $_getN(4);
   @$pb.TagNumber(5)
@@ -420,6 +396,7 @@ class Record extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   Record_Multi ensureMulti() => $_ensure(4);
 
+  /// Offline does not store any other information.
   @$pb.TagNumber(6)
   Record_Offline get offline => $_getN(5);
   @$pb.TagNumber(6)
@@ -434,3 +411,7 @@ class Record extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   Record_Offline ensureOffline() => $_ensure(5);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

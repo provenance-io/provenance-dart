@@ -1,18 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/marker/v1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import 'tx.pb.dart' as $1;
+
 export 'tx.pb.dart';
 
+@$pb.GrpcServiceName('provenance.marker.v1.Msg')
 class MsgClient extends $grpc.Client {
   static final _$finalize =
       $grpc.ClientMethod<$1.MsgFinalizeRequest, $1.MsgFinalizeResponse>(
@@ -98,6 +105,52 @@ class MsgClient extends $grpc.Client {
       ($1.MsgGrantAllowanceRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $1.MsgGrantAllowanceResponse.fromBuffer(value));
+  static final _$addFinalizeActivateMarker = $grpc.ClientMethod<
+          $1.MsgAddFinalizeActivateMarkerRequest,
+          $1.MsgAddFinalizeActivateMarkerResponse>(
+      '/provenance.marker.v1.Msg/AddFinalizeActivateMarker',
+      ($1.MsgAddFinalizeActivateMarkerRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.MsgAddFinalizeActivateMarkerResponse.fromBuffer(value));
+  static final _$supplyIncreaseProposal = $grpc.ClientMethod<
+          $1.MsgSupplyIncreaseProposalRequest,
+          $1.MsgSupplyIncreaseProposalResponse>(
+      '/provenance.marker.v1.Msg/SupplyIncreaseProposal',
+      ($1.MsgSupplyIncreaseProposalRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.MsgSupplyIncreaseProposalResponse.fromBuffer(value));
+  static final _$updateRequiredAttributes = $grpc.ClientMethod<
+          $1.MsgUpdateRequiredAttributesRequest,
+          $1.MsgUpdateRequiredAttributesResponse>(
+      '/provenance.marker.v1.Msg/UpdateRequiredAttributes',
+      ($1.MsgUpdateRequiredAttributesRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.MsgUpdateRequiredAttributesResponse.fromBuffer(value));
+  static final _$updateForcedTransfer = $grpc.ClientMethod<
+          $1.MsgUpdateForcedTransferRequest,
+          $1.MsgUpdateForcedTransferResponse>(
+      '/provenance.marker.v1.Msg/UpdateForcedTransfer',
+      ($1.MsgUpdateForcedTransferRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.MsgUpdateForcedTransferResponse.fromBuffer(value));
+  static final _$setAccountData = $grpc.ClientMethod<
+          $1.MsgSetAccountDataRequest, $1.MsgSetAccountDataResponse>(
+      '/provenance.marker.v1.Msg/SetAccountData',
+      ($1.MsgSetAccountDataRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.MsgSetAccountDataResponse.fromBuffer(value));
+  static final _$updateSendDenyList = $grpc.ClientMethod<
+          $1.MsgUpdateSendDenyListRequest, $1.MsgUpdateSendDenyListResponse>(
+      '/provenance.marker.v1.Msg/UpdateSendDenyList',
+      ($1.MsgUpdateSendDenyListRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.MsgUpdateSendDenyListResponse.fromBuffer(value));
+  static final _$addNetAssetValues = $grpc.ClientMethod<
+          $1.MsgAddNetAssetValuesRequest, $1.MsgAddNetAssetValuesResponse>(
+      '/provenance.marker.v1.Msg/AddNetAssetValues',
+      ($1.MsgAddNetAssetValuesRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.MsgAddNetAssetValuesResponse.fromBuffer(value));
 
   MsgClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -183,8 +236,54 @@ class MsgClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$grantAllowance, request, options: options);
   }
+
+  $grpc.ResponseFuture<$1.MsgAddFinalizeActivateMarkerResponse>
+      addFinalizeActivateMarker($1.MsgAddFinalizeActivateMarkerRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$addFinalizeActivateMarker, request,
+        options: options);
+  }
+
+  $grpc.ResponseFuture<$1.MsgSupplyIncreaseProposalResponse>
+      supplyIncreaseProposal($1.MsgSupplyIncreaseProposalRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$supplyIncreaseProposal, request,
+        options: options);
+  }
+
+  $grpc.ResponseFuture<$1.MsgUpdateRequiredAttributesResponse>
+      updateRequiredAttributes($1.MsgUpdateRequiredAttributesRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateRequiredAttributes, request,
+        options: options);
+  }
+
+  $grpc.ResponseFuture<$1.MsgUpdateForcedTransferResponse> updateForcedTransfer(
+      $1.MsgUpdateForcedTransferRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateForcedTransfer, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.MsgSetAccountDataResponse> setAccountData(
+      $1.MsgSetAccountDataRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$setAccountData, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.MsgUpdateSendDenyListResponse> updateSendDenyList(
+      $1.MsgUpdateSendDenyListRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateSendDenyList, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.MsgAddNetAssetValuesResponse> addNetAssetValues(
+      $1.MsgAddNetAssetValuesRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$addNetAssetValues, request, options: options);
+  }
 }
 
+@$pb.GrpcServiceName('provenance.marker.v1.Msg')
 abstract class MsgServiceBase extends $grpc.Service {
   $core.String get $name => 'provenance.marker.v1.Msg';
 
@@ -307,6 +406,71 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $1.MsgGrantAllowanceRequest.fromBuffer(value),
         ($1.MsgGrantAllowanceResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.MsgAddFinalizeActivateMarkerRequest,
+            $1.MsgAddFinalizeActivateMarkerResponse>(
+        'AddFinalizeActivateMarker',
+        addFinalizeActivateMarker_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.MsgAddFinalizeActivateMarkerRequest.fromBuffer(value),
+        ($1.MsgAddFinalizeActivateMarkerResponse value) =>
+            value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.MsgSupplyIncreaseProposalRequest,
+            $1.MsgSupplyIncreaseProposalResponse>(
+        'SupplyIncreaseProposal',
+        supplyIncreaseProposal_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.MsgSupplyIncreaseProposalRequest.fromBuffer(value),
+        ($1.MsgSupplyIncreaseProposalResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.MsgUpdateRequiredAttributesRequest,
+            $1.MsgUpdateRequiredAttributesResponse>(
+        'UpdateRequiredAttributes',
+        updateRequiredAttributes_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.MsgUpdateRequiredAttributesRequest.fromBuffer(value),
+        ($1.MsgUpdateRequiredAttributesResponse value) =>
+            value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.MsgUpdateForcedTransferRequest,
+            $1.MsgUpdateForcedTransferResponse>(
+        'UpdateForcedTransfer',
+        updateForcedTransfer_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.MsgUpdateForcedTransferRequest.fromBuffer(value),
+        ($1.MsgUpdateForcedTransferResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.MsgSetAccountDataRequest,
+            $1.MsgSetAccountDataResponse>(
+        'SetAccountData',
+        setAccountData_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.MsgSetAccountDataRequest.fromBuffer(value),
+        ($1.MsgSetAccountDataResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.MsgUpdateSendDenyListRequest,
+            $1.MsgUpdateSendDenyListResponse>(
+        'UpdateSendDenyList',
+        updateSendDenyList_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.MsgUpdateSendDenyListRequest.fromBuffer(value),
+        ($1.MsgUpdateSendDenyListResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.MsgAddNetAssetValuesRequest,
+            $1.MsgAddNetAssetValuesResponse>(
+        'AddNetAssetValues',
+        addNetAssetValues_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.MsgAddNetAssetValuesRequest.fromBuffer(value),
+        ($1.MsgAddNetAssetValuesResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.MsgFinalizeResponse> finalize_Pre($grpc.ServiceCall call,
@@ -383,6 +547,48 @@ abstract class MsgServiceBase extends $grpc.Service {
     return grantAllowance(call, await request);
   }
 
+  $async.Future<$1.MsgAddFinalizeActivateMarkerResponse>
+      addFinalizeActivateMarker_Pre($grpc.ServiceCall call,
+          $async.Future<$1.MsgAddFinalizeActivateMarkerRequest> request) async {
+    return addFinalizeActivateMarker(call, await request);
+  }
+
+  $async.Future<$1.MsgSupplyIncreaseProposalResponse>
+      supplyIncreaseProposal_Pre($grpc.ServiceCall call,
+          $async.Future<$1.MsgSupplyIncreaseProposalRequest> request) async {
+    return supplyIncreaseProposal(call, await request);
+  }
+
+  $async.Future<$1.MsgUpdateRequiredAttributesResponse>
+      updateRequiredAttributes_Pre($grpc.ServiceCall call,
+          $async.Future<$1.MsgUpdateRequiredAttributesRequest> request) async {
+    return updateRequiredAttributes(call, await request);
+  }
+
+  $async.Future<$1.MsgUpdateForcedTransferResponse> updateForcedTransfer_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.MsgUpdateForcedTransferRequest> request) async {
+    return updateForcedTransfer(call, await request);
+  }
+
+  $async.Future<$1.MsgSetAccountDataResponse> setAccountData_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.MsgSetAccountDataRequest> request) async {
+    return setAccountData(call, await request);
+  }
+
+  $async.Future<$1.MsgUpdateSendDenyListResponse> updateSendDenyList_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.MsgUpdateSendDenyListRequest> request) async {
+    return updateSendDenyList(call, await request);
+  }
+
+  $async.Future<$1.MsgAddNetAssetValuesResponse> addNetAssetValues_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.MsgAddNetAssetValuesRequest> request) async {
+    return addNetAssetValues(call, await request);
+  }
+
   $async.Future<$1.MsgFinalizeResponse> finalize(
       $grpc.ServiceCall call, $1.MsgFinalizeRequest request);
   $async.Future<$1.MsgActivateResponse> activate(
@@ -411,4 +617,20 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $1.MsgSetDenomMetadataRequest request);
   $async.Future<$1.MsgGrantAllowanceResponse> grantAllowance(
       $grpc.ServiceCall call, $1.MsgGrantAllowanceRequest request);
+  $async.Future<$1.MsgAddFinalizeActivateMarkerResponse>
+      addFinalizeActivateMarker($grpc.ServiceCall call,
+          $1.MsgAddFinalizeActivateMarkerRequest request);
+  $async.Future<$1.MsgSupplyIncreaseProposalResponse> supplyIncreaseProposal(
+      $grpc.ServiceCall call, $1.MsgSupplyIncreaseProposalRequest request);
+  $async.Future<$1.MsgUpdateRequiredAttributesResponse>
+      updateRequiredAttributes($grpc.ServiceCall call,
+          $1.MsgUpdateRequiredAttributesRequest request);
+  $async.Future<$1.MsgUpdateForcedTransferResponse> updateForcedTransfer(
+      $grpc.ServiceCall call, $1.MsgUpdateForcedTransferRequest request);
+  $async.Future<$1.MsgSetAccountDataResponse> setAccountData(
+      $grpc.ServiceCall call, $1.MsgSetAccountDataRequest request);
+  $async.Future<$1.MsgUpdateSendDenyListResponse> updateSendDenyList(
+      $grpc.ServiceCall call, $1.MsgUpdateSendDenyListRequest request);
+  $async.Future<$1.MsgAddNetAssetValuesResponse> addNetAssetValues(
+      $grpc.ServiceCall call, $1.MsgAddNetAssetValuesRequest request);
 }

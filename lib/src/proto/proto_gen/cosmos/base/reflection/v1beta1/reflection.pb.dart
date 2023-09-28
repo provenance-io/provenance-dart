@@ -1,34 +1,36 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/base/reflection/v1beta1/reflection.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// ListAllInterfacesRequest is the request type of the ListAllInterfaces RPC.
 class ListAllInterfacesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ListAllInterfacesRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.reflection.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  ListAllInterfacesRequest._() : super();
   factory ListAllInterfacesRequest() => create();
+  ListAllInterfacesRequest._() : super();
   factory ListAllInterfacesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ListAllInterfacesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListAllInterfacesRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.reflection.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -40,8 +42,10 @@ class ListAllInterfacesRequest extends $pb.GeneratedMessage {
   ListAllInterfacesRequest copyWith(
           void Function(ListAllInterfacesRequest) updates) =>
       super.copyWith((message) => updates(message as ListAllInterfacesRequest))
-          as ListAllInterfacesRequest; // ignore: deprecated_member_use
+          as ListAllInterfacesRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ListAllInterfacesRequest create() => ListAllInterfacesRequest._();
   ListAllInterfacesRequest createEmptyInstance() => create();
@@ -53,39 +57,33 @@ class ListAllInterfacesRequest extends $pb.GeneratedMessage {
   static ListAllInterfacesRequest? _defaultInstance;
 }
 
+/// ListAllInterfacesResponse is the response type of the ListAllInterfaces RPC.
 class ListAllInterfacesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ListAllInterfacesResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.reflection.v1beta1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'interfaceNames')
-    ..hasRequiredFields = false;
-
-  ListAllInterfacesResponse._() : super();
   factory ListAllInterfacesResponse({
     $core.Iterable<$core.String>? interfaceNames,
   }) {
-    final _result = create();
+    final $result = create();
     if (interfaceNames != null) {
-      _result.interfaceNames.addAll(interfaceNames);
+      $result.interfaceNames.addAll(interfaceNames);
     }
-    return _result;
+    return $result;
   }
+  ListAllInterfacesResponse._() : super();
   factory ListAllInterfacesResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ListAllInterfacesResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListAllInterfacesResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.reflection.v1beta1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'interfaceNames')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -97,8 +95,10 @@ class ListAllInterfacesResponse extends $pb.GeneratedMessage {
   ListAllInterfacesResponse copyWith(
           void Function(ListAllInterfacesResponse) updates) =>
       super.copyWith((message) => updates(message as ListAllInterfacesResponse))
-          as ListAllInterfacesResponse; // ignore: deprecated_member_use
+          as ListAllInterfacesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ListAllInterfacesResponse create() => ListAllInterfacesResponse._();
   ListAllInterfacesResponse createEmptyInstance() => create();
@@ -109,43 +109,39 @@ class ListAllInterfacesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ListAllInterfacesResponse>(create);
   static ListAllInterfacesResponse? _defaultInstance;
 
+  /// interface_names is an array of all the registered interfaces.
   @$pb.TagNumber(1)
   $core.List<$core.String> get interfaceNames => $_getList(0);
 }
 
+/// ListImplementationsRequest is the request type of the ListImplementations
+/// RPC.
 class ListImplementationsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ListImplementationsRequest',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.reflection.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'interfaceName')
-    ..hasRequiredFields = false;
-
-  ListImplementationsRequest._() : super();
   factory ListImplementationsRequest({
     $core.String? interfaceName,
   }) {
-    final _result = create();
+    final $result = create();
     if (interfaceName != null) {
-      _result.interfaceName = interfaceName;
+      $result.interfaceName = interfaceName;
     }
-    return _result;
+    return $result;
   }
+  ListImplementationsRequest._() : super();
   factory ListImplementationsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ListImplementationsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListImplementationsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.reflection.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'interfaceName')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -158,8 +154,10 @@ class ListImplementationsRequest extends $pb.GeneratedMessage {
           void Function(ListImplementationsRequest) updates) =>
       super.copyWith(
               (message) => updates(message as ListImplementationsRequest))
-          as ListImplementationsRequest; // ignore: deprecated_member_use
+          as ListImplementationsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ListImplementationsRequest create() => ListImplementationsRequest._();
   ListImplementationsRequest createEmptyInstance() => create();
@@ -170,6 +168,7 @@ class ListImplementationsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ListImplementationsRequest>(create);
   static ListImplementationsRequest? _defaultInstance;
 
+  /// interface_name defines the interface to query the implementations for.
   @$pb.TagNumber(1)
   $core.String get interfaceName => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -183,39 +182,34 @@ class ListImplementationsRequest extends $pb.GeneratedMessage {
   void clearInterfaceName() => clearField(1);
 }
 
+/// ListImplementationsResponse is the response type of the ListImplementations
+/// RPC.
 class ListImplementationsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ListImplementationsResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.base.reflection.v1beta1'),
-      createEmptyInstance: create)
-    ..pPS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'implementationMessageNames')
-    ..hasRequiredFields = false;
-
-  ListImplementationsResponse._() : super();
   factory ListImplementationsResponse({
     $core.Iterable<$core.String>? implementationMessageNames,
   }) {
-    final _result = create();
+    final $result = create();
     if (implementationMessageNames != null) {
-      _result.implementationMessageNames.addAll(implementationMessageNames);
+      $result.implementationMessageNames.addAll(implementationMessageNames);
     }
-    return _result;
+    return $result;
   }
+  ListImplementationsResponse._() : super();
   factory ListImplementationsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ListImplementationsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListImplementationsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.base.reflection.v1beta1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'implementationMessageNames')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -228,8 +222,10 @@ class ListImplementationsResponse extends $pb.GeneratedMessage {
           void Function(ListImplementationsResponse) updates) =>
       super.copyWith(
               (message) => updates(message as ListImplementationsResponse))
-          as ListImplementationsResponse; // ignore: deprecated_member_use
+          as ListImplementationsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ListImplementationsResponse create() =>
       ListImplementationsResponse._();
@@ -244,3 +240,7 @@ class ListImplementationsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$core.String> get implementationMessageNames => $_getList(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

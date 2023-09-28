@@ -1,18 +1,25 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/marker/v1/query.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import 'query.pb.dart' as $0;
+
 export 'query.pb.dart';
 
+@$pb.GrpcServiceName('provenance.marker.v1.Query')
 class QueryClient extends $grpc.Client {
   static final _$params =
       $grpc.ClientMethod<$0.QueryParamsRequest, $0.QueryParamsResponse>(
@@ -62,6 +69,18 @@ class QueryClient extends $grpc.Client {
       ($0.QueryDenomMetadataRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.QueryDenomMetadataResponse.fromBuffer(value));
+  static final _$accountData = $grpc.ClientMethod<$0.QueryAccountDataRequest,
+          $0.QueryAccountDataResponse>(
+      '/provenance.marker.v1.Query/AccountData',
+      ($0.QueryAccountDataRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryAccountDataResponse.fromBuffer(value));
+  static final _$netAssetValues = $grpc.ClientMethod<
+          $0.QueryNetAssetValuesRequest, $0.QueryNetAssetValuesResponse>(
+      '/provenance.marker.v1.Query/NetAssetValues',
+      ($0.QueryNetAssetValuesRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryNetAssetValuesResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -115,8 +134,21 @@ class QueryClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$denomMetadata, request, options: options);
   }
+
+  $grpc.ResponseFuture<$0.QueryAccountDataResponse> accountData(
+      $0.QueryAccountDataRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$accountData, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.QueryNetAssetValuesResponse> netAssetValues(
+      $0.QueryNetAssetValuesRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$netAssetValues, request, options: options);
+  }
 }
 
+@$pb.GrpcServiceName('provenance.marker.v1.Query')
 abstract class QueryServiceBase extends $grpc.Service {
   $core.String get $name => 'provenance.marker.v1.Query';
 
@@ -193,6 +225,24 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.QueryDenomMetadataRequest.fromBuffer(value),
         ($0.QueryDenomMetadataResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryAccountDataRequest,
+            $0.QueryAccountDataResponse>(
+        'AccountData',
+        accountData_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryAccountDataRequest.fromBuffer(value),
+        ($0.QueryAccountDataResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryNetAssetValuesRequest,
+            $0.QueryNetAssetValuesResponse>(
+        'NetAssetValues',
+        netAssetValues_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryNetAssetValuesRequest.fromBuffer(value),
+        ($0.QueryNetAssetValuesResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryParamsResponse> params_Pre($grpc.ServiceCall call,
@@ -237,6 +287,18 @@ abstract class QueryServiceBase extends $grpc.Service {
     return denomMetadata(call, await request);
   }
 
+  $async.Future<$0.QueryAccountDataResponse> accountData_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryAccountDataRequest> request) async {
+    return accountData(call, await request);
+  }
+
+  $async.Future<$0.QueryNetAssetValuesResponse> netAssetValues_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryNetAssetValuesRequest> request) async {
+    return netAssetValues(call, await request);
+  }
+
   $async.Future<$0.QueryParamsResponse> params(
       $grpc.ServiceCall call, $0.QueryParamsRequest request);
   $async.Future<$0.QueryAllMarkersResponse> allMarkers(
@@ -253,4 +315,8 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.QueryAccessRequest request);
   $async.Future<$0.QueryDenomMetadataResponse> denomMetadata(
       $grpc.ServiceCall call, $0.QueryDenomMetadataRequest request);
+  $async.Future<$0.QueryAccountDataResponse> accountData(
+      $grpc.ServiceCall call, $0.QueryAccountDataRequest request);
+  $async.Future<$0.QueryNetAssetValuesResponse> netAssetValues(
+      $grpc.ServiceCall call, $0.QueryNetAssetValuesRequest request);
 }

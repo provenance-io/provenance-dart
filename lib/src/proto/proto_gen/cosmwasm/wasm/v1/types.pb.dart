@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmwasm/wasm/v1/types.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,48 +15,40 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../google/protobuf/any.pb.dart' as $0;
-
 import 'types.pbenum.dart';
 
 export 'types.pbenum.dart';
 
+/// AccessTypeParam
 class AccessTypeParam extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'AccessTypeParam',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..e<AccessType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: AccessType.ACCESS_TYPE_UNSPECIFIED,
-        valueOf: AccessType.valueOf,
-        enumValues: AccessType.values)
-    ..hasRequiredFields = false;
-
-  AccessTypeParam._() : super();
   factory AccessTypeParam({
     AccessType? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  AccessTypeParam._() : super();
   factory AccessTypeParam.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory AccessTypeParam.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AccessTypeParam',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..e<AccessType>(1, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OE,
+        defaultOrMaker: AccessType.ACCESS_TYPE_UNSPECIFIED,
+        valueOf: AccessType.valueOf,
+        enumValues: AccessType.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -62,8 +58,10 @@ class AccessTypeParam extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   AccessTypeParam copyWith(void Function(AccessTypeParam) updates) =>
       super.copyWith((message) => updates(message as AccessTypeParam))
-          as AccessTypeParam; // ignore: deprecated_member_use
+          as AccessTypeParam;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AccessTypeParam create() => AccessTypeParam._();
   AccessTypeParam createEmptyInstance() => create();
@@ -87,61 +85,46 @@ class AccessTypeParam extends $pb.GeneratedMessage {
   void clearValue() => clearField(1);
 }
 
+/// AccessConfig access control type.
 class AccessConfig extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'AccessConfig',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..e<AccessType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'permission',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: AccessType.ACCESS_TYPE_UNSPECIFIED,
-        valueOf: AccessType.valueOf,
-        enumValues: AccessType.values)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..pPS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'addresses')
-    ..hasRequiredFields = false;
-
-  AccessConfig._() : super();
   factory AccessConfig({
     AccessType? permission,
     $core.String? address,
     $core.Iterable<$core.String>? addresses,
   }) {
-    final _result = create();
+    final $result = create();
     if (permission != null) {
-      _result.permission = permission;
+      $result.permission = permission;
     }
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (addresses != null) {
-      _result.addresses.addAll(addresses);
+      $result.addresses.addAll(addresses);
     }
-    return _result;
+    return $result;
   }
+  AccessConfig._() : super();
   factory AccessConfig.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory AccessConfig.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AccessConfig',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..e<AccessType>(1, _omitFieldNames ? '' : 'permission', $pb.PbFieldType.OE,
+        defaultOrMaker: AccessType.ACCESS_TYPE_UNSPECIFIED,
+        valueOf: AccessType.valueOf,
+        enumValues: AccessType.values)
+    ..aOS(2, _omitFieldNames ? '' : 'address')
+    ..pPS(3, _omitFieldNames ? '' : 'addresses')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -151,8 +134,10 @@ class AccessConfig extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   AccessConfig copyWith(void Function(AccessConfig) updates) =>
       super.copyWith((message) => updates(message as AccessConfig))
-          as AccessConfig; // ignore: deprecated_member_use
+          as AccessConfig;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AccessConfig create() => AccessConfig._();
   AccessConfig createEmptyInstance() => create();
@@ -175,6 +160,8 @@ class AccessConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearPermission() => clearField(1);
 
+  /// Address
+  /// Deprecated: replaced by addresses
   @$pb.TagNumber(2)
   $core.String get address => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -191,53 +178,43 @@ class AccessConfig extends $pb.GeneratedMessage {
   $core.List<$core.String> get addresses => $_getList(2);
 }
 
+/// Params defines the set of wasm parameters.
 class Params extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Params',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..aOM<AccessConfig>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeUploadAccess',
-        subBuilder: AccessConfig.create)
-    ..e<AccessType>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'instantiateDefaultPermission',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: AccessType.ACCESS_TYPE_UNSPECIFIED,
-        valueOf: AccessType.valueOf,
-        enumValues: AccessType.values)
-    ..hasRequiredFields = false;
-
-  Params._() : super();
   factory Params({
     AccessConfig? codeUploadAccess,
     AccessType? instantiateDefaultPermission,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeUploadAccess != null) {
-      _result.codeUploadAccess = codeUploadAccess;
+      $result.codeUploadAccess = codeUploadAccess;
     }
     if (instantiateDefaultPermission != null) {
-      _result.instantiateDefaultPermission = instantiateDefaultPermission;
+      $result.instantiateDefaultPermission = instantiateDefaultPermission;
     }
-    return _result;
+    return $result;
   }
+  Params._() : super();
   factory Params.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Params.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Params',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..aOM<AccessConfig>(1, _omitFieldNames ? '' : 'codeUploadAccess',
+        subBuilder: AccessConfig.create)
+    ..e<AccessType>(2, _omitFieldNames ? '' : 'instantiateDefaultPermission',
+        $pb.PbFieldType.OE,
+        defaultOrMaker: AccessType.ACCESS_TYPE_UNSPECIFIED,
+        valueOf: AccessType.valueOf,
+        enumValues: AccessType.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -246,9 +223,10 @@ class Params extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Params copyWith(void Function(Params) updates) =>
-      super.copyWith((message) => updates(message as Params))
-          as Params; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Params)) as Params;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Params create() => Params._();
   Params createEmptyInstance() => create();
@@ -285,59 +263,45 @@ class Params extends $pb.GeneratedMessage {
   void clearInstantiateDefaultPermission() => clearField(2);
 }
 
+/// CodeInfo is data for the uploaded contract WASM code
 class CodeInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'CodeInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeHash',
-        $pb.PbFieldType.OY)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'creator')
-    ..aOM<AccessConfig>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'instantiateConfig',
-        subBuilder: AccessConfig.create)
-    ..hasRequiredFields = false;
-
-  CodeInfo._() : super();
   factory CodeInfo({
     $core.List<$core.int>? codeHash,
     $core.String? creator,
     AccessConfig? instantiateConfig,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeHash != null) {
-      _result.codeHash = codeHash;
+      $result.codeHash = codeHash;
     }
     if (creator != null) {
-      _result.creator = creator;
+      $result.creator = creator;
     }
     if (instantiateConfig != null) {
-      _result.instantiateConfig = instantiateConfig;
+      $result.instantiateConfig = instantiateConfig;
     }
-    return _result;
+    return $result;
   }
+  CodeInfo._() : super();
   factory CodeInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CodeInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CodeInfo',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'codeHash', $pb.PbFieldType.OY)
+    ..aOS(2, _omitFieldNames ? '' : 'creator')
+    ..aOM<AccessConfig>(5, _omitFieldNames ? '' : 'instantiateConfig',
+        subBuilder: AccessConfig.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -346,9 +310,10 @@ class CodeInfo extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   CodeInfo copyWith(void Function(CodeInfo) updates) =>
-      super.copyWith((message) => updates(message as CodeInfo))
-          as CodeInfo; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as CodeInfo)) as CodeInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CodeInfo create() => CodeInfo._();
   CodeInfo createEmptyInstance() => create();
@@ -358,6 +323,7 @@ class CodeInfo extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CodeInfo>(create);
   static CodeInfo? _defaultInstance;
 
+  /// CodeHash is the unique identifier created by wasmvm
   @$pb.TagNumber(1)
   $core.List<$core.int> get codeHash => $_getN(0);
   @$pb.TagNumber(1)
@@ -370,6 +336,7 @@ class CodeInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearCodeHash() => clearField(1);
 
+  /// Creator address who initially stored the code
   @$pb.TagNumber(2)
   $core.String get creator => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -382,6 +349,7 @@ class CodeInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearCreator() => clearField(2);
 
+  /// InstantiateConfig access control to apply on contract creation, optional
   @$pb.TagNumber(5)
   AccessConfig get instantiateConfig => $_getN(2);
   @$pb.TagNumber(5)
@@ -397,58 +365,8 @@ class CodeInfo extends $pb.GeneratedMessage {
   AccessConfig ensureInstantiateConfig() => $_ensure(2);
 }
 
+/// ContractInfo stores a WASM contract instance
 class ContractInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ContractInfo',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'creator')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'admin')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'label')
-    ..aOM<AbsoluteTxPosition>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'created',
-        subBuilder: AbsoluteTxPosition.create)
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'ibcPortId')
-    ..aOM<$0.Any>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'extension',
-        subBuilder: $0.Any.create)
-    ..hasRequiredFields = false;
-
-  ContractInfo._() : super();
   factory ContractInfo({
     $fixnum.Int64? codeId,
     $core.String? creator,
@@ -458,36 +376,55 @@ class ContractInfo extends $pb.GeneratedMessage {
     $core.String? ibcPortId,
     $0.Any? extension_7,
   }) {
-    final _result = create();
+    final $result = create();
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
     if (creator != null) {
-      _result.creator = creator;
+      $result.creator = creator;
     }
     if (admin != null) {
-      _result.admin = admin;
+      $result.admin = admin;
     }
     if (label != null) {
-      _result.label = label;
+      $result.label = label;
     }
     if (created != null) {
-      _result.created = created;
+      $result.created = created;
     }
     if (ibcPortId != null) {
-      _result.ibcPortId = ibcPortId;
+      $result.ibcPortId = ibcPortId;
     }
     if (extension_7 != null) {
-      _result.extension_7 = extension_7;
+      $result.extension_7 = extension_7;
     }
-    return _result;
+    return $result;
   }
+  ContractInfo._() : super();
   factory ContractInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ContractInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ContractInfo',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'creator')
+    ..aOS(3, _omitFieldNames ? '' : 'admin')
+    ..aOS(4, _omitFieldNames ? '' : 'label')
+    ..aOM<AbsoluteTxPosition>(5, _omitFieldNames ? '' : 'created',
+        subBuilder: AbsoluteTxPosition.create)
+    ..aOS(6, _omitFieldNames ? '' : 'ibcPortId')
+    ..aOM<$0.Any>(7, _omitFieldNames ? '' : 'extension',
+        subBuilder: $0.Any.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -497,8 +434,10 @@ class ContractInfo extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ContractInfo copyWith(void Function(ContractInfo) updates) =>
       super.copyWith((message) => updates(message as ContractInfo))
-          as ContractInfo; // ignore: deprecated_member_use
+          as ContractInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ContractInfo create() => ContractInfo._();
   ContractInfo createEmptyInstance() => create();
@@ -509,6 +448,7 @@ class ContractInfo extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ContractInfo>(create);
   static ContractInfo? _defaultInstance;
 
+  /// CodeID is the reference to the stored Wasm code
   @$pb.TagNumber(1)
   $fixnum.Int64 get codeId => $_getI64(0);
   @$pb.TagNumber(1)
@@ -521,6 +461,7 @@ class ContractInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearCodeId() => clearField(1);
 
+  /// Creator address who initially instantiated the contract
   @$pb.TagNumber(2)
   $core.String get creator => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -533,6 +474,7 @@ class ContractInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearCreator() => clearField(2);
 
+  /// Admin is an optional address that can execute migrations
   @$pb.TagNumber(3)
   $core.String get admin => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -545,6 +487,7 @@ class ContractInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearAdmin() => clearField(3);
 
+  /// Label is optional metadata to be stored with a contract instance.
   @$pb.TagNumber(4)
   $core.String get label => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -557,6 +500,7 @@ class ContractInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearLabel() => clearField(4);
 
+  /// Created Tx position when the contract was instantiated.
   @$pb.TagNumber(5)
   AbsoluteTxPosition get created => $_getN(4);
   @$pb.TagNumber(5)
@@ -583,6 +527,8 @@ class ContractInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearIbcPortId() => clearField(6);
 
+  /// Extension is an extension point to store custom metadata within the
+  /// persistence model.
   @$pb.TagNumber(7)
   $0.Any get extension_7 => $_getN(6);
   @$pb.TagNumber(7)
@@ -598,75 +544,56 @@ class ContractInfo extends $pb.GeneratedMessage {
   $0.Any ensureExtension_7() => $_ensure(6);
 }
 
+/// ContractCodeHistoryEntry metadata to a contract.
 class ContractCodeHistoryEntry extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ContractCodeHistoryEntry',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..e<ContractCodeHistoryOperationType>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'operation',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: ContractCodeHistoryOperationType
-            .CONTRACT_CODE_HISTORY_OPERATION_TYPE_UNSPECIFIED,
-        valueOf: ContractCodeHistoryOperationType.valueOf,
-        enumValues: ContractCodeHistoryOperationType.values)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'codeId',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<AbsoluteTxPosition>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'updated',
-        subBuilder: AbsoluteTxPosition.create)
-    ..a<$core.List<$core.int>>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'msg',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  ContractCodeHistoryEntry._() : super();
   factory ContractCodeHistoryEntry({
     ContractCodeHistoryOperationType? operation,
     $fixnum.Int64? codeId,
     AbsoluteTxPosition? updated,
     $core.List<$core.int>? msg,
   }) {
-    final _result = create();
+    final $result = create();
     if (operation != null) {
-      _result.operation = operation;
+      $result.operation = operation;
     }
     if (codeId != null) {
-      _result.codeId = codeId;
+      $result.codeId = codeId;
     }
     if (updated != null) {
-      _result.updated = updated;
+      $result.updated = updated;
     }
     if (msg != null) {
-      _result.msg = msg;
+      $result.msg = msg;
     }
-    return _result;
+    return $result;
   }
+  ContractCodeHistoryEntry._() : super();
   factory ContractCodeHistoryEntry.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ContractCodeHistoryEntry.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ContractCodeHistoryEntry',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..e<ContractCodeHistoryOperationType>(
+        1, _omitFieldNames ? '' : 'operation', $pb.PbFieldType.OE,
+        defaultOrMaker: ContractCodeHistoryOperationType
+            .CONTRACT_CODE_HISTORY_OPERATION_TYPE_UNSPECIFIED,
+        valueOf: ContractCodeHistoryOperationType.valueOf,
+        enumValues: ContractCodeHistoryOperationType.values)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'codeId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<AbsoluteTxPosition>(3, _omitFieldNames ? '' : 'updated',
+        subBuilder: AbsoluteTxPosition.create)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'msg', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -678,8 +605,10 @@ class ContractCodeHistoryEntry extends $pb.GeneratedMessage {
   ContractCodeHistoryEntry copyWith(
           void Function(ContractCodeHistoryEntry) updates) =>
       super.copyWith((message) => updates(message as ContractCodeHistoryEntry))
-          as ContractCodeHistoryEntry; // ignore: deprecated_member_use
+          as ContractCodeHistoryEntry;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ContractCodeHistoryEntry create() => ContractCodeHistoryEntry._();
   ContractCodeHistoryEntry createEmptyInstance() => create();
@@ -702,6 +631,7 @@ class ContractCodeHistoryEntry extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearOperation() => clearField(1);
 
+  /// CodeID is the reference to the stored WASM code
   @$pb.TagNumber(2)
   $fixnum.Int64 get codeId => $_getI64(1);
   @$pb.TagNumber(2)
@@ -714,6 +644,7 @@ class ContractCodeHistoryEntry extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearCodeId() => clearField(2);
 
+  /// Updated Tx position when the operation was executed.
   @$pb.TagNumber(3)
   AbsoluteTxPosition get updated => $_getN(2);
   @$pb.TagNumber(3)
@@ -741,52 +672,42 @@ class ContractCodeHistoryEntry extends $pb.GeneratedMessage {
   void clearMsg() => clearField(4);
 }
 
+/// AbsoluteTxPosition is a unique transaction position that allows for global
+/// ordering of transactions.
 class AbsoluteTxPosition extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'AbsoluteTxPosition',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$fixnum.Int64>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'blockHeight',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'txIndex',
-        $pb.PbFieldType.OU6,
-        defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false;
-
-  AbsoluteTxPosition._() : super();
   factory AbsoluteTxPosition({
     $fixnum.Int64? blockHeight,
     $fixnum.Int64? txIndex,
   }) {
-    final _result = create();
+    final $result = create();
     if (blockHeight != null) {
-      _result.blockHeight = blockHeight;
+      $result.blockHeight = blockHeight;
     }
     if (txIndex != null) {
-      _result.txIndex = txIndex;
+      $result.txIndex = txIndex;
     }
-    return _result;
+    return $result;
   }
+  AbsoluteTxPosition._() : super();
   factory AbsoluteTxPosition.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory AbsoluteTxPosition.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AbsoluteTxPosition',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'blockHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'txIndex', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -796,8 +717,10 @@ class AbsoluteTxPosition extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   AbsoluteTxPosition copyWith(void Function(AbsoluteTxPosition) updates) =>
       super.copyWith((message) => updates(message as AbsoluteTxPosition))
-          as AbsoluteTxPosition; // ignore: deprecated_member_use
+          as AbsoluteTxPosition;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AbsoluteTxPosition create() => AbsoluteTxPosition._();
   AbsoluteTxPosition createEmptyInstance() => create();
@@ -808,6 +731,7 @@ class AbsoluteTxPosition extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<AbsoluteTxPosition>(create);
   static AbsoluteTxPosition? _defaultInstance;
 
+  /// BlockHeight is the block the contract was created at
   @$pb.TagNumber(1)
   $fixnum.Int64 get blockHeight => $_getI64(0);
   @$pb.TagNumber(1)
@@ -820,6 +744,8 @@ class AbsoluteTxPosition extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearBlockHeight() => clearField(1);
 
+  /// TxIndex is a monotonic counter within the block (actual transaction index,
+  /// or gas consumed)
   @$pb.TagNumber(2)
   $fixnum.Int64 get txIndex => $_getI64(1);
   @$pb.TagNumber(2)
@@ -833,50 +759,40 @@ class AbsoluteTxPosition extends $pb.GeneratedMessage {
   void clearTxIndex() => clearField(2);
 }
 
+/// Model is a struct that holds a KV pair
 class Model extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Model',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmwasm.wasm.v1'),
-      createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key',
-        $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value',
-        $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
-
-  Model._() : super();
   factory Model({
     $core.List<$core.int>? key,
     $core.List<$core.int>? value,
   }) {
-    final _result = create();
+    final $result = create();
     if (key != null) {
-      _result.key = key;
+      $result.key = key;
     }
     if (value != null) {
-      _result.value = value;
+      $result.value = value;
     }
-    return _result;
+    return $result;
   }
+  Model._() : super();
   factory Model.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Model.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Model',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmwasm.wasm.v1'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -885,9 +801,10 @@ class Model extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Model copyWith(void Function(Model) updates) =>
-      super.copyWith((message) => updates(message as Model))
-          as Model; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Model)) as Model;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Model create() => Model._();
   Model createEmptyInstance() => create();
@@ -897,6 +814,7 @@ class Model extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Model>(create);
   static Model? _defaultInstance;
 
+  /// hex-encode key to read it better (this is often ascii)
   @$pb.TagNumber(1)
   $core.List<$core.int> get key => $_getN(0);
   @$pb.TagNumber(1)
@@ -909,6 +827,7 @@ class Model extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearKey() => clearField(1);
 
+  /// base64-encode raw value
   @$pb.TagNumber(2)
   $core.List<$core.int> get value => $_getN(1);
   @$pb.TagNumber(2)
@@ -921,3 +840,7 @@ class Model extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearValue() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

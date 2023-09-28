@@ -1,65 +1,41 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: ibc/lightclients/solomachine/v1/solomachine.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-// ignore_for_file: UNDEFINED_SHOWN_NAME
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
 import 'dart:core' as $core;
+
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// DataType defines the type of solo machine proof being created. This is done
+/// to preserve uniqueness of different data sign byte encodings.
 class DataType extends $pb.ProtobufEnum {
   static const DataType DATA_TYPE_UNINITIALIZED_UNSPECIFIED = DataType._(
-      0,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_UNINITIALIZED_UNSPECIFIED');
-  static const DataType DATA_TYPE_CLIENT_STATE = DataType._(
-      1,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_CLIENT_STATE');
-  static const DataType DATA_TYPE_CONSENSUS_STATE = DataType._(
-      2,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_CONSENSUS_STATE');
-  static const DataType DATA_TYPE_CONNECTION_STATE = DataType._(
-      3,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_CONNECTION_STATE');
-  static const DataType DATA_TYPE_CHANNEL_STATE = DataType._(
-      4,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_CHANNEL_STATE');
-  static const DataType DATA_TYPE_PACKET_COMMITMENT = DataType._(
-      5,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_PACKET_COMMITMENT');
-  static const DataType DATA_TYPE_PACKET_ACKNOWLEDGEMENT = DataType._(
-      6,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_PACKET_ACKNOWLEDGEMENT');
-  static const DataType DATA_TYPE_PACKET_RECEIPT_ABSENCE = DataType._(
-      7,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_PACKET_RECEIPT_ABSENCE');
-  static const DataType DATA_TYPE_NEXT_SEQUENCE_RECV = DataType._(
-      8,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_NEXT_SEQUENCE_RECV');
-  static const DataType DATA_TYPE_HEADER = DataType._(
-      9,
-      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'DATA_TYPE_HEADER');
+      0, _omitEnumNames ? '' : 'DATA_TYPE_UNINITIALIZED_UNSPECIFIED');
+  static const DataType DATA_TYPE_CLIENT_STATE =
+      DataType._(1, _omitEnumNames ? '' : 'DATA_TYPE_CLIENT_STATE');
+  static const DataType DATA_TYPE_CONSENSUS_STATE =
+      DataType._(2, _omitEnumNames ? '' : 'DATA_TYPE_CONSENSUS_STATE');
+  static const DataType DATA_TYPE_CONNECTION_STATE =
+      DataType._(3, _omitEnumNames ? '' : 'DATA_TYPE_CONNECTION_STATE');
+  static const DataType DATA_TYPE_CHANNEL_STATE =
+      DataType._(4, _omitEnumNames ? '' : 'DATA_TYPE_CHANNEL_STATE');
+  static const DataType DATA_TYPE_PACKET_COMMITMENT =
+      DataType._(5, _omitEnumNames ? '' : 'DATA_TYPE_PACKET_COMMITMENT');
+  static const DataType DATA_TYPE_PACKET_ACKNOWLEDGEMENT =
+      DataType._(6, _omitEnumNames ? '' : 'DATA_TYPE_PACKET_ACKNOWLEDGEMENT');
+  static const DataType DATA_TYPE_PACKET_RECEIPT_ABSENCE =
+      DataType._(7, _omitEnumNames ? '' : 'DATA_TYPE_PACKET_RECEIPT_ABSENCE');
+  static const DataType DATA_TYPE_NEXT_SEQUENCE_RECV =
+      DataType._(8, _omitEnumNames ? '' : 'DATA_TYPE_NEXT_SEQUENCE_RECV');
+  static const DataType DATA_TYPE_HEADER =
+      DataType._(9, _omitEnumNames ? '' : 'DATA_TYPE_HEADER');
 
   static const $core.List<DataType> values = <DataType>[
     DATA_TYPE_UNINITIALIZED_UNSPECIFIED,
@@ -80,3 +56,5 @@ class DataType extends $pb.ProtobufEnum {
 
   const DataType._($core.int v, $core.String n) : super(v, n);
 }
+
+const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

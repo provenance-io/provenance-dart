@@ -1,71 +1,66 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: tendermint/types/evidence.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'types.pb.dart' as $0;
 import '../../google/protobuf/timestamp.pb.dart' as $1;
+import 'types.pb.dart' as $0;
 import 'validator.pb.dart' as $2;
 
 enum Evidence_Sum { duplicateVoteEvidence, lightClientAttackEvidence, notSet }
 
 class Evidence extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, Evidence_Sum> _Evidence_SumByTag = {
-    1: Evidence_Sum.duplicateVoteEvidence,
-    2: Evidence_Sum.lightClientAttackEvidence,
-    0: Evidence_Sum.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Evidence',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<DuplicateVoteEvidence>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'duplicateVoteEvidence',
-        subBuilder: DuplicateVoteEvidence.create)
-    ..aOM<LightClientAttackEvidence>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lightClientAttackEvidence',
-        subBuilder: LightClientAttackEvidence.create)
-    ..hasRequiredFields = false;
-
-  Evidence._() : super();
   factory Evidence({
     DuplicateVoteEvidence? duplicateVoteEvidence,
     LightClientAttackEvidence? lightClientAttackEvidence,
   }) {
-    final _result = create();
+    final $result = create();
     if (duplicateVoteEvidence != null) {
-      _result.duplicateVoteEvidence = duplicateVoteEvidence;
+      $result.duplicateVoteEvidence = duplicateVoteEvidence;
     }
     if (lightClientAttackEvidence != null) {
-      _result.lightClientAttackEvidence = lightClientAttackEvidence;
+      $result.lightClientAttackEvidence = lightClientAttackEvidence;
     }
-    return _result;
+    return $result;
   }
+  Evidence._() : super();
   factory Evidence.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Evidence.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, Evidence_Sum> _Evidence_SumByTag = {
+    1: Evidence_Sum.duplicateVoteEvidence,
+    2: Evidence_Sum.lightClientAttackEvidence,
+    0: Evidence_Sum.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Evidence',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<DuplicateVoteEvidence>(
+        1, _omitFieldNames ? '' : 'duplicateVoteEvidence',
+        subBuilder: DuplicateVoteEvidence.create)
+    ..aOM<LightClientAttackEvidence>(
+        2, _omitFieldNames ? '' : 'lightClientAttackEvidence',
+        subBuilder: LightClientAttackEvidence.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -74,9 +69,10 @@ class Evidence extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Evidence copyWith(void Function(Evidence) updates) =>
-      super.copyWith((message) => updates(message as Evidence))
-          as Evidence; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as Evidence)) as Evidence;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Evidence create() => Evidence._();
   Evidence createEmptyInstance() => create();
@@ -118,47 +114,8 @@ class Evidence extends $pb.GeneratedMessage {
   LightClientAttackEvidence ensureLightClientAttackEvidence() => $_ensure(1);
 }
 
+/// DuplicateVoteEvidence contains evidence of a validator signed two conflicting votes.
 class DuplicateVoteEvidence extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DuplicateVoteEvidence',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..aOM<$0.Vote>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voteA',
-        subBuilder: $0.Vote.create)
-    ..aOM<$0.Vote>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'voteB',
-        subBuilder: $0.Vote.create)
-    ..aInt64(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalVotingPower')
-    ..aInt64(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorPower')
-    ..aOM<$1.Timestamp>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timestamp',
-        subBuilder: $1.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  DuplicateVoteEvidence._() : super();
   factory DuplicateVoteEvidence({
     $0.Vote? voteA,
     $0.Vote? voteB,
@@ -166,30 +123,47 @@ class DuplicateVoteEvidence extends $pb.GeneratedMessage {
     $fixnum.Int64? validatorPower,
     $1.Timestamp? timestamp,
   }) {
-    final _result = create();
+    final $result = create();
     if (voteA != null) {
-      _result.voteA = voteA;
+      $result.voteA = voteA;
     }
     if (voteB != null) {
-      _result.voteB = voteB;
+      $result.voteB = voteB;
     }
     if (totalVotingPower != null) {
-      _result.totalVotingPower = totalVotingPower;
+      $result.totalVotingPower = totalVotingPower;
     }
     if (validatorPower != null) {
-      _result.validatorPower = validatorPower;
+      $result.validatorPower = validatorPower;
     }
     if (timestamp != null) {
-      _result.timestamp = timestamp;
+      $result.timestamp = timestamp;
     }
-    return _result;
+    return $result;
   }
+  DuplicateVoteEvidence._() : super();
   factory DuplicateVoteEvidence.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DuplicateVoteEvidence.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DuplicateVoteEvidence',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..aOM<$0.Vote>(1, _omitFieldNames ? '' : 'voteA',
+        subBuilder: $0.Vote.create)
+    ..aOM<$0.Vote>(2, _omitFieldNames ? '' : 'voteB',
+        subBuilder: $0.Vote.create)
+    ..aInt64(3, _omitFieldNames ? '' : 'totalVotingPower')
+    ..aInt64(4, _omitFieldNames ? '' : 'validatorPower')
+    ..aOM<$1.Timestamp>(5, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -201,8 +175,10 @@ class DuplicateVoteEvidence extends $pb.GeneratedMessage {
   DuplicateVoteEvidence copyWith(
           void Function(DuplicateVoteEvidence) updates) =>
       super.copyWith((message) => updates(message as DuplicateVoteEvidence))
-          as DuplicateVoteEvidence; // ignore: deprecated_member_use
+          as DuplicateVoteEvidence;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DuplicateVoteEvidence create() => DuplicateVoteEvidence._();
   DuplicateVoteEvidence createEmptyInstance() => create();
@@ -280,48 +256,8 @@ class DuplicateVoteEvidence extends $pb.GeneratedMessage {
   $1.Timestamp ensureTimestamp() => $_ensure(4);
 }
 
+/// LightClientAttackEvidence contains evidence of a set of validators attempting to mislead a light client.
 class LightClientAttackEvidence extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'LightClientAttackEvidence',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..aOM<$0.LightBlock>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'conflictingBlock',
-        subBuilder: $0.LightBlock.create)
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'commonHeight')
-    ..pc<$2.Validator>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'byzantineValidators',
-        $pb.PbFieldType.PM,
-        subBuilder: $2.Validator.create)
-    ..aInt64(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'totalVotingPower')
-    ..aOM<$1.Timestamp>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'timestamp',
-        subBuilder: $1.Timestamp.create)
-    ..hasRequiredFields = false;
-
-  LightClientAttackEvidence._() : super();
   factory LightClientAttackEvidence({
     $0.LightBlock? conflictingBlock,
     $fixnum.Int64? commonHeight,
@@ -329,30 +265,48 @@ class LightClientAttackEvidence extends $pb.GeneratedMessage {
     $fixnum.Int64? totalVotingPower,
     $1.Timestamp? timestamp,
   }) {
-    final _result = create();
+    final $result = create();
     if (conflictingBlock != null) {
-      _result.conflictingBlock = conflictingBlock;
+      $result.conflictingBlock = conflictingBlock;
     }
     if (commonHeight != null) {
-      _result.commonHeight = commonHeight;
+      $result.commonHeight = commonHeight;
     }
     if (byzantineValidators != null) {
-      _result.byzantineValidators.addAll(byzantineValidators);
+      $result.byzantineValidators.addAll(byzantineValidators);
     }
     if (totalVotingPower != null) {
-      _result.totalVotingPower = totalVotingPower;
+      $result.totalVotingPower = totalVotingPower;
     }
     if (timestamp != null) {
-      _result.timestamp = timestamp;
+      $result.timestamp = timestamp;
     }
-    return _result;
+    return $result;
   }
+  LightClientAttackEvidence._() : super();
   factory LightClientAttackEvidence.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory LightClientAttackEvidence.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'LightClientAttackEvidence',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..aOM<$0.LightBlock>(1, _omitFieldNames ? '' : 'conflictingBlock',
+        subBuilder: $0.LightBlock.create)
+    ..aInt64(2, _omitFieldNames ? '' : 'commonHeight')
+    ..pc<$2.Validator>(
+        3, _omitFieldNames ? '' : 'byzantineValidators', $pb.PbFieldType.PM,
+        subBuilder: $2.Validator.create)
+    ..aInt64(4, _omitFieldNames ? '' : 'totalVotingPower')
+    ..aOM<$1.Timestamp>(5, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -364,8 +318,10 @@ class LightClientAttackEvidence extends $pb.GeneratedMessage {
   LightClientAttackEvidence copyWith(
           void Function(LightClientAttackEvidence) updates) =>
       super.copyWith((message) => updates(message as LightClientAttackEvidence))
-          as LightClientAttackEvidence; // ignore: deprecated_member_use
+          as LightClientAttackEvidence;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static LightClientAttackEvidence create() => LightClientAttackEvidence._();
   LightClientAttackEvidence createEmptyInstance() => create();
@@ -433,40 +389,32 @@ class LightClientAttackEvidence extends $pb.GeneratedMessage {
 }
 
 class EvidenceList extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EvidenceList',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'tendermint.types'),
-      createEmptyInstance: create)
-    ..pc<Evidence>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'evidence',
-        $pb.PbFieldType.PM,
-        subBuilder: Evidence.create)
-    ..hasRequiredFields = false;
-
-  EvidenceList._() : super();
   factory EvidenceList({
     $core.Iterable<Evidence>? evidence,
   }) {
-    final _result = create();
+    final $result = create();
     if (evidence != null) {
-      _result.evidence.addAll(evidence);
+      $result.evidence.addAll(evidence);
     }
-    return _result;
+    return $result;
   }
+  EvidenceList._() : super();
   factory EvidenceList.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EvidenceList.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EvidenceList',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'tendermint.types'),
+      createEmptyInstance: create)
+    ..pc<Evidence>(1, _omitFieldNames ? '' : 'evidence', $pb.PbFieldType.PM,
+        subBuilder: Evidence.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -476,8 +424,10 @@ class EvidenceList extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   EvidenceList copyWith(void Function(EvidenceList) updates) =>
       super.copyWith((message) => updates(message as EvidenceList))
-          as EvidenceList; // ignore: deprecated_member_use
+          as EvidenceList;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EvidenceList create() => EvidenceList._();
   EvidenceList createEmptyInstance() => create();
@@ -491,3 +441,7 @@ class EvidenceList extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<Evidence> get evidence => $_getList(0);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

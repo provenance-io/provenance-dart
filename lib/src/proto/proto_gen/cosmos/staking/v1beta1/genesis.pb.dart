@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/staking/v1beta1/genesis.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,71 +16,8 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'staking.pb.dart' as $0;
 
+/// GenesisState defines the staking module's genesis state.
 class GenesisState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GenesisState',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOM<$0.Params>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'params',
-        subBuilder: $0.Params.create)
-    ..a<$core.List<$core.int>>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastTotalPower',
-        $pb.PbFieldType.OY)
-    ..pc<LastValidatorPower>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'lastValidatorPowers',
-        $pb.PbFieldType.PM,
-        subBuilder: LastValidatorPower.create)
-    ..pc<$0.Validator>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validators',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Validator.create)
-    ..pc<$0.Delegation>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegations',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Delegation.create)
-    ..pc<$0.UnbondingDelegation>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'unbondingDelegations',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.UnbondingDelegation.create)
-    ..pc<$0.Redelegation>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'redelegations',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Redelegation.create)
-    ..aOB(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'exported')
-    ..hasRequiredFields = false;
-
-  GenesisState._() : super();
   factory GenesisState({
     $0.Params? params,
     $core.List<$core.int>? lastTotalPower,
@@ -87,39 +28,68 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.Iterable<$0.Redelegation>? redelegations,
     $core.bool? exported,
   }) {
-    final _result = create();
+    final $result = create();
     if (params != null) {
-      _result.params = params;
+      $result.params = params;
     }
     if (lastTotalPower != null) {
-      _result.lastTotalPower = lastTotalPower;
+      $result.lastTotalPower = lastTotalPower;
     }
     if (lastValidatorPowers != null) {
-      _result.lastValidatorPowers.addAll(lastValidatorPowers);
+      $result.lastValidatorPowers.addAll(lastValidatorPowers);
     }
     if (validators != null) {
-      _result.validators.addAll(validators);
+      $result.validators.addAll(validators);
     }
     if (delegations != null) {
-      _result.delegations.addAll(delegations);
+      $result.delegations.addAll(delegations);
     }
     if (unbondingDelegations != null) {
-      _result.unbondingDelegations.addAll(unbondingDelegations);
+      $result.unbondingDelegations.addAll(unbondingDelegations);
     }
     if (redelegations != null) {
-      _result.redelegations.addAll(redelegations);
+      $result.redelegations.addAll(redelegations);
     }
     if (exported != null) {
-      _result.exported = exported;
+      $result.exported = exported;
     }
-    return _result;
+    return $result;
   }
+  GenesisState._() : super();
   factory GenesisState.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenesisState.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GenesisState',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOM<$0.Params>(1, _omitFieldNames ? '' : 'params',
+        subBuilder: $0.Params.create)
+    ..a<$core.List<$core.int>>(
+        2, _omitFieldNames ? '' : 'lastTotalPower', $pb.PbFieldType.OY)
+    ..pc<LastValidatorPower>(
+        3, _omitFieldNames ? '' : 'lastValidatorPowers', $pb.PbFieldType.PM,
+        subBuilder: LastValidatorPower.create)
+    ..pc<$0.Validator>(
+        4, _omitFieldNames ? '' : 'validators', $pb.PbFieldType.PM,
+        subBuilder: $0.Validator.create)
+    ..pc<$0.Delegation>(
+        5, _omitFieldNames ? '' : 'delegations', $pb.PbFieldType.PM,
+        subBuilder: $0.Delegation.create)
+    ..pc<$0.UnbondingDelegation>(
+        6, _omitFieldNames ? '' : 'unbondingDelegations', $pb.PbFieldType.PM,
+        subBuilder: $0.UnbondingDelegation.create)
+    ..pc<$0.Redelegation>(
+        7, _omitFieldNames ? '' : 'redelegations', $pb.PbFieldType.PM,
+        subBuilder: $0.Redelegation.create)
+    ..aOB(8, _omitFieldNames ? '' : 'exported')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -129,8 +99,10 @@ class GenesisState extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   GenesisState copyWith(void Function(GenesisState) updates) =>
       super.copyWith((message) => updates(message as GenesisState))
-          as GenesisState; // ignore: deprecated_member_use
+          as GenesisState;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenesisState create() => GenesisState._();
   GenesisState createEmptyInstance() => create();
@@ -141,6 +113,7 @@ class GenesisState extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GenesisState>(create);
   static GenesisState? _defaultInstance;
 
+  /// params defines all the paramaters of related to deposit.
   @$pb.TagNumber(1)
   $0.Params get params => $_getN(0);
   @$pb.TagNumber(1)
@@ -155,6 +128,8 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $0.Params ensureParams() => $_ensure(0);
 
+  /// last_total_power tracks the total amounts of bonded tokens recorded during
+  /// the previous end block.
   @$pb.TagNumber(2)
   $core.List<$core.int> get lastTotalPower => $_getN(1);
   @$pb.TagNumber(2)
@@ -167,18 +142,24 @@ class GenesisState extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearLastTotalPower() => clearField(2);
 
+  /// last_validator_powers is a special index that provides a historical list
+  /// of the last-block's bonded validators.
   @$pb.TagNumber(3)
   $core.List<LastValidatorPower> get lastValidatorPowers => $_getList(2);
 
+  /// delegations defines the validator set at genesis.
   @$pb.TagNumber(4)
   $core.List<$0.Validator> get validators => $_getList(3);
 
+  /// delegations defines the delegations active at genesis.
   @$pb.TagNumber(5)
   $core.List<$0.Delegation> get delegations => $_getList(4);
 
+  /// unbonding_delegations defines the unbonding delegations active at genesis.
   @$pb.TagNumber(6)
   $core.List<$0.UnbondingDelegation> get unbondingDelegations => $_getList(5);
 
+  /// redelegations defines the redelegations active at genesis.
   @$pb.TagNumber(7)
   $core.List<$0.Redelegation> get redelegations => $_getList(6);
 
@@ -195,48 +176,38 @@ class GenesisState extends $pb.GeneratedMessage {
   void clearExported() => clearField(8);
 }
 
+/// LastValidatorPower required for validator set update logic.
 class LastValidatorPower extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'LastValidatorPower',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.staking.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'address')
-    ..aInt64(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'power')
-    ..hasRequiredFields = false;
-
-  LastValidatorPower._() : super();
   factory LastValidatorPower({
     $core.String? address,
     $fixnum.Int64? power,
   }) {
-    final _result = create();
+    final $result = create();
     if (address != null) {
-      _result.address = address;
+      $result.address = address;
     }
     if (power != null) {
-      _result.power = power;
+      $result.power = power;
     }
-    return _result;
+    return $result;
   }
+  LastValidatorPower._() : super();
   factory LastValidatorPower.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory LastValidatorPower.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'LastValidatorPower',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.staking.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..aInt64(2, _omitFieldNames ? '' : 'power')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -246,8 +217,10 @@ class LastValidatorPower extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   LastValidatorPower copyWith(void Function(LastValidatorPower) updates) =>
       super.copyWith((message) => updates(message as LastValidatorPower))
-          as LastValidatorPower; // ignore: deprecated_member_use
+          as LastValidatorPower;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static LastValidatorPower create() => LastValidatorPower._();
   LastValidatorPower createEmptyInstance() => create();
@@ -258,6 +231,7 @@ class LastValidatorPower extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<LastValidatorPower>(create);
   static LastValidatorPower? _defaultInstance;
 
+  /// address is the address of the validator.
   @$pb.TagNumber(1)
   $core.String get address => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -270,6 +244,7 @@ class LastValidatorPower extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearAddress() => clearField(1);
 
+  /// power defines the power of the validator.
   @$pb.TagNumber(2)
   $fixnum.Int64 get power => $_getI64(1);
   @$pb.TagNumber(2)
@@ -282,3 +257,7 @@ class LastValidatorPower extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearPower() => clearField(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

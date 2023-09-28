@@ -1,74 +1,60 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/nft/v1beta1/event.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// EventSend is emitted on Msg/Send
 class EventSend extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventSend',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.nft.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'classId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'sender')
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'receiver')
-    ..hasRequiredFields = false;
-
-  EventSend._() : super();
   factory EventSend({
     $core.String? classId,
     $core.String? id,
     $core.String? sender,
     $core.String? receiver,
   }) {
-    final _result = create();
+    final $result = create();
     if (classId != null) {
-      _result.classId = classId;
+      $result.classId = classId;
     }
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (sender != null) {
-      _result.sender = sender;
+      $result.sender = sender;
     }
     if (receiver != null) {
-      _result.receiver = receiver;
+      $result.receiver = receiver;
     }
-    return _result;
+    return $result;
   }
+  EventSend._() : super();
   factory EventSend.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventSend.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventSend',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.nft.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'classId')
+    ..aOS(2, _omitFieldNames ? '' : 'id')
+    ..aOS(3, _omitFieldNames ? '' : 'sender')
+    ..aOS(4, _omitFieldNames ? '' : 'receiver')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -77,9 +63,10 @@ class EventSend extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   EventSend copyWith(void Function(EventSend) updates) =>
-      super.copyWith((message) => updates(message as EventSend))
-          as EventSend; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as EventSend)) as EventSend;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventSend create() => EventSend._();
   EventSend createEmptyInstance() => create();
@@ -138,57 +125,43 @@ class EventSend extends $pb.GeneratedMessage {
   void clearReceiver() => clearField(4);
 }
 
+/// EventMint is emitted on Mint
 class EventMint extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventMint',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.nft.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'classId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'owner')
-    ..hasRequiredFields = false;
-
-  EventMint._() : super();
   factory EventMint({
     $core.String? classId,
     $core.String? id,
     $core.String? owner,
   }) {
-    final _result = create();
+    final $result = create();
     if (classId != null) {
-      _result.classId = classId;
+      $result.classId = classId;
     }
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (owner != null) {
-      _result.owner = owner;
+      $result.owner = owner;
     }
-    return _result;
+    return $result;
   }
+  EventMint._() : super();
   factory EventMint.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventMint.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMint',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.nft.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'classId')
+    ..aOS(2, _omitFieldNames ? '' : 'id')
+    ..aOS(3, _omitFieldNames ? '' : 'owner')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -197,9 +170,10 @@ class EventMint extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   EventMint copyWith(void Function(EventMint) updates) =>
-      super.copyWith((message) => updates(message as EventMint))
-          as EventMint; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as EventMint)) as EventMint;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventMint create() => EventMint._();
   EventMint createEmptyInstance() => create();
@@ -246,57 +220,43 @@ class EventMint extends $pb.GeneratedMessage {
   void clearOwner() => clearField(3);
 }
 
+/// EventBurn is emitted on Burn
 class EventBurn extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'EventBurn',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.nft.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'classId')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'owner')
-    ..hasRequiredFields = false;
-
-  EventBurn._() : super();
   factory EventBurn({
     $core.String? classId,
     $core.String? id,
     $core.String? owner,
   }) {
-    final _result = create();
+    final $result = create();
     if (classId != null) {
-      _result.classId = classId;
+      $result.classId = classId;
     }
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (owner != null) {
-      _result.owner = owner;
+      $result.owner = owner;
     }
-    return _result;
+    return $result;
   }
+  EventBurn._() : super();
   factory EventBurn.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory EventBurn.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventBurn',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'cosmos.nft.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'classId')
+    ..aOS(2, _omitFieldNames ? '' : 'id')
+    ..aOS(3, _omitFieldNames ? '' : 'owner')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -305,9 +265,10 @@ class EventBurn extends $pb.GeneratedMessage {
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   EventBurn copyWith(void Function(EventBurn) updates) =>
-      super.copyWith((message) => updates(message as EventBurn))
-          as EventBurn; // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as EventBurn)) as EventBurn;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static EventBurn create() => EventBurn._();
   EventBurn createEmptyInstance() => create();
@@ -353,3 +314,7 @@ class EventBurn extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearOwner() => clearField(3);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

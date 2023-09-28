@@ -1,89 +1,28 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: provenance/marker/v1/proposals.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../../cosmos/bank/v1beta1/bank.pb.dart' as $2;
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $0;
 import 'accessgrant.pb.dart' as $1;
-import '../../../cosmos/bank/v1beta1/bank.pb.dart' as $2;
-
 import 'marker.pbenum.dart' as $3;
 
+/// AddMarkerProposal is deprecated and can no longer be used.
+/// Deprecated: This message is no longer usable. It is only still included for
+/// backwards compatibility (e.g. looking up old governance proposals).
+/// It is replaced by providing a MsgAddMarkerRequest in a governance proposal.
 class AddMarkerProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'AddMarkerProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOM<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        subBuilder: $0.Coin.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'manager')
-    ..e<$3.MarkerStatus>(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'status',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $3.MarkerStatus.MARKER_STATUS_UNSPECIFIED,
-        valueOf: $3.MarkerStatus.valueOf,
-        enumValues: $3.MarkerStatus.values)
-    ..e<$3.MarkerType>(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'markerType',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $3.MarkerType.MARKER_TYPE_UNSPECIFIED,
-        valueOf: $3.MarkerType.valueOf,
-        enumValues: $3.MarkerType.values)
-    ..pc<$1.AccessGrant>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'accessList',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.AccessGrant.create)
-    ..aOB(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'supplyFixed')
-    ..aOB(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'allowGovernanceControl')
-    ..hasRequiredFields = false;
-
-  AddMarkerProposal._() : super();
   factory AddMarkerProposal({
     $core.String? title,
     $core.String? description,
@@ -95,42 +34,70 @@ class AddMarkerProposal extends $pb.GeneratedMessage {
     $core.bool? supplyFixed,
     $core.bool? allowGovernanceControl,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
     if (manager != null) {
-      _result.manager = manager;
+      $result.manager = manager;
     }
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
     if (markerType != null) {
-      _result.markerType = markerType;
+      $result.markerType = markerType;
     }
     if (accessList != null) {
-      _result.accessList.addAll(accessList);
+      $result.accessList.addAll(accessList);
     }
     if (supplyFixed != null) {
-      _result.supplyFixed = supplyFixed;
+      $result.supplyFixed = supplyFixed;
     }
     if (allowGovernanceControl != null) {
-      _result.allowGovernanceControl = allowGovernanceControl;
+      $result.allowGovernanceControl = allowGovernanceControl;
     }
-    return _result;
+    return $result;
   }
+  AddMarkerProposal._() : super();
   factory AddMarkerProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory AddMarkerProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AddMarkerProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOM<$0.Coin>(3, _omitFieldNames ? '' : 'amount',
+        subBuilder: $0.Coin.create)
+    ..aOS(4, _omitFieldNames ? '' : 'manager')
+    ..e<$3.MarkerStatus>(5, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE,
+        defaultOrMaker: $3.MarkerStatus.MARKER_STATUS_UNSPECIFIED,
+        valueOf: $3.MarkerStatus.valueOf,
+        enumValues: $3.MarkerStatus.values)
+    ..e<$3.MarkerType>(
+        6, _omitFieldNames ? '' : 'markerType', $pb.PbFieldType.OE,
+        defaultOrMaker: $3.MarkerType.MARKER_TYPE_UNSPECIFIED,
+        valueOf: $3.MarkerType.valueOf,
+        enumValues: $3.MarkerType.values)
+    ..pc<$1.AccessGrant>(
+        7, _omitFieldNames ? '' : 'accessList', $pb.PbFieldType.PM,
+        subBuilder: $1.AccessGrant.create)
+    ..aOB(8, _omitFieldNames ? '' : 'supplyFixed')
+    ..aOB(9, _omitFieldNames ? '' : 'allowGovernanceControl')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -140,8 +107,10 @@ class AddMarkerProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   AddMarkerProposal copyWith(void Function(AddMarkerProposal) updates) =>
       super.copyWith((message) => updates(message as AddMarkerProposal))
-          as AddMarkerProposal; // ignore: deprecated_member_use
+          as AddMarkerProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AddMarkerProposal create() => AddMarkerProposal._();
   AddMarkerProposal createEmptyInstance() => create();
@@ -254,67 +223,50 @@ class AddMarkerProposal extends $pb.GeneratedMessage {
   void clearAllowGovernanceControl() => clearField(9);
 }
 
+/// SupplyIncreaseProposal defines a governance proposal to administer a marker and increase total supply of the marker
+/// through minting coin and placing it within the marker or assigning it directly to an account
 class SupplyIncreaseProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SupplyIncreaseProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOM<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        subBuilder: $0.Coin.create)
-    ..aOS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'targetAddress')
-    ..hasRequiredFields = false;
-
-  SupplyIncreaseProposal._() : super();
   factory SupplyIncreaseProposal({
     $core.String? title,
     $core.String? description,
     $0.Coin? amount,
     $core.String? targetAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
     if (targetAddress != null) {
-      _result.targetAddress = targetAddress;
+      $result.targetAddress = targetAddress;
     }
-    return _result;
+    return $result;
   }
+  SupplyIncreaseProposal._() : super();
   factory SupplyIncreaseProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SupplyIncreaseProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SupplyIncreaseProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOM<$0.Coin>(3, _omitFieldNames ? '' : 'amount',
+        subBuilder: $0.Coin.create)
+    ..aOS(4, _omitFieldNames ? '' : 'targetAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -326,8 +278,10 @@ class SupplyIncreaseProposal extends $pb.GeneratedMessage {
   SupplyIncreaseProposal copyWith(
           void Function(SupplyIncreaseProposal) updates) =>
       super.copyWith((message) => updates(message as SupplyIncreaseProposal))
-          as SupplyIncreaseProposal; // ignore: deprecated_member_use
+          as SupplyIncreaseProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SupplyIncreaseProposal create() => SupplyIncreaseProposal._();
   SupplyIncreaseProposal createEmptyInstance() => create();
@@ -389,58 +343,45 @@ class SupplyIncreaseProposal extends $pb.GeneratedMessage {
   void clearTargetAddress() => clearField(4);
 }
 
+/// SupplyDecreaseProposal defines a governance proposal to administer a marker and decrease the total supply through
+/// burning coin held within the marker
 class SupplyDecreaseProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SupplyDecreaseProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOM<$0.Coin>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        subBuilder: $0.Coin.create)
-    ..hasRequiredFields = false;
-
-  SupplyDecreaseProposal._() : super();
   factory SupplyDecreaseProposal({
     $core.String? title,
     $core.String? description,
     $0.Coin? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (amount != null) {
-      _result.amount = amount;
+      $result.amount = amount;
     }
-    return _result;
+    return $result;
   }
+  SupplyDecreaseProposal._() : super();
   factory SupplyDecreaseProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SupplyDecreaseProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SupplyDecreaseProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOM<$0.Coin>(3, _omitFieldNames ? '' : 'amount',
+        subBuilder: $0.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -452,8 +393,10 @@ class SupplyDecreaseProposal extends $pb.GeneratedMessage {
   SupplyDecreaseProposal copyWith(
           void Function(SupplyDecreaseProposal) updates) =>
       super.copyWith((message) => updates(message as SupplyDecreaseProposal))
-          as SupplyDecreaseProposal; // ignore: deprecated_member_use
+          as SupplyDecreaseProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SupplyDecreaseProposal create() => SupplyDecreaseProposal._();
   SupplyDecreaseProposal createEmptyInstance() => create();
@@ -503,68 +446,50 @@ class SupplyDecreaseProposal extends $pb.GeneratedMessage {
   $0.Coin ensureAmount() => $_ensure(2);
 }
 
+/// SetAdministratorProposal defines a governance proposal to administer a marker and set administrators with specific
+/// access on the marker
 class SetAdministratorProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SetAdministratorProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..pc<$1.AccessGrant>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'access',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.AccessGrant.create)
-    ..hasRequiredFields = false;
-
-  SetAdministratorProposal._() : super();
   factory SetAdministratorProposal({
     $core.String? title,
     $core.String? description,
     $core.String? denom,
     $core.Iterable<$1.AccessGrant>? access,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (access != null) {
-      _result.access.addAll(access);
+      $result.access.addAll(access);
     }
-    return _result;
+    return $result;
   }
+  SetAdministratorProposal._() : super();
   factory SetAdministratorProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SetAdministratorProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SetAdministratorProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'denom')
+    ..pc<$1.AccessGrant>(4, _omitFieldNames ? '' : 'access', $pb.PbFieldType.PM,
+        subBuilder: $1.AccessGrant.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -576,8 +501,10 @@ class SetAdministratorProposal extends $pb.GeneratedMessage {
   SetAdministratorProposal copyWith(
           void Function(SetAdministratorProposal) updates) =>
       super.copyWith((message) => updates(message as SetAdministratorProposal))
-          as SetAdministratorProposal; // ignore: deprecated_member_use
+          as SetAdministratorProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SetAdministratorProposal create() => SetAdministratorProposal._();
   SetAdministratorProposal createEmptyInstance() => create();
@@ -628,66 +555,49 @@ class SetAdministratorProposal extends $pb.GeneratedMessage {
   $core.List<$1.AccessGrant> get access => $_getList(3);
 }
 
+/// RemoveAdministratorProposal defines a governance proposal to administer a marker and remove all permissions for a
+/// given address
 class RemoveAdministratorProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'RemoveAdministratorProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..pPS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'removedAddress')
-    ..hasRequiredFields = false;
-
-  RemoveAdministratorProposal._() : super();
   factory RemoveAdministratorProposal({
     $core.String? title,
     $core.String? description,
     $core.String? denom,
     $core.Iterable<$core.String>? removedAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (removedAddress != null) {
-      _result.removedAddress.addAll(removedAddress);
+      $result.removedAddress.addAll(removedAddress);
     }
-    return _result;
+    return $result;
   }
+  RemoveAdministratorProposal._() : super();
   factory RemoveAdministratorProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory RemoveAdministratorProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RemoveAdministratorProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'denom')
+    ..pPS(4, _omitFieldNames ? '' : 'removedAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -700,8 +610,10 @@ class RemoveAdministratorProposal extends $pb.GeneratedMessage {
           void Function(RemoveAdministratorProposal) updates) =>
       super.copyWith(
               (message) => updates(message as RemoveAdministratorProposal))
-          as RemoveAdministratorProposal; // ignore: deprecated_member_use
+          as RemoveAdministratorProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RemoveAdministratorProposal create() =>
       RemoveAdministratorProposal._();
@@ -753,70 +665,52 @@ class RemoveAdministratorProposal extends $pb.GeneratedMessage {
   $core.List<$core.String> get removedAddress => $_getList(3);
 }
 
+/// ChangeStatusProposal defines a governance proposal to administer a marker to change its status
 class ChangeStatusProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ChangeStatusProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..e<$3.MarkerStatus>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'newStatus',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $3.MarkerStatus.MARKER_STATUS_UNSPECIFIED,
-        valueOf: $3.MarkerStatus.valueOf,
-        enumValues: $3.MarkerStatus.values)
-    ..hasRequiredFields = false;
-
-  ChangeStatusProposal._() : super();
   factory ChangeStatusProposal({
     $core.String? title,
     $core.String? description,
     $core.String? denom,
     $3.MarkerStatus? newStatus,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (newStatus != null) {
-      _result.newStatus = newStatus;
+      $result.newStatus = newStatus;
     }
-    return _result;
+    return $result;
   }
+  ChangeStatusProposal._() : super();
   factory ChangeStatusProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ChangeStatusProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChangeStatusProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'denom')
+    ..e<$3.MarkerStatus>(
+        4, _omitFieldNames ? '' : 'newStatus', $pb.PbFieldType.OE,
+        defaultOrMaker: $3.MarkerStatus.MARKER_STATUS_UNSPECIFIED,
+        valueOf: $3.MarkerStatus.valueOf,
+        enumValues: $3.MarkerStatus.values)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -827,8 +721,10 @@ class ChangeStatusProposal extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   ChangeStatusProposal copyWith(void Function(ChangeStatusProposal) updates) =>
       super.copyWith((message) => updates(message as ChangeStatusProposal))
-          as ChangeStatusProposal; // ignore: deprecated_member_use
+          as ChangeStatusProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ChangeStatusProposal create() => ChangeStatusProposal._();
   ChangeStatusProposal createEmptyInstance() => create();
@@ -888,46 +784,8 @@ class ChangeStatusProposal extends $pb.GeneratedMessage {
   void clearNewStatus() => clearField(4);
 }
 
+/// WithdrawEscrowProposal defines a governance proposal to withdraw escrow coins from a marker
 class WithdrawEscrowProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'WithdrawEscrowProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'denom')
-    ..pc<$0.Coin>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        $pb.PbFieldType.PM,
-        subBuilder: $0.Coin.create)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'targetAddress')
-    ..hasRequiredFields = false;
-
-  WithdrawEscrowProposal._() : super();
   factory WithdrawEscrowProposal({
     $core.String? title,
     $core.String? description,
@@ -935,30 +793,45 @@ class WithdrawEscrowProposal extends $pb.GeneratedMessage {
     $core.Iterable<$0.Coin>? amount,
     $core.String? targetAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (denom != null) {
-      _result.denom = denom;
+      $result.denom = denom;
     }
     if (amount != null) {
-      _result.amount.addAll(amount);
+      $result.amount.addAll(amount);
     }
     if (targetAddress != null) {
-      _result.targetAddress = targetAddress;
+      $result.targetAddress = targetAddress;
     }
-    return _result;
+    return $result;
   }
+  WithdrawEscrowProposal._() : super();
   factory WithdrawEscrowProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory WithdrawEscrowProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WithdrawEscrowProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'denom')
+    ..pc<$0.Coin>(4, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $0.Coin.create)
+    ..aOS(5, _omitFieldNames ? '' : 'targetAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -970,8 +843,10 @@ class WithdrawEscrowProposal extends $pb.GeneratedMessage {
   WithdrawEscrowProposal copyWith(
           void Function(WithdrawEscrowProposal) updates) =>
       super.copyWith((message) => updates(message as WithdrawEscrowProposal))
-          as WithdrawEscrowProposal; // ignore: deprecated_member_use
+          as WithdrawEscrowProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WithdrawEscrowProposal create() => WithdrawEscrowProposal._();
   WithdrawEscrowProposal createEmptyInstance() => create();
@@ -1034,58 +909,44 @@ class WithdrawEscrowProposal extends $pb.GeneratedMessage {
   void clearTargetAddress() => clearField(5);
 }
 
+/// SetDenomMetadataProposal defines a governance proposal to set the metadata for a denom
 class SetDenomMetadataProposal extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'SetDenomMetadataProposal',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'provenance.marker.v1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'title')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'description')
-    ..aOM<$2.Metadata>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'metadata',
-        subBuilder: $2.Metadata.create)
-    ..hasRequiredFields = false;
-
-  SetDenomMetadataProposal._() : super();
   factory SetDenomMetadataProposal({
     $core.String? title,
     $core.String? description,
     $2.Metadata? metadata,
   }) {
-    final _result = create();
+    final $result = create();
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (description != null) {
-      _result.description = description;
+      $result.description = description;
     }
     if (metadata != null) {
-      _result.metadata = metadata;
+      $result.metadata = metadata;
     }
-    return _result;
+    return $result;
   }
+  SetDenomMetadataProposal._() : super();
   factory SetDenomMetadataProposal.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory SetDenomMetadataProposal.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SetDenomMetadataProposal',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.marker.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'title')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOM<$2.Metadata>(3, _omitFieldNames ? '' : 'metadata',
+        subBuilder: $2.Metadata.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -1097,8 +958,10 @@ class SetDenomMetadataProposal extends $pb.GeneratedMessage {
   SetDenomMetadataProposal copyWith(
           void Function(SetDenomMetadataProposal) updates) =>
       super.copyWith((message) => updates(message as SetDenomMetadataProposal))
-          as SetDenomMetadataProposal; // ignore: deprecated_member_use
+          as SetDenomMetadataProposal;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SetDenomMetadataProposal create() => SetDenomMetadataProposal._();
   SetDenomMetadataProposal createEmptyInstance() => create();
@@ -1147,3 +1010,7 @@ class SetDenomMetadataProposal extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $2.Metadata ensureMetadata() => $_ensure(2);
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

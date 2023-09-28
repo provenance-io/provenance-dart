@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: cosmos/distribution/v1beta1/tx.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -11,48 +15,39 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../base/v1beta1/coin.pb.dart' as $1;
 
+/// MsgSetWithdrawAddress sets the withdraw address for
+/// a delegator (or validator self-delegation).
 class MsgSetWithdrawAddress extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgSetWithdrawAddress',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.distribution.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegatorAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'withdrawAddress')
-    ..hasRequiredFields = false;
-
-  MsgSetWithdrawAddress._() : super();
   factory MsgSetWithdrawAddress({
     $core.String? delegatorAddress,
     $core.String? withdrawAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (delegatorAddress != null) {
-      _result.delegatorAddress = delegatorAddress;
+      $result.delegatorAddress = delegatorAddress;
     }
     if (withdrawAddress != null) {
-      _result.withdrawAddress = withdrawAddress;
+      $result.withdrawAddress = withdrawAddress;
     }
-    return _result;
+    return $result;
   }
+  MsgSetWithdrawAddress._() : super();
   factory MsgSetWithdrawAddress.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgSetWithdrawAddress.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSetWithdrawAddress',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.distribution.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'delegatorAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'withdrawAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -64,8 +59,10 @@ class MsgSetWithdrawAddress extends $pb.GeneratedMessage {
   MsgSetWithdrawAddress copyWith(
           void Function(MsgSetWithdrawAddress) updates) =>
       super.copyWith((message) => updates(message as MsgSetWithdrawAddress))
-          as MsgSetWithdrawAddress; // ignore: deprecated_member_use
+          as MsgSetWithdrawAddress;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgSetWithdrawAddress create() => MsgSetWithdrawAddress._();
   MsgSetWithdrawAddress createEmptyInstance() => create();
@@ -101,26 +98,24 @@ class MsgSetWithdrawAddress extends $pb.GeneratedMessage {
   void clearWithdrawAddress() => clearField(2);
 }
 
+/// MsgSetWithdrawAddressResponse defines the Msg/SetWithdrawAddress response type.
 class MsgSetWithdrawAddressResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgSetWithdrawAddressResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.distribution.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgSetWithdrawAddressResponse._() : super();
   factory MsgSetWithdrawAddressResponse() => create();
+  MsgSetWithdrawAddressResponse._() : super();
   factory MsgSetWithdrawAddressResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgSetWithdrawAddressResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgSetWithdrawAddressResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.distribution.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -133,8 +128,10 @@ class MsgSetWithdrawAddressResponse extends $pb.GeneratedMessage {
           void Function(MsgSetWithdrawAddressResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgSetWithdrawAddressResponse))
-          as MsgSetWithdrawAddressResponse; // ignore: deprecated_member_use
+          as MsgSetWithdrawAddressResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgSetWithdrawAddressResponse create() =>
       MsgSetWithdrawAddressResponse._();
@@ -147,48 +144,39 @@ class MsgSetWithdrawAddressResponse extends $pb.GeneratedMessage {
   static MsgSetWithdrawAddressResponse? _defaultInstance;
 }
 
+/// MsgWithdrawDelegatorReward represents delegation withdrawal to a delegator
+/// from a single validator.
 class MsgWithdrawDelegatorReward extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWithdrawDelegatorReward',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.distribution.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'delegatorAddress')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorAddress')
-    ..hasRequiredFields = false;
-
-  MsgWithdrawDelegatorReward._() : super();
   factory MsgWithdrawDelegatorReward({
     $core.String? delegatorAddress,
     $core.String? validatorAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (delegatorAddress != null) {
-      _result.delegatorAddress = delegatorAddress;
+      $result.delegatorAddress = delegatorAddress;
     }
     if (validatorAddress != null) {
-      _result.validatorAddress = validatorAddress;
+      $result.validatorAddress = validatorAddress;
     }
-    return _result;
+    return $result;
   }
+  MsgWithdrawDelegatorReward._() : super();
   factory MsgWithdrawDelegatorReward.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWithdrawDelegatorReward.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWithdrawDelegatorReward',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.distribution.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'delegatorAddress')
+    ..aOS(2, _omitFieldNames ? '' : 'validatorAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -201,8 +189,10 @@ class MsgWithdrawDelegatorReward extends $pb.GeneratedMessage {
           void Function(MsgWithdrawDelegatorReward) updates) =>
       super.copyWith(
               (message) => updates(message as MsgWithdrawDelegatorReward))
-          as MsgWithdrawDelegatorReward; // ignore: deprecated_member_use
+          as MsgWithdrawDelegatorReward;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWithdrawDelegatorReward create() => MsgWithdrawDelegatorReward._();
   MsgWithdrawDelegatorReward createEmptyInstance() => create();
@@ -238,41 +228,34 @@ class MsgWithdrawDelegatorReward extends $pb.GeneratedMessage {
   void clearValidatorAddress() => clearField(2);
 }
 
+/// MsgWithdrawDelegatorRewardResponse defines the Msg/WithdrawDelegatorReward response type.
 class MsgWithdrawDelegatorRewardResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWithdrawDelegatorRewardResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.distribution.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$1.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
-    ..hasRequiredFields = false;
-
-  MsgWithdrawDelegatorRewardResponse._() : super();
   factory MsgWithdrawDelegatorRewardResponse({
     $core.Iterable<$1.Coin>? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (amount != null) {
-      _result.amount.addAll(amount);
+      $result.amount.addAll(amount);
     }
-    return _result;
+    return $result;
   }
+  MsgWithdrawDelegatorRewardResponse._() : super();
   factory MsgWithdrawDelegatorRewardResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWithdrawDelegatorRewardResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWithdrawDelegatorRewardResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.distribution.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.Coin>(1, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -285,8 +268,10 @@ class MsgWithdrawDelegatorRewardResponse extends $pb.GeneratedMessage {
           void Function(MsgWithdrawDelegatorRewardResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgWithdrawDelegatorRewardResponse))
-          as MsgWithdrawDelegatorRewardResponse; // ignore: deprecated_member_use
+          as MsgWithdrawDelegatorRewardResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWithdrawDelegatorRewardResponse create() =>
       MsgWithdrawDelegatorRewardResponse._();
@@ -299,43 +284,39 @@ class MsgWithdrawDelegatorRewardResponse extends $pb.GeneratedMessage {
           create);
   static MsgWithdrawDelegatorRewardResponse? _defaultInstance;
 
+  /// Since: cosmos-sdk 0.46
   @$pb.TagNumber(1)
   $core.List<$1.Coin> get amount => $_getList(0);
 }
 
+/// MsgWithdrawValidatorCommission withdraws the full commission to the validator
+/// address.
 class MsgWithdrawValidatorCommission extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWithdrawValidatorCommission',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.distribution.v1beta1'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'validatorAddress')
-    ..hasRequiredFields = false;
-
-  MsgWithdrawValidatorCommission._() : super();
   factory MsgWithdrawValidatorCommission({
     $core.String? validatorAddress,
   }) {
-    final _result = create();
+    final $result = create();
     if (validatorAddress != null) {
-      _result.validatorAddress = validatorAddress;
+      $result.validatorAddress = validatorAddress;
     }
-    return _result;
+    return $result;
   }
+  MsgWithdrawValidatorCommission._() : super();
   factory MsgWithdrawValidatorCommission.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgWithdrawValidatorCommission.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWithdrawValidatorCommission',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.distribution.v1beta1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'validatorAddress')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -348,8 +329,10 @@ class MsgWithdrawValidatorCommission extends $pb.GeneratedMessage {
           void Function(MsgWithdrawValidatorCommission) updates) =>
       super.copyWith(
               (message) => updates(message as MsgWithdrawValidatorCommission))
-          as MsgWithdrawValidatorCommission; // ignore: deprecated_member_use
+          as MsgWithdrawValidatorCommission;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWithdrawValidatorCommission create() =>
       MsgWithdrawValidatorCommission._();
@@ -374,35 +357,18 @@ class MsgWithdrawValidatorCommission extends $pb.GeneratedMessage {
   void clearValidatorAddress() => clearField(1);
 }
 
+/// MsgWithdrawValidatorCommissionResponse defines the Msg/WithdrawValidatorCommission response type.
 class MsgWithdrawValidatorCommissionResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgWithdrawValidatorCommissionResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.distribution.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$1.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
-    ..hasRequiredFields = false;
-
-  MsgWithdrawValidatorCommissionResponse._() : super();
   factory MsgWithdrawValidatorCommissionResponse({
     $core.Iterable<$1.Coin>? amount,
   }) {
-    final _result = create();
+    final $result = create();
     if (amount != null) {
-      _result.amount.addAll(amount);
+      $result.amount.addAll(amount);
     }
-    return _result;
+    return $result;
   }
+  MsgWithdrawValidatorCommissionResponse._() : super();
   factory MsgWithdrawValidatorCommissionResponse.fromBuffer(
           $core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
@@ -410,6 +376,16 @@ class MsgWithdrawValidatorCommissionResponse extends $pb.GeneratedMessage {
   factory MsgWithdrawValidatorCommissionResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgWithdrawValidatorCommissionResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.distribution.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.Coin>(1, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -422,8 +398,10 @@ class MsgWithdrawValidatorCommissionResponse extends $pb.GeneratedMessage {
           void Function(MsgWithdrawValidatorCommissionResponse) updates) =>
       super.copyWith((message) =>
               updates(message as MsgWithdrawValidatorCommissionResponse))
-          as MsgWithdrawValidatorCommissionResponse; // ignore: deprecated_member_use
+          as MsgWithdrawValidatorCommissionResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgWithdrawValidatorCommissionResponse create() =>
       MsgWithdrawValidatorCommissionResponse._();
@@ -436,54 +414,45 @@ class MsgWithdrawValidatorCommissionResponse extends $pb.GeneratedMessage {
           MsgWithdrawValidatorCommissionResponse>(create);
   static MsgWithdrawValidatorCommissionResponse? _defaultInstance;
 
+  /// Since: cosmos-sdk 0.46
   @$pb.TagNumber(1)
   $core.List<$1.Coin> get amount => $_getList(0);
 }
 
+/// MsgFundCommunityPool allows an account to directly
+/// fund the community pool.
 class MsgFundCommunityPool extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgFundCommunityPool',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.distribution.v1beta1'),
-      createEmptyInstance: create)
-    ..pc<$1.Coin>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'amount',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Coin.create)
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'depositor')
-    ..hasRequiredFields = false;
-
-  MsgFundCommunityPool._() : super();
   factory MsgFundCommunityPool({
     $core.Iterable<$1.Coin>? amount,
     $core.String? depositor,
   }) {
-    final _result = create();
+    final $result = create();
     if (amount != null) {
-      _result.amount.addAll(amount);
+      $result.amount.addAll(amount);
     }
     if (depositor != null) {
-      _result.depositor = depositor;
+      $result.depositor = depositor;
     }
-    return _result;
+    return $result;
   }
+  MsgFundCommunityPool._() : super();
   factory MsgFundCommunityPool.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgFundCommunityPool.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgFundCommunityPool',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.distribution.v1beta1'),
+      createEmptyInstance: create)
+    ..pc<$1.Coin>(1, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..aOS(2, _omitFieldNames ? '' : 'depositor')
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -494,8 +463,10 @@ class MsgFundCommunityPool extends $pb.GeneratedMessage {
       'Will be removed in next major version')
   MsgFundCommunityPool copyWith(void Function(MsgFundCommunityPool) updates) =>
       super.copyWith((message) => updates(message as MsgFundCommunityPool))
-          as MsgFundCommunityPool; // ignore: deprecated_member_use
+          as MsgFundCommunityPool;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgFundCommunityPool create() => MsgFundCommunityPool._();
   MsgFundCommunityPool createEmptyInstance() => create();
@@ -522,26 +493,24 @@ class MsgFundCommunityPool extends $pb.GeneratedMessage {
   void clearDepositor() => clearField(2);
 }
 
+/// MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
 class MsgFundCommunityPoolResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MsgFundCommunityPoolResponse',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'cosmos.distribution.v1beta1'),
-      createEmptyInstance: create)
-    ..hasRequiredFields = false;
-
-  MsgFundCommunityPoolResponse._() : super();
   factory MsgFundCommunityPoolResponse() => create();
+  MsgFundCommunityPoolResponse._() : super();
   factory MsgFundCommunityPoolResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory MsgFundCommunityPoolResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgFundCommunityPoolResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'cosmos.distribution.v1beta1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
@@ -554,8 +523,10 @@ class MsgFundCommunityPoolResponse extends $pb.GeneratedMessage {
           void Function(MsgFundCommunityPoolResponse) updates) =>
       super.copyWith(
               (message) => updates(message as MsgFundCommunityPoolResponse))
-          as MsgFundCommunityPoolResponse; // ignore: deprecated_member_use
+          as MsgFundCommunityPoolResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MsgFundCommunityPoolResponse create() =>
       MsgFundCommunityPoolResponse._();
@@ -567,3 +538,7 @@ class MsgFundCommunityPoolResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<MsgFundCommunityPoolResponse>(create);
   static MsgFundCommunityPoolResponse? _defaultInstance;
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');
