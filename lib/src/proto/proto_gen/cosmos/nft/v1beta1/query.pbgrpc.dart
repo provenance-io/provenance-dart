@@ -97,7 +97,7 @@ class QueryClient extends $grpc.Client {
     return $createUnaryCall(_$nFT, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.QueryClassResponse> class(
+  $grpc.ResponseFuture<$0.QueryClassResponse> class_(
       $0.QueryClassRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$class, request, options: options);
@@ -199,7 +199,7 @@ abstract class QueryServiceBase extends $grpc.Service {
 
   $async.Future<$0.QueryClassResponse> class_Pre($grpc.ServiceCall call,
       $async.Future<$0.QueryClassRequest> request) async {
-    return class(call, await request);
+    return class_(call, await request);
   }
 
   $async.Future<$0.QueryClassesResponse> classes_Pre($grpc.ServiceCall call,
@@ -217,7 +217,7 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.QueryNFTsRequest request);
   $async.Future<$0.QueryNFTResponse> nFT(
       $grpc.ServiceCall call, $0.QueryNFTRequest request);
-  $async.Future<$0.QueryClassResponse> class(
+  $async.Future<$0.QueryClassResponse> class_(
       $grpc.ServiceCall call, $0.QueryClassRequest request);
   $async.Future<$0.QueryClassesResponse> classes(
       $grpc.ServiceCall call, $0.QueryClassesRequest request);
