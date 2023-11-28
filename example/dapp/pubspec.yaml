@@ -16,7 +16,7 @@ dependencies:
   path_provider: ^2.0.14
   provenance_dart:
     path: ../../
-  qr_flutter: ^4.0.0
+  qr_flutter: ^4.1.0
   shared_preferences: ^2.1.1
   url_launcher: ^6.1.10
 

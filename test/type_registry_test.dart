@@ -134,6 +134,8 @@ import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_contr
     as ibc_applications_interchain_accounts_controller_v1;
 import 'package:provenance_dart/proto_ibc_applications_interchain_accounts_genesis_v1.dart'
     as ibc_applications_interchain_accounts_genesis_v1;
+import 'package:provenance_dart/proto_provenance_exchange_v1.dart'
+    as provenance_exchange_v1;
 import 'package:provenance_dart/proto_provenance_trigger_v1.dart'
     as provenance_trigger_v1;
 import 'package:provenance_dart/proto_provenance_attribute_v1.dart'
@@ -5700,6 +5702,448 @@ main() {
     final decoded = msg.toMessage();
     expect(decoded, isNotNull);
   });
+  test('provenance_exchange_v1.Params', () {
+    final msg = provenance_exchange_v1.Params().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.DenomSplit', () {
+    final msg = provenance_exchange_v1.DenomSplit().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MarketAccount', () {
+    final msg = provenance_exchange_v1.MarketAccount().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MarketDetails', () {
+    final msg = provenance_exchange_v1.MarketDetails().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MarketBrief', () {
+    final msg = provenance_exchange_v1.MarketBrief().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.Market', () {
+    final msg = provenance_exchange_v1.Market().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.FeeRatio', () {
+    final msg = provenance_exchange_v1.FeeRatio().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.AccessGrant', () {
+    final msg = provenance_exchange_v1.AccessGrant().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.GenesisState', () {
+    final msg = provenance_exchange_v1.GenesisState().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgCreateAskRequest', () {
+    final msg = provenance_exchange_v1.MsgCreateAskRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgCreateAskResponse', () {
+    final msg = provenance_exchange_v1.MsgCreateAskResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgCreateBidRequest', () {
+    final msg = provenance_exchange_v1.MsgCreateBidRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgCreateBidResponse', () {
+    final msg = provenance_exchange_v1.MsgCreateBidResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgCancelOrderRequest', () {
+    final msg = provenance_exchange_v1.MsgCancelOrderRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgCancelOrderResponse', () {
+    final msg = provenance_exchange_v1.MsgCancelOrderResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgFillBidsRequest', () {
+    final msg = provenance_exchange_v1.MsgFillBidsRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgFillBidsResponse', () {
+    final msg = provenance_exchange_v1.MsgFillBidsResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgFillAsksRequest', () {
+    final msg = provenance_exchange_v1.MsgFillAsksRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgFillAsksResponse', () {
+    final msg = provenance_exchange_v1.MsgFillAsksResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketSettleRequest', () {
+    final msg = provenance_exchange_v1.MsgMarketSettleRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketSettleResponse', () {
+    final msg = provenance_exchange_v1.MsgMarketSettleResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketSetOrderExternalIDRequest', () {
+    final msg =
+        provenance_exchange_v1.MsgMarketSetOrderExternalIDRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketSetOrderExternalIDResponse', () {
+    final msg =
+        provenance_exchange_v1.MsgMarketSetOrderExternalIDResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketWithdrawRequest', () {
+    final msg = provenance_exchange_v1.MsgMarketWithdrawRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketWithdrawResponse', () {
+    final msg = provenance_exchange_v1.MsgMarketWithdrawResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketUpdateDetailsRequest', () {
+    final msg = provenance_exchange_v1.MsgMarketUpdateDetailsRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketUpdateDetailsResponse', () {
+    final msg = provenance_exchange_v1.MsgMarketUpdateDetailsResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketUpdateEnabledRequest', () {
+    final msg = provenance_exchange_v1.MsgMarketUpdateEnabledRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketUpdateEnabledResponse', () {
+    final msg = provenance_exchange_v1.MsgMarketUpdateEnabledResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketUpdateUserSettleRequest', () {
+    final msg =
+        provenance_exchange_v1.MsgMarketUpdateUserSettleRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketUpdateUserSettleResponse', () {
+    final msg =
+        provenance_exchange_v1.MsgMarketUpdateUserSettleResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketManagePermissionsRequest', () {
+    final msg =
+        provenance_exchange_v1.MsgMarketManagePermissionsRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketManagePermissionsResponse', () {
+    final msg =
+        provenance_exchange_v1.MsgMarketManagePermissionsResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketManageReqAttrsRequest', () {
+    final msg = provenance_exchange_v1.MsgMarketManageReqAttrsRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgMarketManageReqAttrsResponse', () {
+    final msg =
+        provenance_exchange_v1.MsgMarketManageReqAttrsResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgGovCreateMarketRequest', () {
+    final msg = provenance_exchange_v1.MsgGovCreateMarketRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgGovCreateMarketResponse', () {
+    final msg = provenance_exchange_v1.MsgGovCreateMarketResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgGovManageFeesRequest', () {
+    final msg = provenance_exchange_v1.MsgGovManageFeesRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgGovManageFeesResponse', () {
+    final msg = provenance_exchange_v1.MsgGovManageFeesResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgGovUpdateParamsRequest', () {
+    final msg = provenance_exchange_v1.MsgGovUpdateParamsRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.MsgGovUpdateParamsResponse', () {
+    final msg = provenance_exchange_v1.MsgGovUpdateParamsResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryOrderFeeCalcRequest', () {
+    final msg = provenance_exchange_v1.QueryOrderFeeCalcRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryOrderFeeCalcResponse', () {
+    final msg = provenance_exchange_v1.QueryOrderFeeCalcResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetOrderRequest', () {
+    final msg = provenance_exchange_v1.QueryGetOrderRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetOrderResponse', () {
+    final msg = provenance_exchange_v1.QueryGetOrderResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetOrderByExternalIDRequest', () {
+    final msg =
+        provenance_exchange_v1.QueryGetOrderByExternalIDRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetOrderByExternalIDResponse', () {
+    final msg =
+        provenance_exchange_v1.QueryGetOrderByExternalIDResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetMarketOrdersRequest', () {
+    final msg = provenance_exchange_v1.QueryGetMarketOrdersRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetMarketOrdersResponse', () {
+    final msg = provenance_exchange_v1.QueryGetMarketOrdersResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetOwnerOrdersRequest', () {
+    final msg = provenance_exchange_v1.QueryGetOwnerOrdersRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetOwnerOrdersResponse', () {
+    final msg = provenance_exchange_v1.QueryGetOwnerOrdersResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetAssetOrdersRequest', () {
+    final msg = provenance_exchange_v1.QueryGetAssetOrdersRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetAssetOrdersResponse', () {
+    final msg = provenance_exchange_v1.QueryGetAssetOrdersResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetAllOrdersRequest', () {
+    final msg = provenance_exchange_v1.QueryGetAllOrdersRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetAllOrdersResponse', () {
+    final msg = provenance_exchange_v1.QueryGetAllOrdersResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetMarketRequest', () {
+    final msg = provenance_exchange_v1.QueryGetMarketRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetMarketResponse', () {
+    final msg = provenance_exchange_v1.QueryGetMarketResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetAllMarketsRequest', () {
+    final msg = provenance_exchange_v1.QueryGetAllMarketsRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryGetAllMarketsResponse', () {
+    final msg = provenance_exchange_v1.QueryGetAllMarketsResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryParamsRequest', () {
+    final msg = provenance_exchange_v1.QueryParamsRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryParamsResponse', () {
+    final msg = provenance_exchange_v1.QueryParamsResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryValidateCreateMarketRequest', () {
+    final msg =
+        provenance_exchange_v1.QueryValidateCreateMarketRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryValidateCreateMarketResponse', () {
+    final msg =
+        provenance_exchange_v1.QueryValidateCreateMarketResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryValidateMarketRequest', () {
+    final msg = provenance_exchange_v1.QueryValidateMarketRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryValidateMarketResponse', () {
+    final msg = provenance_exchange_v1.QueryValidateMarketResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryValidateManageFeesRequest', () {
+    final msg = provenance_exchange_v1.QueryValidateManageFeesRequest().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.QueryValidateManageFeesResponse', () {
+    final msg =
+        provenance_exchange_v1.QueryValidateManageFeesResponse().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventOrderCreated', () {
+    final msg = provenance_exchange_v1.EventOrderCreated().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventOrderCancelled', () {
+    final msg = provenance_exchange_v1.EventOrderCancelled().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventOrderFilled', () {
+    final msg = provenance_exchange_v1.EventOrderFilled().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventOrderPartiallyFilled', () {
+    final msg = provenance_exchange_v1.EventOrderPartiallyFilled().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventOrderExternalIDUpdated', () {
+    final msg = provenance_exchange_v1.EventOrderExternalIDUpdated().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketWithdraw', () {
+    final msg = provenance_exchange_v1.EventMarketWithdraw().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketDetailsUpdated', () {
+    final msg = provenance_exchange_v1.EventMarketDetailsUpdated().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketEnabled', () {
+    final msg = provenance_exchange_v1.EventMarketEnabled().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketDisabled', () {
+    final msg = provenance_exchange_v1.EventMarketDisabled().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketUserSettleEnabled', () {
+    final msg = provenance_exchange_v1.EventMarketUserSettleEnabled().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketUserSettleDisabled', () {
+    final msg = provenance_exchange_v1.EventMarketUserSettleDisabled().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketPermissionsUpdated', () {
+    final msg = provenance_exchange_v1.EventMarketPermissionsUpdated().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketReqAttrUpdated', () {
+    final msg = provenance_exchange_v1.EventMarketReqAttrUpdated().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketCreated', () {
+    final msg = provenance_exchange_v1.EventMarketCreated().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventMarketFeesUpdated', () {
+    final msg = provenance_exchange_v1.EventMarketFeesUpdated().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.EventParamsUpdated', () {
+    final msg = provenance_exchange_v1.EventParamsUpdated().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.Order', () {
+    final msg = provenance_exchange_v1.Order().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.AskOrder', () {
+    final msg = provenance_exchange_v1.AskOrder().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_exchange_v1.BidOrder', () {
+    final msg = provenance_exchange_v1.BidOrder().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
   test('provenance_trigger_v1.Trigger', () {
     final msg = provenance_trigger_v1.Trigger().toAny();
     final decoded = msg.toMessage();
@@ -5737,6 +6181,16 @@ main() {
   });
   test('provenance_trigger_v1.EventTriggerDestroyed', () {
     final msg = provenance_trigger_v1.EventTriggerDestroyed().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_trigger_v1.EventTriggerDetected', () {
+    final msg = provenance_trigger_v1.EventTriggerDetected().toAny();
+    final decoded = msg.toMessage();
+    expect(decoded, isNotNull);
+  });
+  test('provenance_trigger_v1.EventTriggerExecuted', () {
+    final msg = provenance_trigger_v1.EventTriggerExecuted().toAny();
     final decoded = msg.toMessage();
     expect(decoded, isNotNull);
   });
