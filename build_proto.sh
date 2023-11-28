@@ -13,6 +13,6 @@ do
 		$file
 done
 
-dart bin/types_create.dart
+fvm dart bin/types_create.dart
 
-dart format .
+fvm dart format .

@@ -15,12 +15,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Get FVM Config
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+        id: fvm-config-action
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.10.2"
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          channel: "any"
 
       - name: Restore packages
         run: flutter pub get
