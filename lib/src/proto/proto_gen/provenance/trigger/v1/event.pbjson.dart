@@ -36,3 +36,30 @@ const EventTriggerDestroyed$json = {
 /// Descriptor for `EventTriggerDestroyed`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List eventTriggerDestroyedDescriptor = $convert.base64Decode(
     'ChVFdmVudFRyaWdnZXJEZXN0cm95ZWQSHQoKdHJpZ2dlcl9pZBgBIAEoCVIJdHJpZ2dlcklk');
+
+@$core.Deprecated('Use eventTriggerDetectedDescriptor instead')
+const EventTriggerDetected$json = {
+  '1': 'EventTriggerDetected',
+  '2': [
+    {'1': 'trigger_id', '3': 1, '4': 1, '5': 9, '10': 'triggerId'},
+  ],
+};
+
+/// Descriptor for `EventTriggerDetected`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventTriggerDetectedDescriptor = $convert.base64Decode(
+    'ChRFdmVudFRyaWdnZXJEZXRlY3RlZBIdCgp0cmlnZ2VyX2lkGAEgASgJUgl0cmlnZ2VySWQ=');
+
+@$core.Deprecated('Use eventTriggerExecutedDescriptor instead')
+const EventTriggerExecuted$json = {
+  '1': 'EventTriggerExecuted',
+  '2': [
+    {'1': 'trigger_id', '3': 1, '4': 1, '5': 9, '10': 'triggerId'},
+    {'1': 'owner', '3': 2, '4': 1, '5': 9, '10': 'owner'},
+    {'1': 'success', '3': 3, '4': 1, '5': 8, '10': 'success'},
+  ],
+};
+
+/// Descriptor for `EventTriggerExecuted`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventTriggerExecutedDescriptor = $convert.base64Decode(
+    'ChRFdmVudFRyaWdnZXJFeGVjdXRlZBIdCgp0cmlnZ2VyX2lkGAEgASgJUgl0cmlnZ2VySWQSFA'
+    'oFb3duZXIYAiABKAlSBW93bmVyEhgKB3N1Y2Nlc3MYAyABKAhSB3N1Y2Nlc3M=');
