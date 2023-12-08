@@ -1,7 +1,7 @@
+import 'package:ecdsa/ecdsa.dart' as ecdsa;
+import 'package:elliptic/elliptic.dart' as elliptic;
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:secp256k1/secp256k1.dart' as secp256k1;
-import 'package:elliptic/elliptic.dart' as elliptic;
-import 'package:ecdsa/ecdsa.dart' as ecdsa;
 
 class Crypto {
   static List<int> generatePublicKey(

@@ -1,8 +1,62 @@
+import 'package:crypto/crypto.dart' as crypto;
+import 'package:ecdsa/ecdsa.dart' as ecdsa;
+import 'package:elliptic/elliptic.dart' as elliptic;
 import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/crypto/encryption/crypto.dart';
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/keys.dart';
+import 'package:secp256k1/secp256k1.dart' as secp256k1;
+
+class PublicKeyV2 {
+  late final List<int> _addressPayload;
+
+  PublicKeyV2._(secp256k1.PublicKey key)
+      : hex = key.toHex(),
+        compressedHex = key.toCompressedHex() {
+    _addressPayload = Hash.ripEmd160(
+      Hash.sha256(
+        Encoding.fromHex(compressedHex),
+      ),
+    );
+  }
+
+  factory PublicKeyV2.fromPrivateKey(List<int> privateKeyData) {
+    final hexString = Encoding.toHex(privateKeyData);
+    final privateKey = secp256k1.PrivateKey.fromHex(hexString);
+    final publicKey = privateKey.publicKey;
+
+    return PublicKeyV2._(publicKey);
+  }
+
+  final String hex;
+  final String compressedHex;
+
+  factory PublicKeyV2.fromCompressedHex(String hex) {
+    final key = secp256k1.PublicKey.fromCompressedHex(hex);
+
+    return PublicKeyV2._(key);
+  }
+
+  factory PublicKeyV2.fromHex(String hex) {
+    final key = secp256k1.PublicKey.fromHex(hex);
+
+    return PublicKeyV2._(key);
+  }
+
+  String address(String prefix) =>
+      Encoding.toBech32(_addressPayload, prefix, "1");
+
+  bool verify(List<int> data, List<int> signature) {
+    final curve = elliptic.getSecp256k1();
+    final pKey = elliptic.PublicKey.fromHex(curve, hex);
+    final sig = ecdsa.Signature.fromCompact(signature);
+
+    final hash = crypto.sha256.convert(data).bytes;
+
+    return ecdsa.verify(pKey, hash, sig);
+  }
+}
 
 class PublicKey implements IPubKey {
   final List<int> compressedPublicKey;

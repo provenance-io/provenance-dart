@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:crypto/crypto.dart' as crypto;
+import 'package:flutter_test/flutter_test.dart';
+import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/crypto/encryption/crypto.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/mnemonic.dart';
-import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/wallet.dart';
 
 main() {
