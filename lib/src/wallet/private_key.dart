@@ -127,6 +127,10 @@ class PrivateKeyV2 {
     return PrivateKeyV2._(raw, chainCode, PrivateKeyType.hd);
   }
 
+  factory PrivateKeyV2.fromPrivateKey(List<int> raw, List<int> chainCode) {
+    return PrivateKeyV2._(raw, chainCode, PrivateKeyType.hd);
+  }
+
   PrivateKeyV2 derived(DerivationNode node) {
     if (_keyType != PrivateKeyType.hd) {
       throw Exception("Invalid key type - must be hd");
