@@ -4,6 +4,7 @@ import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/mnemonic.dart';
 import 'package:provenance_dart/src/wallet/private_key.dart';
 import 'package:provenance_dart/src/wallet/private_key_v2.dart';
+import 'package:provenance_dart/utility.dart';
 
 main() {
   test('MainnetChildKeyDerivation', () {
@@ -56,7 +57,7 @@ main() {
     final entropy = Encoding.fromHex("000102030405060708090a0b0c0d0e0f");
     final mnemonic = Mnemonic.fromEntropy(entropy);
     final seed = Mnemonic.createSeed(mnemonic);
-    final privateKey = PrivateKeyV2.fromSeed(seed);
+    final privateKey = PrivateKeyV2.fromSeed(seed.toUint8List());
     final prefix = Coin.mainNet.prefix;
 
     expect(privateKey.rawHex,

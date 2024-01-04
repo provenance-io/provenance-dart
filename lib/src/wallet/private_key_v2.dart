@@ -5,11 +5,12 @@ import 'package:pointycastle/digests/sha256.dart';
 import 'package:pointycastle/pointycastle.dart';
 // ignore: implementation_imports
 import 'package:pointycastle/src/utils.dart' as utils;
+import 'package:provenance_dart/utility.dart';
 import 'package:provenance_dart/wallet.dart';
 
 class PrivateKeyV2 {
-  final List<int> raw;
-  final List<int> chainCode;
+  final Uint8List raw;
+  final Uint8List chainCode;
   final int index;
   final int depth;
   final int parentFingerPrint;
@@ -44,9 +45,10 @@ class PrivateKeyV2 {
     this.parentFingerPrint = 0,
   });
 
-  factory PrivateKeyV2.fromSeed(List<int> seed) {
+  factory PrivateKeyV2.fromSeed(Uint8List seed) {
     final output =
-        Hash.hmacSha512(const AsciiEncoder().convert("Bitcoin seed"), seed);
+        Hash.hmacSha512(const AsciiEncoder().convert("Bitcoin seed"), seed)
+            .toUint8List();
 
     final raw = output.sublist(0, 32);
     final chainCode = output.sublist(32, 64);
@@ -54,7 +56,7 @@ class PrivateKeyV2 {
     return PrivateKeyV2._(raw, chainCode);
   }
 
-  factory PrivateKeyV2.fromPrivateKey(List<int> raw, List<int> chainCode) {
+  factory PrivateKeyV2.fromPrivateKey(Uint8List raw, Uint8List chainCode) {
     return PrivateKeyV2._(raw, chainCode);
   }
 
@@ -85,18 +87,6 @@ class PrivateKeyV2 {
 
     return (ByteData(4)..setInt32(0, fingerPrint, Endian.host))
         .getInt32(0, Endian.big);
-  }
-
-  /// Return private key padded to 33 bytes
-  ///
-  Uint8List getPaddedPrivKeyBytes() {
-    final paddedBytes = Uint8List(33);
-    final length = raw.length;
-    for (int i = 0; i < 33 - length; ++i) {
-      paddedBytes[i] = 0;
-    }
-    paddedBytes.setAll(33 - length, raw);
-    return paddedBytes;
   }
 
   PrivateKeyV2 deriveKeyFromPath(String path) {
@@ -136,15 +126,15 @@ class PrivateKeyV2 {
     }
     var dataBuffer = Uint8List(37);
     if (hardened) {
-      dataBuffer.setAll(0, parent.getPaddedPrivKeyBytes());
+      dataBuffer.setAll(0, parent._getPaddedPrivKeyBytes());
       dataBuffer.setAll(
-          33, Utils.intToUint8List(childNumber | PrivateKeyV2.HARDENED_FLAG));
+          33, (childNumber | PrivateKeyV2.HARDENED_FLAG).toUint8List());
     } else {
       dataBuffer.setAll(0, parentPubKey);
-      dataBuffer.setAll(33, Utils.intToUint8List(childNumber));
+      dataBuffer.setAll(33, childNumber.toUint8List());
     }
 
-    final i = Hash.hmacSha512(parent.chainCode, dataBuffer);
+    final i = Hash.hmacSha512(parent.chainCode, dataBuffer).toUint8List();
     final il = i.sublist(0, 32);
     final ir = i.sublist(32, 64);
     BigInt ilInt = utils.decodeBigIntWithSign(1, il);
@@ -170,23 +160,23 @@ class PrivateKeyV2 {
 
   /// Serialize the extended public key.
   String serializePublic(KeyTypeVersions version) {
-    final pubKey = Uint8List.fromList(
-        Crypto.generatePublicKey(raw, true)); // TODO: improve this
+    final pubKey =
+        Crypto.generatePublicKey(raw, true).toUint8List(); // TODO: improve this
     return Encoding.toBase58(_addChecksum(_serialize(version.value, pubKey)));
   }
 
   /// Serialize the extended private key.
   String serializePrivate(KeyTypeVersions version) {
     return Encoding.toBase58(
-        _addChecksum(_serialize(version.value, getPaddedPrivKeyBytes())));
+        _addChecksum(_serialize(version.value, _getPaddedPrivKeyBytes())));
   }
 
   Uint8List _serialize(int version, Uint8List key) {
     final ser = BytesBuilder();
-    ser.add(Utils.intToUint8List(version));
+    ser.add(version.toUint8List());
     ser.addByte(depth);
-    ser.add(Utils.intToUint8List(parentFingerPrint, Endian.little));
-    ser.add(Utils.intToUint8List(index));
+    ser.add(parentFingerPrint.toUint8List(Endian.little));
+    ser.add(index.toUint8List());
     ser.add(chainCode);
     ser.add(key);
     if (ser.length != 78) {
@@ -218,9 +208,9 @@ class PrivateKeyV2 {
     final pubKey = Uint8List.fromList(
         Encoding.fromHex(parent.publicKey.compressedHex)); // TODO: improve this
     dataBuffer.setAll(0, pubKey);
-    dataBuffer.setAll(33, Utils.intToUint8List(childNumber));
+    dataBuffer.setAll(33, childNumber.toUint8List());
 
-    final i = Hash.hmacSha512(parent.chainCode, dataBuffer);
+    final i = Uint8List.fromList(Hash.hmacSha512(parent.chainCode, dataBuffer));
     final il = i.sublist(0, 32);
     final ir = i.sublist(32, 64);
     BigInt ilInt = utils.decodeBigIntWithSign(1, il);
@@ -252,6 +242,18 @@ class PrivateKeyV2 {
     return _ecParams.G * adjKey;
   }
 
+  /// Return private key padded to 33 bytes
+  ///
+  Uint8List _getPaddedPrivKeyBytes() {
+    final paddedBytes = Uint8List(33);
+    final length = raw.length;
+    for (int i = 0; i < 33 - length; ++i) {
+      paddedBytes[i] = 0;
+    }
+    paddedBytes.setAll(33 - length, raw);
+    return paddedBytes;
+  }
+
   /// Add the 4-byte checksum to the serialized key
   ///
   static Uint8List _addChecksum(Uint8List input) {
@@ -261,33 +263,5 @@ class PrivateKeyV2 {
         SHA256Digest().process(SHA256Digest().process(input)).getRange(0, 4);
     output.add(checksum.toList());
     return output.toBytes();
-  }
-}
-
-abstract class Utils {
-  static Uint8List intToUint8List(int i, [Endian endian = Endian.big]) {
-    var bytes = ByteData(4);
-    bytes.setInt32(0, i, endian);
-
-    return bytes.buffer.asUint8List();
-  }
-}
-
-extension BigIntExt on BigInt {
-  static final _byteMask = BigInt.from(0xFF);
-
-  /// Encode as Big Endian unsigned byte array.
-  Uint8List toUint8List() {
-    if (this == BigInt.zero) {
-      return Uint8List.fromList([0]);
-    }
-    var size = bitLength + (isNegative ? 8 : 7) >> 3;
-    var result = Uint8List(size);
-    var number = this;
-    for (var i = 0; i < size; i++) {
-      result[size - i - 1] = (number & _byteMask).toInt();
-      number = number >> 8;
-    }
-    return result;
   }
 }

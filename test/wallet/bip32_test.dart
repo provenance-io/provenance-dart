@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/src/wallet/private_key_v2.dart';
+import 'package:provenance_dart/utility.dart';
 import 'package:provenance_dart/wallet.dart';
 
 void main() {
@@ -7,7 +8,7 @@ void main() {
     test('Test Vectors', () {
       for (final vector in _testVectors) {
         final seed = Encoding.fromHex(vector.seed);
-        final key = PrivateKeyV2.fromSeed(seed);
+        final key = PrivateKeyV2.fromSeed(seed.toUint8List());
 
         for (final chain in vector.chains) {
           final derivedKey = key.deriveKeyFromPath(chain.path);

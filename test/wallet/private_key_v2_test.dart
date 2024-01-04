@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/src/wallet/private_key_v2.dart';
+import 'package:provenance_dart/utility.dart';
 import 'package:provenance_dart/wallet.dart';
 
 const phrase =
@@ -45,7 +46,7 @@ void main() {
     for (final coin in Coin.values) {
       test(coin.name, () {
         final v1 = PrivateKey.fromSeed(seed, coin);
-        final v2 = PrivateKeyV2.fromSeed(seed);
+        final v2 = PrivateKeyV2.fromSeed(seed.toUint8List());
 
         expectEqualKeys(v2, v1, coin);
       });
@@ -58,8 +59,8 @@ void main() {
         final nodes = DerivationNode.fromPathString(coin.defaultKeyPath);
 
         final v1 = PrivateKey.fromSeed(seed, coin).deriveKeyFromPath(nodes);
-        final v2 =
-            PrivateKeyV2.fromSeed(seed).deriveKeyFromPath(coin.defaultKeyPath);
+        final v2 = PrivateKeyV2.fromSeed(seed.toUint8List())
+            .deriveKeyFromPath(coin.defaultKeyPath);
         v1.serialize(publicKeyOnly: false);
 
         expectEqualKeys(v2, v1, coin);
@@ -70,8 +71,8 @@ void main() {
   group('Signature is verified: ', () {
     for (final coin in Coin.values) {
       test(coin.name, () {
-        final privateKey =
-            PrivateKeyV2.fromSeed(seed).deriveKeyFromPath(coin.defaultKeyPath);
+        final privateKey = PrivateKeyV2.fromSeed(seed.toUint8List())
+            .deriveKeyFromPath(coin.defaultKeyPath);
 
         const data = 'data';
         final signature = privateKey.signText(data);
@@ -84,7 +85,7 @@ void main() {
 
   group("testNet", () {
     const coin = Coin.testNet;
-    final privKey = PrivateKeyV2.fromSeed(seed);
+    final privKey = PrivateKeyV2.fromSeed(seed.toUint8List());
 
     test("defaultKey", () {
       expect(privKey.deriveKeyFromPath(coin.defaultKeyPath).rawHex,
@@ -134,7 +135,7 @@ void main() {
 
   group("mainNet", () {
     const coin = Coin.mainNet;
-    final privKey = PrivateKeyV2.fromSeed(seed);
+    final privKey = PrivateKeyV2.fromSeed(seed.toUint8List());
 
     test("defaultKey", () {
       expect(privKey.deriveKeyFromPath(coin.defaultKeyPath).rawHex,
