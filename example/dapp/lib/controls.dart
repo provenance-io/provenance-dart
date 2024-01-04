@@ -150,8 +150,8 @@ class _ControlsState extends State<Controls> {
             },
           ),
           VerticalSpacer.large,
-          Row(
-            children: const [
+          const Row(
+            children: [
               Text('Result'),
             ],
           ),

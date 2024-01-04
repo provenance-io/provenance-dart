@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provenance_dart/src/wallet/private_key_v2.dart';
 import 'package:provenance_dart/wallet.dart';
 
 const phrase =
@@ -19,6 +19,20 @@ void main() {
         reason: 'parentFingerPrint');
     expect(v2.publicKey.address(coin.prefix), v1.publicKey.address,
         reason: 'public key address');
+
+    expect(
+      v2.serializePrivate(
+          coin == Coin.mainNet ? KeyTypeVersions.xprv : KeyTypeVersions.tprv),
+      v1.serialize(publicKeyOnly: false),
+      reason: 'serialize prv',
+    );
+
+    expect(
+      v2.serializePublic(
+          coin == Coin.mainNet ? KeyTypeVersions.xpub : KeyTypeVersions.tpub),
+      v1.serialize(publicKeyOnly: true),
+      reason: 'serialize pub',
+    );
 
     const text = 'data';
     expect(v2.signText(text), v1.signText(text), reason: 'signText');
@@ -46,6 +60,7 @@ void main() {
         final v1 = PrivateKey.fromSeed(seed, coin).deriveKeyFromPath(nodes);
         final v2 =
             PrivateKeyV2.fromSeed(seed).deriveKeyFromPath(coin.defaultKeyPath);
+        v1.serialize(publicKeyOnly: false);
 
         expectEqualKeys(v2, v1, coin);
       });
@@ -98,12 +113,9 @@ void main() {
       expect(privKey.depth, 0);
 
       for (int index = 0; index < path.length; index++) {
-        final byteBuffer = Uint8List(4)
-          ..buffer.asByteData().setInt32(0, path[index].index, Endian.big);
-
         pKey = pKey.derived(path[index]);
         expect(pKey.depth, index + 1);
-        expect(pKey.index, byteBuffer.buffer.asInt32List().first);
+        expect(pKey.index, path[index].index);
       }
     });
 
@@ -151,12 +163,9 @@ void main() {
       expect(privKey.depth, 0);
 
       for (int index = 0; index < path.length; index++) {
-        final byteBuffer = Uint8List(4)
-          ..buffer.asByteData().setInt32(0, path[index].index, Endian.big);
-
         pKey = pKey.derived(path[index]);
         expect(pKey.depth, index + 1);
-        expect(pKey.index, byteBuffer.buffer.asInt32List().first);
+        expect(pKey.index, path[index].index);
       }
     });
 

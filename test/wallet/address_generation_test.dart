@@ -3,6 +3,7 @@ import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/mnemonic.dart';
 import 'package:provenance_dart/src/wallet/private_key.dart';
+import 'package:provenance_dart/src/wallet/private_key_v2.dart';
 
 main() {
   test('MainnetChildKeyDerivation', () {
