@@ -1,51 +1,41 @@
+import 'dart:typed_data';
+
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:ecdsa/ecdsa.dart' as ecdsa;
 import 'package:elliptic/elliptic.dart' as elliptic;
+import 'package:pointycastle/digests/ripemd160.dart';
+import 'package:pointycastle/digests/sha256.dart';
+import 'package:pointycastle/pointycastle.dart';
+import 'package:pointycastle/signers/ecdsa_signer.dart';
 import 'package:provenance_dart/src/wallet/coin.dart';
 import 'package:provenance_dart/src/wallet/crypto/encryption/crypto.dart';
 import 'package:provenance_dart/src/wallet/crypto/hash/hash.dart';
 import 'package:provenance_dart/src/wallet/encoding/encoding.dart';
 import 'package:provenance_dart/src/wallet/keys.dart';
-import 'package:secp256k1/secp256k1.dart' as secp256k1;
+import 'package:provenance_dart/src/wallet/private_key_v2.dart';
+import 'package:provenance_dart/utility.dart';
 
 class PublicKeyV2 {
-  late final List<int> _addressPayload;
+  PublicKeyV2._(this._ecPoint, this._keyHash);
 
-  PublicKeyV2._(secp256k1.PublicKey key)
-      : hex = key.toHex(),
-        compressedHex = key.toCompressedHex() {
-    _addressPayload = Hash.ripEmd160(
-      Hash.sha256(
-        Encoding.fromHex(compressedHex),
-      ),
-    );
+  factory PublicKeyV2.fromPrivateKey(PrivateKeyV2 privKey) {
+    final point = _pubKeyPointFromPrivKey(privKey.rawInt);
+    final keyHash = RIPEMD160Digest()
+        .process(SHA256Digest().process(point.getEncoded(true)));
+    return PublicKeyV2._(point, keyHash);
   }
 
-  factory PublicKeyV2.fromPrivateKey(List<int> privateKeyData) {
-    final hexString = Encoding.toHex(privateKeyData);
-    final privateKey = secp256k1.PrivateKey.fromHex(hexString);
-    final publicKey = privateKey.publicKey;
+  final ECPoint _ecPoint;
+  final Uint8List _keyHash;
 
-    return PublicKeyV2._(publicKey);
-  }
+  Uint8List raw([bool compressed = true]) => _ecPoint.getEncoded(compressed);
 
-  final String hex;
-  final String compressedHex;
+  String get hex => Encoding.toHex(_ecPoint.getEncoded(false));
+  String get compressedHex => Encoding.toHex(_ecPoint.getEncoded(true));
 
-  factory PublicKeyV2.fromCompressedHex(String hex) {
-    final key = secp256k1.PublicKey.fromCompressedHex(hex);
+  String address(String prefix) => Encoding.toBech32(_keyHash, prefix, '1');
 
-    return PublicKeyV2._(key);
-  }
-
-  factory PublicKeyV2.fromHex(String hex) {
-    final key = secp256k1.PublicKey.fromHex(hex);
-
-    return PublicKeyV2._(key);
-  }
-
-  String address(String prefix) =>
-      Encoding.toBech32(_addressPayload, prefix, "1");
+  int getFingerPrint() => _keyHash.toInt32(0, Endian.little);
 
   bool verify(List<int> data, List<int> signature) {
     final curve = elliptic.getSecp256k1();
@@ -55,6 +45,32 @@ class PublicKeyV2 {
     final hash = crypto.sha256.convert(data).bytes;
 
     return ecdsa.verify(pKey, hash, sig);
+  }
+
+  bool verify2(Uint8List signedData, Uint8List signature) {
+    final pubKey = ECPublicKey(_ecPoint, PrivateKeyV2.curve);
+
+    final signer = ECDSASigner(SHA256Digest())
+      ..init(false, PublicKeyParameter(pubKey));
+
+    final sig = _signatureFromBytes(signature);
+    return signer.verifySignature(signedData, sig);
+  }
+
+  static ECPoint _pubKeyPointFromPrivKey(BigInt privKey) {
+    BigInt adjKey;
+    if (privKey.bitLength > PrivateKeyV2.curve.n.bitLength) {
+      adjKey = privKey.remainder(PrivateKeyV2.curve.n);
+    } else {
+      adjKey = privKey;
+    }
+    return (PrivateKeyV2.curve.G * adjKey)!;
+  }
+
+  ECSignature _signatureFromBytes(Uint8List sigBytes) {
+    final r = BigInt.from(sigBytes.toInt32(0, Endian.little));
+    final s = BigInt.from(sigBytes.toInt32(32, Endian.little));
+    return ECSignature(r, s);
   }
 }
 

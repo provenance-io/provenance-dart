@@ -9,7 +9,7 @@ import 'package:provenance_dart/utility.dart';
 import 'package:provenance_dart/wallet.dart';
 
 class PrivateKeyV2 {
-  final Uint8List raw;
+  final BigInt rawInt;
   final Uint8List chainCode;
   final int index;
   final int depth;
@@ -17,11 +17,16 @@ class PrivateKeyV2 {
 
   // ignore: constant_identifier_names
   static const int HARDENED_FLAG = 0x80000000;
-  static final ECDomainParameters _ecParams = ECDomainParameters('secp256k1');
+  static final ECDomainParameters curve = ECDomainParameters('secp256k1');
 
-  PublicKeyV2 get publicKey => PublicKeyV2.fromPrivateKey(raw);
+  /// Used to cache generated public key
+  PublicKeyV2? _publicKey;
 
-  String get rawHex => Encoding.toHex(raw);
+  PublicKeyV2 get publicKey => _publicKey ??= PublicKeyV2.fromPrivateKey(this);
+
+  Uint8List get raw => rawInt.toUint8List();
+
+  String get rawHex => rawInt.toRadixString(16);
 
   bool get hardened => (index & HARDENED_FLAG) != 0;
 
@@ -38,7 +43,7 @@ class PrivateKeyV2 {
   }
 
   PrivateKeyV2._(
-    this.raw,
+    this.rawInt,
     this.chainCode, {
     this.index = 0,
     this.depth = 0,
@@ -53,11 +58,11 @@ class PrivateKeyV2 {
     final raw = output.sublist(0, 32);
     final chainCode = output.sublist(32, 64);
 
-    return PrivateKeyV2._(raw, chainCode);
+    return PrivateKeyV2._(utils.decodeBigIntWithSign(1, raw), chainCode);
   }
 
   factory PrivateKeyV2.fromPrivateKey(Uint8List raw, Uint8List chainCode) {
-    return PrivateKeyV2._(raw, chainCode);
+    return PrivateKeyV2._(utils.decodeBigIntWithSign(1, raw), chainCode);
   }
 
   PrivateKeyV2 derived(DerivationNode node) => deriveKeyFromPath(node.path);
@@ -71,22 +76,6 @@ class PrivateKeyV2 {
     final hash = Hash.sha256(bytes);
 
     return signData(hash);
-  }
-
-  int computeFingerPrint() {
-    final sha256Digest = Hash.sha256(Encoding.fromHex(publicKey.compressedHex));
-
-    final publicKeyHash = Hash.ripEmd160(sha256Digest);
-
-    var fingerPrint = 0;
-
-    for (var i = 0; i <= 3; i++) {
-      fingerPrint = fingerPrint << 8;
-      fingerPrint = (fingerPrint | (publicKeyHash[i] & 0xFF));
-    }
-
-    return (ByteData(4)..setInt32(0, fingerPrint, Endian.host))
-        .getInt32(0, Endian.big);
   }
 
   PrivateKeyV2 deriveKeyFromPath(String path) {
@@ -119,8 +108,7 @@ class PrivateKeyV2 {
     int childNumber,
     bool hardened,
   ) {
-    final parentPubKey =
-        Crypto.generatePublicKey(parent.raw, true); // TODO: improve this
+    final parentPubKey = parent.publicKey.raw();
     if (parentPubKey.length != 33) {
       throw Exception('Parent public key is not 33 bytes');
     }
@@ -137,32 +125,30 @@ class PrivateKeyV2 {
     final i = Hash.hmacSha512(parent.chainCode, dataBuffer).toUint8List();
     final il = i.sublist(0, 32);
     final ir = i.sublist(32, 64);
-    BigInt ilInt = utils.decodeBigIntWithSign(1, il);
-    if (ilInt.compareTo(_ecParams.n) >= 0) {
+    final ilBigInt = utils.decodeBigIntWithSign(1, il);
+    if (ilBigInt.compareTo(curve.n) >= 0) {
       throw Exception('Derived private key is not less than N');
     }
-    final parentPrivKey =
-        BigInt.parse(parent.rawHex, radix: 16); // TODO: improve
-    BigInt ki = (parentPrivKey + ilInt) % _ecParams.n;
+
+    final ki = (parent.rawInt + ilBigInt) % curve.n;
     if (ki.sign == 0) {
       throw Exception('Derived private key is zero');
     }
 
     return PrivateKeyV2._(
-      ki.toUint8List(),
+      ki,
       ir,
       index:
           hardened ? (childNumber | PrivateKeyV2.HARDENED_FLAG) : childNumber,
       depth: parent.depth + 1,
-      parentFingerPrint: parent.computeFingerPrint(),
+      parentFingerPrint: parent.publicKey.getFingerPrint(),
     );
   }
 
   /// Serialize the extended public key.
   String serializePublic(KeyTypeVersions version) {
-    final pubKey =
-        Crypto.generatePublicKey(raw, true).toUint8List(); // TODO: improve this
-    return Encoding.toBase58(_addChecksum(_serialize(version.value, pubKey)));
+    return Encoding.toBase58(
+        _addChecksum(_serialize(version.value, publicKey.raw())));
   }
 
   /// Serialize the extended private key.
@@ -182,9 +168,9 @@ class PrivateKeyV2 {
     if (ser.length != 78) {
       throw Exception('Byte length should be 78');
     }
-    print('fingerprint: ${parentFingerPrint.toRadixString(16)}');
-    print('V2 serialize, index: $index');
-    print(ser.toBytes());
+    // print('fingerprint: ${parentFingerPrint.toUint8List()}');
+    // print('V2 serialize, index: ${index.toRadixString(16)}');
+    // print(ser.toBytes());
     return ser.toBytes();
   }
 
@@ -196,50 +182,8 @@ class PrivateKeyV2 {
     if ((childNumber & PrivateKeyV2.HARDENED_FLAG) != 0) {
       throw Exception('Hardened flag must not be set in child number');
     }
-    // if (hardened) {
+
     return _derivePrivateKey(parent, childNumber, hardened);
-    // } else {
-    // return _derivePublicKey(parent, childNumber);
-    // }
-  }
-
-  static PrivateKeyV2 _derivePublicKey(PrivateKeyV2 parent, int childNumber) {
-    var dataBuffer = Uint8List(37);
-    final pubKey = Uint8List.fromList(
-        Encoding.fromHex(parent.publicKey.compressedHex)); // TODO: improve this
-    dataBuffer.setAll(0, pubKey);
-    dataBuffer.setAll(33, childNumber.toUint8List());
-
-    final i = Uint8List.fromList(Hash.hmacSha512(parent.chainCode, dataBuffer));
-    final il = i.sublist(0, 32);
-    final ir = i.sublist(32, 64);
-    BigInt ilInt = utils.decodeBigIntWithSign(1, il);
-    if (ilInt.compareTo(_ecParams.n) >= 0) {
-      throw Exception('Derived private key is not less than N');
-    }
-    ECPoint? pubKeyPoint = _ecParams.curve.decodePoint(pubKey);
-    ECPoint? ki = pubKeyPointFromPrivKey(ilInt)! + pubKeyPoint!;
-    if (ki == _ecParams.curve.infinity) {
-      throw Exception('Derived public key equals infinity');
-    }
-
-    return PrivateKeyV2._(
-      ki!.getEncoded(true),
-      ir,
-      index: childNumber,
-      depth: parent.depth + 1,
-      parentFingerPrint: parent.computeFingerPrint(),
-    );
-  }
-
-  static ECPoint? pubKeyPointFromPrivKey(BigInt privKey) {
-    BigInt adjKey;
-    if (privKey.bitLength > _ecParams.n.bitLength) {
-      adjKey = privKey.remainder(_ecParams.n);
-    } else {
-      adjKey = privKey;
-    }
-    return _ecParams.G * adjKey;
   }
 
   /// Return private key padded to 33 bytes

@@ -76,7 +76,8 @@ void main() {
 
         const data = 'data';
         final signature = privateKey.signText(data);
-        final valid = privateKey.publicKey.verify(data.codeUnits, signature);
+        final valid = privateKey.publicKey
+            .verify(data.codeUnits.toUint8List(), signature.toUint8List());
 
         expect(valid, isTrue);
       });

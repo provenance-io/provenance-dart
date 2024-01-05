@@ -34,3 +34,9 @@ extension IntExt on int {
     return bytes.buffer.asUint8List();
   }
 }
+
+extension Uint8ListExt on Uint8List {
+  int toInt32([int byteOffset = 0, Endian endian = Endian.big]) {
+    return ByteData.view(buffer).getInt32(byteOffset, endian);
+  }
+}
