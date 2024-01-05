@@ -290,9 +290,6 @@ class PrivateKey implements IPrivKey {
       out.setAll(chainCode.length, [0]);
       out.setAll(chainCode.length + 1, raw);
     }
-    // print('fingerprint: ${parentFingerPrint.toUint8List()}');
-    // print('V1 serialize index: ${index.toRadixString(16)}');
-    // print(byteData.buffer.asUint8List());
 
     final sha256Digest =
         Hash.sha256(Uint8List.sublistView(byteData, 0, _extendedKeySize));

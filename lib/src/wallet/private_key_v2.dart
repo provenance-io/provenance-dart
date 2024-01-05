@@ -168,9 +168,7 @@ class PrivateKeyV2 {
     if (ser.length != 78) {
       throw Exception('Byte length should be 78');
     }
-    // print('fingerprint: ${parentFingerPrint.toUint8List()}');
-    // print('V2 serialize, index: ${index.toRadixString(16)}');
-    // print(ser.toBytes());
+
     return ser.toBytes();
   }
 
