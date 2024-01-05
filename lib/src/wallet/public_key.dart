@@ -47,7 +47,9 @@ class PublicKeyV2 {
     return ecdsa.verify(pKey, hash, sig);
   }
 
-  bool verify2(Uint8List signedData, Uint8List signature) {
+  // Todo: Tried using pointy castle for verification but didn't initially work
+  // will come back when we have more time to hopefully unify crypto lib usage
+  bool _verify(Uint8List signedData, Uint8List signature) {
     final pubKey = ECPublicKey(_ecPoint, PrivateKeyV2.curve);
 
     final signer = ECDSASigner(SHA256Digest())
