@@ -36,7 +36,6 @@ main() {
 
       expect(json, <String, dynamic>{
         "description": "A Test Description",
-        "url": "http://test.com",
         "icons": ["http://test.com/icon1", "http://test.com/icon2"],
         "name": "A Test Name"
       });
@@ -52,7 +51,6 @@ main() {
 
       expect(json, <String, dynamic>{
         "description": "A Test Description",
-        "url": "http://test.com",
         "icons": <String>[],
         "name": "A Test Name"
       });
@@ -68,7 +66,6 @@ main() {
 
       expect(json, <String, dynamic>{
         "description": "A Test Description",
-        "url": null,
         "icons": <String>[],
         "name": "A Test Name"
       });
