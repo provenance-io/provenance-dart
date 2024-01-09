@@ -279,9 +279,8 @@ class Message implements JsonEncodable {
 
   const Message._(this.topic, this.type, this.payload);
 
-  factory Message.fromJson(Map<String, dynamic> jsonObj) {
-    return Message._(
-        jsonObj['topic'], jsonObj['type'], jsonObj['payload'] ?? "");
+  factory Message.fromJson(Map<String, dynamic> json) {
+    return Message._(json['topic'], json['type'], json['payload'] ?? '');
   }
 
   factory Message.pub(String topic, encodable) {
@@ -303,6 +302,37 @@ class Message implements JsonEncodable {
   }
 }
 
+class RxMessage extends Message {
+  final Uri? origin;
+
+  RxMessage._(
+    String topic,
+    String type,
+    String payload, {
+    this.origin,
+  }) : super._(topic, type, payload);
+
+  factory RxMessage.fromJson(Map<String, dynamic> json) {
+    final message = Message.fromJson(json);
+    final origin = json['origin'];
+
+    return RxMessage._(
+      message.topic,
+      message.type,
+      message.payload,
+      origin: origin != null ? Uri.tryParse(origin) : null,
+    );
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      ...super.toJson(),
+      if (origin != null) "origin": origin?.toString(),
+    };
+  }
+}
+
 class JrpcRequestException implements Exception {
   final dynamic requestId;
   final dynamic innerException;
@@ -315,20 +345,24 @@ class SessionRequest implements JsonEncodable {
   final ClientMeta? clientMeta;
   final String peerId;
   final String? redirectUrl;
+  final Uri? origin;
 
   SessionRequest({
     required this.clientMeta,
     required this.peerId,
     this.redirectUrl,
+    required this.origin,
   });
 
   factory SessionRequest.fromJson(Map<String, dynamic> json) {
     final clientMeta = json['peerMeta'];
+    final origin = json['origin'] as String?;
 
     return SessionRequest(
       clientMeta: ClientMeta.fromJson(clientMeta),
       peerId: json['peerId'],
       redirectUrl: json['redirectUrl'],
+      origin: origin != null ? Uri.tryParse(origin) : null,
     );
   }
 
@@ -338,6 +372,7 @@ class SessionRequest implements JsonEncodable {
       "peerId": peerId,
       "peerMeta": clientMeta?.toJson(),
       if (redirectUrl != null) "redirectUrl": redirectUrl,
+      if (origin != null) "origin": origin!.toString()
     };
   }
 }
@@ -368,10 +403,7 @@ class SessionApproval implements JsonEncodable {
             clientMeta: clientMeta,
             peerId: peerId);
 
-  SessionApproval.reject()
-      : this._(
-          approved: false,
-        );
+  SessionApproval.reject() : this._(approved: false);
 
   factory SessionApproval.fromJson(Map<String, dynamic> json) {
     final clientMeta = json['peerMeta'];

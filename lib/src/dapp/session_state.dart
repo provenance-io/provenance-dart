@@ -32,9 +32,11 @@ abstract class SessionState {
 
 abstract class OpenSessionState implements SessionState {
   List<JsonRequest> get requests;
+  Uri? get origin;
 
   OpenSessionState copyWith({
     List<JsonRequest>? requests,
+    required Uri? origin,
   });
 }
 
@@ -43,6 +45,7 @@ class PendingSessionState implements OpenSessionState {
   PendingSessionState({
     required this.address,
     required this.peerId,
+    required this.origin,
     List<JsonRequest>? requests,
   }) : requests = List.unmodifiable(requests ?? []);
 
@@ -60,13 +63,18 @@ class PendingSessionState implements OpenSessionState {
   final List<JsonRequest> requests;
 
   @override
+  final Uri? origin;
+
+  @override
   PendingSessionState copyWith({
     List<JsonRequest>? requests,
+    required Uri? origin,
   }) =>
       PendingSessionState(
         address: address,
         peerId: peerId,
         requests: requests,
+        origin: origin,
       );
 
   factory PendingSessionState.fromJson(Map<String, dynamic> json) =>
@@ -82,6 +90,7 @@ class ApprovedSessionState implements OpenSessionState {
     required this.address,
     required this.peerId,
     required this.approval,
+    required this.origin,
     List<JsonRequest>? requests,
   }) : requests = List.unmodifiable(requests ?? []);
 
@@ -101,15 +110,20 @@ class ApprovedSessionState implements OpenSessionState {
   final List<JsonRequest> requests;
 
   @override
+  final Uri? origin;
+
+  @override
   ApprovedSessionState copyWith({
     ApprovalState? approval,
     List<JsonRequest>? requests,
+    required Uri? origin,
   }) =>
       ApprovedSessionState(
         peerId: peerId,
         address: address,
         approval: approval ?? this.approval,
         requests: requests ?? this.requests,
+        origin: origin,
       );
 
   factory ApprovedSessionState.fromJson(Map<String, dynamic> json) =>
