@@ -38,13 +38,15 @@ class SessionRequestData {
   final String remotePeerId;
   final ClientMeta clientMeta;
   final WalletConnectAddress address;
+  final Uri? origin;
 
   SessionRequestData(
     this.peerId,
     this.remotePeerId,
     this.clientMeta,
-    this.address,
-  );
+    this.address, {
+    this.origin,
+  });
 }
 
 class SessionApprovalData {
@@ -273,10 +275,10 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     _delegate?.onError(exception);
   }
 
-  void _processRequest(JsonRequest jsonRequest) {
+  void _processRequest(JsonRequest jsonRequest, Uri? origin) {
     switch (jsonRequest.method) {
       case "wc_sessionRequest":
-        _handleSessionRequest(jsonRequest)
+        _handleSessionRequest(jsonRequest, origin)
             .onError((error, _) => _handleRequestErrors(error, jsonRequest.id));
         break;
       case "provenance_sign":
@@ -622,7 +624,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
     );
   }
 
-  Future<void> _handleSessionRequest(JsonRequest request) async {
+  Future<void> _handleSessionRequest(JsonRequest request, Uri? origin) async {
     final param = request.params.first;
     _remotePeerId = param['peerId'];
     final peerMeta = param['peerMeta'];
@@ -635,6 +637,7 @@ class WalletConnection extends ValueListenable<WalletConnectState>
       _remotePeerId!,
       clientMeta,
       address,
+      origin: origin,
     );
 
     _delegate?.onApproveSession(request.id, data, redirectUrl: redirectUrl);
@@ -666,9 +669,9 @@ class WalletConnection extends ValueListenable<WalletConnectState>
 
   /* RelayDelegate */
   @override
-  void onJsonRpc(String topic, JsonRpcBase jsonRpc) {
+  void onJsonRpc(String topic, JsonRpcBase jsonRpc, Uri? origin) {
     if (jsonRpc is JsonRequest) {
-      _processRequest(jsonRpc);
+      _processRequest(jsonRpc, origin);
     } else if (jsonRpc is JsonRpcResponse) {
       final completer = _responseLookup.remove(jsonRpc.id);
       if (jsonRpc.error != null) {
