@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:pointycastle/digests/sha256.dart';
 import 'package:pointycastle/pointycastle.dart';
+import 'package:pointycastle/signers/ecdsa_signer.dart';
 // ignore: implementation_imports
 import 'package:pointycastle/src/utils.dart' as utils;
 import 'package:provenance_dart/utility.dart';
@@ -17,7 +18,7 @@ class PrivateKeyV2 {
 
   // ignore: constant_identifier_names
   static const int HARDENED_FLAG = 0x80000000;
-  static final ECDomainParameters curve = ECDomainParameters('secp256k1');
+  static final curve = ECDomainParameters('secp256k1');
 
   /// Used to cache generated public key
   PublicKeyV2? _publicKey;
@@ -26,7 +27,7 @@ class PrivateKeyV2 {
 
   Uint8List get raw => rawInt.toUint8List();
 
-  String get rawHex => rawInt.toRadixString(16);
+  String get rawHex => rawInt.toHex();
 
   bool get hardened => (index & HARDENED_FLAG) != 0;
 
@@ -67,15 +68,20 @@ class PrivateKeyV2 {
 
   PrivateKeyV2 derived(DerivationNode node) => deriveKeyFromPath(node.path);
 
-  List<int> signData(List<int> data) {
-    return Crypto.sign(data, raw);
+  Uint8List signData(Uint8List data) {
+    final privParams = PrivateKeyParameter(ECPrivateKey(rawInt, curve));
+    final signer = NormalizedECDSASigner(
+      ECDSASigner(SHA256Digest(), Mac("SHA-256/HMAC")),
+    )..init(true, privParams);
+
+    final sig = signer.generateSignature(data) as ECSignature;
+
+    return sig.toUint8List();
   }
 
   List<int> signText(String text) {
     final bytes = utf8.encode(text);
-    final hash = Hash.sha256(bytes);
-
-    return signData(hash);
+    return signData(bytes);
   }
 
   PrivateKeyV2 deriveKeyFromPath(String path) {
@@ -205,5 +211,14 @@ class PrivateKeyV2 {
         SHA256Digest().process(SHA256Digest().process(input)).getRange(0, 4);
     output.add(checksum.toList());
     return output.toBytes();
+  }
+}
+
+extension ECSignatureExt on ECSignature {
+  Uint8List toUint8List() {
+    var bytes = BytesBuilder();
+    bytes.add(r.toUint8List());
+    bytes.add(s.toUint8List());
+    return bytes.toBytes();
   }
 }

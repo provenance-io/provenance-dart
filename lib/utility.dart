@@ -2,6 +2,8 @@ library provenance_dart;
 
 import 'dart:typed_data';
 
+import 'package:convert/convert.dart';
+
 export 'src/utility/cancel_token.dart';
 export 'src/utility/work_queue.dart';
 
@@ -26,6 +28,8 @@ extension BigIntExt on BigInt {
     }
     return result;
   }
+
+  String toHex() => toRadixString(16);
 }
 
 extension IntExt on int {
@@ -37,6 +41,11 @@ extension IntExt on int {
 
 extension Uint8ListExt on Uint8List {
   int toInt32([int byteOffset = 0, Endian endian = Endian.big]) {
-    return ByteData.view(buffer).getInt32(byteOffset, endian);
+    return ByteData.view(buffer, byteOffset).getInt32(0, endian);
+  }
+
+  BigInt toBigInt([int start = 0, int? length]) {
+    final hexStr = hex.encode(buffer.asUint8List(start, length ?? this.length));
+    return BigInt.parse(hexStr, radix: 16);
   }
 }

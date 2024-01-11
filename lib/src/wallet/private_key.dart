@@ -235,13 +235,12 @@ class PrivateKey implements IPrivKey {
   }
 
   List<int> signData(List<int> data) {
-    return Crypto.sign(data, raw);
+    return Crypto.sign(Hash.sha256(data), raw);
   }
 
   List<int> signText(String text) {
     final bytes = utf8.encode(text);
-    final hash = Hash.sha256(bytes);
-    return signData(hash);
+    return signData(bytes);
   }
 
   int computeFingerPrint() {

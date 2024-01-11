@@ -1,8 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:crypto/crypto.dart' as crypto;
-import 'package:ecdsa/ecdsa.dart' as ecdsa;
-import 'package:elliptic/elliptic.dart' as elliptic;
 import 'package:pointycastle/digests/ripemd160.dart';
 import 'package:pointycastle/digests/sha256.dart';
 import 'package:pointycastle/pointycastle.dart';
@@ -37,26 +34,15 @@ class PublicKeyV2 {
 
   int getFingerPrint() => _keyHash.toInt32(0, Endian.little);
 
-  bool verify(List<int> data, List<int> signature) {
-    final curve = elliptic.getSecp256k1();
-    final pKey = elliptic.PublicKey.fromHex(curve, hex);
-    final sig = ecdsa.Signature.fromCompact(signature);
-
-    final hash = crypto.sha256.convert(data).bytes;
-
-    return ecdsa.verify(pKey, hash, sig);
-  }
-
-  // Todo: Tried using pointy castle for verification but didn't initially work
-  // will come back when we have more time to hopefully unify crypto lib usage
-  bool _verify(Uint8List signedData, Uint8List signature) {
+  bool verify(Uint8List data, Uint8List signature) {
     final pubKey = ECPublicKey(_ecPoint, PrivateKeyV2.curve);
 
-    final signer = ECDSASigner(SHA256Digest())
+    final signer = ECDSASigner(SHA256Digest(), Mac("SHA-256/HMAC"))
       ..init(false, PublicKeyParameter(pubKey));
 
     final sig = _signatureFromBytes(signature);
-    return signer.verifySignature(signedData, sig);
+
+    return signer.verifySignature(data, sig);
   }
 
   static ECPoint _pubKeyPointFromPrivKey(BigInt privKey) {
@@ -70,8 +56,8 @@ class PublicKeyV2 {
   }
 
   ECSignature _signatureFromBytes(Uint8List sigBytes) {
-    final r = BigInt.from(sigBytes.toInt32(0, Endian.little));
-    final s = BigInt.from(sigBytes.toInt32(32, Endian.little));
+    final r = sigBytes.toBigInt(0, 32);
+    final s = sigBytes.toBigInt(32, 32);
     return ECSignature(r, s);
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/src/wallet/private_key_v2.dart';
 import 'package:provenance_dart/utility.dart';
@@ -18,6 +16,7 @@ void main() {
     expect(v2.depth, v1.depth, reason: 'depth');
     expect(v2.parentFingerPrint, v1.parentFingerPrint,
         reason: 'parentFingerPrint');
+
     expect(v2.publicKey.address(coin.prefix), v1.publicKey.address,
         reason: 'public key address');
 
@@ -39,7 +38,35 @@ void main() {
     expect(v2.signText(text), v1.signText(text), reason: 'signText');
 
     final data = text.codeUnits;
-    expect(v2.signData(data), v1.signData(data), reason: 'signData');
+    final sig1 = v1.signData(data);
+    final sig2 = (v2.signData(data.toUint8List()));
+    expect(sig2, sig1, reason: 'signData');
+
+    expect(
+      Crypto.verify(
+        sig1,
+        Hash.sha256(data),
+        v1.publicKey.uncompressedPublicKey,
+      ),
+      true,
+      reason: 'verify sig1 w/ v1',
+    );
+
+    expect(
+      Crypto.verify(
+        sig2,
+        Hash.sha256(data),
+        v1.publicKey.uncompressedPublicKey,
+      ),
+      true,
+      reason: 'verify sig2 w/ v1',
+    );
+
+    expect(v2.publicKey.verify(data.toUint8List(), sig2), true,
+        reason: 'verify sig2 w/ v2');
+
+    expect(v2.publicKey.verify(data.toUint8List(), sig1.toUint8List()), true,
+        reason: 'verify sig1 w/ v2');
   }
 
   group('Master keys are equal: ', () {
@@ -120,18 +147,6 @@ void main() {
         expect(pKey.index, path[index].index);
       }
     });
-
-    test("signData generates valid signature", () {
-      final sig = privKey.signData("A Test String".codeUnits);
-      expect(base64Encode(sig),
-          "29BFmtk6ByqCi3yZmhGP4fBV9cYE0imb0IDvZ7UDKUowaMm7JpyWX/F8MenpqlCFjcl878Wd+I2oDwd/RQiR5QE=");
-    });
-
-    test("signText generates valid signature", () {
-      final sig = privKey.signText("A Test String");
-      expect(base64Encode(sig),
-          "cTNMFO+FotCxCwY9raUHcBNANpv6RT5rsqCvPRhEeGNgqDTQMkso8r0Nq64cJT2V1UqfbIePsQNcRTzbQlvi0gE=");
-    });
   });
 
   group("mainNet", () {
@@ -169,18 +184,6 @@ void main() {
         expect(pKey.depth, index + 1);
         expect(pKey.index, path[index].index);
       }
-    });
-
-    test("signData generates valid signature", () {
-      final sig = privKey.signData("A Test String".codeUnits);
-      expect(base64Encode(sig),
-          "29BFmtk6ByqCi3yZmhGP4fBV9cYE0imb0IDvZ7UDKUowaMm7JpyWX/F8MenpqlCFjcl878Wd+I2oDwd/RQiR5QE=");
-    });
-
-    test("signText generates valid signature", () {
-      final sig = privKey.signText("A Test String");
-      expect(base64Encode(sig),
-          "cTNMFO+FotCxCwY9raUHcBNANpv6RT5rsqCvPRhEeGNgqDTQMkso8r0Nq64cJT2V1UqfbIePsQNcRTzbQlvi0gE=");
     });
   });
 }
