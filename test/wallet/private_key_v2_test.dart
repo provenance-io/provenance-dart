@@ -1,7 +1,6 @@
-import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provenance_dart/src/wallet/private_key_v2.dart';
+import 'package:provenance_dart/utility.dart';
 import 'package:provenance_dart/wallet.dart';
 
 const phrase =
@@ -17,21 +16,64 @@ void main() {
     expect(v2.depth, v1.depth, reason: 'depth');
     expect(v2.parentFingerPrint, v1.parentFingerPrint,
         reason: 'parentFingerPrint');
+
     expect(v2.publicKey.address(coin.prefix), v1.publicKey.address,
         reason: 'public key address');
+
+    expect(
+      v2.serializePrivate(
+          coin == Coin.mainNet ? KeyTypeVersions.xprv : KeyTypeVersions.tprv),
+      v1.serialize(publicKeyOnly: false),
+      reason: 'serialize prv',
+    );
+
+    expect(
+      v2.serializePublic(
+          coin == Coin.mainNet ? KeyTypeVersions.xpub : KeyTypeVersions.tpub),
+      v1.serialize(publicKeyOnly: true),
+      reason: 'serialize pub',
+    );
 
     const text = 'data';
     expect(v2.signText(text), v1.signText(text), reason: 'signText');
 
     final data = text.codeUnits;
-    expect(v2.signData(data), v1.signData(data), reason: 'signData');
+    final sig1 = v1.signData(data);
+    final sig2 = (v2.signData(data.toUint8List()));
+    expect(sig2, sig1, reason: 'signData');
+
+    expect(
+      Crypto.verify(
+        sig1,
+        Hash.sha256(data),
+        v1.publicKey.uncompressedPublicKey,
+      ),
+      true,
+      reason: 'verify sig1 w/ v1',
+    );
+
+    expect(
+      Crypto.verify(
+        sig2,
+        Hash.sha256(data),
+        v1.publicKey.uncompressedPublicKey,
+      ),
+      true,
+      reason: 'verify sig2 w/ v1',
+    );
+
+    expect(v2.publicKey.verify(data.toUint8List(), sig2), true,
+        reason: 'verify sig2 w/ v2');
+
+    expect(v2.publicKey.verify(data.toUint8List(), sig1.toUint8List()), true,
+        reason: 'verify sig1 w/ v2');
   }
 
   group('Master keys are equal: ', () {
     for (final coin in Coin.values) {
       test(coin.name, () {
         final v1 = PrivateKey.fromSeed(seed, coin);
-        final v2 = PrivateKeyV2.fromSeed(seed);
+        final v2 = PrivateKeyV2.fromSeed(seed.toUint8List());
 
         expectEqualKeys(v2, v1, coin);
       });
@@ -44,8 +86,9 @@ void main() {
         final nodes = DerivationNode.fromPathString(coin.defaultKeyPath);
 
         final v1 = PrivateKey.fromSeed(seed, coin).deriveKeyFromPath(nodes);
-        final v2 =
-            PrivateKeyV2.fromSeed(seed).deriveKeyFromPath(coin.defaultKeyPath);
+        final v2 = PrivateKeyV2.fromSeed(seed.toUint8List())
+            .deriveKeyFromPath(coin.defaultKeyPath);
+        v1.serialize(publicKeyOnly: false);
 
         expectEqualKeys(v2, v1, coin);
       });
@@ -55,12 +98,13 @@ void main() {
   group('Signature is verified: ', () {
     for (final coin in Coin.values) {
       test(coin.name, () {
-        final privateKey =
-            PrivateKeyV2.fromSeed(seed).deriveKeyFromPath(coin.defaultKeyPath);
+        final privateKey = PrivateKeyV2.fromSeed(seed.toUint8List())
+            .deriveKeyFromPath(coin.defaultKeyPath);
 
         const data = 'data';
         final signature = privateKey.signText(data);
-        final valid = privateKey.publicKey.verify(data.codeUnits, signature);
+        final valid = privateKey.publicKey
+            .verify(data.codeUnits.toUint8List(), signature.toUint8List());
 
         expect(valid, isTrue);
       });
@@ -69,7 +113,7 @@ void main() {
 
   group("testNet", () {
     const coin = Coin.testNet;
-    final privKey = PrivateKeyV2.fromSeed(seed);
+    final privKey = PrivateKeyV2.fromSeed(seed.toUint8List());
 
     test("defaultKey", () {
       expect(privKey.deriveKeyFromPath(coin.defaultKeyPath).rawHex,
@@ -98,31 +142,16 @@ void main() {
       expect(privKey.depth, 0);
 
       for (int index = 0; index < path.length; index++) {
-        final byteBuffer = Uint8List(4)
-          ..buffer.asByteData().setInt32(0, path[index].index, Endian.big);
-
         pKey = pKey.derived(path[index]);
         expect(pKey.depth, index + 1);
-        expect(pKey.index, byteBuffer.buffer.asInt32List().first);
+        expect(pKey.index, path[index].index);
       }
-    });
-
-    test("signData generates valid signature", () {
-      final sig = privKey.signData("A Test String".codeUnits);
-      expect(base64Encode(sig),
-          "29BFmtk6ByqCi3yZmhGP4fBV9cYE0imb0IDvZ7UDKUowaMm7JpyWX/F8MenpqlCFjcl878Wd+I2oDwd/RQiR5QE=");
-    });
-
-    test("signText generates valid signature", () {
-      final sig = privKey.signText("A Test String");
-      expect(base64Encode(sig),
-          "cTNMFO+FotCxCwY9raUHcBNANpv6RT5rsqCvPRhEeGNgqDTQMkso8r0Nq64cJT2V1UqfbIePsQNcRTzbQlvi0gE=");
     });
   });
 
   group("mainNet", () {
     const coin = Coin.mainNet;
-    final privKey = PrivateKeyV2.fromSeed(seed);
+    final privKey = PrivateKeyV2.fromSeed(seed.toUint8List());
 
     test("defaultKey", () {
       expect(privKey.deriveKeyFromPath(coin.defaultKeyPath).rawHex,
@@ -151,25 +180,10 @@ void main() {
       expect(privKey.depth, 0);
 
       for (int index = 0; index < path.length; index++) {
-        final byteBuffer = Uint8List(4)
-          ..buffer.asByteData().setInt32(0, path[index].index, Endian.big);
-
         pKey = pKey.derived(path[index]);
         expect(pKey.depth, index + 1);
-        expect(pKey.index, byteBuffer.buffer.asInt32List().first);
+        expect(pKey.index, path[index].index);
       }
-    });
-
-    test("signData generates valid signature", () {
-      final sig = privKey.signData("A Test String".codeUnits);
-      expect(base64Encode(sig),
-          "29BFmtk6ByqCi3yZmhGP4fBV9cYE0imb0IDvZ7UDKUowaMm7JpyWX/F8MenpqlCFjcl878Wd+I2oDwd/RQiR5QE=");
-    });
-
-    test("signText generates valid signature", () {
-      final sig = privKey.signText("A Test String");
-      expect(base64Encode(sig),
-          "cTNMFO+FotCxCwY9raUHcBNANpv6RT5rsqCvPRhEeGNgqDTQMkso8r0Nq64cJT2V1UqfbIePsQNcRTzbQlvi0gE=");
     });
   });
 }

@@ -289,6 +289,7 @@ class DappSession {
             ...state.requests,
             request,
           ],
+          origin: state.origin,
         );
         break;
       case SessionStateKind.closed:
@@ -376,6 +377,7 @@ class DappSession {
           clientMeta: meta,
           peerId: state.peerId,
           redirectUrl: redirectUrl,
+          origin: state.origin,
         );
         final request = JsonRequest.sessionApproval(sessionRequest);
 
@@ -410,10 +412,11 @@ class DappSession {
     return PendingSessionState(
       peerId: peerId,
       address: address,
+      origin: null,
     );
   }
 
-  void _onJsonRpc(String topic, JsonRpcBase jsonRpc) {
+  void _onJsonRpc(String topic, JsonRpcBase jsonRpc, Uri? origin) {
     log('$_tag: $topic Received message ${jsonRpc.toJson()}');
 
     final relay = _relay;
@@ -483,6 +486,7 @@ class DappSession {
 
         state = state.copyWith(
           requests: map.values.toList(),
+          origin: state.origin,
         );
 
         await _putActivity(state.peerId);
@@ -505,6 +509,7 @@ class DappSession {
                 chainId: approval.chainId!,
                 account: account,
               ),
+              origin: state.origin,
             );
           } else {
             log('$_tag: Session rejected: ${state.peerId}');

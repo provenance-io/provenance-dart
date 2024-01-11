@@ -34,6 +34,8 @@ class DerivationNode {
     });
   }
 
+  String get path => hardened ? "$index'" : '$index';
+
   @override
   bool operator ==(Object other) {
     return (other is DerivationNode) &&
@@ -49,7 +51,16 @@ enum PrivateKeyType { hd, nonHd }
 
 enum AccountType { root, purpose, coinType, account, scope, address }
 
-enum KeyTypeVersions { xprv, tprv, xpub, tpub }
+enum KeyTypeVersions {
+  xprv(0x0488ADE4),
+  tprv(0x04358394),
+  xpub(0x0488B21E),
+  tpub(0x043587CF);
+
+  final int value;
+
+  const KeyTypeVersions(this.value);
+}
 
 int _keyVersionBytes(KeyTypeVersions keyTypeVersions) {
   int v;
@@ -76,142 +87,6 @@ int _keyVersionBytes(KeyTypeVersions keyTypeVersions) {
 
 const _extendedKeySize = 78;
 const _checksumSize = 4;
-
-class PrivateKeyV2 {
-  final PrivateKeyType _keyType;
-  final List<int> raw;
-  final List<int> chainCode;
-  final int index;
-  final int depth;
-  final int parentFingerPrint;
-
-  PublicKeyV2 get publicKey => PublicKeyV2.fromPrivateKey(raw);
-
-  String get rawHex => Encoding.toHex(raw);
-
-  AccountType get type {
-    switch (depth) {
-      case 0:
-        return AccountType.root;
-      case 1:
-        return AccountType.purpose;
-      case 2:
-        return AccountType.coinType;
-      case 3:
-        return AccountType.account;
-      case 4:
-        return AccountType.scope;
-      case 5:
-        return AccountType.address;
-      default:
-        throw throw Exception("Invalid Depth");
-    }
-  }
-
-  PrivateKeyV2._(
-    this.raw,
-    this.chainCode,
-    this._keyType, {
-    this.index = 0,
-    this.depth = 0,
-    this.parentFingerPrint = 0,
-  });
-
-  factory PrivateKeyV2.fromSeed(List<int> seed) {
-    final output =
-        Hash.hmacSha512(const AsciiEncoder().convert("Bitcoin seed"), seed);
-
-    final raw = output.sublist(0, 32);
-    final chainCode = output.sublist(32, 64);
-
-    return PrivateKeyV2._(raw, chainCode, PrivateKeyType.hd);
-  }
-
-  factory PrivateKeyV2.fromPrivateKey(List<int> raw, List<int> chainCode) {
-    return PrivateKeyV2._(raw, chainCode, PrivateKeyType.hd);
-  }
-
-  PrivateKeyV2 derived(DerivationNode node) {
-    if (_keyType != PrivateKeyType.hd) {
-      throw Exception("Invalid key type - must be hd");
-    }
-
-    const edge = 0x80000000; // BIP 44 hardening flag
-
-    if ((edge & node.index) != 0) {
-      throw Exception("Invalid child index");
-    }
-
-    List<int> data;
-    if (node.hardened) {
-      data = [0, ...raw];
-    } else {
-      data = [...Crypto.generatePublicKey(raw, true)];
-    }
-    final index = node.hardened ? (edge | node.index) : node.index;
-    final derivingIndexBytes = Uint8List(4)
-      ..buffer.asByteData().setInt32(0, index, Endian.big);
-    data.addAll(derivingIndexBytes);
-
-    final digest = Hash.hmacSha512(chainCode, data);
-
-    final factorHex = Encoding.toHex(digest.sublist(0, 32));
-    final factor = BigInt.parse(factorHex, radix: 16);
-    final curveOrder = BigInt.parse(
-        "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141",
-        radix: 16);
-    final rawInt = BigInt.parse(Encoding.toHex(raw), radix: 16);
-    final derivingIndex =
-        Uint8List.fromList(derivingIndexBytes).buffer.asInt32List().first;
-    final derivedPrivateKeyInt = (rawInt + factor) % curveOrder;
-    final derivedPrivateKeyHash = derivedPrivateKeyInt.toRadixString(16);
-    final derivedPrivateKey =
-        Encoding.fromHex(derivedPrivateKeyHash.padLeft(64, '0'));
-    final derivedChainCode = digest.sublist(32, 64);
-
-    return PrivateKeyV2._(
-        derivedPrivateKey, derivedChainCode, PrivateKeyType.hd,
-        index: derivingIndex,
-        depth: depth + 1,
-        parentFingerPrint: computeFingerPrint());
-  }
-
-  List<int> signData(List<int> data) {
-    return Crypto.sign(data, raw);
-  }
-
-  List<int> signText(String text) {
-    final bytes = utf8.encode(text);
-    final hash = Hash.sha256(bytes);
-
-    return signData(hash);
-  }
-
-  int computeFingerPrint() {
-    final sha256Digest = Hash.sha256(Encoding.fromHex(publicKey.compressedHex));
-
-    var publicKeyHash = Hash.ripEmd160(sha256Digest);
-    var fingerPrint = 0;
-
-    for (var i = 0; i <= 3; i++) {
-      fingerPrint = fingerPrint << 8;
-      fingerPrint = (fingerPrint | (publicKeyHash[i] & 0xFF));
-    }
-
-    return (ByteData(4)..setInt32(0, fingerPrint, Endian.host))
-        .getInt32(0, Endian.big);
-  }
-
-  PrivateKeyV2 deriveKeyFromPath(String path) {
-    final nodeList = DerivationNode.fromPathString(path);
-
-    return deriveKeyFromNodes(nodeList);
-  }
-
-  PrivateKeyV2 deriveKeyFromNodes(Iterable<DerivationNode> nodes) {
-    return nodes.fold(this, (key, node) => key.derived(node));
-  }
-}
 
 class PrivateKey implements IPrivKey {
   final Coin coin;
@@ -334,9 +209,8 @@ class PrivateKey implements IPrivKey {
       data = [...Crypto.generatePublicKey(raw, true)];
     }
     final index = node.hardened ? (edge | node.index) : node.index;
-    final derivingIndexBytes = Uint8List(4)
-      ..buffer.asByteData().setInt32(0, index, Endian.big);
-    data.addAll(derivingIndexBytes);
+    final indexBytes = ByteData(4)..setInt32(0, index, Endian.big);
+    data.addAll(indexBytes.buffer.asUint8List());
 
     final digest = Hash.hmacSha512(chainCode, data);
 
@@ -346,8 +220,7 @@ class PrivateKey implements IPrivKey {
         "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141",
         radix: 16);
     final rawInt = BigInt.parse(Encoding.toHex(raw), radix: 16);
-    final derivingIndex =
-        Uint8List.fromList(derivingIndexBytes).buffer.asInt32List().first;
+
     final derivedPrivateKeyInt = (rawInt + factor) % curveOrder;
     final derivedPrivateKeyHash = derivedPrivateKeyInt.toRadixString(16);
     final derivedPrivateKey =
@@ -356,19 +229,18 @@ class PrivateKey implements IPrivKey {
 
     return PrivateKey._(
         coin, derivedPrivateKey, derivedChainCode, PrivateKeyType.hd,
-        index: derivingIndex,
+        index: index,
         depth: depth + 1,
         parentFingerPrint: computeFingerPrint());
   }
 
   List<int> signData(List<int> data) {
-    return Crypto.sign(data, raw);
+    return Crypto.sign(Hash.sha256(data), raw);
   }
 
   List<int> signText(String text) {
     final bytes = utf8.encode(text);
-    final hash = Hash.sha256(bytes);
-    return signData(hash);
+    return signData(bytes);
   }
 
   int computeFingerPrint() {
@@ -406,7 +278,7 @@ class PrivateKey implements IPrivKey {
     byteData.setInt32(0, v, Endian.host);
     byteData.setInt8(4, depth); //depth  4..<5
     byteData.setInt32(5, parentFingerPrint, Endian.host);
-    byteData.setInt32(9, index, Endian.host); //sequence/index     9..<13
+    byteData.setInt32(9, index, Endian.big); //sequence/index     9..<13
 
     final out = Uint8ClampedList.sublistView(byteData, 13);
     out.setAll(0, chainCode); //chaincode 13..<35

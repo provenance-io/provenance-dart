@@ -10,6 +10,8 @@ PendingSessionState _$PendingSessionStateFromJson(Map<String, dynamic> json) =>
     PendingSessionState(
       address: WalletConnectAddress.fromJson(json['address'] as String),
       peerId: json['peerId'] as String,
+      origin:
+          json['origin'] == null ? null : Uri.parse(json['origin'] as String),
       requests: (json['requests'] as List<dynamic>?)
           ?.map((e) => JsonRequest.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -22,6 +24,7 @@ Map<String, dynamic> _$PendingSessionStateToJson(
       'address': instance.address,
       'peerId': instance.peerId,
       'requests': instance.requests,
+      'origin': instance.origin?.toString(),
     };
 
 const _$SessionStateKindEnumMap = {
@@ -37,6 +40,8 @@ ApprovedSessionState _$ApprovedSessionStateFromJson(
       peerId: json['peerId'] as String,
       approval:
           ApprovalState.fromJson(json['approval'] as Map<String, dynamic>),
+      origin:
+          json['origin'] == null ? null : Uri.parse(json['origin'] as String),
       requests: (json['requests'] as List<dynamic>?)
           ?.map((e) => JsonRequest.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -50,6 +55,7 @@ Map<String, dynamic> _$ApprovedSessionStateToJson(
       'peerId': instance.peerId,
       'approval': instance.approval,
       'requests': instance.requests,
+      'origin': instance.origin?.toString(),
     };
 
 ClosedSessionState _$ClosedSessionStateFromJson(Map<String, dynamic> json) =>

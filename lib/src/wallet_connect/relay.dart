@@ -18,7 +18,7 @@ abstract class RelayDelegate {
   void onSubscribe(String subscribedTopic);
 
   // the remote object has sent either a request or responst to a topic
-  void onJsonRpc(String topic, JsonRpcBase jsonRpc);
+  void onJsonRpc(String topic, JsonRpcBase jsonRpc, Uri? origin);
 
   // an error has occurred
   void onError(Exception error);
@@ -124,7 +124,7 @@ class Relay {
     try {
       final str = event as String;
       final json = jsonDecode(str);
-      final message = Message.fromJson(json);
+      final message = RxMessage.fromJson(json);
 
       switch (message.type) {
         case "sub":
@@ -156,7 +156,7 @@ class Relay {
   ///
   /// Process published messages from the relay
   ///
-  void _processPub(Message message) {
+  void _processPub(RxMessage message) {
     JsonRpcBase? jsonRpcBase;
 
     try {
@@ -164,7 +164,7 @@ class Relay {
       final encryptedMessage = EncryptionPayload.fromJson(encryptedPayloadJson);
       jsonRpcBase = _encryptedPayloadHelper.decryptAndVerify(encryptedMessage);
 
-      _delegate.onJsonRpc(message.topic, jsonRpcBase);
+      _delegate.onJsonRpc(message.topic, jsonRpcBase, message.origin);
     } catch (e) {
       if (jsonRpcBase != null) {
         throw JrpcRequestException(message.topic, jsonRpcBase.id, e);

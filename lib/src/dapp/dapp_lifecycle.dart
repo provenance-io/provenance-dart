@@ -45,8 +45,8 @@ class DappLifecycle extends WidgetsBindingObserver {
         });
         break;
       case AppLifecycleState.detached:
-        // Ignore.
-        break;
+      case AppLifecycleState.hidden:
+      // Ignore.
     }
   }
 

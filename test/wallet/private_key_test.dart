@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provenance_dart/wallet.dart';
@@ -123,12 +122,9 @@ main() {
       expect(privKey.depth, 0);
 
       for (int index = 0; index < path.length; index++) {
-        final byteBuffer = Uint8List(4)
-          ..buffer.asByteData().setInt32(0, path[index].index, Endian.big);
-
         pKey = pKey.derived(path[index]);
         expect(pKey.depth, index + 1);
-        expect(pKey.index, byteBuffer.buffer.asInt32List().first);
+        expect(pKey.index, path[index].index);
       }
     });
 
@@ -196,12 +192,9 @@ main() {
       expect(privKey.depth, 0);
 
       for (int index = 0; index < path.length; index++) {
-        final byteBuffer = Uint8List(4)
-          ..buffer.asByteData().setInt32(0, path[index].index, Endian.big);
-
         pKey = pKey.derived(path[index]);
         expect(pKey.depth, index + 1);
-        expect(pKey.index, byteBuffer.buffer.asInt32List().first);
+        expect(pKey.index, path[index].index);
       }
     });
 

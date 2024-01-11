@@ -23,7 +23,7 @@ class Crypto {
   static List<int> sign(List<int> hash, List<int> privateKey) {
     final curve = elliptic.getSecp256k1();
     final pKey = elliptic.PrivateKey.fromBytes(curve, privateKey);
-    return ecdsa.deterministicSign(pKey, hash).toCompact()..add(1);
+    return ecdsa.deterministicSign(pKey, hash).toCompact();
   }
 
   static bool verify(List<int> signature, List<int> hash, List<int> publicKey) {

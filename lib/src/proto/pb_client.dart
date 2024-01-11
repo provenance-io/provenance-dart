@@ -79,9 +79,10 @@ class PbClient {
     port ??= 443;
 
     final options = ChannelOptions(
-      idleTimeout: Duration(minutes: 5),
-      credentials:
-          secure ? ChannelCredentials.secure() : ChannelCredentials.insecure(),
+      idleTimeout: const Duration(minutes: 5),
+      credentials: secure
+          ? const ChannelCredentials.secure()
+          : const ChannelCredentials.insecure(),
     );
 
     _channel = ClientChannel(

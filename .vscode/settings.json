@@ -2,6 +2,6 @@
     "dart.flutterSdkPath": ".fvm/flutter_sdk",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+        "source.organizeImports": "explicit"
     }
 }
