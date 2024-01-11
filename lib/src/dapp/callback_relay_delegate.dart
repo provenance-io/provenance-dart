@@ -2,7 +2,11 @@ import 'package:provenance_dart/src/wallet_connect/messages.dart';
 import 'package:provenance_dart/src/wallet_connect/relay.dart';
 
 typedef OnErrorFunc = void Function(Exception e);
-typedef OnJsonRpcFunc = void Function(String topic, JsonRpcBase jsonRpc);
+typedef OnJsonRpcFunc = void Function(
+  String topic,
+  JsonRpcBase jsonRpc,
+  Uri? origin,
+);
 typedef OnStatusUpdatedFunc = void Function(RelayStatus status);
 typedef OnSubscribeFunc = void Function(String topic);
 
@@ -26,8 +30,8 @@ class CallbackRelayDelegate implements RelayDelegate {
   void onError(Exception error) => _onError?.call(error);
 
   @override
-  void onJsonRpc(String topic, JsonRpcBase jsonRpc) =>
-      _onJsonRpc?.call(topic, jsonRpc);
+  void onJsonRpc(String topic, JsonRpcBase jsonRpc, Uri? origin) =>
+      _onJsonRpc?.call(topic, jsonRpc, origin);
 
   @override
   void onStatusUpdated(RelayStatus relayStatus) =>
