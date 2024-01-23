@@ -70,9 +70,10 @@ class DappSession {
   ///
   Future<int> sendSignRequest(
     List<int> message,
-    String description,
+    String description, {
     String? redirectUrl,
-  ) {
+    int? requestId,
+  }) {
     return _workQueue.add<int>((c) async {
       var state = _state.value;
       if (state is! ApprovedSessionState) {
@@ -86,6 +87,7 @@ class DappSession {
         description,
         approval.account.address,
         redirectUrl: redirectUrl,
+        requestId: requestId,
       );
 
       await _publishRequest(approval.remotePeerId, request);
@@ -110,6 +112,7 @@ class DappSession {
     List<proto.GeneratedMessage>? nonCriticalExtensionOptions,
     List<proto.GeneratedMessage>? extensionOptions,
     String? redirectUrl,
+    int? requestId,
   }) {
     return _workQueue.add<int>((c) async {
       var state = _state.value;
@@ -135,6 +138,7 @@ class DappSession {
             ?.map((e) => base64Encode(e.toAny().writeToBuffer()))
             .toList(),
         redirectUrl: redirectUrl,
+        requestId: requestId,
       );
 
       await _publishRequest(approval.remotePeerId, request);

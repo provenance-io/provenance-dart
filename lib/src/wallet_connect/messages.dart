@@ -74,8 +74,14 @@ class JsonRequest extends JsonRpcBase {
   JsonRequest(this.method, this.params, {int? id, super.jsonrpc = "2.0"})
       : super(id: id ?? DateTime.now().millisecondsSinceEpoch);
 
-  JsonRequest.sessionApproval(SessionRequest sessionRequest)
-      : this("wc_sessionRequest", [sessionRequest.toJson()]);
+  JsonRequest.sessionApproval(
+    SessionRequest sessionRequest, {
+    int? requestId,
+  }) : this(
+          "wc_sessionRequest",
+          [sessionRequest.toJson()],
+          id: requestId,
+        );
 
   JsonRequest.disconnect()
       : this("wc_sessionUpdate", [
@@ -91,14 +97,19 @@ class JsonRequest extends JsonRpcBase {
     String description,
     String address, {
     String? redirectUrl,
-  }) : this("provenance_sign", [
-          jsonEncode(<String, dynamic>{
-            "description": description,
-            "address": address,
-            if (redirectUrl != null) "redirectUrl": redirectUrl,
-          }),
-          Encoding.toHex(data)
-        ]);
+    int? requestId,
+  }) : this(
+          "provenance_sign",
+          [
+            jsonEncode(<String, dynamic>{
+              "description": description,
+              "address": address,
+              if (redirectUrl != null) "redirectUrl": redirectUrl,
+            }),
+            Encoding.toHex(data)
+          ],
+          id: requestId,
+        );
 
   JsonRequest.sendTransaction(
     List<GeneratedMessage> messages,
@@ -112,44 +123,56 @@ class JsonRequest extends JsonRpcBase {
     List<String>? nonCriticalExtensionOptions,
     List<String>? extensionOptions,
     String? redirectUrl,
-  }) : this("provenance_sendTransaction", [
-          jsonEncode(<String, dynamic>{
-            "description": description,
-            "address": address,
-            if (redirectUrl != null) "redirectUrl": redirectUrl,
-            if (gasEstimate != null)
-              "gasPrice": <String, dynamic>{
-                "gasPrice": gasEstimate.amount,
-                "gasPriceDenom": gasEstimate.denom
-              },
-            if (feeGranter?.isNotEmpty ?? false) "feeGranter": feeGranter,
-            if (feePayer?.isNotEmpty ?? false) "feePayer": feePayer,
-            if (memo?.isNotEmpty ?? false) "memo": memo,
-            if (timeoutHeight != null) "timeoutHeight": timeoutHeight,
-            if (nonCriticalExtensionOptions?.isNotEmpty ?? false)
-              "nonCriticalExtensionOptions": nonCriticalExtensionOptions,
-            if (extensionOptions?.isNotEmpty ?? false)
-              "extensionOptions": extensionOptions,
-          }),
-          ...messages.map((e) {
-            final any = e.toAny();
-            final base64 = base64Encode(any.writeToBuffer());
-            final charCodes = base64.codeUnits;
-            return Encoding.toHex(charCodes);
-          })
-        ]);
+    int? requestId,
+  }) : this(
+          "provenance_sendTransaction",
+          [
+            jsonEncode(<String, dynamic>{
+              "description": description,
+              "address": address,
+              if (redirectUrl != null) "redirectUrl": redirectUrl,
+              if (gasEstimate != null)
+                "gasPrice": <String, dynamic>{
+                  "gasPrice": gasEstimate.amount,
+                  "gasPriceDenom": gasEstimate.denom
+                },
+              if (feeGranter?.isNotEmpty ?? false) "feeGranter": feeGranter,
+              if (feePayer?.isNotEmpty ?? false) "feePayer": feePayer,
+              if (memo?.isNotEmpty ?? false) "memo": memo,
+              if (timeoutHeight != null) "timeoutHeight": timeoutHeight,
+              if (nonCriticalExtensionOptions?.isNotEmpty ?? false)
+                "nonCriticalExtensionOptions": nonCriticalExtensionOptions,
+              if (extensionOptions?.isNotEmpty ?? false)
+                "extensionOptions": extensionOptions,
+            }),
+            ...messages.map((e) {
+              final any = e.toAny();
+              final base64 = base64Encode(any.writeToBuffer());
+              final charCodes = base64.codeUnits;
+              return Encoding.toHex(charCodes);
+            })
+          ],
+          id: requestId,
+        );
 
   JsonRequest.sendWalletAction(
-      String action, String description, dynamic payload,
-      {String? redirectUrl})
-      : this("wallet_action", [
-          jsonEncode(<String, dynamic>{
-            "description": description,
-            "action": action,
-            "payload": payload,
-            if (redirectUrl != null) "redirectUrl": redirectUrl,
-          })
-        ]);
+    String action,
+    String description,
+    dynamic payload, {
+    String? redirectUrl,
+    int? requestId,
+  }) : this(
+          "wallet_action",
+          [
+            jsonEncode(<String, dynamic>{
+              "description": description,
+              "action": action,
+              "payload": payload,
+              if (redirectUrl != null) "redirectUrl": redirectUrl,
+            })
+          ],
+          id: requestId,
+        );
 
   factory JsonRequest.fromJson(Map<String, dynamic> jsonObj) {
     return JsonRequest(
