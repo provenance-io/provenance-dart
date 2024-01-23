@@ -147,6 +147,35 @@ class DappSession {
     });
   }
 
+  Future<int> sendWalletActionRequest(
+    String action,
+    String description,
+    dynamic payload, {
+    String? redirectUrl,
+    int? requestId,
+  }) async {
+    return _workQueue.add<int>((c) async {
+      var state = _state.value;
+      if (state is! ApprovedSessionState) {
+        throw StateError('Session is not approved');
+      }
+
+      final approval = state.approval;
+
+      final request = JsonRequest.sendWalletAction(
+        action,
+        description,
+        payload,
+        redirectUrl: redirectUrl,
+        requestId: requestId,
+      );
+
+      await _publishRequest(approval.remotePeerId, request);
+
+      return request.id as int;
+    });
+  }
+
   ///
   /// Initiates a new connection or resumes a previous connection.
   ///
