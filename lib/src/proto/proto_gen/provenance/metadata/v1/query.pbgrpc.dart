@@ -162,6 +162,13 @@ class QueryClient extends $grpc.Client {
           ($0.AccountDataRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.AccountDataResponse.fromBuffer(value));
+  static final _$scopeNetAssetValues = $grpc.ClientMethod<
+          $0.QueryScopeNetAssetValuesRequest,
+          $0.QueryScopeNetAssetValuesResponse>(
+      '/provenance.metadata.v1.Query/ScopeNetAssetValues',
+      ($0.QueryScopeNetAssetValuesRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.QueryScopeNetAssetValuesResponse.fromBuffer(value));
 
   QueryClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -307,6 +314,12 @@ class QueryClient extends $grpc.Client {
       $0.AccountDataRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$accountData, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.QueryScopeNetAssetValuesResponse> scopeNetAssetValues(
+      $0.QueryScopeNetAssetValuesRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$scopeNetAssetValues, request, options: options);
   }
 }
 
@@ -509,6 +522,15 @@ abstract class QueryServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.AccountDataRequest.fromBuffer(value),
             ($0.AccountDataResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.QueryScopeNetAssetValuesRequest,
+            $0.QueryScopeNetAssetValuesResponse>(
+        'ScopeNetAssetValues',
+        scopeNetAssetValues_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.QueryScopeNetAssetValuesRequest.fromBuffer(value),
+        ($0.QueryScopeNetAssetValuesResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.QueryParamsResponse> params_Pre($grpc.ServiceCall call,
@@ -640,6 +662,12 @@ abstract class QueryServiceBase extends $grpc.Service {
     return accountData(call, await request);
   }
 
+  $async.Future<$0.QueryScopeNetAssetValuesResponse> scopeNetAssetValues_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.QueryScopeNetAssetValuesRequest> request) async {
+    return scopeNetAssetValues(call, await request);
+  }
+
   $async.Future<$0.QueryParamsResponse> params(
       $grpc.ServiceCall call, $0.QueryParamsRequest request);
   $async.Future<$0.ScopeResponse> scope(
@@ -687,4 +715,6 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.OSAllLocatorsRequest request);
   $async.Future<$0.AccountDataResponse> accountData(
       $grpc.ServiceCall call, $0.AccountDataRequest request);
+  $async.Future<$0.QueryScopeNetAssetValuesResponse> scopeNetAssetValues(
+      $grpc.ServiceCall call, $0.QueryScopeNetAssetValuesRequest request);
 }

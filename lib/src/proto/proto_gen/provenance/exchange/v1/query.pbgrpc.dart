@@ -64,6 +64,32 @@ class QueryClient extends $grpc.Client {
       ($1.QueryGetAllOrdersRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $1.QueryGetAllOrdersResponse.fromBuffer(value));
+  static final _$getCommitment = $grpc.ClientMethod<
+          $1.QueryGetCommitmentRequest, $1.QueryGetCommitmentResponse>(
+      '/provenance.exchange.v1.Query/GetCommitment',
+      ($1.QueryGetCommitmentRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.QueryGetCommitmentResponse.fromBuffer(value));
+  static final _$getAccountCommitments = $grpc.ClientMethod<
+          $1.QueryGetAccountCommitmentsRequest,
+          $1.QueryGetAccountCommitmentsResponse>(
+      '/provenance.exchange.v1.Query/GetAccountCommitments',
+      ($1.QueryGetAccountCommitmentsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.QueryGetAccountCommitmentsResponse.fromBuffer(value));
+  static final _$getMarketCommitments = $grpc.ClientMethod<
+          $1.QueryGetMarketCommitmentsRequest,
+          $1.QueryGetMarketCommitmentsResponse>(
+      '/provenance.exchange.v1.Query/GetMarketCommitments',
+      ($1.QueryGetMarketCommitmentsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.QueryGetMarketCommitmentsResponse.fromBuffer(value));
+  static final _$getAllCommitments = $grpc.ClientMethod<
+          $1.QueryGetAllCommitmentsRequest, $1.QueryGetAllCommitmentsResponse>(
+      '/provenance.exchange.v1.Query/GetAllCommitments',
+      ($1.QueryGetAllCommitmentsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.QueryGetAllCommitmentsResponse.fromBuffer(value));
   static final _$getMarket =
       $grpc.ClientMethod<$1.QueryGetMarketRequest, $1.QueryGetMarketResponse>(
           '/provenance.exchange.v1.Query/GetMarket',
@@ -82,6 +108,14 @@ class QueryClient extends $grpc.Client {
           ($1.QueryParamsRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $1.QueryParamsResponse.fromBuffer(value));
+  static final _$commitmentSettlementFeeCalc = $grpc.ClientMethod<
+          $1.QueryCommitmentSettlementFeeCalcRequest,
+          $1.QueryCommitmentSettlementFeeCalcResponse>(
+      '/provenance.exchange.v1.Query/CommitmentSettlementFeeCalc',
+      ($1.QueryCommitmentSettlementFeeCalcRequest value) =>
+          value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $1.QueryCommitmentSettlementFeeCalcResponse.fromBuffer(value));
   static final _$validateCreateMarket = $grpc.ClientMethod<
           $1.QueryValidateCreateMarketRequest,
           $1.QueryValidateCreateMarketResponse>(
@@ -150,6 +184,30 @@ class QueryClient extends $grpc.Client {
     return $createUnaryCall(_$getAllOrders, request, options: options);
   }
 
+  $grpc.ResponseFuture<$1.QueryGetCommitmentResponse> getCommitment(
+      $1.QueryGetCommitmentRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getCommitment, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.QueryGetAccountCommitmentsResponse>
+      getAccountCommitments($1.QueryGetAccountCommitmentsRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getAccountCommitments, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.QueryGetMarketCommitmentsResponse>
+      getMarketCommitments($1.QueryGetMarketCommitmentsRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getMarketCommitments, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.QueryGetAllCommitmentsResponse> getAllCommitments(
+      $1.QueryGetAllCommitmentsRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getAllCommitments, request, options: options);
+  }
+
   $grpc.ResponseFuture<$1.QueryGetMarketResponse> getMarket(
       $1.QueryGetMarketRequest request,
       {$grpc.CallOptions? options}) {
@@ -166,6 +224,14 @@ class QueryClient extends $grpc.Client {
       $1.QueryParamsRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$params, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.QueryCommitmentSettlementFeeCalcResponse>
+      commitmentSettlementFeeCalc(
+          $1.QueryCommitmentSettlementFeeCalcRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$commitmentSettlementFeeCalc, request,
+        options: options);
   }
 
   $grpc.ResponseFuture<$1.QueryValidateCreateMarketResponse>
@@ -255,6 +321,43 @@ abstract class QueryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $1.QueryGetAllOrdersRequest.fromBuffer(value),
         ($1.QueryGetAllOrdersResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.QueryGetCommitmentRequest,
+            $1.QueryGetCommitmentResponse>(
+        'GetCommitment',
+        getCommitment_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.QueryGetCommitmentRequest.fromBuffer(value),
+        ($1.QueryGetCommitmentResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.QueryGetAccountCommitmentsRequest,
+            $1.QueryGetAccountCommitmentsResponse>(
+        'GetAccountCommitments',
+        getAccountCommitments_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.QueryGetAccountCommitmentsRequest.fromBuffer(value),
+        ($1.QueryGetAccountCommitmentsResponse value) =>
+            value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.QueryGetMarketCommitmentsRequest,
+            $1.QueryGetMarketCommitmentsResponse>(
+        'GetMarketCommitments',
+        getMarketCommitments_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.QueryGetMarketCommitmentsRequest.fromBuffer(value),
+        ($1.QueryGetMarketCommitmentsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.QueryGetAllCommitmentsRequest,
+            $1.QueryGetAllCommitmentsResponse>(
+        'GetAllCommitments',
+        getAllCommitments_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.QueryGetAllCommitmentsRequest.fromBuffer(value),
+        ($1.QueryGetAllCommitmentsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.QueryGetMarketRequest,
             $1.QueryGetMarketResponse>(
         'GetMarket',
@@ -282,6 +385,16 @@ abstract class QueryServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $1.QueryParamsRequest.fromBuffer(value),
             ($1.QueryParamsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.QueryCommitmentSettlementFeeCalcRequest,
+            $1.QueryCommitmentSettlementFeeCalcResponse>(
+        'CommitmentSettlementFeeCalc',
+        commitmentSettlementFeeCalc_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.QueryCommitmentSettlementFeeCalcRequest.fromBuffer(value),
+        ($1.QueryCommitmentSettlementFeeCalcResponse value) =>
+            value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.QueryValidateCreateMarketRequest,
             $1.QueryValidateCreateMarketResponse>(
         'ValidateCreateMarket',
@@ -352,6 +465,30 @@ abstract class QueryServiceBase extends $grpc.Service {
     return getAllOrders(call, await request);
   }
 
+  $async.Future<$1.QueryGetCommitmentResponse> getCommitment_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.QueryGetCommitmentRequest> request) async {
+    return getCommitment(call, await request);
+  }
+
+  $async.Future<$1.QueryGetAccountCommitmentsResponse>
+      getAccountCommitments_Pre($grpc.ServiceCall call,
+          $async.Future<$1.QueryGetAccountCommitmentsRequest> request) async {
+    return getAccountCommitments(call, await request);
+  }
+
+  $async.Future<$1.QueryGetMarketCommitmentsResponse> getMarketCommitments_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.QueryGetMarketCommitmentsRequest> request) async {
+    return getMarketCommitments(call, await request);
+  }
+
+  $async.Future<$1.QueryGetAllCommitmentsResponse> getAllCommitments_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.QueryGetAllCommitmentsRequest> request) async {
+    return getAllCommitments(call, await request);
+  }
+
   $async.Future<$1.QueryGetMarketResponse> getMarket_Pre($grpc.ServiceCall call,
       $async.Future<$1.QueryGetMarketRequest> request) async {
     return getMarket(call, await request);
@@ -366,6 +503,14 @@ abstract class QueryServiceBase extends $grpc.Service {
   $async.Future<$1.QueryParamsResponse> params_Pre($grpc.ServiceCall call,
       $async.Future<$1.QueryParamsRequest> request) async {
     return params(call, await request);
+  }
+
+  $async.Future<$1.QueryCommitmentSettlementFeeCalcResponse>
+      commitmentSettlementFeeCalc_Pre(
+          $grpc.ServiceCall call,
+          $async.Future<$1.QueryCommitmentSettlementFeeCalcRequest>
+              request) async {
+    return commitmentSettlementFeeCalc(call, await request);
   }
 
   $async.Future<$1.QueryValidateCreateMarketResponse> validateCreateMarket_Pre(
@@ -400,12 +545,23 @@ abstract class QueryServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $1.QueryGetAssetOrdersRequest request);
   $async.Future<$1.QueryGetAllOrdersResponse> getAllOrders(
       $grpc.ServiceCall call, $1.QueryGetAllOrdersRequest request);
+  $async.Future<$1.QueryGetCommitmentResponse> getCommitment(
+      $grpc.ServiceCall call, $1.QueryGetCommitmentRequest request);
+  $async.Future<$1.QueryGetAccountCommitmentsResponse> getAccountCommitments(
+      $grpc.ServiceCall call, $1.QueryGetAccountCommitmentsRequest request);
+  $async.Future<$1.QueryGetMarketCommitmentsResponse> getMarketCommitments(
+      $grpc.ServiceCall call, $1.QueryGetMarketCommitmentsRequest request);
+  $async.Future<$1.QueryGetAllCommitmentsResponse> getAllCommitments(
+      $grpc.ServiceCall call, $1.QueryGetAllCommitmentsRequest request);
   $async.Future<$1.QueryGetMarketResponse> getMarket(
       $grpc.ServiceCall call, $1.QueryGetMarketRequest request);
   $async.Future<$1.QueryGetAllMarketsResponse> getAllMarkets(
       $grpc.ServiceCall call, $1.QueryGetAllMarketsRequest request);
   $async.Future<$1.QueryParamsResponse> params(
       $grpc.ServiceCall call, $1.QueryParamsRequest request);
+  $async.Future<$1.QueryCommitmentSettlementFeeCalcResponse>
+      commitmentSettlementFeeCalc($grpc.ServiceCall call,
+          $1.QueryCommitmentSettlementFeeCalcRequest request);
   $async.Future<$1.QueryValidateCreateMarketResponse> validateCreateMarket(
       $grpc.ServiceCall call, $1.QueryValidateCreateMarketRequest request);
   $async.Future<$1.QueryValidateMarketResponse> validateMarket(

@@ -220,6 +220,43 @@ const Market$json = {
       '5': 9,
       '10': 'reqAttrCreateBid'
     },
+    {
+      '1': 'accepting_commitments',
+      '3': 14,
+      '4': 1,
+      '5': 8,
+      '10': 'acceptingCommitments'
+    },
+    {
+      '1': 'fee_create_commitment_flat',
+      '3': 15,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': {},
+      '10': 'feeCreateCommitmentFlat'
+    },
+    {
+      '1': 'commitment_settlement_bips',
+      '3': 16,
+      '4': 1,
+      '5': 13,
+      '10': 'commitmentSettlementBips'
+    },
+    {
+      '1': 'intermediary_denom',
+      '3': 17,
+      '4': 1,
+      '5': 9,
+      '10': 'intermediaryDenom'
+    },
+    {
+      '1': 'req_attr_create_commitment',
+      '3': 18,
+      '4': 3,
+      '5': 9,
+      '10': 'reqAttrCreateCommitment'
+    },
   ],
 };
 
@@ -242,7 +279,12 @@ final $typed_data.Uint8List marketDescriptor = $convert.base64Decode(
     'ZXNzX2dyYW50cxgLIAMoCzIjLnByb3ZlbmFuY2UuZXhjaGFuZ2UudjEuQWNjZXNzR3JhbnRCBM'
     'jeHwBSDGFjY2Vzc0dyYW50cxItChNyZXFfYXR0cl9jcmVhdGVfYXNrGAwgAygJUhByZXFBdHRy'
     'Q3JlYXRlQXNrEi0KE3JlcV9hdHRyX2NyZWF0ZV9iaWQYDSADKAlSEHJlcUF0dHJDcmVhdGVCaW'
-    'Q=');
+    'QSMwoVYWNjZXB0aW5nX2NvbW1pdG1lbnRzGA4gASgIUhRhY2NlcHRpbmdDb21taXRtZW50cxJc'
+    'ChpmZWVfY3JlYXRlX2NvbW1pdG1lbnRfZmxhdBgPIAMoCzIZLmNvc21vcy5iYXNlLnYxYmV0YT'
+    'EuQ29pbkIEyN4fAFIXZmVlQ3JlYXRlQ29tbWl0bWVudEZsYXQSPAoaY29tbWl0bWVudF9zZXR0'
+    'bGVtZW50X2JpcHMYECABKA1SGGNvbW1pdG1lbnRTZXR0bGVtZW50QmlwcxItChJpbnRlcm1lZG'
+    'lhcnlfZGVub20YESABKAlSEWludGVybWVkaWFyeURlbm9tEjsKGnJlcV9hdHRyX2NyZWF0ZV9j'
+    'b21taXRtZW50GBIgAygJUhdyZXFBdHRyQ3JlYXRlQ29tbWl0bWVudA==');
 
 @$core.Deprecated('Use feeRatioDescriptor instead')
 const FeeRatio$json = {

@@ -169,6 +169,12 @@ class MsgClient extends $grpc.Client {
       ($0.MsgSetAccountDataRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgSetAccountDataResponse.fromBuffer(value));
+  static final _$addNetAssetValues = $grpc.ClientMethod<
+          $0.MsgAddNetAssetValuesRequest, $0.MsgAddNetAssetValuesResponse>(
+      '/provenance.metadata.v1.Msg/AddNetAssetValues',
+      ($0.MsgAddNetAssetValuesRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgAddNetAssetValuesResponse.fromBuffer(value));
 
   MsgClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -323,6 +329,12 @@ class MsgClient extends $grpc.Client {
       $0.MsgSetAccountDataRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setAccountData, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgAddNetAssetValuesResponse> addNetAssetValues(
+      $0.MsgAddNetAssetValuesRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$addNetAssetValues, request, options: options);
   }
 }
 
@@ -546,6 +558,15 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgSetAccountDataRequest.fromBuffer(value),
         ($0.MsgSetAccountDataResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgAddNetAssetValuesRequest,
+            $0.MsgAddNetAssetValuesResponse>(
+        'AddNetAssetValues',
+        addNetAssetValues_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgAddNetAssetValuesRequest.fromBuffer(value),
+        ($0.MsgAddNetAssetValuesResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.MsgWriteScopeResponse> writeScope_Pre($grpc.ServiceCall call,
@@ -693,6 +714,12 @@ abstract class MsgServiceBase extends $grpc.Service {
     return setAccountData(call, await request);
   }
 
+  $async.Future<$0.MsgAddNetAssetValuesResponse> addNetAssetValues_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgAddNetAssetValuesRequest> request) async {
+    return addNetAssetValues(call, await request);
+  }
+
   $async.Future<$0.MsgWriteScopeResponse> writeScope(
       $grpc.ServiceCall call, $0.MsgWriteScopeRequest request);
   $async.Future<$0.MsgDeleteScopeResponse> deleteScope(
@@ -746,4 +773,6 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgModifyOSLocatorRequest request);
   $async.Future<$0.MsgSetAccountDataResponse> setAccountData(
       $grpc.ServiceCall call, $0.MsgSetAccountDataRequest request);
+  $async.Future<$0.MsgAddNetAssetValuesResponse> addNetAssetValues(
+      $grpc.ServiceCall call, $0.MsgAddNetAssetValuesRequest request);
 }

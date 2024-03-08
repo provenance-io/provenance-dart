@@ -361,6 +361,11 @@ class Market extends $pb.GeneratedMessage {
     $core.Iterable<AccessGrant>? accessGrants,
     $core.Iterable<$core.String>? reqAttrCreateAsk,
     $core.Iterable<$core.String>? reqAttrCreateBid,
+    $core.bool? acceptingCommitments,
+    $core.Iterable<$1.Coin>? feeCreateCommitmentFlat,
+    $core.int? commitmentSettlementBips,
+    $core.String? intermediaryDenom,
+    $core.Iterable<$core.String>? reqAttrCreateCommitment,
   }) {
     final $result = create();
     if (marketId != null) {
@@ -401,6 +406,21 @@ class Market extends $pb.GeneratedMessage {
     }
     if (reqAttrCreateBid != null) {
       $result.reqAttrCreateBid.addAll(reqAttrCreateBid);
+    }
+    if (acceptingCommitments != null) {
+      $result.acceptingCommitments = acceptingCommitments;
+    }
+    if (feeCreateCommitmentFlat != null) {
+      $result.feeCreateCommitmentFlat.addAll(feeCreateCommitmentFlat);
+    }
+    if (commitmentSettlementBips != null) {
+      $result.commitmentSettlementBips = commitmentSettlementBips;
+    }
+    if (intermediaryDenom != null) {
+      $result.intermediaryDenom = intermediaryDenom;
+    }
+    if (reqAttrCreateCommitment != null) {
+      $result.reqAttrCreateCommitment.addAll(reqAttrCreateCommitment);
     }
     return $result;
   }
@@ -445,6 +465,14 @@ class Market extends $pb.GeneratedMessage {
         subBuilder: AccessGrant.create)
     ..pPS(12, _omitFieldNames ? '' : 'reqAttrCreateAsk')
     ..pPS(13, _omitFieldNames ? '' : 'reqAttrCreateBid')
+    ..aOB(14, _omitFieldNames ? '' : 'acceptingCommitments')
+    ..pc<$1.Coin>(15, _omitFieldNames ? '' : 'feeCreateCommitmentFlat',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Coin.create)
+    ..a<$core.int>(16, _omitFieldNames ? '' : 'commitmentSettlementBips',
+        $pb.PbFieldType.OU3)
+    ..aOS(17, _omitFieldNames ? '' : 'intermediaryDenom')
+    ..pPS(18, _omitFieldNames ? '' : 'reqAttrCreateCommitment')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -580,6 +608,72 @@ class Market extends $pb.GeneratedMessage {
   ///  E.g. "*.b.a" will match all of "c.b.a", "x.b.a", and "e.d.c.b.a"; but not "b.a", "xb.a", "c.b.x.a", or "c.b.a.x".
   @$pb.TagNumber(13)
   $core.List<$core.String> get reqAttrCreateBid => $_getList(12);
+
+  /// accepting_commitments is whether the market is allowing users to commit funds to it.
+  @$pb.TagNumber(14)
+  $core.bool get acceptingCommitments => $_getBF(13);
+  @$pb.TagNumber(14)
+  set acceptingCommitments($core.bool v) {
+    $_setBool(13, v);
+  }
+
+  @$pb.TagNumber(14)
+  $core.bool hasAcceptingCommitments() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearAcceptingCommitments() => clearField(14);
+
+  /// fee_create_commitment_flat is the flat fee charged for creating a commitment.
+  /// Each coin entry is a separate option. When a commitment is created, one of these must be paid.
+  /// If empty, no fee is required to create a commitment.
+  @$pb.TagNumber(15)
+  $core.List<$1.Coin> get feeCreateCommitmentFlat => $_getList(14);
+
+  ///  commitment_settlement_bips is the fraction of a commitment settlement that will be paid to the exchange.
+  ///  It is represented in basis points (1/100th of 1%, e.g. 0.0001) and is limited to 0 to 10,000 inclusive.
+  ///  During a commitment settlement, the inputs are summed and NAVs are used to convert that total to the
+  ///  intermediary denom, then to the fee denom. That is then multiplied by this value to get the fee amount
+  ///  that will be transferred out of the market's account into the exchange for that settlement.
+  ///
+  ///  Summing the inputs effectively doubles the value of the settlement from what what is usually thought of
+  ///  as the value of a trade. That should be taken into account when setting this value.
+  ///  E.g. if two accounts are trading 10apples for 100grapes, the inputs total will be 10apples,100grapes
+  ///  (which might then be converted to USD then nhash before applying this ratio); Usually, though, the value
+  ///  of that trade would be viewed as either just 10apples or just 100grapes.
+  @$pb.TagNumber(16)
+  $core.int get commitmentSettlementBips => $_getIZ(15);
+  @$pb.TagNumber(16)
+  set commitmentSettlementBips($core.int v) {
+    $_setUnsignedInt32(15, v);
+  }
+
+  @$pb.TagNumber(16)
+  $core.bool hasCommitmentSettlementBips() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearCommitmentSettlementBips() => clearField(16);
+
+  /// intermediary_denom is the denom that funds get converted to (before being converted to the chain's fee denom)
+  /// when calculating the fees that are paid to the exchange. NAVs are used for this conversion and actions will fail
+  /// if a NAV is needed but not available.
+  @$pb.TagNumber(17)
+  $core.String get intermediaryDenom => $_getSZ(16);
+  @$pb.TagNumber(17)
+  set intermediaryDenom($core.String v) {
+    $_setString(16, v);
+  }
+
+  @$pb.TagNumber(17)
+  $core.bool hasIntermediaryDenom() => $_has(16);
+  @$pb.TagNumber(17)
+  void clearIntermediaryDenom() => clearField(17);
+
+  ///  req_attr_create_commitment is a list of attributes required on an account for it to be allowed to create a
+  ///  commitment. An account must have all of these attributes in order to create a commitment in this market.
+  ///  If the list is empty, any account can create commitments in this market.
+  ///
+  ///  An entry that starts with "*." will match any attributes that end with the rest of it.
+  ///  E.g. "*.b.a" will match all of "c.b.a", "x.b.a", and "e.d.c.b.a"; but not "b.a", "xb.a", "c.b.x.a", or "c.b.a.x".
+  @$pb.TagNumber(18)
+  $core.List<$core.String> get reqAttrCreateCommitment => $_getList(17);
 }
 
 /// FeeRatio defines a ratio of price amount to fee amount.

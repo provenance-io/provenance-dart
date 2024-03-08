@@ -352,3 +352,32 @@ final $typed_data.Uint8List auditFieldsDescriptor = $convert.base64Decode(
     'l0ZW1wdHkiUgl1cGRhdGVkQnkSNgoHdmVyc2lvbhgFIAEoDUIc8t4fGHlhbWw6InZlcnNpb24s'
     'b21pdGVtcHR5IlIHdmVyc2lvbhI2CgdtZXNzYWdlGAYgASgJQhzy3h8YeWFtbDoibWVzc2FnZS'
     'xvbWl0ZW1wdHkiUgdtZXNzYWdl');
+
+@$core.Deprecated('Use netAssetValueDescriptor instead')
+const NetAssetValue$json = {
+  '1': 'NetAssetValue',
+  '2': [
+    {
+      '1': 'price',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': {},
+      '10': 'price'
+    },
+    {
+      '1': 'updated_block_height',
+      '3': 2,
+      '4': 1,
+      '5': 4,
+      '10': 'updatedBlockHeight'
+    },
+  ],
+};
+
+/// Descriptor for `NetAssetValue`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List netAssetValueDescriptor = $convert.base64Decode(
+    'Cg1OZXRBc3NldFZhbHVlEjUKBXByaWNlGAEgASgLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2'
+    'luQgTI3h8AUgVwcmljZRIwChR1cGRhdGVkX2Jsb2NrX2hlaWdodBgCIAEoBFISdXBkYXRlZEJs'
+    'b2NrSGVpZ2h0');

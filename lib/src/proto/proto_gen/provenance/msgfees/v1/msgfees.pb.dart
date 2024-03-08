@@ -77,7 +77,15 @@ class Params extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Params>(create);
   static Params? _defaultInstance;
 
-  /// constant used to calculate fees when gas fees shares denom with msg fee
+  ///  floor_gas_price is the constant used to calculate fees when gas fees shares denom with msg fee.
+  ///
+  ///  Conversions:
+  ///    - x nhash/usd-mil = 1,000,000/x usd/hash
+  ///    - y usd/hash = 1,000,000/y nhash/usd-mil
+  ///
+  ///  Examples:
+  ///    - 40,000,000 nhash/usd-mil = 1,000,000/40,000,000 usd/hash = $0.025/hash,
+  ///    - $0.040/hash = 1,000,000/0.040 nhash/usd-mil = 25,000,000 nhash/usd-mil
   @$pb.TagNumber(2)
   $0.Coin get floorGasPrice => $_getN(0);
   @$pb.TagNumber(2)
@@ -92,7 +100,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $0.Coin ensureFloorGasPrice() => $_ensure(0);
 
-  /// total nhash per usd mil for converting usd to nhash
+  /// nhash_per_usd_mil is the total nhash per usd mil for converting usd to nhash.
   @$pb.TagNumber(3)
   $fixnum.Int64 get nhashPerUsdMil => $_getI64(1);
   @$pb.TagNumber(3)
@@ -105,7 +113,7 @@ class Params extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearNhashPerUsdMil() => clearField(3);
 
-  /// conversion fee denom is the denom usd is converted to
+  /// conversion_fee_denom is the denom usd is converted to.
   @$pb.TagNumber(4)
   $core.String get conversionFeeDenom => $_getSZ(2);
   @$pb.TagNumber(4)

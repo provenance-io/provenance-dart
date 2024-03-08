@@ -394,3 +394,18 @@ const EventOSLocatorDeleted$json = {
 final $typed_data.Uint8List eventOSLocatorDeletedDescriptor =
     $convert.base64Decode(
         'ChVFdmVudE9TTG9jYXRvckRlbGV0ZWQSFAoFb3duZXIYASABKAlSBW93bmVy');
+
+@$core.Deprecated('Use eventSetNetAssetValueDescriptor instead')
+const EventSetNetAssetValue$json = {
+  '1': 'EventSetNetAssetValue',
+  '2': [
+    {'1': 'scope_id', '3': 1, '4': 1, '5': 9, '10': 'scopeId'},
+    {'1': 'price', '3': 2, '4': 1, '5': 9, '10': 'price'},
+    {'1': 'source', '3': 3, '4': 1, '5': 9, '10': 'source'},
+  ],
+};
+
+/// Descriptor for `EventSetNetAssetValue`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventSetNetAssetValueDescriptor = $convert.base64Decode(
+    'ChVFdmVudFNldE5ldEFzc2V0VmFsdWUSGQoIc2NvcGVfaWQYASABKAlSB3Njb3BlSWQSFAoFcH'
+    'JpY2UYAiABKAlSBXByaWNlEhYKBnNvdXJjZRgDIAEoCVIGc291cmNl');

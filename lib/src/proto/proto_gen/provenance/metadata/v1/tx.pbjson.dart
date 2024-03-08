@@ -29,6 +29,7 @@ const MsgWriteScopeRequest$json = {
     {'1': 'signers', '3': 2, '4': 3, '5': 9, '10': 'signers'},
     {'1': 'scope_uuid', '3': 3, '4': 1, '5': 9, '8': {}, '10': 'scopeUuid'},
     {'1': 'spec_uuid', '3': 4, '4': 1, '5': 9, '8': {}, '10': 'specUuid'},
+    {'1': 'usd_mills', '3': 5, '4': 1, '5': 4, '10': 'usdMills'},
   ],
   '7': {},
 };
@@ -38,8 +39,8 @@ final $typed_data.Uint8List msgWriteScopeRequestDescriptor = $convert.base64Deco
     'ChRNc2dXcml0ZVNjb3BlUmVxdWVzdBI5CgVzY29wZRgBIAEoCzIdLnByb3ZlbmFuY2UubWV0YW'
     'RhdGEudjEuU2NvcGVCBMjeHwBSBXNjb3BlEhgKB3NpZ25lcnMYAiADKAlSB3NpZ25lcnMSNAoK'
     'c2NvcGVfdXVpZBgDIAEoCUIV8t4fEXlhbWw6InNjb3BlX3V1aWQiUglzY29wZVV1aWQSMQoJc3'
-    'BlY191dWlkGAQgASgJQhTy3h8QeWFtbDoic3BlY191dWlkIlIIc3BlY1V1aWQ6DIigHwCYoB8B'
-    '6KAfAA==');
+    'BlY191dWlkGAQgASgJQhTy3h8QeWFtbDoic3BlY191dWlkIlIIc3BlY1V1aWQSGwoJdXNkX21p'
+    'bGxzGAUgASgEUgh1c2RNaWxsczoMiKAfAJigHwHooB8A');
 
 @$core.Deprecated('Use msgWriteScopeResponseDescriptor instead')
 const MsgWriteScopeResponse$json = {
@@ -1145,3 +1146,38 @@ final $typed_data.Uint8List msgP8eMemorializeContractResponseDescriptor = $conve
     'bmZvIlINc2Vzc2lvbklkSW5mbxJoCg9yZWNvcmRfaWRfaW5mb3MYAyADKAsyJC5wcm92ZW5hbm'
     'NlLm1ldGFkYXRhLnYxLlJlY29yZElkSW5mb0Ia8t4fFnlhbWw6InJlY29yZF9pZF9pbmZvcyJS'
     'DXJlY29yZElkSW5mb3M6BhgBiKAfAA==');
+
+@$core.Deprecated('Use msgAddNetAssetValuesRequestDescriptor instead')
+const MsgAddNetAssetValuesRequest$json = {
+  '1': 'MsgAddNetAssetValuesRequest',
+  '2': [
+    {'1': 'scope_id', '3': 1, '4': 1, '5': 9, '10': 'scopeId'},
+    {'1': 'signers', '3': 2, '4': 3, '5': 9, '10': 'signers'},
+    {
+      '1': 'net_asset_values',
+      '3': 3,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.metadata.v1.NetAssetValue',
+      '8': {},
+      '10': 'netAssetValues'
+    },
+  ],
+  '7': {},
+};
+
+/// Descriptor for `MsgAddNetAssetValuesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List msgAddNetAssetValuesRequestDescriptor = $convert.base64Decode(
+    'ChtNc2dBZGROZXRBc3NldFZhbHVlc1JlcXVlc3QSGQoIc2NvcGVfaWQYASABKAlSB3Njb3BlSW'
+    'QSGAoHc2lnbmVycxgCIAMoCVIHc2lnbmVycxJVChBuZXRfYXNzZXRfdmFsdWVzGAMgAygLMiUu'
+    'cHJvdmVuYW5jZS5tZXRhZGF0YS52MS5OZXRBc3NldFZhbHVlQgTI3h8AUg5uZXRBc3NldFZhbH'
+    'VlczoMiKAfAJigHwHooB8A');
+
+@$core.Deprecated('Use msgAddNetAssetValuesResponseDescriptor instead')
+const MsgAddNetAssetValuesResponse$json = {
+  '1': 'MsgAddNetAssetValuesResponse',
+};
+
+/// Descriptor for `MsgAddNetAssetValuesResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List msgAddNetAssetValuesResponseDescriptor =
+    $convert.base64Decode('ChxNc2dBZGROZXRBc3NldFZhbHVlc1Jlc3BvbnNl');

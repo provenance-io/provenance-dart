@@ -33,6 +33,12 @@ class MsgClient extends $grpc.Client {
           ($0.MsgCreateBidRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.MsgCreateBidResponse.fromBuffer(value));
+  static final _$commitFunds =
+      $grpc.ClientMethod<$0.MsgCommitFundsRequest, $0.MsgCommitFundsResponse>(
+          '/provenance.exchange.v1.Msg/CommitFunds',
+          ($0.MsgCommitFundsRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.MsgCommitFundsResponse.fromBuffer(value));
   static final _$cancelOrder =
       $grpc.ClientMethod<$0.MsgCancelOrderRequest, $0.MsgCancelOrderResponse>(
           '/provenance.exchange.v1.Msg/CancelOrder',
@@ -57,6 +63,20 @@ class MsgClient extends $grpc.Client {
           ($0.MsgMarketSettleRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.MsgMarketSettleResponse.fromBuffer(value));
+  static final _$marketCommitmentSettle = $grpc.ClientMethod<
+          $0.MsgMarketCommitmentSettleRequest,
+          $0.MsgMarketCommitmentSettleResponse>(
+      '/provenance.exchange.v1.Msg/MarketCommitmentSettle',
+      ($0.MsgMarketCommitmentSettleRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgMarketCommitmentSettleResponse.fromBuffer(value));
+  static final _$marketReleaseCommitments = $grpc.ClientMethod<
+          $0.MsgMarketReleaseCommitmentsRequest,
+          $0.MsgMarketReleaseCommitmentsResponse>(
+      '/provenance.exchange.v1.Msg/MarketReleaseCommitments',
+      ($0.MsgMarketReleaseCommitmentsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgMarketReleaseCommitmentsResponse.fromBuffer(value));
   static final _$marketSetOrderExternalID = $grpc.ClientMethod<
           $0.MsgMarketSetOrderExternalIDRequest,
           $0.MsgMarketSetOrderExternalIDResponse>(
@@ -82,6 +102,13 @@ class MsgClient extends $grpc.Client {
       ($0.MsgMarketUpdateEnabledRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgMarketUpdateEnabledResponse.fromBuffer(value));
+  static final _$marketUpdateAcceptingOrders = $grpc.ClientMethod<
+          $0.MsgMarketUpdateAcceptingOrdersRequest,
+          $0.MsgMarketUpdateAcceptingOrdersResponse>(
+      '/provenance.exchange.v1.Msg/MarketUpdateAcceptingOrders',
+      ($0.MsgMarketUpdateAcceptingOrdersRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgMarketUpdateAcceptingOrdersResponse.fromBuffer(value));
   static final _$marketUpdateUserSettle = $grpc.ClientMethod<
           $0.MsgMarketUpdateUserSettleRequest,
           $0.MsgMarketUpdateUserSettleResponse>(
@@ -89,6 +116,22 @@ class MsgClient extends $grpc.Client {
       ($0.MsgMarketUpdateUserSettleRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgMarketUpdateUserSettleResponse.fromBuffer(value));
+  static final _$marketUpdateAcceptingCommitments = $grpc.ClientMethod<
+          $0.MsgMarketUpdateAcceptingCommitmentsRequest,
+          $0.MsgMarketUpdateAcceptingCommitmentsResponse>(
+      '/provenance.exchange.v1.Msg/MarketUpdateAcceptingCommitments',
+      ($0.MsgMarketUpdateAcceptingCommitmentsRequest value) =>
+          value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgMarketUpdateAcceptingCommitmentsResponse.fromBuffer(value));
+  static final _$marketUpdateIntermediaryDenom = $grpc.ClientMethod<
+          $0.MsgMarketUpdateIntermediaryDenomRequest,
+          $0.MsgMarketUpdateIntermediaryDenomResponse>(
+      '/provenance.exchange.v1.Msg/MarketUpdateIntermediaryDenom',
+      ($0.MsgMarketUpdateIntermediaryDenomRequest value) =>
+          value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgMarketUpdateIntermediaryDenomResponse.fromBuffer(value));
   static final _$marketManagePermissions = $grpc.ClientMethod<
           $0.MsgMarketManagePermissionsRequest,
           $0.MsgMarketManagePermissionsResponse>(
@@ -115,6 +158,12 @@ class MsgClient extends $grpc.Client {
       ($0.MsgGovManageFeesRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.MsgGovManageFeesResponse.fromBuffer(value));
+  static final _$govCloseMarket = $grpc.ClientMethod<
+          $0.MsgGovCloseMarketRequest, $0.MsgGovCloseMarketResponse>(
+      '/provenance.exchange.v1.Msg/GovCloseMarket',
+      ($0.MsgGovCloseMarketRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.MsgGovCloseMarketResponse.fromBuffer(value));
   static final _$govUpdateParams = $grpc.ClientMethod<
           $0.MsgGovUpdateParamsRequest, $0.MsgGovUpdateParamsResponse>(
       '/provenance.exchange.v1.Msg/GovUpdateParams',
@@ -139,6 +188,12 @@ class MsgClient extends $grpc.Client {
     return $createUnaryCall(_$createBid, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.MsgCommitFundsResponse> commitFunds(
+      $0.MsgCommitFundsRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$commitFunds, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.MsgCancelOrderResponse> cancelOrder(
       $0.MsgCancelOrderRequest request,
       {$grpc.CallOptions? options}) {
@@ -161,6 +216,20 @@ class MsgClient extends $grpc.Client {
       $0.MsgMarketSettleRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$marketSettle, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgMarketCommitmentSettleResponse>
+      marketCommitmentSettle($0.MsgMarketCommitmentSettleRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$marketCommitmentSettle, request,
+        options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgMarketReleaseCommitmentsResponse>
+      marketReleaseCommitments($0.MsgMarketReleaseCommitmentsRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$marketReleaseCommitments, request,
+        options: options);
   }
 
   $grpc.ResponseFuture<$0.MsgMarketSetOrderExternalIDResponse>
@@ -188,10 +257,34 @@ class MsgClient extends $grpc.Client {
     return $createUnaryCall(_$marketUpdateEnabled, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.MsgMarketUpdateAcceptingOrdersResponse>
+      marketUpdateAcceptingOrders(
+          $0.MsgMarketUpdateAcceptingOrdersRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$marketUpdateAcceptingOrders, request,
+        options: options);
+  }
+
   $grpc.ResponseFuture<$0.MsgMarketUpdateUserSettleResponse>
       marketUpdateUserSettle($0.MsgMarketUpdateUserSettleRequest request,
           {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$marketUpdateUserSettle, request,
+        options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgMarketUpdateAcceptingCommitmentsResponse>
+      marketUpdateAcceptingCommitments(
+          $0.MsgMarketUpdateAcceptingCommitmentsRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$marketUpdateAcceptingCommitments, request,
+        options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgMarketUpdateIntermediaryDenomResponse>
+      marketUpdateIntermediaryDenom(
+          $0.MsgMarketUpdateIntermediaryDenomRequest request,
+          {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$marketUpdateIntermediaryDenom, request,
         options: options);
   }
 
@@ -218,6 +311,12 @@ class MsgClient extends $grpc.Client {
       $0.MsgGovManageFeesRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$govManageFees, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MsgGovCloseMarketResponse> govCloseMarket(
+      $0.MsgGovCloseMarketRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$govCloseMarket, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.MsgGovUpdateParamsResponse> govUpdateParams(
@@ -250,6 +349,15 @@ abstract class MsgServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.MsgCreateBidRequest.fromBuffer(value),
             ($0.MsgCreateBidResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgCommitFundsRequest,
+            $0.MsgCommitFundsResponse>(
+        'CommitFunds',
+        commitFunds_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgCommitFundsRequest.fromBuffer(value),
+        ($0.MsgCommitFundsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgCancelOrderRequest,
             $0.MsgCancelOrderResponse>(
         'CancelOrder',
@@ -286,6 +394,25 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgMarketSettleRequest.fromBuffer(value),
         ($0.MsgMarketSettleResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgMarketCommitmentSettleRequest,
+            $0.MsgMarketCommitmentSettleResponse>(
+        'MarketCommitmentSettle',
+        marketCommitmentSettle_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgMarketCommitmentSettleRequest.fromBuffer(value),
+        ($0.MsgMarketCommitmentSettleResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgMarketReleaseCommitmentsRequest,
+            $0.MsgMarketReleaseCommitmentsResponse>(
+        'MarketReleaseCommitments',
+        marketReleaseCommitments_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgMarketReleaseCommitmentsRequest.fromBuffer(value),
+        ($0.MsgMarketReleaseCommitmentsResponse value) =>
+            value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgMarketSetOrderExternalIDRequest,
             $0.MsgMarketSetOrderExternalIDResponse>(
         'MarketSetOrderExternalID',
@@ -323,6 +450,16 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgMarketUpdateEnabledRequest.fromBuffer(value),
         ($0.MsgMarketUpdateEnabledResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgMarketUpdateAcceptingOrdersRequest,
+            $0.MsgMarketUpdateAcceptingOrdersResponse>(
+        'MarketUpdateAcceptingOrders',
+        marketUpdateAcceptingOrders_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgMarketUpdateAcceptingOrdersRequest.fromBuffer(value),
+        ($0.MsgMarketUpdateAcceptingOrdersResponse value) =>
+            value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgMarketUpdateUserSettleRequest,
             $0.MsgMarketUpdateUserSettleResponse>(
         'MarketUpdateUserSettle',
@@ -332,6 +469,27 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgMarketUpdateUserSettleRequest.fromBuffer(value),
         ($0.MsgMarketUpdateUserSettleResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<
+            $0.MsgMarketUpdateAcceptingCommitmentsRequest,
+            $0.MsgMarketUpdateAcceptingCommitmentsResponse>(
+        'MarketUpdateAcceptingCommitments',
+        marketUpdateAcceptingCommitments_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgMarketUpdateAcceptingCommitmentsRequest.fromBuffer(value),
+        ($0.MsgMarketUpdateAcceptingCommitmentsResponse value) =>
+            value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgMarketUpdateIntermediaryDenomRequest,
+            $0.MsgMarketUpdateIntermediaryDenomResponse>(
+        'MarketUpdateIntermediaryDenom',
+        marketUpdateIntermediaryDenom_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgMarketUpdateIntermediaryDenomRequest.fromBuffer(value),
+        ($0.MsgMarketUpdateIntermediaryDenomResponse value) =>
+            value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgMarketManagePermissionsRequest,
             $0.MsgMarketManagePermissionsResponse>(
         'MarketManagePermissions',
@@ -369,6 +527,15 @@ abstract class MsgServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.MsgGovManageFeesRequest.fromBuffer(value),
         ($0.MsgGovManageFeesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MsgGovCloseMarketRequest,
+            $0.MsgGovCloseMarketResponse>(
+        'GovCloseMarket',
+        govCloseMarket_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MsgGovCloseMarketRequest.fromBuffer(value),
+        ($0.MsgGovCloseMarketResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.MsgGovUpdateParamsRequest,
             $0.MsgGovUpdateParamsResponse>(
         'GovUpdateParams',
@@ -388,6 +555,12 @@ abstract class MsgServiceBase extends $grpc.Service {
   $async.Future<$0.MsgCreateBidResponse> createBid_Pre($grpc.ServiceCall call,
       $async.Future<$0.MsgCreateBidRequest> request) async {
     return createBid(call, await request);
+  }
+
+  $async.Future<$0.MsgCommitFundsResponse> commitFunds_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgCommitFundsRequest> request) async {
+    return commitFunds(call, await request);
   }
 
   $async.Future<$0.MsgCancelOrderResponse> cancelOrder_Pre(
@@ -410,6 +583,18 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call,
       $async.Future<$0.MsgMarketSettleRequest> request) async {
     return marketSettle(call, await request);
+  }
+
+  $async.Future<$0.MsgMarketCommitmentSettleResponse>
+      marketCommitmentSettle_Pre($grpc.ServiceCall call,
+          $async.Future<$0.MsgMarketCommitmentSettleRequest> request) async {
+    return marketCommitmentSettle(call, await request);
+  }
+
+  $async.Future<$0.MsgMarketReleaseCommitmentsResponse>
+      marketReleaseCommitments_Pre($grpc.ServiceCall call,
+          $async.Future<$0.MsgMarketReleaseCommitmentsRequest> request) async {
+    return marketReleaseCommitments(call, await request);
   }
 
   $async.Future<$0.MsgMarketSetOrderExternalIDResponse>
@@ -436,10 +621,34 @@ abstract class MsgServiceBase extends $grpc.Service {
     return marketUpdateEnabled(call, await request);
   }
 
+  $async.Future<$0.MsgMarketUpdateAcceptingOrdersResponse>
+      marketUpdateAcceptingOrders_Pre(
+          $grpc.ServiceCall call,
+          $async.Future<$0.MsgMarketUpdateAcceptingOrdersRequest>
+              request) async {
+    return marketUpdateAcceptingOrders(call, await request);
+  }
+
   $async.Future<$0.MsgMarketUpdateUserSettleResponse>
       marketUpdateUserSettle_Pre($grpc.ServiceCall call,
           $async.Future<$0.MsgMarketUpdateUserSettleRequest> request) async {
     return marketUpdateUserSettle(call, await request);
+  }
+
+  $async.Future<$0.MsgMarketUpdateAcceptingCommitmentsResponse>
+      marketUpdateAcceptingCommitments_Pre(
+          $grpc.ServiceCall call,
+          $async.Future<$0.MsgMarketUpdateAcceptingCommitmentsRequest>
+              request) async {
+    return marketUpdateAcceptingCommitments(call, await request);
+  }
+
+  $async.Future<$0.MsgMarketUpdateIntermediaryDenomResponse>
+      marketUpdateIntermediaryDenom_Pre(
+          $grpc.ServiceCall call,
+          $async.Future<$0.MsgMarketUpdateIntermediaryDenomRequest>
+              request) async {
+    return marketUpdateIntermediaryDenom(call, await request);
   }
 
   $async.Future<$0.MsgMarketManagePermissionsResponse>
@@ -466,6 +675,12 @@ abstract class MsgServiceBase extends $grpc.Service {
     return govManageFees(call, await request);
   }
 
+  $async.Future<$0.MsgGovCloseMarketResponse> govCloseMarket_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.MsgGovCloseMarketRequest> request) async {
+    return govCloseMarket(call, await request);
+  }
+
   $async.Future<$0.MsgGovUpdateParamsResponse> govUpdateParams_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.MsgGovUpdateParamsRequest> request) async {
@@ -476,6 +691,8 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgCreateAskRequest request);
   $async.Future<$0.MsgCreateBidResponse> createBid(
       $grpc.ServiceCall call, $0.MsgCreateBidRequest request);
+  $async.Future<$0.MsgCommitFundsResponse> commitFunds(
+      $grpc.ServiceCall call, $0.MsgCommitFundsRequest request);
   $async.Future<$0.MsgCancelOrderResponse> cancelOrder(
       $grpc.ServiceCall call, $0.MsgCancelOrderRequest request);
   $async.Future<$0.MsgFillBidsResponse> fillBids(
@@ -484,6 +701,11 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgFillAsksRequest request);
   $async.Future<$0.MsgMarketSettleResponse> marketSettle(
       $grpc.ServiceCall call, $0.MsgMarketSettleRequest request);
+  $async.Future<$0.MsgMarketCommitmentSettleResponse> marketCommitmentSettle(
+      $grpc.ServiceCall call, $0.MsgMarketCommitmentSettleRequest request);
+  $async.Future<$0.MsgMarketReleaseCommitmentsResponse>
+      marketReleaseCommitments($grpc.ServiceCall call,
+          $0.MsgMarketReleaseCommitmentsRequest request);
   $async.Future<$0.MsgMarketSetOrderExternalIDResponse>
       marketSetOrderExternalID($grpc.ServiceCall call,
           $0.MsgMarketSetOrderExternalIDRequest request);
@@ -493,8 +715,17 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgMarketUpdateDetailsRequest request);
   $async.Future<$0.MsgMarketUpdateEnabledResponse> marketUpdateEnabled(
       $grpc.ServiceCall call, $0.MsgMarketUpdateEnabledRequest request);
+  $async.Future<$0.MsgMarketUpdateAcceptingOrdersResponse>
+      marketUpdateAcceptingOrders($grpc.ServiceCall call,
+          $0.MsgMarketUpdateAcceptingOrdersRequest request);
   $async.Future<$0.MsgMarketUpdateUserSettleResponse> marketUpdateUserSettle(
       $grpc.ServiceCall call, $0.MsgMarketUpdateUserSettleRequest request);
+  $async.Future<$0.MsgMarketUpdateAcceptingCommitmentsResponse>
+      marketUpdateAcceptingCommitments($grpc.ServiceCall call,
+          $0.MsgMarketUpdateAcceptingCommitmentsRequest request);
+  $async.Future<$0.MsgMarketUpdateIntermediaryDenomResponse>
+      marketUpdateIntermediaryDenom($grpc.ServiceCall call,
+          $0.MsgMarketUpdateIntermediaryDenomRequest request);
   $async.Future<$0.MsgMarketManagePermissionsResponse> marketManagePermissions(
       $grpc.ServiceCall call, $0.MsgMarketManagePermissionsRequest request);
   $async.Future<$0.MsgMarketManageReqAttrsResponse> marketManageReqAttrs(
@@ -503,6 +734,8 @@ abstract class MsgServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.MsgGovCreateMarketRequest request);
   $async.Future<$0.MsgGovManageFeesResponse> govManageFees(
       $grpc.ServiceCall call, $0.MsgGovManageFeesRequest request);
+  $async.Future<$0.MsgGovCloseMarketResponse> govCloseMarket(
+      $grpc.ServiceCall call, $0.MsgGovCloseMarketRequest request);
   $async.Future<$0.MsgGovUpdateParamsResponse> govUpdateParams(
       $grpc.ServiceCall call, $0.MsgGovUpdateParamsRequest request);
 }

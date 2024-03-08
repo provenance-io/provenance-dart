@@ -105,6 +105,40 @@ final $typed_data.Uint8List eventOrderExternalIDUpdatedDescriptor =
         'QSGwoJbWFya2V0X2lkGAIgASgNUghtYXJrZXRJZBIfCgtleHRlcm5hbF9pZBgDIAEoCVIKZXh0'
         'ZXJuYWxJZA==');
 
+@$core.Deprecated('Use eventFundsCommittedDescriptor instead')
+const EventFundsCommitted$json = {
+  '1': 'EventFundsCommitted',
+  '2': [
+    {'1': 'account', '3': 1, '4': 1, '5': 9, '8': {}, '10': 'account'},
+    {'1': 'market_id', '3': 2, '4': 1, '5': 13, '10': 'marketId'},
+    {'1': 'amount', '3': 3, '4': 1, '5': 9, '10': 'amount'},
+    {'1': 'tag', '3': 4, '4': 1, '5': 9, '10': 'tag'},
+  ],
+};
+
+/// Descriptor for `EventFundsCommitted`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventFundsCommittedDescriptor = $convert.base64Decode(
+    'ChNFdmVudEZ1bmRzQ29tbWl0dGVkEjIKB2FjY291bnQYASABKAlCGNK0LRRjb3Ntb3MuQWRkcm'
+    'Vzc1N0cmluZ1IHYWNjb3VudBIbCgltYXJrZXRfaWQYAiABKA1SCG1hcmtldElkEhYKBmFtb3Vu'
+    'dBgDIAEoCVIGYW1vdW50EhAKA3RhZxgEIAEoCVIDdGFn');
+
+@$core.Deprecated('Use eventCommitmentReleasedDescriptor instead')
+const EventCommitmentReleased$json = {
+  '1': 'EventCommitmentReleased',
+  '2': [
+    {'1': 'account', '3': 1, '4': 1, '5': 9, '8': {}, '10': 'account'},
+    {'1': 'market_id', '3': 2, '4': 1, '5': 13, '10': 'marketId'},
+    {'1': 'amount', '3': 3, '4': 1, '5': 9, '10': 'amount'},
+    {'1': 'tag', '3': 4, '4': 1, '5': 9, '10': 'tag'},
+  ],
+};
+
+/// Descriptor for `EventCommitmentReleased`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventCommitmentReleasedDescriptor = $convert.base64Decode(
+    'ChdFdmVudENvbW1pdG1lbnRSZWxlYXNlZBIyCgdhY2NvdW50GAEgASgJQhjStC0UY29zbW9zLk'
+    'FkZHJlc3NTdHJpbmdSB2FjY291bnQSGwoJbWFya2V0X2lkGAIgASgNUghtYXJrZXRJZBIWCgZh'
+    'bW91bnQYAyABKAlSBmFtb3VudBIQCgN0YWcYBCABKAlSA3RhZw==');
+
 @$core.Deprecated('Use eventMarketWithdrawDescriptor instead')
 const EventMarketWithdraw$json = {
   '1': 'EventMarketWithdraw',
@@ -145,12 +179,13 @@ const EventMarketEnabled$json = {
     {'1': 'market_id', '3': 1, '4': 1, '5': 13, '10': 'marketId'},
     {'1': 'updated_by', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'updatedBy'},
   ],
+  '7': {'3': true},
 };
 
 /// Descriptor for `EventMarketEnabled`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List eventMarketEnabledDescriptor = $convert.base64Decode(
     'ChJFdmVudE1hcmtldEVuYWJsZWQSGwoJbWFya2V0X2lkGAEgASgNUghtYXJrZXRJZBI3Cgp1cG'
-    'RhdGVkX2J5GAIgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSCXVwZGF0ZWRCeQ==');
+    'RhdGVkX2J5GAIgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSCXVwZGF0ZWRCeToCGAE=');
 
 @$core.Deprecated('Use eventMarketDisabledDescriptor instead')
 const EventMarketDisabled$json = {
@@ -159,12 +194,43 @@ const EventMarketDisabled$json = {
     {'1': 'market_id', '3': 1, '4': 1, '5': 13, '10': 'marketId'},
     {'1': 'updated_by', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'updatedBy'},
   ],
+  '7': {'3': true},
 };
 
 /// Descriptor for `EventMarketDisabled`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List eventMarketDisabledDescriptor = $convert.base64Decode(
     'ChNFdmVudE1hcmtldERpc2FibGVkEhsKCW1hcmtldF9pZBgBIAEoDVIIbWFya2V0SWQSNwoKdX'
-    'BkYXRlZF9ieRgCIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgl1cGRhdGVkQnk=');
+    'BkYXRlZF9ieRgCIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgl1cGRhdGVkQnk6AhgB');
+
+@$core.Deprecated('Use eventMarketOrdersEnabledDescriptor instead')
+const EventMarketOrdersEnabled$json = {
+  '1': 'EventMarketOrdersEnabled',
+  '2': [
+    {'1': 'market_id', '3': 1, '4': 1, '5': 13, '10': 'marketId'},
+    {'1': 'updated_by', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'updatedBy'},
+  ],
+};
+
+/// Descriptor for `EventMarketOrdersEnabled`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventMarketOrdersEnabledDescriptor = $convert.base64Decode(
+    'ChhFdmVudE1hcmtldE9yZGVyc0VuYWJsZWQSGwoJbWFya2V0X2lkGAEgASgNUghtYXJrZXRJZB'
+    'I3Cgp1cGRhdGVkX2J5GAIgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSCXVwZGF0ZWRC'
+    'eQ==');
+
+@$core.Deprecated('Use eventMarketOrdersDisabledDescriptor instead')
+const EventMarketOrdersDisabled$json = {
+  '1': 'EventMarketOrdersDisabled',
+  '2': [
+    {'1': 'market_id', '3': 1, '4': 1, '5': 13, '10': 'marketId'},
+    {'1': 'updated_by', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'updatedBy'},
+  ],
+};
+
+/// Descriptor for `EventMarketOrdersDisabled`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventMarketOrdersDisabledDescriptor = $convert.base64Decode(
+    'ChlFdmVudE1hcmtldE9yZGVyc0Rpc2FibGVkEhsKCW1hcmtldF9pZBgBIAEoDVIIbWFya2V0SW'
+    'QSNwoKdXBkYXRlZF9ieRgCIAEoCUIY0rQtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgl1cGRhdGVk'
+    'Qnk=');
 
 @$core.Deprecated('Use eventMarketUserSettleEnabledDescriptor instead')
 const EventMarketUserSettleEnabled$json = {
@@ -197,6 +263,54 @@ final $typed_data.Uint8List eventMarketUserSettleDisabledDescriptor =
         'Ch1FdmVudE1hcmtldFVzZXJTZXR0bGVEaXNhYmxlZBIbCgltYXJrZXRfaWQYASABKA1SCG1hcm'
         'tldElkEjcKCnVwZGF0ZWRfYnkYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IJdXBk'
         'YXRlZEJ5');
+
+@$core.Deprecated('Use eventMarketCommitmentsEnabledDescriptor instead')
+const EventMarketCommitmentsEnabled$json = {
+  '1': 'EventMarketCommitmentsEnabled',
+  '2': [
+    {'1': 'market_id', '3': 1, '4': 1, '5': 13, '10': 'marketId'},
+    {'1': 'updated_by', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'updatedBy'},
+  ],
+};
+
+/// Descriptor for `EventMarketCommitmentsEnabled`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventMarketCommitmentsEnabledDescriptor =
+    $convert.base64Decode(
+        'Ch1FdmVudE1hcmtldENvbW1pdG1lbnRzRW5hYmxlZBIbCgltYXJrZXRfaWQYASABKA1SCG1hcm'
+        'tldElkEjcKCnVwZGF0ZWRfYnkYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmluZ1IJdXBk'
+        'YXRlZEJ5');
+
+@$core.Deprecated('Use eventMarketCommitmentsDisabledDescriptor instead')
+const EventMarketCommitmentsDisabled$json = {
+  '1': 'EventMarketCommitmentsDisabled',
+  '2': [
+    {'1': 'market_id', '3': 1, '4': 1, '5': 13, '10': 'marketId'},
+    {'1': 'updated_by', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'updatedBy'},
+  ],
+};
+
+/// Descriptor for `EventMarketCommitmentsDisabled`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventMarketCommitmentsDisabledDescriptor =
+    $convert.base64Decode(
+        'Ch5FdmVudE1hcmtldENvbW1pdG1lbnRzRGlzYWJsZWQSGwoJbWFya2V0X2lkGAEgASgNUghtYX'
+        'JrZXRJZBI3Cgp1cGRhdGVkX2J5GAIgASgJQhjStC0UY29zbW9zLkFkZHJlc3NTdHJpbmdSCXVw'
+        'ZGF0ZWRCeQ==');
+
+@$core.Deprecated('Use eventMarketIntermediaryDenomUpdatedDescriptor instead')
+const EventMarketIntermediaryDenomUpdated$json = {
+  '1': 'EventMarketIntermediaryDenomUpdated',
+  '2': [
+    {'1': 'market_id', '3': 1, '4': 1, '5': 13, '10': 'marketId'},
+    {'1': 'updated_by', '3': 2, '4': 1, '5': 9, '8': {}, '10': 'updatedBy'},
+  ],
+};
+
+/// Descriptor for `EventMarketIntermediaryDenomUpdated`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventMarketIntermediaryDenomUpdatedDescriptor =
+    $convert.base64Decode(
+        'CiNFdmVudE1hcmtldEludGVybWVkaWFyeURlbm9tVXBkYXRlZBIbCgltYXJrZXRfaWQYASABKA'
+        '1SCG1hcmtldElkEjcKCnVwZGF0ZWRfYnkYAiABKAlCGNK0LRRjb3Ntb3MuQWRkcmVzc1N0cmlu'
+        'Z1IJdXBkYXRlZEJ5');
 
 @$core.Deprecated('Use eventMarketPermissionsUpdatedDescriptor instead')
 const EventMarketPermissionsUpdated$json = {

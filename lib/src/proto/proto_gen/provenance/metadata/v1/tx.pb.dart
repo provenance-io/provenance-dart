@@ -11,6 +11,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'metadata.pb.dart' as $2;
@@ -26,6 +27,7 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? signers,
     $core.String? scopeUuid,
     $core.String? specUuid,
+    $fixnum.Int64? usdMills,
   }) {
     final $result = create();
     if (scope != null) {
@@ -39,6 +41,9 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
     }
     if (specUuid != null) {
       $result.specUuid = specUuid;
+    }
+    if (usdMills != null) {
+      $result.usdMills = usdMills;
     }
     return $result;
   }
@@ -60,6 +65,9 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
     ..pPS(2, _omitFieldNames ? '' : 'signers')
     ..aOS(3, _omitFieldNames ? '' : 'scopeUuid')
     ..aOS(4, _omitFieldNames ? '' : 'specUuid')
+    ..a<$fixnum.Int64>(
+        5, _omitFieldNames ? '' : 'usdMills', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -137,6 +145,19 @@ class MsgWriteScopeRequest extends $pb.GeneratedMessage {
   $core.bool hasSpecUuid() => $_has(3);
   @$pb.TagNumber(4)
   void clearSpecUuid() => clearField(4);
+
+  /// usd_mills value of scope in usd mills (1234 = $1.234) used for net asset value
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get usdMills => $_getI64(4);
+  @$pb.TagNumber(5)
+  set usdMills($fixnum.Int64 v) {
+    $_setInt64(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasUsdMills() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearUsdMills() => clearField(5);
 }
 
 /// MsgWriteScopeResponse is the response type for the Msg/WriteScope RPC method.
@@ -3965,6 +3986,137 @@ class MsgP8eMemorializeContractResponse extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.List<$2.RecordIdInfo> get recordIdInfos => $_getList(2);
+}
+
+/// MsgAddNetAssetValuesRequest defines the Msg/AddNetAssetValues request type
+class MsgAddNetAssetValuesRequest extends $pb.GeneratedMessage {
+  factory MsgAddNetAssetValuesRequest({
+    $core.String? scopeId,
+    $core.Iterable<$core.String>? signers,
+    $core.Iterable<$1.NetAssetValue>? netAssetValues,
+  }) {
+    final $result = create();
+    if (scopeId != null) {
+      $result.scopeId = scopeId;
+    }
+    if (signers != null) {
+      $result.signers.addAll(signers);
+    }
+    if (netAssetValues != null) {
+      $result.netAssetValues.addAll(netAssetValues);
+    }
+    return $result;
+  }
+  MsgAddNetAssetValuesRequest._() : super();
+  factory MsgAddNetAssetValuesRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgAddNetAssetValuesRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAddNetAssetValuesRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeId')
+    ..pPS(2, _omitFieldNames ? '' : 'signers')
+    ..pc<$1.NetAssetValue>(
+        3, _omitFieldNames ? '' : 'netAssetValues', $pb.PbFieldType.PM,
+        subBuilder: $1.NetAssetValue.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgAddNetAssetValuesRequest clone() =>
+      MsgAddNetAssetValuesRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgAddNetAssetValuesRequest copyWith(
+          void Function(MsgAddNetAssetValuesRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgAddNetAssetValuesRequest))
+          as MsgAddNetAssetValuesRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgAddNetAssetValuesRequest create() =>
+      MsgAddNetAssetValuesRequest._();
+  MsgAddNetAssetValuesRequest createEmptyInstance() => create();
+  static $pb.PbList<MsgAddNetAssetValuesRequest> createRepeated() =>
+      $pb.PbList<MsgAddNetAssetValuesRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MsgAddNetAssetValuesRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgAddNetAssetValuesRequest>(create);
+  static MsgAddNetAssetValuesRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get scopeId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set scopeId($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasScopeId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearScopeId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.String> get signers => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.List<$1.NetAssetValue> get netAssetValues => $_getList(2);
+}
+
+/// MsgAddNetAssetValuesResponse defines the Msg/AddNetAssetValue response type
+class MsgAddNetAssetValuesResponse extends $pb.GeneratedMessage {
+  factory MsgAddNetAssetValuesResponse() => create();
+  MsgAddNetAssetValuesResponse._() : super();
+  factory MsgAddNetAssetValuesResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MsgAddNetAssetValuesResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MsgAddNetAssetValuesResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MsgAddNetAssetValuesResponse clone() =>
+      MsgAddNetAssetValuesResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MsgAddNetAssetValuesResponse copyWith(
+          void Function(MsgAddNetAssetValuesResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as MsgAddNetAssetValuesResponse))
+          as MsgAddNetAssetValuesResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MsgAddNetAssetValuesResponse create() =>
+      MsgAddNetAssetValuesResponse._();
+  MsgAddNetAssetValuesResponse createEmptyInstance() => create();
+  static $pb.PbList<MsgAddNetAssetValuesResponse> createRepeated() =>
+      $pb.PbList<MsgAddNetAssetValuesResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MsgAddNetAssetValuesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MsgAddNetAssetValuesResponse>(create);
+  static MsgAddNetAssetValuesResponse? _defaultInstance;
 }
 
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');

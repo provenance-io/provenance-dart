@@ -98,6 +98,15 @@ const GenesisState$json = {
       '8': {},
       '10': 'objectStoreLocators'
     },
+    {
+      '1': 'net_asset_values',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.metadata.v1.MarkerNetAssetValues',
+      '8': {},
+      '10': 'netAssetValues'
+    },
   ],
   '7': {},
 };
@@ -118,4 +127,29 @@ final $typed_data.Uint8List genesisStateDescriptor = $convert.base64Decode(
     'syJy5wcm92ZW5hbmNlLm1ldGFkYXRhLnYxLk9TTG9jYXRvclBhcmFtc0IEyN4fAFIPb1NMb2Nh'
     'dG9yUGFyYW1zEmQKFW9iamVjdF9zdG9yZV9sb2NhdG9ycxgJIAMoCzIqLnByb3ZlbmFuY2UubW'
     'V0YWRhdGEudjEuT2JqZWN0U3RvcmVMb2NhdG9yQgTI3h8AUhNvYmplY3RTdG9yZUxvY2F0b3Jz'
-    'OgiIoB8A6KAfAA==');
+    'ElwKEG5ldF9hc3NldF92YWx1ZXMYCiADKAsyLC5wcm92ZW5hbmNlLm1ldGFkYXRhLnYxLk1hcm'
+    'tlck5ldEFzc2V0VmFsdWVzQgTI3h8AUg5uZXRBc3NldFZhbHVlczoIiKAfAOigHwA=');
+
+@$core.Deprecated('Use markerNetAssetValuesDescriptor instead')
+const MarkerNetAssetValues$json = {
+  '1': 'MarkerNetAssetValues',
+  '2': [
+    {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    {
+      '1': 'net_asset_values',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.metadata.v1.NetAssetValue',
+      '8': {},
+      '10': 'netAssetValues'
+    },
+  ],
+  '7': {},
+};
+
+/// Descriptor for `MarkerNetAssetValues`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List markerNetAssetValuesDescriptor = $convert.base64Decode(
+    'ChRNYXJrZXJOZXRBc3NldFZhbHVlcxIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzElUKEG5ldF'
+    '9hc3NldF92YWx1ZXMYAiADKAsyJS5wcm92ZW5hbmNlLm1ldGFkYXRhLnYxLk5ldEFzc2V0VmFs'
+    'dWVCBMjeHwBSDm5ldEFzc2V0VmFsdWVzOgiIoB8A6KAfAA==');

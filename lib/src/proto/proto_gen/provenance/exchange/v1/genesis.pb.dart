@@ -14,6 +14,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'commitments.pb.dart' as $3;
 import 'market.pb.dart' as $1;
 import 'orders.pb.dart' as $2;
 import 'params.pb.dart' as $0;
@@ -26,6 +27,7 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.Iterable<$2.Order>? orders,
     $core.int? lastMarketId,
     $fixnum.Int64? lastOrderId,
+    $core.Iterable<$3.Commitment>? commitments,
   }) {
     final $result = create();
     if (params != null) {
@@ -42,6 +44,9 @@ class GenesisState extends $pb.GeneratedMessage {
     }
     if (lastOrderId != null) {
       $result.lastOrderId = lastOrderId;
+    }
+    if (commitments != null) {
+      $result.commitments.addAll(commitments);
     }
     return $result;
   }
@@ -69,6 +74,9 @@ class GenesisState extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(
         5, _omitFieldNames ? '' : 'lastOrderId', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pc<$3.Commitment>(
+        6, _omitFieldNames ? '' : 'commitments', $pb.PbFieldType.PM,
+        subBuilder: $3.Commitment.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -142,6 +150,10 @@ class GenesisState extends $pb.GeneratedMessage {
   $core.bool hasLastOrderId() => $_has(4);
   @$pb.TagNumber(5)
   void clearLastOrderId() => clearField(5);
+
+  /// commitments are all the of the commitments to create at genesis.
+  @$pb.TagNumber(6)
+  $core.List<$3.Commitment> get commitments => $_getList(5);
 }
 
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');

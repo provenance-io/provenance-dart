@@ -369,6 +369,185 @@ final $typed_data.Uint8List queryGetAllOrdersResponseDescriptor = $convert.base6
     'UuZXhjaGFuZ2UudjEuT3JkZXJSBm9yZGVycxJHCgpwYWdpbmF0aW9uGGMgASgLMicuY29zbW9z'
     'LmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVzcG9uc2VSCnBhZ2luYXRpb24=');
 
+@$core.Deprecated('Use queryGetCommitmentRequestDescriptor instead')
+const QueryGetCommitmentRequest$json = {
+  '1': 'QueryGetCommitmentRequest',
+  '2': [
+    {'1': 'account', '3': 1, '4': 1, '5': 9, '8': {}, '10': 'account'},
+    {'1': 'market_id', '3': 2, '4': 1, '5': 13, '10': 'marketId'},
+  ],
+};
+
+/// Descriptor for `QueryGetCommitmentRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGetCommitmentRequestDescriptor =
+    $convert.base64Decode(
+        'ChlRdWVyeUdldENvbW1pdG1lbnRSZXF1ZXN0EjIKB2FjY291bnQYASABKAlCGNK0LRRjb3Ntb3'
+        'MuQWRkcmVzc1N0cmluZ1IHYWNjb3VudBIbCgltYXJrZXRfaWQYAiABKA1SCG1hcmtldElk');
+
+@$core.Deprecated('Use queryGetCommitmentResponseDescriptor instead')
+const QueryGetCommitmentResponse$json = {
+  '1': 'QueryGetCommitmentResponse',
+  '2': [
+    {
+      '1': 'amount',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': {},
+      '10': 'amount'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGetCommitmentResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGetCommitmentResponseDescriptor =
+    $convert.base64Decode(
+        'ChpRdWVyeUdldENvbW1pdG1lbnRSZXNwb25zZRJjCgZhbW91bnQYASADKAsyGS5jb3Ntb3MuYm'
+        'FzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNvbS9jb3Ntb3MvY29zbW9zLXNkay90'
+        'eXBlcy5Db2luc1IGYW1vdW50');
+
+@$core.Deprecated('Use queryGetAccountCommitmentsRequestDescriptor instead')
+const QueryGetAccountCommitmentsRequest$json = {
+  '1': 'QueryGetAccountCommitmentsRequest',
+  '2': [
+    {'1': 'account', '3': 1, '4': 1, '5': 9, '8': {}, '10': 'account'},
+  ],
+};
+
+/// Descriptor for `QueryGetAccountCommitmentsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGetAccountCommitmentsRequestDescriptor =
+    $convert.base64Decode(
+        'CiFRdWVyeUdldEFjY291bnRDb21taXRtZW50c1JlcXVlc3QSMgoHYWNjb3VudBgBIAEoCUIY0r'
+        'QtFGNvc21vcy5BZGRyZXNzU3RyaW5nUgdhY2NvdW50');
+
+@$core.Deprecated('Use queryGetAccountCommitmentsResponseDescriptor instead')
+const QueryGetAccountCommitmentsResponse$json = {
+  '1': 'QueryGetAccountCommitmentsResponse',
+  '2': [
+    {
+      '1': 'commitments',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.exchange.v1.MarketAmount',
+      '10': 'commitments'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGetAccountCommitmentsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGetAccountCommitmentsResponseDescriptor =
+    $convert.base64Decode(
+        'CiJRdWVyeUdldEFjY291bnRDb21taXRtZW50c1Jlc3BvbnNlEkYKC2NvbW1pdG1lbnRzGAEgAy'
+        'gLMiQucHJvdmVuYW5jZS5leGNoYW5nZS52MS5NYXJrZXRBbW91bnRSC2NvbW1pdG1lbnRz');
+
+@$core.Deprecated('Use queryGetMarketCommitmentsRequestDescriptor instead')
+const QueryGetMarketCommitmentsRequest$json = {
+  '1': 'QueryGetMarketCommitmentsRequest',
+  '2': [
+    {'1': 'market_id', '3': 1, '4': 1, '5': 13, '10': 'marketId'},
+    {
+      '1': 'pagination',
+      '3': 99,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageRequest',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGetMarketCommitmentsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGetMarketCommitmentsRequestDescriptor =
+    $convert.base64Decode(
+        'CiBRdWVyeUdldE1hcmtldENvbW1pdG1lbnRzUmVxdWVzdBIbCgltYXJrZXRfaWQYASABKA1SCG'
+        '1hcmtldElkEkYKCnBhZ2luYXRpb24YYyABKAsyJi5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGEx'
+        'LlBhZ2VSZXF1ZXN0UgpwYWdpbmF0aW9u');
+
+@$core.Deprecated('Use queryGetMarketCommitmentsResponseDescriptor instead')
+const QueryGetMarketCommitmentsResponse$json = {
+  '1': 'QueryGetMarketCommitmentsResponse',
+  '2': [
+    {
+      '1': 'commitments',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.exchange.v1.AccountAmount',
+      '10': 'commitments'
+    },
+    {
+      '1': 'pagination',
+      '3': 99,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageResponse',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGetMarketCommitmentsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGetMarketCommitmentsResponseDescriptor =
+    $convert.base64Decode(
+        'CiFRdWVyeUdldE1hcmtldENvbW1pdG1lbnRzUmVzcG9uc2USRwoLY29tbWl0bWVudHMYASADKA'
+        'syJS5wcm92ZW5hbmNlLmV4Y2hhbmdlLnYxLkFjY291bnRBbW91bnRSC2NvbW1pdG1lbnRzEkcK'
+        'CnBhZ2luYXRpb24YYyABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb2'
+        '5zZVIKcGFnaW5hdGlvbg==');
+
+@$core.Deprecated('Use queryGetAllCommitmentsRequestDescriptor instead')
+const QueryGetAllCommitmentsRequest$json = {
+  '1': 'QueryGetAllCommitmentsRequest',
+  '2': [
+    {
+      '1': 'pagination',
+      '3': 99,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageRequest',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGetAllCommitmentsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGetAllCommitmentsRequestDescriptor =
+    $convert.base64Decode(
+        'Ch1RdWVyeUdldEFsbENvbW1pdG1lbnRzUmVxdWVzdBJGCgpwYWdpbmF0aW9uGGMgASgLMiYuY2'
+        '9zbW9zLmJhc2UucXVlcnkudjFiZXRhMS5QYWdlUmVxdWVzdFIKcGFnaW5hdGlvbg==');
+
+@$core.Deprecated('Use queryGetAllCommitmentsResponseDescriptor instead')
+const QueryGetAllCommitmentsResponse$json = {
+  '1': 'QueryGetAllCommitmentsResponse',
+  '2': [
+    {
+      '1': 'commitments',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.exchange.v1.Commitment',
+      '10': 'commitments'
+    },
+    {
+      '1': 'pagination',
+      '3': 99,
+      '4': 1,
+      '5': 11,
+      '6': '.cosmos.base.query.v1beta1.PageResponse',
+      '10': 'pagination'
+    },
+  ],
+};
+
+/// Descriptor for `QueryGetAllCommitmentsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryGetAllCommitmentsResponseDescriptor =
+    $convert.base64Decode(
+        'Ch5RdWVyeUdldEFsbENvbW1pdG1lbnRzUmVzcG9uc2USRAoLY29tbWl0bWVudHMYASADKAsyIi'
+        '5wcm92ZW5hbmNlLmV4Y2hhbmdlLnYxLkNvbW1pdG1lbnRSC2NvbW1pdG1lbnRzEkcKCnBhZ2lu'
+        'YXRpb24YYyABKAsyJy5jb3Ntb3MuYmFzZS5xdWVyeS52MWJldGExLlBhZ2VSZXNwb25zZVIKcG'
+        'FnaW5hdGlvbg==');
+
 @$core.Deprecated('Use queryGetMarketRequestDescriptor instead')
 const QueryGetMarketRequest$json = {
   '1': 'QueryGetMarketRequest',
@@ -481,6 +660,102 @@ const QueryParamsResponse$json = {
 final $typed_data.Uint8List queryParamsResponseDescriptor = $convert.base64Decode(
     'ChNRdWVyeVBhcmFtc1Jlc3BvbnNlEjYKBnBhcmFtcxgBIAEoCzIeLnByb3ZlbmFuY2UuZXhjaG'
     'FuZ2UudjEuUGFyYW1zUgZwYXJhbXM=');
+
+@$core
+    .Deprecated('Use queryCommitmentSettlementFeeCalcRequestDescriptor instead')
+const QueryCommitmentSettlementFeeCalcRequest$json = {
+  '1': 'QueryCommitmentSettlementFeeCalcRequest',
+  '2': [
+    {
+      '1': 'settlement',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.provenance.exchange.v1.MsgMarketCommitmentSettleRequest',
+      '10': 'settlement'
+    },
+    {
+      '1': 'include_breakdown_fields',
+      '3': 2,
+      '4': 1,
+      '5': 8,
+      '10': 'includeBreakdownFields'
+    },
+  ],
+};
+
+/// Descriptor for `QueryCommitmentSettlementFeeCalcRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryCommitmentSettlementFeeCalcRequestDescriptor =
+    $convert.base64Decode(
+        'CidRdWVyeUNvbW1pdG1lbnRTZXR0bGVtZW50RmVlQ2FsY1JlcXVlc3QSWAoKc2V0dGxlbWVudB'
+        'gBIAEoCzI4LnByb3ZlbmFuY2UuZXhjaGFuZ2UudjEuTXNnTWFya2V0Q29tbWl0bWVudFNldHRs'
+        'ZVJlcXVlc3RSCnNldHRsZW1lbnQSOAoYaW5jbHVkZV9icmVha2Rvd25fZmllbGRzGAIgASgIUh'
+        'ZpbmNsdWRlQnJlYWtkb3duRmllbGRz');
+
+@$core.Deprecated(
+    'Use queryCommitmentSettlementFeeCalcResponseDescriptor instead')
+const QueryCommitmentSettlementFeeCalcResponse$json = {
+  '1': 'QueryCommitmentSettlementFeeCalcResponse',
+  '2': [
+    {
+      '1': 'exchange_fees',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': {},
+      '10': 'exchangeFees'
+    },
+    {
+      '1': 'input_total',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': {},
+      '10': 'inputTotal'
+    },
+    {
+      '1': 'converted_total',
+      '3': 3,
+      '4': 3,
+      '5': 11,
+      '6': '.cosmos.base.v1beta1.Coin',
+      '8': {},
+      '10': 'convertedTotal'
+    },
+    {
+      '1': 'conversion_navs',
+      '3': 4,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.exchange.v1.NetAssetPrice',
+      '8': {},
+      '10': 'conversionNavs'
+    },
+    {
+      '1': 'to_fee_nav',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.provenance.exchange.v1.NetAssetPrice',
+      '10': 'toFeeNav'
+    },
+  ],
+};
+
+/// Descriptor for `QueryCommitmentSettlementFeeCalcResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryCommitmentSettlementFeeCalcResponseDescriptor = $convert.base64Decode(
+    'CihRdWVyeUNvbW1pdG1lbnRTZXR0bGVtZW50RmVlQ2FsY1Jlc3BvbnNlEnAKDWV4Y2hhbmdlX2'
+    'ZlZXMYASADKAsyGS5jb3Ntb3MuYmFzZS52MWJldGExLkNvaW5CMMjeHwCq3x8oZ2l0aHViLmNv'
+    'bS9jb3Ntb3MvY29zbW9zLXNkay90eXBlcy5Db2luc1IMZXhjaGFuZ2VGZWVzEmwKC2lucHV0X3'
+    'RvdGFsGAIgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1Yi5j'
+    'b20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSCmlucHV0VG90YWwSdAoPY29udmVydG'
+    'VkX3RvdGFsGAMgAygLMhkuY29zbW9zLmJhc2UudjFiZXRhMS5Db2luQjDI3h8Aqt8fKGdpdGh1'
+    'Yi5jb20vY29zbW9zL2Nvc21vcy1zZGsvdHlwZXMuQ29pbnNSDmNvbnZlcnRlZFRvdGFsElQKD2'
+    'NvbnZlcnNpb25fbmF2cxgEIAMoCzIlLnByb3ZlbmFuY2UuZXhjaGFuZ2UudjEuTmV0QXNzZXRQ'
+    'cmljZUIEyN4fAFIOY29udmVyc2lvbk5hdnMSQwoKdG9fZmVlX25hdhgFIAEoCzIlLnByb3Zlbm'
+    'FuY2UuZXhjaGFuZ2UudjEuTmV0QXNzZXRQcmljZVIIdG9GZWVOYXY=');
 
 @$core.Deprecated('Use queryValidateCreateMarketRequestDescriptor instead')
 const QueryValidateCreateMarketRequest$json = {

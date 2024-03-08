@@ -672,6 +672,244 @@ class EventOrderExternalIDUpdated extends $pb.GeneratedMessage {
   void clearExternalId() => clearField(3);
 }
 
+/// EventFundsCommitted is an event emitted when funds are committed to a market.
+class EventFundsCommitted extends $pb.GeneratedMessage {
+  factory EventFundsCommitted({
+    $core.String? account,
+    $core.int? marketId,
+    $core.String? amount,
+    $core.String? tag,
+  }) {
+    final $result = create();
+    if (account != null) {
+      $result.account = account;
+    }
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    if (amount != null) {
+      $result.amount = amount;
+    }
+    if (tag != null) {
+      $result.tag = tag;
+    }
+    return $result;
+  }
+  EventFundsCommitted._() : super();
+  factory EventFundsCommitted.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EventFundsCommitted.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventFundsCommitted',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'account')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..aOS(3, _omitFieldNames ? '' : 'amount')
+    ..aOS(4, _omitFieldNames ? '' : 'tag')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EventFundsCommitted clone() => EventFundsCommitted()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EventFundsCommitted copyWith(void Function(EventFundsCommitted) updates) =>
+      super.copyWith((message) => updates(message as EventFundsCommitted))
+          as EventFundsCommitted;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EventFundsCommitted create() => EventFundsCommitted._();
+  EventFundsCommitted createEmptyInstance() => create();
+  static $pb.PbList<EventFundsCommitted> createRepeated() =>
+      $pb.PbList<EventFundsCommitted>();
+  @$core.pragma('dart2js:noInline')
+  static EventFundsCommitted getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EventFundsCommitted>(create);
+  static EventFundsCommitted? _defaultInstance;
+
+  /// account is the bech32 address string of the account.
+  @$pb.TagNumber(1)
+  $core.String get account => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set account($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAccount() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAccount() => clearField(1);
+
+  /// market_id is the numerical identifier of the market.
+  @$pb.TagNumber(2)
+  $core.int get marketId => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasMarketId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMarketId() => clearField(2);
+
+  /// amount is the coins string of the newly committed funds.
+  @$pb.TagNumber(3)
+  $core.String get amount => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set amount($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasAmount() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAmount() => clearField(3);
+
+  /// tag is the string provided in the message causing this event.
+  @$pb.TagNumber(4)
+  $core.String get tag => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set tag($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasTag() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTag() => clearField(4);
+}
+
+/// EventCommitmentReleased is an event emitted when funds are released from their commitment.
+class EventCommitmentReleased extends $pb.GeneratedMessage {
+  factory EventCommitmentReleased({
+    $core.String? account,
+    $core.int? marketId,
+    $core.String? amount,
+    $core.String? tag,
+  }) {
+    final $result = create();
+    if (account != null) {
+      $result.account = account;
+    }
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    if (amount != null) {
+      $result.amount = amount;
+    }
+    if (tag != null) {
+      $result.tag = tag;
+    }
+    return $result;
+  }
+  EventCommitmentReleased._() : super();
+  factory EventCommitmentReleased.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EventCommitmentReleased.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventCommitmentReleased',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'account')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..aOS(3, _omitFieldNames ? '' : 'amount')
+    ..aOS(4, _omitFieldNames ? '' : 'tag')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EventCommitmentReleased clone() =>
+      EventCommitmentReleased()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EventCommitmentReleased copyWith(
+          void Function(EventCommitmentReleased) updates) =>
+      super.copyWith((message) => updates(message as EventCommitmentReleased))
+          as EventCommitmentReleased;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EventCommitmentReleased create() => EventCommitmentReleased._();
+  EventCommitmentReleased createEmptyInstance() => create();
+  static $pb.PbList<EventCommitmentReleased> createRepeated() =>
+      $pb.PbList<EventCommitmentReleased>();
+  @$core.pragma('dart2js:noInline')
+  static EventCommitmentReleased getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EventCommitmentReleased>(create);
+  static EventCommitmentReleased? _defaultInstance;
+
+  /// account is the bech32 address string of the account.
+  @$pb.TagNumber(1)
+  $core.String get account => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set account($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAccount() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAccount() => clearField(1);
+
+  /// market_id is the numerical identifier of the market.
+  @$pb.TagNumber(2)
+  $core.int get marketId => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasMarketId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMarketId() => clearField(2);
+
+  /// amount is the coins string of the funds that were released from commitment.
+  @$pb.TagNumber(3)
+  $core.String get amount => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set amount($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasAmount() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAmount() => clearField(3);
+
+  /// tag is the string provided in the message causing this event.
+  @$pb.TagNumber(4)
+  $core.String get tag => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set tag($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasTag() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTag() => clearField(4);
+}
+
 /// EventMarketWithdraw is an event emitted when a withdrawal of a market's collected fees is made.
 class EventMarketWithdraw extends $pb.GeneratedMessage {
   factory EventMarketWithdraw({
@@ -875,6 +1113,7 @@ class EventMarketDetailsUpdated extends $pb.GeneratedMessage {
 }
 
 /// EventMarketEnabled is an event emitted when a market is enabled.
+/// Deprecated: This event is no longer used. It is replaced with EventMarketOrdersEnabled.
 class EventMarketEnabled extends $pb.GeneratedMessage {
   factory EventMarketEnabled({
     $core.int? marketId,
@@ -957,6 +1196,7 @@ class EventMarketEnabled extends $pb.GeneratedMessage {
 }
 
 /// EventMarketDisabled is an event emitted when a market is disabled.
+/// Deprecated: This event is no longer used. It is replaced with EventMarketOrdersDisabled.
 class EventMarketDisabled extends $pb.GeneratedMessage {
   factory EventMarketDisabled({
     $core.int? marketId,
@@ -1025,6 +1265,174 @@ class EventMarketDisabled extends $pb.GeneratedMessage {
   void clearMarketId() => clearField(1);
 
   /// updated_by is the account that disabled the market.
+  @$pb.TagNumber(2)
+  $core.String get updatedBy => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set updatedBy($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasUpdatedBy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUpdatedBy() => clearField(2);
+}
+
+/// EventMarketOrdersEnabled is an event emitted when a market enables order creation.
+class EventMarketOrdersEnabled extends $pb.GeneratedMessage {
+  factory EventMarketOrdersEnabled({
+    $core.int? marketId,
+    $core.String? updatedBy,
+  }) {
+    final $result = create();
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    if (updatedBy != null) {
+      $result.updatedBy = updatedBy;
+    }
+    return $result;
+  }
+  EventMarketOrdersEnabled._() : super();
+  factory EventMarketOrdersEnabled.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EventMarketOrdersEnabled.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarketOrdersEnabled',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..aOS(2, _omitFieldNames ? '' : 'updatedBy')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EventMarketOrdersEnabled clone() =>
+      EventMarketOrdersEnabled()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EventMarketOrdersEnabled copyWith(
+          void Function(EventMarketOrdersEnabled) updates) =>
+      super.copyWith((message) => updates(message as EventMarketOrdersEnabled))
+          as EventMarketOrdersEnabled;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EventMarketOrdersEnabled create() => EventMarketOrdersEnabled._();
+  EventMarketOrdersEnabled createEmptyInstance() => create();
+  static $pb.PbList<EventMarketOrdersEnabled> createRepeated() =>
+      $pb.PbList<EventMarketOrdersEnabled>();
+  @$core.pragma('dart2js:noInline')
+  static EventMarketOrdersEnabled getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EventMarketOrdersEnabled>(create);
+  static EventMarketOrdersEnabled? _defaultInstance;
+
+  /// market_id is the numerical identifier of the market.
+  @$pb.TagNumber(1)
+  $core.int get marketId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasMarketId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMarketId() => clearField(1);
+
+  /// updated_by is the account that updated the accepting_orders option.
+  @$pb.TagNumber(2)
+  $core.String get updatedBy => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set updatedBy($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasUpdatedBy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUpdatedBy() => clearField(2);
+}
+
+/// EventMarketOrdersEnabled is an event emitted when a market disables order creation.
+class EventMarketOrdersDisabled extends $pb.GeneratedMessage {
+  factory EventMarketOrdersDisabled({
+    $core.int? marketId,
+    $core.String? updatedBy,
+  }) {
+    final $result = create();
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    if (updatedBy != null) {
+      $result.updatedBy = updatedBy;
+    }
+    return $result;
+  }
+  EventMarketOrdersDisabled._() : super();
+  factory EventMarketOrdersDisabled.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EventMarketOrdersDisabled.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarketOrdersDisabled',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..aOS(2, _omitFieldNames ? '' : 'updatedBy')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EventMarketOrdersDisabled clone() =>
+      EventMarketOrdersDisabled()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EventMarketOrdersDisabled copyWith(
+          void Function(EventMarketOrdersDisabled) updates) =>
+      super.copyWith((message) => updates(message as EventMarketOrdersDisabled))
+          as EventMarketOrdersDisabled;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EventMarketOrdersDisabled create() => EventMarketOrdersDisabled._();
+  EventMarketOrdersDisabled createEmptyInstance() => create();
+  static $pb.PbList<EventMarketOrdersDisabled> createRepeated() =>
+      $pb.PbList<EventMarketOrdersDisabled>();
+  @$core.pragma('dart2js:noInline')
+  static EventMarketOrdersDisabled getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EventMarketOrdersDisabled>(create);
+  static EventMarketOrdersDisabled? _defaultInstance;
+
+  /// market_id is the numerical identifier of the market.
+  @$pb.TagNumber(1)
+  $core.int get marketId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasMarketId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMarketId() => clearField(1);
+
+  /// updated_by is the account that updated the accepting_orders option.
   @$pb.TagNumber(2)
   $core.String get updatedBy => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -1197,6 +1605,267 @@ class EventMarketUserSettleDisabled extends $pb.GeneratedMessage {
   void clearMarketId() => clearField(1);
 
   /// updated_by is the account that updated the user_settle option.
+  @$pb.TagNumber(2)
+  $core.String get updatedBy => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set updatedBy($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasUpdatedBy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUpdatedBy() => clearField(2);
+}
+
+/// EventMarketCommitmentsEnabled is an event emitted when a market's accepting_commitments option is enabled.
+class EventMarketCommitmentsEnabled extends $pb.GeneratedMessage {
+  factory EventMarketCommitmentsEnabled({
+    $core.int? marketId,
+    $core.String? updatedBy,
+  }) {
+    final $result = create();
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    if (updatedBy != null) {
+      $result.updatedBy = updatedBy;
+    }
+    return $result;
+  }
+  EventMarketCommitmentsEnabled._() : super();
+  factory EventMarketCommitmentsEnabled.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EventMarketCommitmentsEnabled.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarketCommitmentsEnabled',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..aOS(2, _omitFieldNames ? '' : 'updatedBy')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EventMarketCommitmentsEnabled clone() =>
+      EventMarketCommitmentsEnabled()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EventMarketCommitmentsEnabled copyWith(
+          void Function(EventMarketCommitmentsEnabled) updates) =>
+      super.copyWith(
+              (message) => updates(message as EventMarketCommitmentsEnabled))
+          as EventMarketCommitmentsEnabled;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EventMarketCommitmentsEnabled create() =>
+      EventMarketCommitmentsEnabled._();
+  EventMarketCommitmentsEnabled createEmptyInstance() => create();
+  static $pb.PbList<EventMarketCommitmentsEnabled> createRepeated() =>
+      $pb.PbList<EventMarketCommitmentsEnabled>();
+  @$core.pragma('dart2js:noInline')
+  static EventMarketCommitmentsEnabled getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EventMarketCommitmentsEnabled>(create);
+  static EventMarketCommitmentsEnabled? _defaultInstance;
+
+  /// market_id is the numerical identifier of the market.
+  @$pb.TagNumber(1)
+  $core.int get marketId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasMarketId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMarketId() => clearField(1);
+
+  /// updated_by is the account that updated the accepting_commitments option.
+  @$pb.TagNumber(2)
+  $core.String get updatedBy => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set updatedBy($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasUpdatedBy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUpdatedBy() => clearField(2);
+}
+
+/// EventMarketCommitmentsDisabled is an event emitted when a market's accepting_commitments option is disabled.
+class EventMarketCommitmentsDisabled extends $pb.GeneratedMessage {
+  factory EventMarketCommitmentsDisabled({
+    $core.int? marketId,
+    $core.String? updatedBy,
+  }) {
+    final $result = create();
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    if (updatedBy != null) {
+      $result.updatedBy = updatedBy;
+    }
+    return $result;
+  }
+  EventMarketCommitmentsDisabled._() : super();
+  factory EventMarketCommitmentsDisabled.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EventMarketCommitmentsDisabled.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarketCommitmentsDisabled',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..aOS(2, _omitFieldNames ? '' : 'updatedBy')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EventMarketCommitmentsDisabled clone() =>
+      EventMarketCommitmentsDisabled()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EventMarketCommitmentsDisabled copyWith(
+          void Function(EventMarketCommitmentsDisabled) updates) =>
+      super.copyWith(
+              (message) => updates(message as EventMarketCommitmentsDisabled))
+          as EventMarketCommitmentsDisabled;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EventMarketCommitmentsDisabled create() =>
+      EventMarketCommitmentsDisabled._();
+  EventMarketCommitmentsDisabled createEmptyInstance() => create();
+  static $pb.PbList<EventMarketCommitmentsDisabled> createRepeated() =>
+      $pb.PbList<EventMarketCommitmentsDisabled>();
+  @$core.pragma('dart2js:noInline')
+  static EventMarketCommitmentsDisabled getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EventMarketCommitmentsDisabled>(create);
+  static EventMarketCommitmentsDisabled? _defaultInstance;
+
+  /// market_id is the numerical identifier of the market.
+  @$pb.TagNumber(1)
+  $core.int get marketId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasMarketId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMarketId() => clearField(1);
+
+  /// updated_by is the account that updated the accepting_commitments option.
+  @$pb.TagNumber(2)
+  $core.String get updatedBy => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set updatedBy($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasUpdatedBy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUpdatedBy() => clearField(2);
+}
+
+/// EventMarketIntermediaryDenomUpdated is an event emitted when a market updates its
+/// commitment_settlement_intermediary_denom field.
+class EventMarketIntermediaryDenomUpdated extends $pb.GeneratedMessage {
+  factory EventMarketIntermediaryDenomUpdated({
+    $core.int? marketId,
+    $core.String? updatedBy,
+  }) {
+    final $result = create();
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    if (updatedBy != null) {
+      $result.updatedBy = updatedBy;
+    }
+    return $result;
+  }
+  EventMarketIntermediaryDenomUpdated._() : super();
+  factory EventMarketIntermediaryDenomUpdated.fromBuffer(
+          $core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EventMarketIntermediaryDenomUpdated.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EventMarketIntermediaryDenomUpdated',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..aOS(2, _omitFieldNames ? '' : 'updatedBy')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EventMarketIntermediaryDenomUpdated clone() =>
+      EventMarketIntermediaryDenomUpdated()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EventMarketIntermediaryDenomUpdated copyWith(
+          void Function(EventMarketIntermediaryDenomUpdated) updates) =>
+      super.copyWith((message) =>
+              updates(message as EventMarketIntermediaryDenomUpdated))
+          as EventMarketIntermediaryDenomUpdated;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EventMarketIntermediaryDenomUpdated create() =>
+      EventMarketIntermediaryDenomUpdated._();
+  EventMarketIntermediaryDenomUpdated createEmptyInstance() => create();
+  static $pb.PbList<EventMarketIntermediaryDenomUpdated> createRepeated() =>
+      $pb.PbList<EventMarketIntermediaryDenomUpdated>();
+  @$core.pragma('dart2js:noInline')
+  static EventMarketIntermediaryDenomUpdated getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          EventMarketIntermediaryDenomUpdated>(create);
+  static EventMarketIntermediaryDenomUpdated? _defaultInstance;
+
+  /// market_id is the numerical identifier of the market.
+  @$pb.TagNumber(1)
+  $core.int get marketId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasMarketId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMarketId() => clearField(1);
+
+  /// updated_by is the account that updated the intermediary denom.
   @$pb.TagNumber(2)
   $core.String get updatedBy => $_getSZ(1);
   @$pb.TagNumber(2)

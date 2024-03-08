@@ -16,9 +16,10 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../../cosmos/base/query/v1beta1/pagination.pb.dart' as $4;
 import '../../../cosmos/base/v1beta1/coin.pb.dart' as $3;
-import 'market.pb.dart' as $5;
+import 'commitments.pb.dart' as $5;
+import 'market.pb.dart' as $6;
 import 'orders.pb.dart' as $2;
-import 'params.pb.dart' as $6;
+import 'params.pb.dart' as $7;
 import 'tx.pb.dart' as $0;
 
 /// QueryOrderFeeCalcRequest is a request message for the OrderFeeCalc query.
@@ -1268,6 +1269,606 @@ class QueryGetAllOrdersResponse extends $pb.GeneratedMessage {
   $4.PageResponse ensurePagination() => $_ensure(1);
 }
 
+/// QueryGetCommitmentRequest is a request message for the GetCommitment query.
+class QueryGetCommitmentRequest extends $pb.GeneratedMessage {
+  factory QueryGetCommitmentRequest({
+    $core.String? account,
+    $core.int? marketId,
+  }) {
+    final $result = create();
+    if (account != null) {
+      $result.account = account;
+    }
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    return $result;
+  }
+  QueryGetCommitmentRequest._() : super();
+  factory QueryGetCommitmentRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGetCommitmentRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGetCommitmentRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'account')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGetCommitmentRequest clone() =>
+      QueryGetCommitmentRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGetCommitmentRequest copyWith(
+          void Function(QueryGetCommitmentRequest) updates) =>
+      super.copyWith((message) => updates(message as QueryGetCommitmentRequest))
+          as QueryGetCommitmentRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGetCommitmentRequest create() => QueryGetCommitmentRequest._();
+  QueryGetCommitmentRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryGetCommitmentRequest> createRepeated() =>
+      $pb.PbList<QueryGetCommitmentRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGetCommitmentRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGetCommitmentRequest>(create);
+  static QueryGetCommitmentRequest? _defaultInstance;
+
+  /// account is the bech32 address string of the account in the commitment.
+  @$pb.TagNumber(1)
+  $core.String get account => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set account($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAccount() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAccount() => clearField(1);
+
+  /// market_id is the numeric identifier of the market in the commitment.
+  @$pb.TagNumber(2)
+  $core.int get marketId => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasMarketId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMarketId() => clearField(2);
+}
+
+/// QueryGetCommitmentResponse is a response message for the GetCommitment query.
+class QueryGetCommitmentResponse extends $pb.GeneratedMessage {
+  factory QueryGetCommitmentResponse({
+    $core.Iterable<$3.Coin>? amount,
+  }) {
+    final $result = create();
+    if (amount != null) {
+      $result.amount.addAll(amount);
+    }
+    return $result;
+  }
+  QueryGetCommitmentResponse._() : super();
+  factory QueryGetCommitmentResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGetCommitmentResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGetCommitmentResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..pc<$3.Coin>(1, _omitFieldNames ? '' : 'amount', $pb.PbFieldType.PM,
+        subBuilder: $3.Coin.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGetCommitmentResponse clone() =>
+      QueryGetCommitmentResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGetCommitmentResponse copyWith(
+          void Function(QueryGetCommitmentResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryGetCommitmentResponse))
+          as QueryGetCommitmentResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGetCommitmentResponse create() => QueryGetCommitmentResponse._();
+  QueryGetCommitmentResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryGetCommitmentResponse> createRepeated() =>
+      $pb.PbList<QueryGetCommitmentResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGetCommitmentResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGetCommitmentResponse>(create);
+  static QueryGetCommitmentResponse? _defaultInstance;
+
+  /// amount is the total funds committed to the market by the account.
+  @$pb.TagNumber(1)
+  $core.List<$3.Coin> get amount => $_getList(0);
+}
+
+/// QueryGetAccountCommitmentsRequest is a request message for the GetAccountCommitments query.
+class QueryGetAccountCommitmentsRequest extends $pb.GeneratedMessage {
+  factory QueryGetAccountCommitmentsRequest({
+    $core.String? account,
+  }) {
+    final $result = create();
+    if (account != null) {
+      $result.account = account;
+    }
+    return $result;
+  }
+  QueryGetAccountCommitmentsRequest._() : super();
+  factory QueryGetAccountCommitmentsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGetAccountCommitmentsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGetAccountCommitmentsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'account')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGetAccountCommitmentsRequest clone() =>
+      QueryGetAccountCommitmentsRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGetAccountCommitmentsRequest copyWith(
+          void Function(QueryGetAccountCommitmentsRequest) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryGetAccountCommitmentsRequest))
+          as QueryGetAccountCommitmentsRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGetAccountCommitmentsRequest create() =>
+      QueryGetAccountCommitmentsRequest._();
+  QueryGetAccountCommitmentsRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryGetAccountCommitmentsRequest> createRepeated() =>
+      $pb.PbList<QueryGetAccountCommitmentsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGetAccountCommitmentsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGetAccountCommitmentsRequest>(
+          create);
+  static QueryGetAccountCommitmentsRequest? _defaultInstance;
+
+  /// account is the bech32 address string of the account with the commitments.
+  @$pb.TagNumber(1)
+  $core.String get account => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set account($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAccount() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAccount() => clearField(1);
+}
+
+/// QueryGetAccountCommitmentsResponse is a response message for the GetAccountCommitments query.
+class QueryGetAccountCommitmentsResponse extends $pb.GeneratedMessage {
+  factory QueryGetAccountCommitmentsResponse({
+    $core.Iterable<$5.MarketAmount>? commitments,
+  }) {
+    final $result = create();
+    if (commitments != null) {
+      $result.commitments.addAll(commitments);
+    }
+    return $result;
+  }
+  QueryGetAccountCommitmentsResponse._() : super();
+  factory QueryGetAccountCommitmentsResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGetAccountCommitmentsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGetAccountCommitmentsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..pc<$5.MarketAmount>(
+        1, _omitFieldNames ? '' : 'commitments', $pb.PbFieldType.PM,
+        subBuilder: $5.MarketAmount.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGetAccountCommitmentsResponse clone() =>
+      QueryGetAccountCommitmentsResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGetAccountCommitmentsResponse copyWith(
+          void Function(QueryGetAccountCommitmentsResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryGetAccountCommitmentsResponse))
+          as QueryGetAccountCommitmentsResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGetAccountCommitmentsResponse create() =>
+      QueryGetAccountCommitmentsResponse._();
+  QueryGetAccountCommitmentsResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryGetAccountCommitmentsResponse> createRepeated() =>
+      $pb.PbList<QueryGetAccountCommitmentsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGetAccountCommitmentsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGetAccountCommitmentsResponse>(
+          create);
+  static QueryGetAccountCommitmentsResponse? _defaultInstance;
+
+  /// commitments is the amounts committed from the account to the any market.
+  @$pb.TagNumber(1)
+  $core.List<$5.MarketAmount> get commitments => $_getList(0);
+}
+
+/// QueryGetMarketCommitmentsRequest is a request message for the GetMarketCommitments query.
+class QueryGetMarketCommitmentsRequest extends $pb.GeneratedMessage {
+  factory QueryGetMarketCommitmentsRequest({
+    $core.int? marketId,
+    $4.PageRequest? pagination,
+  }) {
+    final $result = create();
+    if (marketId != null) {
+      $result.marketId = marketId;
+    }
+    if (pagination != null) {
+      $result.pagination = pagination;
+    }
+    return $result;
+  }
+  QueryGetMarketCommitmentsRequest._() : super();
+  factory QueryGetMarketCommitmentsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGetMarketCommitmentsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGetMarketCommitmentsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'marketId', $pb.PbFieldType.OU3)
+    ..aOM<$4.PageRequest>(99, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $4.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGetMarketCommitmentsRequest clone() =>
+      QueryGetMarketCommitmentsRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGetMarketCommitmentsRequest copyWith(
+          void Function(QueryGetMarketCommitmentsRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryGetMarketCommitmentsRequest))
+          as QueryGetMarketCommitmentsRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGetMarketCommitmentsRequest create() =>
+      QueryGetMarketCommitmentsRequest._();
+  QueryGetMarketCommitmentsRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryGetMarketCommitmentsRequest> createRepeated() =>
+      $pb.PbList<QueryGetMarketCommitmentsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGetMarketCommitmentsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGetMarketCommitmentsRequest>(
+          create);
+  static QueryGetMarketCommitmentsRequest? _defaultInstance;
+
+  /// market_id is the numeric identifier of the market with the commitment.
+  @$pb.TagNumber(1)
+  $core.int get marketId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set marketId($core.int v) {
+    $_setUnsignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasMarketId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMarketId() => clearField(1);
+
+  /// pagination defines an optional pagination for the request.
+  @$pb.TagNumber(99)
+  $4.PageRequest get pagination => $_getN(1);
+  @$pb.TagNumber(99)
+  set pagination($4.PageRequest v) {
+    setField(99, v);
+  }
+
+  @$pb.TagNumber(99)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(99)
+  void clearPagination() => clearField(99);
+  @$pb.TagNumber(99)
+  $4.PageRequest ensurePagination() => $_ensure(1);
+}
+
+/// QueryGetMarketCommitmentsResponse is a response message for the GetMarketCommitments query.
+class QueryGetMarketCommitmentsResponse extends $pb.GeneratedMessage {
+  factory QueryGetMarketCommitmentsResponse({
+    $core.Iterable<$5.AccountAmount>? commitments,
+    $4.PageResponse? pagination,
+  }) {
+    final $result = create();
+    if (commitments != null) {
+      $result.commitments.addAll(commitments);
+    }
+    if (pagination != null) {
+      $result.pagination = pagination;
+    }
+    return $result;
+  }
+  QueryGetMarketCommitmentsResponse._() : super();
+  factory QueryGetMarketCommitmentsResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGetMarketCommitmentsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGetMarketCommitmentsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..pc<$5.AccountAmount>(
+        1, _omitFieldNames ? '' : 'commitments', $pb.PbFieldType.PM,
+        subBuilder: $5.AccountAmount.create)
+    ..aOM<$4.PageResponse>(99, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $4.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGetMarketCommitmentsResponse clone() =>
+      QueryGetMarketCommitmentsResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGetMarketCommitmentsResponse copyWith(
+          void Function(QueryGetMarketCommitmentsResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryGetMarketCommitmentsResponse))
+          as QueryGetMarketCommitmentsResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGetMarketCommitmentsResponse create() =>
+      QueryGetMarketCommitmentsResponse._();
+  QueryGetMarketCommitmentsResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryGetMarketCommitmentsResponse> createRepeated() =>
+      $pb.PbList<QueryGetMarketCommitmentsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGetMarketCommitmentsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGetMarketCommitmentsResponse>(
+          create);
+  static QueryGetMarketCommitmentsResponse? _defaultInstance;
+
+  /// commitments is the amounts committed to the market from any account.
+  @$pb.TagNumber(1)
+  $core.List<$5.AccountAmount> get commitments => $_getList(0);
+
+  /// pagination is the resulting pagination parameters.
+  @$pb.TagNumber(99)
+  $4.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(99)
+  set pagination($4.PageResponse v) {
+    setField(99, v);
+  }
+
+  @$pb.TagNumber(99)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(99)
+  void clearPagination() => clearField(99);
+  @$pb.TagNumber(99)
+  $4.PageResponse ensurePagination() => $_ensure(1);
+}
+
+/// QueryGetAllCommitmentsRequest is a request message for the GetAllCommitments query.
+class QueryGetAllCommitmentsRequest extends $pb.GeneratedMessage {
+  factory QueryGetAllCommitmentsRequest({
+    $4.PageRequest? pagination,
+  }) {
+    final $result = create();
+    if (pagination != null) {
+      $result.pagination = pagination;
+    }
+    return $result;
+  }
+  QueryGetAllCommitmentsRequest._() : super();
+  factory QueryGetAllCommitmentsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGetAllCommitmentsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGetAllCommitmentsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..aOM<$4.PageRequest>(99, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $4.PageRequest.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGetAllCommitmentsRequest clone() =>
+      QueryGetAllCommitmentsRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGetAllCommitmentsRequest copyWith(
+          void Function(QueryGetAllCommitmentsRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryGetAllCommitmentsRequest))
+          as QueryGetAllCommitmentsRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGetAllCommitmentsRequest create() =>
+      QueryGetAllCommitmentsRequest._();
+  QueryGetAllCommitmentsRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryGetAllCommitmentsRequest> createRepeated() =>
+      $pb.PbList<QueryGetAllCommitmentsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGetAllCommitmentsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGetAllCommitmentsRequest>(create);
+  static QueryGetAllCommitmentsRequest? _defaultInstance;
+
+  /// pagination defines an optional pagination for the request.
+  @$pb.TagNumber(99)
+  $4.PageRequest get pagination => $_getN(0);
+  @$pb.TagNumber(99)
+  set pagination($4.PageRequest v) {
+    setField(99, v);
+  }
+
+  @$pb.TagNumber(99)
+  $core.bool hasPagination() => $_has(0);
+  @$pb.TagNumber(99)
+  void clearPagination() => clearField(99);
+  @$pb.TagNumber(99)
+  $4.PageRequest ensurePagination() => $_ensure(0);
+}
+
+/// QueryGetAllCommitmentsResponse is a response message for the GetAllCommitments query.
+class QueryGetAllCommitmentsResponse extends $pb.GeneratedMessage {
+  factory QueryGetAllCommitmentsResponse({
+    $core.Iterable<$5.Commitment>? commitments,
+    $4.PageResponse? pagination,
+  }) {
+    final $result = create();
+    if (commitments != null) {
+      $result.commitments.addAll(commitments);
+    }
+    if (pagination != null) {
+      $result.pagination = pagination;
+    }
+    return $result;
+  }
+  QueryGetAllCommitmentsResponse._() : super();
+  factory QueryGetAllCommitmentsResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryGetAllCommitmentsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryGetAllCommitmentsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..pc<$5.Commitment>(
+        1, _omitFieldNames ? '' : 'commitments', $pb.PbFieldType.PM,
+        subBuilder: $5.Commitment.create)
+    ..aOM<$4.PageResponse>(99, _omitFieldNames ? '' : 'pagination',
+        subBuilder: $4.PageResponse.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryGetAllCommitmentsResponse clone() =>
+      QueryGetAllCommitmentsResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryGetAllCommitmentsResponse copyWith(
+          void Function(QueryGetAllCommitmentsResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryGetAllCommitmentsResponse))
+          as QueryGetAllCommitmentsResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryGetAllCommitmentsResponse create() =>
+      QueryGetAllCommitmentsResponse._();
+  QueryGetAllCommitmentsResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryGetAllCommitmentsResponse> createRepeated() =>
+      $pb.PbList<QueryGetAllCommitmentsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryGetAllCommitmentsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryGetAllCommitmentsResponse>(create);
+  static QueryGetAllCommitmentsResponse? _defaultInstance;
+
+  /// commitments is the requested commitment information.
+  @$pb.TagNumber(1)
+  $core.List<$5.Commitment> get commitments => $_getList(0);
+
+  /// pagination is the resulting pagination parameters.
+  @$pb.TagNumber(99)
+  $4.PageResponse get pagination => $_getN(1);
+  @$pb.TagNumber(99)
+  set pagination($4.PageResponse v) {
+    setField(99, v);
+  }
+
+  @$pb.TagNumber(99)
+  $core.bool hasPagination() => $_has(1);
+  @$pb.TagNumber(99)
+  void clearPagination() => clearField(99);
+  @$pb.TagNumber(99)
+  $4.PageResponse ensurePagination() => $_ensure(1);
+}
+
 /// QueryGetMarketRequest is a request message for the GetMarket query.
 class QueryGetMarketRequest extends $pb.GeneratedMessage {
   factory QueryGetMarketRequest({
@@ -1338,7 +1939,7 @@ class QueryGetMarketRequest extends $pb.GeneratedMessage {
 class QueryGetMarketResponse extends $pb.GeneratedMessage {
   factory QueryGetMarketResponse({
     $core.String? address,
-    $5.Market? market,
+    $6.Market? market,
   }) {
     final $result = create();
     if (address != null) {
@@ -1363,8 +1964,8 @@ class QueryGetMarketResponse extends $pb.GeneratedMessage {
           _omitMessageNames ? '' : 'provenance.exchange.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'address')
-    ..aOM<$5.Market>(2, _omitFieldNames ? '' : 'market',
-        subBuilder: $5.Market.create)
+    ..aOM<$6.Market>(2, _omitFieldNames ? '' : 'market',
+        subBuilder: $6.Market.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -1407,9 +2008,9 @@ class QueryGetMarketResponse extends $pb.GeneratedMessage {
 
   /// market is all information and details of the market.
   @$pb.TagNumber(2)
-  $5.Market get market => $_getN(1);
+  $6.Market get market => $_getN(1);
   @$pb.TagNumber(2)
-  set market($5.Market v) {
+  set market($6.Market v) {
     setField(2, v);
   }
 
@@ -1418,7 +2019,7 @@ class QueryGetMarketResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMarket() => clearField(2);
   @$pb.TagNumber(2)
-  $5.Market ensureMarket() => $_ensure(1);
+  $6.Market ensureMarket() => $_ensure(1);
 }
 
 /// QueryGetAllMarketsRequest is a request message for the GetAllMarkets query.
@@ -1493,7 +2094,7 @@ class QueryGetAllMarketsRequest extends $pb.GeneratedMessage {
 /// QueryGetAllMarketsResponse is a response message for the GetAllMarkets query.
 class QueryGetAllMarketsResponse extends $pb.GeneratedMessage {
   factory QueryGetAllMarketsResponse({
-    $core.Iterable<$5.MarketBrief>? markets,
+    $core.Iterable<$6.MarketBrief>? markets,
     $4.PageResponse? pagination,
   }) {
     final $result = create();
@@ -1518,9 +2119,9 @@ class QueryGetAllMarketsResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(
           _omitMessageNames ? '' : 'provenance.exchange.v1'),
       createEmptyInstance: create)
-    ..pc<$5.MarketBrief>(
+    ..pc<$6.MarketBrief>(
         1, _omitFieldNames ? '' : 'markets', $pb.PbFieldType.PM,
-        subBuilder: $5.MarketBrief.create)
+        subBuilder: $6.MarketBrief.create)
     ..aOM<$4.PageResponse>(99, _omitFieldNames ? '' : 'pagination',
         subBuilder: $4.PageResponse.create)
     ..hasRequiredFields = false;
@@ -1553,7 +2154,7 @@ class QueryGetAllMarketsResponse extends $pb.GeneratedMessage {
 
   /// markets are a page of the briefs for all markets.
   @$pb.TagNumber(1)
-  $core.List<$5.MarketBrief> get markets => $_getList(0);
+  $core.List<$6.MarketBrief> get markets => $_getList(0);
 
   /// pagination is the resulting pagination parameters.
   @$pb.TagNumber(99)
@@ -1616,7 +2217,7 @@ class QueryParamsRequest extends $pb.GeneratedMessage {
 /// QueryParamsResponse is a response message for the Params query.
 class QueryParamsResponse extends $pb.GeneratedMessage {
   factory QueryParamsResponse({
-    $6.Params? params,
+    $7.Params? params,
   }) {
     final $result = create();
     if (params != null) {
@@ -1637,8 +2238,8 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(
           _omitMessageNames ? '' : 'provenance.exchange.v1'),
       createEmptyInstance: create)
-    ..aOM<$6.Params>(1, _omitFieldNames ? '' : 'params',
-        subBuilder: $6.Params.create)
+    ..aOM<$7.Params>(1, _omitFieldNames ? '' : 'params',
+        subBuilder: $7.Params.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -1666,9 +2267,9 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
 
   /// params are the exchange module parameter values.
   @$pb.TagNumber(1)
-  $6.Params get params => $_getN(0);
+  $7.Params get params => $_getN(0);
   @$pb.TagNumber(1)
-  set params($6.Params v) {
+  set params($7.Params v) {
     setField(1, v);
   }
 
@@ -1677,7 +2278,219 @@ class QueryParamsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearParams() => clearField(1);
   @$pb.TagNumber(1)
-  $6.Params ensureParams() => $_ensure(0);
+  $7.Params ensureParams() => $_ensure(0);
+}
+
+/// QueryCommitmentSettlementFeeCalcRequest is a request message for the CommitmentSettlementFeeCalc query.
+class QueryCommitmentSettlementFeeCalcRequest extends $pb.GeneratedMessage {
+  factory QueryCommitmentSettlementFeeCalcRequest({
+    $0.MsgMarketCommitmentSettleRequest? settlement,
+    $core.bool? includeBreakdownFields,
+  }) {
+    final $result = create();
+    if (settlement != null) {
+      $result.settlement = settlement;
+    }
+    if (includeBreakdownFields != null) {
+      $result.includeBreakdownFields = includeBreakdownFields;
+    }
+    return $result;
+  }
+  QueryCommitmentSettlementFeeCalcRequest._() : super();
+  factory QueryCommitmentSettlementFeeCalcRequest.fromBuffer(
+          $core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryCommitmentSettlementFeeCalcRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCommitmentSettlementFeeCalcRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..aOM<$0.MsgMarketCommitmentSettleRequest>(
+        1, _omitFieldNames ? '' : 'settlement',
+        subBuilder: $0.MsgMarketCommitmentSettleRequest.create)
+    ..aOB(2, _omitFieldNames ? '' : 'includeBreakdownFields')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryCommitmentSettlementFeeCalcRequest clone() =>
+      QueryCommitmentSettlementFeeCalcRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryCommitmentSettlementFeeCalcRequest copyWith(
+          void Function(QueryCommitmentSettlementFeeCalcRequest) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryCommitmentSettlementFeeCalcRequest))
+          as QueryCommitmentSettlementFeeCalcRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryCommitmentSettlementFeeCalcRequest create() =>
+      QueryCommitmentSettlementFeeCalcRequest._();
+  QueryCommitmentSettlementFeeCalcRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryCommitmentSettlementFeeCalcRequest> createRepeated() =>
+      $pb.PbList<QueryCommitmentSettlementFeeCalcRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryCommitmentSettlementFeeCalcRequest getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          QueryCommitmentSettlementFeeCalcRequest>(create);
+  static QueryCommitmentSettlementFeeCalcRequest? _defaultInstance;
+
+  /// settlement is a market's commitment settlement request message.
+  /// If no inputs are provided, only the to_fee_nav field will be populated in the response.
+  @$pb.TagNumber(1)
+  $0.MsgMarketCommitmentSettleRequest get settlement => $_getN(0);
+  @$pb.TagNumber(1)
+  set settlement($0.MsgMarketCommitmentSettleRequest v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSettlement() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSettlement() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.MsgMarketCommitmentSettleRequest ensureSettlement() => $_ensure(0);
+
+  /// include_breakdown_fields controls the fields that are populated in the response.
+  /// If false, only the exchange_fees field is populated.
+  /// If true, all of the fields are populated as possible.
+  /// If the settlement does not have any inputs, this field defaults to true.
+  @$pb.TagNumber(2)
+  $core.bool get includeBreakdownFields => $_getBF(1);
+  @$pb.TagNumber(2)
+  set includeBreakdownFields($core.bool v) {
+    $_setBool(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasIncludeBreakdownFields() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearIncludeBreakdownFields() => clearField(2);
+}
+
+/// QueryCommitmentSettlementFeeCalcResponse is a response message for the CommitmentSettlementFeeCalc query.
+class QueryCommitmentSettlementFeeCalcResponse extends $pb.GeneratedMessage {
+  factory QueryCommitmentSettlementFeeCalcResponse({
+    $core.Iterable<$3.Coin>? exchangeFees,
+    $core.Iterable<$3.Coin>? inputTotal,
+    $core.Iterable<$3.Coin>? convertedTotal,
+    $core.Iterable<$5.NetAssetPrice>? conversionNavs,
+    $5.NetAssetPrice? toFeeNav,
+  }) {
+    final $result = create();
+    if (exchangeFees != null) {
+      $result.exchangeFees.addAll(exchangeFees);
+    }
+    if (inputTotal != null) {
+      $result.inputTotal.addAll(inputTotal);
+    }
+    if (convertedTotal != null) {
+      $result.convertedTotal.addAll(convertedTotal);
+    }
+    if (conversionNavs != null) {
+      $result.conversionNavs.addAll(conversionNavs);
+    }
+    if (toFeeNav != null) {
+      $result.toFeeNav = toFeeNav;
+    }
+    return $result;
+  }
+  QueryCommitmentSettlementFeeCalcResponse._() : super();
+  factory QueryCommitmentSettlementFeeCalcResponse.fromBuffer(
+          $core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryCommitmentSettlementFeeCalcResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryCommitmentSettlementFeeCalcResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.exchange.v1'),
+      createEmptyInstance: create)
+    ..pc<$3.Coin>(1, _omitFieldNames ? '' : 'exchangeFees', $pb.PbFieldType.PM,
+        subBuilder: $3.Coin.create)
+    ..pc<$3.Coin>(2, _omitFieldNames ? '' : 'inputTotal', $pb.PbFieldType.PM,
+        subBuilder: $3.Coin.create)
+    ..pc<$3.Coin>(
+        3, _omitFieldNames ? '' : 'convertedTotal', $pb.PbFieldType.PM,
+        subBuilder: $3.Coin.create)
+    ..pc<$5.NetAssetPrice>(
+        4, _omitFieldNames ? '' : 'conversionNavs', $pb.PbFieldType.PM,
+        subBuilder: $5.NetAssetPrice.create)
+    ..aOM<$5.NetAssetPrice>(5, _omitFieldNames ? '' : 'toFeeNav',
+        subBuilder: $5.NetAssetPrice.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryCommitmentSettlementFeeCalcResponse clone() =>
+      QueryCommitmentSettlementFeeCalcResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryCommitmentSettlementFeeCalcResponse copyWith(
+          void Function(QueryCommitmentSettlementFeeCalcResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as QueryCommitmentSettlementFeeCalcResponse))
+          as QueryCommitmentSettlementFeeCalcResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryCommitmentSettlementFeeCalcResponse create() =>
+      QueryCommitmentSettlementFeeCalcResponse._();
+  QueryCommitmentSettlementFeeCalcResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryCommitmentSettlementFeeCalcResponse>
+      createRepeated() =>
+          $pb.PbList<QueryCommitmentSettlementFeeCalcResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryCommitmentSettlementFeeCalcResponse getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          QueryCommitmentSettlementFeeCalcResponse>(create);
+  static QueryCommitmentSettlementFeeCalcResponse? _defaultInstance;
+
+  /// exchange_fees is the total that the exchange would currently pay for the provided settlement.
+  @$pb.TagNumber(1)
+  $core.List<$3.Coin> get exchangeFees => $_getList(0);
+
+  /// input_total is the sum of all the inputs in the provided settlement.
+  @$pb.TagNumber(2)
+  $core.List<$3.Coin> get inputTotal => $_getList(1);
+
+  /// converted_total is the input_total converted to a single intermediary denom or left as the fee denom.
+  @$pb.TagNumber(3)
+  $core.List<$3.Coin> get convertedTotal => $_getList(2);
+
+  /// conversion_navs are the NAVs used to convert the input_total to the converted_total.
+  @$pb.TagNumber(4)
+  $core.List<$5.NetAssetPrice> get conversionNavs => $_getList(3);
+
+  /// to_fee_nav is the NAV used to convert the converted_total into the fee denom.
+  @$pb.TagNumber(5)
+  $5.NetAssetPrice get toFeeNav => $_getN(4);
+  @$pb.TagNumber(5)
+  set toFeeNav($5.NetAssetPrice v) {
+    setField(5, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasToFeeNav() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearToFeeNav() => clearField(5);
+  @$pb.TagNumber(5)
+  $5.NetAssetPrice ensureToFeeNav() => $_ensure(4);
 }
 
 /// QueryValidateCreateMarketRequest is a request message for the ValidateCreateMarket query.

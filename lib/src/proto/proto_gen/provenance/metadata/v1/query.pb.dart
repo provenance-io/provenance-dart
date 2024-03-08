@@ -5435,6 +5435,137 @@ class AccountDataResponse extends $pb.GeneratedMessage {
   void clearValue() => clearField(1);
 }
 
+/// QueryNetAssetValuesRequest is the request type for the Query/NetAssetValues method.
+class QueryScopeNetAssetValuesRequest extends $pb.GeneratedMessage {
+  factory QueryScopeNetAssetValuesRequest({
+    $core.String? id,
+  }) {
+    final $result = create();
+    if (id != null) {
+      $result.id = id;
+    }
+    return $result;
+  }
+  QueryScopeNetAssetValuesRequest._() : super();
+  factory QueryScopeNetAssetValuesRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryScopeNetAssetValuesRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryScopeNetAssetValuesRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryScopeNetAssetValuesRequest clone() =>
+      QueryScopeNetAssetValuesRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryScopeNetAssetValuesRequest copyWith(
+          void Function(QueryScopeNetAssetValuesRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryScopeNetAssetValuesRequest))
+          as QueryScopeNetAssetValuesRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryScopeNetAssetValuesRequest create() =>
+      QueryScopeNetAssetValuesRequest._();
+  QueryScopeNetAssetValuesRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryScopeNetAssetValuesRequest> createRepeated() =>
+      $pb.PbList<QueryScopeNetAssetValuesRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryScopeNetAssetValuesRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryScopeNetAssetValuesRequest>(
+          create);
+  static QueryScopeNetAssetValuesRequest? _defaultInstance;
+
+  /// scopeid metadata address
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
+/// QueryNetAssetValuesRequest is the response type for the Query/NetAssetValues method.
+class QueryScopeNetAssetValuesResponse extends $pb.GeneratedMessage {
+  factory QueryScopeNetAssetValuesResponse({
+    $core.Iterable<$2.NetAssetValue>? netAssetValues,
+  }) {
+    final $result = create();
+    if (netAssetValues != null) {
+      $result.netAssetValues.addAll(netAssetValues);
+    }
+    return $result;
+  }
+  QueryScopeNetAssetValuesResponse._() : super();
+  factory QueryScopeNetAssetValuesResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory QueryScopeNetAssetValuesResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'QueryScopeNetAssetValuesResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..pc<$2.NetAssetValue>(
+        1, _omitFieldNames ? '' : 'netAssetValues', $pb.PbFieldType.PM,
+        subBuilder: $2.NetAssetValue.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  QueryScopeNetAssetValuesResponse clone() =>
+      QueryScopeNetAssetValuesResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  QueryScopeNetAssetValuesResponse copyWith(
+          void Function(QueryScopeNetAssetValuesResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as QueryScopeNetAssetValuesResponse))
+          as QueryScopeNetAssetValuesResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryScopeNetAssetValuesResponse create() =>
+      QueryScopeNetAssetValuesResponse._();
+  QueryScopeNetAssetValuesResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryScopeNetAssetValuesResponse> createRepeated() =>
+      $pb.PbList<QueryScopeNetAssetValuesResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryScopeNetAssetValuesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<QueryScopeNetAssetValuesResponse>(
+          create);
+  static QueryScopeNetAssetValuesResponse? _defaultInstance;
+
+  /// net asset values for scope
+  @$pb.TagNumber(1)
+  $core.List<$2.NetAssetValue> get netAssetValues => $_getList(0);
+}
+
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
 const _omitMessageNames =
     $core.bool.fromEnvironment('protobuf.omit_message_names');

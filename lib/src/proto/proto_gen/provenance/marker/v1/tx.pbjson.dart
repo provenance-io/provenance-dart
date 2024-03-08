@@ -110,8 +110,16 @@ const MsgAddMarkerRequest$json = {
       '5': 9,
       '10': 'requiredAttributes'
     },
-    {'1': 'usd_cents', '3': 12, '4': 1, '5': 4, '10': 'usdCents'},
+    {
+      '1': 'usd_cents',
+      '3': 12,
+      '4': 1,
+      '5': 4,
+      '8': {'3': true},
+      '10': 'usdCents',
+    },
     {'1': 'volume', '3': 13, '4': 1, '5': 4, '10': 'volume'},
+    {'1': 'usd_mills', '3': 14, '4': 1, '5': 4, '10': 'usdMills'},
   ],
   '7': {},
 };
@@ -128,8 +136,9 @@ final $typed_data.Uint8List msgAddMarkerRequestDescriptor = $convert.base64Decod
     'VwcGx5X2ZpeGVkGAggASgIUgtzdXBwbHlGaXhlZBI4ChhhbGxvd19nb3Zlcm5hbmNlX2NvbnRy'
     'b2wYCSABKAhSFmFsbG93R292ZXJuYW5jZUNvbnRyb2wSMgoVYWxsb3dfZm9yY2VkX3RyYW5zZm'
     'VyGAogASgIUhNhbGxvd0ZvcmNlZFRyYW5zZmVyEi8KE3JlcXVpcmVkX2F0dHJpYnV0ZXMYCyAD'
-    'KAlSEnJlcXVpcmVkQXR0cmlidXRlcxIbCgl1c2RfY2VudHMYDCABKARSCHVzZENlbnRzEhYKBn'
-    'ZvbHVtZRgNIAEoBFIGdm9sdW1lOhGC57AqDGZyb21fYWRkcmVzcw==');
+    'KAlSEnJlcXVpcmVkQXR0cmlidXRlcxIfCgl1c2RfY2VudHMYDCABKARCAhgBUgh1c2RDZW50cx'
+    'IWCgZ2b2x1bWUYDSABKARSBnZvbHVtZRIbCgl1c2RfbWlsbHMYDiABKARSCHVzZE1pbGxzOhGC'
+    '57AqDGZyb21fYWRkcmVzcw==');
 
 @$core.Deprecated('Use msgAddMarkerResponseDescriptor instead')
 const MsgAddMarkerResponse$json = {
@@ -545,8 +554,16 @@ const MsgAddFinalizeActivateMarkerRequest$json = {
       '5': 9,
       '10': 'requiredAttributes'
     },
-    {'1': 'usd_cents', '3': 11, '4': 1, '5': 4, '10': 'usdCents'},
+    {
+      '1': 'usd_cents',
+      '3': 11,
+      '4': 1,
+      '5': 4,
+      '8': {'3': true},
+      '10': 'usdCents',
+    },
     {'1': 'volume', '3': 12, '4': 1, '5': 4, '10': 'volume'},
+    {'1': 'usd_mills', '3': 13, '4': 1, '5': 4, '10': 'usdMills'},
   ],
 };
 
@@ -561,8 +578,9 @@ final $typed_data.Uint8List msgAddFinalizeActivateMarkerRequestDescriptor = $con
     'c3NMaXN0EiEKDHN1cHBseV9maXhlZBgHIAEoCFILc3VwcGx5Rml4ZWQSOAoYYWxsb3dfZ292ZX'
     'JuYW5jZV9jb250cm9sGAggASgIUhZhbGxvd0dvdmVybmFuY2VDb250cm9sEjIKFWFsbG93X2Zv'
     'cmNlZF90cmFuc2ZlchgJIAEoCFITYWxsb3dGb3JjZWRUcmFuc2ZlchIvChNyZXF1aXJlZF9hdH'
-    'RyaWJ1dGVzGAogAygJUhJyZXF1aXJlZEF0dHJpYnV0ZXMSGwoJdXNkX2NlbnRzGAsgASgEUgh1'
-    'c2RDZW50cxIWCgZ2b2x1bWUYDCABKARSBnZvbHVtZQ==');
+    'RyaWJ1dGVzGAogAygJUhJyZXF1aXJlZEF0dHJpYnV0ZXMSHwoJdXNkX2NlbnRzGAsgASgEQgIY'
+    'AVIIdXNkQ2VudHMSFgoGdm9sdW1lGAwgASgEUgZ2b2x1bWUSGwoJdXNkX21pbGxzGA0gASgEUg'
+    'h1c2RNaWxscw==');
 
 @$core.Deprecated('Use msgAddFinalizeActivateMarkerResponseDescriptor instead')
 const MsgAddFinalizeActivateMarkerResponse$json = {

@@ -202,8 +202,9 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
     $core.bool? allowGovernanceControl,
     $core.bool? allowForcedTransfer,
     $core.Iterable<$core.String>? requiredAttributes,
-    $fixnum.Int64? usdCents,
+    @$core.Deprecated('This field is deprecated.') $fixnum.Int64? usdCents,
     $fixnum.Int64? volume,
+    $fixnum.Int64? usdMills,
   }) {
     final $result = create();
     if (amount != null) {
@@ -237,10 +238,14 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
       $result.requiredAttributes.addAll(requiredAttributes);
     }
     if (usdCents != null) {
+      // ignore: deprecated_member_use_from_same_package
       $result.usdCents = usdCents;
     }
     if (volume != null) {
       $result.volume = volume;
+    }
+    if (usdMills != null) {
+      $result.usdMills = usdMills;
     }
     return $result;
   }
@@ -281,6 +286,9 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
         12, _omitFieldNames ? '' : 'usdCents', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
     ..a<$fixnum.Int64>(13, _omitFieldNames ? '' : 'volume', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        14, _omitFieldNames ? '' : 'usdMills', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
@@ -411,15 +419,19 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $core.List<$core.String> get requiredAttributes => $_getList(9);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(12)
   $fixnum.Int64 get usdCents => $_getI64(10);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(12)
   set usdCents($fixnum.Int64 v) {
     $_setInt64(10, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(12)
   $core.bool hasUsdCents() => $_has(10);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(12)
   void clearUsdCents() => clearField(12);
 
@@ -434,6 +446,18 @@ class MsgAddMarkerRequest extends $pb.GeneratedMessage {
   $core.bool hasVolume() => $_has(11);
   @$pb.TagNumber(13)
   void clearVolume() => clearField(13);
+
+  @$pb.TagNumber(14)
+  $fixnum.Int64 get usdMills => $_getI64(12);
+  @$pb.TagNumber(14)
+  set usdMills($fixnum.Int64 v) {
+    $_setInt64(12, v);
+  }
+
+  @$pb.TagNumber(14)
+  $core.bool hasUsdMills() => $_has(12);
+  @$pb.TagNumber(14)
+  void clearUsdMills() => clearField(14);
 }
 
 /// MsgAddMarkerResponse defines the Msg/AddMarker response type
@@ -2072,8 +2096,9 @@ class MsgAddFinalizeActivateMarkerRequest extends $pb.GeneratedMessage {
     $core.bool? allowGovernanceControl,
     $core.bool? allowForcedTransfer,
     $core.Iterable<$core.String>? requiredAttributes,
-    $fixnum.Int64? usdCents,
+    @$core.Deprecated('This field is deprecated.') $fixnum.Int64? usdCents,
     $fixnum.Int64? volume,
+    $fixnum.Int64? usdMills,
   }) {
     final $result = create();
     if (amount != null) {
@@ -2104,10 +2129,14 @@ class MsgAddFinalizeActivateMarkerRequest extends $pb.GeneratedMessage {
       $result.requiredAttributes.addAll(requiredAttributes);
     }
     if (usdCents != null) {
+      // ignore: deprecated_member_use_from_same_package
       $result.usdCents = usdCents;
     }
     if (volume != null) {
       $result.volume = volume;
+    }
+    if (usdMills != null) {
+      $result.usdMills = usdMills;
     }
     return $result;
   }
@@ -2145,6 +2174,9 @@ class MsgAddFinalizeActivateMarkerRequest extends $pb.GeneratedMessage {
         11, _omitFieldNames ? '' : 'usdCents', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
     ..a<$fixnum.Int64>(12, _omitFieldNames ? '' : 'volume', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        13, _omitFieldNames ? '' : 'usdMills', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
@@ -2268,15 +2300,19 @@ class MsgAddFinalizeActivateMarkerRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   $core.List<$core.String> get requiredAttributes => $_getList(8);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   $fixnum.Int64 get usdCents => $_getI64(9);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   set usdCents($fixnum.Int64 v) {
     $_setInt64(9, v);
   }
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   $core.bool hasUsdCents() => $_has(9);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(11)
   void clearUsdCents() => clearField(11);
 
@@ -2291,6 +2327,18 @@ class MsgAddFinalizeActivateMarkerRequest extends $pb.GeneratedMessage {
   $core.bool hasVolume() => $_has(10);
   @$pb.TagNumber(12)
   void clearVolume() => clearField(12);
+
+  @$pb.TagNumber(13)
+  $fixnum.Int64 get usdMills => $_getI64(11);
+  @$pb.TagNumber(13)
+  set usdMills($fixnum.Int64 v) {
+    $_setInt64(11, v);
+  }
+
+  @$pb.TagNumber(13)
+  $core.bool hasUsdMills() => $_has(11);
+  @$pb.TagNumber(13)
+  void clearUsdMills() => clearField(13);
 }
 
 /// MsgAddFinalizeActivateMarkerResponse defines the Msg/AddFinalizeActivateMarker response type

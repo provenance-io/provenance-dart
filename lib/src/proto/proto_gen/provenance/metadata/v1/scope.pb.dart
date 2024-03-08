@@ -11,11 +11,13 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../../cosmos/base/v1beta1/coin.pb.dart' as $1;
 import '../../../google/protobuf/timestamp.pb.dart' as $0;
 import 'scope.pbenum.dart';
-import 'specification.pbenum.dart' as $1;
+import 'specification.pbenum.dart' as $2;
 
 export 'scope.pbenum.dart';
 
@@ -823,7 +825,7 @@ class RecordOutput extends $pb.GeneratedMessage {
 class Party extends $pb.GeneratedMessage {
   factory Party({
     $core.String? address,
-    $1.PartyType? role,
+    $2.PartyType? role,
     $core.bool? optional,
   }) {
     final $result = create();
@@ -852,10 +854,10 @@ class Party extends $pb.GeneratedMessage {
           _omitMessageNames ? '' : 'provenance.metadata.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'address')
-    ..e<$1.PartyType>(2, _omitFieldNames ? '' : 'role', $pb.PbFieldType.OE,
-        defaultOrMaker: $1.PartyType.PARTY_TYPE_UNSPECIFIED,
-        valueOf: $1.PartyType.valueOf,
-        enumValues: $1.PartyType.values)
+    ..e<$2.PartyType>(2, _omitFieldNames ? '' : 'role', $pb.PbFieldType.OE,
+        defaultOrMaker: $2.PartyType.PARTY_TYPE_UNSPECIFIED,
+        valueOf: $2.PartyType.valueOf,
+        enumValues: $2.PartyType.values)
     ..aOB(3, _omitFieldNames ? '' : 'optional')
     ..hasRequiredFields = false;
 
@@ -895,9 +897,9 @@ class Party extends $pb.GeneratedMessage {
 
   /// a role for this account within the context of the processes used
   @$pb.TagNumber(2)
-  $1.PartyType get role => $_getN(1);
+  $2.PartyType get role => $_getN(1);
   @$pb.TagNumber(2)
-  set role($1.PartyType v) {
+  set role($2.PartyType v) {
     setField(2, v);
   }
 
@@ -1077,6 +1079,93 @@ class AuditFields extends $pb.GeneratedMessage {
   $core.bool hasMessage() => $_has(5);
   @$pb.TagNumber(6)
   void clearMessage() => clearField(6);
+}
+
+/// NetAssetValue defines a scope's net asset value
+class NetAssetValue extends $pb.GeneratedMessage {
+  factory NetAssetValue({
+    $1.Coin? price,
+    $fixnum.Int64? updatedBlockHeight,
+  }) {
+    final $result = create();
+    if (price != null) {
+      $result.price = price;
+    }
+    if (updatedBlockHeight != null) {
+      $result.updatedBlockHeight = updatedBlockHeight;
+    }
+    return $result;
+  }
+  NetAssetValue._() : super();
+  factory NetAssetValue.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory NetAssetValue.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'NetAssetValue',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Coin>(1, _omitFieldNames ? '' : 'price',
+        subBuilder: $1.Coin.create)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'updatedBlockHeight', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  NetAssetValue clone() => NetAssetValue()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  NetAssetValue copyWith(void Function(NetAssetValue) updates) =>
+      super.copyWith((message) => updates(message as NetAssetValue))
+          as NetAssetValue;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static NetAssetValue create() => NetAssetValue._();
+  NetAssetValue createEmptyInstance() => create();
+  static $pb.PbList<NetAssetValue> createRepeated() =>
+      $pb.PbList<NetAssetValue>();
+  @$core.pragma('dart2js:noInline')
+  static NetAssetValue getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<NetAssetValue>(create);
+  static NetAssetValue? _defaultInstance;
+
+  /// price is the complete value of the asset's volume
+  @$pb.TagNumber(1)
+  $1.Coin get price => $_getN(0);
+  @$pb.TagNumber(1)
+  set price($1.Coin v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasPrice() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPrice() => clearField(1);
+  @$pb.TagNumber(1)
+  $1.Coin ensurePrice() => $_ensure(0);
+
+  /// updated_block_height is the block height of last update
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get updatedBlockHeight => $_getI64(1);
+  @$pb.TagNumber(2)
+  set updatedBlockHeight($fixnum.Int64 v) {
+    $_setInt64(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasUpdatedBlockHeight() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUpdatedBlockHeight() => clearField(2);
 }
 
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');

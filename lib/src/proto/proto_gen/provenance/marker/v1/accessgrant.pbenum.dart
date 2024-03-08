@@ -31,6 +31,8 @@ class Access extends $pb.ProtobufEnum {
       Access._(6, _omitEnumNames ? '' : 'ACCESS_ADMIN');
   static const Access ACCESS_TRANSFER =
       Access._(7, _omitEnumNames ? '' : 'ACCESS_TRANSFER');
+  static const Access ACCESS_FORCE_TRANSFER =
+      Access._(8, _omitEnumNames ? '' : 'ACCESS_FORCE_TRANSFER');
 
   static const $core.List<Access> values = <Access>[
     ACCESS_UNSPECIFIED,
@@ -41,6 +43,7 @@ class Access extends $pb.ProtobufEnum {
     ACCESS_DELETE,
     ACCESS_ADMIN,
     ACCESS_TRANSFER,
+    ACCESS_FORCE_TRANSFER,
   ];
 
   static final $core.Map<$core.int, Access> _byValue =

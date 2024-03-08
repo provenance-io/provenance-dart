@@ -1991,3 +1991,39 @@ const AccountDataResponse$json = {
 final $typed_data.Uint8List accountDataResponseDescriptor =
     $convert.base64Decode(
         'ChNBY2NvdW50RGF0YVJlc3BvbnNlEhQKBXZhbHVlGAEgASgJUgV2YWx1ZQ==');
+
+@$core.Deprecated('Use queryScopeNetAssetValuesRequestDescriptor instead')
+const QueryScopeNetAssetValuesRequest$json = {
+  '1': 'QueryScopeNetAssetValuesRequest',
+  '2': [
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+  ],
+};
+
+/// Descriptor for `QueryScopeNetAssetValuesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryScopeNetAssetValuesRequestDescriptor =
+    $convert.base64Decode(
+        'Ch9RdWVyeVNjb3BlTmV0QXNzZXRWYWx1ZXNSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZA==');
+
+@$core.Deprecated('Use queryScopeNetAssetValuesResponseDescriptor instead')
+const QueryScopeNetAssetValuesResponse$json = {
+  '1': 'QueryScopeNetAssetValuesResponse',
+  '2': [
+    {
+      '1': 'net_asset_values',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.metadata.v1.NetAssetValue',
+      '8': {},
+      '10': 'netAssetValues'
+    },
+  ],
+};
+
+/// Descriptor for `QueryScopeNetAssetValuesResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryScopeNetAssetValuesResponseDescriptor =
+    $convert.base64Decode(
+        'CiBRdWVyeVNjb3BlTmV0QXNzZXRWYWx1ZXNSZXNwb25zZRJVChBuZXRfYXNzZXRfdmFsdWVzGA'
+        'EgAygLMiUucHJvdmVuYW5jZS5tZXRhZGF0YS52MS5OZXRBc3NldFZhbHVlQgTI3h8AUg5uZXRB'
+        'c3NldFZhbHVlcw==');

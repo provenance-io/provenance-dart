@@ -45,6 +45,15 @@ const GenesisState$json = {
     },
     {'1': 'last_market_id', '3': 4, '4': 1, '5': 13, '10': 'lastMarketId'},
     {'1': 'last_order_id', '3': 5, '4': 1, '5': 4, '10': 'lastOrderId'},
+    {
+      '1': 'commitments',
+      '3': 6,
+      '4': 3,
+      '5': 11,
+      '6': '.provenance.exchange.v1.Commitment',
+      '8': {},
+      '10': 'commitments'
+    },
   ],
   '7': {},
 };
@@ -55,5 +64,6 @@ final $typed_data.Uint8List genesisStateDescriptor = $convert.base64Decode(
     '5QYXJhbXNSBnBhcmFtcxI+CgdtYXJrZXRzGAIgAygLMh4ucHJvdmVuYW5jZS5leGNoYW5nZS52'
     'MS5NYXJrZXRCBMjeHwBSB21hcmtldHMSOwoGb3JkZXJzGAMgAygLMh0ucHJvdmVuYW5jZS5leG'
     'NoYW5nZS52MS5PcmRlckIEyN4fAFIGb3JkZXJzEiQKDmxhc3RfbWFya2V0X2lkGAQgASgNUgxs'
-    'YXN0TWFya2V0SWQSIgoNbGFzdF9vcmRlcl9pZBgFIAEoBFILbGFzdE9yZGVySWQ6CIigHwDooB'
-    '8A');
+    'YXN0TWFya2V0SWQSIgoNbGFzdF9vcmRlcl9pZBgFIAEoBFILbGFzdE9yZGVySWQSSgoLY29tbW'
+    'l0bWVudHMYBiADKAsyIi5wcm92ZW5hbmNlLmV4Y2hhbmdlLnYxLkNvbW1pdG1lbnRCBMjeHwBS'
+    'C2NvbW1pdG1lbnRzOgiIoB8A6KAfAA==');

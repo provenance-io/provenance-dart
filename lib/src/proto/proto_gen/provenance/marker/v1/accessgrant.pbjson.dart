@@ -25,6 +25,7 @@ const Access$json = {
     {'1': 'ACCESS_DELETE', '2': 5, '3': {}},
     {'1': 'ACCESS_ADMIN', '2': 6, '3': {}},
     {'1': 'ACCESS_TRANSFER', '2': 7, '3': {}},
+    {'1': 'ACCESS_FORCE_TRANSFER', '2': 8, '3': {}},
   ],
 };
 
@@ -34,7 +35,8 @@ final $typed_data.Uint8List accessDescriptor = $convert.base64Decode(
     '9NSU5UEAEaCIqdIARNaW50EhkKC0FDQ0VTU19CVVJOEAIaCIqdIARCdXJuEh8KDkFDQ0VTU19E'
     'RVBPU0lUEAMaC4qdIAdEZXBvc2l0EiEKD0FDQ0VTU19XSVRIRFJBVxAEGgyKnSAIV2l0aGRyYX'
     'cSHQoNQUNDRVNTX0RFTEVURRAFGgqKnSAGRGVsZXRlEhsKDEFDQ0VTU19BRE1JThAGGgmKnSAF'
-    'QWRtaW4SIQoPQUNDRVNTX1RSQU5TRkVSEAcaDIqdIAhUcmFuc2Zlcg==');
+    'QWRtaW4SIQoPQUNDRVNTX1RSQU5TRkVSEAcaDIqdIAhUcmFuc2ZlchIsChVBQ0NFU1NfRk9SQ0'
+    'VfVFJBTlNGRVIQCBoRip0gDUZvcmNlVHJhbnNmZXI=');
 
 @$core.Deprecated('Use accessGrantDescriptor instead')
 const AccessGrant$json = {

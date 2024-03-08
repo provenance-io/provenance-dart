@@ -30,6 +30,7 @@ class GenesisState extends $pb.GeneratedMessage {
     $core.Iterable<$2.RecordSpecification>? recordSpecifications,
     $3.OSLocatorParams? oSLocatorParams,
     $core.Iterable<$3.ObjectStoreLocator>? objectStoreLocators,
+    $core.Iterable<MarkerNetAssetValues>? netAssetValues,
   }) {
     final $result = create();
     if (params != null) {
@@ -58,6 +59,9 @@ class GenesisState extends $pb.GeneratedMessage {
     }
     if (objectStoreLocators != null) {
       $result.objectStoreLocators.addAll(objectStoreLocators);
+    }
+    if (netAssetValues != null) {
+      $result.netAssetValues.addAll(netAssetValues);
     }
     return $result;
   }
@@ -96,6 +100,9 @@ class GenesisState extends $pb.GeneratedMessage {
     ..pc<$3.ObjectStoreLocator>(
         9, _omitFieldNames ? '' : 'objectStoreLocators', $pb.PbFieldType.PM,
         subBuilder: $3.ObjectStoreLocator.create)
+    ..pc<MarkerNetAssetValues>(
+        10, _omitFieldNames ? '' : 'netAssetValues', $pb.PbFieldType.PM,
+        subBuilder: MarkerNetAssetValues.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -172,6 +179,86 @@ class GenesisState extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(9)
   $core.List<$3.ObjectStoreLocator> get objectStoreLocators => $_getList(8);
+
+  /// Net asset values assigned to scopes
+  @$pb.TagNumber(10)
+  $core.List<MarkerNetAssetValues> get netAssetValues => $_getList(9);
+}
+
+/// MarkerNetAssetValues defines the net asset values for a scope
+class MarkerNetAssetValues extends $pb.GeneratedMessage {
+  factory MarkerNetAssetValues({
+    $core.String? address,
+    $core.Iterable<$1.NetAssetValue>? netAssetValues,
+  }) {
+    final $result = create();
+    if (address != null) {
+      $result.address = address;
+    }
+    if (netAssetValues != null) {
+      $result.netAssetValues.addAll(netAssetValues);
+    }
+    return $result;
+  }
+  MarkerNetAssetValues._() : super();
+  factory MarkerNetAssetValues.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MarkerNetAssetValues.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MarkerNetAssetValues',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'provenance.metadata.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'address')
+    ..pc<$1.NetAssetValue>(
+        2, _omitFieldNames ? '' : 'netAssetValues', $pb.PbFieldType.PM,
+        subBuilder: $1.NetAssetValue.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  MarkerNetAssetValues clone() =>
+      MarkerNetAssetValues()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MarkerNetAssetValues copyWith(void Function(MarkerNetAssetValues) updates) =>
+      super.copyWith((message) => updates(message as MarkerNetAssetValues))
+          as MarkerNetAssetValues;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MarkerNetAssetValues create() => MarkerNetAssetValues._();
+  MarkerNetAssetValues createEmptyInstance() => create();
+  static $pb.PbList<MarkerNetAssetValues> createRepeated() =>
+      $pb.PbList<MarkerNetAssetValues>();
+  @$core.pragma('dart2js:noInline')
+  static MarkerNetAssetValues getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MarkerNetAssetValues>(create);
+  static MarkerNetAssetValues? _defaultInstance;
+
+  /// address defines the scope address
+  @$pb.TagNumber(1)
+  $core.String get address => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set address($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAddress() => clearField(1);
+
+  /// net_asset_values that are assigned to scope
+  @$pb.TagNumber(2)
+  $core.List<$1.NetAssetValue> get netAssetValues => $_getList(1);
 }
 
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
