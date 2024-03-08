@@ -32,9 +32,7 @@ class DappLifecycle extends WidgetsBindingObserver {
           );
         });
         break;
-      case AppLifecycleState.inactive:
-        // Ignore.
-        break;
+
       case AppLifecycleState.paused:
         _session?.pause().onError((e, s) {
           log(
@@ -44,7 +42,9 @@ class DappLifecycle extends WidgetsBindingObserver {
           );
         });
         break;
+      case AppLifecycleState.inactive:
       case AppLifecycleState.detached:
+      case AppLifecycleState.hidden:
         // Ignore.
         break;
     }

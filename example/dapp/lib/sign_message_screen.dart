@@ -124,7 +124,7 @@ class _SignMessageScreenState extends State<SignMessageScreen> {
         .sendSignRequest(
       msg.codeUnits,
       description,
-      DeepLinker.dappUrl,
+      redirectUrl: DeepLinker.dappUrl,
     )
         .onError((e, s) {
       log('$_tag: Sign message failed');
