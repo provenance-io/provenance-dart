@@ -17,7 +17,7 @@ dependencies:
   sha3: 0.2.0
   web_socket_channel: ^2.4.0
   encrypt: ^5.0.1
-  uuid: ^4.3.3
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:
